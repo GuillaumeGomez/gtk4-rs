@@ -13,6 +13,7 @@ pub mod drawing_area;
 pub mod entry;
 pub mod flow_box_child;
 pub mod list_box_row;
+pub mod media_file;
 pub mod native_dialog;
 pub mod popover;
 pub mod recent_manager;
@@ -33,6 +34,7 @@ pub mod prelude {
     pub use super::entry::EntryImpl;
     pub use super::flow_box_child::FlowBoxChildImpl;
     pub use super::list_box_row::ListBoxRowImpl;
+    pub use super::media_file::MediaFileImpl;
     pub use super::native_dialog::NativeDialogImpl;
     pub use super::popover::PopoverImpl;
     pub use super::recent_manager::RecentManagerImpl;
