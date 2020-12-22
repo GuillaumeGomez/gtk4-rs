@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/picture.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>picture.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
                 <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
@@ -798,92 +798,6 @@
 <span id="795">795</span>
 <span id="796">796</span>
 <span id="797">797</span>
-<span id="798">798</span>
-<span id="799">799</span>
-<span id="800">800</span>
-<span id="801">801</span>
-<span id="802">802</span>
-<span id="803">803</span>
-<span id="804">804</span>
-<span id="805">805</span>
-<span id="806">806</span>
-<span id="807">807</span>
-<span id="808">808</span>
-<span id="809">809</span>
-<span id="810">810</span>
-<span id="811">811</span>
-<span id="812">812</span>
-<span id="813">813</span>
-<span id="814">814</span>
-<span id="815">815</span>
-<span id="816">816</span>
-<span id="817">817</span>
-<span id="818">818</span>
-<span id="819">819</span>
-<span id="820">820</span>
-<span id="821">821</span>
-<span id="822">822</span>
-<span id="823">823</span>
-<span id="824">824</span>
-<span id="825">825</span>
-<span id="826">826</span>
-<span id="827">827</span>
-<span id="828">828</span>
-<span id="829">829</span>
-<span id="830">830</span>
-<span id="831">831</span>
-<span id="832">832</span>
-<span id="833">833</span>
-<span id="834">834</span>
-<span id="835">835</span>
-<span id="836">836</span>
-<span id="837">837</span>
-<span id="838">838</span>
-<span id="839">839</span>
-<span id="840">840</span>
-<span id="841">841</span>
-<span id="842">842</span>
-<span id="843">843</span>
-<span id="844">844</span>
-<span id="845">845</span>
-<span id="846">846</span>
-<span id="847">847</span>
-<span id="848">848</span>
-<span id="849">849</span>
-<span id="850">850</span>
-<span id="851">851</span>
-<span id="852">852</span>
-<span id="853">853</span>
-<span id="854">854</span>
-<span id="855">855</span>
-<span id="856">856</span>
-<span id="857">857</span>
-<span id="858">858</span>
-<span id="859">859</span>
-<span id="860">860</span>
-<span id="861">861</span>
-<span id="862">862</span>
-<span id="863">863</span>
-<span id="864">864</span>
-<span id="865">865</span>
-<span id="866">866</span>
-<span id="867">867</span>
-<span id="868">868</span>
-<span id="869">869</span>
-<span id="870">870</span>
-<span id="871">871</span>
-<span id="872">872</span>
-<span id="873">873</span>
-<span id="874">874</span>
-<span id="875">875</span>
-<span id="876">876</span>
-<span id="877">877</span>
-<span id="878">878</span>
-<span id="879">879</span>
-<span id="880">880</span>
-<span id="881">881</span>
-<span id="882">882</span>
-<span id="883">883</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
@@ -899,6 +813,7 @@
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">Widget</span>;
 <span class="kw">use</span> <span class="ident">glib</span>::<span class="ident">object</span>::<span class="ident">Cast</span>;
 <span class="kw">use</span> <span class="ident">glib</span>::<span class="ident">object</span>::<span class="ident">IsA</span>;
+<span class="kw">use</span> <span class="ident">glib</span>::<span class="ident">object</span>::<span class="ident">ObjectType</span> <span class="kw">as</span> <span class="ident">ObjectType_</span>;
 <span class="kw">use</span> <span class="ident">glib</span>::<span class="ident">signal</span>::<span class="ident">connect_raw</span>;
 <span class="kw">use</span> <span class="ident">glib</span>::<span class="ident">signal</span>::<span class="ident">SignalHandlerId</span>;
 <span class="kw">use</span> <span class="ident">glib</span>::<span class="ident">translate</span>::<span class="kw-2">*</span>;
@@ -908,35 +823,7 @@
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fmt</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>;
 
-<span class="ident">glib</span>::<span class="macro">glib_wrapper</span><span class="macro">!</span> {
-    <span class="doccomment">/// The `Picture` widget displays a `gdk::Paintable`. Many convenience functions</span>
-    <span class="doccomment">/// are provided to make pictures simple to use. For example, if you want to load</span>
-    <span class="doccomment">/// an image from a file, and then display that, there’s a convenience function</span>
-    <span class="doccomment">/// to do this:</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```C</span>
-    <span class="doccomment">///   GtkWidget *widget;</span>
-    <span class="doccomment">///   widget = gtk_picture_new_for_filename (&quot;myfile.png&quot;);</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// If the file isn’t loaded successfully, the picture will contain a</span>
-    <span class="doccomment">/// “broken image” icon similar to that used in many web browsers.</span>
-    <span class="doccomment">/// If you want to handle errors in loading the file yourself,</span>
-    <span class="doccomment">/// for example by displaying an error message, then load the image with</span>
-    <span class="doccomment">/// `gdk::Texture::new_from_file`, then create the `Picture` with</span>
-    <span class="doccomment">/// `Picture::new_for_paintable`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Sometimes an application will want to avoid depending on external data</span>
-    <span class="doccomment">/// files, such as image files. See the documentation of `gio::Resource` for details.</span>
-    <span class="doccomment">/// In this case, `Picture::new_for_resource` and `PictureExt::set_resource`</span>
-    <span class="doccomment">/// should be used.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # CSS nodes</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// `Picture` has a single CSS node with the name picture.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`PictureExt`](trait.PictureExt.html), [`WidgetExt`](trait.WidgetExt.html), [`glib::object::ObjectExt`](../glib/object/trait.ObjectExt.html), [`BuildableExt`](trait.BuildableExt.html), [`WidgetExtManual`](prelude/trait.WidgetExtManual.html)</span>
+<span class="ident">glib</span>::<span class="macro">wrapper</span><span class="macro">!</span> {
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Picture</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi</span>::<span class="ident">GtkPicture</span>, <span class="ident">ffi</span>::<span class="ident">GtkPictureClass</span><span class="op">&gt;</span>) @<span class="ident">extends</span> <span class="ident">Widget</span>, @<span class="ident">implements</span> <span class="ident">Accessible</span>, <span class="ident">Buildable</span>, <span class="ident">ConstraintTarget</span>;
 
     <span class="kw">match</span> <span class="kw">fn</span> {
@@ -950,6 +837,7 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// a newly created `Picture` widget.</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_new&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Picture</span> {
         <span class="macro">assert_initialized_main_thread</span><span class="macro">!</span>();
         <span class="kw">unsafe</span> { <span class="ident">Widget</span>::<span class="ident">from_glib_none</span>(<span class="ident">ffi</span>::<span class="ident">gtk_picture_new</span>()).<span class="ident">unsafe_cast</span>() }
@@ -959,7 +847,7 @@
     <span class="doccomment">/// isn’t found or can’t be loaded, the resulting `Picture` be empty.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If you need to detect failures to load the file, use</span>
-    <span class="doccomment">/// `gdk_texture_new_for_file` to load the file yourself, then create</span>
+    <span class="doccomment">/// `gdk::Texture::new_from_file` to load the file yourself, then create</span>
     <span class="doccomment">/// the `Picture` from the texture.</span>
     <span class="doccomment">/// ## `file`</span>
     <span class="doccomment">/// a `gio::File`</span>
@@ -967,6 +855,7 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// a new `Picture`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_new_for_file&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new_for_file</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio</span>::<span class="ident">File</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">file</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Picture</span> {
         <span class="macro">assert_initialized_main_thread</span><span class="macro">!</span>();
         <span class="kw">unsafe</span> {
@@ -987,6 +876,7 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// a new `Picture`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_new_for_filename&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new_for_filename</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">std</span>::<span class="ident">path</span>::<span class="ident">Path</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">filename</span>: <span class="ident">P</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Picture</span> {
         <span class="macro">assert_initialized_main_thread</span><span class="macro">!</span>();
         <span class="kw">unsafe</span> {
@@ -1007,6 +897,7 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// a new `Picture`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_new_for_paintable&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new_for_paintable</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gdk</span>::<span class="ident">Paintable</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">paintable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Picture</span> {
         <span class="macro">assert_initialized_main_thread</span><span class="macro">!</span>();
         <span class="kw">unsafe</span> {
@@ -1029,6 +920,7 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// a new `Picture`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_new_for_pixbuf&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new_for_pixbuf</span>(<span class="ident">pixbuf</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">gdk_pixbuf</span>::<span class="ident">Pixbuf</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Picture</span> {
         <span class="macro">assert_initialized_main_thread</span><span class="macro">!</span>();
         <span class="kw">unsafe</span> {
@@ -1047,6 +939,7 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// a new `Picture`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_new_for_resource&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new_for_resource</span>(<span class="ident">resource_path</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Picture</span> {
         <span class="macro">assert_initialized_main_thread</span><span class="macro">!</span>();
         <span class="kw">unsafe</span> {
@@ -1054,6 +947,309 @@
                 <span class="ident">resource_path</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
             ))
             .<span class="ident">unsafe_cast</span>()
+        }
+    }
+
+    <span class="doccomment">/// Gets the alternative textual description of the picture or returns `None` if</span>
+    <span class="doccomment">/// the picture cannot be described textually.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Returns</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// the alternative textual description</span>
+    <span class="doccomment">///  of `self`.</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_get_alternative_text&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_alternative_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib</span>::<span class="ident">GString</span><span class="op">&gt;</span> {
+        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi</span>::<span class="ident">gtk_picture_get_alternative_text</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    }
+
+    <span class="doccomment">/// Gets the value set via `Picture::set_can_shrink`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Returns</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// `true` if the picture can be made smaller than its contents</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_get_can_shrink&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_can_shrink</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+        <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi</span>::<span class="ident">gtk_picture_get_can_shrink</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    }
+
+    <span class="doccomment">/// Gets the `gio::File` currently displayed if `self` is displaying a file.</span>
+    <span class="doccomment">/// If `self` is not displaying a file, for example when `Picture::set_paintable`</span>
+    <span class="doccomment">/// was used, then `None` is returned.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Returns</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The `gio::File` displayed by `self`.</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_get_file&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_file</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gio</span>::<span class="ident">File</span><span class="op">&gt;</span> {
+        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi</span>::<span class="ident">gtk_picture_get_file</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    }
+
+    <span class="doccomment">/// Gets the value set via `Picture::set_keep_aspect_ratio`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Returns</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// `true` if the self tries to keep the contents&#39; aspect ratio</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_get_keep_aspect_ratio&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_keep_aspect_ratio</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+        <span class="kw">unsafe</span> {
+            <span class="ident">from_glib</span>(<span class="ident">ffi</span>::<span class="ident">gtk_picture_get_keep_aspect_ratio</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            ))
+        }
+    }
+
+    <span class="doccomment">/// Gets the `gdk::Paintable` being displayed by the `Picture`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Returns</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// the displayed paintable, or `None` if</span>
+    <span class="doccomment">///  the picture is empty</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_get_paintable&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_paintable</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gdk</span>::<span class="ident">Paintable</span><span class="op">&gt;</span> {
+        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi</span>::<span class="ident">gtk_picture_get_paintable</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    }
+
+    <span class="doccomment">/// Sets an alternative textual description for the picture contents.</span>
+    <span class="doccomment">/// It is equivalent to the &quot;alt&quot; attribute for images on websites.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This text will be made available to accessibility tools.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If the picture cannot be described textually, set this property to `None`.</span>
+    <span class="doccomment">/// ## `alternative_text`</span>
+    <span class="doccomment">/// a textual description of the contents</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_set_alternative_text&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_alternative_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">alternative_text</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
+        <span class="kw">unsafe</span> {
+            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_alternative_text</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+                <span class="ident">alternative_text</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            );
+        }
+    }
+
+    <span class="doccomment">/// If set to `true`, the `self` can be made smaller than its contents.</span>
+    <span class="doccomment">/// The contents will then be scaled down when rendering.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If you want to still force a minimum size manually, consider using</span>
+    <span class="doccomment">/// `WidgetExt::set_size_request`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Also of note is that a similar function for growing does not exist</span>
+    <span class="doccomment">/// because the grow behavior can be controlled via</span>
+    <span class="doccomment">/// `WidgetExt::set_halign` and `WidgetExt::set_valign`.</span>
+    <span class="doccomment">/// ## `can_shrink`</span>
+    <span class="doccomment">/// if `self` can be made smaller than its contents</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_set_can_shrink&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_can_shrink</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">can_shrink</span>: <span class="ident">bool</span>) {
+        <span class="kw">unsafe</span> {
+            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_can_shrink</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">can_shrink</span>.<span class="ident">to_glib</span>());
+        }
+    }
+
+    <span class="doccomment">/// Makes `self` load and display `file`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// See `Picture::new_for_file` for details.</span>
+    <span class="doccomment">/// ## `file`</span>
+    <span class="doccomment">/// a `gio::File` or `None`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_set_file&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_file</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio</span>::<span class="ident">File</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">file</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>) {
+        <span class="kw">unsafe</span> {
+            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_file</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+                <span class="ident">file</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            );
+        }
+    }
+
+    <span class="doccomment">/// Makes `self` load and display the given `filename`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is a utility function that calls `Picture::set_file`.</span>
+    <span class="doccomment">/// ## `filename`</span>
+    <span class="doccomment">/// the filename to play</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_set_filename&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_filename</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">filename</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
+        <span class="kw">unsafe</span> {
+            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_filename</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">filename</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+        }
+    }
+
+    <span class="doccomment">/// If set to `true`, the `self` will render its contents according to</span>
+    <span class="doccomment">/// their aspect ratio. That means that empty space may show up at the</span>
+    <span class="doccomment">/// top/bottom or left/right of `self`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If set to `false` or if the contents provide no aspect ratio, the</span>
+    <span class="doccomment">/// contents will be stretched over the picture&#39;s whole area.</span>
+    <span class="doccomment">/// ## `keep_aspect_ratio`</span>
+    <span class="doccomment">/// whether to keep aspect ratio</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_set_keep_aspect_ratio&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_keep_aspect_ratio</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">keep_aspect_ratio</span>: <span class="ident">bool</span>) {
+        <span class="kw">unsafe</span> {
+            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_keep_aspect_ratio</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+                <span class="ident">keep_aspect_ratio</span>.<span class="ident">to_glib</span>(),
+            );
+        }
+    }
+
+    <span class="doccomment">/// Makes `self` display the given `paintable`. If `paintable` is `None`,</span>
+    <span class="doccomment">/// nothing will be displayed.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// See `Picture::new_for_paintable` for details.</span>
+    <span class="doccomment">/// ## `paintable`</span>
+    <span class="doccomment">/// a `gdk::Paintable` or `None`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_set_paintable&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_paintable</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gdk</span>::<span class="ident">Paintable</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">paintable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>) {
+        <span class="kw">unsafe</span> {
+            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_paintable</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+                <span class="ident">paintable</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            );
+        }
+    }
+
+    <span class="doccomment">/// See `Picture::new_for_pixbuf` for details.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is a utility function that calls `Picture::set_paintable`,</span>
+    <span class="doccomment">/// ## `pixbuf`</span>
+    <span class="doccomment">/// a `gdk_pixbuf::Pixbuf` or `None`</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_set_pixbuf&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_pixbuf</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">pixbuf</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">gdk_pixbuf</span>::<span class="ident">Pixbuf</span><span class="op">&gt;</span>) {
+        <span class="kw">unsafe</span> {
+            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_pixbuf</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">pixbuf</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+        }
+    }
+
+    <span class="doccomment">/// Makes `self` load and display the resource at the given</span>
+    <span class="doccomment">/// `resource_path`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is a utility function that calls `Picture::set_file`,</span>
+    <span class="doccomment">/// ## `resource_path`</span>
+    <span class="doccomment">/// the resource to set</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_picture_set_resource&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_resource</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">resource_path</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
+        <span class="kw">unsafe</span> {
+            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_resource</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">resource_path</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+        }
+    }
+
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_alternative_text_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">f</span>: <span class="ident">F</span>,
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_alternative_text_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+            <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">GtkPicture</span>,
+            <span class="ident">_param_spec</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
+            <span class="ident">f</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
+        ) {
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
+            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">this</span>))
+        }
+        <span class="kw">unsafe</span> {
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_</span>::<span class="ident">new</span>(<span class="ident">f</span>);
+            <span class="ident">connect_raw</span>(
+                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
+                <span class="string">b&quot;notify::alternative-text\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
+                    <span class="ident">notify_alternative_text_trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> (),
+                )),
+                <span class="ident">Box_</span>::<span class="ident">into_raw</span>(<span class="ident">f</span>),
+            )
+        }
+    }
+
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_can_shrink_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">f</span>: <span class="ident">F</span>,
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_can_shrink_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+            <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">GtkPicture</span>,
+            <span class="ident">_param_spec</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
+            <span class="ident">f</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
+        ) {
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
+            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">this</span>))
+        }
+        <span class="kw">unsafe</span> {
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_</span>::<span class="ident">new</span>(<span class="ident">f</span>);
+            <span class="ident">connect_raw</span>(
+                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
+                <span class="string">b&quot;notify::can-shrink\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
+                    <span class="ident">notify_can_shrink_trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> (),
+                )),
+                <span class="ident">Box_</span>::<span class="ident">into_raw</span>(<span class="ident">f</span>),
+            )
+        }
+    }
+
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_file_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_file_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+            <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">GtkPicture</span>,
+            <span class="ident">_param_spec</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
+            <span class="ident">f</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
+        ) {
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
+            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">this</span>))
+        }
+        <span class="kw">unsafe</span> {
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_</span>::<span class="ident">new</span>(<span class="ident">f</span>);
+            <span class="ident">connect_raw</span>(
+                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
+                <span class="string">b&quot;notify::file\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
+                    <span class="ident">notify_file_trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> (),
+                )),
+                <span class="ident">Box_</span>::<span class="ident">into_raw</span>(<span class="ident">f</span>),
+            )
+        }
+    }
+
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_keep_aspect_ratio_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">f</span>: <span class="ident">F</span>,
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_keep_aspect_ratio_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+            <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">GtkPicture</span>,
+            <span class="ident">_param_spec</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
+            <span class="ident">f</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
+        ) {
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
+            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">this</span>))
+        }
+        <span class="kw">unsafe</span> {
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_</span>::<span class="ident">new</span>(<span class="ident">f</span>);
+            <span class="ident">connect_raw</span>(
+                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
+                <span class="string">b&quot;notify::keep-aspect-ratio\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
+                    <span class="ident">notify_keep_aspect_ratio_trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> (),
+                )),
+                <span class="ident">Box_</span>::<span class="ident">into_raw</span>(<span class="ident">f</span>),
+            )
+        }
+    }
+
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_paintable_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">f</span>: <span class="ident">F</span>,
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_paintable_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+            <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">GtkPicture</span>,
+            <span class="ident">_param_spec</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
+            <span class="ident">f</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
+        ) {
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
+            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">this</span>))
+        }
+        <span class="kw">unsafe</span> {
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_</span>::<span class="ident">new</span>(<span class="ident">f</span>);
+            <span class="ident">connect_raw</span>(
+                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
+                <span class="string">b&quot;notify::paintable\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
+                    <span class="ident">notify_paintable_trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> (),
+                )),
+                <span class="ident">Box_</span>::<span class="ident">into_raw</span>(<span class="ident">f</span>),
+            )
         }
     }
 }
@@ -1215,10 +1411,7 @@
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">accessible_role</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">accessible_role</span> {
             <span class="ident">properties</span>.<span class="ident">push</span>((<span class="string">&quot;accessible-role&quot;</span>, <span class="ident">accessible_role</span>));
         }
-        <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">glib</span>::<span class="ident">Object</span>::<span class="ident">new</span>(<span class="ident">Picture</span>::<span class="ident">static_type</span>(), <span class="kw-2">&amp;</span><span class="ident">properties</span>)
-            .<span class="ident">expect</span>(<span class="string">&quot;object new&quot;</span>)
-            .<span class="ident">downcast</span>::<span class="op">&lt;</span><span class="ident">Picture</span><span class="op">&gt;</span>()
-            .<span class="ident">expect</span>(<span class="string">&quot;downcast&quot;</span>);
+        <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">glib</span>::<span class="ident">Object</span>::<span class="ident">new</span>::<span class="op">&lt;</span><span class="ident">Picture</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="ident">properties</span>).<span class="ident">expect</span>(<span class="string">&quot;object new&quot;</span>);
         <span class="ident">ret</span>
     }
 
@@ -1398,374 +1591,9 @@
     }
 }
 
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE_PICTURE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">Picture</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
-
-<span class="doccomment">/// Trait containing all `Picture` methods.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementors</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`Picture`](struct.Picture.html)</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">PictureExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Gets the alternative textual description of the picture or returns `None` if</span>
-    <span class="doccomment">/// the picture cannot be described textually.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the alternative textual description</span>
-    <span class="doccomment">///  of `self`.</span>
-    <span class="kw">fn</span> <span class="ident">get_alternative_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib</span>::<span class="ident">GString</span><span class="op">&gt;</span>;
-
-    <span class="doccomment">/// Gets the value set via `PictureExt::set_can_shrink`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// `true` if the picture can be made smaller than its contents</span>
-    <span class="kw">fn</span> <span class="ident">get_can_shrink</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
-
-    <span class="doccomment">/// Gets the `gio::File` currently displayed if `self` is displaying a file.</span>
-    <span class="doccomment">/// If `self` is not displaying a file, for example when `PictureExt::set_paintable`</span>
-    <span class="doccomment">/// was used, then `None` is returned.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The `gio::File` displayed by `self`.</span>
-    <span class="kw">fn</span> <span class="ident">get_file</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gio</span>::<span class="ident">File</span><span class="op">&gt;</span>;
-
-    <span class="doccomment">/// Gets the value set via `PictureExt::set_keep_aspect_ratio`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// `true` if the self tries to keep the contents&#39; aspect ratio</span>
-    <span class="kw">fn</span> <span class="ident">get_keep_aspect_ratio</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
-
-    <span class="doccomment">/// Gets the `gdk::Paintable` being displayed by the `Picture`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the displayed paintable, or `None` if</span>
-    <span class="doccomment">///  the picture is empty</span>
-    <span class="kw">fn</span> <span class="ident">get_paintable</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gdk</span>::<span class="ident">Paintable</span><span class="op">&gt;</span>;
-
-    <span class="doccomment">/// Sets an alternative textual description for the picture contents.</span>
-    <span class="doccomment">/// It is equivalent to the &quot;alt&quot; attribute for images on websites.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This text will be made available to accessibility tools.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the picture cannot be described textually, set this property to `None`.</span>
-    <span class="doccomment">/// ## `alternative_text`</span>
-    <span class="doccomment">/// a textual description of the contents</span>
-    <span class="kw">fn</span> <span class="ident">set_alternative_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">alternative_text</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>);
-
-    <span class="doccomment">/// If set to `true`, the `self` can be made smaller than its contents.</span>
-    <span class="doccomment">/// The contents will then be scaled down when rendering.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If you want to still force a minimum size manually, consider using</span>
-    <span class="doccomment">/// `WidgetExt::set_size_request`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Also of note is that a similar function for growing does not exist</span>
-    <span class="doccomment">/// because the grow behavior can be controlled via</span>
-    <span class="doccomment">/// `WidgetExt::set_halign` and `WidgetExt::set_valign`.</span>
-    <span class="doccomment">/// ## `can_shrink`</span>
-    <span class="doccomment">/// if `self` can be made smaller than its contents</span>
-    <span class="kw">fn</span> <span class="ident">set_can_shrink</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">can_shrink</span>: <span class="ident">bool</span>);
-
-    <span class="doccomment">/// Makes `self` load and display `file`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// See `Picture::new_for_file` for details.</span>
-    <span class="doccomment">/// ## `file`</span>
-    <span class="doccomment">/// a `gio::File` or `None`</span>
-    <span class="kw">fn</span> <span class="ident">set_file</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio</span>::<span class="ident">File</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">file</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>);
-
-    <span class="doccomment">/// Makes `self` load and display the given `filename`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This is a utility function that calls `PictureExt::set_file`.</span>
-    <span class="doccomment">/// ## `filename`</span>
-    <span class="doccomment">/// the filename to play</span>
-    <span class="kw">fn</span> <span class="ident">set_filename</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">filename</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>);
-
-    <span class="doccomment">/// If set to `true`, the `self` will render its contents according to</span>
-    <span class="doccomment">/// their aspect ratio. That means that empty space may show up at the</span>
-    <span class="doccomment">/// top/bottom or left/right of `self`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If set to `false` or if the contents provide no aspect ratio, the</span>
-    <span class="doccomment">/// contents will be stretched over the picture&#39;s whole area.</span>
-    <span class="doccomment">/// ## `keep_aspect_ratio`</span>
-    <span class="doccomment">/// whether to keep aspect ratio</span>
-    <span class="kw">fn</span> <span class="ident">set_keep_aspect_ratio</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">keep_aspect_ratio</span>: <span class="ident">bool</span>);
-
-    <span class="doccomment">/// Makes `self` display the given `paintable`. If `paintable` is `None`,</span>
-    <span class="doccomment">/// nothing will be displayed.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// See `Picture::new_for_paintable` for details.</span>
-    <span class="doccomment">/// ## `paintable`</span>
-    <span class="doccomment">/// a `gdk::Paintable` or `None`</span>
-    <span class="kw">fn</span> <span class="ident">set_paintable</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gdk</span>::<span class="ident">Paintable</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">paintable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>);
-
-    <span class="doccomment">/// See `Picture::new_for_pixbuf` for details.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This is a utility function that calls `PictureExt::set_paintable`,</span>
-    <span class="doccomment">/// ## `pixbuf`</span>
-    <span class="doccomment">/// a `gdk_pixbuf::Pixbuf` or `None`</span>
-    <span class="kw">fn</span> <span class="ident">set_pixbuf</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">pixbuf</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">gdk_pixbuf</span>::<span class="ident">Pixbuf</span><span class="op">&gt;</span>);
-
-    <span class="doccomment">/// Makes `self` load and display the resource at the given</span>
-    <span class="doccomment">/// `resource_path`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This is a utility function that calls `PictureExt::set_file`,</span>
-    <span class="doccomment">/// ## `resource_path`</span>
-    <span class="doccomment">/// the resource to set</span>
-    <span class="kw">fn</span> <span class="ident">set_resource</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">resource_path</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>);
-
-    <span class="kw">fn</span> <span class="ident">connect_property_alternative_text_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span>;
-
-    <span class="kw">fn</span> <span class="ident">connect_property_can_shrink_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span>;
-
-    <span class="kw">fn</span> <span class="ident">connect_property_file_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span>;
-
-    <span class="kw">fn</span> <span class="ident">connect_property_keep_aspect_ratio_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span>;
-
-    <span class="kw">fn</span> <span class="ident">connect_property_paintable_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span>;
-}
-
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Picture</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">PictureExt</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">get_alternative_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib</span>::<span class="ident">GString</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi</span>::<span class="ident">gtk_picture_get_alternative_text</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">get_can_shrink</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi</span>::<span class="ident">gtk_picture_get_can_shrink</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">get_file</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gio</span>::<span class="ident">File</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi</span>::<span class="ident">gtk_picture_get_file</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
-    }
-
-    <span class="kw">fn</span> <span class="ident">get_keep_aspect_ratio</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib</span>(<span class="ident">ffi</span>::<span class="ident">gtk_picture_get_keep_aspect_ratio</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">get_paintable</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gdk</span>::<span class="ident">Paintable</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi</span>::<span class="ident">gtk_picture_get_paintable</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">set_alternative_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">alternative_text</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_alternative_text</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">alternative_text</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">set_can_shrink</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">can_shrink</span>: <span class="ident">bool</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_can_shrink</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">can_shrink</span>.<span class="ident">to_glib</span>());
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">set_file</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio</span>::<span class="ident">File</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">file</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_file</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">file</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">set_filename</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">filename</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_filename</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">filename</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">set_keep_aspect_ratio</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">keep_aspect_ratio</span>: <span class="ident">bool</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_keep_aspect_ratio</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">keep_aspect_ratio</span>.<span class="ident">to_glib</span>(),
-            );
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">set_paintable</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gdk</span>::<span class="ident">Paintable</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">paintable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_paintable</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">paintable</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">set_pixbuf</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">pixbuf</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">gdk_pixbuf</span>::<span class="ident">Pixbuf</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_pixbuf</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">pixbuf</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">set_resource</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">resource_path</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi</span>::<span class="ident">gtk_picture_set_resource</span>(
-                <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">resource_path</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-            );
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">connect_property_alternative_text_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_alternative_text_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">GtkPicture</span>,
-            <span class="ident">_param_spec</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
-            <span class="ident">f</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
-        ) <span class="kw">where</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Picture</span><span class="op">&gt;</span>,
-        {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>::<span class="ident">from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
-        }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_</span>::<span class="ident">new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;notify::alternative-text\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">notify_alternative_text_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> (),
-                )),
-                <span class="ident">Box_</span>::<span class="ident">into_raw</span>(<span class="ident">f</span>),
-            )
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">connect_property_can_shrink_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_can_shrink_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">GtkPicture</span>,
-            <span class="ident">_param_spec</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
-            <span class="ident">f</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
-        ) <span class="kw">where</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Picture</span><span class="op">&gt;</span>,
-        {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>::<span class="ident">from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
-        }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_</span>::<span class="ident">new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;notify::can-shrink\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">notify_can_shrink_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> (),
-                )),
-                <span class="ident">Box_</span>::<span class="ident">into_raw</span>(<span class="ident">f</span>),
-            )
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">connect_property_file_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_file_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">GtkPicture</span>,
-            <span class="ident">_param_spec</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
-            <span class="ident">f</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
-        ) <span class="kw">where</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Picture</span><span class="op">&gt;</span>,
-        {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>::<span class="ident">from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
-        }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_</span>::<span class="ident">new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;notify::file\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">notify_file_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> (),
-                )),
-                <span class="ident">Box_</span>::<span class="ident">into_raw</span>(<span class="ident">f</span>),
-            )
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">connect_property_keep_aspect_ratio_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_keep_aspect_ratio_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">GtkPicture</span>,
-            <span class="ident">_param_spec</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
-            <span class="ident">f</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
-        ) <span class="kw">where</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Picture</span><span class="op">&gt;</span>,
-        {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>::<span class="ident">from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
-        }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_</span>::<span class="ident">new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;notify::keep-aspect-ratio\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">notify_keep_aspect_ratio_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> (),
-                )),
-                <span class="ident">Box_</span>::<span class="ident">into_raw</span>(<span class="ident">f</span>),
-            )
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">connect_property_paintable_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_paintable_trampoline</span><span class="op">&lt;</span><span class="ident">P</span>, <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">GtkPicture</span>,
-            <span class="ident">_param_spec</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
-            <span class="ident">f</span>: <span class="ident">glib</span>::<span class="ident">ffi</span>::<span class="ident">gpointer</span>,
-        ) <span class="kw">where</span>
-            <span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Picture</span><span class="op">&gt;</span>,
-        {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">Picture</span>::<span class="ident">from_glib_borrow</span>(<span class="ident">this</span>).<span class="ident">unsafe_cast_ref</span>())
-        }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_</span>::<span class="ident">new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;notify::paintable\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">notify_paintable_trampoline</span>::<span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> (),
-                )),
-                <span class="ident">Box_</span>::<span class="ident">into_raw</span>(<span class="ident">f</span>),
-            )
-        }
-    }
-}
-
 <span class="kw">impl</span> <span class="ident">fmt</span>::<span class="ident">Display</span> <span class="kw">for</span> <span class="ident">Picture</span> {
     <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt</span>::<span class="ident">Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt</span>::<span class="prelude-ty">Result</span> {
-        <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;Picture&quot;</span>)
+        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;Picture&quot;</span>)
     }
 }
 </pre></div>
