@@ -1,7 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/combo_box.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>combo_box.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/combo_box.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>combo_box.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -1466,6 +1466,70 @@
 <span id="1463">1463</span>
 <span id="1464">1464</span>
 <span id="1465">1465</span>
+<span id="1466">1466</span>
+<span id="1467">1467</span>
+<span id="1468">1468</span>
+<span id="1469">1469</span>
+<span id="1470">1470</span>
+<span id="1471">1471</span>
+<span id="1472">1472</span>
+<span id="1473">1473</span>
+<span id="1474">1474</span>
+<span id="1475">1475</span>
+<span id="1476">1476</span>
+<span id="1477">1477</span>
+<span id="1478">1478</span>
+<span id="1479">1479</span>
+<span id="1480">1480</span>
+<span id="1481">1481</span>
+<span id="1482">1482</span>
+<span id="1483">1483</span>
+<span id="1484">1484</span>
+<span id="1485">1485</span>
+<span id="1486">1486</span>
+<span id="1487">1487</span>
+<span id="1488">1488</span>
+<span id="1489">1489</span>
+<span id="1490">1490</span>
+<span id="1491">1491</span>
+<span id="1492">1492</span>
+<span id="1493">1493</span>
+<span id="1494">1494</span>
+<span id="1495">1495</span>
+<span id="1496">1496</span>
+<span id="1497">1497</span>
+<span id="1498">1498</span>
+<span id="1499">1499</span>
+<span id="1500">1500</span>
+<span id="1501">1501</span>
+<span id="1502">1502</span>
+<span id="1503">1503</span>
+<span id="1504">1504</span>
+<span id="1505">1505</span>
+<span id="1506">1506</span>
+<span id="1507">1507</span>
+<span id="1508">1508</span>
+<span id="1509">1509</span>
+<span id="1510">1510</span>
+<span id="1511">1511</span>
+<span id="1512">1512</span>
+<span id="1513">1513</span>
+<span id="1514">1514</span>
+<span id="1515">1515</span>
+<span id="1516">1516</span>
+<span id="1517">1517</span>
+<span id="1518">1518</span>
+<span id="1519">1519</span>
+<span id="1520">1520</span>
+<span id="1521">1521</span>
+<span id="1522">1522</span>
+<span id="1523">1523</span>
+<span id="1524">1524</span>
+<span id="1525">1525</span>
+<span id="1526">1526</span>
+<span id="1527">1527</span>
+<span id="1528">1528</span>
+<span id="1529">1529</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
@@ -1498,6 +1562,70 @@
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>;
 
 <span class="ident">glib</span>::<span class="macro">wrapper</span><span class="macro">!</span> {
+    <span class="doccomment">/// A `ComboBox` is a widget that allows the user to choose from a list of</span>
+    <span class="doccomment">/// valid choices. The `ComboBox` displays the selected choice. When</span>
+    <span class="doccomment">/// activated, the `ComboBox` displays a popup which allows the user to</span>
+    <span class="doccomment">/// make a new choice. The style in which the selected value is displayed,</span>
+    <span class="doccomment">/// and the style of the popup is determined by the current theme. It may</span>
+    <span class="doccomment">/// be similar to a Windows-style combo box.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The `ComboBox` uses the model-view pattern; the list of valid choices</span>
+    <span class="doccomment">/// is specified in the form of a tree model, and the display of the choices</span>
+    <span class="doccomment">/// can be adapted to the data in the model by using cell renderers, as you</span>
+    <span class="doccomment">/// would in a tree view. This is possible since `ComboBox` implements the</span>
+    <span class="doccomment">/// `CellLayout` interface. The tree model holding the valid choices is</span>
+    <span class="doccomment">/// not restricted to a flat list, it can be a real tree, and the popup will</span>
+    <span class="doccomment">/// reflect the tree structure.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// To allow the user to enter values not in the model, the “has-entry”</span>
+    <span class="doccomment">/// property allows the `ComboBox` to contain a `Entry`. This entry</span>
+    <span class="doccomment">/// can be accessed by calling `ComboBoxExt::get_child` on the combo box.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// For a simple list of textual choices, the model-view API of `ComboBox`</span>
+    <span class="doccomment">/// can be a bit overwhelming. In this case, `ComboBoxText` offers a</span>
+    <span class="doccomment">/// simple alternative. Both `ComboBox` and `ComboBoxText` can contain</span>
+    <span class="doccomment">/// an entry.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # CSS nodes</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```plain</span>
+    <span class="doccomment">/// combobox</span>
+    <span class="doccomment">/// ├── box.linked</span>
+    <span class="doccomment">/// │   ╰── button.combo</span>
+    <span class="doccomment">/// │       ╰── box</span>
+    <span class="doccomment">/// │           ├── cellview</span>
+    <span class="doccomment">/// │           ╰── arrow</span>
+    <span class="doccomment">/// ╰── window.popup</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// A normal combobox contains a box with the .linked class, a button</span>
+    <span class="doccomment">/// with the .combo class and inside those buttons, there are a cellview and</span>
+    <span class="doccomment">/// an arrow.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```plain</span>
+    <span class="doccomment">/// combobox</span>
+    <span class="doccomment">/// ├── box.linked</span>
+    <span class="doccomment">/// │   ├── entry.combo</span>
+    <span class="doccomment">/// │   ╰── button.combo</span>
+    <span class="doccomment">/// │       ╰── box</span>
+    <span class="doccomment">/// │           ╰── arrow</span>
+    <span class="doccomment">/// ╰── window.popup</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// A `ComboBox` with an entry has a single CSS node with name combobox. It</span>
+    <span class="doccomment">/// contains a box with the .linked class. That box contains an entry and a</span>
+    <span class="doccomment">/// button, both with the .combo class added.</span>
+    <span class="doccomment">/// The button also contains another node with name arrow.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Accessibility</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// `ComboBox` uses the `AccessibleRole::ComboBox` role.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Implements</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// [`ComboBoxExt`](trait.ComboBoxExt.html), [`WidgetExt`](trait.WidgetExt.html), [`glib::object::ObjectExt`](../glib/object/trait.ObjectExt.html), [`AccessibleExt`](trait.AccessibleExt.html), [`BuildableExt`](trait.BuildableExt.html), [`ConstraintTargetExt`](trait.ConstraintTargetExt.html), [`CellEditableExt`](trait.CellEditableExt.html), [`CellLayoutExt`](trait.CellLayoutExt.html), [`ComboBoxExtManual`](prelude/trait.ComboBoxExtManual.html), [`WidgetExtManual`](prelude/trait.WidgetExtManual.html), [`CellEditableExtManual`](prelude/trait.CellEditableExtManual.html)</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ComboBox</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi</span>::<span class="ident">GtkComboBox</span>, <span class="ident">ffi</span>::<span class="ident">GtkComboBoxClass</span><span class="op">&gt;</span>) @<span class="ident">extends</span> <span class="ident">Widget</span>, @<span class="ident">implements</span> <span class="ident">Accessible</span>, <span class="ident">Buildable</span>, <span class="ident">ConstraintTarget</span>, <span class="ident">CellEditable</span>, <span class="ident">CellLayout</span>;
 
     <span class="kw">match</span> <span class="kw">fn</span> {
@@ -2605,7 +2733,7 @@
     <span class="kw">fn</span> <span class="ident">emit_move_active</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">scroll_type</span>: <span class="ident">ScrollType</span>) {
         <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="kw">unsafe</span> {
             <span class="ident">glib</span>::<span class="ident">Object</span>::<span class="ident">from_glib_borrow</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">glib</span>::<span class="ident">gobject_ffi</span>::<span class="ident">GObject</span>)
-                .<span class="ident">emit</span>(<span class="string">&quot;move-active&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">scroll_type</span>])
+                .<span class="ident">emit_by_name</span>(<span class="string">&quot;move-active&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">scroll_type</span>])
                 .<span class="ident">unwrap</span>()
         };
     }
@@ -2637,7 +2765,7 @@
     <span class="kw">fn</span> <span class="ident">emit_popdown</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="kw">unsafe</span> {
             <span class="ident">glib</span>::<span class="ident">Object</span>::<span class="ident">from_glib_borrow</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">glib</span>::<span class="ident">gobject_ffi</span>::<span class="ident">GObject</span>)
-                .<span class="ident">emit</span>(<span class="string">&quot;popdown&quot;</span>, <span class="kw-2">&amp;</span>[])
+                .<span class="ident">emit_by_name</span>(<span class="string">&quot;popdown&quot;</span>, <span class="kw-2">&amp;</span>[])
                 .<span class="ident">unwrap</span>()
         };
         <span class="ident">res</span>.<span class="ident">unwrap</span>()
@@ -2672,7 +2800,7 @@
     <span class="kw">fn</span> <span class="ident">emit_popup</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="kw">unsafe</span> {
             <span class="ident">glib</span>::<span class="ident">Object</span>::<span class="ident">from_glib_borrow</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">glib</span>::<span class="ident">gobject_ffi</span>::<span class="ident">GObject</span>)
-                .<span class="ident">emit</span>(<span class="string">&quot;popup&quot;</span>, <span class="kw-2">&amp;</span>[])
+                .<span class="ident">emit_by_name</span>(<span class="string">&quot;popup&quot;</span>, <span class="kw-2">&amp;</span>[])
                 .<span class="ident">unwrap</span>()
         };
     }
@@ -2933,4 +3061,5 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "gtk4";</script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-js="../../../search-index.js"></div>
+    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>

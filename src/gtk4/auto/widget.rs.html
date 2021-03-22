@@ -1,7 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/widget.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>widget.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/widget.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>widget.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -4781,6 +4781,249 @@
 <span id="4778">4778</span>
 <span id="4779">4779</span>
 <span id="4780">4780</span>
+<span id="4781">4781</span>
+<span id="4782">4782</span>
+<span id="4783">4783</span>
+<span id="4784">4784</span>
+<span id="4785">4785</span>
+<span id="4786">4786</span>
+<span id="4787">4787</span>
+<span id="4788">4788</span>
+<span id="4789">4789</span>
+<span id="4790">4790</span>
+<span id="4791">4791</span>
+<span id="4792">4792</span>
+<span id="4793">4793</span>
+<span id="4794">4794</span>
+<span id="4795">4795</span>
+<span id="4796">4796</span>
+<span id="4797">4797</span>
+<span id="4798">4798</span>
+<span id="4799">4799</span>
+<span id="4800">4800</span>
+<span id="4801">4801</span>
+<span id="4802">4802</span>
+<span id="4803">4803</span>
+<span id="4804">4804</span>
+<span id="4805">4805</span>
+<span id="4806">4806</span>
+<span id="4807">4807</span>
+<span id="4808">4808</span>
+<span id="4809">4809</span>
+<span id="4810">4810</span>
+<span id="4811">4811</span>
+<span id="4812">4812</span>
+<span id="4813">4813</span>
+<span id="4814">4814</span>
+<span id="4815">4815</span>
+<span id="4816">4816</span>
+<span id="4817">4817</span>
+<span id="4818">4818</span>
+<span id="4819">4819</span>
+<span id="4820">4820</span>
+<span id="4821">4821</span>
+<span id="4822">4822</span>
+<span id="4823">4823</span>
+<span id="4824">4824</span>
+<span id="4825">4825</span>
+<span id="4826">4826</span>
+<span id="4827">4827</span>
+<span id="4828">4828</span>
+<span id="4829">4829</span>
+<span id="4830">4830</span>
+<span id="4831">4831</span>
+<span id="4832">4832</span>
+<span id="4833">4833</span>
+<span id="4834">4834</span>
+<span id="4835">4835</span>
+<span id="4836">4836</span>
+<span id="4837">4837</span>
+<span id="4838">4838</span>
+<span id="4839">4839</span>
+<span id="4840">4840</span>
+<span id="4841">4841</span>
+<span id="4842">4842</span>
+<span id="4843">4843</span>
+<span id="4844">4844</span>
+<span id="4845">4845</span>
+<span id="4846">4846</span>
+<span id="4847">4847</span>
+<span id="4848">4848</span>
+<span id="4849">4849</span>
+<span id="4850">4850</span>
+<span id="4851">4851</span>
+<span id="4852">4852</span>
+<span id="4853">4853</span>
+<span id="4854">4854</span>
+<span id="4855">4855</span>
+<span id="4856">4856</span>
+<span id="4857">4857</span>
+<span id="4858">4858</span>
+<span id="4859">4859</span>
+<span id="4860">4860</span>
+<span id="4861">4861</span>
+<span id="4862">4862</span>
+<span id="4863">4863</span>
+<span id="4864">4864</span>
+<span id="4865">4865</span>
+<span id="4866">4866</span>
+<span id="4867">4867</span>
+<span id="4868">4868</span>
+<span id="4869">4869</span>
+<span id="4870">4870</span>
+<span id="4871">4871</span>
+<span id="4872">4872</span>
+<span id="4873">4873</span>
+<span id="4874">4874</span>
+<span id="4875">4875</span>
+<span id="4876">4876</span>
+<span id="4877">4877</span>
+<span id="4878">4878</span>
+<span id="4879">4879</span>
+<span id="4880">4880</span>
+<span id="4881">4881</span>
+<span id="4882">4882</span>
+<span id="4883">4883</span>
+<span id="4884">4884</span>
+<span id="4885">4885</span>
+<span id="4886">4886</span>
+<span id="4887">4887</span>
+<span id="4888">4888</span>
+<span id="4889">4889</span>
+<span id="4890">4890</span>
+<span id="4891">4891</span>
+<span id="4892">4892</span>
+<span id="4893">4893</span>
+<span id="4894">4894</span>
+<span id="4895">4895</span>
+<span id="4896">4896</span>
+<span id="4897">4897</span>
+<span id="4898">4898</span>
+<span id="4899">4899</span>
+<span id="4900">4900</span>
+<span id="4901">4901</span>
+<span id="4902">4902</span>
+<span id="4903">4903</span>
+<span id="4904">4904</span>
+<span id="4905">4905</span>
+<span id="4906">4906</span>
+<span id="4907">4907</span>
+<span id="4908">4908</span>
+<span id="4909">4909</span>
+<span id="4910">4910</span>
+<span id="4911">4911</span>
+<span id="4912">4912</span>
+<span id="4913">4913</span>
+<span id="4914">4914</span>
+<span id="4915">4915</span>
+<span id="4916">4916</span>
+<span id="4917">4917</span>
+<span id="4918">4918</span>
+<span id="4919">4919</span>
+<span id="4920">4920</span>
+<span id="4921">4921</span>
+<span id="4922">4922</span>
+<span id="4923">4923</span>
+<span id="4924">4924</span>
+<span id="4925">4925</span>
+<span id="4926">4926</span>
+<span id="4927">4927</span>
+<span id="4928">4928</span>
+<span id="4929">4929</span>
+<span id="4930">4930</span>
+<span id="4931">4931</span>
+<span id="4932">4932</span>
+<span id="4933">4933</span>
+<span id="4934">4934</span>
+<span id="4935">4935</span>
+<span id="4936">4936</span>
+<span id="4937">4937</span>
+<span id="4938">4938</span>
+<span id="4939">4939</span>
+<span id="4940">4940</span>
+<span id="4941">4941</span>
+<span id="4942">4942</span>
+<span id="4943">4943</span>
+<span id="4944">4944</span>
+<span id="4945">4945</span>
+<span id="4946">4946</span>
+<span id="4947">4947</span>
+<span id="4948">4948</span>
+<span id="4949">4949</span>
+<span id="4950">4950</span>
+<span id="4951">4951</span>
+<span id="4952">4952</span>
+<span id="4953">4953</span>
+<span id="4954">4954</span>
+<span id="4955">4955</span>
+<span id="4956">4956</span>
+<span id="4957">4957</span>
+<span id="4958">4958</span>
+<span id="4959">4959</span>
+<span id="4960">4960</span>
+<span id="4961">4961</span>
+<span id="4962">4962</span>
+<span id="4963">4963</span>
+<span id="4964">4964</span>
+<span id="4965">4965</span>
+<span id="4966">4966</span>
+<span id="4967">4967</span>
+<span id="4968">4968</span>
+<span id="4969">4969</span>
+<span id="4970">4970</span>
+<span id="4971">4971</span>
+<span id="4972">4972</span>
+<span id="4973">4973</span>
+<span id="4974">4974</span>
+<span id="4975">4975</span>
+<span id="4976">4976</span>
+<span id="4977">4977</span>
+<span id="4978">4978</span>
+<span id="4979">4979</span>
+<span id="4980">4980</span>
+<span id="4981">4981</span>
+<span id="4982">4982</span>
+<span id="4983">4983</span>
+<span id="4984">4984</span>
+<span id="4985">4985</span>
+<span id="4986">4986</span>
+<span id="4987">4987</span>
+<span id="4988">4988</span>
+<span id="4989">4989</span>
+<span id="4990">4990</span>
+<span id="4991">4991</span>
+<span id="4992">4992</span>
+<span id="4993">4993</span>
+<span id="4994">4994</span>
+<span id="4995">4995</span>
+<span id="4996">4996</span>
+<span id="4997">4997</span>
+<span id="4998">4998</span>
+<span id="4999">4999</span>
+<span id="5000">5000</span>
+<span id="5001">5001</span>
+<span id="5002">5002</span>
+<span id="5003">5003</span>
+<span id="5004">5004</span>
+<span id="5005">5005</span>
+<span id="5006">5006</span>
+<span id="5007">5007</span>
+<span id="5008">5008</span>
+<span id="5009">5009</span>
+<span id="5010">5010</span>
+<span id="5011">5011</span>
+<span id="5012">5012</span>
+<span id="5013">5013</span>
+<span id="5014">5014</span>
+<span id="5015">5015</span>
+<span id="5016">5016</span>
+<span id="5017">5017</span>
+<span id="5018">5018</span>
+<span id="5019">5019</span>
+<span id="5020">5020</span>
+<span id="5021">5021</span>
+<span id="5022">5022</span>
+<span id="5023">5023</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
@@ -4820,6 +5063,259 @@
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>;
 
 <span class="ident">glib</span>::<span class="macro">wrapper</span><span class="macro">!</span> {
+    <span class="doccomment">/// `Widget` is the base class all widgets in GTK derive from. It manages the</span>
+    <span class="doccomment">/// widget lifecycle, states and style.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Height-for-width Geometry Management # {`geometry`-management}</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// GTK uses a height-for-width (and width-for-height) geometry management</span>
+    <span class="doccomment">/// system. Height-for-width means that a widget can change how much</span>
+    <span class="doccomment">/// vertical space it needs, depending on the amount of horizontal space</span>
+    <span class="doccomment">/// that it is given (and similar for width-for-height). The most common</span>
+    <span class="doccomment">/// example is a label that reflows to fill up the available width, wraps</span>
+    <span class="doccomment">/// to fewer lines, and therefore needs less height.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Height-for-width geometry management is implemented in GTK by way</span>
+    <span class="doccomment">/// of two virtual methods:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// - `WidgetClass.get_request_mode`()</span>
+    <span class="doccomment">/// - `WidgetClass.measure`()</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// There are some important things to keep in mind when implementing</span>
+    <span class="doccomment">/// height-for-width and when using it in widget implementations.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If you implement a direct `Widget` subclass that supports</span>
+    <span class="doccomment">/// height-for-width or width-for-height geometry management for</span>
+    <span class="doccomment">/// itself or its child widgets, the `WidgetClass.get_request_mode`()</span>
+    <span class="doccomment">/// virtual function must be implemented as well and return the widget&#39;s</span>
+    <span class="doccomment">/// preferred request mode. The default implementation of this virtual function</span>
+    <span class="doccomment">/// returns `SizeRequestMode::ConstantSize`, which means that the widget will</span>
+    <span class="doccomment">/// only ever get -1 passed as the for_size value to its `WidgetClass.measure`()</span>
+    <span class="doccomment">/// implementation.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The geometry management system will query a widget hierarchy in</span>
+    <span class="doccomment">/// only one orientation at a time. When widgets are initially queried</span>
+    <span class="doccomment">/// for their minimum sizes it is generally done in two initial passes</span>
+    <span class="doccomment">/// in the `SizeRequestMode` chosen by the toplevel.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// For example, when queried in the normal</span>
+    <span class="doccomment">/// `SizeRequestMode::HeightForWidth` mode:</span>
+    <span class="doccomment">/// First, the default minimum and natural width for each widget</span>
+    <span class="doccomment">/// in the interface will be computed using `WidgetExt::measure` with an</span>
+    <span class="doccomment">/// orientation of `Orientation::Horizontal` and a for_size of -1.</span>
+    <span class="doccomment">/// Because the preferred widths for each widget depend on the preferred</span>
+    <span class="doccomment">/// widths of their children, this information propagates up the hierarchy,</span>
+    <span class="doccomment">/// and finally a minimum and natural width is determined for the entire</span>
+    <span class="doccomment">/// toplevel. Next, the toplevel will use the minimum width to query for the</span>
+    <span class="doccomment">/// minimum height contextual to that width using `WidgetExt::measure` with an</span>
+    <span class="doccomment">/// orientation of `Orientation::Vertical` and a for_size of the just computed</span>
+    <span class="doccomment">/// width. This will also be a highly recursive operation. The minimum height</span>
+    <span class="doccomment">/// for the minimum width is normally used to set the minimum size constraint</span>
+    <span class="doccomment">/// on the toplevel.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// After the toplevel window has initially requested its size in both</span>
+    <span class="doccomment">/// dimensions it can go on to allocate itself a reasonable size (or a size</span>
+    <span class="doccomment">/// previously specified with `GtkWindowExt::set_default_size`). During the</span>
+    <span class="doccomment">/// recursive allocation process it’s important to note that request cycles</span>
+    <span class="doccomment">/// will be recursively executed while widgets allocate their children.</span>
+    <span class="doccomment">/// Each widget, once allocated a size, will go on to first share the</span>
+    <span class="doccomment">/// space in one orientation among its children and then request each child&#39;s</span>
+    <span class="doccomment">/// height for its target allocated width or its width for allocated height,</span>
+    <span class="doccomment">/// depending. In this way a `Widget` will typically be requested its size</span>
+    <span class="doccomment">/// a number of times before actually being allocated a size. The size a</span>
+    <span class="doccomment">/// widget is finally allocated can of course differ from the size it has</span>
+    <span class="doccomment">/// requested. For this reason, `Widget` caches a small number of results</span>
+    <span class="doccomment">/// to avoid re-querying for the same sizes in one allocation cycle.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If a widget does move content around to intelligently use up the</span>
+    <span class="doccomment">/// allocated size then it must support the request in both</span>
+    <span class="doccomment">/// ``GtkSizeRequestModes`` even if the widget in question only</span>
+    <span class="doccomment">/// trades sizes in a single orientation.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// For instance, a `Label` that does height-for-width word wrapping</span>
+    <span class="doccomment">/// will not expect to have `WidgetClass.measure`() with an orientation of</span>
+    <span class="doccomment">/// `Orientation::Vertical` called because that call is specific to a</span>
+    <span class="doccomment">/// width-for-height request. In this</span>
+    <span class="doccomment">/// case the label must return the height required for its own minimum</span>
+    <span class="doccomment">/// possible width. By following this rule any widget that handles</span>
+    <span class="doccomment">/// height-for-width or width-for-height requests will always be allocated</span>
+    <span class="doccomment">/// at least enough space to fit its own content.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Here are some examples of how a `SizeRequestMode::HeightForWidth` widget</span>
+    <span class="doccomment">/// generally deals with width-for-height requests:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```C</span>
+    <span class="doccomment">/// static void</span>
+    <span class="doccomment">/// foo_widget_measure (GtkWidget      *widget,</span>
+    <span class="doccomment">///                     GtkOrientation  orientation,</span>
+    <span class="doccomment">///                     int             for_size,</span>
+    <span class="doccomment">///                     int            *minimum_size,</span>
+    <span class="doccomment">///                     int            *natural_size,</span>
+    <span class="doccomment">///                     int            *minimum_baseline,</span>
+    <span class="doccomment">///                     int            *natural_baseline)</span>
+    <span class="doccomment">/// {</span>
+    <span class="doccomment">///   if (orientation == GTK_ORIENTATION_HORIZONTAL)</span>
+    <span class="doccomment">///     {</span>
+    <span class="doccomment">///       // Calculate minimum and natural width</span>
+    <span class="doccomment">///     }</span>
+    <span class="doccomment">///   else // VERTICAL</span>
+    <span class="doccomment">///     {</span>
+    <span class="doccomment">///        if (i_am_in_height_for_width_mode)</span>
+    <span class="doccomment">///          {</span>
+    <span class="doccomment">///            int min_width, dummy;</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///            // First, get the minimum width of our widget</span>
+    <span class="doccomment">///            GTK_WIDGET_GET_CLASS (widget)-&gt;measure (widget, GTK_ORIENTATION_HORIZONTAL, -1,</span>
+    <span class="doccomment">///                                                    &amp;min_width, &amp;dummy, &amp;dummy, &amp;dummy);</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///            // Now use the minimum width to retrieve the minimum and natural height to display</span>
+    <span class="doccomment">///            // that width.</span>
+    <span class="doccomment">///            GTK_WIDGET_GET_CLASS (widget)-&gt;measure (widget, GTK_ORIENTATION_VERTICAL, min_width,</span>
+    <span class="doccomment">///                                                    minimum_size, natural_size, &amp;dummy, &amp;dummy);</span>
+    <span class="doccomment">///          }</span>
+    <span class="doccomment">///        else</span>
+    <span class="doccomment">///          {</span>
+    <span class="doccomment">///            // ... some widgets do both.</span>
+    <span class="doccomment">///          }</span>
+    <span class="doccomment">///    }</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Often a widget needs to get its own request during size request or</span>
+    <span class="doccomment">/// allocation. For example, when computing height it may need to also</span>
+    <span class="doccomment">/// compute width. Or when deciding how to use an allocation, the widget</span>
+    <span class="doccomment">/// may need to know its natural size. In these cases, the widget should</span>
+    <span class="doccomment">/// be careful to call its virtual methods directly, like in the code</span>
+    <span class="doccomment">/// example above.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// It will not work to use the wrapper function `WidgetExt::measure`</span>
+    <span class="doccomment">/// inside your own `WidgetClass.size-allocate`() implementation.</span>
+    <span class="doccomment">/// These return a request adjusted by `SizeGroup`, the widget&#39;s align and expand flags</span>
+    <span class="doccomment">/// as well as its CSS style.</span>
+    <span class="doccomment">/// If a widget used the wrappers inside its virtual method implementations,</span>
+    <span class="doccomment">/// then the adjustments (such as widget margins) would be applied</span>
+    <span class="doccomment">/// twice. GTK therefore does not allow this and will warn if you try</span>
+    <span class="doccomment">/// to do it.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Of course if you are getting the size request for</span>
+    <span class="doccomment">/// another widget, such as a child widget, you must use `WidgetExt::measure`.</span>
+    <span class="doccomment">/// Otherwise, you would not properly consider widget margins,</span>
+    <span class="doccomment">/// `SizeGroup`, and so forth.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// GTK also supports baseline vertical alignment of widgets. This</span>
+    <span class="doccomment">/// means that widgets are positioned such that the typographical baseline of</span>
+    <span class="doccomment">/// widgets in the same row are aligned. This happens if a widget supports baselines,</span>
+    <span class="doccomment">/// has a vertical alignment of `Align::Baseline`, and is inside a widget</span>
+    <span class="doccomment">/// that supports baselines and has a natural “row” that it aligns to the baseline,</span>
+    <span class="doccomment">/// or a baseline assigned to it by the grandparent.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Baseline alignment support for a widget is also done by the `WidgetClass.measure`()</span>
+    <span class="doccomment">/// virtual function. It allows you to report both a minimum and natural size.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If a widget ends up baseline aligned it will be allocated all the space in the parent</span>
+    <span class="doccomment">/// as if it was `Align::Fill`, but the selected baseline can be found via `WidgetExt::get_allocated_baseline`.</span>
+    <span class="doccomment">/// If this has a value other than -1 you need to align the widget such that the baseline</span>
+    <span class="doccomment">/// appears at the position.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # `Widget` as `Buildable`</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The `Widget` implementation of the `Buildable` interface supports a</span>
+    <span class="doccomment">/// custom elements to specify various aspects of widgets that are not</span>
+    <span class="doccomment">/// directly expressed as properties.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If the parent widget uses a `LayoutManager`, `Widget` supports a</span>
+    <span class="doccomment">/// custom `&lt;layout&gt;` element, used to define layout properties:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```C</span>
+    <span class="doccomment">/// static void</span>
+    <span class="doccomment">/// foo_widget_class_init (FooWidgetClass *klass)</span>
+    <span class="doccomment">/// {</span>
+    <span class="doccomment">///   // ...</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (klass),</span>
+    <span class="doccomment">///                                                &quot;/com/example/ui/foowidget.ui&quot;);</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// You will also need to call `WidgetExt::init_template` from the instance</span>
+    <span class="doccomment">/// initialization function:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```C</span>
+    <span class="doccomment">/// static void</span>
+    <span class="doccomment">/// foo_widget_init (FooWidget *self)</span>
+    <span class="doccomment">/// {</span>
+    <span class="doccomment">///   // ...</span>
+    <span class="doccomment">///   gtk_widget_init_template (GTK_WIDGET (self));</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// You can access widgets defined in the template using the</span>
+    <span class="doccomment">/// `WidgetExt::get_template_child` function, but you will typically declare</span>
+    <span class="doccomment">/// a pointer in the instance private data structure of your type using the same</span>
+    <span class="doccomment">/// name as the widget in the template definition, and call</span>
+    <span class="doccomment">/// `gtk_widget_class_bind_template_child_private` with that name, e.g.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```C</span>
+    <span class="doccomment">/// typedef struct {</span>
+    <span class="doccomment">///   GtkWidget *hello_button;</span>
+    <span class="doccomment">///   GtkWidget *goodbye_button;</span>
+    <span class="doccomment">/// } FooWidgetPrivate;</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// G_DEFINE_TYPE_WITH_PRIVATE (FooWidget, foo_widget, GTK_TYPE_BOX)</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// static void</span>
+    <span class="doccomment">/// foo_widget_class_init (FooWidgetClass *klass)</span>
+    <span class="doccomment">/// {</span>
+    <span class="doccomment">///   // ...</span>
+    <span class="doccomment">///   gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (klass),</span>
+    <span class="doccomment">///                                                &quot;/com/example/ui/foowidget.ui&quot;);</span>
+    <span class="doccomment">///   gtk_widget_class_bind_template_child_private (GTK_WIDGET_CLASS (klass),</span>
+    <span class="doccomment">///                                                 FooWidget, hello_button);</span>
+    <span class="doccomment">///   gtk_widget_class_bind_template_child_private (GTK_WIDGET_CLASS (klass),</span>
+    <span class="doccomment">///                                                 FooWidget, goodbye_button);</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// static void</span>
+    <span class="doccomment">/// foo_widget_init (FooWidget *widget)</span>
+    <span class="doccomment">/// {</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// You can also use `gtk_widget_class_bind_template_callback` to connect a signal</span>
+    <span class="doccomment">/// callback defined in the template with a function visible in the scope of the</span>
+    <span class="doccomment">/// class, e.g.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```C</span>
+    <span class="doccomment">/// // the signal handler has the instance and user data swapped</span>
+    <span class="doccomment">/// // because of the swapped=&quot;yes&quot; attribute in the template XML</span>
+    <span class="doccomment">/// static void</span>
+    <span class="doccomment">/// hello_button_clicked (FooWidget *self,</span>
+    <span class="doccomment">///                       GtkButton *button)</span>
+    <span class="doccomment">/// {</span>
+    <span class="doccomment">///   g_print (&quot;Hello, world!\n&quot;);</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// static void</span>
+    <span class="doccomment">/// foo_widget_class_init (FooWidgetClass *klass)</span>
+    <span class="doccomment">/// {</span>
+    <span class="doccomment">///   // ...</span>
+    <span class="doccomment">///   gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (klass),</span>
+    <span class="doccomment">///                                                &quot;/com/example/ui/foowidget.ui&quot;);</span>
+    <span class="doccomment">///   gtk_widget_class_bind_template_callback (GTK_WIDGET_CLASS (klass), hello_button_clicked);</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is an Abstract Base Class, you cannot instantiate it.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Implements</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// [`WidgetExt`](trait.WidgetExt.html), [`glib::object::ObjectExt`](../glib/object/trait.ObjectExt.html), [`AccessibleExt`](trait.AccessibleExt.html), [`BuildableExt`](trait.BuildableExt.html), [`ConstraintTargetExt`](trait.ConstraintTargetExt.html), [`WidgetExtManual`](prelude/trait.WidgetExtManual.html)</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Widget</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi</span>::<span class="ident">GtkWidget</span>, <span class="ident">ffi</span>::<span class="ident">GtkWidgetClass</span><span class="op">&gt;</span>) @<span class="ident">implements</span> <span class="ident">Accessible</span>, <span class="ident">Buildable</span>, <span class="ident">ConstraintTarget</span>;
 
     <span class="kw">match</span> <span class="kw">fn</span> {
@@ -4851,6 +5347,13 @@
         <span class="kw">unsafe</span> {
             <span class="ident">ffi</span>::<span class="ident">gtk_widget_set_default_direction</span>(<span class="ident">dir</span>.<span class="ident">to_glib</span>());
         }
+    }
+}
+
+<span class="kw">impl</span> <span class="ident">fmt</span>::<span class="ident">Display</span> <span class="kw">for</span> <span class="ident">Widget</span> {
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt</span>::<span class="ident">Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt</span>::<span class="prelude-ty">Result</span> {
+        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="kw-2">&amp;</span><span class="ident">WidgetExt</span>::<span class="ident">get_widget_name</span>(<span class="self">self</span>))
     }
 }
 
@@ -4891,30 +5394,23 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_widget_activate&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">activate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
 
-    <span class="comment">//#[doc(alias = &quot;gtk_widget_activate_action&quot;)]</span>
-    <span class="comment">//fn activate_action(&amp;self, name: &amp;str, format_string: &amp;str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -&gt; bool;</span>
-
     <span class="doccomment">/// Looks up the action in the action groups associated</span>
     <span class="doccomment">/// with `self` and its ancestors, and activates it.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If the action is in an action group added with</span>
-    <span class="doccomment">/// `WidgetExt::insert_action_group`, the `name` is</span>
-    <span class="doccomment">/// expected to be prefixed with the prefix that was</span>
-    <span class="doccomment">/// used when the group was inserted.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The arguments must match the actions expected parameter</span>
-    <span class="doccomment">/// type, as returned by `gio::Action::get_parameter_type`.</span>
+    <span class="doccomment">/// This is a wrapper around `WidgetExt::activate_action_variant`</span>
+    <span class="doccomment">/// that constructs the `args` variant according to `format_string`.</span>
     <span class="doccomment">/// ## `name`</span>
     <span class="doccomment">/// the name of the action to activate</span>
-    <span class="doccomment">/// ## `args`</span>
-    <span class="doccomment">/// parameters to use, or `None`</span>
+    <span class="doccomment">/// ## `format_string`</span>
+    <span class="doccomment">/// GVariant format string for arguments or `None`</span>
+    <span class="doccomment">///  for no arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// `true` if the action was activated, `false` if the action does</span>
     <span class="doccomment">///  not exist.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_widget_activate_action_variant&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">activate_action_variant</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">args</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">glib</span>::<span class="ident">Variant</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
+    <span class="kw">fn</span> <span class="ident">activate_action</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">args</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">glib</span>::<span class="ident">Variant</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
 
     <span class="doccomment">/// Activate the default.activate action from `self`.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_widget_activate_default&quot;</span>)]</span>
@@ -5271,7 +5767,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// the CSS name</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_widget_get_css_name&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">get_css_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib</span>::<span class="ident">GString</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">get_css_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib</span>::<span class="ident">GString</span>;
 
     <span class="doccomment">/// Queries the cursor set via `WidgetExt::set_cursor`. See that function for</span>
     <span class="doccomment">/// details.</span>
@@ -5526,7 +6022,7 @@
     <span class="doccomment">/// name of the widget. This string is owned by GTK and</span>
     <span class="doccomment">/// should not be modified or freed</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_widget_get_name&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">get_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib</span>::<span class="ident">GString</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">get_widget_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib</span>::<span class="ident">GString</span>;
 
     <span class="doccomment">/// Returns the `Native` widget that contains `self`,</span>
     <span class="doccomment">/// or `None` if the widget is not contained inside a</span>
@@ -6584,7 +7080,7 @@
     <span class="doccomment">/// ## `name`</span>
     <span class="doccomment">/// name for the widget</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_widget_set_name&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">set_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>);
+    <span class="kw">fn</span> <span class="ident">set_widget_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>);
 
     <span class="doccomment">/// Request the `self` to be rendered partially transparent, with</span>
     <span class="doccomment">/// opacity 0 being fully transparent and 1 fully opaque. (Opacity</span>
@@ -7125,11 +7621,7 @@
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi</span>::<span class="ident">gtk_widget_activate</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="comment">//fn activate_action(&amp;self, name: &amp;str, format_string: &amp;str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) -&gt; bool {</span>
-    <span class="comment">//    unsafe { TODO: call ffi:gtk_widget_activate_action() }</span>
-    <span class="comment">//}</span>
-
-    <span class="kw">fn</span> <span class="ident">activate_action_variant</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">args</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">glib</span>::<span class="ident">Variant</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">activate_action</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">args</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">glib</span>::<span class="ident">Variant</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi</span>::<span class="ident">gtk_widget_activate_action_variant</span>(
                 <span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -7378,7 +7870,7 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">get_css_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib</span>::<span class="ident">GString</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">get_css_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib</span>::<span class="ident">GString</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi</span>::<span class="ident">gtk_widget_get_css_name</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
@@ -7514,7 +8006,7 @@
         <span class="kw">unsafe</span> { <span class="ident">ffi</span>::<span class="ident">gtk_widget_get_margin_top</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
     }
 
-    <span class="kw">fn</span> <span class="ident">get_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib</span>::<span class="ident">GString</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">get_widget_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">glib</span>::<span class="ident">GString</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi</span>::<span class="ident">gtk_widget_get_name</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
@@ -8099,7 +8591,7 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">set_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) {
+    <span class="kw">fn</span> <span class="ident">set_widget_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) {
         <span class="kw">unsafe</span> {
             <span class="ident">ffi</span>::<span class="ident">gtk_widget_set_name</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">name</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
         }
@@ -8566,7 +9058,7 @@
     <span class="kw">fn</span> <span class="ident">emit_move_focus</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">direction</span>: <span class="ident">DirectionType</span>) {
         <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="kw">unsafe</span> {
             <span class="ident">glib</span>::<span class="ident">Object</span>::<span class="ident">from_glib_borrow</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">glib</span>::<span class="ident">gobject_ffi</span>::<span class="ident">GObject</span>)
-                .<span class="ident">emit</span>(<span class="string">&quot;move-focus&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">direction</span>])
+                .<span class="ident">emit_by_name</span>(<span class="string">&quot;move-focus&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">direction</span>])
                 .<span class="ident">unwrap</span>()
         };
     }
@@ -9556,11 +10048,6 @@
         }
     }
 }
-
-<span class="kw">impl</span> <span class="ident">fmt</span>::<span class="ident">Display</span> <span class="kw">for</span> <span class="ident">Widget</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt</span>::<span class="ident">Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt</span>::<span class="prelude-ty">Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;Widget&quot;</span>)
-    }
-}
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "gtk4";</script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-js="../../../search-index.js"></div>
+    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>

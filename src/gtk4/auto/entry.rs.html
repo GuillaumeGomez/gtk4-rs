@@ -1,7 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/entry.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>entry.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/entry.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>entry.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -3792,6 +3792,95 @@
 <span id="3789">3789</span>
 <span id="3790">3790</span>
 <span id="3791">3791</span>
+<span id="3792">3792</span>
+<span id="3793">3793</span>
+<span id="3794">3794</span>
+<span id="3795">3795</span>
+<span id="3796">3796</span>
+<span id="3797">3797</span>
+<span id="3798">3798</span>
+<span id="3799">3799</span>
+<span id="3800">3800</span>
+<span id="3801">3801</span>
+<span id="3802">3802</span>
+<span id="3803">3803</span>
+<span id="3804">3804</span>
+<span id="3805">3805</span>
+<span id="3806">3806</span>
+<span id="3807">3807</span>
+<span id="3808">3808</span>
+<span id="3809">3809</span>
+<span id="3810">3810</span>
+<span id="3811">3811</span>
+<span id="3812">3812</span>
+<span id="3813">3813</span>
+<span id="3814">3814</span>
+<span id="3815">3815</span>
+<span id="3816">3816</span>
+<span id="3817">3817</span>
+<span id="3818">3818</span>
+<span id="3819">3819</span>
+<span id="3820">3820</span>
+<span id="3821">3821</span>
+<span id="3822">3822</span>
+<span id="3823">3823</span>
+<span id="3824">3824</span>
+<span id="3825">3825</span>
+<span id="3826">3826</span>
+<span id="3827">3827</span>
+<span id="3828">3828</span>
+<span id="3829">3829</span>
+<span id="3830">3830</span>
+<span id="3831">3831</span>
+<span id="3832">3832</span>
+<span id="3833">3833</span>
+<span id="3834">3834</span>
+<span id="3835">3835</span>
+<span id="3836">3836</span>
+<span id="3837">3837</span>
+<span id="3838">3838</span>
+<span id="3839">3839</span>
+<span id="3840">3840</span>
+<span id="3841">3841</span>
+<span id="3842">3842</span>
+<span id="3843">3843</span>
+<span id="3844">3844</span>
+<span id="3845">3845</span>
+<span id="3846">3846</span>
+<span id="3847">3847</span>
+<span id="3848">3848</span>
+<span id="3849">3849</span>
+<span id="3850">3850</span>
+<span id="3851">3851</span>
+<span id="3852">3852</span>
+<span id="3853">3853</span>
+<span id="3854">3854</span>
+<span id="3855">3855</span>
+<span id="3856">3856</span>
+<span id="3857">3857</span>
+<span id="3858">3858</span>
+<span id="3859">3859</span>
+<span id="3860">3860</span>
+<span id="3861">3861</span>
+<span id="3862">3862</span>
+<span id="3863">3863</span>
+<span id="3864">3864</span>
+<span id="3865">3865</span>
+<span id="3866">3866</span>
+<span id="3867">3867</span>
+<span id="3868">3868</span>
+<span id="3869">3869</span>
+<span id="3870">3870</span>
+<span id="3871">3871</span>
+<span id="3872">3872</span>
+<span id="3873">3873</span>
+<span id="3874">3874</span>
+<span id="3875">3875</span>
+<span id="3876">3876</span>
+<span id="3877">3877</span>
+<span id="3878">3878</span>
+<span id="3879">3879</span>
+<span id="3880">3880</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
@@ -3826,6 +3915,95 @@
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>;
 
 <span class="ident">glib</span>::<span class="macro">wrapper</span><span class="macro">!</span> {
+    <span class="doccomment">/// The `Entry` widget is a single line text entry</span>
+    <span class="doccomment">/// widget. A fairly large set of key bindings are supported</span>
+    <span class="doccomment">/// by default. If the entered text is longer than the allocation</span>
+    <span class="doccomment">/// of the widget, the widget will scroll so that the cursor</span>
+    <span class="doccomment">/// position is visible.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// When using an entry for passwords and other sensitive information,</span>
+    <span class="doccomment">/// it can be put into “password mode” using `EntryExt::set_visibility`.</span>
+    <span class="doccomment">/// In this mode, entered text is displayed using a “invisible” character.</span>
+    <span class="doccomment">/// By default, GTK picks the best invisible character that is available</span>
+    <span class="doccomment">/// in the current font, but it can be changed with</span>
+    <span class="doccomment">/// `EntryExt::set_invisible_char`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// `Entry` has the ability to display progress or activity</span>
+    <span class="doccomment">/// information behind the text. To make an entry display such information,</span>
+    <span class="doccomment">/// use `EntryExt::set_progress_fraction` or `EntryExt::set_progress_pulse_step`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Additionally, `Entry` can show icons at either side of the entry. These</span>
+    <span class="doccomment">/// icons can be activatable by clicking, can be set up as drag source and</span>
+    <span class="doccomment">/// can have tooltips. To add an icon, use `EntryExt::set_icon_from_gicon` or</span>
+    <span class="doccomment">/// one of the various other functions that set an icon from an icon name or a</span>
+    <span class="doccomment">/// paintable. To trigger an action when the user clicks an icon,</span>
+    <span class="doccomment">/// connect to the `Entry::icon-press` signal. To allow DND operations</span>
+    <span class="doccomment">/// from an icon, use `EntryExt::set_icon_drag_source`. To set a tooltip on</span>
+    <span class="doccomment">/// an icon, use `EntryExt::set_icon_tooltip_text` or the corresponding function</span>
+    <span class="doccomment">/// for markup.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note that functionality or information that is only available by clicking</span>
+    <span class="doccomment">/// on an icon in an entry may not be accessible at all to users which are not</span>
+    <span class="doccomment">/// able to use a mouse or other pointing device. It is therefore recommended</span>
+    <span class="doccomment">/// that any such functionality should also be available by other means, e.g.</span>
+    <span class="doccomment">/// via the context menu of the entry.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # CSS nodes</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```plain</span>
+    <span class="doccomment">/// entry[.flat][.warning][.error]</span>
+    <span class="doccomment">/// ├── text[.readonly]</span>
+    <span class="doccomment">/// ├── image.left</span>
+    <span class="doccomment">/// ├── image.right</span>
+    <span class="doccomment">/// ╰── [progress[.pulse]]</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// `Entry` has a main node with the name entry. Depending on the properties</span>
+    <span class="doccomment">/// of the entry, the style classes .read-only and .flat may appear. The style</span>
+    <span class="doccomment">/// classes .warning and .error may also be used with entries.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// When the entry shows icons, it adds subnodes with the name image and the</span>
+    <span class="doccomment">/// style class .left or .right, depending on where the icon appears.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// When the entry shows progress, it adds a subnode with the name progress.</span>
+    <span class="doccomment">/// The node has the style class .pulse when the shown progress is pulsing.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// For all the subnodes added to the text node in various situations,</span>
+    <span class="doccomment">/// see `Text`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # `Entry` as `Buildable`</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The `Entry` implementation of the `Buildable` interface supports a</span>
+    <span class="doccomment">/// custom `&lt;attributes&gt;` element, which supports any number of `&lt;attribute&gt;`</span>
+    <span class="doccomment">/// elements. The `&lt;attribute&gt;` element has attributes named “name“, “value“,</span>
+    <span class="doccomment">/// “start“ and “end“ and allows you to specify `pango::Attribute` values for</span>
+    <span class="doccomment">/// this label.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// An example of a UI definition fragment specifying Pango attributes:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```text</span>
+    <span class="doccomment">/// &lt;object class=&quot;GtkEnry&quot;&gt;</span>
+    <span class="doccomment">///   &lt;attributes&gt;</span>
+    <span class="doccomment">///     &lt;attribute name=&quot;weight&quot; value=&quot;PANGO_WEIGHT_BOLD&quot;/&gt;</span>
+    <span class="doccomment">///     &lt;attribute name=&quot;background&quot; value=&quot;red&quot; start=&quot;5&quot; end=&quot;10&quot;/&gt;</span>
+    <span class="doccomment">///   &lt;/attributes&gt;</span>
+    <span class="doccomment">/// &lt;/object&gt;</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The start and end attributes specify the range of characters to which the</span>
+    <span class="doccomment">/// Pango attribute applies. If start and end are not specified, the attribute is</span>
+    <span class="doccomment">/// applied to the whole text. Note that specifying ranges does not make much</span>
+    <span class="doccomment">/// sense with translatable attributes. Use markup embedded in the translatable</span>
+    <span class="doccomment">/// content instead.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Accessibility</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// `Entry` uses the `AccessibleRole::TextBox` role.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Implements</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// [`EntryExt`](trait.EntryExt.html), [`WidgetExt`](trait.WidgetExt.html), [`glib::object::ObjectExt`](../glib/object/trait.ObjectExt.html), [`AccessibleExt`](trait.AccessibleExt.html), [`BuildableExt`](trait.BuildableExt.html), [`ConstraintTargetExt`](trait.ConstraintTargetExt.html), [`CellEditableExt`](trait.CellEditableExt.html), [`EditableExt`](trait.EditableExt.html), [`EntryExtManual`](prelude/trait.EntryExtManual.html), [`WidgetExtManual`](prelude/trait.WidgetExtManual.html), [`CellEditableExtManual`](prelude/trait.CellEditableExtManual.html), [`EditableExtManual`](prelude/trait.EditableExtManual.html)</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Entry</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi</span>::<span class="ident">GtkEntry</span>, <span class="ident">ffi</span>::<span class="ident">GtkEntryClass</span><span class="op">&gt;</span>) @<span class="ident">extends</span> <span class="ident">Widget</span>, @<span class="ident">implements</span> <span class="ident">Accessible</span>, <span class="ident">Buildable</span>, <span class="ident">ConstraintTarget</span>, <span class="ident">CellEditable</span>, <span class="ident">Editable</span>;
 
     <span class="kw">match</span> <span class="kw">fn</span> {
@@ -6490,7 +6668,7 @@
     <span class="kw">fn</span> <span class="ident">emit_activate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="kw">unsafe</span> {
             <span class="ident">glib</span>::<span class="ident">Object</span>::<span class="ident">from_glib_borrow</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">glib</span>::<span class="ident">gobject_ffi</span>::<span class="ident">GObject</span>)
-                .<span class="ident">emit</span>(<span class="string">&quot;activate&quot;</span>, <span class="kw-2">&amp;</span>[])
+                .<span class="ident">emit_by_name</span>(<span class="string">&quot;activate&quot;</span>, <span class="kw-2">&amp;</span>[])
                 .<span class="ident">unwrap</span>()
         };
     }
@@ -7585,4 +7763,5 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "gtk4";</script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-js="../../../search-index.js"></div>
+    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>

@@ -1,7 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/media_stream.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>media_stream.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/media_stream.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>media_stream.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -965,6 +965,15 @@
 <span id="962">962</span>
 <span id="963">963</span>
 <span id="964">964</span>
+<span id="965">965</span>
+<span id="966">966</span>
+<span id="967">967</span>
+<span id="968">968</span>
+<span id="969">969</span>
+<span id="970">970</span>
+<span id="971">971</span>
+<span id="972">972</span>
+<span id="973">973</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files)</span>
@@ -981,6 +990,29 @@
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">transmute</span>;
 
 <span class="ident">glib</span>::<span class="macro">wrapper</span><span class="macro">!</span> {
+    <span class="doccomment">/// `MediaStream` is the integration point for media playback inside GTK.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// GTK provides an implementation of the `MediaStream` interface that</span>
+    <span class="doccomment">/// is called `MediaFile`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Apart from application-facing API for stream playback, `MediaStream`</span>
+    <span class="doccomment">/// has a number of APIs that are only useful for implementations and should</span>
+    <span class="doccomment">/// not be used in applications:</span>
+    <span class="doccomment">/// `MediaStreamExt::prepared`,</span>
+    <span class="doccomment">/// `MediaStreamExt::unprepared`,</span>
+    <span class="doccomment">/// `MediaStreamExt::update`,</span>
+    <span class="doccomment">/// `MediaStreamExt::ended`,</span>
+    <span class="doccomment">/// `MediaStreamExt::seek_success`,</span>
+    <span class="doccomment">/// `MediaStreamExt::seek_failed`,</span>
+    <span class="doccomment">/// `MediaStream::gerror`,</span>
+    <span class="doccomment">/// `MediaStreamExt::error`,</span>
+    <span class="doccomment">/// `MediaStreamExt::error_valist`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is an Abstract Base Class, you cannot instantiate it.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Implements</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// [`MediaStreamExt`](trait.MediaStreamExt.html), [`glib::object::ObjectExt`](../glib/object/trait.ObjectExt.html), [`gdk::PaintableExt`](../gdk/trait.PaintableExt.html)</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">MediaStream</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi</span>::<span class="ident">GtkMediaStream</span>, <span class="ident">ffi</span>::<span class="ident">GtkMediaStreamClass</span><span class="op">&gt;</span>) @<span class="ident">implements</span> <span class="ident">gdk</span>::<span class="ident">Paintable</span>;
 
     <span class="kw">match</span> <span class="kw">fn</span> {
@@ -1000,12 +1032,6 @@
     <span class="doccomment">/// to `MediaStream`.`play` may still happen.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_media_stream_ended&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">ended</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
-
-    <span class="comment">//#[doc(alias = &quot;gtk_media_stream_error&quot;)]</span>
-    <span class="comment">//fn error(&amp;self, domain: glib::Quark, code: i32, format: &amp;str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs);</span>
-
-    <span class="comment">//#[doc(alias = &quot;gtk_media_stream_error_valist&quot;)]</span>
-    <span class="comment">//fn error_valist(&amp;self, domain: glib::Quark, code: i32, format: &amp;str, args: /*Unknown conversion*//*Unimplemented*/Unsupported);</span>
 
     <span class="doccomment">/// Gets the duration of the stream. If the duration is not known,</span>
     <span class="doccomment">/// 0 will be returned.</span>
@@ -1333,14 +1359,6 @@
             <span class="ident">ffi</span>::<span class="ident">gtk_media_stream_ended</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
         }
     }
-
-    <span class="comment">//fn error(&amp;self, domain: glib::Quark, code: i32, format: &amp;str, : /*Unknown conversion*//*Unimplemented*/Fundamental: VarArgs) {</span>
-    <span class="comment">//    unsafe { TODO: call ffi:gtk_media_stream_error() }</span>
-    <span class="comment">//}</span>
-
-    <span class="comment">//fn error_valist(&amp;self, domain: glib::Quark, code: i32, format: &amp;str, args: /*Unknown conversion*//*Unimplemented*/Unsupported) {</span>
-    <span class="comment">//    unsafe { TODO: call ffi:gtk_media_stream_error_valist() }</span>
-    <span class="comment">//}</span>
 
     <span class="kw">fn</span> <span class="ident">get_duration</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i64</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi</span>::<span class="ident">gtk_media_stream_get_duration</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
@@ -1931,4 +1949,5 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "gtk4";</script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-js="../../../search-index.js"></div>
+    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>
