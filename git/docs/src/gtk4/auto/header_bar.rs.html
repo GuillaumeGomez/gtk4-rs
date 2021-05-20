@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/header_bar.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>header_bar.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button">?</button>
+                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -634,7 +634,42 @@
 <span id="631">631</span>
 <span id="632">632</span>
 <span id="633">633</span>
-</pre><div class="example-wrap"><pre class="rust ">
+<span id="634">634</span>
+<span id="635">635</span>
+<span id="636">636</span>
+<span id="637">637</span>
+<span id="638">638</span>
+<span id="639">639</span>
+<span id="640">640</span>
+<span id="641">641</span>
+<span id="642">642</span>
+<span id="643">643</span>
+<span id="644">644</span>
+<span id="645">645</span>
+<span id="646">646</span>
+<span id="647">647</span>
+<span id="648">648</span>
+<span id="649">649</span>
+<span id="650">650</span>
+<span id="651">651</span>
+<span id="652">652</span>
+<span id="653">653</span>
+<span id="654">654</span>
+<span id="655">655</span>
+<span id="656">656</span>
+<span id="657">657</span>
+<span id="658">658</span>
+<span id="659">659</span>
+<span id="660">660</span>
+<span id="661">661</span>
+<span id="662">662</span>
+<span id="663">663</span>
+<span id="664">664</span>
+<span id="665">665</span>
+<span id="666">666</span>
+<span id="667">667</span>
+<span id="668">668</span>
+</pre><pre class="rust">
 <span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files.git)</span>
 <span class="comment">// DO NOT EDIT</span>
@@ -660,84 +695,108 @@
 <span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
 
 <span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// `HeaderBar` is similar to a horizontal `Box`. It allows children to</span>
-    <span class="doccomment">/// be placed at the start or the end. In addition, it allows the window</span>
-    <span class="doccomment">/// title to be displayed. The title will be centered with respect to the</span>
-    <span class="doccomment">/// width of the box, even if the children at either side take up different</span>
-    <span class="doccomment">/// amounts of space.</span>
+    <span class="doccomment">/// `GtkHeaderBar` is a widget for creating custom title bars for windows.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `HeaderBar` can add typical window frame controls, such as minimize,</span>
+    <span class="doccomment">/// ![An example `HeaderBar`](headerbar.png)</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// `GtkHeaderBar` is similar to a horizontal `GtkCenterBox`. It allows</span>
+    <span class="doccomment">/// children to be placed at the start or the end. In addition, it allows</span>
+    <span class="doccomment">/// the window title to be displayed. The title will be centered with respect</span>
+    <span class="doccomment">/// to the width of the box, even if the children at either side take up</span>
+    <span class="doccomment">/// different amounts of space.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// `GtkHeaderBar` can add typical window frame controls, such as minimize,</span>
     <span class="doccomment">/// maximize and close buttons, or the window icon.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// For these reasons, `HeaderBar` is the natural choice for use as the custom</span>
-    <span class="doccomment">/// titlebar widget of a `Window` (see `GtkWindowExt::set_titlebar`), as it gives</span>
-    <span class="doccomment">/// features typical of titlebars while allowing the addition of child widgets.</span>
+    <span class="doccomment">/// For these reasons, `GtkHeaderBar` is the natural choice for use as the</span>
+    <span class="doccomment">/// custom titlebar widget of a `GtkWindow (see [method@Gtk.Window.set_titlebar]),</span>
+    <span class="doccomment">/// as it gives features typical of titlebars while allowing the addition of</span>
+    <span class="doccomment">/// child widgets.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The `HeaderBar` implementation of the `Buildable` interface supports</span>
+    <span class="doccomment">/// ## GtkHeaderBar as GtkBuildable</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The ``HeaderBar`` implementation of the ``Buildable`` interface supports</span>
     <span class="doccomment">/// adding children at the start or end sides by specifying “start” or “end” as</span>
-    <span class="doccomment">/// the “type” attribute of a `&lt;child&gt;` element, or setting the title widget by</span>
+    <span class="doccomment">/// the “type” attribute of a &lt;child&gt; element, or setting the title widget by</span>
     <span class="doccomment">/// specifying “title” value.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// By default the `HeaderBar` uses a `Label` displaying the title of the</span>
+    <span class="doccomment">/// By default the ``HeaderBar`` uses a ``Label`` displaying the title of the</span>
     <span class="doccomment">/// window it is contained in as the title widget, equivalent to the following</span>
     <span class="doccomment">/// UI definition:</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```plain</span>
-    <span class="doccomment">/// headerbar</span>
-    <span class="doccomment">/// ╰── windowhandle</span>
-    <span class="doccomment">///     ╰── box</span>
-    <span class="doccomment">///         ├── box.start</span>
-    <span class="doccomment">///         │   ├── windowcontrols.start</span>
-    <span class="doccomment">///         │   ╰── [other children]</span>
-    <span class="doccomment">///         ├── [Title Widget]</span>
-    <span class="doccomment">///         ╰── box.end</span>
-    <span class="doccomment">///             ├── [other children]</span>
-    <span class="doccomment">///             ╰── windowcontrols.end</span>
+    <span class="doccomment">/// ```xml</span>
+    <span class="doccomment">/// &lt;object class=&quot;`HeaderBar`&quot;&gt;</span>
+    <span class="doccomment">///  &lt;property name=&quot;title-widget&quot;&gt;</span>
+    <span class="doccomment">///  &lt;object class=&quot;`Label`&quot;&gt;</span>
+    <span class="doccomment">///  &lt;property name=&quot;label&quot; translatable=&quot;yes&quot;&gt;Label`&lt;/property&gt;`</span>
+    <span class="doccomment">///  &lt;property name=&quot;single-line-mode&quot;&gt;True`&lt;/property&gt;`</span>
+    <span class="doccomment">///  &lt;property name=&quot;ellipsize&quot;&gt;end`&lt;/property&gt;`</span>
+    <span class="doccomment">///  &lt;property name=&quot;width-chars&quot;&gt;5`&lt;/property&gt;`</span>
+    <span class="doccomment">///  `&lt;style&gt;`</span>
+    <span class="doccomment">///  &lt;class name=&quot;title&quot;/&gt;</span>
+    <span class="doccomment">///  `&lt;/style&gt;`</span>
+    <span class="doccomment">///  `&lt;/object&gt;`</span>
+    <span class="doccomment">///  `&lt;/property&gt;`</span>
+    <span class="doccomment">/// `&lt;/object&gt;`</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// A `HeaderBar`&#39;s CSS node is called `headerbar`. It contains a `windowhandle`</span>
+    <span class="doccomment">/// # CSS nodes</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">/// headerbar</span>
+    <span class="doccomment">/// ╰── windowhandle</span>
+    <span class="doccomment">///  ╰── box</span>
+    <span class="doccomment">///  ├── box.start</span>
+    <span class="doccomment">///  │ ├── windowcontrols.start</span>
+    <span class="doccomment">///  │ ╰── [other children]</span>
+    <span class="doccomment">///  ├── [Title Widget]</span>
+    <span class="doccomment">///  ╰── box.end</span>
+    <span class="doccomment">///  ├── [other children]</span>
+    <span class="doccomment">///  ╰── windowcontrols.end</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// A ``HeaderBar``&#39;s CSS node is called `headerbar`. It contains a `windowhandle`</span>
     <span class="doccomment">/// subnode, which contains a `box` subnode, which contains two `box` subnodes at</span>
     <span class="doccomment">/// the start and end of the header bar, as well as a center node that represents</span>
     <span class="doccomment">/// the title.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Each of the boxes contains a `windowcontrols` subnode, see `WindowControls`</span>
-    <span class="doccomment">/// for details, as well as other children.</span>
+    <span class="doccomment">/// Each of the boxes contains a `windowcontrols` subnode, see</span>
+    <span class="doccomment">/// [class@Gtk.WindowControls] for details, as well as other children.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Accessibility</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `HeaderBar` uses the `AccessibleRole::Group` role.</span>
+    <span class="doccomment">/// ``HeaderBar`` uses the %GTK_ACCESSIBLE_ROLE_GROUP role.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Implements</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`WidgetExt`](trait.WidgetExt.html), [`glib::object::ObjectExt`](../glib/object/trait.ObjectExt.html), [`AccessibleExt`](trait.AccessibleExt.html), [`BuildableExt`](trait.BuildableExt.html), [`ConstraintTargetExt`](trait.ConstraintTargetExt.html), [`WidgetExtManual`](prelude/trait.WidgetExtManual.html)</span>
+    <span class="doccomment">/// [`trait@crate::prelude::WidgetExt`], [`trait@glib::object::ObjectExt`], [`trait@crate::prelude::AccessibleExt`], [`trait@crate::prelude::BuildableExt`], [`trait@crate::prelude::ConstraintTargetExt`], [`trait@crate::prelude::WidgetExtManual`], [`trait@crate::prelude::AccessibleExtManual`]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">HeaderBar</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GtkHeaderBar</span><span class="op">&gt;</span>) @<span class="ident">extends</span> <span class="ident">Widget</span>, @<span class="ident">implements</span> <span class="ident">Accessible</span>, <span class="ident">Buildable</span>, <span class="ident">ConstraintTarget</span>;
 
     <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">get_type</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_header_bar_get_type</span>(),
+        <span class="ident">type_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_header_bar_get_type</span>(),
     }
 }
 
 <span class="kw">impl</span> <span class="ident">HeaderBar</span> {
-    <span class="doccomment">/// Creates a new `HeaderBar` widget.</span>
+    <span class="doccomment">/// Creates a new `GtkHeaderBar` widget.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// a new `HeaderBar`</span>
+    <span class="doccomment">/// a new `GtkHeaderBar`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_header_bar_new&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">HeaderBar</span> {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe</span> { <span class="ident">Widget::from_glib_none</span>(<span class="ident">ffi::gtk_header_bar_new</span>()).<span class="ident">unsafe_cast</span>() }
     }
 
-    <span class="doccomment">/// Gets the decoration layout set with</span>
-    <span class="doccomment">/// `HeaderBar::set_decoration_layout`.</span>
+    <span class="doccomment">/// Gets the decoration layout of the `GtkHeaderBar`.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the decoration layout</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_header_bar_get_decoration_layout&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_decoration_layout</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_decoration_layout&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">decoration_layout</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_header_bar_get_decoration_layout</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -750,9 +809,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `true` if title buttons are shown</span>
+    <span class="doccomment">/// [`true`] if title buttons are shown</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_header_bar_get_show_title_buttons&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_show_title_buttons</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_show_title_buttons&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">shows_title_buttons</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_header_bar_get_show_title_buttons</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -760,22 +820,24 @@
         }
     }
 
-    <span class="doccomment">/// Retrieves the title widget of the header. See</span>
-    <span class="doccomment">/// `HeaderBar::set_title_widget`.</span>
+    <span class="doccomment">/// Retrieves the title widget of the header.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// See [method`Gtk.HeaderBar`.set_title_widget].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the title widget</span>
-    <span class="doccomment">///  of the header, or `None` if none has been set explicitly.</span>
+    <span class="doccomment">///  of the header, or [`None`] if none has been set explicitly.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_header_bar_get_title_widget&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_title_widget</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_title_widget&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">title_widget</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_header_bar_get_title_widget</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Adds `child` to `self`, packed with reference to the</span>
     <span class="doccomment">/// end of the `self`.</span>
     <span class="doccomment">/// ## `child`</span>
-    <span class="doccomment">/// the `Widget` to be added to `self`</span>
+    <span class="doccomment">/// the [`crate::Widget`] to be added to `self`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_header_bar_pack_end&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pack_end</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">child</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>) {
         <span class="kw">unsafe</span> {
@@ -786,7 +848,7 @@
     <span class="doccomment">/// Adds `child` to `self`, packed with reference to the</span>
     <span class="doccomment">/// start of the `self`.</span>
     <span class="doccomment">/// ## `child`</span>
-    <span class="doccomment">/// the `Widget` to be added to `self`</span>
+    <span class="doccomment">/// the [`crate::Widget`] to be added to `self`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_header_bar_pack_start&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pack_start</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">child</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>) {
         <span class="kw">unsafe</span> {
@@ -794,9 +856,12 @@
         }
     }
 
-    <span class="doccomment">/// Removes a child from `self`, after it has been added</span>
-    <span class="doccomment">/// with `HeaderBar::pack_start`, `HeaderBar::pack_end`</span>
-    <span class="doccomment">/// or `HeaderBar::set_title_widget`.</span>
+    <span class="doccomment">/// Removes a child from the `GtkHeaderBar`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The child must have been added with</span>
+    <span class="doccomment">/// [method`Gtk.HeaderBar`.pack_start],</span>
+    <span class="doccomment">/// [method`Gtk.HeaderBar`.pack_end] or</span>
+    <span class="doccomment">/// [method`Gtk.HeaderBar`.set_title_widget].</span>
     <span class="doccomment">/// ## `child`</span>
     <span class="doccomment">/// the child to remove</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_header_bar_remove&quot;</span>)]</span>
@@ -806,14 +871,15 @@
         }
     }
 
-    <span class="doccomment">/// Sets the decoration layout for this header bar, overriding</span>
-    <span class="doccomment">/// the `Settings:gtk-decoration-layout` setting.</span>
+    <span class="doccomment">/// Sets the decoration layout for this header bar.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This property overrides the</span>
+    <span class="doccomment">/// [property`Gtk.Settings`:gtk-decoration-layout] setting.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// There can be valid reasons for overriding the setting, such</span>
     <span class="doccomment">/// as a header bar design that does not allow for buttons to take</span>
     <span class="doccomment">/// room on the right, or only offers room for a single close button.</span>
-    <span class="doccomment">/// Split header bars are another example for overriding the</span>
-    <span class="doccomment">/// setting.</span>
+    <span class="doccomment">/// Split header bars are another example for overriding the setting.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The format of the string is button names, separated by commas.</span>
     <span class="doccomment">/// A colon separates the buttons that should appear on the left</span>
@@ -823,7 +889,7 @@
     <span class="doccomment">/// For example, “icon:minimize,maximize,close” specifies a icon</span>
     <span class="doccomment">/// on the left, and minimize, maximize and close buttons on the right.</span>
     <span class="doccomment">/// ## `layout`</span>
-    <span class="doccomment">/// a decoration layout, or `None` to</span>
+    <span class="doccomment">/// a decoration layout, or [`None`] to</span>
     <span class="doccomment">///  unset the layout</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_header_bar_set_decoration_layout&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_decoration_layout</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">layout</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) {
@@ -836,26 +902,27 @@
     }
 
     <span class="doccomment">/// Sets whether this header bar shows the standard window</span>
-    <span class="doccomment">/// title buttons including close, maximize, and minimize.</span>
+    <span class="doccomment">/// title buttons.</span>
     <span class="doccomment">/// ## `setting`</span>
-    <span class="doccomment">/// `true` to show standard title buttons</span>
+    <span class="doccomment">/// [`true`] to show standard title buttons</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_header_bar_set_show_title_buttons&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_show_title_buttons</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">setting</span>: <span class="ident">bool</span>) {
         <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_header_bar_set_show_title_buttons</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">setting</span>.<span class="ident">to_glib</span>());
+            <span class="ident">ffi::gtk_header_bar_set_show_title_buttons</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">setting</span>.<span class="ident">into_glib</span>());
         }
     }
 
-    <span class="doccomment">/// Sets the title for the `HeaderBar`.</span>
+    <span class="doccomment">/// Sets the title for the `GtkHeaderBar`.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// When set to `None`, the headerbar will display the title of the window it is</span>
-    <span class="doccomment">/// contained in.</span>
+    <span class="doccomment">/// When set to [`None`], the headerbar will display the title of</span>
+    <span class="doccomment">/// the window it is contained in.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The title should help a user identify the current view. To achieve the same</span>
-    <span class="doccomment">/// style as the builtin title, use the “title” style class.</span>
+    <span class="doccomment">/// The title should help a user identify the current view.</span>
+    <span class="doccomment">/// To achieve the same style as the builtin title, use the</span>
+    <span class="doccomment">/// “title” style class.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// You should set the title widget to `None`, for the window title label to be</span>
-    <span class="doccomment">/// visible again.</span>
+    <span class="doccomment">/// You should set the title widget to [`None`], for the window</span>
+    <span class="doccomment">/// title label to be visible again.</span>
     <span class="doccomment">/// ## `title_widget`</span>
     <span class="doccomment">/// a widget to use for a title</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_header_bar_set_title_widget&quot;</span>)]</span>
@@ -868,7 +935,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_decoration_layout_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">HeaderBar</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;decoration-layout&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_decoration_layout_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">HeaderBar</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">f</span>: <span class="ident">F</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
@@ -893,7 +961,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_show_title_buttons_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">HeaderBar</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;show-title-buttons&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_show_title_buttons_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">HeaderBar</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">f</span>: <span class="ident">F</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
@@ -918,7 +987,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_title_widget_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">HeaderBar</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;title-widget&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_title_widget_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">HeaderBar</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">f</span>: <span class="ident">F</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
@@ -1093,8 +1163,8 @@
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">accessible_role</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">accessible_role</span> {
             <span class="ident">properties</span>.<span class="ident">push</span>((<span class="string">&quot;accessible-role&quot;</span>, <span class="ident">accessible_role</span>));
         }
-        <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">glib::Object::new</span>::<span class="op">&lt;</span><span class="ident">HeaderBar</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="ident">properties</span>).<span class="ident">expect</span>(<span class="string">&quot;object new&quot;</span>);
-        <span class="ident">ret</span>
+        <span class="ident">glib::Object::new</span>::<span class="op">&lt;</span><span class="ident">HeaderBar</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="ident">properties</span>)
+            .<span class="ident">expect</span>(<span class="string">&quot;Failed to create an instance of HeaderBar&quot;</span>)
     }
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">decoration_layout</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">decoration_layout</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
@@ -1269,5 +1339,5 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-js="../../../search-index.js"></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
     <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/list_view.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>list_view.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button">?</button>
+                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -787,7 +787,68 @@
 <span id="784">784</span>
 <span id="785">785</span>
 <span id="786">786</span>
-</pre><div class="example-wrap"><pre class="rust ">
+<span id="787">787</span>
+<span id="788">788</span>
+<span id="789">789</span>
+<span id="790">790</span>
+<span id="791">791</span>
+<span id="792">792</span>
+<span id="793">793</span>
+<span id="794">794</span>
+<span id="795">795</span>
+<span id="796">796</span>
+<span id="797">797</span>
+<span id="798">798</span>
+<span id="799">799</span>
+<span id="800">800</span>
+<span id="801">801</span>
+<span id="802">802</span>
+<span id="803">803</span>
+<span id="804">804</span>
+<span id="805">805</span>
+<span id="806">806</span>
+<span id="807">807</span>
+<span id="808">808</span>
+<span id="809">809</span>
+<span id="810">810</span>
+<span id="811">811</span>
+<span id="812">812</span>
+<span id="813">813</span>
+<span id="814">814</span>
+<span id="815">815</span>
+<span id="816">816</span>
+<span id="817">817</span>
+<span id="818">818</span>
+<span id="819">819</span>
+<span id="820">820</span>
+<span id="821">821</span>
+<span id="822">822</span>
+<span id="823">823</span>
+<span id="824">824</span>
+<span id="825">825</span>
+<span id="826">826</span>
+<span id="827">827</span>
+<span id="828">828</span>
+<span id="829">829</span>
+<span id="830">830</span>
+<span id="831">831</span>
+<span id="832">832</span>
+<span id="833">833</span>
+<span id="834">834</span>
+<span id="835">835</span>
+<span id="836">836</span>
+<span id="837">837</span>
+<span id="838">838</span>
+<span id="839">839</span>
+<span id="840">840</span>
+<span id="841">841</span>
+<span id="842">842</span>
+<span id="843">843</span>
+<span id="844">844</span>
+<span id="845">845</span>
+<span id="846">846</span>
+<span id="847">847</span>
+</pre><pre class="rust">
 <span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files.git)</span>
 <span class="comment">// DO NOT EDIT</span>
@@ -821,25 +882,79 @@
 <span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
 
 <span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// `ListView` is a widget to present a view into a large dynamic list of items.</span>
+    <span class="doccomment">/// `GtkListView` presents a large dynamic list of items.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `ListView` uses its factory to generate one row widget for each visible item</span>
-    <span class="doccomment">/// and shows them in a linear display, either vertically or horizontally. The</span>
-    <span class="doccomment">/// `ListView:show-separators` property offers a simple way to display separators</span>
-    <span class="doccomment">/// between the rows.</span>
+    <span class="doccomment">/// `GtkListView` uses its factory to generate one row widget for each visible</span>
+    <span class="doccomment">/// item and shows them in a linear display, either vertically or horizontally.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `ListView` allows the user to select items according to the selection</span>
+    <span class="doccomment">/// The [property`Gtk.ListView`:show-separators] property offers a simple way to</span>
+    <span class="doccomment">/// display separators between the rows.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// `GtkListView` allows the user to select items according to the selection</span>
     <span class="doccomment">/// characteristics of the model. For models that allow multiple selected items,</span>
     <span class="doccomment">/// it is possible to turn on _rubberband selection_, using</span>
-    <span class="doccomment">/// `ListView:enable-rubberband`.</span>
+    <span class="doccomment">/// [property`Gtk.ListView`:enable-rubberband].</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If you need multiple columns with headers, see `ColumnView`.</span>
+    <span class="doccomment">/// If you need multiple columns with headers, see [class`Gtk.ColumnView`].</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// To learn more about the list widget framework, see the [overview](`ListWidget`).</span>
+    <span class="doccomment">/// To learn more about the list widget framework, see the</span>
+    <span class="doccomment">/// [overview](section-list-widget.html).</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// An example of using `ListView`:</span>
+    <span class="doccomment">/// An example of using `GtkListView`:</span>
+    <span class="doccomment">/// ```c</span>
+    <span class="doccomment">/// static void</span>
+    <span class="doccomment">/// setup_listitem_cb (GtkListItemFactory *factory,</span>
+    <span class="doccomment">///                    GtkListItem        *list_item)</span>
+    <span class="doccomment">/// {</span>
+    <span class="doccomment">///   GtkWidget *image;</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```plain</span>
+    <span class="doccomment">///   image = gtk_image_new ();</span>
+    <span class="doccomment">///   gtk_image_set_icon_size (GTK_IMAGE (image), GTK_ICON_SIZE_LARGE);</span>
+    <span class="doccomment">///   gtk_list_item_set_child (list_item, image);</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// static void</span>
+    <span class="doccomment">/// bind_listitem_cb (GtkListItemFactory *factory,</span>
+    <span class="doccomment">///                   GtkListItem        *list_item)</span>
+    <span class="doccomment">/// {</span>
+    <span class="doccomment">///   GtkWidget *image;</span>
+    <span class="doccomment">///   GAppInfo *app_info;</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   image = gtk_list_item_get_child (list_item);</span>
+    <span class="doccomment">///   app_info = gtk_list_item_get_item (list_item);</span>
+    <span class="doccomment">///   gtk_image_set_from_gicon (GTK_IMAGE (image), g_app_info_get_icon (app_info));</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// static void</span>
+    <span class="doccomment">/// activate_cb (GtkListView  *list,</span>
+    <span class="doccomment">///              guint         position,</span>
+    <span class="doccomment">///              gpointer      unused)</span>
+    <span class="doccomment">/// {</span>
+    <span class="doccomment">///   GAppInfo *app_info;</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   app_info = g_list_model_get_item (G_LIST_MODEL (gtk_list_view_get_model (list)), position);</span>
+    <span class="doccomment">///   g_app_info_launch (app_info, NULL, NULL, NULL);</span>
+    <span class="doccomment">///   g_object_unref (app_info);</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ...</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   model = create_application_list ();</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   factory = gtk_signal_list_item_factory_new ();</span>
+    <span class="doccomment">///   g_signal_connect (factory, &quot;setup&quot;, G_CALLBACK (setup_listitem_cb), NULL);</span>
+    <span class="doccomment">///   g_signal_connect (factory, &quot;bind&quot;, G_CALLBACK (bind_listitem_cb), NULL);</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   list = gtk_list_view_new (GTK_SELECTION_MODEL (gtk_single_selection_new (model)), factory);</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   g_signal_connect (list, &quot;activate&quot;, G_CALLBACK (activate_cb), NULL);</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   gtk_scrolled_window_set_child (GTK_SCROLLED_WINDOW (sw), list);</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # CSS nodes</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// listview[.separators][.rich-list][.navigation-sidebar][.data-table]</span>
     <span class="doccomment">/// ├── row</span>
     <span class="doccomment">/// │</span>
@@ -847,11 +962,10 @@
     <span class="doccomment">/// │</span>
     <span class="doccomment">/// ┊</span>
     <span class="doccomment">/// ╰── [rubberband]</span>
-    <span class="doccomment">///</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `ListView` uses a single CSS node named listview. It may carry the</span>
-    <span class="doccomment">/// .separators style class, when `ListView:show-separators` property</span>
+    <span class="doccomment">/// `GtkListView` uses a single CSS node named listview. It may carry the</span>
+    <span class="doccomment">/// .separators style class, when `GtkListView`:show-separators property</span>
     <span class="doccomment">/// is set. Each child widget uses a single CSS node named row. For</span>
     <span class="doccomment">/// rubberband selection, a node with name rubberband is used.</span>
     <span class="doccomment">///</span>
@@ -861,37 +975,37 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Accessibility</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `ListView` uses the `AccessibleRole::List` role, and the list</span>
-    <span class="doccomment">/// items use the `AccessibleRole::ListItem` role.</span>
+    <span class="doccomment">/// `GtkListView` uses the [`crate::AccessibleRole::List`] role, and the list</span>
+    <span class="doccomment">/// items use the [`crate::AccessibleRole::ListItem`] role.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Implements</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ListBaseExt`](trait.ListBaseExt.html), [`WidgetExt`](trait.WidgetExt.html), [`glib::object::ObjectExt`](../glib/object/trait.ObjectExt.html), [`AccessibleExt`](trait.AccessibleExt.html), [`BuildableExt`](trait.BuildableExt.html), [`ConstraintTargetExt`](trait.ConstraintTargetExt.html), [`OrientableExt`](trait.OrientableExt.html), [`ScrollableExt`](trait.ScrollableExt.html), [`WidgetExtManual`](prelude/trait.WidgetExtManual.html)</span>
+    <span class="doccomment">/// [`trait@crate::prelude::ListBaseExt`], [`trait@crate::prelude::WidgetExt`], [`trait@glib::object::ObjectExt`], [`trait@crate::prelude::AccessibleExt`], [`trait@crate::prelude::BuildableExt`], [`trait@crate::prelude::ConstraintTargetExt`], [`trait@crate::prelude::OrientableExt`], [`trait@crate::prelude::ScrollableExt`], [`trait@crate::prelude::WidgetExtManual`], [`trait@crate::prelude::AccessibleExtManual`]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ListView</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GtkListView</span>, <span class="ident">ffi::GtkListViewClass</span><span class="op">&gt;</span>) @<span class="ident">extends</span> <span class="ident">ListBase</span>, <span class="ident">Widget</span>, @<span class="ident">implements</span> <span class="ident">Accessible</span>, <span class="ident">Buildable</span>, <span class="ident">ConstraintTarget</span>, <span class="ident">Orientable</span>, <span class="ident">Scrollable</span>;
 
     <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">get_type</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_list_view_get_type</span>(),
+        <span class="ident">type_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_list_view_get_type</span>(),
     }
 }
 
 <span class="kw">impl</span> <span class="ident">ListView</span> {
-    <span class="doccomment">/// Creates a new `ListView` that uses the given `factory` for</span>
+    <span class="doccomment">/// Creates a new `GtkListView` that uses the given `factory` for</span>
     <span class="doccomment">/// mapping items to widgets.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The function takes ownership of the</span>
     <span class="doccomment">/// arguments, so you can write code like</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///   list_view = gtk_list_view_new (create_model (),</span>
-    <span class="doccomment">///     gtk_builder_list_item_factory_new_from_resource (&quot;/resource.ui&quot;));</span>
+    <span class="doccomment">/// ```c</span>
+    <span class="doccomment">/// list_view = gtk_list_view_new (create_model (),</span>
+    <span class="doccomment">///   gtk_builder_list_item_factory_new_from_resource (&quot;/resource.ui&quot;));</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">/// ## `model`</span>
-    <span class="doccomment">/// the model to use, or `None`</span>
+    <span class="doccomment">/// the model to use, or [`None`]</span>
     <span class="doccomment">/// ## `factory`</span>
-    <span class="doccomment">/// The factory to populate items with, or `None`</span>
+    <span class="doccomment">/// The factory to populate items with, or [`None`]</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// a new `ListView` using the given `model` and `factory`</span>
+    <span class="doccomment">/// a new `GtkListView` using the given `model` and `factory`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_list_view_new&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>, <span class="ident">Q</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ListItemFactory</span><span class="op">&gt;</span><span class="op">&gt;</span>(
         <span class="ident">model</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>,
@@ -911,9 +1025,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `true` if rubberband selection is enabled</span>
+    <span class="doccomment">/// [`true`] if rubberband selection is enabled</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_list_view_get_enable_rubberband&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_enable_rubberband</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_enable_rubberband&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">enables_rubberband</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_list_view_get_enable_rubberband</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -927,7 +1042,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The factory in use</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_list_view_get_factory&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_factory</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">ListItemFactory</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_factory&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">factory</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">ListItemFactory</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_list_view_get_factory</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
@@ -937,7 +1053,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The model in use</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_list_view_get_model&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_model</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_model&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">model</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_list_view_get_model</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
@@ -946,9 +1063,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `true` if the list box shows separators</span>
+    <span class="doccomment">/// [`true`] if the list box shows separators</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_list_view_get_show_separators&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_show_separators</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_show_separators&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">shows_separators</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_list_view_get_show_separators</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -961,9 +1079,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `true` if rows are activated on single click</span>
+    <span class="doccomment">/// [`true`] if rows are activated on single click</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_list_view_get_single_click_activate&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_single_click_activate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_single_click_activate&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_single_click_activate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_list_view_get_single_click_activate</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -973,20 +1092,20 @@
 
     <span class="doccomment">/// Sets whether selections can be changed by dragging with the mouse.</span>
     <span class="doccomment">/// ## `enable_rubberband`</span>
-    <span class="doccomment">/// `true` to enable rubberband selection</span>
+    <span class="doccomment">/// [`true`] to enable rubberband selection</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_list_view_set_enable_rubberband&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_enable_rubberband</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">enable_rubberband</span>: <span class="ident">bool</span>) {
         <span class="kw">unsafe</span> {
             <span class="ident">ffi::gtk_list_view_set_enable_rubberband</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">enable_rubberband</span>.<span class="ident">to_glib</span>(),
+                <span class="ident">enable_rubberband</span>.<span class="ident">into_glib</span>(),
             );
         }
     }
 
-    <span class="doccomment">/// Sets the `ListItemFactory` to use for populating list items.</span>
+    <span class="doccomment">/// Sets the `GtkListItemFactory` to use for populating list items.</span>
     <span class="doccomment">/// ## `factory`</span>
-    <span class="doccomment">/// the factory to use or `None` for none</span>
+    <span class="doccomment">/// the factory to use or [`None`] for none</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_list_view_set_factory&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_factory</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ListItemFactory</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">factory</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>) {
         <span class="kw">unsafe</span> {
@@ -997,9 +1116,11 @@
         }
     }
 
-    <span class="doccomment">/// Sets the `SelectionModel` to use.</span>
+    <span class="doccomment">/// Sets the model to use.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This must be a [iface`Gtk.SelectionModel`] to use.</span>
     <span class="doccomment">/// ## `model`</span>
-    <span class="doccomment">/// the model to use or `None` for none</span>
+    <span class="doccomment">/// the model to use or [`None`] for none</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_list_view_set_model&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_model</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>) {
         <span class="kw">unsafe</span> {
@@ -1013,13 +1134,13 @@
     <span class="doccomment">/// Sets whether the list box should show separators</span>
     <span class="doccomment">/// between rows.</span>
     <span class="doccomment">/// ## `show_separators`</span>
-    <span class="doccomment">/// `true` to show separators</span>
+    <span class="doccomment">/// [`true`] to show separators</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_list_view_set_show_separators&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_show_separators</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">show_separators</span>: <span class="ident">bool</span>) {
         <span class="kw">unsafe</span> {
             <span class="ident">ffi::gtk_list_view_set_show_separators</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">show_separators</span>.<span class="ident">to_glib</span>(),
+                <span class="ident">show_separators</span>.<span class="ident">into_glib</span>(),
             );
         }
     }
@@ -1027,24 +1148,26 @@
     <span class="doccomment">/// Sets whether rows should be activated on single click and</span>
     <span class="doccomment">/// selected on hover.</span>
     <span class="doccomment">/// ## `single_click_activate`</span>
-    <span class="doccomment">/// `true` to activate items on single click</span>
+    <span class="doccomment">/// [`true`] to activate items on single click</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_list_view_set_single_click_activate&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_single_click_activate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">single_click_activate</span>: <span class="ident">bool</span>) {
         <span class="kw">unsafe</span> {
             <span class="ident">ffi::gtk_list_view_set_single_click_activate</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">single_click_activate</span>.<span class="ident">to_glib</span>(),
+                <span class="ident">single_click_activate</span>.<span class="ident">into_glib</span>(),
             );
         }
     }
 
-    <span class="doccomment">/// The ::activate signal is emitted when a row has been activated by the user,</span>
+    <span class="doccomment">/// Emitted when a row has been activated by the user,</span>
     <span class="doccomment">/// usually via activating the `ListView`|list.activate-item action.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This allows for a convenient way to handle activation in a listview.</span>
-    <span class="doccomment">/// See `ListItem::set_activatable` for details on how to use this signal.</span>
+    <span class="doccomment">/// See [method`Gtk.ListItem`.set_activatable] for details on how to use</span>
+    <span class="doccomment">/// this signal.</span>
     <span class="doccomment">/// ## `position`</span>
     <span class="doccomment">/// position of item to activate</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;activate&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_activate</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>, <span class="ident">u32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">activate_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>, <span class="ident">u32</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkListView</span>,
@@ -1067,7 +1190,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_enable_rubberband_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;enable-rubberband&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_enable_rubberband_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">f</span>: <span class="ident">F</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
@@ -1092,10 +1216,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_factory_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;factory&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_factory_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_factory_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkListView</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
@@ -1117,10 +1239,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_model_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;model&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_model_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_model_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkListView</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
@@ -1142,7 +1262,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_show_separators_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;show-separators&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_show_separators_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">f</span>: <span class="ident">F</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
@@ -1167,7 +1288,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_single_click_activate_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;single-click-activate&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_single_click_activate_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">ListView</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">f</span>: <span class="ident">F</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
@@ -1364,8 +1486,8 @@
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">vscroll_policy</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">vscroll_policy</span> {
             <span class="ident">properties</span>.<span class="ident">push</span>((<span class="string">&quot;vscroll-policy&quot;</span>, <span class="ident">vscroll_policy</span>));
         }
-        <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">glib::Object::new</span>::<span class="op">&lt;</span><span class="ident">ListView</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="ident">properties</span>).<span class="ident">expect</span>(<span class="string">&quot;object new&quot;</span>);
-        <span class="ident">ret</span>
+        <span class="ident">glib::Object::new</span>::<span class="op">&lt;</span><span class="ident">ListView</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="ident">properties</span>)
+            .<span class="ident">expect</span>(<span class="string">&quot;Failed to create an instance of ListView&quot;</span>)
     }
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">enable_rubberband</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">enable_rubberband</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
@@ -1575,5 +1697,5 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-js="../../../search-index.js"></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
     <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>

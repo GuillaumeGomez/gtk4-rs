@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gsk4/src/auto/gl_shader.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>gl_shader.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gsk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gsk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button">?</button>
+                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -370,7 +370,160 @@
 <span id="367">367</span>
 <span id="368">368</span>
 <span id="369">369</span>
-</pre><div class="example-wrap"><pre class="rust ">
+<span id="370">370</span>
+<span id="371">371</span>
+<span id="372">372</span>
+<span id="373">373</span>
+<span id="374">374</span>
+<span id="375">375</span>
+<span id="376">376</span>
+<span id="377">377</span>
+<span id="378">378</span>
+<span id="379">379</span>
+<span id="380">380</span>
+<span id="381">381</span>
+<span id="382">382</span>
+<span id="383">383</span>
+<span id="384">384</span>
+<span id="385">385</span>
+<span id="386">386</span>
+<span id="387">387</span>
+<span id="388">388</span>
+<span id="389">389</span>
+<span id="390">390</span>
+<span id="391">391</span>
+<span id="392">392</span>
+<span id="393">393</span>
+<span id="394">394</span>
+<span id="395">395</span>
+<span id="396">396</span>
+<span id="397">397</span>
+<span id="398">398</span>
+<span id="399">399</span>
+<span id="400">400</span>
+<span id="401">401</span>
+<span id="402">402</span>
+<span id="403">403</span>
+<span id="404">404</span>
+<span id="405">405</span>
+<span id="406">406</span>
+<span id="407">407</span>
+<span id="408">408</span>
+<span id="409">409</span>
+<span id="410">410</span>
+<span id="411">411</span>
+<span id="412">412</span>
+<span id="413">413</span>
+<span id="414">414</span>
+<span id="415">415</span>
+<span id="416">416</span>
+<span id="417">417</span>
+<span id="418">418</span>
+<span id="419">419</span>
+<span id="420">420</span>
+<span id="421">421</span>
+<span id="422">422</span>
+<span id="423">423</span>
+<span id="424">424</span>
+<span id="425">425</span>
+<span id="426">426</span>
+<span id="427">427</span>
+<span id="428">428</span>
+<span id="429">429</span>
+<span id="430">430</span>
+<span id="431">431</span>
+<span id="432">432</span>
+<span id="433">433</span>
+<span id="434">434</span>
+<span id="435">435</span>
+<span id="436">436</span>
+<span id="437">437</span>
+<span id="438">438</span>
+<span id="439">439</span>
+<span id="440">440</span>
+<span id="441">441</span>
+<span id="442">442</span>
+<span id="443">443</span>
+<span id="444">444</span>
+<span id="445">445</span>
+<span id="446">446</span>
+<span id="447">447</span>
+<span id="448">448</span>
+<span id="449">449</span>
+<span id="450">450</span>
+<span id="451">451</span>
+<span id="452">452</span>
+<span id="453">453</span>
+<span id="454">454</span>
+<span id="455">455</span>
+<span id="456">456</span>
+<span id="457">457</span>
+<span id="458">458</span>
+<span id="459">459</span>
+<span id="460">460</span>
+<span id="461">461</span>
+<span id="462">462</span>
+<span id="463">463</span>
+<span id="464">464</span>
+<span id="465">465</span>
+<span id="466">466</span>
+<span id="467">467</span>
+<span id="468">468</span>
+<span id="469">469</span>
+<span id="470">470</span>
+<span id="471">471</span>
+<span id="472">472</span>
+<span id="473">473</span>
+<span id="474">474</span>
+<span id="475">475</span>
+<span id="476">476</span>
+<span id="477">477</span>
+<span id="478">478</span>
+<span id="479">479</span>
+<span id="480">480</span>
+<span id="481">481</span>
+<span id="482">482</span>
+<span id="483">483</span>
+<span id="484">484</span>
+<span id="485">485</span>
+<span id="486">486</span>
+<span id="487">487</span>
+<span id="488">488</span>
+<span id="489">489</span>
+<span id="490">490</span>
+<span id="491">491</span>
+<span id="492">492</span>
+<span id="493">493</span>
+<span id="494">494</span>
+<span id="495">495</span>
+<span id="496">496</span>
+<span id="497">497</span>
+<span id="498">498</span>
+<span id="499">499</span>
+<span id="500">500</span>
+<span id="501">501</span>
+<span id="502">502</span>
+<span id="503">503</span>
+<span id="504">504</span>
+<span id="505">505</span>
+<span id="506">506</span>
+<span id="507">507</span>
+<span id="508">508</span>
+<span id="509">509</span>
+<span id="510">510</span>
+<span id="511">511</span>
+<span id="512">512</span>
+<span id="513">513</span>
+<span id="514">514</span>
+<span id="515">515</span>
+<span id="516">516</span>
+<span id="517">517</span>
+<span id="518">518</span>
+<span id="519">519</span>
+<span id="520">520</span>
+<span id="521">521</span>
+<span id="522">522</span>
+</pre><pre class="rust">
 <span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files.git)</span>
 <span class="comment">// DO NOT EDIT</span>
@@ -386,16 +539,136 @@
 <span class="kw">use</span> <span class="ident">std::ptr</span>;
 
 <span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// An object representing a GL shader program.</span>
+    <span class="doccomment">/// A `GskGLShader` is a snippet of GLSL that is meant to run in the</span>
+    <span class="doccomment">/// fragment shader of the rendering pipeline.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// A fragment shader gets the coordinates being rendered as input and</span>
+    <span class="doccomment">/// produces the pixel values for that particular pixel. Additionally,</span>
+    <span class="doccomment">/// the shader can declare a set of other input arguments, called</span>
+    <span class="doccomment">/// uniforms (as they are uniform over all the calls to your shader in</span>
+    <span class="doccomment">/// each instance of use). A shader can also receive up to 4</span>
+    <span class="doccomment">/// textures that it can use as input when producing the pixel data.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// `GskGLShader` is usually used with `gtk_snapshot_push_gl_shader()`</span>
+    <span class="doccomment">/// to produce a [class`Gsk.GLShaderNode`] in the rendering hierarchy,</span>
+    <span class="doccomment">/// and then its input textures are constructed by rendering the child</span>
+    <span class="doccomment">/// nodes to textures before rendering the shader node itself. (You can</span>
+    <span class="doccomment">/// pass texture nodes as children if you want to directly use a texture</span>
+    <span class="doccomment">/// as input).</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The actual shader code is GLSL code that gets combined with</span>
+    <span class="doccomment">/// some other code into the fragment shader. Since the exact</span>
+    <span class="doccomment">/// capabilities of the GPU driver differs between different OpenGL</span>
+    <span class="doccomment">/// drivers and hardware, GTK adds some defines that you can use</span>
+    <span class="doccomment">/// to ensure your GLSL code runs on as many drivers as it can.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If the OpenGL driver is GLES, then the shader language version</span>
+    <span class="doccomment">/// is set to 100, and GSK_GLES will be defined in the shader.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Otherwise, if the OpenGL driver does not support the 3.2 core profile,</span>
+    <span class="doccomment">/// then the shader will run with language version 110 for GL2 and 130 for GL3,</span>
+    <span class="doccomment">/// and GSK_LEGACY will be defined in the shader.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If the OpenGL driver supports the 3.2 code profile, it will be used,</span>
+    <span class="doccomment">/// the shader language version is set to 150, and GSK_GL3 will be defined</span>
+    <span class="doccomment">/// in the shader.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The main function the shader must implement is:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```glsl</span>
+    <span class="doccomment">///  void mainImage(out vec4 fragColor,</span>
+    <span class="doccomment">///                 in vec2 fragCoord,</span>
+    <span class="doccomment">///                 in vec2 resolution,</span>
+    <span class="doccomment">///                 in vec2 uv)</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Where the input `fragCoord` is the coordinate of the pixel we&#39;re</span>
+    <span class="doccomment">/// currently rendering, relative to the boundary rectangle that was</span>
+    <span class="doccomment">/// specified in the `GskGLShaderNode`, and `resolution` is the width and</span>
+    <span class="doccomment">/// height of that rectangle. This is in the typical GTK coordinate</span>
+    <span class="doccomment">/// system with the origin in the top left. `uv` contains the u and v</span>
+    <span class="doccomment">/// coordinates that can be used to index a texture at the</span>
+    <span class="doccomment">/// corresponding point. These coordinates are in the [0..1]x[0..1]</span>
+    <span class="doccomment">/// region, with 0, 0 being in the lower left corder (which is typical</span>
+    <span class="doccomment">/// for OpenGL).</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The output `fragColor` should be a RGBA color (with</span>
+    <span class="doccomment">/// premultiplied alpha) that will be used as the output for the</span>
+    <span class="doccomment">/// specified pixel location. Note that this output will be</span>
+    <span class="doccomment">/// automatically clipped to the clip region of the glshader node.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// In addition to the function arguments the shader can define</span>
+    <span class="doccomment">/// up to 4 uniforms for textures which must be called u_textureN</span>
+    <span class="doccomment">/// (i.e. u_texture1 to u_texture4) as well as any custom uniforms</span>
+    <span class="doccomment">/// you want of types int, uint, bool, float, vec2, vec3 or vec4.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// All textures sources contain premultiplied alpha colors, but if some</span>
+    <span class="doccomment">/// there are outer sources of colors there is a `gsk_premultiply()` helper</span>
+    <span class="doccomment">/// to compute premultiplication when needed.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Note that GTK parses the uniform declarations, so each uniform has to</span>
+    <span class="doccomment">/// be on a line by itself with no other code, like so:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```glsl</span>
+    <span class="doccomment">/// uniform float u_time;</span>
+    <span class="doccomment">/// uniform vec3 u_color;</span>
+    <span class="doccomment">/// uniform sampler2D u_texture1;</span>
+    <span class="doccomment">/// uniform sampler2D u_texture2;</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// GTK uses the the &quot;gsk&quot; namespace in the symbols it uses in the</span>
+    <span class="doccomment">/// shader, so your code should not use any symbols with the prefix gsk</span>
+    <span class="doccomment">/// or GSK. There are some helper functions declared that you can use:</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```glsl</span>
+    <span class="doccomment">/// vec4 GskTexture(sampler2D sampler, vec2 texCoords);</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This samples a texture (e.g. u_texture1) at the specified</span>
+    <span class="doccomment">/// coordinates, and containes some helper ifdefs to ensure that</span>
+    <span class="doccomment">/// it works on all OpenGL versions.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// You can compile the shader yourself using [method`Gsk.GLShader`.compile],</span>
+    <span class="doccomment">/// otherwise the GSK renderer will do it when it handling the glshader</span>
+    <span class="doccomment">/// node. If errors occurs, the returned `error` will include the glsl</span>
+    <span class="doccomment">/// sources, so you can see what GSK was passing to the compiler. You</span>
+    <span class="doccomment">/// can also set GSK_DEBUG=shaders in the environment to see the sources</span>
+    <span class="doccomment">/// and other relevant information about all shaders that GSK is handling.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # An example shader</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```glsl</span>
+    <span class="doccomment">/// uniform float position;</span>
+    <span class="doccomment">/// uniform sampler2D u_texture1;</span>
+    <span class="doccomment">/// uniform sampler2D u_texture2;</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// void mainImage(out vec4 fragColor,</span>
+    <span class="doccomment">///                in vec2 fragCoord,</span>
+    <span class="doccomment">///                in vec2 resolution,</span>
+    <span class="doccomment">///                in vec2 uv) {</span>
+    <span class="doccomment">///   vec4 source1 = GskTexture(u_texture1, uv);</span>
+    <span class="doccomment">///   vec4 source2 = GskTexture(u_texture2, uv);</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">///   fragColor = position * source1 + (1.0 - position) * source2;</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">/// ```</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">GLShader</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GskGLShader</span>, <span class="ident">ffi::GskGLShaderClass</span><span class="op">&gt;</span>);
 
     <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">get_type</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gsk_gl_shader_get_type</span>(),
+        <span class="ident">type_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gsk_gl_shader_get_type</span>(),
     }
 }
 
 <span class="kw">impl</span> <span class="ident">GLShader</span> {
+    <span class="doccomment">/// Creates a `GskGLShader` that will render pixels using the specified code.</span>
+    <span class="doccomment">/// ## `sourcecode`</span>
+    <span class="doccomment">/// GLSL sourcecode for the shader, as a `GBytes`</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Returns</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// A new `GskGLShader`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_new_from_bytes&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;new_from_bytes&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_bytes</span>(<span class="ident">sourcecode</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">GLShader</span> {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe</span> {
@@ -405,7 +678,16 @@
         }
     }
 
+    <span class="doccomment">/// Creates a `GskGLShader` that will render pixels using the specified code.</span>
+    <span class="doccomment">/// ## `resource_path`</span>
+    <span class="doccomment">/// path to a resource that contains the GLSL sourcecode for</span>
+    <span class="doccomment">///  the shader</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Returns</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// A new `GskGLShader`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_new_from_resource&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;new_from_resource&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_resource</span>(<span class="ident">resource_path</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">GLShader</span> {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe</span> {
@@ -415,10 +697,12 @@
         }
     }
 
-    <span class="doccomment">/// Tries to compile the `self` for the given `renderer`, and reports</span>
-    <span class="doccomment">/// `false` with an error if there is a problem. You should use this</span>
-    <span class="doccomment">/// function before relying on the shader for rendering and use a</span>
-    <span class="doccomment">/// fallback with a simpler shader or without shaders if it fails.</span>
+    <span class="doccomment">/// Tries to compile the `self` for the given `renderer`.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If there is a problem, this function returns [`false`] and reports</span>
+    <span class="doccomment">/// an error. You should use this function before relying on the shader</span>
+    <span class="doccomment">/// for rendering and use a fallback with a simpler shader or without</span>
+    <span class="doccomment">/// shaders if it fails.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note that this will modify the rendering state (for example</span>
     <span class="doccomment">/// change the current GL context) and requires the renderer to be</span>
@@ -426,11 +710,11 @@
     <span class="doccomment">/// want to call this from the realize signal of a widget, or during</span>
     <span class="doccomment">/// widget snapshot.</span>
     <span class="doccomment">/// ## `renderer`</span>
-    <span class="doccomment">/// a `Renderer`</span>
+    <span class="doccomment">/// a `GskRenderer`</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `true` on success, `false` if an error occurred</span>
+    <span class="doccomment">/// [`true`] on success, [`false`] if an error occurred</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_compile&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">compile</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Renderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">renderer</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
@@ -469,6 +753,7 @@
     <span class="comment">//}</span>
 
     <span class="doccomment">/// Gets the value of the uniform `idx` in the `args` block.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// The uniform must be of bool type.</span>
     <span class="doccomment">/// ## `args`</span>
     <span class="doccomment">/// uniform arguments</span>
@@ -479,7 +764,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The value</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_arg_bool&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_arg_bool</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_arg_bool&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">arg_bool</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::gsk_gl_shader_get_arg_bool</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -490,6 +776,7 @@
     }
 
     <span class="doccomment">/// Gets the value of the uniform `idx` in the `args` block.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// The uniform must be of float type.</span>
     <span class="doccomment">/// ## `args`</span>
     <span class="doccomment">/// uniform arguments</span>
@@ -500,13 +787,15 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The value</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_arg_float&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_arg_float</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_arg_float&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">arg_float</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">ffi::gsk_gl_shader_get_arg_float</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">args</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">idx</span>)
         }
     }
 
     <span class="doccomment">/// Gets the value of the uniform `idx` in the `args` block.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// The uniform must be of int type.</span>
     <span class="doccomment">/// ## `args`</span>
     <span class="doccomment">/// uniform arguments</span>
@@ -517,11 +806,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The value</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_arg_int&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_arg_int</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_arg_int&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">arg_int</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::gsk_gl_shader_get_arg_int</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">args</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">idx</span>) }
     }
 
     <span class="doccomment">/// Gets the value of the uniform `idx` in the `args` block.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// The uniform must be of uint type.</span>
     <span class="doccomment">/// ## `args`</span>
     <span class="doccomment">/// uniform arguments</span>
@@ -532,13 +823,15 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The value</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_arg_uint&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_arg_uint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_arg_uint&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">arg_uint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">ffi::gsk_gl_shader_get_arg_uint</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">args</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">idx</span>)
         }
     }
 
     <span class="doccomment">/// Gets the value of the uniform `idx` in the `args` block.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// The uniform must be of vec2 type.</span>
     <span class="doccomment">/// ## `args`</span>
     <span class="doccomment">/// uniform arguments</span>
@@ -547,7 +840,8 @@
     <span class="doccomment">/// ## `out_value`</span>
     <span class="doccomment">/// location to store the uniform value in</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_arg_vec2&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_arg_vec2</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>, <span class="ident">out_value</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">graphene::Vec2</span>) {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_arg_vec2&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">arg_vec2</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>, <span class="ident">out_value</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">graphene::Vec2</span>) {
         <span class="kw">unsafe</span> {
             <span class="ident">ffi::gsk_gl_shader_get_arg_vec2</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -559,6 +853,7 @@
     }
 
     <span class="doccomment">/// Gets the value of the uniform `idx` in the `args` block.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// The uniform must be of vec3 type.</span>
     <span class="doccomment">/// ## `args`</span>
     <span class="doccomment">/// uniform arguments</span>
@@ -567,7 +862,8 @@
     <span class="doccomment">/// ## `out_value`</span>
     <span class="doccomment">/// location to store the uniform value in</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_arg_vec3&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_arg_vec3</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>, <span class="ident">out_value</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">graphene::Vec3</span>) {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_arg_vec3&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">arg_vec3</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>, <span class="ident">out_value</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">graphene::Vec3</span>) {
         <span class="kw">unsafe</span> {
             <span class="ident">ffi::gsk_gl_shader_get_arg_vec3</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -579,6 +875,7 @@
     }
 
     <span class="doccomment">/// Gets the value of the uniform `idx` in the `args` block.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// The uniform must be of vec4 type.</span>
     <span class="doccomment">/// ## `args`</span>
     <span class="doccomment">/// uniform arguments</span>
@@ -587,7 +884,8 @@
     <span class="doccomment">/// ## `out_value`</span>
     <span class="doccomment">/// location to store set the uniform value in</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_arg_vec4&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_arg_vec4</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>, <span class="ident">out_value</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">graphene::Vec4</span>) {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_arg_vec4&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">arg_vec4</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">args</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Bytes</span>, <span class="ident">idx</span>: <span class="ident">i32</span>, <span class="ident">out_value</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">graphene::Vec4</span>) {
         <span class="kw">unsafe</span> {
             <span class="ident">ffi::gsk_gl_shader_get_arg_vec4</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -604,7 +902,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The size of the data block</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_args_size&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_args_size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">usize</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_args_size&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">args_size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">usize</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::gsk_gl_shader_get_args_size</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
     }
 
@@ -618,7 +917,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The number of texture inputs required by `self`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_n_textures&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_n_textures</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_n_textures&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">n_textures</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::gsk_gl_shader_get_n_textures</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
     }
 
@@ -628,7 +928,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The number of declared uniforms</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_n_uniforms&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_n_uniforms</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_n_uniforms&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">n_uniforms</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::gsk_gl_shader_get_n_uniforms</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>) }
     }
 
@@ -638,9 +939,10 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The resource path for the shader,</span>
-    <span class="doccomment">///  or `None` if none.</span>
+    <span class="doccomment">///  or [`None`] if none.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_resource&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_resource</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_resource&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">resource</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gsk_gl_shader_get_resource</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
@@ -650,7 +952,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The source code for the shader</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_source&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_source</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::Bytes</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_source&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">source</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::Bytes</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gsk_gl_shader_get_source</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
@@ -662,7 +965,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The name of the declared uniform</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_uniform_name&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_uniform_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_uniform_name&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">uniform_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_none</span>(<span class="ident">ffi::gsk_gl_shader_get_uniform_name</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -679,7 +983,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The data offset</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_uniform_offset&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_uniform_offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_uniform_offset&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">uniform_offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
         <span class="kw">unsafe</span> { <span class="ident">ffi::gsk_gl_shader_get_uniform_offset</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">idx</span>) }
     }
 
@@ -691,7 +996,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The type of the declared uniform</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gsk_gl_shader_get_uniform_type&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_uniform_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">GLUniformType</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_uniform_type&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">uniform_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">idx</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">GLUniformType</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::gsk_gl_shader_get_uniform_type</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -720,8 +1026,8 @@
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">source</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">source</span> {
             <span class="ident">properties</span>.<span class="ident">push</span>((<span class="string">&quot;source&quot;</span>, <span class="ident">source</span>));
         }
-        <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">glib::Object::new</span>::<span class="op">&lt;</span><span class="ident">GLShader</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="ident">properties</span>).<span class="ident">expect</span>(<span class="string">&quot;object new&quot;</span>);
-        <span class="ident">ret</span>
+        <span class="ident">glib::Object::new</span>::<span class="op">&lt;</span><span class="ident">GLShader</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="ident">properties</span>)
+            .<span class="ident">expect</span>(<span class="string">&quot;Failed to create an instance of GLShader&quot;</span>)
     }
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">resource</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">resource</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
@@ -741,5 +1047,5 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gsk4" data-search-js="../../../search-index.js"></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gsk4" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
     <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>

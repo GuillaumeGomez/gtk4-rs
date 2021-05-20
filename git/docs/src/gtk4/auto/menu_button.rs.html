@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/menu_button.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>menu_button.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button">?</button>
+                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -891,45 +891,7 @@
 <span id="888">888</span>
 <span id="889">889</span>
 <span id="890">890</span>
-<span id="891">891</span>
-<span id="892">892</span>
-<span id="893">893</span>
-<span id="894">894</span>
-<span id="895">895</span>
-<span id="896">896</span>
-<span id="897">897</span>
-<span id="898">898</span>
-<span id="899">899</span>
-<span id="900">900</span>
-<span id="901">901</span>
-<span id="902">902</span>
-<span id="903">903</span>
-<span id="904">904</span>
-<span id="905">905</span>
-<span id="906">906</span>
-<span id="907">907</span>
-<span id="908">908</span>
-<span id="909">909</span>
-<span id="910">910</span>
-<span id="911">911</span>
-<span id="912">912</span>
-<span id="913">913</span>
-<span id="914">914</span>
-<span id="915">915</span>
-<span id="916">916</span>
-<span id="917">917</span>
-<span id="918">918</span>
-<span id="919">919</span>
-<span id="920">920</span>
-<span id="921">921</span>
-<span id="922">922</span>
-<span id="923">923</span>
-<span id="924">924</span>
-<span id="925">925</span>
-<span id="926">926</span>
-<span id="927">927</span>
-<span id="928">928</span>
-</pre><div class="example-wrap"><pre class="rust ">
+</pre><pre class="rust">
 <span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files.git)</span>
 <span class="comment">// DO NOT EDIT</span>
@@ -957,119 +919,84 @@
 <span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
 
 <span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// The `MenuButton` widget is used to display a popup when clicked on.</span>
-    <span class="doccomment">/// This popup can be provided either as a `Popover` or as an abstract</span>
-    <span class="doccomment">/// `gio::MenuModel`.</span>
+    <span class="doccomment">/// The `GtkMenuButton` widget is used to display a popup when clicked.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The `MenuButton` widget can show either an icon (set with the</span>
-    <span class="doccomment">/// `MenuButton:icon-name` property) or a label (set with the</span>
-    <span class="doccomment">/// `MenuButton:label` property). If neither is explicitly set,</span>
-    <span class="doccomment">/// a `Image` is automatically created, using an arrow image oriented</span>
-    <span class="doccomment">/// according to `MenuButton:direction` or the generic “open-menu-symbolic”</span>
-    <span class="doccomment">/// icon if the direction is not set.</span>
+    <span class="doccomment">/// ![An example `MenuButton`](menu-button.png)</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The positioning of the popup is determined by the `MenuButton:direction`</span>
-    <span class="doccomment">/// property of the menu button.</span>
+    <span class="doccomment">/// This popup can be provided either as a `GtkPopover` or as an abstract</span>
+    <span class="doccomment">/// `GMenuModel`.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// For menus, the `Widget:halign` and `Widget:valign` properties of the</span>
-    <span class="doccomment">/// menu are also taken into account. For example, when the direction is</span>
-    <span class="doccomment">/// `ArrowType::Down` and the horizontal alignment is `Align::Start`, the</span>
-    <span class="doccomment">/// menu will be positioned below the button, with the starting edge</span>
+    <span class="doccomment">/// The `GtkMenuButton` widget can show either an icon (set with the</span>
+    <span class="doccomment">/// [property`Gtk.MenuButton`:icon-name] property) or a label (set with the</span>
+    <span class="doccomment">/// [property`Gtk.MenuButton`:label] property). If neither is explicitly set,</span>
+    <span class="doccomment">/// a [class`Gtk.Image`] is automatically created, using an arrow image oriented</span>
+    <span class="doccomment">/// according to [property`Gtk.MenuButton`:direction] or the generic</span>
+    <span class="doccomment">/// “open-menu-symbolic” icon if the direction is not set.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The positioning of the popup is determined by the</span>
+    <span class="doccomment">/// [property`Gtk.MenuButton`:direction] property of the menu button.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// For menus, the [property`Gtk.Widget`:halign] and [property`Gtk.Widget`:valign]</span>
+    <span class="doccomment">/// properties of the menu are also taken into account. For example, when the</span>
+    <span class="doccomment">/// direction is [`crate::ArrowType::Down`] and the horizontal alignment is [`crate::Align::Start`],</span>
+    <span class="doccomment">/// the menu will be positioned below the button, with the starting edge</span>
     <span class="doccomment">/// (depending on the text direction) of the menu aligned with the starting</span>
     <span class="doccomment">/// edge of the button. If there is not enough space below the button, the</span>
     <span class="doccomment">/// menu is popped up above the button instead. If the alignment would move</span>
     <span class="doccomment">/// part of the menu offscreen, it is “pushed in”.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Direction = Down</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - halign = start</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  ![](down-start.png)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - halign = center</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  ![](down-center.png)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - halign = end</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  ![](down-end.png)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Direction = Up</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - halign = start</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  ![](up-start.png)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - halign = center</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  ![](up-center.png)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - halign = end</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  ![](up-end.png)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Direction = Left</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - valign = start</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  ![](left-start.png)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - valign = center</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  ![](left-center.png)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - valign = end</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  ![](left-end.png)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Direction = Right</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - valign = start</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  ![](right-start.png)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - valign = center</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  ![](right-center.png)</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// - valign = end</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///  ![](right-end.png)</span>
+    <span class="doccomment">/// | | start | center | end |</span>
+    <span class="doccomment">/// | - | --- | --- | --- |</span>
+    <span class="doccomment">/// | **down** | ![](down-start.png) | ![](down-center.png) | ![](down-end.png) |</span>
+    <span class="doccomment">/// | **up** | ![](up-start.png) | ![](up-center.png) | ![](up-end.png) |</span>
+    <span class="doccomment">/// | **left** | ![](left-start.png) | ![](left-center.png) | ![](left-end.png) |</span>
+    <span class="doccomment">/// | **right** | ![](right-start.png) | ![](right-center.png) | ![](right-end.png) |</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # CSS nodes</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```plain</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// menubutton</span>
     <span class="doccomment">/// ╰── button.toggle</span>
-    <span class="doccomment">///     ╰── [content]</span>
+    <span class="doccomment">///     ╰── &lt;content&gt;</span>
+    <span class="doccomment">///          ╰── [arrow]</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `MenuButton` has a single CSS node with name menubutton</span>
-    <span class="doccomment">/// which contains a toggle button node.</span>
+    <span class="doccomment">/// `GtkMenuButton` has a single CSS node with name `menubutton`</span>
+    <span class="doccomment">/// which contains a `button` node with a `.toggle` style class.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Inside the toggle button content, there is an `arrow` node for</span>
+    <span class="doccomment">/// the indicator, which will carry one of the `.none`, `.up`, `.down`,</span>
+    <span class="doccomment">/// `.left` or `.right` style classes to indicate the direction that</span>
+    <span class="doccomment">/// the menu will appear in. The CSS is expected to provide a suitable</span>
+    <span class="doccomment">/// image for each of these cases using the `-gtk-icon-source` property.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Optionally, the `menubutton` node can carry the `.circular` style class</span>
+    <span class="doccomment">/// to request a round appearance.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Accessibility</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `MenuButton` uses the `AccessibleRole::Button` role.</span>
+    <span class="doccomment">/// `GtkMenuButton` uses the [`crate::AccessibleRole::Button`] role.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Implements</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`WidgetExt`](trait.WidgetExt.html), [`glib::object::ObjectExt`](../glib/object/trait.ObjectExt.html), [`AccessibleExt`](trait.AccessibleExt.html), [`BuildableExt`](trait.BuildableExt.html), [`ConstraintTargetExt`](trait.ConstraintTargetExt.html), [`WidgetExtManual`](prelude/trait.WidgetExtManual.html)</span>
+    <span class="doccomment">/// [`trait@crate::prelude::WidgetExt`], [`trait@glib::object::ObjectExt`], [`trait@crate::prelude::AccessibleExt`], [`trait@crate::prelude::BuildableExt`], [`trait@crate::prelude::ConstraintTargetExt`], [`trait@crate::prelude::WidgetExtManual`], [`trait@crate::prelude::AccessibleExtManual`]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">MenuButton</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GtkMenuButton</span><span class="op">&gt;</span>) @<span class="ident">extends</span> <span class="ident">Widget</span>, @<span class="ident">implements</span> <span class="ident">Accessible</span>, <span class="ident">Buildable</span>, <span class="ident">ConstraintTarget</span>;
 
     <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">get_type</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_menu_button_get_type</span>(),
+        <span class="ident">type_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_menu_button_get_type</span>(),
     }
 }
 
 <span class="kw">impl</span> <span class="ident">MenuButton</span> {
-    <span class="doccomment">/// Creates a new `MenuButton` widget with downwards-pointing</span>
-    <span class="doccomment">/// arrow as the only child. You can replace the child widget</span>
-    <span class="doccomment">/// with another `Widget` should you wish to.</span>
+    <span class="doccomment">/// Creates a new `GtkMenuButton` widget with downwards-pointing</span>
+    <span class="doccomment">/// arrow as the only child.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// You can replace the child widget with another `GtkWidget`</span>
+    <span class="doccomment">/// should you wish to.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The newly created `MenuButton` widget</span>
+    <span class="doccomment">/// The newly created `GtkMenuButton`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_new&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">MenuButton</span> {
         <span class="macro">assert_initialized_main_thread!</span>();
@@ -1080,9 +1007,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// a `ArrowType` value</span>
+    <span class="doccomment">/// a `GtkArrowType` value</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_get_direction&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_direction</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ArrowType</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_direction&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">direction</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ArrowType</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_menu_button_get_direction</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
@@ -1090,9 +1018,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `true` if the button has a frame</span>
+    <span class="doccomment">/// [`true`] if the button has a frame</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_get_has_frame&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_has_frame</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_has_frame&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">has_frame</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_menu_button_get_has_frame</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
@@ -1102,7 +1031,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// the name of the icon shown in the button</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_get_icon_name&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_icon_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_icon_name&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">icon_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_menu_button_get_icon_name</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
@@ -1112,41 +1042,46 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// the label shown in the button</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_get_label&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_label</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_label&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">label</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_menu_button_get_label</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Returns the `gio::MenuModel` used to generate the popup.</span>
+    <span class="doccomment">/// Returns the `GMenuModel` used to generate the popup.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// a `gio::MenuModel` or `None`</span>
+    <span class="doccomment">/// a `GMenuModel` or [`None`]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_get_menu_model&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_menu_model</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gio::MenuModel</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_menu_model&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">menu_model</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gio::MenuModel</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_menu_button_get_menu_model</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Returns the `Popover` that pops out of the button.</span>
-    <span class="doccomment">/// If the button is not using a `Popover`, this function</span>
-    <span class="doccomment">/// returns `None`.</span>
+    <span class="doccomment">/// Returns the `GtkPopover` that pops out of the button.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If the button is not using a `GtkPopover`, this function</span>
+    <span class="doccomment">/// returns [`None`].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// a `Popover` or `None`</span>
+    <span class="doccomment">/// a `GtkPopover` or [`None`]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_get_popover&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_popover</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Popover</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_popover&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">popover</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Popover</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_menu_button_get_popover</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Returns whether an embedded underline in the text indicates a</span>
-    <span class="doccomment">/// mnemonic. See `MenuButton::set_use_underline`.</span>
+    <span class="doccomment">/// mnemonic.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `true` whether an embedded underline in the text indicates</span>
+    <span class="doccomment">/// [`true`] whether an embedded underline in the text indicates</span>
     <span class="doccomment">///  the mnemonic accelerator keys.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_get_use_underline&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_use_underline</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_use_underline&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">uses_underline</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_menu_button_get_use_underline</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -1171,50 +1106,44 @@
     }
 
     <span class="doccomment">/// Sets `func` to be called when a popup is about to be shown.</span>
+    <span class="doccomment">///</span>
     <span class="doccomment">/// `func` should use one of</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">///  - `MenuButton::set_popover`</span>
-    <span class="doccomment">///  - `MenuButton::set_menu_model`</span>
+    <span class="doccomment">///  - [method`Gtk.MenuButton`.set_popover]</span>
+    <span class="doccomment">///  - [method`Gtk.MenuButton`.set_menu_model]</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// to set a popup for `self`.</span>
-    <span class="doccomment">/// If `func` is non-`None`, `self` will always be sensitive.</span>
+    <span class="doccomment">/// If `func` is non-[`None`], `self` will always be sensitive.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Using this function will not reset the menu widget attached to `self`.</span>
-    <span class="doccomment">/// Instead, this can be done manually in `func`.</span>
+    <span class="doccomment">/// Using this function will not reset the menu widget attached to</span>
+    <span class="doccomment">/// `self`. Instead, this can be done manually in `func`.</span>
     <span class="doccomment">/// ## `func`</span>
-    <span class="doccomment">/// function to call when a popuop is about to</span>
-    <span class="doccomment">///  be shown, but none has been provided via other means, or `None`</span>
+    <span class="doccomment">/// function to call when a popup is about to</span>
+    <span class="doccomment">///  be shown, but none has been provided via other means, or [`None`]</span>
     <span class="doccomment">///  to reset to default behavior.</span>
     <span class="doccomment">/// ## `user_data`</span>
     <span class="doccomment">/// user data to pass to `func`.</span>
     <span class="doccomment">/// ## `destroy_notify`</span>
     <span class="doccomment">/// destroy notify for `user_data`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_set_create_popup_func&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_create_popup_func</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">func</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span>) {
-        <span class="kw">let</span> <span class="ident">func_data</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">func</span>);
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">func_func</span>(
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_create_popup_func</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">func</span>: <span class="ident">P</span>) {
+        <span class="kw">let</span> <span class="ident">func_data</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">func</span>);
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">func_func</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">menu_button</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkMenuButton</span>,
             <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
         ) {
             <span class="kw">let</span> <span class="ident">menu_button</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">menu_button</span>);
-            <span class="kw">let</span> <span class="ident">callback</span>: <span class="kw-2">&amp;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">callback</span>) <span class="op">=</span> <span class="kw-2">*</span><span class="ident">callback</span> {
-                <span class="ident">callback</span>(<span class="kw-2">&amp;</span><span class="ident">menu_button</span>)
-            } <span class="kw">else</span> {
-                <span class="macro">panic!</span>(<span class="string">&quot;cannot get closure...&quot;</span>)
-            };
+            <span class="kw">let</span> <span class="ident">callback</span>: <span class="kw-2">&amp;</span><span class="ident">P</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
+            (<span class="kw-2">*</span><span class="ident">callback</span>)(<span class="kw-2">&amp;</span><span class="ident">menu_button</span>);
         }
-        <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">func_data</span>.<span class="ident">is_some</span>() {
-            <span class="prelude-val">Some</span>(<span class="ident">func_func</span> <span class="kw">as</span> <span class="kw">_</span>)
-        } <span class="kw">else</span> {
-            <span class="prelude-val">None</span>
-        };
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">destroy_notify_func</span>(<span class="ident">data</span>: <span class="ident">glib::ffi::gpointer</span>) {
-            <span class="kw">let</span> <span class="ident">_callback</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-                <span class="ident">Box_::from_raw</span>(<span class="ident">data</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
+        <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">func_func</span>::<span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw">_</span>);
+        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">destroy_notify_func</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+            <span class="ident">data</span>: <span class="ident">glib::ffi::gpointer</span>,
+        ) {
+            <span class="kw">let</span> <span class="ident">_callback</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::from_raw</span>(<span class="ident">data</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
         }
-        <span class="kw">let</span> <span class="ident">destroy_call3</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">destroy_notify_func</span> <span class="kw">as</span> <span class="kw">_</span>);
-        <span class="kw">let</span> <span class="ident">super_callback0</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">func_data</span>;
+        <span class="kw">let</span> <span class="ident">destroy_call3</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">destroy_notify_func</span>::<span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw">_</span>);
+        <span class="kw">let</span> <span class="ident">super_callback0</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">func_data</span>;
         <span class="kw">unsafe</span> {
             <span class="ident">ffi::gtk_menu_button_set_create_popup_func</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -1225,21 +1154,22 @@
         }
     }
 
-    <span class="doccomment">/// Sets the direction in which the popup will be popped up, as</span>
-    <span class="doccomment">/// well as changing the arrow’s direction. The child will not</span>
-    <span class="doccomment">/// be changed to an arrow if it was customized.</span>
+    <span class="doccomment">/// Sets the direction in which the popup will be popped up.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If the button is automatically populated with an arrow icon,</span>
+    <span class="doccomment">/// its direction will be changed to match.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If the does not fit in the available space in the given direction,</span>
     <span class="doccomment">/// GTK will its best to keep it inside the screen and fully visible.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If you pass `ArrowType::None` for a `direction`, the popup will behave</span>
-    <span class="doccomment">/// as if you passed `ArrowType::Down` (although you won’t see any arrows).</span>
+    <span class="doccomment">/// If you pass [`crate::ArrowType::None`] for a `direction`, the popup will behave</span>
+    <span class="doccomment">/// as if you passed [`crate::ArrowType::Down`] (although you won’t see any arrows).</span>
     <span class="doccomment">/// ## `direction`</span>
-    <span class="doccomment">/// a `ArrowType`</span>
+    <span class="doccomment">/// a `GtkArrowType`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_set_direction&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_direction</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">direction</span>: <span class="ident">ArrowType</span>) {
         <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_button_set_direction</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">direction</span>.<span class="ident">to_glib</span>());
+            <span class="ident">ffi::gtk_menu_button_set_direction</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">direction</span>.<span class="ident">into_glib</span>());
         }
     }
 
@@ -1249,7 +1179,7 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_set_has_frame&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_has_frame</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">has_frame</span>: <span class="ident">bool</span>) {
         <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_button_set_has_frame</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">has_frame</span>.<span class="ident">to_glib</span>());
+            <span class="ident">ffi::gtk_menu_button_set_has_frame</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">has_frame</span>.<span class="ident">into_glib</span>());
         }
     }
 
@@ -1273,16 +1203,18 @@
         }
     }
 
-    <span class="doccomment">/// Sets the `gio::MenuModel` from which the popup will be constructed,</span>
-    <span class="doccomment">/// or `None` to dissociate any existing menu model and disable the button.</span>
+    <span class="doccomment">/// Sets the `GMenuModel` from which the popup will be constructed.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// A `Popover` will be created from the menu model with `PopoverMenu::new_from_model`.</span>
-    <span class="doccomment">/// Actions will be connected as documented for this function.</span>
+    <span class="doccomment">/// If `menu_model` is [`None`], the button is disabled.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `MenuButton:popover` is already set, it will be dissociated from the `self`,</span>
-    <span class="doccomment">/// and the property is set to `None`.</span>
+    <span class="doccomment">/// A [class`Gtk.Popover`] will be created from the menu model with</span>
+    <span class="doccomment">/// [ctor`Gtk.PopoverMenu`.new_from_model]. Actions will be connected</span>
+    <span class="doccomment">/// as documented for this function.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If [property`Gtk.MenuButton`:popover] is already set, it will be</span>
+    <span class="doccomment">/// dissociated from the `self`, and the property is set to [`None`].</span>
     <span class="doccomment">/// ## `menu_model`</span>
-    <span class="doccomment">/// a `gio::MenuModel`, or `None` to unset and disable the</span>
+    <span class="doccomment">/// a `GMenuModel`, or [`None`] to unset and disable the</span>
     <span class="doccomment">///  button</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_set_menu_model&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_menu_model</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::MenuModel</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">menu_model</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>) {
@@ -1294,13 +1226,14 @@
         }
     }
 
-    <span class="doccomment">/// Sets the `Popover` that will be popped up when the `self` is clicked,</span>
-    <span class="doccomment">/// or `None` to dissociate any existing popover and disable the button.</span>
+    <span class="doccomment">/// Sets the `GtkPopover` that will be popped up when the `self` is clicked.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `MenuButton:menu-model` is set, the menu model is dissociated from the</span>
-    <span class="doccomment">/// `self`, and the property is set to `None`.</span>
+    <span class="doccomment">/// If `popover` is [`None`], the button is disabled.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If [property`Gtk.MenuButton`:menu-model] is set, the menu model is dissociated</span>
+    <span class="doccomment">/// from the `self`, and the property is set to [`None`].</span>
     <span class="doccomment">/// ## `popover`</span>
-    <span class="doccomment">/// a `Popover`, or `None` to unset and disable the button</span>
+    <span class="doccomment">/// a `GtkPopover`, or [`None`] to unset and disable the button</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_set_popover&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_popover</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Widget</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">popover</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">P</span><span class="op">&gt;</span>) {
         <span class="kw">unsafe</span> {
@@ -1311,21 +1244,21 @@
         }
     }
 
-    <span class="doccomment">/// If true, an underline in the text indicates the next character should be</span>
-    <span class="doccomment">/// used for the mnemonic accelerator key.</span>
+    <span class="doccomment">/// If true, an underline in the text indicates a mnemonic.</span>
     <span class="doccomment">/// ## `use_underline`</span>
-    <span class="doccomment">/// `true` if underlines in the text indicate mnemonics</span>
+    <span class="doccomment">/// [`true`] if underlines in the text indicate mnemonics</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_menu_button_set_use_underline&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_use_underline</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">use_underline</span>: <span class="ident">bool</span>) {
         <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_menu_button_set_use_underline</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">use_underline</span>.<span class="ident">to_glib</span>());
+            <span class="ident">ffi::gtk_menu_button_set_use_underline</span>(
+                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+                <span class="ident">use_underline</span>.<span class="ident">into_glib</span>(),
+            );
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_direction_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;direction&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_direction_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_direction_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkMenuButton</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
@@ -1347,10 +1280,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_has_frame_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;has-frame&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_has_frame_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_has_frame_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkMenuButton</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
@@ -1372,10 +1303,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_icon_name_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;icon-name&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_icon_name_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_icon_name_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkMenuButton</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
@@ -1397,10 +1326,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_label_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;label&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_label_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_label_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkMenuButton</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
@@ -1422,10 +1349,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_menu_model_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;menu-model&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_menu_model_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_menu_model_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkMenuButton</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
@@ -1447,10 +1372,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_popover_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">f</span>: <span class="ident">F</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;popover&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_popover_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_popover_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
             <span class="ident">this</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi::GtkMenuButton</span>,
             <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
@@ -1472,7 +1395,8 @@
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_property_use_underline_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;use-underline&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_use_underline_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">MenuButton</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">f</span>: <span class="ident">F</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SignalHandlerId</span> {
@@ -1663,8 +1587,8 @@
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">accessible_role</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">accessible_role</span> {
             <span class="ident">properties</span>.<span class="ident">push</span>((<span class="string">&quot;accessible-role&quot;</span>, <span class="ident">accessible_role</span>));
         }
-        <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">glib::Object::new</span>::<span class="op">&lt;</span><span class="ident">MenuButton</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="ident">properties</span>).<span class="ident">expect</span>(<span class="string">&quot;object new&quot;</span>);
-        <span class="ident">ret</span>
+        <span class="ident">glib::Object::new</span>::<span class="op">&lt;</span><span class="ident">MenuButton</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="ident">properties</span>)
+            .<span class="ident">expect</span>(<span class="string">&quot;Failed to create an instance of MenuButton&quot;</span>)
     }
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">direction</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">direction</span>: <span class="ident">ArrowType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
@@ -1859,5 +1783,5 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-js="../../../search-index.js"></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
     <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>
