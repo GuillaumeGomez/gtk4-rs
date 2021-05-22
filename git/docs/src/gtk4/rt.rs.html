@@ -115,9 +115,6 @@
 <span id="112">112</span>
 <span id="113">113</span>
 <span id="114">114</span>
-<span id="115">115</span>
-<span id="116">116</span>
-<span id="117">117</span>
 </pre><pre class="rust">
 <span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
@@ -131,6 +128,7 @@
 
 <span class="kw">static</span> <span class="ident">INITIALIZED</span>: <span class="ident">AtomicBool</span> <span class="op">=</span> <span class="ident">AtomicBool::new</span>(<span class="bool-val">false</span>);
 
+<span class="comment">// rustdoc-stripper-ignore-next</span>
 <span class="doccomment">/// Asserts that this is the main thread and `gtk::init` has been called.</span>
 <span class="macro">macro_rules!</span> <span class="ident">assert_initialized_main_thread</span> {
     () <span class="op">=</span><span class="op">&gt;</span> {
@@ -221,11 +219,7 @@
     }
     <span class="kw">unsafe</span> {
         <span class="kw">if</span> <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_init_check</span>()) {
-            <span class="kw">if</span> <span class="op">!</span><span class="ident">glib::MainContext::default</span>().<span class="ident">is_owner</span>() {
-                <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="macro">glib::bool_error!</span>(<span class="string">&quot;Failed to acquire default main context&quot;</span>));
-            }
-
-            <span class="kw">if</span> <span class="op">!</span>{ <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_is_initialized</span>()) } {
+            <span class="kw">if</span> <span class="op">!</span><span class="ident">from_glib</span>::<span class="op">&lt;</span><span class="ident">glib::ffi::gboolean</span>, <span class="ident">bool</span><span class="op">&gt;</span>(<span class="ident">ffi::gtk_is_initialized</span>()) {
                 <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="macro">glib::bool_error!</span>(<span class="string">&quot;GTK was not actually initialized&quot;</span>));
             }
 
