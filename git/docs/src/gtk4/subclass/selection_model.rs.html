@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4&#x2F;src&#x2F;subclass&#x2F;selection_model.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>selection_model.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4&#x2F;src&#x2F;subclass&#x2F;selection_model.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>selection_model.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -457,8 +457,7 @@
 <span id="384">384</span>
 <span id="385">385</span>
 <span id="386">386</span>
-</pre><pre class="rust">
-<span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">Bitset</span>, <span class="ident">SelectionModel</span>};
 <span class="kw">use</span> <span class="ident">gio::subclass::prelude</span>::<span class="kw-2">*</span>;
@@ -467,25 +466,25 @@
 
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SelectionModelImpl</span>: <span class="ident">ListModelImpl</span> {
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_selection_in_range&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">selection_in_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Bitset</span> {
+    <span class="kw">fn</span> <span class="ident">selection_in_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Bitset</span> {
         <span class="self">self</span>.<span class="ident">parent_selection_in_range</span>(<span class="ident">model</span>, <span class="ident">position</span>, <span class="ident">n_items</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">is_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">is_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="self">self</span>.<span class="ident">parent_is_selected</span>(<span class="ident">model</span>, <span class="ident">position</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">select_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">select_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="self">self</span>.<span class="ident">parent_select_all</span>(<span class="ident">model</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">select_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">unselect_rest</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">select_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">unselect_rest</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="self">self</span>.<span class="ident">parent_select_item</span>(<span class="ident">model</span>, <span class="ident">position</span>, <span class="ident">unselect_rest</span>)
     }
 
     <span class="kw">fn</span> <span class="ident">select_range</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>,
+        <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
         <span class="ident">position</span>: <span class="ident">u32</span>,
         <span class="ident">n_items</span>: <span class="ident">u32</span>,
         <span class="ident">unselect_rest</span>: <span class="ident">bool</span>,
@@ -493,45 +492,45 @@
         <span class="self">self</span>.<span class="ident">parent_select_range</span>(<span class="ident">model</span>, <span class="ident">position</span>, <span class="ident">n_items</span>, <span class="ident">unselect_rest</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">set_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">selected</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>, <span class="ident">mask</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">set_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">selected</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>, <span class="ident">mask</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="self">self</span>.<span class="ident">parent_set_selection</span>(<span class="ident">model</span>, <span class="ident">selected</span>, <span class="ident">mask</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">unselect_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">unselect_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="self">self</span>.<span class="ident">parent_unselect_all</span>(<span class="ident">model</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">unselect_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">unselect_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="self">self</span>.<span class="ident">parent_unselect_item</span>(<span class="ident">model</span>, <span class="ident">position</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">unselect_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">unselect_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="self">self</span>.<span class="ident">parent_unselect_range</span>(<span class="ident">model</span>, <span class="ident">position</span>, <span class="ident">n_items</span>)
     }
 }
 
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SelectionModelImplExt</span>: <span class="ident">ObjectSubclass</span> {
-    <span class="kw">fn</span> <span class="ident">parent_selection_in_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Bitset</span>;
-    <span class="kw">fn</span> <span class="ident">parent_is_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">parent_select_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">parent_select_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">unselect_rest</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
+    <span class="kw">fn</span> <span class="ident">parent_selection_in_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Bitset</span>;
+    <span class="kw">fn</span> <span class="ident">parent_is_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
+    <span class="kw">fn</span> <span class="ident">parent_select_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
+    <span class="kw">fn</span> <span class="ident">parent_select_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">unselect_rest</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
     <span class="kw">fn</span> <span class="ident">parent_select_range</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>,
+        <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
         <span class="ident">position</span>: <span class="ident">u32</span>,
         <span class="ident">n_items</span>: <span class="ident">u32</span>,
         <span class="ident">unselect_rest</span>: <span class="ident">bool</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">parent_set_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">selected</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>, <span class="ident">mask</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">parent_unselect_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">parent_unselect_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">parent_unselect_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
+    <span class="kw">fn</span> <span class="ident">parent_set_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">selected</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>, <span class="ident">mask</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
+    <span class="kw">fn</span> <span class="ident">parent_unselect_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
+    <span class="kw">fn</span> <span class="ident">parent_unselect_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
+    <span class="kw">fn</span> <span class="ident">parent_unselect_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">SelectionModelImpl</span><span class="op">&gt;</span> <span class="ident">SelectionModelImplExt</span> <span class="kw">for</span> <span class="ident">T</span> {
-    <span class="kw">fn</span> <span class="ident">parent_selection_in_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Bitset</span> {
+    <span class="kw">fn</span> <span class="ident">parent_selection_in_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Bitset</span> {
         <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="self">Self</span><span class="ident">::type_data</span>();
+            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
             <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
                 <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
 
@@ -547,9 +546,9 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_is_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">parent_is_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="self">Self</span><span class="ident">::type_data</span>();
+            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
             <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
                 <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
 
@@ -564,9 +563,9 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_select_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">parent_select_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="self">Self</span><span class="ident">::type_data</span>();
+            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
             <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
                 <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
 
@@ -580,9 +579,9 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_select_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">unselect_rest</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">parent_select_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">unselect_rest</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="self">Self</span><span class="ident">::type_data</span>();
+            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
             <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
                 <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
 
@@ -600,13 +599,13 @@
 
     <span class="kw">fn</span> <span class="ident">parent_select_range</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>,
+        <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
         <span class="ident">position</span>: <span class="ident">u32</span>,
         <span class="ident">n_items</span>: <span class="ident">u32</span>,
         <span class="ident">unselect_rest</span>: <span class="ident">bool</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="self">Self</span><span class="ident">::type_data</span>();
+            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
             <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
                 <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
 
@@ -623,9 +622,9 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_set_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">selected</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>, <span class="ident">mask</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">parent_set_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">selected</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>, <span class="ident">mask</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="self">Self</span><span class="ident">::type_data</span>();
+            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
             <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
                 <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
 
@@ -641,9 +640,9 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_unselect_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">parent_unselect_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="self">Self</span><span class="ident">::type_data</span>();
+            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
             <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
                 <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
 
@@ -657,9 +656,9 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_unselect_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">parent_unselect_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="self">Self</span><span class="ident">::type_data</span>();
+            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
             <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
                 <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
 
@@ -674,9 +673,9 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_unselect_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="self">Self</span><span class="ident">::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">parent_unselect_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="self">Self</span><span class="ident">::type_data</span>();
+            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
             <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
                 <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
 
@@ -697,7 +696,7 @@
     <span class="kw">fn</span> <span class="ident">interface_init</span>(<span class="ident">iface</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">glib::Interface</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>) {
         <span class="kw">let</span> <span class="ident">iface</span> <span class="op">=</span> <span class="ident">iface</span>.<span class="ident">as_mut</span>();
 
-        <span class="kw">if</span> <span class="op">!</span><span class="kw">crate</span><span class="ident">::rt::is_initialized</span>() {
+        <span class="kw">if</span> <span class="op">!</span><span class="ident"><span class="kw">crate</span>::rt::is_initialized</span>() {
             <span class="macro">panic!</span>(<span class="string">&quot;GTK has to be initialized first&quot;</span>);
         }
 
@@ -844,7 +843,7 @@
     )
     .<span class="ident">into_glib</span>()
 }
-</pre></div>
+</code></pre></div>
 </section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
     <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script>
 </body></html>
