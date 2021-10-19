@@ -117,6 +117,13 @@
 <span id="44">44</span>
 <span id="45">45</span>
 <span id="46">46</span>
+<span id="47">47</span>
+<span id="48">48</span>
+<span id="49">49</span>
+<span id="50">50</span>
+<span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::prelude</span>::<span class="kw-2">*</span>;
@@ -131,13 +138,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function is analogous to [``Dialog::with_buttons()``][crate::`Dialog::with_buttons()`].</span>
     <span class="doccomment">/// ## `title`</span>
-    <span class="doccomment">/// Title of the dialog, or [`None`]</span>
+    <span class="doccomment">/// Title of the dialog</span>
     <span class="doccomment">/// ## `parent`</span>
-    <span class="doccomment">/// Transient parent of the dialog, or [`None`]</span>
+    <span class="doccomment">/// Transient parent of the dialog</span>
     <span class="doccomment">/// ## `action`</span>
     <span class="doccomment">/// Open or save mode for the dialog</span>
     <span class="doccomment">/// ## `first_button_text`</span>
-    <span class="doccomment">/// text to go in the first button, or [`None`]</span>
+    <span class="doccomment">/// text to go in the first button</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -148,7 +155,7 @@
         <span class="ident">parent</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">T</span><span class="op">&gt;</span>,
         <span class="ident">action</span>: <span class="ident">FileChooserAction</span>,
         <span class="ident">buttons</span>: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">ResponseType</span>)],
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    ) -&gt; <span class="self">Self</span> {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">dialog</span>: <span class="self">Self</span> <span class="op">=</span> <span class="ident">Widget::from_glib_none</span>(<span class="ident">ffi::gtk_file_chooser_dialog_new</span>(
@@ -161,6 +168,13 @@
             <span class="ident">dialog</span>.<span class="ident">add_buttons</span>(<span class="ident">buttons</span>);
             <span class="ident">dialog</span>
         }
+    }
+}
+
+<span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">FileChooserDialog</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
+        <span class="ident">glib::object::Object::new</span>::<span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span>[])
+            .<span class="ident">expect</span>(<span class="string">&quot;Can&#39;t construct FileChooserDialog object with default parameters&quot;</span>)
     }
 }
 </code></pre></div>

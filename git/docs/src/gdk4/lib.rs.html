@@ -210,7 +210,6 @@
 <span id="137">137</span>
 <span id="138">138</span>
 <span id="139">139</span>
-<span id="140">140</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">feature</span>(<span class="ident">doc_cfg</span>))]</span>
@@ -272,12 +271,12 @@
 
 <span class="comment">// GDK 4 has no runtime to initialize</span>
 <span class="macro">macro_rules!</span> <span class="ident">assert_initialized_main_thread</span> {
-    () <span class="op">=</span><span class="op">&gt;</span> {};
+    () =&gt; {};
 }
 
 <span class="comment">// No-op</span>
 <span class="macro">macro_rules!</span> <span class="ident">skip_assert_initialized</span> {
-    () <span class="op">=</span><span class="op">&gt;</span> {};
+    () =&gt; {};
 }
 
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy::wrong_self_convention</span>)]</span>
@@ -336,7 +335,7 @@
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">crossing_event::CrossingEvent</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">delete_event::DeleteEvent</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">dnd_event::DNDEvent</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">event</span>::{<span class="ident">Event</span>, <span class="ident">NONE_EVENT</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">event</span>::{<span class="ident">Event</span>, <span class="ident">EventKind</span>, <span class="ident">NONE_EVENT</span>};
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">focus_event::FocusEvent</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">grab_broken_event::GrabBrokenEvent</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">key_event::KeyEvent</span>;
@@ -344,8 +343,7 @@
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">motion_event::MotionEvent</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">pad_event::PadEvent</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">proximity_event::ProximityEvent</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">rectangle::Rectangle</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">rgba</span>::{<span class="ident">RGBABuilder</span>, <span class="ident">RgbaParseError</span>, <span class="ident">RGBA</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">rgba::RGBABuilder</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">scroll_event::ScrollEvent</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">time_coord::TimeCoord</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">toplevel_size::ToplevelSize</span>;

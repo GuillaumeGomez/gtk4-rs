@@ -491,7 +491,6 @@
 <span id="418">418</span>
 <span id="419">419</span>
 <span id="420">420</span>
-<span id="421">421</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">ContentDeserializer</span>, <span class="ident">ContentSerializer</span>};
@@ -526,9 +525,8 @@
 <span class="doccomment">/// ## `y_origin`</span>
 <span class="doccomment">/// baseline pixel where you intend to draw the layout line with this clip</span>
 <span class="doccomment">/// ## `index_ranges`</span>
-<span class="doccomment">/// array of byte indexes into the layout,</span>
-<span class="doccomment">///  where even members of array are start indexes and odd elements</span>
-<span class="doccomment">///  are end indexes</span>
+<span class="doccomment">/// array of byte indexes into the layout, where even</span>
+<span class="doccomment">///  members of array are start indexes and odd elements are end indexes</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Returns</span>
 <span class="doccomment">///</span>
@@ -539,7 +537,7 @@
     <span class="ident">x_origin</span>: <span class="ident">i32</span>,
     <span class="ident">y_origin</span>: <span class="ident">i32</span>,
     <span class="ident">index_ranges</span>: <span class="kw-2">&amp;</span>[<span class="ident">GRange</span>],
-) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">cairo::Region</span><span class="op">&gt;</span> {
+) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">cairo::Region</span><span class="op">&gt;</span> {
     <span class="macro">assert_initialized_main_thread!</span>();
 
     <span class="kw">let</span> <span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">i32</span> <span class="op">=</span> <span class="ident">index_ranges</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw">_</span>;
@@ -582,7 +580,7 @@
     <span class="ident">x_origin</span>: <span class="ident">i32</span>,
     <span class="ident">y_origin</span>: <span class="ident">i32</span>,
     <span class="ident">index_ranges</span>: <span class="kw-2">&amp;</span>[<span class="ident">GRange</span>],
-) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">cairo::Region</span><span class="op">&gt;</span> {
+) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">cairo::Region</span><span class="op">&gt;</span> {
     <span class="macro">assert_initialized_main_thread!</span>();
 
     <span class="kw">let</span> <span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">i32</span> <span class="op">=</span> <span class="ident">index_ranges</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw">_</span>;
@@ -668,7 +666,7 @@
     <span class="ident">mime_type</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
     <span class="ident">type_</span>: <span class="ident">glib::types::Type</span>,
     <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">glib::Value</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">glib::Value</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="macro">assert_initialized_main_thread!</span>();
 
     <span class="kw">let</span> <span class="ident">stream</span> <span class="op">=</span> <span class="ident">stream</span>.<span class="ident">clone</span>();
@@ -840,7 +838,7 @@
 <span class="doccomment">/// ## `io_priority`</span>
 <span class="doccomment">/// the I/O priority of the operation</span>
 <span class="doccomment">/// ## `cancellable`</span>
-<span class="doccomment">/// optional [`gio::Cancellable`][crate::gio::Cancellable] object</span>
+<span class="doccomment">/// optional `GCancellable` object</span>
 <span class="doccomment">/// ## `callback`</span>
 <span class="doccomment">/// callback to call when the operation is done</span>
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_content_serialize_async&quot;</span>)]</span>
@@ -894,7 +892,7 @@
     <span class="ident">mime_type</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
     <span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="ident">glib::Value</span>,
     <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="macro">assert_initialized_main_thread!</span>();
 
     <span class="kw">let</span> <span class="ident">stream</span> <span class="op">=</span> <span class="ident">stream</span>.<span class="ident">clone</span>();

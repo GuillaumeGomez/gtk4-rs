@@ -313,7 +313,6 @@
 <span id="240">240</span>
 <span id="241">241</span>
 <span id="242">242</span>
-<span id="243">243</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">keys::Key</span>, <span class="ident">Display</span>, <span class="ident">Event</span>, <span class="ident">KeymapKey</span>, <span class="ident">ModifierType</span>};
@@ -353,25 +352,24 @@
     <span class="doccomment">/// [`true`] if there was a keyval bound to keycode/state/group.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `keyval`</span>
-    <span class="doccomment">/// return location for keyval, or [`None`]</span>
+    <span class="doccomment">/// return location for keyval</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `effective_group`</span>
-    <span class="doccomment">/// return location for effective</span>
-    <span class="doccomment">///  group, or [`None`]</span>
+    <span class="doccomment">/// return location for effective group</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `level`</span>
-    <span class="doccomment">/// return location for level, or [`None`]</span>
+    <span class="doccomment">/// return location for level</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `consumed`</span>
-    <span class="doccomment">/// return location for modifiers</span>
-    <span class="doccomment">///  that were used to determine the group or level, or [`None`]</span>
+    <span class="doccomment">/// return location for modifiers that were used</span>
+    <span class="doccomment">///  to determine the group or level</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_display_translate_key&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">translate_key</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">keycode</span>: <span class="ident">u32</span>,
         <span class="ident">state</span>: <span class="ident">ModifierType</span>,
         <span class="ident">group</span>: <span class="ident">i32</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Key</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">ModifierType</span>)<span class="op">&gt;</span>;
+    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Key</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">ModifierType</span>)<span class="op">&gt;</span>;
 
     <span class="doccomment">/// Retrieves a desktop-wide setting such as double-click time</span>
     <span class="doccomment">/// for the `self`.</span>
@@ -385,7 +383,7 @@
     <span class="doccomment">/// [`true`] if the setting existed and a value was stored</span>
     <span class="doccomment">///  in `value`, [`false`] otherwise</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_display_get_setting&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">get_setting</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::Value</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">get_setting</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::Value</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Obtains a list of keycode/group/level combinations that will</span>
     <span class="doccomment">/// generate `keyval`.</span>
@@ -413,7 +411,7 @@
     <span class="doccomment">/// return location</span>
     <span class="doccomment">///  for an array of [`KeymapKey`][crate::KeymapKey]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_display_map_keyval&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">map_keyval</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">keyval</span>: <span class="ident">Key</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">KeymapKey</span><span class="op">&gt;</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">map_keyval</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">keyval</span>: <span class="ident">Key</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">KeymapKey</span><span class="op">&gt;</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Returns the keyvals bound to `keycode`.</span>
     <span class="doccomment">///</span>
@@ -433,13 +431,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `keys`</span>
     <span class="doccomment">/// return</span>
-    <span class="doccomment">///  location for array of [`KeymapKey`][crate::KeymapKey], or [`None`]</span>
+    <span class="doccomment">///  location for array of [`KeymapKey`][crate::KeymapKey]</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## `keyvals`</span>
     <span class="doccomment">/// return</span>
-    <span class="doccomment">///  location for array of keyvals, or [`None`]</span>
+    <span class="doccomment">///  location for array of keyvals</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_display_map_keycode&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">map_keycode</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">keycode</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">KeymapKey</span>, <span class="ident">Key</span>)<span class="op">&gt;</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">map_keycode</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">keycode</span>: <span class="ident">u32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">KeymapKey</span>, <span class="ident">Key</span>)<span class="op">&gt;</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Appends the given event onto the front of the event</span>
     <span class="doccomment">/// queue for `self`.</span>
@@ -458,7 +456,7 @@
         <span class="ident">keycode</span>: <span class="ident">u32</span>,
         <span class="ident">state</span>: <span class="ident">ModifierType</span>,
         <span class="ident">group</span>: <span class="ident">i32</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Key</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">ModifierType</span>)<span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Key</span>, <span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">ModifierType</span>)<span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">keyval</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">effective_group</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
@@ -486,7 +484,7 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">get_setting</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::Value</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">get_setting</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::Value</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">glib::Value::uninitialized</span>();
             <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">ffi::gdk_display_get_setting</span>(
@@ -502,7 +500,7 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">map_keyval</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">keyval</span>: <span class="ident">Key</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">KeymapKey</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">map_keyval</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">keyval</span>: <span class="ident">Key</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">KeymapKey</span><span class="op">&gt;</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">keys</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">n_keys</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
@@ -523,7 +521,7 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">map_keycode</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">keycode</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">KeymapKey</span>, <span class="ident">Key</span>)<span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">map_keycode</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">keycode</span>: <span class="ident">u32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">KeymapKey</span>, <span class="ident">Key</span>)<span class="op">&gt;</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">keys</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">keyvals</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();

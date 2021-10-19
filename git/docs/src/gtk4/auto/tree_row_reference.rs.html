@@ -269,9 +269,9 @@
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">TreeRowReference</span>(<span class="ident">Boxed</span><span class="op">&lt;</span><span class="ident">ffi::GtkTreeRowReference</span><span class="op">&gt;</span>);
 
     <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">copy</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::gtk_tree_row_reference_copy</span>(<span class="ident">mut_override</span>(<span class="ident">ptr</span>)),
-        <span class="ident">free</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::gtk_tree_row_reference_free</span>(<span class="ident">ptr</span>),
-        <span class="ident">type_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_tree_row_reference_get_type</span>(),
+        <span class="ident">copy</span> =&gt; <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::gtk_tree_row_reference_copy</span>(<span class="ident">mut_override</span>(<span class="ident">ptr</span>)),
+        <span class="ident">free</span> =&gt; <span class="op">|</span><span class="ident">ptr</span><span class="op">|</span> <span class="ident">ffi::gtk_tree_row_reference_free</span>(<span class="ident">ptr</span>),
+        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_tree_row_reference_get_type</span>(),
     }
 }
 
@@ -285,13 +285,13 @@
     <span class="doccomment">/// ## `model`</span>
     <span class="doccomment">/// a [`TreeModel`][crate::TreeModel]</span>
     <span class="doccomment">/// ## `path`</span>
-    <span class="doccomment">/// a valid [`TreePath`][crate::TreePath]-struct to monitor</span>
+    <span class="doccomment">/// a valid [`TreePath`][crate::TreePath] to monitor</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// a newly allocated [`TreeRowReference`][crate::TreeRowReference], or [`None`]</span>
+    <span class="doccomment">/// a newly allocated [`TreeRowReference`][crate::TreeRowReference]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_tree_row_reference_new&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">TreeModel</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">path</span>: <span class="kw-2">&amp;</span><span class="ident">TreePath</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TreeRowReference</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">TreeModel</span><span class="op">&gt;</span>, <span class="ident">path</span>: <span class="kw-2">&amp;</span><span class="ident">TreePath</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TreeRowReference</span><span class="op">&gt;</span> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::gtk_tree_row_reference_new</span>(
@@ -326,21 +326,21 @@
     <span class="doccomment">/// need to carefully monitor exactly when a row reference updates</span>
     <span class="doccomment">/// itself, and is not generally needed by most applications.</span>
     <span class="doccomment">/// ## `proxy`</span>
-    <span class="doccomment">/// a proxy [`glib::Object`][crate::glib::Object]</span>
+    <span class="doccomment">/// a proxy `GObject`</span>
     <span class="doccomment">/// ## `model`</span>
     <span class="doccomment">/// a [`TreeModel`][crate::TreeModel]</span>
     <span class="doccomment">/// ## `path`</span>
-    <span class="doccomment">/// a valid [`TreePath`][crate::TreePath]-struct to monitor</span>
+    <span class="doccomment">/// a valid [`TreePath`][crate::TreePath] to monitor</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// a newly allocated [`TreeRowReference`][crate::TreeRowReference], or [`None`]</span>
+    <span class="doccomment">/// a newly allocated [`TreeRowReference`][crate::TreeRowReference]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_tree_row_reference_new_proxy&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new_proxy</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span>, <span class="ident">Q</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">TreeModel</span><span class="op">&gt;</span><span class="op">&gt;</span>(
-        <span class="ident">proxy</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>,
-        <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident">Q</span>,
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new_proxy</span>(
+        <span class="ident">proxy</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span>,
+        <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">TreeModel</span><span class="op">&gt;</span>,
         <span class="ident">path</span>: <span class="kw-2">&amp;</span><span class="ident">TreePath</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TreeRowReference</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TreeRowReference</span><span class="op">&gt;</span> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::gtk_tree_row_reference_new_proxy</span>(
@@ -358,7 +358,7 @@
     <span class="doccomment">/// the model</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_tree_row_reference_get_model&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_model&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">model</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TreeModel</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">model</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">TreeModel</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_tree_row_reference_get_model</span>(<span class="ident">mut_override</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -371,10 +371,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// a current path, or [`None`]</span>
+    <span class="doccomment">/// a current path</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_tree_row_reference_get_path&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_path&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">path</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TreePath</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">path</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TreePath</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib_full</span>(<span class="ident">ffi::gtk_tree_row_reference_get_path</span>(<span class="ident">mut_override</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -389,7 +389,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`true`] if `self` points to a valid path</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_tree_row_reference_valid&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">valid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">valid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_tree_row_reference_valid</span>(<span class="ident">mut_override</span>(
                 <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
@@ -399,13 +399,13 @@
 
     <span class="doccomment">/// Lets a set of row reference created by</span>
     <span class="doccomment">/// [`new_proxy()`][Self::new_proxy()] know that the</span>
-    <span class="doccomment">/// model emitted the `signal::TreeModel::row-deleted` signal.</span>
+    <span class="doccomment">/// model emitted the ::row-deleted signal.</span>
     <span class="doccomment">/// ## `proxy`</span>
-    <span class="doccomment">/// a [`glib::Object`][crate::glib::Object]</span>
+    <span class="doccomment">/// a `GObject`</span>
     <span class="doccomment">/// ## `path`</span>
     <span class="doccomment">/// the path position that was deleted</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_tree_row_reference_deleted&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">deleted</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">proxy</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">path</span>: <span class="kw-2">&amp;</span><span class="ident">TreePath</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">deleted</span>(<span class="ident">proxy</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span>, <span class="ident">path</span>: <span class="kw-2">&amp;</span><span class="ident">TreePath</span>) {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe</span> {
             <span class="ident">ffi::gtk_tree_row_reference_deleted</span>(
@@ -417,13 +417,13 @@
 
     <span class="doccomment">/// Lets a set of row reference created by</span>
     <span class="doccomment">/// [`new_proxy()`][Self::new_proxy()] know that the</span>
-    <span class="doccomment">/// model emitted the `signal::TreeModel::row-inserted` signal.</span>
+    <span class="doccomment">/// model emitted the ::row-inserted signal.</span>
     <span class="doccomment">/// ## `proxy`</span>
-    <span class="doccomment">/// a [`glib::Object`][crate::glib::Object]</span>
+    <span class="doccomment">/// a `GObject`</span>
     <span class="doccomment">/// ## `path`</span>
     <span class="doccomment">/// the row position that was inserted</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_tree_row_reference_inserted&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">inserted</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">proxy</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>, <span class="ident">path</span>: <span class="kw-2">&amp;</span><span class="ident">TreePath</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">inserted</span>(<span class="ident">proxy</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">glib::Object</span><span class="op">&gt;</span>, <span class="ident">path</span>: <span class="kw-2">&amp;</span><span class="ident">TreePath</span>) {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe</span> {
             <span class="ident">ffi::gtk_tree_row_reference_inserted</span>(
