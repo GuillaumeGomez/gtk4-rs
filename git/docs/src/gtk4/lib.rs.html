@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -319,6 +319,14 @@
 <span id="246">246</span>
 <span id="247">247</span>
 <span id="248">248</span>
+<span id="249">249</span>
+<span id="250">250</span>
+<span id="251">251</span>
+<span id="252">252</span>
+<span id="253">253</span>
+<span id="254">254</span>
+<span id="255">255</span>
+<span id="256">256</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
 
 <span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">feature</span>(<span class="ident">doc_cfg</span>))]</span>
@@ -491,11 +499,13 @@
 <span class="kw">mod</span> <span class="ident">enums</span>;
 <span class="kw">mod</span> <span class="ident">event_controller_key</span>;
 <span class="kw">mod</span> <span class="ident">expression_watch</span>;
+<span class="kw">mod</span> <span class="ident">file_chooser</span>;
 <span class="kw">mod</span> <span class="ident">file_chooser_dialog</span>;
 <span class="kw">mod</span> <span class="ident">flow_box</span>;
 <span class="kw">mod</span> <span class="ident">font_chooser</span>;
 <span class="kw">mod</span> <span class="ident">functions</span>;
 <span class="kw">mod</span> <span class="ident">gesture_stylus</span>;
+<span class="kw">mod</span> <span class="ident">icon_theme</span>;
 <span class="kw">mod</span> <span class="ident">im_context</span>;
 <span class="kw">mod</span> <span class="ident">im_context_simple</span>;
 <span class="kw">mod</span> <span class="ident">info_bar</span>;
@@ -520,17 +530,23 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;linux&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;linux&quot;</span>)))]</span>
 <span class="kw">mod</span> <span class="ident">print_job</span>;
+<span class="kw">mod</span> <span class="ident">print_settings</span>;
 <span class="kw">mod</span> <span class="ident">property_expression</span>;
 <span class="kw">mod</span> <span class="ident">recent_data</span>;
 <span class="kw">mod</span> <span class="ident">requisition</span>;
 <span class="kw">mod</span> <span class="ident">response_type</span>;
 <span class="kw">mod</span> <span class="ident">scale</span>;
+<span class="kw">mod</span> <span class="ident">shortcut</span>;
 <span class="kw">mod</span> <span class="ident">shortcut_trigger</span>;
 <span class="kw">mod</span> <span class="ident">shortcuts_section</span>;
 <span class="kw">mod</span> <span class="ident">snapshot</span>;
 <span class="kw">mod</span> <span class="ident">spin_button</span>;
 <span class="kw">mod</span> <span class="ident">string_filter</span>;
+<span class="kw">mod</span> <span class="ident">string_list</span>;
 <span class="kw">mod</span> <span class="ident">string_sorter</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v4_6&quot;</span>, <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>))]</span>
+<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;dox&quot;</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v4_6&quot;</span>)))]</span>
+<span class="kw">mod</span> <span class="ident">symbolic_paintable</span>;
 <span class="kw">mod</span> <span class="ident">text</span>;
 <span class="kw">mod</span> <span class="ident">text_buffer</span>;
 <span class="kw">mod</span> <span class="ident">text_view</span>;
@@ -552,7 +568,7 @@
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">constant_expression::ConstantExpression</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">css_location::CssLocation</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">directory_list::DirectoryListBuilder</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">expression</span>::{<span class="ident">Expression</span>, <span class="ident">NONE_EXPRESSION</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">expression::Expression</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">expression_watch::ExpressionWatch</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">functions</span>::<span class="kw-2">*</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">glib::signal::Inhibit</span>;
