@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4&#x2F;src&#x2F;auto&#x2F;entry.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>entry.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4&#x2F;src&#x2F;auto&#x2F;entry.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>entry.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +72,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container rust-logo" href='../../../gtk4/index.html'><img src='../../../rust-logo.png' alt='logo'></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -3958,26 +3959,26 @@
     <span class="doccomment">/// will scroll so that the cursor position is visible.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// When using an entry for passwords and other sensitive information, it</span>
-    <span class="doccomment">/// can be put into “password mode” using [``EntryExt::set_visibility()``][crate::prelude::`EntryExt::set_visibility()`].</span>
+    <span class="doccomment">/// can be put into “password mode” using [`EntryExt::set_visibility()`][crate::prelude::EntryExt::set_visibility()].</span>
     <span class="doccomment">/// In this mode, entered text is displayed using a “invisible” character.</span>
     <span class="doccomment">/// By default, GTK picks the best invisible character that is available</span>
     <span class="doccomment">/// in the current font, but it can be changed with</span>
-    <span class="doccomment">/// [``EntryExt::set_invisible_char()``][crate::prelude::`EntryExt::set_invisible_char()`].</span>
+    <span class="doccomment">/// [`EntryExt::set_invisible_char()`][crate::prelude::EntryExt::set_invisible_char()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`Entry`][crate::Entry] has the ability to display progress or activity</span>
     <span class="doccomment">/// information behind the text. To make an entry display such information,</span>
-    <span class="doccomment">/// use [``EntryExt::set_progress_fraction()``][crate::prelude::`EntryExt::set_progress_fraction()`] or</span>
-    <span class="doccomment">/// [``EntryExt::set_progress_pulse_step()``][crate::prelude::`EntryExt::set_progress_pulse_step()`].</span>
+    <span class="doccomment">/// use [`EntryExt::set_progress_fraction()`][crate::prelude::EntryExt::set_progress_fraction()] or</span>
+    <span class="doccomment">/// [`EntryExt::set_progress_pulse_step()`][crate::prelude::EntryExt::set_progress_pulse_step()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Additionally, [`Entry`][crate::Entry] can show icons at either side of the entry.</span>
     <span class="doccomment">/// These icons can be activatable by clicking, can be set up as drag source</span>
     <span class="doccomment">/// and can have tooltips. To add an icon, use</span>
-    <span class="doccomment">/// [``EntryExt::set_icon_from_gicon()``][crate::prelude::`EntryExt::set_icon_from_gicon()`] or one of the various other functions</span>
+    <span class="doccomment">/// [`EntryExt::set_icon_from_gicon()`][crate::prelude::EntryExt::set_icon_from_gicon()] or one of the various other functions</span>
     <span class="doccomment">/// that set an icon from an icon name or a paintable. To trigger an action when</span>
     <span class="doccomment">/// the user clicks an icon, connect to the `signal::Entry::icon-press` signal.</span>
     <span class="doccomment">/// To allow DND operations from an icon, use</span>
-    <span class="doccomment">/// [``EntryExt::set_icon_drag_source()``][crate::prelude::`EntryExt::set_icon_drag_source()`]. To set a tooltip on an icon, use</span>
-    <span class="doccomment">/// [``EntryExt::set_icon_tooltip_text()``][crate::prelude::`EntryExt::set_icon_tooltip_text()`] or the corresponding function</span>
+    <span class="doccomment">/// [`EntryExt::set_icon_drag_source()`][crate::prelude::EntryExt::set_icon_drag_source()]. To set a tooltip on an icon, use</span>
+    <span class="doccomment">/// [`EntryExt::set_icon_tooltip_text()`][crate::prelude::EntryExt::set_icon_tooltip_text()] or the corresponding function</span>
     <span class="doccomment">/// for markup.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note that functionality or information that is only available by clicking</span>
@@ -4012,8 +4013,8 @@
     <span class="doccomment">/// # GtkEntry as GtkBuildable</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The [`Entry`][crate::Entry] implementation of the [`Buildable`][crate::Buildable] interface supports a</span>
-    <span class="doccomment">/// custom `&lt;attributes&gt;` element, which supports any number of `&lt;attribute&gt;`</span>
-    <span class="doccomment">/// elements. The `&lt;attribute&gt;` element has attributes named “name“, “value“,</span>
+    <span class="doccomment">/// custom &lt;attributes&gt; element, which supports any number of &lt;attribute&gt;</span>
+    <span class="doccomment">/// elements. The &lt;attribute&gt; element has attributes named “name“, “value“,</span>
     <span class="doccomment">/// “start“ and “end“ and allows you to specify `PangoAttribute` values for</span>
     <span class="doccomment">/// this label.</span>
     <span class="doccomment">///</span>
@@ -4049,6 +4050,8 @@
 }
 
 <span class="kw">impl</span> <span class="ident">Entry</span> {
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">Entry</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+
     <span class="doccomment">/// Creates a new entry.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
@@ -4082,7 +4085,7 @@
     <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Creates a new builder-pattern struct instance to construct [`Entry`] objects.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// This method returns an instance of [`EntryBuilder`] which can be used to create [`Entry`] objects.</span>
+    <span class="doccomment">/// This method returns an instance of [`EntryBuilder`](crate::builders::EntryBuilder) which can be used to create [`Entry`] objects.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">builder</span>() -&gt; <span class="ident">EntryBuilder</span> {
         <span class="ident">EntryBuilder::default</span>()
     }
@@ -4099,6 +4102,7 @@
 <span class="doccomment">/// A [builder-pattern] type to construct [`Entry`] objects.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html</span>
+<span class="attribute">#[<span class="ident">must_use</span> <span class="op">=</span> <span class="string">&quot;The builder must be built to be used&quot;</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">EntryBuilder</span> {
     <span class="ident">activates_default</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span>,
     <span class="ident">attributes</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">pango::AttrList</span><span class="op">&gt;</span>,
@@ -4183,6 +4187,7 @@
 
     <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Build the [`Entry`].</span>
+    <span class="attribute">#[<span class="ident">must_use</span> <span class="op">=</span> <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">build</span>(<span class="self">self</span>) -&gt; <span class="ident">Entry</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">properties</span>: <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>)<span class="op">&gt;</span> <span class="op">=</span> <span class="macro">vec!</span>[];
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">activates_default</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">activates_default</span> {
@@ -4417,7 +4422,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// This is mainly useful to change the size or weight of the text.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The `PangoAttribute`&#39;s `start_index` and `end_index` must refer to the</span>
+    <span class="doccomment">/// The `PangoAttribute`&#39;s @start_index and @end_index must refer to the</span>
     <span class="doccomment">/// [`EntryBuffer`][crate::EntryBuffer] text, i.e. without the preedit string.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">attributes</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">attributes</span>: <span class="kw-2">&amp;</span><span class="ident">pango::AttrList</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">attributes</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">attributes</span>.<span class="ident">clone</span>());
@@ -4568,7 +4573,7 @@
 
     <span class="doccomment">/// The contents of the tooltip on the primary icon, with markup.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``EntryExt::set_icon_tooltip_markup()``][crate::prelude::`EntryExt::set_icon_tooltip_markup()`].</span>
+    <span class="doccomment">/// Also see [`EntryExt::set_icon_tooltip_markup()`][crate::prelude::EntryExt::set_icon_tooltip_markup()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">primary_icon_tooltip_markup</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">primary_icon_tooltip_markup</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">primary_icon_tooltip_markup</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">primary_icon_tooltip_markup</span>.<span class="ident">to_string</span>());
         <span class="self">self</span>
@@ -4576,7 +4581,7 @@
 
     <span class="doccomment">/// The contents of the tooltip on the primary icon.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``EntryExt::set_icon_tooltip_text()``][crate::prelude::`EntryExt::set_icon_tooltip_text()`].</span>
+    <span class="doccomment">/// Also see [`EntryExt::set_icon_tooltip_text()`][crate::prelude::EntryExt::set_icon_tooltip_text()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">primary_icon_tooltip_text</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">primary_icon_tooltip_text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">primary_icon_tooltip_text</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">primary_icon_tooltip_text</span>.<span class="ident">to_string</span>());
         <span class="self">self</span>
@@ -4591,7 +4596,7 @@
     <span class="doccomment">/// The fraction of total entry width to move the progress</span>
     <span class="doccomment">/// bouncing block for each pulse.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [``EntryExt::progress_pulse()``][crate::prelude::`EntryExt::progress_pulse()`].</span>
+    <span class="doccomment">/// See [`EntryExt::progress_pulse()`][crate::prelude::EntryExt::progress_pulse()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">progress_pulse_step</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">progress_pulse_step</span>: <span class="ident">f64</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">progress_pulse_step</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">progress_pulse_step</span>);
         <span class="self">self</span>
@@ -4646,7 +4651,7 @@
 
     <span class="doccomment">/// The contents of the tooltip on the secondary icon, with markup.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``EntryExt::set_icon_tooltip_markup()``][crate::prelude::`EntryExt::set_icon_tooltip_markup()`].</span>
+    <span class="doccomment">/// Also see [`EntryExt::set_icon_tooltip_markup()`][crate::prelude::EntryExt::set_icon_tooltip_markup()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">secondary_icon_tooltip_markup</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">secondary_icon_tooltip_markup</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">secondary_icon_tooltip_markup</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">secondary_icon_tooltip_markup</span>.<span class="ident">to_string</span>());
         <span class="self">self</span>
@@ -4654,7 +4659,7 @@
 
     <span class="doccomment">/// The contents of the tooltip on the secondary icon.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``EntryExt::set_icon_tooltip_text()``][crate::prelude::`EntryExt::set_icon_tooltip_text()`].</span>
+    <span class="doccomment">/// Also see [`EntryExt::set_icon_tooltip_text()`][crate::prelude::EntryExt::set_icon_tooltip_text()].</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">secondary_icon_tooltip_text</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">secondary_icon_tooltip_text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">secondary_icon_tooltip_text</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">secondary_icon_tooltip_text</span>.<span class="ident">to_string</span>());
         <span class="self">self</span>
@@ -4714,7 +4719,7 @@
         <span class="self">self</span>
     }
 
-    <span class="doccomment">/// The cursor used by `widget`.</span>
+    <span class="doccomment">/// The cursor used by @widget.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">cursor</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">cursor</span>: <span class="kw-2">&amp;</span><span class="ident">gdk::Cursor</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">cursor</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">cursor</span>.<span class="ident">clone</span>());
         <span class="self">self</span>
@@ -4740,9 +4745,9 @@
         <span class="self">self</span>
     }
 
-    <span class="doccomment">/// Enables or disables the emission of the ::query-tooltip signal on `widget`.</span>
+    <span class="doccomment">/// Enables or disables the emission of the ::query-tooltip signal on @widget.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// A value of [`true`] indicates that `widget` can have a tooltip, in this case</span>
+    <span class="doccomment">/// A value of [`true`] indicates that @widget can have a tooltip, in this case</span>
     <span class="doccomment">/// the widget will be queried using `signal::Widget::query-tooltip` to</span>
     <span class="doccomment">/// determine whether it will provide a tooltip or not.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">has_tooltip</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">has_tooltip</span>: <span class="ident">bool</span>) -&gt; <span class="self">Self</span> {
@@ -4784,7 +4789,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// This property adds margin outside of the widget&#39;s normal size</span>
     <span class="doccomment">/// request, the margin will be added in addition to the size from</span>
-    <span class="doccomment">/// [``WidgetExt::set_size_request()``][crate::prelude::`WidgetExt::set_size_request()`] for example.</span>
+    <span class="doccomment">/// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin_bottom</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin_bottom</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin_bottom</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin_bottom</span>);
         <span class="self">self</span>
@@ -4797,7 +4802,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// This property adds margin outside of the widget&#39;s normal size</span>
     <span class="doccomment">/// request, the margin will be added in addition to the size from</span>
-    <span class="doccomment">/// [``WidgetExt::set_size_request()``][crate::prelude::`WidgetExt::set_size_request()`] for example.</span>
+    <span class="doccomment">/// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin_end</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin_end</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin_end</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin_end</span>);
         <span class="self">self</span>
@@ -4810,7 +4815,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// This property adds margin outside of the widget&#39;s normal size</span>
     <span class="doccomment">/// request, the margin will be added in addition to the size from</span>
-    <span class="doccomment">/// [``WidgetExt::set_size_request()``][crate::prelude::`WidgetExt::set_size_request()`] for example.</span>
+    <span class="doccomment">/// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin_start</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin_start</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin_start</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin_start</span>);
         <span class="self">self</span>
@@ -4820,7 +4825,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// This property adds margin outside of the widget&#39;s normal size</span>
     <span class="doccomment">/// request, the margin will be added in addition to the size from</span>
-    <span class="doccomment">/// [``WidgetExt::set_size_request()``][crate::prelude::`WidgetExt::set_size_request()`] for example.</span>
+    <span class="doccomment">/// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin_top</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">margin_top</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin_top</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">margin_top</span>);
         <span class="self">self</span>
@@ -4862,7 +4867,7 @@
     <span class="doccomment">/// Sets the text of tooltip to be the given string, which is marked up</span>
     <span class="doccomment">/// with Pango markup.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``Tooltip::set_markup()``][crate::`Tooltip::set_markup()`].</span>
+    <span class="doccomment">/// Also see [`Tooltip::set_markup()`][crate::Tooltip::set_markup()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This is a convenience property which will take care of getting the</span>
     <span class="doccomment">/// tooltip shown if the given string is not [`None`]:</span>
@@ -4879,7 +4884,7 @@
 
     <span class="doccomment">/// Sets the text of tooltip to be the given string.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``Tooltip::set_text()``][crate::`Tooltip::set_text()`].</span>
+    <span class="doccomment">/// Also see [`Tooltip::set_text()`][crate::Tooltip::set_text()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This is a convenience property which will take care of getting the</span>
     <span class="doccomment">/// tooltip shown if the given string is not [`None`]:</span>
@@ -4979,17 +4984,13 @@
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Entry</span> {
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">Entry</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
-}
-
 <span class="doccomment">/// Trait containing all [`struct@Entry`] methods.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Implementors</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// [`Entry`][struct@crate::Entry]</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">EntryExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Retrieves the value set by [`set_activates_default()`][Self::set_activates_default()].</span>
+    <span class="doccomment">/// Retrieves the value set by gtk_entry_set_activates_default().</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -5000,7 +5001,7 @@
 
     <span class="doccomment">/// Gets the attribute list of the [`Entry`][crate::Entry].</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [``set_attributes()``][`Self::set_attributes()`].</span>
+    <span class="doccomment">/// See [`set_attributes()`][Self::set_attributes()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -5020,28 +5021,28 @@
     <span class="kw">fn</span> <span class="ident">buffer</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">EntryBuffer</span>;
 
     <span class="doccomment">/// Returns the auxiliary completion object currently</span>
-    <span class="doccomment">/// in use by `self`.</span>
+    <span class="doccomment">/// in use by @self.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The auxiliary</span>
-    <span class="doccomment">///  completion object currently in use by `self`</span>
+    <span class="doccomment">///   completion object currently in use by @self</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_get_completion&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_completion&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">completion</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">EntryCompletion</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Returns the index of the icon which is the source of the</span>
-    <span class="doccomment">/// current DND operation, or -1.</span>
+    <span class="doccomment">/// current  DND operation, or -1.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// index of the icon which is the source of the</span>
-    <span class="doccomment">///  current DND operation, or -1.</span>
+    <span class="doccomment">///   current DND operation, or -1.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_get_current_icon_drag_source&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_current_icon_drag_source&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">current_icon_drag_source</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span>;
 
-    <span class="doccomment">/// Gets the menu model set with [`set_extra_menu()`][Self::set_extra_menu()].</span>
+    <span class="doccomment">/// Gets the menu model set with gtk_entry_set_extra_menu().</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -5050,7 +5051,7 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_extra_menu&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">extra_menu</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gio::MenuModel</span><span class="op">&gt;</span>;
 
-    <span class="doccomment">/// Gets the value set by [`set_has_frame()`][Self::set_has_frame()].</span>
+    <span class="doccomment">/// Gets the value set by gtk_entry_set_has_frame().</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -5070,15 +5071,15 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_icon_activatable&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">icon_is_activatable</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">icon_pos</span>: <span class="ident">EntryIconPosition</span>) -&gt; <span class="ident">bool</span>;
 
-    <span class="doccomment">/// Gets the area where entry’s icon at `icon_pos` is drawn.</span>
+    <span class="doccomment">/// Gets the area where entry’s icon at @icon_pos is drawn.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function is useful when drawing something to the</span>
     <span class="doccomment">/// entry in a draw callback.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If the entry is not realized or has no icon at the given</span>
-    <span class="doccomment">/// position, `icon_area` is filled with zeros. Otherwise,</span>
-    <span class="doccomment">/// `icon_area` will be filled with the icon&#39;s allocation,</span>
-    <span class="doccomment">/// relative to `self`&#39;s allocation.</span>
+    <span class="doccomment">/// position, @icon_area is filled with zeros. Otherwise,</span>
+    <span class="doccomment">/// @icon_area will be filled with the icon&#39;s allocation,</span>
+    <span class="doccomment">/// relative to @self&#39;s allocation.</span>
     <span class="doccomment">/// ## `icon_pos`</span>
     <span class="doccomment">/// Icon position</span>
     <span class="doccomment">///</span>
@@ -5093,14 +5094,14 @@
 
     <span class="doccomment">/// Finds the icon at the given position and return its index.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The position’s coordinates are relative to the `self`’s</span>
-    <span class="doccomment">/// top left corner. If `x`, `y` doesn’t lie inside an icon,</span>
+    <span class="doccomment">/// The position’s coordinates are relative to the @self’s</span>
+    <span class="doccomment">/// top left corner. If @x, @y doesn’t lie inside an icon,</span>
     <span class="doccomment">/// -1 is returned. This function is intended for use in a</span>
     <span class="doccomment">///  `signal::Widget::query-tooltip` signal handler.</span>
     <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// the x coordinate of the position to find, relative to `self`</span>
+    <span class="doccomment">/// the x coordinate of the position to find, relative to @self</span>
     <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// the y coordinate of the position to find, relative to `self`</span>
+    <span class="doccomment">/// the y coordinate of the position to find, relative to @self</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -5146,8 +5147,8 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// A [`gdk::Paintable`][crate::gdk::Paintable]</span>
-    <span class="doccomment">///  if no icon is set for this position or the icon set is not</span>
-    <span class="doccomment">///  a [`gdk::Paintable`][crate::gdk::Paintable].</span>
+    <span class="doccomment">///   if no icon is set for this position or the icon set is not</span>
+    <span class="doccomment">///   a [`gdk::Paintable`][crate::gdk::Paintable].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_get_icon_paintable&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_icon_paintable&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">icon_paintable</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">icon_pos</span>: <span class="ident">EntryIconPosition</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">gdk::Paintable</span><span class="op">&gt;</span>;
@@ -5179,7 +5180,7 @@
     <span class="kw">fn</span> <span class="ident">icon_storage_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">icon_pos</span>: <span class="ident">EntryIconPosition</span>) -&gt; <span class="ident">ImageType</span>;
 
     <span class="doccomment">/// Gets the contents of the tooltip on the icon at the specified</span>
-    <span class="doccomment">/// position in `self`.</span>
+    <span class="doccomment">/// position in @self.</span>
     <span class="doccomment">/// ## `icon_pos`</span>
     <span class="doccomment">/// the icon position</span>
     <span class="doccomment">///</span>
@@ -5191,7 +5192,7 @@
     <span class="kw">fn</span> <span class="ident">icon_tooltip_markup</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">icon_pos</span>: <span class="ident">EntryIconPosition</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Gets the contents of the tooltip on the icon at the specified</span>
-    <span class="doccomment">/// position in `self`.</span>
+    <span class="doccomment">/// position in @self.</span>
     <span class="doccomment">/// ## `icon_pos`</span>
     <span class="doccomment">/// the icon position</span>
     <span class="doccomment">///</span>
@@ -5220,14 +5221,14 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_input_purpose&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">input_purpose</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">InputPurpose</span>;
 
-    <span class="doccomment">/// Retrieves the maximum allowed length of the text in `self`.</span>
+    <span class="doccomment">/// Retrieves the maximum allowed length of the text in @self.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [``set_max_length()``][`Self::set_max_length()`].</span>
+    <span class="doccomment">/// See [`set_max_length()`][Self::set_max_length()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the maximum allowed number of characters</span>
-    <span class="doccomment">///  in [`Entry`][crate::Entry], or 0 if there is no maximum.</span>
+    <span class="doccomment">///   in [`Entry`][crate::Entry], or 0 if there is no maximum.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_get_max_length&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_max_length&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">max_length</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span>;
@@ -5241,23 +5242,23 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_overwrite_mode&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">is_overwrite_mode</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span>;
 
-    <span class="doccomment">/// Retrieves the text that will be displayed when `self`</span>
+    <span class="doccomment">/// Retrieves the text that will be displayed when @self</span>
     <span class="doccomment">/// is empty and unfocused</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// a pointer to the</span>
-    <span class="doccomment">///  placeholder text as a string. This string points to</span>
-    <span class="doccomment">///  internally allocated storage in the widget and must</span>
-    <span class="doccomment">///  not be freed, modified or stored. If no placeholder</span>
-    <span class="doccomment">///  text has been set, [`None`] will be returned.</span>
+    <span class="doccomment">///   placeholder text as a string. This string points to</span>
+    <span class="doccomment">///   internally allocated storage in the widget and must</span>
+    <span class="doccomment">///   not be freed, modified or stored. If no placeholder</span>
+    <span class="doccomment">///   text has been set, [`None`] will be returned.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_get_placeholder_text&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_placeholder_text&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">placeholder_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Returns the current fraction of the task that’s been completed.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [``set_progress_fraction()``][`Self::set_progress_fraction()`].</span>
+    <span class="doccomment">/// See [`set_progress_fraction()`][Self::set_progress_fraction()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -5267,7 +5268,7 @@
     <span class="kw">fn</span> <span class="ident">progress_fraction</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">f64</span>;
 
     <span class="doccomment">/// Retrieves the pulse step set with</span>
-    <span class="doccomment">/// [`set_progress_pulse_step()`][Self::set_progress_pulse_step()].</span>
+    <span class="doccomment">/// gtk_entry_set_progress_pulse_step().</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -5278,7 +5279,7 @@
 
     <span class="doccomment">/// Gets the tabstops of the `GtkEntry.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [``set_tabs()``][`Self::set_tabs()`].</span>
+    <span class="doccomment">/// See [`set_tabs()`][Self::set_tabs()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -5287,22 +5288,22 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_tabs&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">tabs</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">pango::TabArray</span><span class="op">&gt;</span>;
 
-    <span class="doccomment">/// Retrieves the current length of the text in `self`.</span>
+    <span class="doccomment">/// Retrieves the current length of the text in @self.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// This is equivalent to getting `self`&#39;s [`EntryBuffer`][crate::EntryBuffer]</span>
-    <span class="doccomment">/// and calling [``EntryBufferExtManual::length()``][crate::prelude::`EntryBufferExtManual::length()`] on it.</span>
+    <span class="doccomment">/// This is equivalent to getting @self&#39;s [`EntryBuffer`][crate::EntryBuffer]</span>
+    <span class="doccomment">/// and calling [`EntryBufferExtManual::length()`][crate::prelude::EntryBufferExtManual::length()] on it.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// the current number of characters</span>
-    <span class="doccomment">///  in [`Entry`][crate::Entry], or 0 if there are none.</span>
+    <span class="doccomment">///   in [`Entry`][crate::Entry], or 0 if there are none.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_get_text_length&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_text_length&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">text_length</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u16</span>;
 
-    <span class="doccomment">/// Retrieves whether the text in `self` is visible.</span>
+    <span class="doccomment">/// Retrieves whether the text in @self is visible.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [``set_visibility()``][`Self::set_visibility()`].</span>
+    <span class="doccomment">/// See [`set_visibility()`][Self::set_visibility()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -5311,16 +5312,16 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_visibility&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">is_visible</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span>;
 
-    <span class="doccomment">/// Causes `self` to have keyboard focus.</span>
+    <span class="doccomment">/// Causes @self to have keyboard focus.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// It behaves like [``WidgetExt::grab_focus()``][crate::prelude::`WidgetExt::grab_focus()`], except that it doesn&#39;t</span>
+    <span class="doccomment">/// It behaves like [`WidgetExt::grab_focus()`][crate::prelude::WidgetExt::grab_focus()], except that it doesn&#39;t</span>
     <span class="doccomment">/// select the contents of the entry. You only want to call this on some</span>
     <span class="doccomment">/// special entries which the user usually doesn&#39;t want to replace all text</span>
     <span class="doccomment">/// in, such as search-as-you-type entries.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if focus is now inside `self_`</span>
+    <span class="doccomment">/// [`true`] if focus is now inside @self_</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_grab_focus_without_selecting&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">grab_focus_without_selecting</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span>;
 
@@ -5329,9 +5330,9 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// Causes the entry’s progress indicator to enter “activity</span>
     <span class="doccomment">/// mode”, where a block bounces back and forth. Each call to</span>
-    <span class="doccomment">/// [`progress_pulse()`][Self::progress_pulse()] causes the block to move by a</span>
+    <span class="doccomment">/// gtk_entry_progress_pulse() causes the block to move by a</span>
     <span class="doccomment">/// little bit (the amount of movement per pulse is determined</span>
-    <span class="doccomment">/// by [``set_progress_pulse_step()``][`Self::set_progress_pulse_step()`]).</span>
+    <span class="doccomment">/// by [`set_progress_pulse_step()`][Self::set_progress_pulse_step()]).</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_progress_pulse&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">progress_pulse</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
@@ -5342,7 +5343,7 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_reset_im_context&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">reset_im_context</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
-    <span class="doccomment">/// Sets whether pressing Enter in the `self` will activate the default</span>
+    <span class="doccomment">/// Sets whether pressing Enter in the @self will activate the default</span>
     <span class="doccomment">/// widget for the window containing the entry.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This usually means that the dialog containing the entry will be closed,</span>
@@ -5371,19 +5372,19 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_set_buffer&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_buffer</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">buffer</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">EntryBuffer</span><span class="op">&gt;</span>);
 
-    <span class="doccomment">/// Sets `completion` to be the auxiliary completion object</span>
-    <span class="doccomment">/// to use with `self`.</span>
+    <span class="doccomment">/// Sets @completion to be the auxiliary completion object</span>
+    <span class="doccomment">/// to use with @self.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// All further configuration of the completion mechanism is</span>
-    <span class="doccomment">/// done on `completion` using the [`EntryCompletion`][crate::EntryCompletion] API.</span>
-    <span class="doccomment">/// Completion is disabled if `completion` is set to [`None`].</span>
+    <span class="doccomment">/// done on @completion using the [`EntryCompletion`][crate::EntryCompletion] API.</span>
+    <span class="doccomment">/// Completion is disabled if @completion is set to [`None`].</span>
     <span class="doccomment">/// ## `completion`</span>
     <span class="doccomment">/// The [`EntryCompletion`][crate::EntryCompletion]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_set_completion&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_completion</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">completion</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">EntryCompletion</span><span class="op">&gt;</span>);
 
     <span class="doccomment">/// Sets a menu model to add when constructing</span>
-    <span class="doccomment">/// the context menu for `self`.</span>
+    <span class="doccomment">/// the context menu for @self.</span>
     <span class="doccomment">/// ## `model`</span>
     <span class="doccomment">/// a `GMenuModel`</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_set_extra_menu&quot;</span>)]</span>
@@ -5427,7 +5428,7 @@
     <span class="doccomment">/// If the icon isn’t known, a “broken image” icon will be</span>
     <span class="doccomment">/// displayed instead.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `icon` is [`None`], no icon will be shown in the</span>
+    <span class="doccomment">/// If @icon is [`None`], no icon will be shown in the</span>
     <span class="doccomment">/// specified position.</span>
     <span class="doccomment">/// ## `icon_pos`</span>
     <span class="doccomment">/// The position at which to set the icon</span>
@@ -5442,7 +5443,7 @@
     <span class="doccomment">/// If the icon name isn’t known, a “broken image” icon will be</span>
     <span class="doccomment">/// displayed instead.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `icon_name` is [`None`], no icon will be shown in the</span>
+    <span class="doccomment">/// If @icon_name is [`None`], no icon will be shown in the</span>
     <span class="doccomment">/// specified position.</span>
     <span class="doccomment">/// ## `icon_pos`</span>
     <span class="doccomment">/// The position at which to set the icon</span>
@@ -5453,7 +5454,7 @@
 
     <span class="doccomment">/// Sets the icon shown in the specified position using a [`gdk::Paintable`][crate::gdk::Paintable].</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `paintable` is [`None`], no icon will be shown in the specified position.</span>
+    <span class="doccomment">/// If @paintable is [`None`], no icon will be shown in the specified position.</span>
     <span class="doccomment">/// ## `icon_pos`</span>
     <span class="doccomment">/// Icon position</span>
     <span class="doccomment">/// ## `paintable`</span>
@@ -5470,19 +5471,19 @@
     <span class="doccomment">/// Icon position</span>
     <span class="doccomment">/// ## `sensitive`</span>
     <span class="doccomment">/// Specifies whether the icon should appear</span>
-    <span class="doccomment">///  sensitive or insensitive</span>
+    <span class="doccomment">///   sensitive or insensitive</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_set_icon_sensitive&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_icon_sensitive</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">icon_pos</span>: <span class="ident">EntryIconPosition</span>, <span class="ident">sensitive</span>: <span class="ident">bool</span>);
 
-    <span class="doccomment">/// Sets `tooltip` as the contents of the tooltip for the icon at</span>
+    <span class="doccomment">/// Sets @tooltip as the contents of the tooltip for the icon at</span>
     <span class="doccomment">/// the specified position.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `tooltip` is assumed to be marked up with Pango Markup.</span>
+    <span class="doccomment">/// @tooltip is assumed to be marked up with Pango Markup.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Use [`None`] for `tooltip` to remove an existing tooltip.</span>
+    <span class="doccomment">/// Use [`None`] for @tooltip to remove an existing tooltip.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See also [``WidgetExt::set_tooltip_markup()``][crate::prelude::`WidgetExt::set_tooltip_markup()`] and</span>
-    <span class="doccomment">/// [``set_icon_tooltip_text()``][`Self::set_icon_tooltip_text()`].</span>
+    <span class="doccomment">/// See also [`WidgetExt::set_tooltip_markup()`][crate::prelude::WidgetExt::set_tooltip_markup()] and</span>
+    <span class="doccomment">/// [`set_icon_tooltip_text()`][Self::set_icon_tooltip_text()].</span>
     <span class="doccomment">/// ## `icon_pos`</span>
     <span class="doccomment">/// the icon position</span>
     <span class="doccomment">/// ## `tooltip`</span>
@@ -5490,20 +5491,20 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_set_icon_tooltip_markup&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_icon_tooltip_markup</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">icon_pos</span>: <span class="ident">EntryIconPosition</span>, <span class="ident">tooltip</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>);
 
-    <span class="doccomment">/// Sets `tooltip` as the contents of the tooltip for the icon</span>
+    <span class="doccomment">/// Sets @tooltip as the contents of the tooltip for the icon</span>
     <span class="doccomment">/// at the specified position.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Use [`None`] for `tooltip` to remove an existing tooltip.</span>
+    <span class="doccomment">/// Use [`None`] for @tooltip to remove an existing tooltip.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See also [``WidgetExt::set_tooltip_text()``][crate::prelude::`WidgetExt::set_tooltip_text()`] and</span>
-    <span class="doccomment">/// [``set_icon_tooltip_markup()``][`Self::set_icon_tooltip_markup()`].</span>
+    <span class="doccomment">/// See also [`WidgetExt::set_tooltip_text()`][crate::prelude::WidgetExt::set_tooltip_text()] and</span>
+    <span class="doccomment">/// [`set_icon_tooltip_markup()`][Self::set_icon_tooltip_markup()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If you unset the widget tooltip via</span>
-    <span class="doccomment">/// [``WidgetExt::set_tooltip_text()``][crate::prelude::`WidgetExt::set_tooltip_text()`] or</span>
-    <span class="doccomment">/// [``WidgetExt::set_tooltip_markup()``][crate::prelude::`WidgetExt::set_tooltip_markup()`], this sets</span>
+    <span class="doccomment">/// [`WidgetExt::set_tooltip_text()`][crate::prelude::WidgetExt::set_tooltip_text()] or</span>
+    <span class="doccomment">/// [`WidgetExt::set_tooltip_markup()`][crate::prelude::WidgetExt::set_tooltip_markup()], this sets</span>
     <span class="doccomment">/// `property::Widget::has-tooltip` to [`false`], which suppresses</span>
     <span class="doccomment">/// icon tooltips too. You can resolve this by then calling</span>
-    <span class="doccomment">/// [``WidgetExt::set_has_tooltip()``][crate::prelude::`WidgetExt::set_has_tooltip()`] to set</span>
+    <span class="doccomment">/// [`WidgetExt::set_has_tooltip()`][crate::prelude::WidgetExt::set_has_tooltip()] to set</span>
     <span class="doccomment">/// `property::Widget::has-tooltip` back to [`true`], or</span>
     <span class="doccomment">/// setting at least one non-empty tooltip on any icon</span>
     <span class="doccomment">/// achieves the same result.</span>
@@ -5531,7 +5532,7 @@
     <span class="doccomment">/// Sets the character to use in place of the actual text</span>
     <span class="doccomment">/// in “password mode”.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [``set_visibility()``][`Self::set_visibility()`] for how to enable</span>
+    <span class="doccomment">/// See [`set_visibility()`][Self::set_visibility()] for how to enable</span>
     <span class="doccomment">/// “password mode”.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// By default, GTK picks the best invisible char available in</span>
@@ -5548,12 +5549,12 @@
     <span class="doccomment">/// If the current contents are longer than the given length, then</span>
     <span class="doccomment">/// they will be truncated to fit. The length is is in characters.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// This is equivalent to getting `self`&#39;s [`EntryBuffer`][crate::EntryBuffer] and</span>
-    <span class="doccomment">/// calling [``EntryBufferExtManual::set_max_length()``][crate::prelude::`EntryBufferExtManual::set_max_length()`] on it.</span>
+    <span class="doccomment">/// This is equivalent to getting @self&#39;s [`EntryBuffer`][crate::EntryBuffer] and</span>
+    <span class="doccomment">/// calling [`EntryBufferExtManual::set_max_length()`][crate::prelude::EntryBufferExtManual::set_max_length()] on it.</span>
     <span class="doccomment">/// ## `max`</span>
     <span class="doccomment">/// the maximum length of the entry, or 0 for no maximum.</span>
-    <span class="doccomment">///  (other than the maximum length of entries.) The value passed in will</span>
-    <span class="doccomment">///  be clamped to the range 0-65536.</span>
+    <span class="doccomment">///   (other than the maximum length of entries.) The value passed in will</span>
+    <span class="doccomment">///   be clamped to the range 0-65536.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_set_max_length&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_max_length</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">max</span>: <span class="ident">i32</span>);
 
@@ -5563,12 +5564,12 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_set_overwrite_mode&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_overwrite_mode</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">overwrite</span>: <span class="ident">bool</span>);
 
-    <span class="doccomment">/// Sets text to be displayed in `self` when it is empty.</span>
+    <span class="doccomment">/// Sets text to be displayed in @self when it is empty.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This can be used to give a visual hint of the expected</span>
     <span class="doccomment">/// contents of the [`Entry`][crate::Entry].</span>
     <span class="doccomment">/// ## `text`</span>
-    <span class="doccomment">/// a string to be displayed when `self` is empty and unfocused</span>
+    <span class="doccomment">/// a string to be displayed when @self is empty and unfocused</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_set_placeholder_text&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_placeholder_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>);
 
@@ -5584,7 +5585,7 @@
     <span class="doccomment">/// Sets the fraction of total entry width to move the progress</span>
     <span class="doccomment">/// bouncing block for each pulse.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Use [``progress_pulse()``][`Self::progress_pulse()`] to pulse</span>
+    <span class="doccomment">/// Use [`progress_pulse()`][Self::progress_pulse()] to pulse</span>
     <span class="doccomment">/// the progress.</span>
     <span class="doccomment">/// ## `fraction`</span>
     <span class="doccomment">/// fraction between 0.0 and 1.0</span>
@@ -5607,7 +5608,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// By default, GTK picks the best invisible character available</span>
     <span class="doccomment">/// in the current font, but it can be changed with</span>
-    <span class="doccomment">/// [``set_invisible_char()``][`Self::set_invisible_char()`].</span>
+    <span class="doccomment">/// [`set_invisible_char()`][Self::set_invisible_char()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note that you probably want to set `property::Entry::input-purpose`</span>
     <span class="doccomment">/// to [`InputPurpose::Password`][crate::InputPurpose::Password] or [`InputPurpose::Pin`][crate::InputPurpose::Pin] to</span>
@@ -5619,7 +5620,7 @@
     <span class="kw">fn</span> <span class="ident">set_visibility</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">visible</span>: <span class="ident">bool</span>);
 
     <span class="doccomment">/// Unsets the invisible char, so that the default invisible char</span>
-    <span class="doccomment">/// is used again. See [``set_invisible_char()``][`Self::set_invisible_char()`].</span>
+    <span class="doccomment">/// is used again. See [`set_invisible_char()`][Self::set_invisible_char()].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_unset_invisible_char&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">unset_invisible_char</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
@@ -5734,25 +5735,25 @@
 
     <span class="doccomment">/// The contents of the tooltip on the primary icon, with markup.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``set_icon_tooltip_markup()``][`Self::set_icon_tooltip_markup()`].</span>
+    <span class="doccomment">/// Also see [`set_icon_tooltip_markup()`][Self::set_icon_tooltip_markup()].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;primary-icon-tooltip-markup&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">primary_icon_tooltip_markup</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// The contents of the tooltip on the primary icon, with markup.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``set_icon_tooltip_markup()``][`Self::set_icon_tooltip_markup()`].</span>
+    <span class="doccomment">/// Also see [`set_icon_tooltip_markup()`][Self::set_icon_tooltip_markup()].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;primary-icon-tooltip-markup&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_primary_icon_tooltip_markup</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">primary_icon_tooltip_markup</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>);
 
     <span class="doccomment">/// The contents of the tooltip on the primary icon.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``set_icon_tooltip_text()``][`Self::set_icon_tooltip_text()`].</span>
+    <span class="doccomment">/// Also see [`set_icon_tooltip_text()`][Self::set_icon_tooltip_text()].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;primary-icon-tooltip-text&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">primary_icon_tooltip_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// The contents of the tooltip on the primary icon.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``set_icon_tooltip_text()``][`Self::set_icon_tooltip_text()`].</span>
+    <span class="doccomment">/// Also see [`set_icon_tooltip_text()`][Self::set_icon_tooltip_text()].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;primary-icon-tooltip-text&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_primary_icon_tooltip_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">primary_icon_tooltip_text</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>);
 
@@ -5837,25 +5838,25 @@
 
     <span class="doccomment">/// The contents of the tooltip on the secondary icon, with markup.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``set_icon_tooltip_markup()``][`Self::set_icon_tooltip_markup()`].</span>
+    <span class="doccomment">/// Also see [`set_icon_tooltip_markup()`][Self::set_icon_tooltip_markup()].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;secondary-icon-tooltip-markup&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">secondary_icon_tooltip_markup</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// The contents of the tooltip on the secondary icon, with markup.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``set_icon_tooltip_markup()``][`Self::set_icon_tooltip_markup()`].</span>
+    <span class="doccomment">/// Also see [`set_icon_tooltip_markup()`][Self::set_icon_tooltip_markup()].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;secondary-icon-tooltip-markup&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_secondary_icon_tooltip_markup</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">secondary_icon_tooltip_markup</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>);
 
     <span class="doccomment">/// The contents of the tooltip on the secondary icon.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``set_icon_tooltip_text()``][`Self::set_icon_tooltip_text()`].</span>
+    <span class="doccomment">/// Also see [`set_icon_tooltip_text()`][Self::set_icon_tooltip_text()].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;secondary-icon-tooltip-text&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">secondary_icon_tooltip_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// The contents of the tooltip on the secondary icon.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Also see [``set_icon_tooltip_text()``][`Self::set_icon_tooltip_text()`].</span>
+    <span class="doccomment">/// Also see [`set_icon_tooltip_text()`][Self::set_icon_tooltip_text()].</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;secondary-icon-tooltip-text&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_secondary_icon_tooltip_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">secondary_icon_tooltip_text</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>);
 
@@ -6715,7 +6716,7 @@
     }
 
     <span class="kw">fn</span> <span class="ident">emit_activate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">emit_by_name</span>(<span class="string">&quot;activate&quot;</span>, <span class="kw-2">&amp;</span>[]);
+        <span class="self">self</span>.<span class="ident">emit_by_name</span>::<span class="op">&lt;</span>()<span class="op">&gt;</span>(<span class="string">&quot;activate&quot;</span>, <span class="kw-2">&amp;</span>[]);
     }
 
     <span class="kw">fn</span> <span class="ident">connect_icon_press</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="ident">EntryIconPosition</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
@@ -7762,6 +7763,5 @@
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
-    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.59.0-nightly (8f117a77d 2021-12-13)" ></div>
 </body></html>

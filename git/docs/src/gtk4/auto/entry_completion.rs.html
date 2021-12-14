@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4&#x2F;src&#x2F;auto&#x2F;entry_completion.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>entry_completion.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4&#x2F;src&#x2F;auto&#x2F;entry_completion.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>entry_completion.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +72,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container rust-logo" href='../../../gtk4/index.html'><img src='../../../rust-logo.png' alt='logo'></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -1066,6 +1067,8 @@
 <span id="993">993</span>
 <span id="994">994</span>
 <span id="995">995</span>
+<span id="996">996</span>
+<span id="997">997</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files.git)</span>
 <span class="comment">// DO NOT EDIT</span>
@@ -1099,8 +1102,8 @@
     <span class="doccomment">/// the current content of the entry, and displays a list of matches.</span>
     <span class="doccomment">/// By default, the matching is done by comparing the entry text</span>
     <span class="doccomment">/// case-insensitively against the text column of the model (see</span>
-    <span class="doccomment">/// [``set_text_column()``][`Self::set_text_column()`]), but this can be overridden</span>
-    <span class="doccomment">/// with a custom match function (see [``set_match_func()``][`Self::set_match_func()`]).</span>
+    <span class="doccomment">/// [`set_text_column()`][Self::set_text_column()]), but this can be overridden</span>
+    <span class="doccomment">/// with a custom match function (see [`set_match_func()`][Self::set_match_func()]).</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// When the user selects a completion, the content of the entry is</span>
     <span class="doccomment">/// updated. By default, the content of the entry is replaced by the</span>
@@ -1110,7 +1113,7 @@
     <span class="doccomment">/// the signal handler to suppress the default behaviour.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// To add completion functionality to an entry, use</span>
-    <span class="doccomment">/// [``EntryExt::set_completion()``][crate::prelude::`EntryExt::set_completion()`].</span>
+    <span class="doccomment">/// [`EntryExt::set_completion()`][crate::prelude::EntryExt::set_completion()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`EntryCompletion`][crate::EntryCompletion] uses a [`TreeModelFilter`][crate::TreeModelFilter] model to</span>
     <span class="doccomment">/// represent the subset of the entire model that is currently matching.</span>
@@ -1121,10 +1124,10 @@
     <span class="doccomment">/// signals (such as `GtkCellLayoutDataFunc` or</span>
     <span class="doccomment">/// `signal::CellArea::apply-attributes`)]</span>
     <span class="doccomment">/// will generally take the filter model as argument. As long as you are</span>
-    <span class="doccomment">/// only calling [``TreeModelExtManual::get()``][crate::prelude::`TreeModelExtManual::get()`], this will make no difference to</span>
+    <span class="doccomment">/// only calling [`TreeModelExtManual::get()`][crate::prelude::TreeModelExtManual::get()], this will make no difference to</span>
     <span class="doccomment">/// you. If for some reason, you need the original model, use</span>
-    <span class="doccomment">/// [``TreeModelFilterExt::model()``][crate::prelude::`TreeModelFilterExt::model()`]. Don’t forget to use</span>
-    <span class="doccomment">/// [``TreeModelFilterExt::convert_iter_to_child_iter()``][crate::prelude::`TreeModelFilterExt::convert_iter_to_child_iter()`] to obtain a</span>
+    <span class="doccomment">/// [`TreeModelFilterExt::model()`][crate::prelude::TreeModelFilterExt::model()]. Don’t forget to use</span>
+    <span class="doccomment">/// [`TreeModelFilterExt::convert_iter_to_child_iter()`][crate::prelude::TreeModelFilterExt::convert_iter_to_child_iter()] to obtain a</span>
     <span class="doccomment">/// matching iter.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Implements</span>
@@ -1151,7 +1154,7 @@
     }
 
     <span class="doccomment">/// Creates a new [`EntryCompletion`][crate::EntryCompletion] object using the</span>
-    <span class="doccomment">/// specified `area`.</span>
+    <span class="doccomment">/// specified @area.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The [`CellArea`][crate::CellArea] is used to layout cells in the underlying</span>
     <span class="doccomment">/// [`TreeViewColumn`][crate::TreeViewColumn] for the drop-down menu.</span>
@@ -1175,7 +1178,7 @@
     <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Creates a new builder-pattern struct instance to construct [`EntryCompletion`] objects.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// This method returns an instance of [`EntryCompletionBuilder`] which can be used to create [`EntryCompletion`] objects.</span>
+    <span class="doccomment">/// This method returns an instance of [`EntryCompletionBuilder`](crate::builders::EntryCompletionBuilder) which can be used to create [`EntryCompletion`] objects.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">builder</span>() -&gt; <span class="ident">EntryCompletionBuilder</span> {
         <span class="ident">EntryCompletionBuilder::default</span>()
     }
@@ -1191,19 +1194,19 @@
         }
     }
 
-    <span class="doccomment">/// Computes the common prefix that is shared by all rows in `self`</span>
-    <span class="doccomment">/// that start with `key`.</span>
+    <span class="doccomment">/// Computes the common prefix that is shared by all rows in @self</span>
+    <span class="doccomment">/// that start with @key.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If no row matches `key`, [`None`] will be returned.</span>
+    <span class="doccomment">/// If no row matches @key, [`None`] will be returned.</span>
     <span class="doccomment">/// Note that a text column must have been set for this function to work,</span>
-    <span class="doccomment">/// see [``set_text_column()``][`Self::set_text_column()`] for details.</span>
+    <span class="doccomment">/// see [`set_text_column()`][Self::set_text_column()] for details.</span>
     <span class="doccomment">/// ## `key`</span>
     <span class="doccomment">/// The text to complete for</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The common prefix all rows</span>
-    <span class="doccomment">///  starting with `key`</span>
+    <span class="doccomment">///   starting with @key</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_completion_compute_prefix&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">compute_prefix</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">key</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
@@ -1261,7 +1264,7 @@
         }
     }
 
-    <span class="doccomment">/// Returns the minimum key length as set for `self`.</span>
+    <span class="doccomment">/// Returns the minimum key length as set for @self.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -1306,7 +1309,7 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`true`] if the popup window will be resized to the width of</span>
-    <span class="doccomment">///  the entry</span>
+    <span class="doccomment">///   the entry</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_completion_get_popup_set_width&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_popup_set_width&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_popup_set_width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
@@ -1323,7 +1326,7 @@
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`true`] if the popup window will appear regardless of the</span>
-    <span class="doccomment">///  number of matches</span>
+    <span class="doccomment">///    number of matches</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_completion_get_popup_single_match&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_popup_single_match&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_popup_single_match</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
@@ -1334,7 +1337,7 @@
         }
     }
 
-    <span class="doccomment">/// Returns the column in the model of `self` to get strings from.</span>
+    <span class="doccomment">/// Returns the column in the model of @self to get strings from.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -1381,16 +1384,16 @@
         }
     }
 
-    <span class="doccomment">/// Sets the match function for `self` to be `func`.</span>
+    <span class="doccomment">/// Sets the match function for @self to be @func.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The match function is used to determine if a row should or</span>
     <span class="doccomment">/// should not be in the completion list.</span>
     <span class="doccomment">/// ## `func`</span>
     <span class="doccomment">/// the [`EntryCompletion`][crate::EntryCompletion]MatchFunc to use</span>
     <span class="doccomment">/// ## `func_data`</span>
-    <span class="doccomment">/// user data for `func`</span>
+    <span class="doccomment">/// user data for @func</span>
     <span class="doccomment">/// ## `func_notify`</span>
-    <span class="doccomment">/// destroy notify for `func_data`.</span>
+    <span class="doccomment">/// destroy notify for @func_data.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_completion_set_match_func&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_match_func</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">EntryCompletion</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">TreeIter</span>) -&gt; <span class="ident">bool</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -1432,8 +1435,8 @@
         }
     }
 
-    <span class="doccomment">/// Requires the length of the search key for `self` to be at least</span>
-    <span class="doccomment">/// `length`.</span>
+    <span class="doccomment">/// Requires the length of the search key for @self to be at least</span>
+    <span class="doccomment">/// @length.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This is useful for long lists, where completing using a small</span>
     <span class="doccomment">/// key takes a lot of time and will come up with meaningless results anyway</span>
@@ -1449,7 +1452,7 @@
 
     <span class="doccomment">/// Sets the model for a [`EntryCompletion`][crate::EntryCompletion].</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `self` already has a model set, it will remove it</span>
+    <span class="doccomment">/// If @self already has a model set, it will remove it</span>
     <span class="doccomment">/// before setting the new model. If model is [`None`], then it</span>
     <span class="doccomment">/// will unset the model.</span>
     <span class="doccomment">/// ## `model`</span>
@@ -1511,16 +1514,16 @@
     <span class="doccomment">/// Convenience function for setting up the most used case of this code: a</span>
     <span class="doccomment">/// completion list with just strings.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// This function will set up `self`</span>
+    <span class="doccomment">/// This function will set up @self</span>
     <span class="doccomment">/// to have a list displaying all (and just) strings in the completion list,</span>
-    <span class="doccomment">/// and to get those strings from `column` in the model of `self`.</span>
+    <span class="doccomment">/// and to get those strings from @column in the model of @self.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This functions creates and adds a [`CellRendererText`][crate::CellRendererText] for the selected</span>
     <span class="doccomment">/// column. If you need to set the text column, but don&#39;t want the cell</span>
-    <span class="doccomment">/// renderer, use `g_object_set()` to set the</span>
+    <span class="doccomment">/// renderer, use g_object_set() to set the</span>
     <span class="doccomment">/// `property::EntryCompletion::text-column` property directly.</span>
     <span class="doccomment">/// ## `column`</span>
-    <span class="doccomment">/// the column in the model of `self` to get strings from</span>
+    <span class="doccomment">/// the column in the model of @self to get strings from</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_entry_completion_set_text_column&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_text_column</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">column</span>: <span class="ident">i32</span>) {
         <span class="kw">unsafe</span> {
@@ -1531,7 +1534,7 @@
     <span class="doccomment">/// The [`CellArea`][crate::CellArea] used to layout cell renderers in the treeview column.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If no area is specified when creating the entry completion with</span>
-    <span class="doccomment">/// [``with_area()``][`Self::with_area()`], a horizontally oriented</span>
+    <span class="doccomment">/// [`with_area()`][Self::with_area()], a horizontally oriented</span>
     <span class="doccomment">/// [`CellAreaBox`][crate::CellAreaBox] will be used.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;cell-area&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">cell_area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CellArea</span><span class="op">&gt;</span> {
@@ -1542,10 +1545,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The default behaviour is to replace the contents</span>
     <span class="doccomment">/// of the entry with the contents of the text column in the row</span>
-    <span class="doccomment">/// pointed to by `iter`.</span>
+    <span class="doccomment">/// pointed to by @iter.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that `model` is the model that was passed to</span>
-    <span class="doccomment">/// [``set_model()``][`Self::set_model()`].</span>
+    <span class="doccomment">/// Note that @model is the model that was passed to</span>
+    <span class="doccomment">/// [`set_model()`][Self::set_model()].</span>
     <span class="doccomment">/// ## `model`</span>
     <span class="doccomment">/// the [`TreeModel`][crate::TreeModel] containing the matches</span>
     <span class="doccomment">/// ## `iter`</span>
@@ -1596,7 +1599,7 @@
     <span class="doccomment">/// whole prefix and select the newly inserted part.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Applications may connect to this signal in order to insert only a</span>
-    <span class="doccomment">/// smaller part of the `prefix` into the entry - e.g. the entry used in</span>
+    <span class="doccomment">/// smaller part of the @prefix into the entry - e.g. the entry used in</span>
     <span class="doccomment">/// the [`FileChooser`][crate::FileChooser] inserts only the part of the prefix up to the</span>
     <span class="doccomment">/// next &#39;/&#39;.</span>
     <span class="doccomment">/// ## `prefix`</span>
@@ -1641,10 +1644,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The default behaviour is to replace the contents of the</span>
     <span class="doccomment">/// entry with the contents of the text column in the row</span>
-    <span class="doccomment">/// pointed to by `iter`.</span>
+    <span class="doccomment">/// pointed to by @iter.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that `model` is the model that was passed to</span>
-    <span class="doccomment">/// [``set_model()``][`Self::set_model()`].</span>
+    <span class="doccomment">/// Note that @model is the model that was passed to</span>
+    <span class="doccomment">/// [`set_model()`][Self::set_model()].</span>
     <span class="doccomment">/// ## `model`</span>
     <span class="doccomment">/// the [`TreeModel`][crate::TreeModel] containing the matches</span>
     <span class="doccomment">/// ## `iter`</span>
@@ -1932,6 +1935,7 @@
 <span class="doccomment">/// A [builder-pattern] type to construct [`EntryCompletion`] objects.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html</span>
+<span class="attribute">#[<span class="ident">must_use</span> <span class="op">=</span> <span class="string">&quot;The builder must be built to be used&quot;</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">EntryCompletionBuilder</span> {
     <span class="ident">cell_area</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CellArea</span><span class="op">&gt;</span>,
     <span class="ident">inline_completion</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span>,
@@ -1953,6 +1957,7 @@
 
     <span class="comment">// rustdoc-stripper-ignore-next</span>
     <span class="doccomment">/// Build the [`EntryCompletion`].</span>
+    <span class="attribute">#[<span class="ident">must_use</span> <span class="op">=</span> <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">build</span>(<span class="self">self</span>) -&gt; <span class="ident">EntryCompletion</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">properties</span>: <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">ToValue</span>)<span class="op">&gt;</span> <span class="op">=</span> <span class="macro">vec!</span>[];
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">cell_area</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">cell_area</span> {
@@ -1989,7 +1994,7 @@
     <span class="doccomment">/// The [`CellArea`][crate::CellArea] used to layout cell renderers in the treeview column.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If no area is specified when creating the entry completion with</span>
-    <span class="doccomment">/// [``EntryCompletion::with_area()``][crate::`EntryCompletion::with_area()`], a horizontally oriented</span>
+    <span class="doccomment">/// [`EntryCompletion::with_area()`][crate::EntryCompletion::with_area()], a horizontally oriented</span>
     <span class="doccomment">/// [`CellAreaBox`][crate::CellAreaBox] will be used.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">cell_area</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">cell_area</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellArea</span><span class="op">&gt;</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">cell_area</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">cell_area</span>.<span class="ident">clone</span>().<span class="ident">upcast</span>());
@@ -2062,6 +2067,5 @@
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
-    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.59.0-nightly (8f117a77d 2021-12-13)" ></div>
 </body></html>

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4&#x2F;src&#x2F;auto&#x2F;gl_context.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>gl_context.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4&#x2F;src&#x2F;auto&#x2F;gl_context.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>gl_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +72,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gdk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href='../../../gdk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container rust-logo" href='../../../gdk4/index.html'><img src='../../../rust-logo.png' alt='logo'></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -660,7 +661,6 @@
 <span id="587">587</span>
 <span id="588">588</span>
 <span id="589">589</span>
-<span id="590">590</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
 <span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files.git)</span>
 <span class="comment">// DO NOT EDIT</span>
@@ -695,13 +695,13 @@
     <span class="doccomment">/// OpenGL draw context.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`GLContext`][crate::GLContext]s are created for a surface using</span>
-    <span class="doccomment">/// [``SurfaceExt::create_gl_context()``][crate::prelude::`SurfaceExt::create_gl_context()`], and the context will match</span>
+    <span class="doccomment">/// [`SurfaceExt::create_gl_context()`][crate::prelude::SurfaceExt::create_gl_context()], and the context will match</span>
     <span class="doccomment">/// the characteristics of the surface.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// A [`GLContext`][crate::GLContext] is not tied to any particular normal framebuffer.</span>
     <span class="doccomment">/// For instance, it cannot draw to the surface back buffer. The GDK</span>
     <span class="doccomment">/// repaint system is in full control of the painting to that. Instead,</span>
-    <span class="doccomment">/// you can create render buffers or textures and use ``cairo_draw_from_gl()``</span>
+    <span class="doccomment">/// you can create render buffers or textures and use [`draw_from_gl()`][crate::draw_from_gl()]</span>
     <span class="doccomment">/// in the draw function of your widget to draw them. Then GDK will handle</span>
     <span class="doccomment">/// the integration of your rendering with that of other widgets.</span>
     <span class="doccomment">///</span>
@@ -716,11 +716,11 @@
     <span class="doccomment">/// In order to create a new [`GLContext`][crate::GLContext] instance you need a [`Surface`][crate::Surface],</span>
     <span class="doccomment">/// which you typically get during the realize call of a widget.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// A [`GLContext`][crate::GLContext] is not realized until either [``GLContextExt::make_current()``][crate::prelude::`GLContextExt::make_current()`]</span>
-    <span class="doccomment">/// or [``GLContextExt::realize()``][crate::prelude::`GLContextExt::realize()`] is called. It is possible to specify</span>
+    <span class="doccomment">/// A [`GLContext`][crate::GLContext] is not realized until either [`GLContextExt::make_current()`][crate::prelude::GLContextExt::make_current()]</span>
+    <span class="doccomment">/// or [`GLContextExt::realize()`][crate::prelude::GLContextExt::realize()] is called. It is possible to specify</span>
     <span class="doccomment">/// details of the GL context like the OpenGL version to be used, or whether</span>
     <span class="doccomment">/// the GL context should have extra state validation enabled after calling</span>
-    <span class="doccomment">/// [``SurfaceExt::create_gl_context()``][crate::prelude::`SurfaceExt::create_gl_context()`] by calling [``GLContextExt::realize()``][crate::prelude::`GLContextExt::realize()`].</span>
+    <span class="doccomment">/// [`SurfaceExt::create_gl_context()`][crate::prelude::SurfaceExt::create_gl_context()] by calling [`GLContextExt::realize()`][crate::prelude::GLContextExt::realize()].</span>
     <span class="doccomment">/// If the realization fails you have the option to change the settings of</span>
     <span class="doccomment">/// the [`GLContext`][crate::GLContext] and try again.</span>
     <span class="doccomment">///</span>
@@ -740,8 +740,8 @@
     <span class="doccomment">/// You can now perform your drawing using OpenGL commands.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// You can check which [`GLContext`][crate::GLContext] is the current one by using</span>
-    <span class="doccomment">/// [``current()``][`Self::current()`]; you can also unset any [`GLContext`][crate::GLContext]</span>
-    <span class="doccomment">/// that is currently set by calling [``clear_current()``][`Self::clear_current()`].</span>
+    <span class="doccomment">/// [`current()`][Self::current()]; you can also unset any [`GLContext`][crate::GLContext]</span>
+    <span class="doccomment">/// that is currently set by calling [`clear_current()`][Self::clear_current()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This is an Abstract Base Class, you cannot instantiate it.</span>
     <span class="doccomment">///</span>
@@ -757,10 +757,12 @@
 }
 
 <span class="kw">impl</span> <span class="ident">GLContext</span> {
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">GLContext</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+
     <span class="doccomment">/// Clears the current [`GLContext`][crate::GLContext].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Any OpenGL call after this function returns will be ignored</span>
-    <span class="doccomment">/// until [``GLContextExt::make_current()``][crate::prelude::`GLContextExt::make_current()`] is called.</span>
+    <span class="doccomment">/// until [`GLContextExt::make_current()`][crate::prelude::GLContextExt::make_current()] is called.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_clear_current&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">clear_current</span>() {
         <span class="macro">assert_initialized_main_thread!</span>();
@@ -782,17 +784,13 @@
     }
 }
 
-<span class="kw">impl</span> <span class="ident">GLContext</span> {
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">NONE</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">GLContext</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
-}
-
 <span class="doccomment">/// Trait containing all [`struct@GLContext`] methods.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Implementors</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// [`GLContext`][struct@crate::GLContext]</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">GLContextExt</span>: <span class="lifetime">&#39;static</span> {
-    <span class="doccomment">/// Gets the allowed APIs set via [`set_allowed_apis()`][Self::set_allowed_apis()].</span>
+    <span class="doccomment">/// Gets the allowed APIs set via gdk_gl_context_set_allowed_apis().</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -818,7 +816,7 @@
 
     <span class="doccomment">/// Retrieves whether the context is doing extra validations and runtime checking.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [``set_debug_enabled()``][`Self::set_debug_enabled()`].</span>
+    <span class="doccomment">/// See [`set_debug_enabled()`][Self::set_debug_enabled()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -829,7 +827,7 @@
 
     <span class="doccomment">/// Retrieves whether the context is forward-compatible.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [``set_forward_compatible()``][`Self::set_forward_compatible()`].</span>
+    <span class="doccomment">/// See [`set_forward_compatible()`][Self::set_forward_compatible()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -840,7 +838,7 @@
 
     <span class="doccomment">/// Retrieves required OpenGL version.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [``set_required_version()``][`Self::set_required_version()`].</span>
+    <span class="doccomment">/// See [`set_required_version()`][Self::set_required_version()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -854,15 +852,15 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_required_version&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">required_version</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">i32</span>, <span class="ident">i32</span>);
 
-    <span class="doccomment">/// Used to retrieves the [`GLContext`][crate::GLContext] that this `self` share data with.</span>
+    <span class="doccomment">/// Used to retrieves the [`GLContext`][crate::GLContext] that this @self share data with.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// As many contexts can share data now and no single shared context exists</span>
     <span class="doccomment">/// anymore, this function has been deprecated and now always returns [`None`].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Deprecated since 4.4</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Use [``is_shared()``][`Self::is_shared()`] to check if contexts</span>
-    <span class="doccomment">///  can be shared.</span>
+    <span class="doccomment">/// Use [`is_shared()`][Self::is_shared()] to check if contexts</span>
+    <span class="doccomment">///   can be shared.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -872,7 +870,7 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_shared_context&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">shared_context</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">GLContext</span><span class="op">&gt;</span>;
 
-    <span class="doccomment">/// Checks whether the `self` is using an OpenGL or OpenGL ES profile.</span>
+    <span class="doccomment">/// Checks whether the @self is using an OpenGL or OpenGL ES profile.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -881,9 +879,9 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_use_es&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">uses_es</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span>;
 
-    <span class="doccomment">/// Retrieves the OpenGL version of the `self`.</span>
+    <span class="doccomment">/// Retrieves the OpenGL version of the @self.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The `self` must be realized prior to calling this function.</span>
+    <span class="doccomment">/// The @self must be realized prior to calling this function.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -922,7 +920,7 @@
 
     <span class="doccomment">/// Checks if the two GL contexts can share resources.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// When they can, the texture IDs from `other` can be used in `self`. This</span>
+    <span class="doccomment">/// When they can, the texture IDs from @other can be used in @self. This</span>
     <span class="doccomment">/// is particularly useful when passing [`GLTexture`][crate::GLTexture] objects between</span>
     <span class="doccomment">/// different contexts.</span>
     <span class="doccomment">///</span>
@@ -933,7 +931,7 @@
     <span class="doccomment">/// Both contexts must be realized for this check to succeed. If either one</span>
     <span class="doccomment">/// is not, this function will return [`false`].</span>
     <span class="doccomment">/// ## `other`</span>
-    <span class="doccomment">/// the [`GLContext`][crate::GLContext] that should be compatible with `self`</span>
+    <span class="doccomment">/// the [`GLContext`][crate::GLContext] that should be compatible with @self</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -943,7 +941,7 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_is_shared&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">is_shared</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">GLContext</span><span class="op">&gt;</span>) -&gt; <span class="ident">bool</span>;
 
-    <span class="doccomment">/// Makes the `self` the current one.</span>
+    <span class="doccomment">/// Makes the @self the current one.</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_make_current&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">make_current</span>(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
@@ -957,11 +955,11 @@
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_realize&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">realize</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span>;
 
-    <span class="doccomment">/// Sets the allowed APIs. When [`realize()`][Self::realize()] is called, only the</span>
+    <span class="doccomment">/// Sets the allowed APIs. When gdk_gl_context_realize() is called, only the</span>
     <span class="doccomment">/// allowed APIs will be tried. If you set this to 0, realizing will always fail.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If you set it on a realized context, the property will not have any effect.</span>
-    <span class="doccomment">/// It is only relevant during [`realize()`][Self::realize()].</span>
+    <span class="doccomment">/// It is only relevant during gdk_gl_context_realize().</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// By default, all APIs are allowed.</span>
     <span class="doccomment">/// ## `apis`</span>
@@ -999,7 +997,7 @@
 
     <span class="doccomment">/// Sets the major and minor version of OpenGL to request.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Setting `major` and `minor` to zero will use the default values.</span>
+    <span class="doccomment">/// Setting @major and @minor to zero will use the default values.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The [`GLContext`][crate::GLContext] must not be realized or made current prior to calling</span>
     <span class="doccomment">/// this function.</span>
@@ -1014,18 +1012,18 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// Not all platforms support OpenGL ES.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The `self` must not have been realized.</span>
+    <span class="doccomment">/// The @self must not have been realized.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// By default, GDK will attempt to automatically detect whether the</span>
-    <span class="doccomment">/// underlying GL implementation is OpenGL or OpenGL ES once the `self`</span>
+    <span class="doccomment">/// underlying GL implementation is OpenGL or OpenGL ES once the @self</span>
     <span class="doccomment">/// is realized.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// You should check the return value of [``uses_es()``][`Self::uses_es()`]</span>
-    <span class="doccomment">/// after calling [``realize()``][`Self::realize()`] to decide whether to use</span>
+    <span class="doccomment">/// You should check the return value of [`uses_es()`][Self::uses_es()]</span>
+    <span class="doccomment">/// after calling [`realize()`][Self::realize()] to decide whether to use</span>
     <span class="doccomment">/// the OpenGL or OpenGL ES API, extensions, or shaders.</span>
     <span class="doccomment">/// ## `use_es`</span>
     <span class="doccomment">/// whether the context should use OpenGL ES instead of OpenGL,</span>
-    <span class="doccomment">///  or -1 to allow auto-detection</span>
+    <span class="doccomment">///   or -1 to allow auto-detection</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_gl_context_set_use_es&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">set_use_es</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">use_es</span>: <span class="ident">i32</span>);
 
@@ -1147,7 +1145,8 @@
     <span class="kw">fn</span> <span class="ident">realize</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">ffi::gdk_gl_context_realize</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="kw-2">&amp;mut</span> <span class="ident">error</span>);
+            <span class="kw">let</span> <span class="ident">is_ok</span> <span class="op">=</span> <span class="ident">ffi::gdk_gl_context_realize</span>(<span class="self">self</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="kw-2">&amp;mut</span> <span class="ident">error</span>);
+            <span class="macro">assert_eq!</span>(<span class="ident">is_ok</span> <span class="op">==</span> <span class="ident">glib::ffi::GFALSE</span>, <span class="op">!</span><span class="ident">error</span>.<span class="ident">is_null</span>());
             <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">Ok</span>(())
             } <span class="kw">else</span> {
@@ -1252,6 +1251,5 @@
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk4" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
-    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.59.0-nightly (8f117a77d 2021-12-13)" ></div>
 </body></html>

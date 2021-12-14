@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4&#x2F;src&#x2F;auto&#x2F;list_item.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>list_item.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4&#x2F;src&#x2F;auto&#x2F;list_item.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>list_item.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
+    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +72,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
+<nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a class="sidebar-logo" href='../../../gtk4/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container rust-logo" href='../../../gtk4/index.html'><img src='../../../rust-logo.png' alt='logo'></a><nav class="sub"><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -410,16 +411,16 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The [`ListItem`][crate::ListItem]s are managed by the list widget (with its factory)</span>
     <span class="doccomment">/// and cannot be created by applications, but they need to be populated</span>
-    <span class="doccomment">/// by application code. This is done by calling [``set_child()``][`Self::set_child()`].</span>
+    <span class="doccomment">/// by application code. This is done by calling [`set_child()`][Self::set_child()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`ListItem`][crate::ListItem]s exist in 2 stages:</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// 1. The unbound stage where the listitem is not currently connected to</span>
-    <span class="doccomment">///  an item in the list. In that case, the `property::ListItem::item`</span>
-    <span class="doccomment">///  property is set to [`None`].</span>
+    <span class="doccomment">///    an item in the list. In that case, the `property::ListItem::item`</span>
+    <span class="doccomment">///    property is set to [`None`].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// 2. The bound stage where the listitem references an item from the list.</span>
-    <span class="doccomment">///  The `property::ListItem::item` property is not [`None`].</span>
+    <span class="doccomment">///    The `property::ListItem::item` property is not [`None`].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Implements</span>
     <span class="doccomment">///</span>
@@ -434,7 +435,7 @@
 
 <span class="kw">impl</span> <span class="ident">ListItem</span> {
     <span class="doccomment">/// Checks if a list item has been set to be activatable via</span>
-    <span class="doccomment">/// [`set_activatable()`][Self::set_activatable()].</span>
+    <span class="doccomment">/// gtk_list_item_set_activatable().</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -445,7 +446,7 @@
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_list_item_get_activatable</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the child previously set via [`set_child()`][Self::set_child()] or</span>
+    <span class="doccomment">/// Gets the child previously set via gtk_list_item_set_child() or</span>
     <span class="doccomment">/// [`None`] if none was set.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
@@ -457,9 +458,9 @@
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_list_item_get_child</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the model item that associated with `self`.</span>
+    <span class="doccomment">/// Gets the model item that associated with @self.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `self` is unbound, this function returns [`None`].</span>
+    <span class="doccomment">/// If @self is unbound, this function returns [`None`].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -470,9 +471,9 @@
         <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_list_item_get_item</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the position in the model that `self` currently displays.</span>
+    <span class="doccomment">/// Gets the position in the model that @self currently displays.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If `self` is unbound, `GTK_INVALID_LIST_POSITION` is returned.</span>
+    <span class="doccomment">/// If @self is unbound, `GTK_INVALID_LIST_POSITION` is returned.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -484,9 +485,9 @@
     }
 
     <span class="doccomment">/// Checks if a list item has been set to be selectable via</span>
-    <span class="doccomment">/// [`set_selectable()`][Self::set_selectable()].</span>
+    <span class="doccomment">/// gtk_list_item_set_selectable().</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Do not confuse this function with [``is_selected()``][`Self::is_selected()`].</span>
+    <span class="doccomment">/// Do not confuse this function with [`is_selected()`][Self::is_selected()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
@@ -511,10 +512,10 @@
         <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::gtk_list_item_get_selected</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Sets `self` to be activatable.</span>
+    <span class="doccomment">/// Sets @self to be activatable.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If an item is activatable, double-clicking on the item, using</span>
-    <span class="doccomment">/// the Return key or calling [`WidgetExt::activate()`][crate::prelude::WidgetExt::activate()] will activate</span>
+    <span class="doccomment">/// the Return key or calling gtk_widget_activate() will activate</span>
     <span class="doccomment">/// the item. Activating instructs the containing view to handle</span>
     <span class="doccomment">/// activation. [`ListView`][crate::ListView] for example will be emitting the</span>
     <span class="doccomment">/// `signal::ListView::activate` signal.</span>
@@ -546,7 +547,7 @@
         }
     }
 
-    <span class="doccomment">/// Sets `self` to be selectable.</span>
+    <span class="doccomment">/// Sets @self to be selectable.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If an item is selectable, clicking on the item or using the keyboard</span>
     <span class="doccomment">/// will try to select or unselect the item. If this succeeds is up to</span>
@@ -712,6 +713,5 @@
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
-    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.59.0-nightly (8f117a77d 2021-12-13)" ></div>
 </body></html>
