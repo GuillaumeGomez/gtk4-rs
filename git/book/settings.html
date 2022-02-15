@@ -140,7 +140,7 @@
                         <h1 id="settings"><a class="header" href="#settings">Settings</a></h1>
 <p>We have now learned multiple ways to handle states.
 However, every time we close the application all of it is gone.
-Let us learn how to use <code>GSettings</code> by storing the state of a <a href="../docs/gtk4/struct.Switch.html"><code>Switch</code></a> in it.</p>
+Let's learn how to use <code>GSettings</code> by storing the state of a <a href="../docs/gtk4/struct.Switch.html"><code>Switch</code></a> in it.</p>
 <p>At the very beginning we have to create a <code>GSchema</code> xml file in order to describe the kind of data our application plans to store in the settings.</p>
 <p><span class="filename">Filename: listings/settings/1/org.gtk-rs.example.gschema.xml</span></p>
 <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
@@ -153,7 +153,7 @@ Let us learn how to use <code>GSettings</code> by storing the state of a <a href
   &lt;/schema&gt;
 &lt;/schemalist&gt;
 </code></pre>
-<p>Let us get through it step by step.
+<p>Let's get through it step by step.
 The <code>id</code> is the same application id we used when we created our application.</p>
 <p><span class="filename">Filename: listings/settings/1/main.rs</span></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">use gio::Settings;
@@ -197,7 +197,7 @@ The <code>id</code> is the same application id we used when we created our appli
 </span><span class="boring">        settings
 </span><span class="boring">            .set_boolean(&quot;is-switch-enabled&quot;, is_enabled)
 </span><span class="boring">            .expect(&quot;Could not set setting.&quot;);
-</span><span class="boring">        // Do not inhibit the default handler
+</span><span class="boring">        // Don't inhibit the default handler
 </span><span class="boring">        Inhibit(false)
 </span><span class="boring">    });
 </span><span class="boring">
@@ -217,12 +217,8 @@ When creating a <code>path</code>, we advise to take the <code>id</code>, replac
 <p>We only want to store a single key with the <code>name</code> &quot;is-switch-enabled&quot;.
 This is a boolean value so its <code>type</code> is &quot;b&quot; (see <a href="https://docs.gtk.org/glib/gvariant-format-strings.html">GVariant Format Strings</a> for the other options).
 Finally, we define its default value and add a summary.</p>
-<p>Now we need to copy and compile the schema.
-As of right now, <code>cargo</code> is not suitable for that task which is why you will need another build system on top of it.
-You can find an example on how to do this with <a href="https://mesonbuild.com/"><code>meson</code></a> in the <a href="https://gitlab.gnome.org/bilelmoussaoui/gtk-rust-template"><code>gtk-rust-template</code></a>.</p>
-<blockquote>
-<p>However, we promised that <code>cargo</code> alone is enough to follow the book.
-For local testing, you can install the schema by executing the following commands on a Linux or macOS machine:</p>
+<p>Now we need to copy and compile the schema.</p>
+<p>You can install the schema by executing the following commands on a Linux or macOS machine:</p>
 <pre><code class="language-bash">sudo cp org.gtk-rs.example.gschema.xml /usr/share/glib-2.0/schemas/
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 </code></pre>
@@ -230,7 +226,6 @@ sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 <pre><code class="language-powershell">cp org.gtk-rs.example.gschema.xml C:/ProgramData/glib-2.0/schemas/
 glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </code></pre>
-</blockquote>
 <p>We initialize the <code>Settings</code> object by specifying the application id.</p>
 <p><span class="filename">Filename: listings/settings/1/main.rs</span></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">use gio::Settings;
@@ -274,7 +269,7 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </span><span class="boring">        settings
 </span><span class="boring">            .set_boolean(&quot;is-switch-enabled&quot;, is_enabled)
 </span><span class="boring">            .expect(&quot;Could not set setting.&quot;);
-</span><span class="boring">        // Do not inhibit the default handler
+</span><span class="boring">        // Don't inhibit the default handler
 </span><span class="boring">        Inhibit(false)
 </span><span class="boring">    });
 </span><span class="boring">
@@ -332,7 +327,7 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 </span><span class="boring">        settings
 </span><span class="boring">            .set_boolean(&quot;is-switch-enabled&quot;, is_enabled)
 </span><span class="boring">            .expect(&quot;Could not set setting.&quot;);
-</span><span class="boring">        // Do not inhibit the default handler
+</span><span class="boring">        // Don't inhibit the default handler
 </span><span class="boring">        Inhibit(false)
 </span><span class="boring">    });
 </span><span class="boring">
@@ -390,7 +385,7 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
         settings
             .set_boolean(&quot;is-switch-enabled&quot;, is_enabled)
             .expect(&quot;Could not set setting.&quot;);
-        // Do not inhibit the default handler
+        // Don't inhibit the default handler
         Inhibit(false)
     });
 <span class="boring">
@@ -408,7 +403,7 @@ glib-compile-schemas C:/ProgramData/glib-2.0/schemas/
 <p>The <code>Switch</code> now retains its state even after closing the application.
 But we can make this even better.
 The <code>Switch</code> has a property &quot;state&quot; and <code>Settings</code> allows us to bind properties to a specific setting.
-So let us do exactly that.</p>
+So let's do exactly that.</p>
 <p>We can remove the <a href="http://gtk-rs.org/gtk-rs-core/stable/latest/docs/gio/trait.SettingsExt.html#tymethod.boolean"><code>boolean</code></a> call before initializing the <code>Switch</code> as well as the <code>connect_state_set</code> call.
 We then bind the setting to the property by specifying the key, object and name of the property.
 Additionally, we specify <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/gio/struct.SettingsBindFlags.html"><code>SettingsBindFlags</code></a> to control the direction in which the binding works.</p>
