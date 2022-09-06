@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/selection_model.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>selection_model.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/selection_model.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>selection_model.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -72,11 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -464,394 +459,393 @@
 <span id="386">386</span>
 <span id="387">387</span>
 <span id="388">388</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="comment">// rustdoc-stripper-ignore-next</span>
-<span class="doccomment">//! Traits intended for implementing the [`SelectionModel`](crate::SelectionModel) interface.</span>
+// rustdoc-stripper-ignore-next
+</span><span class="doccomment">//! Traits intended for implementing the [`SelectionModel`](crate::SelectionModel) interface.
 
-<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">Bitset</span>, <span class="ident">SelectionModel</span>};
-<span class="kw">use</span> <span class="ident">gio::subclass::prelude</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">glib::Cast</span>;
+</span><span class="kw">use crate</span>::{Bitset, SelectionModel};
+<span class="kw">use </span>gio::subclass::prelude::<span class="kw-2">*</span>;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>glib::Cast;
 
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SelectionModelImpl</span>: <span class="ident">ListModelImpl</span> {
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_selection_in_range&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">selection_in_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) -&gt; <span class="ident">Bitset</span> {
-        <span class="self">self</span>.<span class="ident">parent_selection_in_range</span>(<span class="ident">model</span>, <span class="ident">position</span>, <span class="ident">n_items</span>)
+<span class="kw">pub trait </span>SelectionModelImpl: ListModelImpl {
+    <span class="attribute">#[doc(alias = <span class="string">&quot;get_selection_in_range&quot;</span>)]
+    </span><span class="kw">fn </span>selection_in_range(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32, n_items: u32) -&gt; Bitset {
+        <span class="self">self</span>.parent_selection_in_range(model, position, n_items)
     }
 
-    <span class="kw">fn</span> <span class="ident">is_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="self">self</span>.<span class="ident">parent_is_selected</span>(<span class="ident">model</span>, <span class="ident">position</span>)
+    <span class="kw">fn </span>is_selected(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32) -&gt; bool {
+        <span class="self">self</span>.parent_is_selected(model, position)
     }
 
-    <span class="kw">fn</span> <span class="ident">select_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="ident">bool</span> {
-        <span class="self">self</span>.<span class="ident">parent_select_all</span>(<span class="ident">model</span>)
+    <span class="kw">fn </span>select_all(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
+        <span class="self">self</span>.parent_select_all(model)
     }
 
-    <span class="kw">fn</span> <span class="ident">select_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">unselect_rest</span>: <span class="ident">bool</span>) -&gt; <span class="ident">bool</span> {
-        <span class="self">self</span>.<span class="ident">parent_select_item</span>(<span class="ident">model</span>, <span class="ident">position</span>, <span class="ident">unselect_rest</span>)
+    <span class="kw">fn </span>select_item(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32, unselect_rest: bool) -&gt; bool {
+        <span class="self">self</span>.parent_select_item(model, position, unselect_rest)
     }
 
-    <span class="kw">fn</span> <span class="ident">select_range</span>(
+    <span class="kw">fn </span>select_range(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">position</span>: <span class="ident">u32</span>,
-        <span class="ident">n_items</span>: <span class="ident">u32</span>,
-        <span class="ident">unselect_rest</span>: <span class="ident">bool</span>,
-    ) -&gt; <span class="ident">bool</span> {
-        <span class="self">self</span>.<span class="ident">parent_select_range</span>(<span class="ident">model</span>, <span class="ident">position</span>, <span class="ident">n_items</span>, <span class="ident">unselect_rest</span>)
+        model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        position: u32,
+        n_items: u32,
+        unselect_rest: bool,
+    ) -&gt; bool {
+        <span class="self">self</span>.parent_select_range(model, position, n_items, unselect_rest)
     }
 
-    <span class="kw">fn</span> <span class="ident">set_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">selected</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>, <span class="ident">mask</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>) -&gt; <span class="ident">bool</span> {
-        <span class="self">self</span>.<span class="ident">parent_set_selection</span>(<span class="ident">model</span>, <span class="ident">selected</span>, <span class="ident">mask</span>)
+    <span class="kw">fn </span>set_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, selected: <span class="kw-2">&amp;</span>Bitset, mask: <span class="kw-2">&amp;</span>Bitset) -&gt; bool {
+        <span class="self">self</span>.parent_set_selection(model, selected, mask)
     }
 
-    <span class="kw">fn</span> <span class="ident">unselect_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="ident">bool</span> {
-        <span class="self">self</span>.<span class="ident">parent_unselect_all</span>(<span class="ident">model</span>)
+    <span class="kw">fn </span>unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
+        <span class="self">self</span>.parent_unselect_all(model)
     }
 
-    <span class="kw">fn</span> <span class="ident">unselect_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="self">self</span>.<span class="ident">parent_unselect_item</span>(<span class="ident">model</span>, <span class="ident">position</span>)
+    <span class="kw">fn </span>unselect_item(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32) -&gt; bool {
+        <span class="self">self</span>.parent_unselect_item(model, position)
     }
 
-    <span class="kw">fn</span> <span class="ident">unselect_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="self">self</span>.<span class="ident">parent_unselect_range</span>(<span class="ident">model</span>, <span class="ident">position</span>, <span class="ident">n_items</span>)
+    <span class="kw">fn </span>unselect_range(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32, n_items: u32) -&gt; bool {
+        <span class="self">self</span>.parent_unselect_range(model, position, n_items)
     }
 }
 
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SelectionModelImplExt</span>: <span class="ident">ObjectSubclass</span> {
-    <span class="kw">fn</span> <span class="ident">parent_selection_in_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) -&gt; <span class="ident">Bitset</span>;
-    <span class="kw">fn</span> <span class="ident">parent_is_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) -&gt; <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">parent_select_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">parent_select_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">unselect_rest</span>: <span class="ident">bool</span>) -&gt; <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">parent_select_range</span>(
+<span class="kw">pub trait </span>SelectionModelImplExt: ObjectSubclass {
+    <span class="kw">fn </span>parent_selection_in_range(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32, n_items: u32) -&gt; Bitset;
+    <span class="kw">fn </span>parent_is_selected(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32) -&gt; bool;
+    <span class="kw">fn </span>parent_select_all(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool;
+    <span class="kw">fn </span>parent_select_item(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32, unselect_rest: bool) -&gt; bool;
+    <span class="kw">fn </span>parent_select_range(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">position</span>: <span class="ident">u32</span>,
-        <span class="ident">n_items</span>: <span class="ident">u32</span>,
-        <span class="ident">unselect_rest</span>: <span class="ident">bool</span>,
-    ) -&gt; <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">parent_set_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">selected</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>, <span class="ident">mask</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>) -&gt; <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">parent_unselect_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">parent_unselect_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) -&gt; <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">parent_unselect_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) -&gt; <span class="ident">bool</span>;
+        model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        position: u32,
+        n_items: u32,
+        unselect_rest: bool,
+    ) -&gt; bool;
+    <span class="kw">fn </span>parent_set_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, selected: <span class="kw-2">&amp;</span>Bitset, mask: <span class="kw-2">&amp;</span>Bitset) -&gt; bool;
+    <span class="kw">fn </span>parent_unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool;
+    <span class="kw">fn </span>parent_unselect_item(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32) -&gt; bool;
+    <span class="kw">fn </span>parent_unselect_range(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32, n_items: u32) -&gt; bool;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">SelectionModelImpl</span><span class="op">&gt;</span> <span class="ident">SelectionModelImplExt</span> <span class="kw">for</span> <span class="ident">T</span> {
-    <span class="kw">fn</span> <span class="ident">parent_selection_in_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) -&gt; <span class="ident">Bitset</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
+<span class="kw">impl</span>&lt;T: SelectionModelImpl&gt; SelectionModelImplExt <span class="kw">for </span>T {
+    <span class="kw">fn </span>parent_selection_in_range(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32, n_items: u32) -&gt; Bitset {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;SelectionModel&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkSelectionModelInterface;
 
-            <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>)
-                .<span class="ident">get_selection_in_range</span>
-                .<span class="ident">expect</span>(<span class="string">&quot;no parent \&quot;get_selection_in_range\&quot; implementation&quot;</span>);
+            <span class="kw">let </span>func = (<span class="kw-2">*</span>parent_iface)
+                .get_selection_in_range
+                .expect(<span class="string">&quot;no parent \&quot;get_selection_in_range\&quot; implementation&quot;</span>);
 
-            <span class="ident">from_glib_full</span>(<span class="ident">func</span>(
-                <span class="ident">model</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">position</span>,
-                <span class="ident">n_items</span>,
+            from_glib_full(func(
+                model.unsafe_cast_ref::&lt;SelectionModel&gt;().to_glib_none().<span class="number">0</span>,
+                position,
+                n_items,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_is_selected</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
+    <span class="kw">fn </span>parent_is_selected(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;SelectionModel&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkSelectionModelInterface;
 
-            <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>)
-                .<span class="ident">is_selected</span>
-                .<span class="ident">expect</span>(<span class="string">&quot;no parent \&quot;is_selected\&quot; implementation&quot;</span>);
+            <span class="kw">let </span>func = (<span class="kw-2">*</span>parent_iface)
+                .is_selected
+                .expect(<span class="string">&quot;no parent \&quot;is_selected\&quot; implementation&quot;</span>);
 
-            <span class="ident">from_glib</span>(<span class="ident">func</span>(
-                <span class="ident">model</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">position</span>,
+            from_glib(func(
+                model.unsafe_cast_ref::&lt;SelectionModel&gt;().to_glib_none().<span class="number">0</span>,
+                position,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_select_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
+    <span class="kw">fn </span>parent_select_all(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;SelectionModel&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkSelectionModelInterface;
 
-            <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>)
-                .<span class="ident">select_all</span>
-                .<span class="ident">expect</span>(<span class="string">&quot;no parent \&quot;select_all\&quot; implementation&quot;</span>);
+            <span class="kw">let </span>func = (<span class="kw-2">*</span>parent_iface)
+                .select_all
+                .expect(<span class="string">&quot;no parent \&quot;select_all\&quot; implementation&quot;</span>);
 
-            <span class="ident">from_glib</span>(<span class="ident">func</span>(
-                <span class="ident">model</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            from_glib(func(
+                model.unsafe_cast_ref::&lt;SelectionModel&gt;().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_select_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">unselect_rest</span>: <span class="ident">bool</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
+    <span class="kw">fn </span>parent_select_item(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32, unselect_rest: bool) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;SelectionModel&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkSelectionModelInterface;
 
-            <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>)
-                .<span class="ident">select_item</span>
-                .<span class="ident">expect</span>(<span class="string">&quot;no parent \&quot;select_item\&quot; implementation&quot;</span>);
+            <span class="kw">let </span>func = (<span class="kw-2">*</span>parent_iface)
+                .select_item
+                .expect(<span class="string">&quot;no parent \&quot;select_item\&quot; implementation&quot;</span>);
 
-            <span class="ident">from_glib</span>(<span class="ident">func</span>(
-                <span class="ident">model</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">position</span>,
-                <span class="ident">unselect_rest</span>.<span class="ident">into_glib</span>(),
+            from_glib(func(
+                model.unsafe_cast_ref::&lt;SelectionModel&gt;().to_glib_none().<span class="number">0</span>,
+                position,
+                unselect_rest.into_glib(),
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_select_range</span>(
+    <span class="kw">fn </span>parent_select_range(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">position</span>: <span class="ident">u32</span>,
-        <span class="ident">n_items</span>: <span class="ident">u32</span>,
-        <span class="ident">unselect_rest</span>: <span class="ident">bool</span>,
-    ) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
+        model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        position: u32,
+        n_items: u32,
+        unselect_rest: bool,
+    ) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;SelectionModel&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkSelectionModelInterface;
 
-            <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>)
-                .<span class="ident">select_range</span>
-                .<span class="ident">expect</span>(<span class="string">&quot;no parent \&quot;select_range\&quot; implementation&quot;</span>);
+            <span class="kw">let </span>func = (<span class="kw-2">*</span>parent_iface)
+                .select_range
+                .expect(<span class="string">&quot;no parent \&quot;select_range\&quot; implementation&quot;</span>);
 
-            <span class="ident">from_glib</span>(<span class="ident">func</span>(
-                <span class="ident">model</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">position</span>,
-                <span class="ident">n_items</span>,
-                <span class="ident">unselect_rest</span>.<span class="ident">into_glib</span>(),
+            from_glib(func(
+                model.unsafe_cast_ref::&lt;SelectionModel&gt;().to_glib_none().<span class="number">0</span>,
+                position,
+                n_items,
+                unselect_rest.into_glib(),
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_set_selection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">selected</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>, <span class="ident">mask</span>: <span class="kw-2">&amp;</span><span class="ident">Bitset</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
+    <span class="kw">fn </span>parent_set_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, selected: <span class="kw-2">&amp;</span>Bitset, mask: <span class="kw-2">&amp;</span>Bitset) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;SelectionModel&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkSelectionModelInterface;
 
-            <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>)
-                .<span class="ident">set_selection</span>
-                .<span class="ident">expect</span>(<span class="string">&quot;no parent \&quot;set_selection\&quot; implementation&quot;</span>);
+            <span class="kw">let </span>func = (<span class="kw-2">*</span>parent_iface)
+                .set_selection
+                .expect(<span class="string">&quot;no parent \&quot;set_selection\&quot; implementation&quot;</span>);
 
-            <span class="ident">from_glib</span>(<span class="ident">func</span>(
-                <span class="ident">model</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">selected</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">mask</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            from_glib(func(
+                model.unsafe_cast_ref::&lt;SelectionModel&gt;().to_glib_none().<span class="number">0</span>,
+                selected.to_glib_none().<span class="number">0</span>,
+                mask.to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_unselect_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
+    <span class="kw">fn </span>parent_unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;SelectionModel&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkSelectionModelInterface;
 
-            <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>)
-                .<span class="ident">unselect_all</span>
-                .<span class="ident">expect</span>(<span class="string">&quot;no parent \&quot;unselect_all\&quot; implementation&quot;</span>);
+            <span class="kw">let </span>func = (<span class="kw-2">*</span>parent_iface)
+                .unselect_all
+                .expect(<span class="string">&quot;no parent \&quot;unselect_all\&quot; implementation&quot;</span>);
 
-            <span class="ident">from_glib</span>(<span class="ident">func</span>(
-                <span class="ident">model</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            from_glib(func(
+                model.unsafe_cast_ref::&lt;SelectionModel&gt;().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_unselect_item</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
+    <span class="kw">fn </span>parent_unselect_item(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;SelectionModel&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkSelectionModelInterface;
 
-            <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>)
-                .<span class="ident">unselect_item</span>
-                .<span class="ident">expect</span>(<span class="string">&quot;no parent \&quot;unselect_item\&quot; implementation&quot;</span>);
+            <span class="kw">let </span>func = (<span class="kw-2">*</span>parent_iface)
+                .unselect_item
+                .expect(<span class="string">&quot;no parent \&quot;unselect_item\&quot; implementation&quot;</span>);
 
-            <span class="ident">from_glib</span>(<span class="ident">func</span>(
-                <span class="ident">model</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">position</span>,
+            from_glib(func(
+                model.unsafe_cast_ref::&lt;SelectionModel&gt;().to_glib_none().<span class="number">0</span>,
+                position,
             ))
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_unselect_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_items</span>: <span class="ident">u32</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkSelectionModelInterface</span>;
+    <span class="kw">fn </span>parent_unselect_range(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, position: u32, n_items: u32) -&gt; bool {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;SelectionModel&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkSelectionModelInterface;
 
-            <span class="kw">let</span> <span class="ident">func</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>)
-                .<span class="ident">unselect_range</span>
-                .<span class="ident">expect</span>(<span class="string">&quot;no parent \&quot;unselect_range\&quot; implementation&quot;</span>);
+            <span class="kw">let </span>func = (<span class="kw-2">*</span>parent_iface)
+                .unselect_range
+                .expect(<span class="string">&quot;no parent \&quot;unselect_range\&quot; implementation&quot;</span>);
 
-            <span class="ident">from_glib</span>(<span class="ident">func</span>(
-                <span class="ident">model</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">position</span>,
-                <span class="ident">n_items</span>,
+            from_glib(func(
+                model.unsafe_cast_ref::&lt;SelectionModel&gt;().to_glib_none().<span class="number">0</span>,
+                position,
+                n_items,
             ))
         }
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">SelectionModelImpl</span><span class="op">&gt;</span> <span class="ident">IsImplementable</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">SelectionModel</span> {
-    <span class="kw">fn</span> <span class="ident">interface_init</span>(<span class="ident">iface</span>: <span class="kw-2">&amp;mut</span> <span class="ident">glib::Interface</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>) {
-        <span class="kw">let</span> <span class="ident">iface</span> <span class="op">=</span> <span class="ident">iface</span>.<span class="ident">as_mut</span>();
+<span class="kw">unsafe impl</span>&lt;T: SelectionModelImpl&gt; IsImplementable&lt;T&gt; <span class="kw">for </span>SelectionModel {
+    <span class="kw">fn </span>interface_init(iface: <span class="kw-2">&amp;mut </span>glib::Interface&lt;<span class="self">Self</span>&gt;) {
+        <span class="kw">let </span>iface = iface.as_mut();
 
         <span class="macro">assert!</span>(
-            <span class="ident"><span class="kw">crate</span>::rt::is_initialized</span>(),
-            <span class="string">&quot;GTK has to be initialized first&quot;</span>
-        );
+            <span class="kw">crate</span>::rt::is_initialized(),
+            <span class="string">&quot;GTK has to be initialized first&quot;
+        </span>);
 
-        <span class="ident">iface</span>.<span class="ident">get_selection_in_range</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">model_get_selection_in_range</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">is_selected</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">model_is_selected</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">select_all</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">model_select_all</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">select_item</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">model_select_item</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">select_range</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">model_select_range</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">set_selection</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">model_set_selection</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">unselect_all</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">model_unselect_all</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">unselect_item</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">model_unselect_item</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">unselect_range</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">model_unselect_range</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
+        iface.get_selection_in_range = <span class="prelude-val">Some</span>(model_get_selection_in_range::&lt;T&gt;);
+        iface.is_selected = <span class="prelude-val">Some</span>(model_is_selected::&lt;T&gt;);
+        iface.select_all = <span class="prelude-val">Some</span>(model_select_all::&lt;T&gt;);
+        iface.select_item = <span class="prelude-val">Some</span>(model_select_item::&lt;T&gt;);
+        iface.select_range = <span class="prelude-val">Some</span>(model_select_range::&lt;T&gt;);
+        iface.set_selection = <span class="prelude-val">Some</span>(model_set_selection::&lt;T&gt;);
+        iface.unselect_all = <span class="prelude-val">Some</span>(model_unselect_all::&lt;T&gt;);
+        iface.unselect_item = <span class="prelude-val">Some</span>(model_unselect_item::&lt;T&gt;);
+        iface.unselect_range = <span class="prelude-val">Some</span>(model_unselect_range::&lt;T&gt;);
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">model_get_selection_in_range</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">SelectionModelImpl</span><span class="op">&gt;</span>(
-    <span class="ident">model</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkSelectionModel</span>,
-    <span class="ident">position</span>: <span class="ident">u32</span>,
-    <span class="ident">n_items</span>: <span class="ident">u32</span>,
-) -&gt; <span class="kw-2">*mut</span> <span class="ident">ffi::GtkBitset</span> {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">model</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>model_get_selection_in_range&lt;T: SelectionModelImpl&gt;(
+    model: <span class="kw-2">*mut </span>ffi::GtkSelectionModel,
+    position: u32,
+    n_items: u32,
+) -&gt; <span class="kw-2">*mut </span>ffi::GtkBitset {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(model <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="ident">imp</span>.<span class="ident">selection_in_range</span>(
-        <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">SelectionModel</span><span class="op">&gt;</span>(<span class="ident">model</span>).<span class="ident">unsafe_cast_ref</span>(),
-        <span class="ident">position</span>,
-        <span class="ident">n_items</span>,
+    imp.selection_in_range(
+        from_glib_borrow::&lt;<span class="kw">_</span>, SelectionModel&gt;(model).unsafe_cast_ref(),
+        position,
+        n_items,
     )
-    .<span class="ident">to_glib_full</span>()
+    .to_glib_full()
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">model_is_selected</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">SelectionModelImpl</span><span class="op">&gt;</span>(
-    <span class="ident">model</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkSelectionModel</span>,
-    <span class="ident">position</span>: <span class="ident">u32</span>,
-) -&gt; <span class="ident">glib::ffi::gboolean</span> {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">model</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>model_is_selected&lt;T: SelectionModelImpl&gt;(
+    model: <span class="kw-2">*mut </span>ffi::GtkSelectionModel,
+    position: u32,
+) -&gt; glib::ffi::gboolean {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(model <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="ident">imp</span>.<span class="ident">is_selected</span>(
-        <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">SelectionModel</span><span class="op">&gt;</span>(<span class="ident">model</span>).<span class="ident">unsafe_cast_ref</span>(),
-        <span class="ident">position</span>,
+    imp.is_selected(
+        from_glib_borrow::&lt;<span class="kw">_</span>, SelectionModel&gt;(model).unsafe_cast_ref(),
+        position,
     )
-    .<span class="ident">into_glib</span>()
+    .into_glib()
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">model_select_all</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">SelectionModelImpl</span><span class="op">&gt;</span>(
-    <span class="ident">model</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkSelectionModel</span>,
-) -&gt; <span class="ident">glib::ffi::gboolean</span> {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">model</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>model_select_all&lt;T: SelectionModelImpl&gt;(
+    model: <span class="kw-2">*mut </span>ffi::GtkSelectionModel,
+) -&gt; glib::ffi::gboolean {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(model <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="ident">imp</span>.<span class="ident">select_all</span>(<span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">SelectionModel</span><span class="op">&gt;</span>(<span class="ident">model</span>).<span class="ident">unsafe_cast_ref</span>())
-        .<span class="ident">into_glib</span>()
+    imp.select_all(from_glib_borrow::&lt;<span class="kw">_</span>, SelectionModel&gt;(model).unsafe_cast_ref())
+        .into_glib()
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">model_select_item</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">SelectionModelImpl</span><span class="op">&gt;</span>(
-    <span class="ident">model</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkSelectionModel</span>,
-    <span class="ident">position</span>: <span class="ident">u32</span>,
-    <span class="ident">unselect_rest</span>: <span class="ident">glib::ffi::gboolean</span>,
-) -&gt; <span class="ident">glib::ffi::gboolean</span> {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">model</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>model_select_item&lt;T: SelectionModelImpl&gt;(
+    model: <span class="kw-2">*mut </span>ffi::GtkSelectionModel,
+    position: u32,
+    unselect_rest: glib::ffi::gboolean,
+) -&gt; glib::ffi::gboolean {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(model <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="ident">imp</span>.<span class="ident">select_item</span>(
-        <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">SelectionModel</span><span class="op">&gt;</span>(<span class="ident">model</span>).<span class="ident">unsafe_cast_ref</span>(),
-        <span class="ident">position</span>,
-        <span class="ident">from_glib</span>(<span class="ident">unselect_rest</span>),
+    imp.select_item(
+        from_glib_borrow::&lt;<span class="kw">_</span>, SelectionModel&gt;(model).unsafe_cast_ref(),
+        position,
+        from_glib(unselect_rest),
     )
-    .<span class="ident">into_glib</span>()
+    .into_glib()
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">model_select_range</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">SelectionModelImpl</span><span class="op">&gt;</span>(
-    <span class="ident">model</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkSelectionModel</span>,
-    <span class="ident">position</span>: <span class="ident">u32</span>,
-    <span class="ident">n_items</span>: <span class="ident">u32</span>,
-    <span class="ident">unselect_rest</span>: <span class="ident">glib::ffi::gboolean</span>,
-) -&gt; <span class="ident">glib::ffi::gboolean</span> {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">model</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>model_select_range&lt;T: SelectionModelImpl&gt;(
+    model: <span class="kw-2">*mut </span>ffi::GtkSelectionModel,
+    position: u32,
+    n_items: u32,
+    unselect_rest: glib::ffi::gboolean,
+) -&gt; glib::ffi::gboolean {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(model <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="ident">imp</span>.<span class="ident">select_range</span>(
-        <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">SelectionModel</span><span class="op">&gt;</span>(<span class="ident">model</span>).<span class="ident">unsafe_cast_ref</span>(),
-        <span class="ident">position</span>,
-        <span class="ident">n_items</span>,
-        <span class="ident">from_glib</span>(<span class="ident">unselect_rest</span>),
+    imp.select_range(
+        from_glib_borrow::&lt;<span class="kw">_</span>, SelectionModel&gt;(model).unsafe_cast_ref(),
+        position,
+        n_items,
+        from_glib(unselect_rest),
     )
-    .<span class="ident">into_glib</span>()
+    .into_glib()
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">model_set_selection</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">SelectionModelImpl</span><span class="op">&gt;</span>(
-    <span class="ident">model</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkSelectionModel</span>,
-    <span class="ident">selected_ptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkBitset</span>,
-    <span class="ident">mask_ptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkBitset</span>,
-) -&gt; <span class="ident">glib::ffi::gboolean</span> {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">model</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>model_set_selection&lt;T: SelectionModelImpl&gt;(
+    model: <span class="kw-2">*mut </span>ffi::GtkSelectionModel,
+    selected_ptr: <span class="kw-2">*mut </span>ffi::GtkBitset,
+    mask_ptr: <span class="kw-2">*mut </span>ffi::GtkBitset,
+) -&gt; glib::ffi::gboolean {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(model <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="kw">let</span> <span class="ident">wrap</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">SelectionModel</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">model</span>);
-    <span class="kw">let</span> <span class="ident">selected</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">selected_ptr</span>);
-    <span class="kw">let</span> <span class="ident">mask</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">mask_ptr</span>);
+    <span class="kw">let </span>wrap: Borrowed&lt;SelectionModel&gt; = from_glib_borrow(model);
+    <span class="kw">let </span>selected = from_glib_borrow(selected_ptr);
+    <span class="kw">let </span>mask = from_glib_borrow(mask_ptr);
 
-    <span class="ident">imp</span>.<span class="ident">set_selection</span>(<span class="ident">wrap</span>.<span class="ident">unsafe_cast_ref</span>(), <span class="kw-2">&amp;</span><span class="ident">selected</span>, <span class="kw-2">&amp;</span><span class="ident">mask</span>)
-        .<span class="ident">into_glib</span>()
+    imp.set_selection(wrap.unsafe_cast_ref(), <span class="kw-2">&amp;</span>selected, <span class="kw-2">&amp;</span>mask)
+        .into_glib()
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">model_unselect_all</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">SelectionModelImpl</span><span class="op">&gt;</span>(
-    <span class="ident">model</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkSelectionModel</span>,
-) -&gt; <span class="ident">glib::ffi::gboolean</span> {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">model</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>model_unselect_all&lt;T: SelectionModelImpl&gt;(
+    model: <span class="kw-2">*mut </span>ffi::GtkSelectionModel,
+) -&gt; glib::ffi::gboolean {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(model <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="ident">imp</span>.<span class="ident">unselect_all</span>(<span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">SelectionModel</span><span class="op">&gt;</span>(<span class="ident">model</span>).<span class="ident">unsafe_cast_ref</span>())
-        .<span class="ident">into_glib</span>()
+    imp.unselect_all(from_glib_borrow::&lt;<span class="kw">_</span>, SelectionModel&gt;(model).unsafe_cast_ref())
+        .into_glib()
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">model_unselect_item</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">SelectionModelImpl</span><span class="op">&gt;</span>(
-    <span class="ident">model</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkSelectionModel</span>,
-    <span class="ident">position</span>: <span class="ident">u32</span>,
-) -&gt; <span class="ident">glib::ffi::gboolean</span> {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">model</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>model_unselect_item&lt;T: SelectionModelImpl&gt;(
+    model: <span class="kw-2">*mut </span>ffi::GtkSelectionModel,
+    position: u32,
+) -&gt; glib::ffi::gboolean {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(model <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="ident">imp</span>.<span class="ident">unselect_item</span>(
-        <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">SelectionModel</span><span class="op">&gt;</span>(<span class="ident">model</span>).<span class="ident">unsafe_cast_ref</span>(),
-        <span class="ident">position</span>,
+    imp.unselect_item(
+        from_glib_borrow::&lt;<span class="kw">_</span>, SelectionModel&gt;(model).unsafe_cast_ref(),
+        position,
     )
-    .<span class="ident">into_glib</span>()
+    .into_glib()
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">model_unselect_range</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">SelectionModelImpl</span><span class="op">&gt;</span>(
-    <span class="ident">model</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkSelectionModel</span>,
-    <span class="ident">position</span>: <span class="ident">u32</span>,
-    <span class="ident">n_items</span>: <span class="ident">u32</span>,
-) -&gt; <span class="ident">glib::ffi::gboolean</span> {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">model</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>model_unselect_range&lt;T: SelectionModelImpl&gt;(
+    model: <span class="kw-2">*mut </span>ffi::GtkSelectionModel,
+    position: u32,
+    n_items: u32,
+) -&gt; glib::ffi::gboolean {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(model <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="ident">imp</span>.<span class="ident">unselect_range</span>(
-        <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">SelectionModel</span><span class="op">&gt;</span>(<span class="ident">model</span>).<span class="ident">unsafe_cast_ref</span>(),
-        <span class="ident">position</span>,
-        <span class="ident">n_items</span>,
+    imp.unselect_range(
+        from_glib_borrow::&lt;<span class="kw">_</span>, SelectionModel&gt;(model).unsafe_cast_ref(),
+        position,
+        n_items,
     )
-    .<span class="ident">into_glib</span>()
+    .into_glib()
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.62.0-nightly (e1b71feb5 2022-05-03)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>

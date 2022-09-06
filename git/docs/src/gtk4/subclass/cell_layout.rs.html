@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/cell_layout.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>cell_layout.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/cell_layout.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>cell_layout.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -72,11 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -568,498 +563,497 @@
 <span id="490">490</span>
 <span id="491">491</span>
 <span id="492">492</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="comment">// rustdoc-stripper-ignore-next</span>
-<span class="doccomment">//! Traits intended for implementing the [`CellLayout`](crate::CellLayout) interface.</span>
+// rustdoc-stripper-ignore-next
+</span><span class="doccomment">//! Traits intended for implementing the [`CellLayout`](crate::CellLayout) interface.
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::subclass::prelude</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">CellArea</span>, <span class="ident">CellLayout</span>, <span class="ident">CellRenderer</span>, <span class="ident">TreeIter</span>, <span class="ident">TreeModel</span>};
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">glib</span>::{<span class="ident">Cast</span>, <span class="ident">IsA</span>, <span class="ident">ObjectExt</span>, <span class="ident">Quark</span>};
-<span class="kw">use</span> <span class="ident">once_cell::sync::Lazy</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::subclass::prelude::<span class="kw-2">*</span>;
+<span class="kw">use crate</span>::{CellArea, CellLayout, CellRenderer, TreeIter, TreeModel};
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>glib::{Cast, IsA, ObjectExt, Quark};
+<span class="kw">use </span>once_cell::sync::Lazy;
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">CellLayoutDataCallback</span> {
-    <span class="ident">callback</span>: <span class="ident">ffi::GtkCellLayoutDataFunc</span>,
-    <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
-    <span class="ident">destroy_notify</span>: <span class="ident">glib::ffi::GDestroyNotify</span>,
+<span class="attribute">#[derive(Debug)]
+</span><span class="kw">pub struct </span>CellLayoutDataCallback {
+    callback: ffi::GtkCellLayoutDataFunc,
+    user_data: glib::ffi::gpointer,
+    destroy_notify: glib::ffi::GDestroyNotify,
 }
 
-<span class="kw">impl</span> <span class="ident">CellLayoutDataCallback</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">call</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>, <span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span>, <span class="ident">M</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">TreeModel</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+<span class="kw">impl </span>CellLayoutDataCallback {
+    <span class="kw">pub fn </span>call&lt;C: IsA&lt;CellLayout&gt;, R: IsA&lt;CellRenderer&gt;, M: IsA&lt;TreeModel&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident">C</span>,
-        <span class="ident">cell_renderer</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>,
-        <span class="ident">model</span>: <span class="kw-2">&amp;</span><span class="ident">M</span>,
-        <span class="ident">iter</span>: <span class="kw-2">&amp;</span><span class="ident">TreeIter</span>,
+        cell_layout: <span class="kw-2">&amp;</span>C,
+        cell_renderer: <span class="kw-2">&amp;</span>R,
+        model: <span class="kw-2">&amp;</span>M,
+        iter: <span class="kw-2">&amp;</span>TreeIter,
     ) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">callback</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">callback</span> {
-                <span class="ident">callback</span>(
-                    <span class="ident">cell_layout</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">cell_renderer</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">model</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">mut_override</span>(<span class="ident">iter</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>),
-                    <span class="self">self</span>.<span class="ident">user_data</span>,
+        <span class="kw">unsafe </span>{
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(callback) = <span class="self">self</span>.callback {
+                callback(
+                    cell_layout.as_ref().to_glib_none().<span class="number">0</span>,
+                    cell_renderer.as_ref().to_glib_none().<span class="number">0</span>,
+                    model.as_ref().to_glib_none().<span class="number">0</span>,
+                    mut_override(iter.to_glib_none().<span class="number">0</span>),
+                    <span class="self">self</span>.user_data,
                 );
             }
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">CellLayoutDataCallback</span> {
-    <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">destroy_notify</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">destroy_notify</span> {
-                <span class="ident">destroy_notify</span>(<span class="self">self</span>.<span class="ident">user_data</span>);
+<span class="kw">impl </span>Drop <span class="kw">for </span>CellLayoutDataCallback {
+    <span class="kw">fn </span>drop(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(destroy_notify) = <span class="self">self</span>.destroy_notify {
+                destroy_notify(<span class="self">self</span>.user_data);
             }
         }
     }
 }
 
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">CellLayoutImpl</span>: <span class="ident">ObjectImpl</span> {
-    <span class="kw">fn</span> <span class="ident">add_attribute</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+<span class="kw">pub trait </span>CellLayoutImpl: ObjectImpl {
+    <span class="kw">fn </span>add_attribute&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>,
-        <span class="ident">attribute</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
-        <span class="ident">column</span>: <span class="ident">i32</span>,
+        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        cell: <span class="kw-2">&amp;</span>R,
+        attribute: <span class="kw-2">&amp;</span>str,
+        column: i32,
     ) {
-        <span class="self">self</span>.<span class="ident">parent_add_attribute</span>(<span class="ident">cell_layout</span>, <span class="ident">cell</span>, <span class="ident">attribute</span>, <span class="ident">column</span>)
+        <span class="self">self</span>.parent_add_attribute(cell_layout, cell, attribute, column)
     }
 
-    <span class="kw">fn</span> <span class="ident">clear_attributes</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>) {
-        <span class="self">self</span>.<span class="ident">parent_clear_attributes</span>(<span class="ident">cell_layout</span>, <span class="ident">cell</span>)
+    <span class="kw">fn </span>clear_attributes&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, cell: <span class="kw-2">&amp;</span>R) {
+        <span class="self">self</span>.parent_clear_attributes(cell_layout, cell)
     }
 
-    <span class="kw">fn</span> <span class="ident">cells</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">parent_cells</span>(<span class="ident">cell_layout</span>)
+    <span class="kw">fn </span>cells(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; Vec&lt;CellRenderer&gt; {
+        <span class="self">self</span>.parent_cells(cell_layout)
     }
 
-    <span class="kw">fn</span> <span class="ident">set_cell_data_func</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>set_cell_data_func&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>,
-        <span class="ident">callback</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CellLayoutDataCallback</span><span class="op">&gt;</span>,
+        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        cell: <span class="kw-2">&amp;</span>R,
+        callback: <span class="prelude-ty">Option</span>&lt;CellLayoutDataCallback&gt;,
     ) {
-        <span class="self">self</span>.<span class="ident">parent_set_cell_data_func</span>(<span class="ident">cell_layout</span>, <span class="ident">cell</span>, <span class="ident">callback</span>)
+        <span class="self">self</span>.parent_set_cell_data_func(cell_layout, cell, callback)
     }
 
-    <span class="kw">fn</span> <span class="ident">reorder</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>, <span class="ident">position</span>: <span class="ident">i32</span>) {
-        <span class="self">self</span>.<span class="ident">parent_reorder</span>(<span class="ident">cell_layout</span>, <span class="ident">cell</span>, <span class="ident">position</span>)
+    <span class="kw">fn </span>reorder&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, cell: <span class="kw-2">&amp;</span>R, position: i32) {
+        <span class="self">self</span>.parent_reorder(cell_layout, cell, position)
     }
 
-    <span class="kw">fn</span> <span class="ident">clear</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) {
-        <span class="self">self</span>.<span class="ident">parent_clear</span>(<span class="ident">cell_layout</span>)
+    <span class="kw">fn </span>clear(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+        <span class="self">self</span>.parent_clear(cell_layout)
     }
 
-    <span class="kw">fn</span> <span class="ident">pack_start</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>, <span class="ident">expand</span>: <span class="ident">bool</span>) {
-        <span class="self">self</span>.<span class="ident">parent_pack_start</span>(<span class="ident">cell_layout</span>, <span class="ident">cell</span>, <span class="ident">expand</span>)
+    <span class="kw">fn </span>pack_start&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, cell: <span class="kw-2">&amp;</span>R, expand: bool) {
+        <span class="self">self</span>.parent_pack_start(cell_layout, cell, expand)
     }
 
-    <span class="kw">fn</span> <span class="ident">pack_end</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>, <span class="ident">expand</span>: <span class="ident">bool</span>) {
-        <span class="self">self</span>.<span class="ident">parent_pack_end</span>(<span class="ident">cell_layout</span>, <span class="ident">cell</span>, <span class="ident">expand</span>)
+    <span class="kw">fn </span>pack_end&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, cell: <span class="kw-2">&amp;</span>R, expand: bool) {
+        <span class="self">self</span>.parent_pack_end(cell_layout, cell, expand)
     }
 
-    <span class="kw">fn</span> <span class="ident">area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CellArea</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">parent_area</span>(<span class="ident">cell_layout</span>)
+    <span class="kw">fn </span>area(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="prelude-ty">Option</span>&lt;CellArea&gt; {
+        <span class="self">self</span>.parent_area(cell_layout)
     }
 }
 
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">CellLayoutImplExt</span>: <span class="ident">ObjectSubclass</span> {
-    <span class="kw">fn</span> <span class="ident">parent_add_attribute</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+<span class="kw">pub trait </span>CellLayoutImplExt: ObjectSubclass {
+    <span class="kw">fn </span>parent_add_attribute&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>,
-        <span class="ident">attribute</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
-        <span class="ident">column</span>: <span class="ident">i32</span>,
+        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        cell: <span class="kw-2">&amp;</span>R,
+        attribute: <span class="kw-2">&amp;</span>str,
+        column: i32,
     );
-    <span class="kw">fn</span> <span class="ident">parent_clear_attributes</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>);
-    <span class="kw">fn</span> <span class="ident">parent_cells</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span>;
-    <span class="kw">fn</span> <span class="ident">parent_set_cell_data_func</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>parent_clear_attributes&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, cell: <span class="kw-2">&amp;</span>R);
+    <span class="kw">fn </span>parent_cells(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; Vec&lt;CellRenderer&gt;;
+    <span class="kw">fn </span>parent_set_cell_data_func&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>,
-        <span class="ident">callback</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CellLayoutDataCallback</span><span class="op">&gt;</span>,
+        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        cell: <span class="kw-2">&amp;</span>R,
+        callback: <span class="prelude-ty">Option</span>&lt;CellLayoutDataCallback&gt;,
     );
-    <span class="kw">fn</span> <span class="ident">parent_reorder</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>parent_reorder&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>,
-        <span class="ident">position</span>: <span class="ident">i32</span>,
+        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        cell: <span class="kw-2">&amp;</span>R,
+        position: i32,
     );
-    <span class="kw">fn</span> <span class="ident">parent_clear</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>);
-    <span class="kw">fn</span> <span class="ident">parent_pack_start</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>parent_clear(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
+    <span class="kw">fn </span>parent_pack_start&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>,
-        <span class="ident">expand</span>: <span class="ident">bool</span>,
+        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        cell: <span class="kw-2">&amp;</span>R,
+        expand: bool,
     );
-    <span class="kw">fn</span> <span class="ident">parent_pack_end</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>parent_pack_end&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>,
-        <span class="ident">expand</span>: <span class="ident">bool</span>,
+        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        cell: <span class="kw-2">&amp;</span>R,
+        expand: bool,
     );
-    <span class="kw">fn</span> <span class="ident">parent_area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CellArea</span><span class="op">&gt;</span>;
+    <span class="kw">fn </span>parent_area(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="prelude-ty">Option</span>&lt;CellArea&gt;;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>: <span class="ident">CellLayoutImpl</span><span class="op">&gt;</span> <span class="ident">CellLayoutImplExt</span> <span class="kw">for</span> <span class="ident">O</span> {
-    <span class="kw">fn</span> <span class="ident">parent_add_attribute</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+<span class="kw">impl</span>&lt;O: CellLayoutImpl&gt; CellLayoutImplExt <span class="kw">for </span>O {
+    <span class="kw">fn </span>parent_add_attribute&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>,
-        <span class="ident">attribute</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
-        <span class="ident">column</span>: <span class="ident">i32</span>,
+        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        cell: <span class="kw-2">&amp;</span>R,
+        attribute: <span class="kw-2">&amp;</span>str,
+        column: i32,
     ) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkCellLayoutIface</span>;
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkCellLayoutIface;
 
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">f</span>) <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>).<span class="ident">add_attribute</span> {
-                <span class="ident">f</span>(
-                    <span class="ident">cell_layout</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">cell</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">attribute</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">column</span>,
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_iface).add_attribute {
+                f(
+                    cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                    cell.as_ref().to_glib_none().<span class="number">0</span>,
+                    attribute.to_glib_none().<span class="number">0</span>,
+                    column,
                 );
             }
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_clear_attributes</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>, <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkCellLayoutIface</span>;
+    <span class="kw">fn </span>parent_clear_attributes&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, cell: <span class="kw-2">&amp;</span>R) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkCellLayoutIface;
 
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">f</span>) <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>).<span class="ident">clear_attributes</span> {
-                <span class="ident">f</span>(
-                    <span class="ident">cell_layout</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">cell</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_iface).clear_attributes {
+                f(
+                    cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                    cell.as_ref().to_glib_none().<span class="number">0</span>,
                 );
             }
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_cells</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkCellLayoutIface</span>;
+    <span class="kw">fn </span>parent_cells(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; Vec&lt;CellRenderer&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkCellLayoutIface;
 
-            <span class="kw">let</span> <span class="ident">f</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>)
-                .<span class="ident">get_cells</span>
-                .<span class="ident">as_ref</span>()
-                .<span class="ident">expect</span>(<span class="string">&quot;no parent \&quot;get_cells\&quot; implementation&quot;</span>);
+            <span class="kw">let </span>f = (<span class="kw-2">*</span>parent_iface)
+                .get_cells
+                .as_ref()
+                .expect(<span class="string">&quot;no parent \&quot;get_cells\&quot; implementation&quot;</span>);
 
-            <span class="kw">let</span> <span class="ident">cells</span> <span class="op">=</span> <span class="ident">f</span>(<span class="ident">cell_layout</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
-            <span class="ident">FromGlibPtrArrayContainerAsVec::from_glib_container_as_vec</span>(<span class="ident">cells</span>)
+            <span class="kw">let </span>cells = f(cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>);
+            FromGlibPtrArrayContainerAsVec::from_glib_container_as_vec(cells)
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_set_cell_data_func</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>parent_set_cell_data_func&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>,
-        <span class="ident">callback</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CellLayoutDataCallback</span><span class="op">&gt;</span>,
+        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        cell: <span class="kw-2">&amp;</span>R,
+        callback: <span class="prelude-ty">Option</span>&lt;CellLayoutDataCallback&gt;,
     ) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkCellLayoutIface</span>;
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkCellLayoutIface;
 
-            <span class="kw">let</span> <span class="ident">f</span> <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>)
-                .<span class="ident">set_cell_data_func</span>
-                .<span class="ident">as_ref</span>()
-                .<span class="ident">expect</span>(<span class="string">&quot;no parent \&quot;set_cell_data_func\&quot; implementation&quot;</span>);
+            <span class="kw">let </span>f = (<span class="kw-2">*</span>parent_iface)
+                .set_cell_data_func
+                .as_ref()
+                .expect(<span class="string">&quot;no parent \&quot;set_cell_data_func\&quot; implementation&quot;</span>);
 
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">data_cb</span>) <span class="op">=</span> <span class="ident">callback</span> {
-                <span class="ident">f</span>(
-                    <span class="ident">cell_layout</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">cell</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">data_cb</span>.<span class="ident">callback</span>,
-                    <span class="ident">data_cb</span>.<span class="ident">user_data</span>,
-                    <span class="ident">data_cb</span>.<span class="ident">destroy_notify</span>,
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(data_cb) = callback {
+                f(
+                    cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                    cell.as_ref().to_glib_none().<span class="number">0</span>,
+                    data_cb.callback,
+                    data_cb.user_data,
+                    data_cb.destroy_notify,
                 );
-            } <span class="kw">else</span> {
-                <span class="ident">f</span>(
-                    <span class="ident">cell_layout</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">cell</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+            } <span class="kw">else </span>{
+                f(
+                    cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                    cell.as_ref().to_glib_none().<span class="number">0</span>,
                     <span class="prelude-val">None</span>,
-                    <span class="ident">std::ptr::null_mut</span>(),
+                    std::ptr::null_mut(),
                     <span class="prelude-val">None</span>,
                 );
             }
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_reorder</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>parent_reorder&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>,
-        <span class="ident">position</span>: <span class="ident">i32</span>,
+        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        cell: <span class="kw-2">&amp;</span>R,
+        position: i32,
     ) {
         {
-            <span class="kw">unsafe</span> {
-                <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-                <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>()
-                    <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkCellLayoutIface</span>;
+            <span class="kw">unsafe </span>{
+                <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+                <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
+                    <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkCellLayoutIface;
 
-                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">f</span>) <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>).<span class="ident">reorder</span> {
-                    <span class="ident">f</span>(
-                        <span class="ident">cell_layout</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                        <span class="ident">cell</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                        <span class="ident">position</span>,
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_iface).reorder {
+                    f(
+                        cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                        cell.as_ref().to_glib_none().<span class="number">0</span>,
+                        position,
                     );
                 }
             }
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_clear</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkCellLayoutIface</span>;
+    <span class="kw">fn </span>parent_clear(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkCellLayoutIface;
 
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">f</span>) <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>).<span class="ident">clear</span> {
-                <span class="ident">f</span>(<span class="ident">cell_layout</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_iface).clear {
+                f(cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>);
             }
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_pack_start</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>parent_pack_start&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>,
-        <span class="ident">expand</span>: <span class="ident">bool</span>,
+        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        cell: <span class="kw-2">&amp;</span>R,
+        expand: bool,
     ) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkCellLayoutIface</span>;
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkCellLayoutIface;
 
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">f</span>) <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>).<span class="ident">pack_start</span> {
-                <span class="ident">f</span>(
-                    <span class="ident">cell_layout</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">cell</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">expand</span>.<span class="ident">into_glib</span>(),
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_iface).pack_start {
+                f(
+                    cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                    cell.as_ref().to_glib_none().<span class="number">0</span>,
+                    expand.into_glib(),
                 );
             }
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_pack_end</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>parent_pack_end&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>,
-        <span class="ident">cell</span>: <span class="kw-2">&amp;</span><span class="ident">R</span>,
-        <span class="ident">expand</span>: <span class="ident">bool</span>,
+        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+        cell: <span class="kw-2">&amp;</span>R,
+        expand: bool,
     ) {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkCellLayoutIface</span>;
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkCellLayoutIface;
 
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">f</span>) <span class="op">=</span> (<span class="kw-2">*</span><span class="ident">parent_iface</span>).<span class="ident">pack_end</span> {
-                <span class="ident">f</span>(
-                    <span class="ident">cell_layout</span>.<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">cell</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">expand</span>.<span class="ident">into_glib</span>(),
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_iface).pack_end {
+                f(
+                    cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                    cell.as_ref().to_glib_none().<span class="number">0</span>,
+                    expand.into_glib(),
                 );
             }
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">parent_area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cell_layout</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Type</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CellArea</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">type_data</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::type_data</span>();
-            <span class="kw">let</span> <span class="ident">parent_iface</span> <span class="op">=</span> <span class="ident">type_data</span>.<span class="ident">as_ref</span>().<span class="ident">parent_interface</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>()
-                <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">ffi::GtkCellLayoutIface</span>;
+    <span class="kw">fn </span>parent_area(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="prelude-ty">Option</span>&lt;CellArea&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
+            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkCellLayoutIface;
 
-            (<span class="kw-2">*</span><span class="ident">parent_iface</span>).<span class="ident">get_area</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">f</span><span class="op">|</span> {
-                <span class="ident">from_glib_none</span>(<span class="ident">f</span>(<span class="ident">cell_layout</span>
-                    .<span class="ident">unsafe_cast_ref</span>::<span class="op">&lt;</span><span class="ident">CellLayout</span><span class="op">&gt;</span>()
-                    .<span class="ident">to_glib_none</span>()
+            (<span class="kw-2">*</span>parent_iface).get_area.map(|f| {
+                from_glib_none(f(cell_layout
+                    .unsafe_cast_ref::&lt;CellLayout&gt;()
+                    .to_glib_none()
                     .<span class="number">0</span>))
             })
         }
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">CellLayoutImpl</span><span class="op">&gt;</span> <span class="ident">IsImplementable</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">CellLayout</span> {
-    <span class="kw">fn</span> <span class="ident">interface_init</span>(<span class="ident">iface</span>: <span class="kw-2">&amp;mut</span> <span class="ident">glib::Interface</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>) {
-        <span class="kw">let</span> <span class="ident">iface</span> <span class="op">=</span> <span class="ident">iface</span>.<span class="ident">as_mut</span>();
+<span class="kw">unsafe impl</span>&lt;T: CellLayoutImpl&gt; IsImplementable&lt;T&gt; <span class="kw">for </span>CellLayout {
+    <span class="kw">fn </span>interface_init(iface: <span class="kw-2">&amp;mut </span>glib::Interface&lt;<span class="self">Self</span>&gt;) {
+        <span class="kw">let </span>iface = iface.as_mut();
 
         <span class="macro">assert!</span>(
-            <span class="ident"><span class="kw">crate</span>::rt::is_initialized</span>(),
-            <span class="string">&quot;GTK has to be initialized first&quot;</span>
-        );
+            <span class="kw">crate</span>::rt::is_initialized(),
+            <span class="string">&quot;GTK has to be initialized first&quot;
+        </span>);
 
-        <span class="ident">iface</span>.<span class="ident">get_area</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">cell_layout_get_area</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">pack_start</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">cell_layout_pack_start</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">pack_end</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">cell_layout_pack_end</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">clear</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">cell_layout_clear</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">reorder</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">cell_layout_reorder</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">add_attribute</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">cell_layout_add_attribute</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">clear_attributes</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">cell_layout_clear_attributes</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">set_cell_data_func</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">cell_layout_set_cell_data_func</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
-        <span class="ident">iface</span>.<span class="ident">get_cells</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">cell_layout_get_cells</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>);
+        iface.get_area = <span class="prelude-val">Some</span>(cell_layout_get_area::&lt;T&gt;);
+        iface.pack_start = <span class="prelude-val">Some</span>(cell_layout_pack_start::&lt;T&gt;);
+        iface.pack_end = <span class="prelude-val">Some</span>(cell_layout_pack_end::&lt;T&gt;);
+        iface.clear = <span class="prelude-val">Some</span>(cell_layout_clear::&lt;T&gt;);
+        iface.reorder = <span class="prelude-val">Some</span>(cell_layout_reorder::&lt;T&gt;);
+        iface.add_attribute = <span class="prelude-val">Some</span>(cell_layout_add_attribute::&lt;T&gt;);
+        iface.clear_attributes = <span class="prelude-val">Some</span>(cell_layout_clear_attributes::&lt;T&gt;);
+        iface.set_cell_data_func = <span class="prelude-val">Some</span>(cell_layout_set_cell_data_func::&lt;T&gt;);
+        iface.get_cells = <span class="prelude-val">Some</span>(cell_layout_get_cells::&lt;T&gt;);
     }
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">cell_layout_get_area</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">CellLayoutImpl</span><span class="op">&gt;</span>(
-    <span class="ident">cell_layout</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellLayout</span>,
-) -&gt; <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellArea</span> {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">cell_layout</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_get_area&lt;T: CellLayoutImpl&gt;(
+    cell_layout: <span class="kw-2">*mut </span>ffi::GtkCellLayout,
+) -&gt; <span class="kw-2">*mut </span>ffi::GtkCellArea {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="ident">imp</span>.<span class="ident">area</span>(<span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">CellLayout</span><span class="op">&gt;</span>(<span class="ident">cell_layout</span>).<span class="ident">unsafe_cast_ref</span>())
-        .<span class="ident">to_glib_full</span>()
+    imp.area(from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref())
+        .to_glib_full()
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">cell_layout_pack_start</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">CellLayoutImpl</span><span class="op">&gt;</span>(
-    <span class="ident">cell_layout</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellLayout</span>,
-    <span class="ident">cellptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellRenderer</span>,
-    <span class="ident">expand</span>: <span class="ident">glib::ffi::gboolean</span>,
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_pack_start&lt;T: CellLayoutImpl&gt;(
+    cell_layout: <span class="kw-2">*mut </span>ffi::GtkCellLayout,
+    cellptr: <span class="kw-2">*mut </span>ffi::GtkCellRenderer,
+    expand: glib::ffi::gboolean,
 ) {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">cell_layout</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="kw">let</span> <span class="ident">cell</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">cellptr</span>);
+    <span class="kw">let </span>cell: Borrowed&lt;CellRenderer&gt; = from_glib_borrow(cellptr);
 
-    <span class="ident">imp</span>.<span class="ident">pack_start</span>(
-        <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">CellLayout</span><span class="op">&gt;</span>(<span class="ident">cell_layout</span>).<span class="ident">unsafe_cast_ref</span>(),
-        <span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">cell</span>,
-        <span class="ident">from_glib</span>(<span class="ident">expand</span>),
+    imp.pack_start(
+        from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref(),
+        <span class="kw-2">&amp;*</span>cell,
+        from_glib(expand),
     )
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">cell_layout_pack_end</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">CellLayoutImpl</span><span class="op">&gt;</span>(
-    <span class="ident">cell_layout</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellLayout</span>,
-    <span class="ident">cellptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellRenderer</span>,
-    <span class="ident">expand</span>: <span class="ident">glib::ffi::gboolean</span>,
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_pack_end&lt;T: CellLayoutImpl&gt;(
+    cell_layout: <span class="kw-2">*mut </span>ffi::GtkCellLayout,
+    cellptr: <span class="kw-2">*mut </span>ffi::GtkCellRenderer,
+    expand: glib::ffi::gboolean,
 ) {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">cell_layout</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="kw">let</span> <span class="ident">cell</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">cellptr</span>);
+    <span class="kw">let </span>cell: Borrowed&lt;CellRenderer&gt; = from_glib_borrow(cellptr);
 
-    <span class="ident">imp</span>.<span class="ident">pack_end</span>(
-        <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">CellLayout</span><span class="op">&gt;</span>(<span class="ident">cell_layout</span>).<span class="ident">unsafe_cast_ref</span>(),
-        <span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">cell</span>,
-        <span class="ident">from_glib</span>(<span class="ident">expand</span>),
+    imp.pack_end(
+        from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref(),
+        <span class="kw-2">&amp;*</span>cell,
+        from_glib(expand),
     )
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">cell_layout_clear</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">CellLayoutImpl</span><span class="op">&gt;</span>(<span class="ident">cell_layout</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellLayout</span>) {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">cell_layout</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_clear&lt;T: CellLayoutImpl&gt;(cell_layout: <span class="kw-2">*mut </span>ffi::GtkCellLayout) {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="ident">imp</span>.<span class="ident">clear</span>(<span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">CellLayout</span><span class="op">&gt;</span>(<span class="ident">cell_layout</span>).<span class="ident">unsafe_cast_ref</span>())
+    imp.clear(from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref())
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">cell_layout_reorder</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">CellLayoutImpl</span><span class="op">&gt;</span>(
-    <span class="ident">cell_layout</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellLayout</span>,
-    <span class="ident">cellptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellRenderer</span>,
-    <span class="ident">position</span>: <span class="ident">i32</span>,
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_reorder&lt;T: CellLayoutImpl&gt;(
+    cell_layout: <span class="kw-2">*mut </span>ffi::GtkCellLayout,
+    cellptr: <span class="kw-2">*mut </span>ffi::GtkCellRenderer,
+    position: i32,
 ) {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">cell_layout</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="kw">let</span> <span class="ident">cell</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">cellptr</span>);
+    <span class="kw">let </span>cell: Borrowed&lt;CellRenderer&gt; = from_glib_borrow(cellptr);
 
-    <span class="ident">imp</span>.<span class="ident">reorder</span>(
-        <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">CellLayout</span><span class="op">&gt;</span>(<span class="ident">cell_layout</span>).<span class="ident">unsafe_cast_ref</span>(),
-        <span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">cell</span>,
-        <span class="ident">position</span>,
+    imp.reorder(
+        from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref(),
+        <span class="kw-2">&amp;*</span>cell,
+        position,
     )
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">cell_layout_add_attribute</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">CellLayoutImpl</span><span class="op">&gt;</span>(
-    <span class="ident">cell_layout</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellLayout</span>,
-    <span class="ident">cellptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellRenderer</span>,
-    <span class="ident">attributeptr</span>: <span class="kw-2">*const</span> <span class="ident">libc::c_char</span>,
-    <span class="ident">column</span>: <span class="ident">i32</span>,
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_add_attribute&lt;T: CellLayoutImpl&gt;(
+    cell_layout: <span class="kw-2">*mut </span>ffi::GtkCellLayout,
+    cellptr: <span class="kw-2">*mut </span>ffi::GtkCellRenderer,
+    attributeptr: <span class="kw-2">*const </span>libc::c_char,
+    column: i32,
 ) {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">cell_layout</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="kw">let</span> <span class="ident">cell</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">cellptr</span>);
-    <span class="kw">let</span> <span class="ident">attribute</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">attributeptr</span>);
+    <span class="kw">let </span>cell: Borrowed&lt;CellRenderer&gt; = from_glib_borrow(cellptr);
+    <span class="kw">let </span>attribute: Borrowed&lt;glib::GString&gt; = from_glib_borrow(attributeptr);
 
-    <span class="ident">imp</span>.<span class="ident">add_attribute</span>(
-        <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">CellLayout</span><span class="op">&gt;</span>(<span class="ident">cell_layout</span>).<span class="ident">unsafe_cast_ref</span>(),
-        <span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">cell</span>,
-        <span class="kw-2">&amp;</span><span class="ident">attribute</span>,
-        <span class="ident">column</span>,
+    imp.add_attribute(
+        from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref(),
+        <span class="kw-2">&amp;*</span>cell,
+        <span class="kw-2">&amp;</span>attribute,
+        column,
     )
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">cell_layout_clear_attributes</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">CellLayoutImpl</span><span class="op">&gt;</span>(
-    <span class="ident">cell_layout</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellLayout</span>,
-    <span class="ident">cellptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellRenderer</span>,
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_clear_attributes&lt;T: CellLayoutImpl&gt;(
+    cell_layout: <span class="kw-2">*mut </span>ffi::GtkCellLayout,
+    cellptr: <span class="kw-2">*mut </span>ffi::GtkCellRenderer,
 ) {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">cell_layout</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="kw">let</span> <span class="ident">cell</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">cellptr</span>);
+    <span class="kw">let </span>cell: Borrowed&lt;CellRenderer&gt; = from_glib_borrow(cellptr);
 
-    <span class="ident">imp</span>.<span class="ident">clear_attributes</span>(
-        <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">CellLayout</span><span class="op">&gt;</span>(<span class="ident">cell_layout</span>).<span class="ident">unsafe_cast_ref</span>(),
-        <span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">cell</span>,
+    imp.clear_attributes(
+        from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref(),
+        <span class="kw-2">&amp;*</span>cell,
     )
 }
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">cell_layout_set_cell_data_func</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">CellLayoutImpl</span><span class="op">&gt;</span>(
-    <span class="ident">cell_layout</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellLayout</span>,
-    <span class="ident">cellptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellRenderer</span>,
-    <span class="ident">callback</span>: <span class="ident">ffi::GtkCellLayoutDataFunc</span>,
-    <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
-    <span class="ident">destroy_notify</span>: <span class="ident">glib::ffi::GDestroyNotify</span>,
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_set_cell_data_func&lt;T: CellLayoutImpl&gt;(
+    cell_layout: <span class="kw-2">*mut </span>ffi::GtkCellLayout,
+    cellptr: <span class="kw-2">*mut </span>ffi::GtkCellRenderer,
+    callback: ffi::GtkCellLayoutDataFunc,
+    user_data: glib::ffi::gpointer,
+    destroy_notify: glib::ffi::GDestroyNotify,
 ) {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">cell_layout</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="kw">let</span> <span class="ident">cell</span>: <span class="ident">Borrowed</span><span class="op">&lt;</span><span class="ident">CellRenderer</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>(<span class="ident">cellptr</span>);
+    <span class="kw">let </span>cell: Borrowed&lt;CellRenderer&gt; = from_glib_borrow(cellptr);
 
-    <span class="kw">let</span> <span class="ident">callback</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">callback</span>.<span class="ident">is_none</span>() {
-        <span class="prelude-val">None</span>
-    } <span class="kw">else</span> {
-        <span class="prelude-val">Some</span>(<span class="ident">CellLayoutDataCallback</span> {
-            <span class="ident">callback</span>,
-            <span class="ident">user_data</span>,
-            <span class="ident">destroy_notify</span>,
+    <span class="kw">let </span>callback = <span class="kw">if </span>callback.is_none() {
+        <span class="prelude-val">None
+    </span>} <span class="kw">else </span>{
+        <span class="prelude-val">Some</span>(CellLayoutDataCallback {
+            callback,
+            user_data,
+            destroy_notify,
         })
     };
 
-    <span class="ident">imp</span>.<span class="ident">set_cell_data_func</span>(
-        <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">CellLayout</span><span class="op">&gt;</span>(<span class="ident">cell_layout</span>).<span class="ident">unsafe_cast_ref</span>(),
-        <span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">cell</span>,
-        <span class="ident">callback</span>,
+    imp.set_cell_data_func(
+        from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref(),
+        <span class="kw-2">&amp;*</span>cell,
+        callback,
     )
 }
 
-<span class="kw">static</span> <span class="ident">CELL_LAYOUT_GET_CELLS_QUARK</span>: <span class="ident">Lazy</span><span class="op">&lt;</span><span class="ident">Quark</span><span class="op">&gt;</span> <span class="op">=</span>
-    <span class="ident">Lazy::new</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Quark::from_str</span>(<span class="string">&quot;gtk-rs-subclass-cell-layout-get-cells&quot;</span>));
+<span class="kw">static </span>CELL_LAYOUT_GET_CELLS_QUARK: Lazy&lt;Quark&gt; =
+    Lazy::new(|| Quark::from_str(<span class="string">&quot;gtk-rs-subclass-cell-layout-get-cells&quot;</span>));
 
-<span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">cell_layout_get_cells</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">CellLayoutImpl</span><span class="op">&gt;</span>(
-    <span class="ident">cell_layout</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GtkCellLayout</span>,
-) -&gt; <span class="kw-2">*mut</span> <span class="ident">glib::ffi::GList</span> {
-    <span class="kw">let</span> <span class="ident">instance</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">cell_layout</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">T::Instance</span>);
-    <span class="kw">let</span> <span class="ident">imp</span> <span class="op">=</span> <span class="ident">instance</span>.<span class="ident">imp</span>();
+<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_get_cells&lt;T: CellLayoutImpl&gt;(
+    cell_layout: <span class="kw-2">*mut </span>ffi::GtkCellLayout,
+) -&gt; <span class="kw-2">*mut </span>glib::ffi::GList {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = instance.imp();
 
-    <span class="kw">let</span> <span class="ident">wrap</span> <span class="op">=</span> <span class="ident">from_glib_borrow</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">CellLayout</span><span class="op">&gt;</span>(<span class="ident">cell_layout</span>);
+    <span class="kw">let </span>wrap = from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout);
 
-    <span class="kw">let</span> <span class="ident">cells</span> <span class="op">=</span> <span class="ident">imp</span>.<span class="ident">cells</span>(<span class="ident">wrap</span>.<span class="ident">unsafe_cast_ref</span>());
+    <span class="kw">let </span>cells = imp.cells(wrap.unsafe_cast_ref());
 
-    <span class="comment">// transfer container: list owned by the caller by not the actual content</span>
-    <span class="comment">// so we need to keep the cells around and return a ptr of the list</span>
-    <span class="ident">wrap</span>.<span class="ident">set_qdata</span>(<span class="kw-2">*</span><span class="ident">CELL_LAYOUT_GET_CELLS_QUARK</span>, <span class="ident">cells</span>.<span class="ident">clone</span>());
-    <span class="ident">cells</span>.<span class="ident">to_glib_container</span>().<span class="number">0</span>
-}
+    <span class="comment">// transfer container: list owned by the caller by not the actual content
+    // so we need to keep the cells around and return a ptr of the list
+    </span>wrap.set_qdata(<span class="kw-2">*</span>CELL_LAYOUT_GET_CELLS_QUARK, cells.clone());
+    cells.to_glib_container().<span class="number">0
+</span>}
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.62.0-nightly (e1b71feb5 2022-05-03)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>

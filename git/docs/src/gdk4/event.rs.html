@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/event.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>event.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/event.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>event.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -72,11 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../gdk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../gdk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gdk4/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../gdk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../gdk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../gdk4/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -305,235 +300,234 @@
 <span id="227">227</span>
 <span id="228">228</span>
 <span id="229">229</span>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.</span>
+</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">Event</span>, <span class="ident">EventType</span>};
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">glib::StaticType</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
-<span class="kw">use</span> <span class="ident">std::mem</span>;
+</span><span class="kw">use crate</span>::{Event, EventType};
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>glib::StaticType;
+<span class="kw">use </span>std::fmt;
+<span class="kw">use </span>std::mem;
 
-<span class="kw">impl</span> <span class="ident">Event</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">EventKind</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="ident">T::event_types</span>().<span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">event_type</span>())
+<span class="kw">impl </span>Event {
+    <span class="kw">pub fn </span>is&lt;T: EventKind&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        T::event_types().contains(<span class="kw-2">&amp;</span><span class="self">self</span>.event_type())
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">type_</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">glib::Type</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>;
-            <span class="ident">from_glib</span>((<span class="kw-2">*</span>(<span class="kw-2">*</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GTypeInstance</span>)).<span class="ident">g_class</span>).<span class="ident">g_type</span>)
+    <span class="kw">pub fn </span>type_(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; glib::Type {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>ptr = <span class="self">self</span>.to_glib_none().<span class="number">0</span>;
+            from_glib((<span class="kw-2">*</span>(<span class="kw-2">*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>glib::gobject_ffi::GTypeInstance)).g_class).g_type)
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">downcast</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">EventKind</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">Event</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">if</span> <span class="self">self</span>.<span class="ident">is</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>() {
-                <span class="prelude-val">Ok</span>(<span class="ident">from_glib_full</span>(<span class="self">self</span>.<span class="ident">to_glib_full</span>()))
-            } <span class="kw">else</span> {
+    <span class="kw">pub fn </span>downcast&lt;T: EventKind&gt;(<span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;T, Event&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">if </span><span class="self">self</span>.is::&lt;T&gt;() {
+                <span class="prelude-val">Ok</span>(from_glib_full(<span class="self">self</span>.to_glib_full()))
+            } <span class="kw">else </span>{
                 <span class="prelude-val">Err</span>(<span class="self">self</span>)
             }
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">downcast_ref</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">EventKind</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">T</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">if</span> <span class="self">self</span>.<span class="ident">is</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>() {
-                <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="self">self</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">Event</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">T</span>))
-            } <span class="kw">else</span> {
-                <span class="prelude-val">None</span>
-            }
+    <span class="kw">pub fn </span>downcast_ref&lt;T: EventKind&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>T&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">if </span><span class="self">self</span>.is::&lt;T&gt;() {
+                <span class="prelude-val">Some</span>(<span class="kw-2">&amp;*</span>(<span class="self">self </span><span class="kw">as </span><span class="kw-2">*const </span>Event <span class="kw">as </span><span class="kw-2">*const </span>T))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">None
+            </span>}
         }
     }
 
-    <span class="doccomment">/// Returns the relative angle from @event1 to @event2.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The relative angle is the angle between the X axis and the line</span>
-    <span class="doccomment">/// through both events&#39; positions. The rotation direction for positive</span>
-    <span class="doccomment">/// angles is from the positive X axis towards the positive Y axis.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This assumes that both events have X/Y information.</span>
-    <span class="doccomment">/// If not, this function returns [`false`].</span>
-    <span class="doccomment">/// ## `event1`</span>
-    <span class="doccomment">/// first [`Event`][crate::Event]</span>
-    <span class="doccomment">/// ## `event2`</span>
-    <span class="doccomment">/// second [`Event`][crate::Event]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if the angle could be calculated.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `angle`</span>
-    <span class="doccomment">/// return location for the relative angle between both events</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_events_get_angle&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_angle&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">angle</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">event</span>: <span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">Event</span><span class="op">&gt;</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span> {
+    <span class="doccomment">/// Returns the relative angle from @event1 to @event2.
+    ///
+    /// The relative angle is the angle between the X axis and the line
+    /// through both events&#39; positions. The rotation direction for positive
+    /// angles is from the positive X axis towards the positive Y axis.
+    ///
+    /// This assumes that both events have X/Y information.
+    /// If not, this function returns [`false`].
+    /// ## `event1`
+    /// first [`Event`][crate::Event]
+    /// ## `event2`
+    /// second [`Event`][crate::Event]
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if the angle could be calculated.
+    ///
+    /// ## `angle`
+    /// return location for the relative angle between both events
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_events_get_angle&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_angle&quot;</span>)]
+    </span><span class="kw">pub fn </span>angle(<span class="kw-2">&amp;</span><span class="self">self</span>, event: <span class="kw">impl </span>AsRef&lt;Event&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;f64&gt; {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">angle</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_events_get_angle</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">event</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">angle</span>.<span class="ident">as_mut_ptr</span>(),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>angle = mem::MaybeUninit::uninit();
+            <span class="kw">let </span>ret = from_glib(ffi::gdk_events_get_angle(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                event.as_ref().to_glib_none().<span class="number">0</span>,
+                angle.as_mut_ptr(),
             ));
-            <span class="kw">if</span> <span class="ident">ret</span> {
-                <span class="kw">let</span> <span class="ident">angle</span> <span class="op">=</span> <span class="ident">angle</span>.<span class="ident">assume_init</span>();
-                <span class="prelude-val">Some</span>(<span class="ident">angle</span>)
-            } <span class="kw">else</span> {
-                <span class="prelude-val">None</span>
-            }
+            <span class="kw">if </span>ret {
+                <span class="kw">let </span>angle = angle.assume_init();
+                <span class="prelude-val">Some</span>(angle)
+            } <span class="kw">else </span>{
+                <span class="prelude-val">None
+            </span>}
         }
     }
 
-    <span class="doccomment">/// Returns the point halfway between the events&#39; positions.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This assumes that both events have X/Y information.</span>
-    <span class="doccomment">/// If not, this function returns [`false`].</span>
-    <span class="doccomment">/// ## `event1`</span>
-    <span class="doccomment">/// first [`Event`][crate::Event]</span>
-    <span class="doccomment">/// ## `event2`</span>
-    <span class="doccomment">/// second [`Event`][crate::Event]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if the center could be calculated.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `x`</span>
-    <span class="doccomment">/// return location for the X coordinate of the center</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `y`</span>
-    <span class="doccomment">/// return location for the Y coordinate of the center</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_events_get_center&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_center&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">center</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">event</span>: <span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">Event</span><span class="op">&gt;</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">f64</span>, <span class="ident">f64</span>)<span class="op">&gt;</span> {
+    <span class="doccomment">/// Returns the point halfway between the events&#39; positions.
+    ///
+    /// This assumes that both events have X/Y information.
+    /// If not, this function returns [`false`].
+    /// ## `event1`
+    /// first [`Event`][crate::Event]
+    /// ## `event2`
+    /// second [`Event`][crate::Event]
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if the center could be calculated.
+    ///
+    /// ## `x`
+    /// return location for the X coordinate of the center
+    ///
+    /// ## `y`
+    /// return location for the Y coordinate of the center
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_events_get_center&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_center&quot;</span>)]
+    </span><span class="kw">pub fn </span>center(<span class="kw-2">&amp;</span><span class="self">self</span>, event: <span class="kw">impl </span>AsRef&lt;Event&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;(f64, f64)&gt; {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">y</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_events_get_center</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">event</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">x</span>.<span class="ident">as_mut_ptr</span>(),
-                <span class="ident">y</span>.<span class="ident">as_mut_ptr</span>(),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>x = mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>y = mem::MaybeUninit::uninit();
+            <span class="kw">let </span>ret = from_glib(ffi::gdk_events_get_center(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                event.as_ref().to_glib_none().<span class="number">0</span>,
+                x.as_mut_ptr(),
+                y.as_mut_ptr(),
             ));
-            <span class="kw">if</span> <span class="ident">ret</span> {
-                <span class="kw">let</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">x</span>.<span class="ident">assume_init</span>();
-                <span class="kw">let</span> <span class="ident">y</span> <span class="op">=</span> <span class="ident">y</span>.<span class="ident">assume_init</span>();
-                <span class="prelude-val">Some</span>((<span class="ident">x</span>, <span class="ident">y</span>))
-            } <span class="kw">else</span> {
-                <span class="prelude-val">None</span>
-            }
+            <span class="kw">if </span>ret {
+                <span class="kw">let </span>x = x.assume_init();
+                <span class="kw">let </span>y = y.assume_init();
+                <span class="prelude-val">Some</span>((x, y))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">None
+            </span>}
         }
     }
 
-    <span class="doccomment">/// Returns the distance between the event locations.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This assumes that both events have X/Y information.</span>
-    <span class="doccomment">/// If not, this function returns [`false`].</span>
-    <span class="doccomment">/// ## `event1`</span>
-    <span class="doccomment">/// first [`Event`][crate::Event]</span>
-    <span class="doccomment">/// ## `event2`</span>
-    <span class="doccomment">/// second [`Event`][crate::Event]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if the distance could be calculated.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## `distance`</span>
-    <span class="doccomment">/// return location for the distance</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_events_get_distance&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_distance&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">event</span>: <span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">Event</span><span class="op">&gt;</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span> {
+    <span class="doccomment">/// Returns the distance between the event locations.
+    ///
+    /// This assumes that both events have X/Y information.
+    /// If not, this function returns [`false`].
+    /// ## `event1`
+    /// first [`Event`][crate::Event]
+    /// ## `event2`
+    /// second [`Event`][crate::Event]
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if the distance could be calculated.
+    ///
+    /// ## `distance`
+    /// return location for the distance
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_events_get_distance&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_distance&quot;</span>)]
+    </span><span class="kw">pub fn </span>distance(<span class="kw-2">&amp;</span><span class="self">self</span>, event: <span class="kw">impl </span>AsRef&lt;Event&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;f64&gt; {
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">distance</span> <span class="op">=</span> <span class="ident">mem::MaybeUninit::uninit</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_events_get_distance</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">event</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">distance</span>.<span class="ident">as_mut_ptr</span>(),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>distance = mem::MaybeUninit::uninit();
+            <span class="kw">let </span>ret = from_glib(ffi::gdk_events_get_distance(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                event.as_ref().to_glib_none().<span class="number">0</span>,
+                distance.as_mut_ptr(),
             ));
-            <span class="kw">if</span> <span class="ident">ret</span> {
-                <span class="kw">let</span> <span class="ident">distance</span> <span class="op">=</span> <span class="ident">distance</span>.<span class="ident">assume_init</span>();
-                <span class="prelude-val">Some</span>(<span class="ident">distance</span>)
-            } <span class="kw">else</span> {
-                <span class="prelude-val">None</span>
-            }
+            <span class="kw">if </span>ret {
+                <span class="kw">let </span>distance = distance.assume_init();
+                <span class="prelude-val">Some</span>(distance)
+            } <span class="kw">else </span>{
+                <span class="prelude-val">None
+            </span>}
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Debug</span> <span class="kw">for</span> <span class="ident">Event</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">debug_struct</span>(<span class="string">&quot;Event&quot;</span>)
-            .<span class="ident">field</span>(<span class="string">&quot;event_type&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">event_type</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;history&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">history</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;modifier_state&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">modifier_state</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;pointer_emulated&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">is_pointer_emulated</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;position&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">position</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;time&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">time</span>())
-            .<span class="ident">field</span>(<span class="string">&quot;triggers_context_menu&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">triggers_context_menu</span>())
-            .<span class="ident">finish</span>()
+<span class="kw">impl </span>fmt::Debug <span class="kw">for </span>Event {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.debug_struct(<span class="string">&quot;Event&quot;</span>)
+            .field(<span class="string">&quot;event_type&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.event_type())
+            .field(<span class="string">&quot;history&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.history())
+            .field(<span class="string">&quot;modifier_state&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.modifier_state())
+            .field(<span class="string">&quot;pointer_emulated&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.is_pointer_emulated())
+            .field(<span class="string">&quot;position&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.position())
+            .field(<span class="string">&quot;time&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.time())
+            .field(<span class="string">&quot;triggers_context_menu&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.triggers_context_menu())
+            .finish()
     }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">Event</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Event</span> {
-    <span class="kw">fn</span> <span class="ident">as_ref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="self">Self</span> {
-        <span class="self">self</span>
-    }
+<span class="attribute">#[doc(hidden)]
+</span><span class="kw">impl </span>AsRef&lt;Event&gt; <span class="kw">for </span>Event {
+    <span class="kw">fn </span>as_ref(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="self">Self </span>{
+        <span class="self">self
+    </span>}
 }
 
-<span class="comment">// rustdoc-stripper-ignore-next</span>
-<span class="doccomment">/// A common trait implemented by the various [`Event`](crate::Event) types.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Safety</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The user is not supposed to implement this trait.</span>
-<span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">trait</span> <span class="ident">EventKind</span>:
-    <span class="ident">StaticType</span> <span class="op">+</span> <span class="ident">FromGlibPtrFull</span><span class="op">&lt;</span><span class="kw-2">*mut</span> <span class="ident">ffi::GdkEvent</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>
-{
-    <span class="kw">fn</span> <span class="ident">event_types</span>() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">EventType</span>];
+<span class="comment">// rustdoc-stripper-ignore-next
+</span><span class="doccomment">/// A common trait implemented by the various [`Event`](crate::Event) types.
+///
+/// # Safety
+///
+/// The user is not supposed to implement this trait.
+</span><span class="kw">pub unsafe trait </span>EventKind:
+    StaticType + FromGlibPtrFull&lt;<span class="kw-2">*mut </span>ffi::GdkEvent&gt; + <span class="lifetime">&#39;static
+</span>{
+    <span class="kw">fn </span>event_types() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>[EventType];
 }
 
-<span class="macro">macro_rules!</span> <span class="ident">define_event</span> {
-    (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rust_type</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ffi_type</span>:<span class="ident">path</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">event_event_types</span>:<span class="ident">expr</span>) =&gt; {
-        <span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident"><span class="kw">crate</span>::event::EventKind</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rust_type</span> {
-            <span class="kw">fn</span> <span class="ident">event_types</span>() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident"><span class="kw">crate</span>::EventType</span>] {
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">event_event_types</span>
+<span class="macro">macro_rules! </span>define_event {
+    (<span class="macro-nonterminal">$rust_type</span>:ident, <span class="macro-nonterminal">$ffi_type</span>:path,<span class="macro-nonterminal">$event_event_types</span>:expr) =&gt; {
+        <span class="kw">unsafe impl </span><span class="kw">crate</span>::event::EventKind <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
+            <span class="kw">fn </span>event_types() -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>[<span class="kw">crate</span>::EventType] {
+                <span class="macro-nonterminal">$event_event_types
+            </span>}
+        }
+
+        <span class="kw">impl </span>std::ops::Deref <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
+            <span class="kw">type </span>Target = <span class="kw">crate</span>::Event;
+
+            <span class="kw">fn </span>deref(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="self">Self</span>::Target {
+                <span class="kw">unsafe </span>{ <span class="kw-2">&amp;*</span>(<span class="self">self </span><span class="kw">as </span><span class="kw-2">*const </span><span class="macro-nonterminal">$rust_type </span><span class="kw">as </span><span class="kw-2">*const </span><span class="kw">crate</span>::Event) }
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">std::ops::Deref</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rust_type</span> {
-            <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::Event</span>;
-
-            <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident"><span class="self">Self</span>::Target</span> {
-                <span class="kw">unsafe</span> { <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="self">self</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rust_type</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident"><span class="kw">crate</span>::Event</span>) }
+        <span class="kw">impl </span>AsRef&lt;<span class="kw">crate</span>::Event&gt; <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
+            <span class="kw">fn </span>as_ref(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="kw">crate</span>::Event {
+                <span class="self">self</span>.upcast_ref()
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident"><span class="kw">crate</span>::Event</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rust_type</span> {
-            <span class="kw">fn</span> <span class="ident">as_ref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::Event</span> {
-                <span class="self">self</span>.<span class="ident">upcast_ref</span>()
+        <span class="attribute">#[doc(hidden)]
+        </span><span class="kw">impl </span>glib::translate::FromGlibPtrFull&lt;<span class="kw-2">*mut </span>ffi::GdkEvent&gt; <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
+            <span class="kw">unsafe fn </span>from_glib_full(ptr: <span class="kw-2">*mut </span>ffi::GdkEvent) -&gt; <span class="self">Self </span>{
+                glib::translate::FromGlibPtrFull::from_glib_full(ptr <span class="kw">as </span><span class="kw-2">*mut </span><span class="macro-nonterminal">$ffi_type</span>)
             }
         }
 
-        <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-        <span class="kw">impl</span> <span class="ident">glib::translate::FromGlibPtrFull</span><span class="op">&lt;</span><span class="kw-2">*mut</span> <span class="ident">ffi::GdkEvent</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rust_type</span> {
-            <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">from_glib_full</span>(<span class="ident">ptr</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GdkEvent</span>) -&gt; <span class="self">Self</span> {
-                <span class="ident">glib::translate::FromGlibPtrFull::from_glib_full</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ffi_type</span>)
-            }
-        }
-
-        <span class="kw">impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rust_type</span> {
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">upcast</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="kw">crate</span>::Event</span> {
-                <span class="kw">unsafe</span> { <span class="ident">std::mem::transmute</span>(<span class="self">self</span>) }
+        <span class="kw">impl </span><span class="macro-nonterminal">$rust_type </span>{
+            <span class="kw">pub fn </span>upcast(<span class="self">self</span>) -&gt; <span class="kw">crate</span>::Event {
+                <span class="kw">unsafe </span>{ std::mem::transmute(<span class="self">self</span>) }
             }
 
-            <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">upcast_ref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::Event</span> {
-                <span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="self">self</span>
-            }
+            <span class="kw">pub fn </span>upcast_ref(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="kw">crate</span>::Event {
+                <span class="self">self
+            </span>}
         }
     };
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gdk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.62.0-nightly (e1b71feb5 2022-05-03)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="gdk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>

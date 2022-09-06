@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/auto/clipboard.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>clipboard.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/auto/clipboard.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>clipboard.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -72,11 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gdk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gdk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gdk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gdk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gdk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gdk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -641,571 +636,570 @@
 <span id="563">563</span>
 <span id="564">564</span>
 <span id="565">565</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files.git)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ContentFormats</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ContentProvider</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Display</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Texture</span>;
-<span class="kw">use</span> <span class="ident">glib::object::IsA</span>;
-<span class="kw">use</span> <span class="ident">glib::object::ObjectType</span> <span class="kw">as</span> <span class="ident">ObjectType_</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::connect_raw</span>;
-<span class="kw">use</span> <span class="ident">glib::signal::SignalHandlerId</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::boxed::Box</span> <span class="kw">as</span> <span class="ident">Box_</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
-<span class="kw">use</span> <span class="ident">std::mem::transmute</span>;
-<span class="kw">use</span> <span class="ident">std::pin::Pin</span>;
-<span class="kw">use</span> <span class="ident">std::ptr</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::ContentFormats;
+<span class="kw">use </span><span class="kw">crate</span>::ContentProvider;
+<span class="kw">use </span><span class="kw">crate</span>::Display;
+<span class="kw">use </span><span class="kw">crate</span>::Texture;
+<span class="kw">use </span>glib::object::IsA;
+<span class="kw">use </span>glib::object::ObjectType <span class="kw">as </span>ObjectType_;
+<span class="kw">use </span>glib::signal::connect_raw;
+<span class="kw">use </span>glib::signal::SignalHandlerId;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
+<span class="kw">use </span>std::fmt;
+<span class="kw">use </span>std::mem::transmute;
+<span class="kw">use </span>std::pin::Pin;
+<span class="kw">use </span>std::ptr;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// The [`Clipboard`][crate::Clipboard] object represents data shared between applications or</span>
-    <span class="doccomment">/// inside an application.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// To get a [`Clipboard`][crate::Clipboard] object, use [`DisplayExt::clipboard()`][crate::prelude::DisplayExt::clipboard()] or</span>
-    <span class="doccomment">/// [`DisplayExt::primary_clipboard()`][crate::prelude::DisplayExt::primary_clipboard()]. You can find out about the data</span>
-    <span class="doccomment">/// that is currently available in a clipboard using</span>
-    <span class="doccomment">/// [`formats()`][Self::formats()].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// To make text or image data available in a clipboard, use</span>
-    <span class="doccomment">/// [`set_text()`][Self::set_text()] or [`set_texture()`][Self::set_texture()].</span>
-    <span class="doccomment">/// For other data, you can use [`set_content()`][Self::set_content()], which</span>
-    <span class="doccomment">/// takes a [`ContentProvider`][crate::ContentProvider] object.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// To read textual or image data from a clipboard, use</span>
-    <span class="doccomment">/// [`read_text_async()`][Self::read_text_async()] or</span>
-    <span class="doccomment">/// [`read_texture_async()`][Self::read_texture_async()]. For other data, use</span>
-    <span class="doccomment">/// [`read_async()`][Self::read_async()], which provides a `GInputStream` object.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GdkClipboard&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Clipboard</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GdkClipboard</span><span class="op">&gt;</span>);
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// The [`Clipboard`][crate::Clipboard] object represents data shared between applications or
+    /// inside an application.
+    ///
+    /// To get a [`Clipboard`][crate::Clipboard] object, use [`DisplayExt::clipboard()`][crate::prelude::DisplayExt::clipboard()] or
+    /// [`DisplayExt::primary_clipboard()`][crate::prelude::DisplayExt::primary_clipboard()]. You can find out about the data
+    /// that is currently available in a clipboard using
+    /// [`formats()`][Self::formats()].
+    ///
+    /// To make text or image data available in a clipboard, use
+    /// [`set_text()`][Self::set_text()] or [`set_texture()`][Self::set_texture()].
+    /// For other data, you can use [`set_content()`][Self::set_content()], which
+    /// takes a [`ContentProvider`][crate::ContentProvider] object.
+    ///
+    /// To read textual or image data from a clipboard, use
+    /// [`read_text_async()`][Self::read_text_async()] or
+    /// [`read_texture_async()`][Self::read_texture_async()]. For other data, use
+    /// [`read_async()`][Self::read_async()], which provides a `GInputStream` object.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GdkClipboard&quot;</span>)]
+    </span><span class="kw">pub struct </span>Clipboard(Object&lt;ffi::GdkClipboard&gt;);
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gdk_clipboard_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::gdk_clipboard_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Clipboard</span> {
-    <span class="doccomment">/// Returns the [`ContentProvider`][crate::ContentProvider] currently set on @self.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the @self is empty or its contents are not owned by the</span>
-    <span class="doccomment">/// current process, [`None`] will be returned.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The content of a clipboard</span>
-    <span class="doccomment">///   if the clipboard does not maintain any content</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_clipboard_get_content&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_content&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">content</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">ContentProvider</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_clipboard_get_content</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+<span class="kw">impl </span>Clipboard {
+    <span class="doccomment">/// Returns the [`ContentProvider`][crate::ContentProvider] currently set on @self.
+    ///
+    /// If the @self is empty or its contents are not owned by the
+    /// current process, [`None`] will be returned.
+    ///
+    /// # Returns
+    ///
+    /// The content of a clipboard
+    ///   if the clipboard does not maintain any content
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_clipboard_get_content&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_content&quot;</span>)]
+    </span><span class="kw">pub fn </span>content(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;ContentProvider&gt; {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gdk_clipboard_get_content(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the [`Display`][crate::Display] that the clipboard was created for.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a [`Display`][crate::Display]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_clipboard_get_display&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_display&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">display</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Display</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_clipboard_get_display</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    <span class="doccomment">/// Gets the [`Display`][crate::Display] that the clipboard was created for.
+    ///
+    /// # Returns
+    ///
+    /// a [`Display`][crate::Display]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_clipboard_get_display&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_display&quot;</span>)]
+    </span><span class="kw">pub fn </span>display(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Display {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gdk_clipboard_get_display(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Gets the formats that the clipboard can provide its current contents in.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The formats of the clipboard</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_clipboard_get_formats&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_formats&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">formats</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">ContentFormats</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_none</span>(<span class="ident">ffi::gdk_clipboard_get_formats</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    <span class="doccomment">/// Gets the formats that the clipboard can provide its current contents in.
+    ///
+    /// # Returns
+    ///
+    /// The formats of the clipboard
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_clipboard_get_formats&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_formats&quot;</span>)]
+    </span><span class="kw">pub fn </span>formats(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ContentFormats {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gdk_clipboard_get_formats(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Returns if the clipboard is local.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A clipboard is considered local if it was last claimed</span>
-    <span class="doccomment">/// by the running application.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Note that [`content()`][Self::content()] may return [`None`]</span>
-    <span class="doccomment">/// even on a local clipboard. In this case the clipboard is empty.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if the clipboard is local</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_clipboard_is_local&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_local</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">unsafe</span> { <span class="ident">from_glib</span>(<span class="ident">ffi::gdk_clipboard_is_local</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+    <span class="doccomment">/// Returns if the clipboard is local.
+    ///
+    /// A clipboard is considered local if it was last claimed
+    /// by the running application.
+    ///
+    /// Note that [`content()`][Self::content()] may return [`None`]
+    /// even on a local clipboard. In this case the clipboard is empty.
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if the clipboard is local
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_clipboard_is_local&quot;</span>)]
+    </span><span class="kw">pub fn </span>is_local(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">unsafe </span>{ from_glib(ffi::gdk_clipboard_is_local(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Asynchronously request the @self contents converted to a string.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// When the operation is finished @callback will be called. You must then</span>
-    <span class="doccomment">/// call `Gdk::Clipboard::read_text_finish()` to get the result.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This is a simple wrapper around [`read_value_async()`][Self::read_value_async()].</span>
-    <span class="doccomment">/// Use that function or [`read_async()`][Self::read_async()] directly if you</span>
-    <span class="doccomment">/// need more control over the operation.</span>
-    <span class="doccomment">/// ## `cancellable`</span>
-    <span class="doccomment">/// optional `GCancellable` object</span>
-    <span class="doccomment">/// ## `callback`</span>
-    <span class="doccomment">/// callback to call when the request is satisfied</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_clipboard_read_text_async&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">read_text_async</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">FnOnce</span>(<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="doccomment">/// Asynchronously request the @self contents converted to a string.
+    ///
+    /// When the operation is finished @callback will be called. You must then
+    /// call `Gdk::Clipboard::read_text_finish()` to get the result.
+    ///
+    /// This is a simple wrapper around [`read_value_async()`][Self::read_value_async()].
+    /// Use that function or [`read_async()`][Self::read_async()] directly if you
+    /// need more control over the operation.
+    /// ## `cancellable`
+    /// optional `GCancellable` object
+    /// ## `callback`
+    /// callback to call when the request is satisfied
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_clipboard_read_text_async&quot;</span>)]
+    </span><span class="kw">pub fn </span>read_text_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;glib::GString&gt;, glib::Error&gt;) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::Cancellable</span><span class="op">&gt;</span><span class="op">&gt;</span>,
-        <span class="ident">callback</span>: <span class="ident">P</span>,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Cancellable&gt;&gt;,
+        callback: P,
     ) {
-        <span class="kw">let</span> <span class="ident">main_context</span> <span class="op">=</span> <span class="ident">glib::MainContext::ref_thread_default</span>();
-        <span class="kw">let</span> <span class="ident">is_main_context_owner</span> <span class="op">=</span> <span class="ident">main_context</span>.<span class="ident">is_owner</span>();
-        <span class="kw">let</span> <span class="ident">has_acquired_main_context</span> <span class="op">=</span> (<span class="op">!</span><span class="ident">is_main_context_owner</span>)
-            .<span class="ident">then</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">main_context</span>.<span class="ident">acquire</span>().<span class="ident">ok</span>())
-            .<span class="ident">flatten</span>();
+        <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
+        <span class="kw">let </span>is_main_context_owner = main_context.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!is_main_context_owner)
+            .then(|| main_context.acquire().ok())
+            .flatten();
         <span class="macro">assert!</span>(
-            <span class="ident">is_main_context_owner</span> <span class="op">|</span><span class="op">|</span> <span class="ident">has_acquired_main_context</span>.<span class="ident">is_some</span>(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;</span>
-        );
+            is_main_context_owner || has_acquired_main_context.is_some(),
+            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+        </span>);
 
-        <span class="kw">let</span> <span class="ident">user_data</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">glib::thread_guard::ThreadGuard</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-            <span class="ident">Box_::new</span>(<span class="ident">glib::thread_guard::ThreadGuard::new</span>(<span class="ident">callback</span>));
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">read_text_async_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">FnOnce</span>(<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">_source_object</span>: <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GObject</span>,
-            <span class="ident">res</span>: <span class="kw-2">*mut</span> <span class="ident">gio::ffi::GAsyncResult</span>,
-            <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
+        <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
+            Box_::new(glib::thread_guard::ThreadGuard::new(callback));
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>read_text_async_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;glib::GString&gt;, glib::Error&gt;) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
+            res: <span class="kw-2">*mut </span>gio::ffi::GAsyncResult,
+            user_data: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span>
-                <span class="ident">ffi::gdk_clipboard_read_text_finish</span>(<span class="ident">_source_object</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>, <span class="ident">res</span>, <span class="kw-2">&amp;mut</span> <span class="ident">error</span>);
-            <span class="kw">let</span> <span class="ident">result</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
-                <span class="prelude-val">Ok</span>(<span class="ident">from_glib_full</span>(<span class="ident">ret</span>))
-            } <span class="kw">else</span> {
-                <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">error</span>))
+            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span>ret =
+                ffi::gdk_clipboard_read_text_finish(_source_object <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, res, <span class="kw-2">&amp;mut </span>error);
+            <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
+                <span class="prelude-val">Ok</span>(from_glib_full(ret))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">Err</span>(from_glib_full(error))
             };
-            <span class="kw">let</span> <span class="ident">callback</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">glib::thread_guard::ThreadGuard</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-                <span class="ident">Box_::from_raw</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
-            <span class="kw">let</span> <span class="ident">callback</span>: <span class="ident">P</span> <span class="op">=</span> <span class="ident">callback</span>.<span class="ident">into_inner</span>();
-            <span class="ident">callback</span>(<span class="ident">result</span>);
+            <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
+                Box_::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = callback.into_inner();
+            callback(result);
         }
-        <span class="kw">let</span> <span class="ident">callback</span> <span class="op">=</span> <span class="ident">read_text_async_trampoline</span>::<span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span>;
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gdk_clipboard_read_text_async</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">cancellable</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">callback</span>),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">user_data</span>) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
+        <span class="kw">let </span>callback = read_text_async_trampoline::&lt;P&gt;;
+        <span class="kw">unsafe </span>{
+            ffi::gdk_clipboard_read_text_async(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                cancellable.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(callback),
+                Box_::into_raw(user_data) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">read_text_future</span>(
+    <span class="kw">pub fn </span>read_text_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-    ) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span>
-        <span class="ident">Box_</span><span class="op">&lt;</span>
-            <span class="kw">dyn</span> <span class="ident">std::future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>,
-    <span class="op">&gt;</span> {
-        <span class="ident">Box_::pin</span>(<span class="ident">gio::GioFuture::new</span>(<span class="self">self</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">cancellable</span>, <span class="ident">send</span><span class="op">|</span> {
-            <span class="ident">obj</span>.<span class="ident">read_text_async</span>(<span class="prelude-val">Some</span>(<span class="ident">cancellable</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
+    ) -&gt; Pin&lt;
+        Box_&lt;
+            <span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;glib::GString&gt;, glib::Error&gt;&gt; + <span class="lifetime">&#39;static</span>,
+        &gt;,
+    &gt; {
+        Box_::pin(gio::GioFuture::new(<span class="self">self</span>, <span class="kw">move </span>|obj, cancellable, send| {
+            obj.read_text_async(<span class="prelude-val">Some</span>(cancellable), <span class="kw">move </span>|res| {
+                send.resolve(res);
             });
         }))
     }
 
-    <span class="doccomment">/// Asynchronously request the @self contents converted to a [`gdk_pixbuf::Pixbuf`][crate::gdk_pixbuf::Pixbuf].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// When the operation is finished @callback will be called. You must then</span>
-    <span class="doccomment">/// call `Gdk::Clipboard::read_texture_finish()` to get the result.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This is a simple wrapper around [`read_value_async()`][Self::read_value_async()].</span>
-    <span class="doccomment">/// Use that function or [`read_async()`][Self::read_async()] directly if you</span>
-    <span class="doccomment">/// need more control over the operation.</span>
-    <span class="doccomment">/// ## `cancellable`</span>
-    <span class="doccomment">/// optional `GCancellable` object, [`None`] to ignore.</span>
-    <span class="doccomment">/// ## `callback`</span>
-    <span class="doccomment">/// callback to call when the request is satisfied</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_clipboard_read_texture_async&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">read_texture_async</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">FnOnce</span>(<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Texture</span><span class="op">&gt;</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="doccomment">/// Asynchronously request the @self contents converted to a [`gdk_pixbuf::Pixbuf`][crate::gdk_pixbuf::Pixbuf].
+    ///
+    /// When the operation is finished @callback will be called. You must then
+    /// call `Gdk::Clipboard::read_texture_finish()` to get the result.
+    ///
+    /// This is a simple wrapper around [`read_value_async()`][Self::read_value_async()].
+    /// Use that function or [`read_async()`][Self::read_async()] directly if you
+    /// need more control over the operation.
+    /// ## `cancellable`
+    /// optional `GCancellable` object, [`None`] to ignore.
+    /// ## `callback`
+    /// callback to call when the request is satisfied
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_clipboard_read_texture_async&quot;</span>)]
+    </span><span class="kw">pub fn </span>read_texture_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;Texture&gt;, glib::Error&gt;) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::Cancellable</span><span class="op">&gt;</span><span class="op">&gt;</span>,
-        <span class="ident">callback</span>: <span class="ident">P</span>,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Cancellable&gt;&gt;,
+        callback: P,
     ) {
-        <span class="kw">let</span> <span class="ident">main_context</span> <span class="op">=</span> <span class="ident">glib::MainContext::ref_thread_default</span>();
-        <span class="kw">let</span> <span class="ident">is_main_context_owner</span> <span class="op">=</span> <span class="ident">main_context</span>.<span class="ident">is_owner</span>();
-        <span class="kw">let</span> <span class="ident">has_acquired_main_context</span> <span class="op">=</span> (<span class="op">!</span><span class="ident">is_main_context_owner</span>)
-            .<span class="ident">then</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">main_context</span>.<span class="ident">acquire</span>().<span class="ident">ok</span>())
-            .<span class="ident">flatten</span>();
+        <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
+        <span class="kw">let </span>is_main_context_owner = main_context.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!is_main_context_owner)
+            .then(|| main_context.acquire().ok())
+            .flatten();
         <span class="macro">assert!</span>(
-            <span class="ident">is_main_context_owner</span> <span class="op">|</span><span class="op">|</span> <span class="ident">has_acquired_main_context</span>.<span class="ident">is_some</span>(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;</span>
-        );
+            is_main_context_owner || has_acquired_main_context.is_some(),
+            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+        </span>);
 
-        <span class="kw">let</span> <span class="ident">user_data</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">glib::thread_guard::ThreadGuard</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-            <span class="ident">Box_::new</span>(<span class="ident">glib::thread_guard::ThreadGuard::new</span>(<span class="ident">callback</span>));
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">read_texture_async_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">FnOnce</span>(<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Texture</span><span class="op">&gt;</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">_source_object</span>: <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GObject</span>,
-            <span class="ident">res</span>: <span class="kw-2">*mut</span> <span class="ident">gio::ffi::GAsyncResult</span>,
-            <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
+        <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
+            Box_::new(glib::thread_guard::ThreadGuard::new(callback));
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>read_texture_async_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;Texture&gt;, glib::Error&gt;) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
+            res: <span class="kw-2">*mut </span>gio::ffi::GAsyncResult,
+            user_data: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span>
-                <span class="ident">ffi::gdk_clipboard_read_texture_finish</span>(<span class="ident">_source_object</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>, <span class="ident">res</span>, <span class="kw-2">&amp;mut</span> <span class="ident">error</span>);
-            <span class="kw">let</span> <span class="ident">result</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
-                <span class="prelude-val">Ok</span>(<span class="ident">from_glib_full</span>(<span class="ident">ret</span>))
-            } <span class="kw">else</span> {
-                <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">error</span>))
+            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span>ret =
+                ffi::gdk_clipboard_read_texture_finish(_source_object <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, res, <span class="kw-2">&amp;mut </span>error);
+            <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
+                <span class="prelude-val">Ok</span>(from_glib_full(ret))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">Err</span>(from_glib_full(error))
             };
-            <span class="kw">let</span> <span class="ident">callback</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">glib::thread_guard::ThreadGuard</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-                <span class="ident">Box_::from_raw</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
-            <span class="kw">let</span> <span class="ident">callback</span>: <span class="ident">P</span> <span class="op">=</span> <span class="ident">callback</span>.<span class="ident">into_inner</span>();
-            <span class="ident">callback</span>(<span class="ident">result</span>);
+            <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
+                Box_::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = callback.into_inner();
+            callback(result);
         }
-        <span class="kw">let</span> <span class="ident">callback</span> <span class="op">=</span> <span class="ident">read_texture_async_trampoline</span>::<span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span>;
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gdk_clipboard_read_texture_async</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">cancellable</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">callback</span>),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">user_data</span>) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
+        <span class="kw">let </span>callback = read_texture_async_trampoline::&lt;P&gt;;
+        <span class="kw">unsafe </span>{
+            ffi::gdk_clipboard_read_texture_async(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                cancellable.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(callback),
+                Box_::into_raw(user_data) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">read_texture_future</span>(
+    <span class="kw">pub fn </span>read_texture_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-    ) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">std::future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Texture</span><span class="op">&gt;</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span>
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;Texture&gt;, glib::Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt;
     {
-        <span class="ident">Box_::pin</span>(<span class="ident">gio::GioFuture::new</span>(<span class="self">self</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">cancellable</span>, <span class="ident">send</span><span class="op">|</span> {
-            <span class="ident">obj</span>.<span class="ident">read_texture_async</span>(<span class="prelude-val">Some</span>(<span class="ident">cancellable</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
+        Box_::pin(gio::GioFuture::new(<span class="self">self</span>, <span class="kw">move </span>|obj, cancellable, send| {
+            obj.read_texture_async(<span class="prelude-val">Some</span>(cancellable), <span class="kw">move </span>|res| {
+                send.resolve(res);
             });
         }))
     }
 
-    <span class="doccomment">/// Asynchronously request the @self contents converted to the given</span>
-    <span class="doccomment">/// @type_.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// When the operation is finished @callback will be called. You must then call</span>
-    <span class="doccomment">/// `Gdk::Clipboard::read_value_finish()` to get the resulting `GValue`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// For local clipboard contents that are available in the given `GType`,</span>
-    <span class="doccomment">/// the value will be copied directly. Otherwise, GDK will try to use</span>
-    <span class="doccomment">/// [`content_deserialize_async()`][crate::content_deserialize_async()] to convert the clipboard&#39;s data.</span>
-    <span class="doccomment">/// ## `type_`</span>
-    <span class="doccomment">/// a `GType` to read</span>
-    <span class="doccomment">/// ## `io_priority`</span>
-    <span class="doccomment">/// the I/O priority of the request</span>
-    <span class="doccomment">/// ## `cancellable`</span>
-    <span class="doccomment">/// optional `GCancellable` object</span>
-    <span class="doccomment">/// ## `callback`</span>
-    <span class="doccomment">/// callback to call when the request is satisfied</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_clipboard_read_value_async&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">read_value_async</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">FnOnce</span>(<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">glib::Value</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="doccomment">/// Asynchronously request the @self contents converted to the given
+    /// @type_.
+    ///
+    /// When the operation is finished @callback will be called. You must then call
+    /// `Gdk::Clipboard::read_value_finish()` to get the resulting `GValue`.
+    ///
+    /// For local clipboard contents that are available in the given `GType`,
+    /// the value will be copied directly. Otherwise, GDK will try to use
+    /// [`content_deserialize_async()`][crate::content_deserialize_async()] to convert the clipboard&#39;s data.
+    /// ## `type_`
+    /// a `GType` to read
+    /// ## `io_priority`
+    /// the I/O priority of the request
+    /// ## `cancellable`
+    /// optional `GCancellable` object
+    /// ## `callback`
+    /// callback to call when the request is satisfied
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_clipboard_read_value_async&quot;</span>)]
+    </span><span class="kw">pub fn </span>read_value_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;glib::Value, glib::Error&gt;) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">type_</span>: <span class="ident">glib::types::Type</span>,
-        <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::Cancellable</span><span class="op">&gt;</span><span class="op">&gt;</span>,
-        <span class="ident">callback</span>: <span class="ident">P</span>,
+        type_: glib::types::Type,
+        io_priority: glib::Priority,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Cancellable&gt;&gt;,
+        callback: P,
     ) {
-        <span class="kw">let</span> <span class="ident">main_context</span> <span class="op">=</span> <span class="ident">glib::MainContext::ref_thread_default</span>();
-        <span class="kw">let</span> <span class="ident">is_main_context_owner</span> <span class="op">=</span> <span class="ident">main_context</span>.<span class="ident">is_owner</span>();
-        <span class="kw">let</span> <span class="ident">has_acquired_main_context</span> <span class="op">=</span> (<span class="op">!</span><span class="ident">is_main_context_owner</span>)
-            .<span class="ident">then</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">main_context</span>.<span class="ident">acquire</span>().<span class="ident">ok</span>())
-            .<span class="ident">flatten</span>();
+        <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
+        <span class="kw">let </span>is_main_context_owner = main_context.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!is_main_context_owner)
+            .then(|| main_context.acquire().ok())
+            .flatten();
         <span class="macro">assert!</span>(
-            <span class="ident">is_main_context_owner</span> <span class="op">|</span><span class="op">|</span> <span class="ident">has_acquired_main_context</span>.<span class="ident">is_some</span>(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;</span>
-        );
+            is_main_context_owner || has_acquired_main_context.is_some(),
+            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+        </span>);
 
-        <span class="kw">let</span> <span class="ident">user_data</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">glib::thread_guard::ThreadGuard</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-            <span class="ident">Box_::new</span>(<span class="ident">glib::thread_guard::ThreadGuard::new</span>(<span class="ident">callback</span>));
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">read_value_async_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">FnOnce</span>(<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">glib::Value</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">_source_object</span>: <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GObject</span>,
-            <span class="ident">res</span>: <span class="kw-2">*mut</span> <span class="ident">gio::ffi::GAsyncResult</span>,
-            <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
+        <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
+            Box_::new(glib::thread_guard::ThreadGuard::new(callback));
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>read_value_async_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;glib::Value, glib::Error&gt;) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
+            res: <span class="kw-2">*mut </span>gio::ffi::GAsyncResult,
+            user_data: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span>
-                <span class="ident">ffi::gdk_clipboard_read_value_finish</span>(<span class="ident">_source_object</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>, <span class="ident">res</span>, <span class="kw-2">&amp;mut</span> <span class="ident">error</span>);
-            <span class="kw">let</span> <span class="ident">result</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
-                <span class="prelude-val">Ok</span>(<span class="ident">from_glib_none</span>(<span class="ident">ret</span>))
-            } <span class="kw">else</span> {
-                <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">error</span>))
+            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span>ret =
+                ffi::gdk_clipboard_read_value_finish(_source_object <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, res, <span class="kw-2">&amp;mut </span>error);
+            <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
+                <span class="prelude-val">Ok</span>(from_glib_none(ret))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">Err</span>(from_glib_full(error))
             };
-            <span class="kw">let</span> <span class="ident">callback</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">glib::thread_guard::ThreadGuard</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-                <span class="ident">Box_::from_raw</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
-            <span class="kw">let</span> <span class="ident">callback</span>: <span class="ident">P</span> <span class="op">=</span> <span class="ident">callback</span>.<span class="ident">into_inner</span>();
-            <span class="ident">callback</span>(<span class="ident">result</span>);
+            <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
+                Box_::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = callback.into_inner();
+            callback(result);
         }
-        <span class="kw">let</span> <span class="ident">callback</span> <span class="op">=</span> <span class="ident">read_value_async_trampoline</span>::<span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span>;
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gdk_clipboard_read_value_async</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">type_</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">io_priority</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">cancellable</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">callback</span>),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">user_data</span>) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
+        <span class="kw">let </span>callback = read_value_async_trampoline::&lt;P&gt;;
+        <span class="kw">unsafe </span>{
+            ffi::gdk_clipboard_read_value_async(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                type_.into_glib(),
+                io_priority.into_glib(),
+                cancellable.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(callback),
+                Box_::into_raw(user_data) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">read_value_future</span>(
+    <span class="kw">pub fn </span>read_value_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">type_</span>: <span class="ident">glib::types::Type</span>,
-        <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-    ) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">std::future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">glib::Value</span>, <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span>
+        type_: glib::types::Type,
+        io_priority: glib::Priority,
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;glib::Value, glib::Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt;
     {
-        <span class="ident">Box_::pin</span>(<span class="ident">gio::GioFuture::new</span>(<span class="self">self</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">cancellable</span>, <span class="ident">send</span><span class="op">|</span> {
-            <span class="ident">obj</span>.<span class="ident">read_value_async</span>(<span class="ident">type_</span>, <span class="ident">io_priority</span>, <span class="prelude-val">Some</span>(<span class="ident">cancellable</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
+        Box_::pin(gio::GioFuture::new(<span class="self">self</span>, <span class="kw">move </span>|obj, cancellable, send| {
+            obj.read_value_async(type_, io_priority, <span class="prelude-val">Some</span>(cancellable), <span class="kw">move </span>|res| {
+                send.resolve(res);
             });
         }))
     }
 
-    <span class="doccomment">/// Sets a new content provider on @self.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The clipboard will claim the [`Display`][crate::Display]&#39;s resources and advertise</span>
-    <span class="doccomment">/// these new contents to other applications.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// In the rare case of a failure, this function will return [`false`]. The</span>
-    <span class="doccomment">/// clipboard will then continue reporting its old contents and ignore</span>
-    <span class="doccomment">/// @provider.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the contents are read by either an external application or the</span>
-    <span class="doccomment">/// @self&#39;s read functions, @self will select the best format to</span>
-    <span class="doccomment">/// transfer the contents and then request that format from @provider.</span>
-    <span class="doccomment">/// ## `provider`</span>
-    <span class="doccomment">/// the new contents of @self</span>
-    <span class="doccomment">///   or [`None`] to clear the clipboard</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`true`] if setting the clipboard succeeded</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_clipboard_set_content&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_content</span>(
+    <span class="doccomment">/// Sets a new content provider on @self.
+    ///
+    /// The clipboard will claim the [`Display`][crate::Display]&#39;s resources and advertise
+    /// these new contents to other applications.
+    ///
+    /// In the rare case of a failure, this function will return [`false`]. The
+    /// clipboard will then continue reporting its old contents and ignore
+    /// @provider.
+    ///
+    /// If the contents are read by either an external application or the
+    /// @self&#39;s read functions, @self will select the best format to
+    /// transfer the contents and then request that format from @provider.
+    /// ## `provider`
+    /// the new contents of @self
+    ///   or [`None`] to clear the clipboard
+    ///
+    /// # Returns
+    ///
+    /// [`true`] if setting the clipboard succeeded
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_clipboard_set_content&quot;</span>)]
+    </span><span class="kw">pub fn </span>set_content(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">provider</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">ContentProvider</span><span class="op">&gt;</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::error::BoolError</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
+        provider: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;ContentProvider&gt;&gt;,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::error::BoolError&gt; {
+        <span class="kw">unsafe </span>{
             <span class="macro">glib::result_from_gboolean!</span>(
-                <span class="ident">ffi::gdk_clipboard_set_content</span>(
-                    <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                    <span class="ident">provider</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>
-                ),
-                <span class="string">&quot;Can&#39;t set new clipboard content&quot;</span>
-            )
+                ffi::gdk_clipboard_set_content(
+                    <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                    provider.map(|p| p.as_ref()).to_glib_none().<span class="number">0
+                </span>),
+                <span class="string">&quot;Can&#39;t set new clipboard content&quot;
+            </span>)
         }
     }
 
-    <span class="doccomment">/// Puts the given @text into the clipboard.</span>
-    <span class="doccomment">/// ## `text`</span>
-    <span class="doccomment">/// Text to put into the clipboard</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_clipboard_set_text&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_text</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gdk_clipboard_set_text</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">text</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="doccomment">/// Puts the given @text into the clipboard.
+    /// ## `text`
+    /// Text to put into the clipboard
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_clipboard_set_text&quot;</span>)]
+    </span><span class="kw">pub fn </span>set_text(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str) {
+        <span class="kw">unsafe </span>{
+            ffi::gdk_clipboard_set_text(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, text.to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="doccomment">/// Puts the given @texture into the clipboard.</span>
-    <span class="doccomment">/// ## `texture`</span>
-    <span class="doccomment">/// a [`Texture`][crate::Texture] to put into the clipboard</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_clipboard_set_texture&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_texture</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">texture</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">Texture</span><span class="op">&gt;</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gdk_clipboard_set_texture</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">texture</span>.<span class="ident">as_ref</span>().<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="doccomment">/// Puts the given @texture into the clipboard.
+    /// ## `texture`
+    /// a [`Texture`][crate::Texture] to put into the clipboard
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_clipboard_set_texture&quot;</span>)]
+    </span><span class="kw">pub fn </span>set_texture(<span class="kw-2">&amp;</span><span class="self">self</span>, texture: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Texture&gt;) {
+        <span class="kw">unsafe </span>{
+            ffi::gdk_clipboard_set_texture(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                texture.as_ref().to_glib_none().<span class="number">0</span>,
             );
         }
     }
 
-    <span class="doccomment">/// Asynchronously instructs the @self to store its contents remotely.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the clipboard is not local, this function does nothing but report success.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The @callback must call `Gdk::Clipboard::store_finish()`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The purpose of this call is to preserve clipboard contents beyond the</span>
-    <span class="doccomment">/// lifetime of an application, so this function is typically called on</span>
-    <span class="doccomment">/// exit. Depending on the platform, the functionality may not be available</span>
-    <span class="doccomment">/// unless a &quot;clipboard manager&quot; is running.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This function is called automatically when a `Gtk::Application` is</span>
-    <span class="doccomment">/// shut down, so you likely don&#39;t need to call it.</span>
-    <span class="doccomment">/// ## `io_priority`</span>
-    <span class="doccomment">/// the I/O priority of the request</span>
-    <span class="doccomment">/// ## `cancellable`</span>
-    <span class="doccomment">/// optional `GCancellable` object</span>
-    <span class="doccomment">/// ## `callback`</span>
-    <span class="doccomment">/// callback to call when the request is satisfied</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gdk_clipboard_store_async&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">store_async</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">FnOnce</span>(<span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
+    <span class="doccomment">/// Asynchronously instructs the @self to store its contents remotely.
+    ///
+    /// If the clipboard is not local, this function does nothing but report success.
+    ///
+    /// The @callback must call `Gdk::Clipboard::store_finish()`.
+    ///
+    /// The purpose of this call is to preserve clipboard contents beyond the
+    /// lifetime of an application, so this function is typically called on
+    /// exit. Depending on the platform, the functionality may not be available
+    /// unless a &quot;clipboard manager&quot; is running.
+    ///
+    /// This function is called automatically when a `Gtk::Application` is
+    /// shut down, so you likely don&#39;t need to call it.
+    /// ## `io_priority`
+    /// the I/O priority of the request
+    /// ## `cancellable`
+    /// optional `GCancellable` object
+    /// ## `callback`
+    /// callback to call when the request is satisfied
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_clipboard_store_async&quot;</span>)]
+    </span><span class="kw">pub fn </span>store_async&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-        <span class="ident">cancellable</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">IsA</span><span class="op">&lt;</span><span class="ident">gio::Cancellable</span><span class="op">&gt;</span><span class="op">&gt;</span>,
-        <span class="ident">callback</span>: <span class="ident">P</span>,
+        io_priority: glib::Priority,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Cancellable&gt;&gt;,
+        callback: P,
     ) {
-        <span class="kw">let</span> <span class="ident">main_context</span> <span class="op">=</span> <span class="ident">glib::MainContext::ref_thread_default</span>();
-        <span class="kw">let</span> <span class="ident">is_main_context_owner</span> <span class="op">=</span> <span class="ident">main_context</span>.<span class="ident">is_owner</span>();
-        <span class="kw">let</span> <span class="ident">has_acquired_main_context</span> <span class="op">=</span> (<span class="op">!</span><span class="ident">is_main_context_owner</span>)
-            .<span class="ident">then</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">main_context</span>.<span class="ident">acquire</span>().<span class="ident">ok</span>())
-            .<span class="ident">flatten</span>();
+        <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
+        <span class="kw">let </span>is_main_context_owner = main_context.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!is_main_context_owner)
+            .then(|| main_context.acquire().ok())
+            .flatten();
         <span class="macro">assert!</span>(
-            <span class="ident">is_main_context_owner</span> <span class="op">|</span><span class="op">|</span> <span class="ident">has_acquired_main_context</span>.<span class="ident">is_some</span>(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;</span>
-        );
+            is_main_context_owner || has_acquired_main_context.is_some(),
+            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+        </span>);
 
-        <span class="kw">let</span> <span class="ident">user_data</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">glib::thread_guard::ThreadGuard</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-            <span class="ident">Box_::new</span>(<span class="ident">glib::thread_guard::ThreadGuard::new</span>(<span class="ident">callback</span>));
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">store_async_trampoline</span><span class="op">&lt;</span>
-            <span class="ident">P</span>: <span class="ident">FnOnce</span>(<span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span>,
-        <span class="op">&gt;</span>(
-            <span class="ident">_source_object</span>: <span class="kw-2">*mut</span> <span class="ident">glib::gobject_ffi::GObject</span>,
-            <span class="ident">res</span>: <span class="kw-2">*mut</span> <span class="ident">gio::ffi::GAsyncResult</span>,
-            <span class="ident">user_data</span>: <span class="ident">glib::ffi::gpointer</span>,
+        <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
+            Box_::new(glib::thread_guard::ThreadGuard::new(callback));
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>store_async_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;) + <span class="lifetime">&#39;static</span>,
+        &gt;(
+            _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
+            res: <span class="kw-2">*mut </span>gio::ffi::GAsyncResult,
+            user_data: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">error</span> <span class="op">=</span> <span class="ident">ptr::null_mut</span>();
-            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">ffi::gdk_clipboard_store_finish</span>(<span class="ident">_source_object</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>, <span class="ident">res</span>, <span class="kw-2">&amp;mut</span> <span class="ident">error</span>);
-            <span class="kw">let</span> <span class="ident">result</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">error</span>.<span class="ident">is_null</span>() {
+            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let _ </span>= ffi::gdk_clipboard_store_finish(_source_object <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, res, <span class="kw-2">&amp;mut </span>error);
+            <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
                 <span class="prelude-val">Ok</span>(())
-            } <span class="kw">else</span> {
-                <span class="prelude-val">Err</span>(<span class="ident">from_glib_full</span>(<span class="ident">error</span>))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">Err</span>(from_glib_full(error))
             };
-            <span class="kw">let</span> <span class="ident">callback</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">glib::thread_guard::ThreadGuard</span><span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-                <span class="ident">Box_::from_raw</span>(<span class="ident">user_data</span> <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>);
-            <span class="kw">let</span> <span class="ident">callback</span>: <span class="ident">P</span> <span class="op">=</span> <span class="ident">callback</span>.<span class="ident">into_inner</span>();
-            <span class="ident">callback</span>(<span class="ident">result</span>);
+            <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
+                Box_::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = callback.into_inner();
+            callback(result);
         }
-        <span class="kw">let</span> <span class="ident">callback</span> <span class="op">=</span> <span class="ident">store_async_trampoline</span>::<span class="op">&lt;</span><span class="ident">P</span><span class="op">&gt;</span>;
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gdk_clipboard_store_async</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">io_priority</span>.<span class="ident">into_glib</span>(),
-                <span class="ident">cancellable</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">as_ref</span>()).<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">callback</span>),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">user_data</span>) <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
+        <span class="kw">let </span>callback = store_async_trampoline::&lt;P&gt;;
+        <span class="kw">unsafe </span>{
+            ffi::gdk_clipboard_store_async(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                io_priority.into_glib(),
+                cancellable.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(callback),
+                Box_::into_raw(user_data) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">store_future</span>(
+    <span class="kw">pub fn </span>store_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">io_priority</span>: <span class="ident">glib::Priority</span>,
-    ) -&gt; <span class="ident">Pin</span><span class="op">&lt;</span><span class="ident">Box_</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">std::future::Future</span><span class="op">&lt;</span><span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">glib::Error</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="ident">Box_::pin</span>(<span class="ident">gio::GioFuture::new</span>(<span class="self">self</span>, <span class="kw">move</span> <span class="op">|</span><span class="ident">obj</span>, <span class="ident">cancellable</span>, <span class="ident">send</span><span class="op">|</span> {
-            <span class="ident">obj</span>.<span class="ident">store_async</span>(<span class="ident">io_priority</span>, <span class="prelude-val">Some</span>(<span class="ident">cancellable</span>), <span class="kw">move</span> <span class="op">|</span><span class="ident">res</span><span class="op">|</span> {
-                <span class="ident">send</span>.<span class="ident">resolve</span>(<span class="ident">res</span>);
+        io_priority: glib::Priority,
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
+        Box_::pin(gio::GioFuture::new(<span class="self">self</span>, <span class="kw">move </span>|obj, cancellable, send| {
+            obj.store_async(io_priority, <span class="prelude-val">Some</span>(cancellable), <span class="kw">move </span>|res| {
+                send.resolve(res);
             });
         }))
     }
 
-    <span class="doccomment">/// Emitted when the clipboard changes ownership.</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;changed&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_changed</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">changed_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Clipboard</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GdkClipboard</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="doccomment">/// Emitted when the clipboard changes ownership.
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;changed&quot;</span>)]
+    </span><span class="kw">pub fn </span>connect_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>changed_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Clipboard) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::GdkClipboard,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">this</span>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;changed\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">changed_trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;changed\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    changed_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;content&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_content_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_content_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Clipboard</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GdkClipboard</span>,
-            <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="attribute">#[doc(alias = <span class="string">&quot;content&quot;</span>)]
+    </span><span class="kw">pub fn </span>connect_content_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_content_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Clipboard) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::GdkClipboard,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">this</span>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;notify::content\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">notify_content_trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;notify::content\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    notify_content_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;formats&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_formats_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_formats_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Clipboard</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GdkClipboard</span>,
-            <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="attribute">#[doc(alias = <span class="string">&quot;formats&quot;</span>)]
+    </span><span class="kw">pub fn </span>connect_formats_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_formats_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Clipboard) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::GdkClipboard,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">this</span>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;notify::formats\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">notify_formats_trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;notify::formats\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    notify_formats_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;local&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">connect_local_notify</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">SignalHandlerId</span> {
-        <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">notify_local_trampoline</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Clipboard</span>) <span class="op">+</span> <span class="lifetime">&#39;static</span><span class="op">&gt;</span>(
-            <span class="ident">this</span>: <span class="kw-2">*mut</span> <span class="ident">ffi::GdkClipboard</span>,
-            <span class="ident">_param_spec</span>: <span class="ident">glib::ffi::gpointer</span>,
-            <span class="ident">f</span>: <span class="ident">glib::ffi::gpointer</span>,
+    <span class="attribute">#[doc(alias = <span class="string">&quot;local&quot;</span>)]
+    </span><span class="kw">pub fn </span>connect_local_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
+        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_local_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Clipboard) + <span class="lifetime">&#39;static</span>&gt;(
+            this: <span class="kw-2">*mut </span>ffi::GdkClipboard,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="ident">F</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span>(<span class="ident">f</span> <span class="kw">as</span> <span class="kw-2">*const</span> <span class="ident">F</span>);
-            <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="ident">from_glib_borrow</span>(<span class="ident">this</span>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
+            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
         }
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Box_</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Box_::new</span>(<span class="ident">f</span>);
-            <span class="ident">connect_raw</span>(
-                <span class="self">self</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*mut</span> <span class="kw">_</span>,
-                <span class="string">b&quot;notify::local\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*const</span> <span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>()<span class="op">&gt;</span>(
-                    <span class="ident">notify_local_trampoline</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="kw-2">*const</span> (),
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
+            connect_raw(
+                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b&quot;notify::local\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+                    notify_local_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                <span class="ident">Box_::into_raw</span>(<span class="ident">f</span>),
+                Box_::into_raw(f),
             )
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">Clipboard</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;Clipboard&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>Clipboard {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;Clipboard&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.62.0-nightly (e1b71feb5 2022-05-03)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>

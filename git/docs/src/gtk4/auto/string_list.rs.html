@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/string_list.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>string_list.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><script defer src="../../../main.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/string_list.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>string_list.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -72,11 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -222,152 +217,151 @@
 <span id="144">144</span>
 <span id="145">145</span>
 <span id="146">146</span>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)</span>
-<span class="comment">// from gir-files (https://github.com/gtk-rs/gir-files.git)</span>
-<span class="comment">// DO NOT EDIT</span>
+</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+// from gir-files (https://github.com/gtk-rs/gir-files)
+// DO NOT EDIT
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::Buildable</span>;
-<span class="kw">use</span> <span class="ident">glib::translate</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std::fmt</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::Buildable;
+<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+<span class="kw">use </span>std::fmt;
 
-<span class="macro">glib::wrapper!</span> {
-    <span class="doccomment">/// [`StringList`][crate::StringList] is a list model that wraps an array of strings.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The objects in the model have a &quot;string&quot; property.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`StringList`][crate::StringList] is well-suited for any place where you would</span>
-    <span class="doccomment">/// typically use a `char*[]`, but need a list model.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # GtkStringList as GtkBuildable</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The [`StringList`][crate::StringList] implementation of the [`Buildable`][crate::Buildable] interface</span>
-    <span class="doccomment">/// supports adding items directly using the &lt;items&gt; element and</span>
-    <span class="doccomment">/// specifying &lt;item&gt; elements for each item. Each &lt;item&gt; element</span>
-    <span class="doccomment">/// supports the regular translation attributes “translatable”,</span>
-    <span class="doccomment">/// “context” and “comments”.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Here is a UI definition fragment specifying a [`StringList`][crate::StringList]</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```xml</span>
-    <span class="doccomment">/// &lt;object class=&quot;GtkStringList&quot;&gt;</span>
-    <span class="doccomment">///   &lt;items&gt;</span>
-    <span class="doccomment">///     &lt;item translatable=&quot;yes&quot;&gt;Factory&lt;/item&gt;</span>
-    <span class="doccomment">///     &lt;item translatable=&quot;yes&quot;&gt;Home&lt;/item&gt;</span>
-    <span class="doccomment">///     &lt;item translatable=&quot;yes&quot;&gt;Subway&lt;/item&gt;</span>
-    <span class="doccomment">///   &lt;/items&gt;</span>
-    <span class="doccomment">/// &lt;/object&gt;</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implements</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`trait@glib::ObjectExt`], [`trait@gio::prelude::ListModelExt`], [`BuildableExt`][trait@crate::prelude::BuildableExt]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;GtkStringList&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">StringList</span>(<span class="ident">Object</span><span class="op">&lt;</span><span class="ident">ffi::GtkStringList</span>, <span class="ident">ffi::GtkStringListClass</span><span class="op">&gt;</span>) @<span class="ident">implements</span> <span class="ident">gio::ListModel</span>, <span class="ident">Buildable</span>;
+<span class="macro">glib::wrapper! </span>{
+    <span class="doccomment">/// [`StringList`][crate::StringList] is a list model that wraps an array of strings.
+    ///
+    /// The objects in the model have a &quot;string&quot; property.
+    ///
+    /// [`StringList`][crate::StringList] is well-suited for any place where you would
+    /// typically use a `char*[]`, but need a list model.
+    ///
+    /// # GtkStringList as GtkBuildable
+    ///
+    /// The [`StringList`][crate::StringList] implementation of the [`Buildable`][crate::Buildable] interface
+    /// supports adding items directly using the &lt;items&gt; element and
+    /// specifying &lt;item&gt; elements for each item. Each &lt;item&gt; element
+    /// supports the regular translation attributes “translatable”,
+    /// “context” and “comments”.
+    ///
+    /// Here is a UI definition fragment specifying a [`StringList`][crate::StringList]
+    ///
+    /// ```xml
+    /// &lt;object class=&quot;GtkStringList&quot;&gt;
+    ///   &lt;items&gt;
+    ///     &lt;item translatable=&quot;yes&quot;&gt;Factory&lt;/item&gt;
+    ///     &lt;item translatable=&quot;yes&quot;&gt;Home&lt;/item&gt;
+    ///     &lt;item translatable=&quot;yes&quot;&gt;Subway&lt;/item&gt;
+    ///   &lt;/items&gt;
+    /// &lt;/object&gt;
+    /// ```
+    ///
+    /// # Implements
+    ///
+    /// [`trait@glib::ObjectExt`], [`trait@gio::prelude::ListModelExt`], [`BuildableExt`][trait@crate::prelude::BuildableExt]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkStringList&quot;</span>)]
+    </span><span class="kw">pub struct </span>StringList(Object&lt;ffi::GtkStringList, ffi::GtkStringListClass&gt;) @implements gio::ListModel, Buildable;
 
-    <span class="kw">match</span> <span class="kw">fn</span> {
-        <span class="ident">type_</span> =&gt; <span class="op">|</span><span class="op">|</span> <span class="ident">ffi::gtk_string_list_get_type</span>(),
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::gtk_string_list_get_type(),
     }
 }
 
-<span class="kw">impl</span> <span class="ident">StringList</span> {
-    <span class="doccomment">/// Creates a new [`StringList`][crate::StringList] with the given @strings.</span>
-    <span class="doccomment">/// ## `strings`</span>
-    <span class="doccomment">/// The strings to put in the model</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// a new [`StringList`][crate::StringList]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_string_list_new&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">strings</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>]) -&gt; <span class="ident">StringList</span> {
+<span class="kw">impl </span>StringList {
+    <span class="doccomment">/// Creates a new [`StringList`][crate::StringList] with the given @strings.
+    /// ## `strings`
+    /// The strings to put in the model
+    ///
+    /// # Returns
+    ///
+    /// a new [`StringList`][crate::StringList]
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_string_list_new&quot;</span>)]
+    </span><span class="kw">pub fn </span>new(strings: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>str]) -&gt; StringList {
         <span class="macro">assert_initialized_main_thread!</span>();
-        <span class="kw">unsafe</span> { <span class="ident">from_glib_full</span>(<span class="ident">ffi::gtk_string_list_new</span>(<span class="ident">strings</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ from_glib_full(ffi::gtk_string_list_new(strings.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="doccomment">/// Appends @string to @self.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The @string will be copied. See</span>
-    <span class="doccomment">/// `Gtk::StringList::take()` for a way to avoid that.</span>
-    <span class="doccomment">/// ## `string`</span>
-    <span class="doccomment">/// the string to insert</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_string_list_append&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">append</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">string</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_string_list_append</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">string</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>);
+    <span class="doccomment">/// Appends @string to @self.
+    ///
+    /// The @string will be copied. See
+    /// `Gtk::StringList::take()` for a way to avoid that.
+    /// ## `string`
+    /// the string to insert
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_string_list_append&quot;</span>)]
+    </span><span class="kw">pub fn </span>append(<span class="kw-2">&amp;</span><span class="self">self</span>, string: <span class="kw-2">&amp;</span>str) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_string_list_append(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, string.to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="doccomment">/// Gets the string that is at @position in @self.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If @self does not contain @position items, [`None`] is returned.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This function returns the const char *. To get the</span>
-    <span class="doccomment">/// object wrapping it, use g_list_model_get_item().</span>
-    <span class="doccomment">/// ## `position`</span>
-    <span class="doccomment">/// the position to get the string for</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Returns</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// the string at the given position</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_string_list_get_string&quot;</span>)]</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_string&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">string</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">position</span>: <span class="ident">u32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">glib::GString</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="ident">from_glib_none</span>(<span class="ident">ffi::gtk_string_list_get_string</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">position</span>,
+    <span class="doccomment">/// Gets the string that is at @position in @self.
+    ///
+    /// If @self does not contain @position items, [`None`] is returned.
+    ///
+    /// This function returns the const char *. To get the
+    /// object wrapping it, use g_list_model_get_item().
+    /// ## `position`
+    /// the position to get the string for
+    ///
+    /// # Returns
+    ///
+    /// the string at the given position
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_string_list_get_string&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;get_string&quot;</span>)]
+    </span><span class="kw">pub fn </span>string(<span class="kw-2">&amp;</span><span class="self">self</span>, position: u32) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gtk_string_list_get_string(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                position,
             ))
         }
     }
 
-    <span class="doccomment">/// Removes the string at @position from @self.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// @position must be smaller than the current</span>
-    <span class="doccomment">/// length of the list.</span>
-    <span class="doccomment">/// ## `position`</span>
-    <span class="doccomment">/// the position of the string that is to be removed</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_string_list_remove&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">remove</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">position</span>: <span class="ident">u32</span>) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_string_list_remove</span>(<span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>, <span class="ident">position</span>);
+    <span class="doccomment">/// Removes the string at @position from @self.
+    ///
+    /// @position must be smaller than the current
+    /// length of the list.
+    /// ## `position`
+    /// the position of the string that is to be removed
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_string_list_remove&quot;</span>)]
+    </span><span class="kw">pub fn </span>remove(<span class="kw-2">&amp;</span><span class="self">self</span>, position: u32) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_string_list_remove(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, position);
         }
     }
 
-    <span class="doccomment">/// Changes @self by removing @n_removals strings and adding @additions</span>
-    <span class="doccomment">/// to it.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This function is more efficient than [`append()`][Self::append()]</span>
-    <span class="doccomment">/// and [`remove()`][Self::remove()], because it only emits the</span>
-    <span class="doccomment">/// ::items-changed signal once for the change.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This function copies the strings in @additions.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The parameters @position and @n_removals must be correct (ie:</span>
-    <span class="doccomment">/// @position + @n_removals must be less than or equal to the length</span>
-    <span class="doccomment">/// of the list at the time this function is called).</span>
-    <span class="doccomment">/// ## `position`</span>
-    <span class="doccomment">/// the position at which to make the change</span>
-    <span class="doccomment">/// ## `n_removals`</span>
-    <span class="doccomment">/// the number of strings to remove</span>
-    <span class="doccomment">/// ## `additions`</span>
-    <span class="doccomment">/// The strings to add</span>
-    <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_string_list_splice&quot;</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">splice</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">position</span>: <span class="ident">u32</span>, <span class="ident">n_removals</span>: <span class="ident">u32</span>, <span class="ident">additions</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>]) {
-        <span class="kw">unsafe</span> {
-            <span class="ident">ffi::gtk_string_list_splice</span>(
-                <span class="self">self</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
-                <span class="ident">position</span>,
-                <span class="ident">n_removals</span>,
-                <span class="ident">additions</span>.<span class="ident">to_glib_none</span>().<span class="number">0</span>,
+    <span class="doccomment">/// Changes @self by removing @n_removals strings and adding @additions
+    /// to it.
+    ///
+    /// This function is more efficient than [`append()`][Self::append()]
+    /// and [`remove()`][Self::remove()], because it only emits the
+    /// ::items-changed signal once for the change.
+    ///
+    /// This function copies the strings in @additions.
+    ///
+    /// The parameters @position and @n_removals must be correct (ie:
+    /// @position + @n_removals must be less than or equal to the length
+    /// of the list at the time this function is called).
+    /// ## `position`
+    /// the position at which to make the change
+    /// ## `n_removals`
+    /// the number of strings to remove
+    /// ## `additions`
+    /// The strings to add
+    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_string_list_splice&quot;</span>)]
+    </span><span class="kw">pub fn </span>splice(<span class="kw-2">&amp;</span><span class="self">self</span>, position: u32, n_removals: u32, additions: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>str]) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_string_list_splice(
+                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                position,
+                n_removals,
+                additions.to_glib_none().<span class="number">0</span>,
             );
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">StringList</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="ident">f</span>.<span class="ident">write_str</span>(<span class="string">&quot;StringList&quot;</span>)
+<span class="kw">impl </span>fmt::Display <span class="kw">for </span>StringList {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        f.write_str(<span class="string">&quot;StringList&quot;</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.62.0-nightly (e1b71feb5 2022-05-03)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
