@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/tree_view.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>tree_view.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/tree_view.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>tree_view.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -592,81 +592,6 @@
 <span id="519">519</span>
 <span id="520">520</span>
 <span id="521">521</span>
-<span id="522">522</span>
-<span id="523">523</span>
-<span id="524">524</span>
-<span id="525">525</span>
-<span id="526">526</span>
-<span id="527">527</span>
-<span id="528">528</span>
-<span id="529">529</span>
-<span id="530">530</span>
-<span id="531">531</span>
-<span id="532">532</span>
-<span id="533">533</span>
-<span id="534">534</span>
-<span id="535">535</span>
-<span id="536">536</span>
-<span id="537">537</span>
-<span id="538">538</span>
-<span id="539">539</span>
-<span id="540">540</span>
-<span id="541">541</span>
-<span id="542">542</span>
-<span id="543">543</span>
-<span id="544">544</span>
-<span id="545">545</span>
-<span id="546">546</span>
-<span id="547">547</span>
-<span id="548">548</span>
-<span id="549">549</span>
-<span id="550">550</span>
-<span id="551">551</span>
-<span id="552">552</span>
-<span id="553">553</span>
-<span id="554">554</span>
-<span id="555">555</span>
-<span id="556">556</span>
-<span id="557">557</span>
-<span id="558">558</span>
-<span id="559">559</span>
-<span id="560">560</span>
-<span id="561">561</span>
-<span id="562">562</span>
-<span id="563">563</span>
-<span id="564">564</span>
-<span id="565">565</span>
-<span id="566">566</span>
-<span id="567">567</span>
-<span id="568">568</span>
-<span id="569">569</span>
-<span id="570">570</span>
-<span id="571">571</span>
-<span id="572">572</span>
-<span id="573">573</span>
-<span id="574">574</span>
-<span id="575">575</span>
-<span id="576">576</span>
-<span id="577">577</span>
-<span id="578">578</span>
-<span id="579">579</span>
-<span id="580">580</span>
-<span id="581">581</span>
-<span id="582">582</span>
-<span id="583">583</span>
-<span id="584">584</span>
-<span id="585">585</span>
-<span id="586">586</span>
-<span id="587">587</span>
-<span id="588">588</span>
-<span id="589">589</span>
-<span id="590">590</span>
-<span id="591">591</span>
-<span id="592">592</span>
-<span id="593">593</span>
-<span id="594">594</span>
-<span id="595">595</span>
-<span id="596">596</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 // rustdoc-stripper-ignore-next
@@ -677,153 +602,124 @@
 <span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
 <span class="kw">use </span>glib::Cast;
 
-<span class="kw">pub trait </span>TreeViewImpl: TreeViewImplExt + WidgetImpl {
-    <span class="kw">fn </span>columns_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_columns_changed(tree_view)
+<span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+</span><span class="kw">pub trait </span>TreeViewImpl: TreeViewImplExt + WidgetImpl {
+    <span class="kw">fn </span>columns_changed(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_columns_changed()
     }
 
-    <span class="kw">fn </span>cursor_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_cursor_changed(tree_view)
+    <span class="kw">fn </span>cursor_changed(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_cursor_changed()
     }
 
-    <span class="kw">fn </span>expand_collapse_cursor_row(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        logical: bool,
-        expand: bool,
-        open_all: bool,
-    ) -&gt; bool {
-        <span class="self">self</span>.parent_expand_collapse_cursor_row(tree_view, logical, expand, open_all)
+    <span class="kw">fn </span>expand_collapse_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>, logical: bool, expand: bool, open_all: bool) -&gt; bool {
+        <span class="self">self</span>.parent_expand_collapse_cursor_row(logical, expand, open_all)
     }
 
-    <span class="kw">fn </span>move_cursor(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        step: MovementStep,
-        count: i32,
-        expand: bool,
-        modify: bool,
-    ) -&gt; bool {
-        <span class="self">self</span>.parent_move_cursor(tree_view, step, count, expand, modify)
+    <span class="kw">fn </span>move_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, step: MovementStep, count: i32, expand: bool, modify: bool) -&gt; bool {
+        <span class="self">self</span>.parent_move_cursor(step, count, expand, modify)
     }
 
-    <span class="kw">fn </span>row_activated(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, path: <span class="kw-2">&amp;</span>TreePath, column: <span class="kw-2">&amp;</span>TreeViewColumn) {
-        <span class="self">self</span>.parent_row_activated(tree_view, path, column)
+    <span class="kw">fn </span>row_activated(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>TreePath, column: <span class="kw-2">&amp;</span>TreeViewColumn) {
+        <span class="self">self</span>.parent_row_activated(path, column)
     }
 
-    <span class="kw">fn </span>row_collapsed(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) {
-        <span class="self">self</span>.parent_row_collapsed(tree_view, iter, path)
+    <span class="kw">fn </span>row_collapsed(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) {
+        <span class="self">self</span>.parent_row_collapsed(iter, path)
     }
 
-    <span class="kw">fn </span>row_expanded(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) {
-        <span class="self">self</span>.parent_row_expanded(tree_view, iter, path)
+    <span class="kw">fn </span>row_expanded(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) {
+        <span class="self">self</span>.parent_row_expanded(iter, path)
     }
 
-    <span class="kw">fn </span>select_all(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
-        <span class="self">self</span>.parent_select_all(tree_view)
+    <span class="kw">fn </span>select_all(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="self">self</span>.parent_select_all()
     }
 
-    <span class="kw">fn </span>select_cursor_parent(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
-        <span class="self">self</span>.parent_select_cursor_parent(tree_view)
+    <span class="kw">fn </span>select_cursor_parent(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="self">self</span>.parent_select_cursor_parent()
     }
 
-    <span class="kw">fn </span>select_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, start_editing: bool) -&gt; bool {
-        <span class="self">self</span>.parent_select_cursor_row(tree_view, start_editing)
+    <span class="kw">fn </span>select_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>, start_editing: bool) -&gt; bool {
+        <span class="self">self</span>.parent_select_cursor_row(start_editing)
     }
 
-    <span class="kw">fn </span>start_interactive_search(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
-        <span class="self">self</span>.parent_start_interactive_search(tree_view)
+    <span class="kw">fn </span>start_interactive_search(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="self">self</span>.parent_start_interactive_search()
     }
 
-    <span class="kw">fn </span>test_collapse_row(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) -&gt; bool {
-        <span class="self">self</span>.parent_test_collapse_row(tree_view, iter, path)
+    <span class="kw">fn </span>test_collapse_row(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) -&gt; bool {
+        <span class="self">self</span>.parent_test_collapse_row(iter, path)
     }
 
-    <span class="kw">fn </span>test_expand_row(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) -&gt; bool {
-        <span class="self">self</span>.parent_test_expand_row(tree_view, iter, path)
+    <span class="kw">fn </span>test_expand_row(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) -&gt; bool {
+        <span class="self">self</span>.parent_test_expand_row(iter, path)
     }
 
-    <span class="kw">fn </span>toggle_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
-        <span class="self">self</span>.parent_toggle_cursor_row(tree_view)
+    <span class="kw">fn </span>toggle_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="self">self</span>.parent_toggle_cursor_row()
     }
 
-    <span class="kw">fn </span>unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
-        <span class="self">self</span>.parent_unselect_all(tree_view)
+    <span class="kw">fn </span>unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="self">self</span>.parent_unselect_all()
     }
 }
 
-<span class="kw">pub trait </span>TreeViewImplExt: ObjectSubclass {
-    <span class="kw">fn </span>parent_columns_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
-    <span class="kw">fn </span>parent_cursor_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
+<span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+</span><span class="kw">pub trait </span>TreeViewImplExt: ObjectSubclass {
+    <span class="kw">fn </span>parent_columns_changed(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>parent_cursor_changed(<span class="kw-2">&amp;</span><span class="self">self</span>);
     <span class="kw">fn </span>parent_expand_collapse_cursor_row(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
         logical: bool,
         expand: bool,
         open_all: bool,
     ) -&gt; bool;
     <span class="kw">fn </span>parent_move_cursor(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
         step: MovementStep,
         count: i32,
         extend: bool,
         modify: bool,
     ) -&gt; bool;
-    <span class="kw">fn </span>parent_row_activated(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        path: <span class="kw-2">&amp;</span>TreePath,
-        column: <span class="kw-2">&amp;</span>TreeViewColumn,
-    );
-    <span class="kw">fn </span>parent_row_collapsed(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath);
-    <span class="kw">fn </span>parent_row_expanded(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath);
-    <span class="kw">fn </span>parent_select_all(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool;
-    <span class="kw">fn </span>parent_select_cursor_parent(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool;
-    <span class="kw">fn </span>parent_select_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, start_editing: bool) -&gt; bool;
-    <span class="kw">fn </span>parent_start_interactive_search(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool;
-    <span class="kw">fn </span>parent_test_collapse_row(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        iter: <span class="kw-2">&amp;</span>TreeIter,
-        path: <span class="kw-2">&amp;</span>TreePath,
-    ) -&gt; bool;
-    <span class="kw">fn </span>parent_test_expand_row(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        iter: <span class="kw-2">&amp;</span>TreeIter,
-        path: <span class="kw-2">&amp;</span>TreePath,
-    ) -&gt; bool;
-    <span class="kw">fn </span>parent_toggle_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool;
-    <span class="kw">fn </span>parent_unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool;
+    <span class="kw">fn </span>parent_row_activated(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>TreePath, column: <span class="kw-2">&amp;</span>TreeViewColumn);
+    <span class="kw">fn </span>parent_row_collapsed(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath);
+    <span class="kw">fn </span>parent_row_expanded(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath);
+    <span class="kw">fn </span>parent_select_all(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    <span class="kw">fn </span>parent_select_cursor_parent(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    <span class="kw">fn </span>parent_select_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>, start_editing: bool) -&gt; bool;
+    <span class="kw">fn </span>parent_start_interactive_search(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    <span class="kw">fn </span>parent_test_collapse_row(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) -&gt; bool;
+    <span class="kw">fn </span>parent_test_expand_row(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) -&gt; bool;
+    <span class="kw">fn </span>parent_toggle_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    <span class="kw">fn </span>parent_unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 }
 
 <span class="kw">impl</span>&lt;T: TreeViewImpl&gt; TreeViewImplExt <span class="kw">for </span>T {
-    <span class="kw">fn </span>parent_columns_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_columns_changed(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTreeViewClass;
             <span class="comment">// columns-changed is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).columns_changed {
-                f(tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_cursor_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_cursor_changed(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTreeViewClass;
-            <span class="comment">// cursor-changed is a sigal
+            <span class="comment">// cursor-changed is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).cursor_changed {
-                f(tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
 
     <span class="kw">fn </span>parent_expand_collapse_cursor_row(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
         logical: bool,
         expand: bool,
         open_all: bool,
@@ -834,7 +730,7 @@
             <span class="comment">// expand-collapse-cursor-row is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).expand_collapse_cursor_row {
                 from_glib(f(
-                    tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
                     logical.into_glib(),
                     expand.into_glib(),
                     open_all.into_glib(),
@@ -847,7 +743,6 @@
 
     <span class="kw">fn </span>parent_move_cursor(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
         step: MovementStep,
         count: i32,
         extend: bool,
@@ -859,7 +754,7 @@
             <span class="comment">// move-cursor is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).move_cursor {
                 from_glib(f(
-                    tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
                     step.into_glib(),
                     count,
                     extend.into_glib(),
@@ -872,19 +767,14 @@
         }
     }
 
-    <span class="kw">fn </span>parent_row_activated(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        path: <span class="kw-2">&amp;</span>TreePath,
-        column: <span class="kw-2">&amp;</span>TreeViewColumn,
-    ) {
+    <span class="kw">fn </span>parent_row_activated(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>TreePath, column: <span class="kw-2">&amp;</span>TreeViewColumn) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTreeViewClass;
             <span class="comment">// row-activated is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).row_activated {
                 f(
-                    tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
                     path.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                     column.to_glib_none().<span class="number">0</span>,
                 );
@@ -892,14 +782,14 @@
         }
     }
 
-    <span class="kw">fn </span>parent_row_collapsed(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) {
+    <span class="kw">fn </span>parent_row_collapsed(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTreeViewClass;
             <span class="comment">// row-collapsed is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).row_collapsed {
                 f(
-                    tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
                     iter.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                     path.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                 )
@@ -907,14 +797,14 @@
         }
     }
 
-    <span class="kw">fn </span>parent_row_expanded(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) {
+    <span class="kw">fn </span>parent_row_expanded(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTreeViewClass;
             <span class="comment">// row-expanded is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).row_expanded {
                 f(
-                    tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
                     iter.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                     path.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                 )
@@ -922,40 +812,40 @@
         }
     }
 
-    <span class="kw">fn </span>parent_select_all(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
+    <span class="kw">fn </span>parent_select_all(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTreeViewClass;
             <span class="comment">// select-all is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).select_all {
-                from_glib(f(tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>))
+                from_glib(f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>))
             } <span class="kw">else </span>{
                 <span class="bool-val">false
             </span>}
         }
     }
 
-    <span class="kw">fn </span>parent_select_cursor_parent(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
+    <span class="kw">fn </span>parent_select_cursor_parent(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTreeViewClass;
             <span class="comment">// select-cursor-parent is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).select_cursor_parent {
-                from_glib(f(tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>))
+                from_glib(f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>))
             } <span class="kw">else </span>{
                 <span class="bool-val">false
             </span>}
         }
     }
 
-    <span class="kw">fn </span>parent_select_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, start_editing: bool) -&gt; bool {
+    <span class="kw">fn </span>parent_select_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>, start_editing: bool) -&gt; bool {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTreeViewClass;
             <span class="comment">// select-cursor-row is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).select_cursor_row {
                 from_glib(f(
-                    tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
                     start_editing.into_glib(),
                 ))
             } <span class="kw">else </span>{
@@ -964,32 +854,27 @@
         }
     }
 
-    <span class="kw">fn </span>parent_start_interactive_search(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
+    <span class="kw">fn </span>parent_start_interactive_search(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTreeViewClass;
             <span class="comment">// start-interactive-search is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).start_interactive_search {
-                from_glib(f(tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>))
+                from_glib(f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>))
             } <span class="kw">else </span>{
                 <span class="bool-val">false
             </span>}
         }
     }
 
-    <span class="kw">fn </span>parent_test_collapse_row(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        iter: <span class="kw-2">&amp;</span>TreeIter,
-        path: <span class="kw-2">&amp;</span>TreePath,
-    ) -&gt; bool {
+    <span class="kw">fn </span>parent_test_collapse_row(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) -&gt; bool {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTreeViewClass;
             <span class="comment">// test-collapse-row is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).test_collapse_row {
                 from_glib(f(
-                    tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
                     iter.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                     path.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                 ))
@@ -1000,19 +885,14 @@
         }
     }
 
-    <span class="kw">fn </span>parent_test_expand_row(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        iter: <span class="kw-2">&amp;</span>TreeIter,
-        path: <span class="kw-2">&amp;</span>TreePath,
-    ) -&gt; bool {
+    <span class="kw">fn </span>parent_test_expand_row(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter, path: <span class="kw-2">&amp;</span>TreePath) -&gt; bool {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTreeViewClass;
             <span class="comment">// test-expand-row is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).test_expand_row {
                 from_glib(f(
-                    tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>,
                     iter.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                     path.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                 ))
@@ -1023,26 +903,26 @@
         }
     }
 
-    <span class="kw">fn </span>parent_toggle_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
+    <span class="kw">fn </span>parent_toggle_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTreeViewClass;
             <span class="comment">// toggle-cursor-row is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).toggle_cursor_row {
-                from_glib(f(tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>))
+                from_glib(f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>))
             } <span class="kw">else </span>{
                 <span class="bool-val">false
             </span>}
         }
     }
 
-    <span class="kw">fn </span>parent_unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_view: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
+    <span class="kw">fn </span>parent_unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTreeViewClass;
             <span class="comment">// unselect-all is a signal
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).unselect_all {
-                from_glib(f(tree_view.unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>))
+                from_glib(f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TreeView&gt;().to_glib_none().<span class="number">0</span>))
             } <span class="kw">else </span>{
                 <span class="bool-val">false
             </span>}
@@ -1076,17 +956,15 @@
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_columns_changed&lt;T: TreeViewImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTreeView) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
 
-    imp.columns_changed(wrap.unsafe_cast_ref())
+    imp.columns_changed()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_cursor_changed&lt;T: TreeViewImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTreeView) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
 
-    imp.cursor_changed(wrap.unsafe_cast_ref())
+    imp.cursor_changed()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_expand_collapse_cursor_row&lt;T: TreeViewImpl&gt;(
@@ -1097,15 +975,9 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
 
-    imp.expand_collapse_cursor_row(
-        wrap.unsafe_cast_ref(),
-        from_glib(logical),
-        from_glib(expand),
-        from_glib(open_all),
-    )
-    .into_glib()
+    imp.expand_collapse_cursor_row(from_glib(logical), from_glib(expand), from_glib(open_all))
+        .into_glib()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_move_cursor&lt;T: TreeViewImpl&gt;(
@@ -1117,16 +989,9 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
 
-    imp.move_cursor(
-        wrap.unsafe_cast_ref(),
-        from_glib(step),
-        count,
-        from_glib(extend),
-        from_glib(modify),
-    )
-    .into_glib()
+    imp.move_cursor(from_glib(step), count, from_glib(extend), from_glib(modify))
+        .into_glib()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_row_activated&lt;T: TreeViewImpl&gt;(
@@ -1136,11 +1001,10 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
     <span class="kw">let </span>path: Borrowed&lt;TreePath&gt; = from_glib_borrow(pathptr);
     <span class="kw">let </span>column: Borrowed&lt;TreeViewColumn&gt; = from_glib_borrow(columnptr);
 
-    imp.row_activated(wrap.unsafe_cast_ref(), <span class="kw-2">&amp;</span>path, <span class="kw-2">&amp;</span>column)
+    imp.row_activated(<span class="kw-2">&amp;</span>path, <span class="kw-2">&amp;</span>column)
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_row_collapsed&lt;T: TreeViewImpl&gt;(
@@ -1150,11 +1014,10 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
     <span class="kw">let </span>path: Borrowed&lt;TreePath&gt; = from_glib_borrow(pathptr);
     <span class="kw">let </span>iter: Borrowed&lt;TreeIter&gt; = from_glib_borrow(iterptr);
 
-    imp.row_collapsed(wrap.unsafe_cast_ref(), <span class="kw-2">&amp;</span>iter, <span class="kw-2">&amp;</span>path)
+    imp.row_collapsed(<span class="kw-2">&amp;</span>iter, <span class="kw-2">&amp;</span>path)
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_row_expanded&lt;T: TreeViewImpl&gt;(
@@ -1164,11 +1027,10 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
     <span class="kw">let </span>path: Borrowed&lt;TreePath&gt; = from_glib_borrow(pathptr);
     <span class="kw">let </span>iter: Borrowed&lt;TreeIter&gt; = from_glib_borrow(iterptr);
 
-    imp.row_expanded(wrap.unsafe_cast_ref(), <span class="kw-2">&amp;</span>iter, <span class="kw-2">&amp;</span>path)
+    imp.row_expanded(<span class="kw-2">&amp;</span>iter, <span class="kw-2">&amp;</span>path)
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_select_all&lt;T: TreeViewImpl&gt;(
@@ -1176,9 +1038,8 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
 
-    imp.select_all(wrap.unsafe_cast_ref()).into_glib()
+    imp.select_all().into_glib()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_select_cursor_parent&lt;T: TreeViewImpl&gt;(
@@ -1186,9 +1047,8 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
 
-    imp.select_cursor_parent(wrap.unsafe_cast_ref()).into_glib()
+    imp.select_cursor_parent().into_glib()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_select_cursor_row&lt;T: TreeViewImpl&gt;(
@@ -1197,10 +1057,8 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
 
-    imp.select_cursor_row(wrap.unsafe_cast_ref(), from_glib(start_editing))
-        .into_glib()
+    imp.select_cursor_row(from_glib(start_editing)).into_glib()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_start_interactive_search&lt;T: TreeViewImpl&gt;(
@@ -1208,10 +1066,8 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
 
-    imp.start_interactive_search(wrap.unsafe_cast_ref())
-        .into_glib()
+    imp.start_interactive_search().into_glib()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_test_collapse_row&lt;T: TreeViewImpl&gt;(
@@ -1221,12 +1077,10 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
     <span class="kw">let </span>path: Borrowed&lt;TreePath&gt; = from_glib_borrow(pathptr);
     <span class="kw">let </span>iter: Borrowed&lt;TreeIter&gt; = from_glib_borrow(iterptr);
 
-    imp.test_collapse_row(wrap.unsafe_cast_ref(), <span class="kw-2">&amp;</span>iter, <span class="kw-2">&amp;</span>path)
-        .into_glib()
+    imp.test_collapse_row(<span class="kw-2">&amp;</span>iter, <span class="kw-2">&amp;</span>path).into_glib()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_test_expand_row&lt;T: TreeViewImpl&gt;(
@@ -1236,12 +1090,10 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
     <span class="kw">let </span>path: Borrowed&lt;TreePath&gt; = from_glib_borrow(pathptr);
     <span class="kw">let </span>iter: Borrowed&lt;TreeIter&gt; = from_glib_borrow(iterptr);
 
-    imp.test_expand_row(wrap.unsafe_cast_ref(), <span class="kw-2">&amp;</span>iter, <span class="kw-2">&amp;</span>path)
-        .into_glib()
+    imp.test_expand_row(<span class="kw-2">&amp;</span>iter, <span class="kw-2">&amp;</span>path).into_glib()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_toggle_cursor_row&lt;T: TreeViewImpl&gt;(
@@ -1249,9 +1101,8 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
 
-    imp.toggle_cursor_row(wrap.unsafe_cast_ref()).into_glib()
+    imp.toggle_cursor_row().into_glib()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>tree_view_unselect_all&lt;T: TreeViewImpl&gt;(
@@ -1259,9 +1110,8 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TreeView&gt; = from_glib_borrow(ptr);
 
-    imp.unselect_all(wrap.unsafe_cast_ref()).into_glib()
+    imp.unselect_all().into_glib()
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

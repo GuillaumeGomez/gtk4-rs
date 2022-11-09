@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/text_buffer.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>text_buffer.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/text_buffer.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>text_buffer.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -531,105 +531,6 @@
 <span id="458">458</span>
 <span id="459">459</span>
 <span id="460">460</span>
-<span id="461">461</span>
-<span id="462">462</span>
-<span id="463">463</span>
-<span id="464">464</span>
-<span id="465">465</span>
-<span id="466">466</span>
-<span id="467">467</span>
-<span id="468">468</span>
-<span id="469">469</span>
-<span id="470">470</span>
-<span id="471">471</span>
-<span id="472">472</span>
-<span id="473">473</span>
-<span id="474">474</span>
-<span id="475">475</span>
-<span id="476">476</span>
-<span id="477">477</span>
-<span id="478">478</span>
-<span id="479">479</span>
-<span id="480">480</span>
-<span id="481">481</span>
-<span id="482">482</span>
-<span id="483">483</span>
-<span id="484">484</span>
-<span id="485">485</span>
-<span id="486">486</span>
-<span id="487">487</span>
-<span id="488">488</span>
-<span id="489">489</span>
-<span id="490">490</span>
-<span id="491">491</span>
-<span id="492">492</span>
-<span id="493">493</span>
-<span id="494">494</span>
-<span id="495">495</span>
-<span id="496">496</span>
-<span id="497">497</span>
-<span id="498">498</span>
-<span id="499">499</span>
-<span id="500">500</span>
-<span id="501">501</span>
-<span id="502">502</span>
-<span id="503">503</span>
-<span id="504">504</span>
-<span id="505">505</span>
-<span id="506">506</span>
-<span id="507">507</span>
-<span id="508">508</span>
-<span id="509">509</span>
-<span id="510">510</span>
-<span id="511">511</span>
-<span id="512">512</span>
-<span id="513">513</span>
-<span id="514">514</span>
-<span id="515">515</span>
-<span id="516">516</span>
-<span id="517">517</span>
-<span id="518">518</span>
-<span id="519">519</span>
-<span id="520">520</span>
-<span id="521">521</span>
-<span id="522">522</span>
-<span id="523">523</span>
-<span id="524">524</span>
-<span id="525">525</span>
-<span id="526">526</span>
-<span id="527">527</span>
-<span id="528">528</span>
-<span id="529">529</span>
-<span id="530">530</span>
-<span id="531">531</span>
-<span id="532">532</span>
-<span id="533">533</span>
-<span id="534">534</span>
-<span id="535">535</span>
-<span id="536">536</span>
-<span id="537">537</span>
-<span id="538">538</span>
-<span id="539">539</span>
-<span id="540">540</span>
-<span id="541">541</span>
-<span id="542">542</span>
-<span id="543">543</span>
-<span id="544">544</span>
-<span id="545">545</span>
-<span id="546">546</span>
-<span id="547">547</span>
-<span id="548">548</span>
-<span id="549">549</span>
-<span id="550">550</span>
-<span id="551">551</span>
-<span id="552">552</span>
-<span id="553">553</span>
-<span id="554">554</span>
-<span id="555">555</span>
-<span id="556">556</span>
-<span id="557">557</span>
-<span id="558">558</span>
-<span id="559">559</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 // rustdoc-stripper-ignore-next
@@ -641,128 +542,79 @@
 <span class="kw">use </span>glib::Cast;
 
 <span class="kw">pub trait </span>TextBufferImpl: TextBufferImplExt + ObjectImpl {
-    <span class="kw">fn </span>apply_tag(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, tag: <span class="kw-2">&amp;</span>TextTag, start: <span class="kw-2">&amp;</span>TextIter, end: <span class="kw-2">&amp;</span>TextIter) {
-        <span class="self">self</span>.parent_apply_tag(text_buffer, tag, start, end)
+    <span class="kw">fn </span>apply_tag(<span class="kw-2">&amp;</span><span class="self">self</span>, tag: <span class="kw-2">&amp;</span>TextTag, start: <span class="kw-2">&amp;</span>TextIter, end: <span class="kw-2">&amp;</span>TextIter) {
+        <span class="self">self</span>.parent_apply_tag(tag, start, end)
     }
-    <span class="kw">fn </span>begin_user_action(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_begin_user_action(text_buffer)
+    <span class="kw">fn </span>begin_user_action(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_begin_user_action()
     }
-    <span class="kw">fn </span>changed(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_changed(text_buffer)
+    <span class="kw">fn </span>changed(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_changed()
     }
-    <span class="kw">fn </span>delete_range(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, start: <span class="kw-2">&amp;mut </span>TextIter, end: <span class="kw-2">&amp;mut </span>TextIter) {
-        <span class="self">self</span>.parent_delete_range(text_buffer, start, end)
+    <span class="kw">fn </span>delete_range(<span class="kw-2">&amp;</span><span class="self">self</span>, start: <span class="kw-2">&amp;mut </span>TextIter, end: <span class="kw-2">&amp;mut </span>TextIter) {
+        <span class="self">self</span>.parent_delete_range(start, end)
     }
-    <span class="kw">fn </span>end_user_action(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_end_user_action(text_buffer)
+    <span class="kw">fn </span>end_user_action(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_end_user_action()
     }
-    <span class="kw">fn </span>insert_child_anchor(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        iter: <span class="kw-2">&amp;mut </span>TextIter,
-        anchor: <span class="kw-2">&amp;</span>TextChildAnchor,
-    ) {
-        <span class="self">self</span>.parent_insert_child_anchor(text_buffer, iter, anchor)
+    <span class="kw">fn </span>insert_child_anchor(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;mut </span>TextIter, anchor: <span class="kw-2">&amp;</span>TextChildAnchor) {
+        <span class="self">self</span>.parent_insert_child_anchor(iter, anchor)
     }
-    <span class="kw">fn </span>insert_paintable(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        iter: <span class="kw-2">&amp;mut </span>TextIter,
-        paintable: <span class="kw-2">&amp;</span>gdk::Paintable,
-    ) {
-        <span class="self">self</span>.parent_insert_paintable(text_buffer, iter, paintable)
+    <span class="kw">fn </span>insert_paintable(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;mut </span>TextIter, paintable: <span class="kw-2">&amp;</span>gdk::Paintable) {
+        <span class="self">self</span>.parent_insert_paintable(iter, paintable)
     }
-    <span class="kw">fn </span>insert_text(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, iter: <span class="kw-2">&amp;mut </span>TextIter, new_text: <span class="kw-2">&amp;</span>str) {
-        <span class="self">self</span>.parent_insert_text(text_buffer, iter, new_text)
+    <span class="kw">fn </span>insert_text(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;mut </span>TextIter, new_text: <span class="kw-2">&amp;</span>str) {
+        <span class="self">self</span>.parent_insert_text(iter, new_text)
     }
-    <span class="kw">fn </span>mark_deleted(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, mark: <span class="kw-2">&amp;</span>TextMark) {
-        <span class="self">self</span>.parent_mark_deleted(text_buffer, mark);
+    <span class="kw">fn </span>mark_deleted(<span class="kw-2">&amp;</span><span class="self">self</span>, mark: <span class="kw-2">&amp;</span>TextMark) {
+        <span class="self">self</span>.parent_mark_deleted(mark);
     }
-    <span class="kw">fn </span>mark_set(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, location: <span class="kw-2">&amp;</span>TextIter, mark: <span class="kw-2">&amp;</span>TextMark) {
-        <span class="self">self</span>.parent_mark_set(text_buffer, location, mark)
+    <span class="kw">fn </span>mark_set(<span class="kw-2">&amp;</span><span class="self">self</span>, location: <span class="kw-2">&amp;</span>TextIter, mark: <span class="kw-2">&amp;</span>TextMark) {
+        <span class="self">self</span>.parent_mark_set(location, mark)
     }
-    <span class="kw">fn </span>modified_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_modified_changed(text_buffer);
+    <span class="kw">fn </span>modified_changed(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_modified_changed();
     }
-    <span class="kw">fn </span>paste_done(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, clipboard: <span class="kw-2">&amp;</span>gdk::Clipboard) {
-        <span class="self">self</span>.parent_paste_done(text_buffer, clipboard)
+    <span class="kw">fn </span>paste_done(<span class="kw-2">&amp;</span><span class="self">self</span>, clipboard: <span class="kw-2">&amp;</span>gdk::Clipboard) {
+        <span class="self">self</span>.parent_paste_done(clipboard)
     }
-    <span class="kw">fn </span>redo(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_redo(text_buffer)
+    <span class="kw">fn </span>redo(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_redo()
     }
-    <span class="kw">fn </span>remove_tag(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        tag: <span class="kw-2">&amp;</span>TextTag,
-        start: <span class="kw-2">&amp;</span>TextIter,
-        end: <span class="kw-2">&amp;</span>TextIter,
-    ) {
-        <span class="self">self</span>.parent_remove_tag(text_buffer, tag, start, end)
+    <span class="kw">fn </span>remove_tag(<span class="kw-2">&amp;</span><span class="self">self</span>, tag: <span class="kw-2">&amp;</span>TextTag, start: <span class="kw-2">&amp;</span>TextIter, end: <span class="kw-2">&amp;</span>TextIter) {
+        <span class="self">self</span>.parent_remove_tag(tag, start, end)
     }
-    <span class="kw">fn </span>undo(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_undo(text_buffer)
+    <span class="kw">fn </span>undo(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_undo()
     }
 }
 
 <span class="kw">pub trait </span>TextBufferImplExt: ObjectSubclass {
-    <span class="kw">fn </span>parent_apply_tag(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        tag: <span class="kw-2">&amp;</span>TextTag,
-        start: <span class="kw-2">&amp;</span>TextIter,
-        end: <span class="kw-2">&amp;</span>TextIter,
-    );
-    <span class="kw">fn </span>parent_begin_user_action(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
-    <span class="kw">fn </span>parent_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
-    <span class="kw">fn </span>parent_delete_range(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        start: <span class="kw-2">&amp;mut </span>TextIter,
-        end: <span class="kw-2">&amp;mut </span>TextIter,
-    );
-    <span class="kw">fn </span>parent_end_user_action(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
-    <span class="kw">fn </span>parent_insert_child_anchor(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        iter: <span class="kw-2">&amp;mut </span>TextIter,
-        anchor: <span class="kw-2">&amp;</span>TextChildAnchor,
-    );
-    <span class="kw">fn </span>parent_insert_paintable(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        iter: <span class="kw-2">&amp;mut </span>TextIter,
-        paintable: <span class="kw-2">&amp;</span>gdk::Paintable,
-    );
-    <span class="kw">fn </span>parent_insert_text(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, iter: <span class="kw-2">&amp;mut </span>TextIter, new_text: <span class="kw-2">&amp;</span>str);
-    <span class="kw">fn </span>parent_mark_deleted(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, mark: <span class="kw-2">&amp;</span>TextMark);
-    <span class="kw">fn </span>parent_mark_set(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, location: <span class="kw-2">&amp;</span>TextIter, mark: <span class="kw-2">&amp;</span>TextMark);
-    <span class="kw">fn </span>parent_modified_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
-    <span class="kw">fn </span>parent_paste_done(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, clipboard: <span class="kw-2">&amp;</span>gdk::Clipboard);
-    <span class="kw">fn </span>parent_redo(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
-    <span class="kw">fn </span>parent_remove_tag(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        tag: <span class="kw-2">&amp;</span>TextTag,
-        start: <span class="kw-2">&amp;</span>TextIter,
-        end: <span class="kw-2">&amp;</span>TextIter,
-    );
-    <span class="kw">fn </span>parent_undo(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
+    <span class="kw">fn </span>parent_apply_tag(<span class="kw-2">&amp;</span><span class="self">self</span>, tag: <span class="kw-2">&amp;</span>TextTag, start: <span class="kw-2">&amp;</span>TextIter, end: <span class="kw-2">&amp;</span>TextIter);
+    <span class="kw">fn </span>parent_begin_user_action(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>parent_changed(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>parent_delete_range(<span class="kw-2">&amp;</span><span class="self">self</span>, start: <span class="kw-2">&amp;mut </span>TextIter, end: <span class="kw-2">&amp;mut </span>TextIter);
+    <span class="kw">fn </span>parent_end_user_action(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>parent_insert_child_anchor(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;mut </span>TextIter, anchor: <span class="kw-2">&amp;</span>TextChildAnchor);
+    <span class="kw">fn </span>parent_insert_paintable(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;mut </span>TextIter, paintable: <span class="kw-2">&amp;</span>gdk::Paintable);
+    <span class="kw">fn </span>parent_insert_text(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;mut </span>TextIter, new_text: <span class="kw-2">&amp;</span>str);
+    <span class="kw">fn </span>parent_mark_deleted(<span class="kw-2">&amp;</span><span class="self">self</span>, mark: <span class="kw-2">&amp;</span>TextMark);
+    <span class="kw">fn </span>parent_mark_set(<span class="kw-2">&amp;</span><span class="self">self</span>, location: <span class="kw-2">&amp;</span>TextIter, mark: <span class="kw-2">&amp;</span>TextMark);
+    <span class="kw">fn </span>parent_modified_changed(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>parent_paste_done(<span class="kw-2">&amp;</span><span class="self">self</span>, clipboard: <span class="kw-2">&amp;</span>gdk::Clipboard);
+    <span class="kw">fn </span>parent_redo(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>parent_remove_tag(<span class="kw-2">&amp;</span><span class="self">self</span>, tag: <span class="kw-2">&amp;</span>TextTag, start: <span class="kw-2">&amp;</span>TextIter, end: <span class="kw-2">&amp;</span>TextIter);
+    <span class="kw">fn </span>parent_undo(<span class="kw-2">&amp;</span><span class="self">self</span>);
 }
 
 <span class="kw">impl</span>&lt;T: TextBufferImpl&gt; TextBufferImplExt <span class="kw">for </span>T {
-    <span class="kw">fn </span>parent_apply_tag(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        tag: <span class="kw-2">&amp;</span>TextTag,
-        start: <span class="kw-2">&amp;</span>TextIter,
-        end: <span class="kw-2">&amp;</span>TextIter,
-    ) {
+    <span class="kw">fn </span>parent_apply_tag(<span class="kw-2">&amp;</span><span class="self">self</span>, tag: <span class="kw-2">&amp;</span>TextTag, start: <span class="kw-2">&amp;</span>TextIter, end: <span class="kw-2">&amp;</span>TextIter) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).apply_tag {
                 f(
-                    text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
                     tag.to_glib_none().<span class="number">0</span>,
                     start.to_glib_none().<span class="number">0</span>,
                     end.to_glib_none().<span class="number">0</span>,
@@ -771,38 +623,33 @@
         }
     }
 
-    <span class="kw">fn </span>parent_begin_user_action(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_begin_user_action(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).begin_user_action {
-                f(text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_changed(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).changed {
-                f(text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_delete_range(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        start: <span class="kw-2">&amp;mut </span>TextIter,
-        end: <span class="kw-2">&amp;mut </span>TextIter,
-    ) {
+    <span class="kw">fn </span>parent_delete_range(<span class="kw-2">&amp;</span><span class="self">self</span>, start: <span class="kw-2">&amp;mut </span>TextIter, end: <span class="kw-2">&amp;mut </span>TextIter) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).delete_range {
                 f(
-                    text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
                     start.to_glib_none_mut().<span class="number">0</span>,
                     end.to_glib_none_mut().<span class="number">0</span>,
                 )
@@ -810,28 +657,23 @@
         }
     }
 
-    <span class="kw">fn </span>parent_end_user_action(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_end_user_action(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).end_user_action {
-                f(text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_insert_child_anchor(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        iter: <span class="kw-2">&amp;mut </span>TextIter,
-        anchor: <span class="kw-2">&amp;</span>TextChildAnchor,
-    ) {
+    <span class="kw">fn </span>parent_insert_child_anchor(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;mut </span>TextIter, anchor: <span class="kw-2">&amp;</span>TextChildAnchor) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).insert_child_anchor {
                 f(
-                    text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
                     iter.to_glib_none_mut().<span class="number">0</span>,
                     anchor.to_glib_none().<span class="number">0</span>,
                 )
@@ -839,18 +681,13 @@
         }
     }
 
-    <span class="kw">fn </span>parent_insert_paintable(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        iter: <span class="kw-2">&amp;mut </span>TextIter,
-        paintable: <span class="kw-2">&amp;</span>gdk::Paintable,
-    ) {
+    <span class="kw">fn </span>parent_insert_paintable(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;mut </span>TextIter, paintable: <span class="kw-2">&amp;</span>gdk::Paintable) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).insert_paintable {
                 f(
-                    text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
                     iter.to_glib_none_mut().<span class="number">0</span>,
                     paintable.to_glib_none().<span class="number">0</span>,
                 )
@@ -858,13 +695,13 @@
         }
     }
 
-    <span class="kw">fn </span>parent_insert_text(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, iter: <span class="kw-2">&amp;mut </span>TextIter, new_text: <span class="kw-2">&amp;</span>str) {
+    <span class="kw">fn </span>parent_insert_text(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;mut </span>TextIter, new_text: <span class="kw-2">&amp;</span>str) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).insert_text {
                 f(
-                    text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
                     iter.to_glib_none_mut().<span class="number">0</span>,
                     new_text.to_glib_none().<span class="number">0</span>,
                     new_text.len() <span class="kw">as </span>i32,
@@ -873,26 +710,26 @@
         }
     }
 
-    <span class="kw">fn </span>parent_mark_deleted(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, mark: <span class="kw-2">&amp;</span>TextMark) {
+    <span class="kw">fn </span>parent_mark_deleted(<span class="kw-2">&amp;</span><span class="self">self</span>, mark: <span class="kw-2">&amp;</span>TextMark) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).mark_deleted {
                 f(
-                    text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
                     mark.to_glib_none().<span class="number">0</span>,
                 )
             }
         }
     }
 
-    <span class="kw">fn </span>parent_mark_set(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, location: <span class="kw-2">&amp;</span>TextIter, mark: <span class="kw-2">&amp;</span>TextMark) {
+    <span class="kw">fn </span>parent_mark_set(<span class="kw-2">&amp;</span><span class="self">self</span>, location: <span class="kw-2">&amp;</span>TextIter, mark: <span class="kw-2">&amp;</span>TextMark) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).mark_set {
                 f(
-                    text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
                     location.to_glib_none().<span class="number">0</span>,
                     mark.to_glib_none().<span class="number">0</span>,
                 )
@@ -900,52 +737,46 @@
         }
     }
 
-    <span class="kw">fn </span>parent_modified_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_modified_changed(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).modified_changed {
-                f(text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_paste_done(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, clipboard: <span class="kw-2">&amp;</span>gdk::Clipboard) {
+    <span class="kw">fn </span>parent_paste_done(<span class="kw-2">&amp;</span><span class="self">self</span>, clipboard: <span class="kw-2">&amp;</span>gdk::Clipboard) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).paste_done {
                 f(
-                    text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
                     clipboard.to_glib_none().<span class="number">0</span>,
                 )
             }
         }
     }
 
-    <span class="kw">fn </span>parent_redo(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_redo(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).redo {
-                f(text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_remove_tag(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        tag: <span class="kw-2">&amp;</span>TextTag,
-        start: <span class="kw-2">&amp;</span>TextIter,
-        end: <span class="kw-2">&amp;</span>TextIter,
-    ) {
+    <span class="kw">fn </span>parent_remove_tag(<span class="kw-2">&amp;</span><span class="self">self</span>, tag: <span class="kw-2">&amp;</span>TextTag, start: <span class="kw-2">&amp;</span>TextIter, end: <span class="kw-2">&amp;</span>TextIter) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).remove_tag {
                 f(
-                    text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>,
                     tag.to_glib_none().<span class="number">0</span>,
                     start.to_glib_none().<span class="number">0</span>,
                     end.to_glib_none().<span class="number">0</span>,
@@ -954,12 +785,12 @@
         }
     }
 
-    <span class="kw">fn </span>parent_undo(<span class="kw-2">&amp;</span><span class="self">self</span>, text_buffer: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_undo(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextBufferClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).undo {
-                f(text_buffer.unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextBuffer&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
@@ -1001,10 +832,8 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
     imp.apply_tag(
-        wrap.unsafe_cast_ref(),
         <span class="kw-2">&amp;</span>from_glib_borrow(tag_ptr),
         <span class="kw-2">&amp;</span>from_glib_borrow(start_ptr),
         <span class="kw-2">&amp;</span>from_glib_borrow(end_ptr),
@@ -1016,17 +845,15 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
-    imp.begin_user_action(wrap.unsafe_cast_ref())
+    imp.begin_user_action()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_buffer_changed&lt;T: TextBufferImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTextBuffer) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
-    imp.changed(wrap.unsafe_cast_ref())
+    imp.changed()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_buffer_delete_range&lt;T: TextBufferImpl&gt;(
@@ -1036,12 +863,11 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
     <span class="kw">let </span><span class="kw-2">mut </span>start_copy = from_glib_none(start_ptr);
     <span class="kw">let </span><span class="kw-2">mut </span>end_copy = from_glib_none(end_ptr);
 
-    imp.delete_range(wrap.unsafe_cast_ref(), <span class="kw-2">&amp;mut </span>start_copy, <span class="kw-2">&amp;mut </span>end_copy);
+    imp.delete_range(<span class="kw-2">&amp;mut </span>start_copy, <span class="kw-2">&amp;mut </span>end_copy);
 
     <span class="kw-2">*</span>start_ptr = <span class="kw-2">*</span>start_copy.to_glib_none().<span class="number">0</span>;
     <span class="kw-2">*</span>end_ptr = <span class="kw-2">*</span>end_copy.to_glib_none().<span class="number">0</span>;
@@ -1050,9 +876,8 @@
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_buffer_end_user_action&lt;T: TextBufferImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTextBuffer) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
-    imp.end_user_action(wrap.unsafe_cast_ref())
+    imp.end_user_action()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_buffer_insert_child_anchor&lt;T: TextBufferImpl&gt;(
@@ -1062,15 +887,10 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
     <span class="kw">let </span><span class="kw-2">mut </span>iter = from_glib_none(iter_ptr);
 
-    imp.insert_child_anchor(
-        wrap.unsafe_cast_ref(),
-        <span class="kw-2">&amp;mut </span>iter,
-        <span class="kw-2">&amp;</span>from_glib_borrow(anchor_ptr),
-    );
+    imp.insert_child_anchor(<span class="kw-2">&amp;mut </span>iter, <span class="kw-2">&amp;</span>from_glib_borrow(anchor_ptr));
     <span class="kw-2">*</span>iter_ptr = <span class="kw-2">*</span>iter.to_glib_none().<span class="number">0</span>;
 }
 
@@ -1081,15 +901,10 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
     <span class="kw">let </span><span class="kw-2">mut </span>iter = from_glib_none(iter_ptr);
 
-    imp.insert_paintable(
-        wrap.unsafe_cast_ref(),
-        <span class="kw-2">&amp;mut </span>iter,
-        <span class="kw-2">&amp;</span>from_glib_borrow(paintable_ptr),
-    );
+    imp.insert_paintable(<span class="kw-2">&amp;mut </span>iter, <span class="kw-2">&amp;</span>from_glib_borrow(paintable_ptr));
     <span class="kw-2">*</span>iter_ptr = <span class="kw-2">*</span>iter.to_glib_none().<span class="number">0</span>;
 }
 
@@ -1101,21 +916,19 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
     <span class="kw">let </span>text: Borrowed&lt;glib::GString&gt; = from_glib_borrow(text_ptr);
 
     <span class="kw">let </span><span class="kw-2">mut </span>iter = from_glib_none(iter_ptr);
 
-    imp.insert_text(wrap.unsafe_cast_ref(), <span class="kw-2">&amp;mut </span>iter, text.as_str());
+    imp.insert_text(<span class="kw-2">&amp;mut </span>iter, text.as_str());
     <span class="kw-2">*</span>iter_ptr = <span class="kw-2">*</span>iter.to_glib_none().<span class="number">0</span>;
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_buffer_modified_changed&lt;T: TextBufferImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTextBuffer) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
-    imp.modified_changed(wrap.unsafe_cast_ref())
+    imp.modified_changed()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_buffer_mark_deleted&lt;T: TextBufferImpl&gt;(
@@ -1124,9 +937,8 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
-    imp.mark_deleted(wrap.unsafe_cast_ref(), <span class="kw-2">&amp;</span>from_glib_borrow(mark))
+    imp.mark_deleted(<span class="kw-2">&amp;</span>from_glib_borrow(mark))
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_buffer_mark_set&lt;T: TextBufferImpl&gt;(
@@ -1136,13 +948,8 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
-    imp.mark_set(
-        wrap.unsafe_cast_ref(),
-        <span class="kw-2">&amp;</span>from_glib_borrow(iter),
-        <span class="kw-2">&amp;</span>from_glib_borrow(mark),
-    )
+    imp.mark_set(<span class="kw-2">&amp;</span>from_glib_borrow(iter), <span class="kw-2">&amp;</span>from_glib_borrow(mark))
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_buffer_paste_done&lt;T: TextBufferImpl&gt;(
@@ -1151,17 +958,15 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
-    imp.paste_done(wrap.unsafe_cast_ref(), <span class="kw-2">&amp;</span>from_glib_borrow(clipboard_ptr))
+    imp.paste_done(<span class="kw-2">&amp;</span>from_glib_borrow(clipboard_ptr))
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_buffer_redo&lt;T: TextBufferImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTextBuffer) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
-    imp.redo(wrap.unsafe_cast_ref())
+    imp.redo()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_buffer_remove_tag&lt;T: TextBufferImpl&gt;(
@@ -1172,10 +977,8 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
     imp.remove_tag(
-        wrap.unsafe_cast_ref(),
         <span class="kw-2">&amp;</span>from_glib_borrow(tag),
         <span class="kw-2">&amp;</span>from_glib_borrow(start),
         <span class="kw-2">&amp;</span>from_glib_borrow(end),
@@ -1185,9 +988,8 @@
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_buffer_undo&lt;T: TextBufferImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTextBuffer) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;TextBuffer&gt; = from_glib_borrow(ptr);
 
-    imp.undo(wrap.unsafe_cast_ref())
+    imp.undo()
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

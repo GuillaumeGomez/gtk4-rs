@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/auto/gl_context.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>gl_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/auto/gl_context.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>gl_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gdk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gdk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gdk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gdk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -711,26 +711,26 @@
 </span><span class="kw">use </span><span class="kw">crate</span>::Display;
 <span class="kw">use </span><span class="kw">crate</span>::DrawContext;
 <span class="kw">use </span><span class="kw">crate</span>::Surface;
-<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
 #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
 </span><span class="kw">use </span><span class="kw">crate</span>::GLAPI;
-<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
 #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
 </span><span class="kw">use </span>glib::object::Cast;
 <span class="kw">use </span>glib::object::IsA;
-<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
 #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
 </span><span class="kw">use </span>glib::signal::connect_raw;
-<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
 #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
 </span><span class="kw">use </span>glib::signal::SignalHandlerId;
 <span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
-<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
 #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
 </span><span class="kw">use </span>std::boxed::Box <span class="kw">as </span>Box_;
 <span class="kw">use </span>std::fmt;
 <span class="kw">use </span>std::mem;
-<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
 #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
 </span><span class="kw">use </span>std::mem::transmute;
 <span class="kw">use </span>std::ptr;
@@ -793,7 +793,7 @@
     /// # Implements
     ///
     /// [`GLContextExt`][trait@crate::prelude::GLContextExt], [`DrawContextExt`][trait@crate::prelude::DrawContextExt], [`DrawContextExtManual`][trait@crate::prelude::DrawContextExtManual]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GdkGLContext&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GdkGLContext&quot;</span>)]
     </span><span class="kw">pub struct </span>GLContext(Object&lt;ffi::GdkGLContext&gt;) @extends DrawContext;
 
     <span class="kw">match fn </span>{
@@ -808,7 +808,7 @@
     ///
     /// Any OpenGL call after this function returns will be ignored
     /// until [`GLContextExt::make_current()`][crate::prelude::GLContextExt::make_current()] is called.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_clear_current&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_clear_current&quot;</span>)]
     </span><span class="kw">pub fn </span>clear_current() {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{
@@ -821,7 +821,7 @@
     /// # Returns
     ///
     /// the current [`GLContext`][crate::GLContext]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_current&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_current&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_current&quot;</span>)]
     </span><span class="kw">pub fn </span>current() -&gt; <span class="prelude-ty">Option</span>&lt;GLContext&gt; {
         <span class="macro">assert_initialized_main_thread!</span>();
@@ -840,7 +840,7 @@
     /// # Returns
     ///
     /// the allowed APIs
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;gdk_gl_context_get_allowed_apis&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_allowed_apis&quot;</span>)]
@@ -853,7 +853,7 @@
     /// # Returns
     ///
     /// the currently used API
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;gdk_gl_context_get_api&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_api&quot;</span>)]
@@ -866,7 +866,7 @@
     /// # Returns
     ///
     /// [`true`] if debugging is enabled
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_debug_enabled&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_debug_enabled&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_debug_enabled&quot;</span>)]
     </span><span class="kw">fn </span>is_debug_enabled(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -875,7 +875,7 @@
     /// # Returns
     ///
     /// a [`Display`][crate::Display]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_display&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_display&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_display&quot;</span>)]
     </span><span class="kw">fn </span>display(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Display&gt;;
 
@@ -886,7 +886,7 @@
     /// # Returns
     ///
     /// [`true`] if the context should be forward-compatible
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_forward_compatible&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_forward_compatible&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_forward_compatible&quot;</span>)]
     </span><span class="kw">fn </span>is_forward_compatible(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -905,7 +905,7 @@
     ///
     /// ## `minor`
     /// return location for the minor version to request
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_required_version&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_required_version&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_required_version&quot;</span>)]
     </span><span class="kw">fn </span>required_version(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (i32, i32);
 
@@ -922,7 +922,7 @@
     /// # Returns
     ///
     /// [`None`]
-    </span><span class="attribute">#[cfg_attr(feature = <span class="string">&quot;v4_4&quot;</span>, deprecated = <span class="string">&quot;Since 4.4&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_4&quot;</span>, deprecated = <span class="string">&quot;Since 4.4&quot;</span>)]
     #[doc(alias = <span class="string">&quot;gdk_gl_context_get_shared_context&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_shared_context&quot;</span>)]
     #[must_use]
@@ -933,7 +933,7 @@
     /// # Returns
     ///
     /// a [`Surface`][crate::Surface]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_surface&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_surface&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_surface&quot;</span>)]
     </span><span class="kw">fn </span>surface(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Surface&gt;;
 
@@ -944,7 +944,7 @@
     /// [`true`] if the [`GLContext`][crate::GLContext] is using an OpenGL ES profile;
     /// [`false`] if other profile is in use of if the @self has not yet
     /// been realized.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_use_es&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_use_es&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_use_es&quot;</span>)]
     </span><span class="kw">fn </span>uses_es(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -963,7 +963,7 @@
     ///
     /// ## `minor`
     /// return location for the minor version
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_version&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_get_version&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_version&quot;</span>)]
     </span><span class="kw">fn </span>version(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (i32, i32);
 
@@ -987,7 +987,7 @@
     /// # Returns
     ///
     /// [`true`] if the GL context is in legacy mode
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_is_legacy&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_is_legacy&quot;</span>)]
     </span><span class="kw">fn </span>is_legacy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Checks if the two GL contexts can share resources.
@@ -1008,13 +1008,13 @@
     /// # Returns
     ///
     /// [`true`] if the two GL contexts are compatible.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_4&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;gdk_gl_context_is_shared&quot;</span>)]
     </span><span class="kw">fn </span>is_shared(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;GLContext&gt;) -&gt; bool;
 
     <span class="doccomment">/// Makes the @self the current one.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_make_current&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_make_current&quot;</span>)]
     </span><span class="kw">fn </span>make_current(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Realizes the given [`GLContext`][crate::GLContext].
@@ -1024,7 +1024,7 @@
     /// # Returns
     ///
     /// [`true`] if the context is realized
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_realize&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_realize&quot;</span>)]
     </span><span class="kw">fn </span>realize(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;;
 
     <span class="doccomment">/// Sets the allowed APIs. When gdk_gl_context_realize() is called, only the
@@ -1036,7 +1036,7 @@
     /// By default, all APIs are allowed.
     /// ## `apis`
     /// the allowed APIs
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;gdk_gl_context_set_allowed_apis&quot;</span>)]
     </span><span class="kw">fn </span>set_allowed_apis(<span class="kw-2">&amp;</span><span class="self">self</span>, apis: GLAPI);
@@ -1050,7 +1050,7 @@
     /// calling this function.
     /// ## `enabled`
     /// whether to enable debugging in the context
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_set_debug_enabled&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_set_debug_enabled&quot;</span>)]
     </span><span class="kw">fn </span>set_debug_enabled(<span class="kw-2">&amp;</span><span class="self">self</span>, enabled: bool);
 
     <span class="doccomment">/// Sets whether the [`GLContext`][crate::GLContext] should be forward-compatible.
@@ -1064,7 +1064,7 @@
     /// this function.
     /// ## `compatible`
     /// whether the context should be forward-compatible
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_set_forward_compatible&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_set_forward_compatible&quot;</span>)]
     </span><span class="kw">fn </span>set_forward_compatible(<span class="kw-2">&amp;</span><span class="self">self</span>, compatible: bool);
 
     <span class="doccomment">/// Sets the major and minor version of OpenGL to request.
@@ -1080,7 +1080,7 @@
     /// the major version to request
     /// ## `minor`
     /// the minor version to request
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_set_required_version&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_set_required_version&quot;</span>)]
     </span><span class="kw">fn </span>set_required_version(<span class="kw-2">&amp;</span><span class="self">self</span>, major: i32, minor: i32);
 
     <span class="doccomment">/// Requests that GDK create an OpenGL ES context instead of an OpenGL one.
@@ -1099,22 +1099,22 @@
     /// ## `use_es`
     /// whether the context should use OpenGL ES instead of OpenGL,
     ///   or -1 to allow auto-detection
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_gl_context_set_use_es&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_gl_context_set_use_es&quot;</span>)]
     </span><span class="kw">fn </span>set_use_es(<span class="kw-2">&amp;</span><span class="self">self</span>, use_es: i32);
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;allowed-apis&quot;</span>)]
     </span><span class="kw">fn </span>connect_allowed_apis_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;api&quot;</span>)]
     </span><span class="kw">fn </span>connect_api_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
 <span class="kw">impl</span>&lt;O: IsA&lt;GLContext&gt;&gt; GLContextExt <span class="kw">for </span>O {
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>allowed_apis(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; GLAPI {
         <span class="kw">unsafe </span>{
@@ -1124,7 +1124,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>api(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; GLAPI {
         <span class="kw">unsafe </span>{ from_glib(ffi::gdk_gl_context_get_api(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>)) }
@@ -1212,7 +1212,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_4&quot;</span>)))]
     </span><span class="kw">fn </span>is_shared(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;GLContext&gt;) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -1242,7 +1242,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>set_allowed_apis(<span class="kw-2">&amp;</span><span class="self">self</span>, apis: GLAPI) {
         <span class="kw">unsafe </span>{
@@ -1280,7 +1280,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>connect_allowed_apis_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_allowed_apis_trampoline&lt;
@@ -1307,7 +1307,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>connect_api_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_api_trampoline&lt;P: IsA&lt;GLContext&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
@@ -1338,4 +1338,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

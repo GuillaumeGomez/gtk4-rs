@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/stack.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>stack.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/stack.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>stack.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -1317,7 +1317,7 @@
     /// # Implements
     ///
     /// [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkStack&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkStack&quot;</span>)]
     </span><span class="kw">pub struct </span>Stack(Object&lt;ffi::GtkStack&gt;) @extends Widget, @implements Accessible, Buildable, ConstraintTarget;
 
     <span class="kw">match fn </span>{
@@ -1331,7 +1331,7 @@
     /// # Returns
     ///
     /// a new [`Stack`][crate::Stack]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_new&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_new&quot;</span>)]
     </span><span class="kw">pub fn </span>new() -&gt; Stack {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{ Widget::from_glib_none(ffi::gtk_stack_new()).unsafe_cast() }
@@ -1352,7 +1352,7 @@
     /// # Returns
     ///
     /// the [`StackPage`][crate::StackPage] for @child
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_add_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_add_child&quot;</span>)]
     </span><span class="kw">pub fn </span>add_child(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;) -&gt; StackPage {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::gtk_stack_add_child(
@@ -1373,7 +1373,7 @@
     /// # Returns
     ///
     /// the [`StackPage`][crate::StackPage] for @child
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_add_named&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_add_named&quot;</span>)]
     </span><span class="kw">pub fn </span>add_named(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;, name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) -&gt; StackPage {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::gtk_stack_add_named(
@@ -1399,7 +1399,7 @@
     /// # Returns
     ///
     /// the [`StackPage`][crate::StackPage] for @child
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_add_titled&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_add_titled&quot;</span>)]
     </span><span class="kw">pub fn </span>add_titled(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         child: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
@@ -1426,7 +1426,7 @@
     ///
     /// the requested child
     ///   of the [`Stack`][crate::Stack]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_get_child_by_name&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_get_child_by_name&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_child_by_name&quot;</span>)]
     </span><span class="kw">pub fn </span>child_by_name(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;Widget&gt; {
         <span class="kw">unsafe </span>{
@@ -1442,7 +1442,7 @@
     /// # Returns
     ///
     /// whether @self is horizontally homogeneous.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_get_hhomogeneous&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_get_hhomogeneous&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_hhomogeneous&quot;</span>)]
     </span><span class="kw">pub fn </span>is_hhomogeneous(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_stack_get_hhomogeneous(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1454,7 +1454,7 @@
     /// # Returns
     ///
     /// [`true`] if child sizes are interpolated
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_get_interpolate_size&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_get_interpolate_size&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_interpolate_size&quot;</span>)]
     </span><span class="kw">pub fn </span>interpolates_size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_stack_get_interpolate_size(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1467,7 +1467,7 @@
     /// # Returns
     ///
     /// the [`StackPage`][crate::StackPage] for @child
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_get_page&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_get_page&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_page&quot;</span>)]
     </span><span class="kw">pub fn </span>page(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;) -&gt; StackPage {
         <span class="kw">unsafe </span>{
@@ -1487,7 +1487,7 @@
     /// # Returns
     ///
     /// a [`SelectionModel`][crate::SelectionModel] for the stack&#39;s children
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_get_pages&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_get_pages&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_pages&quot;</span>)]
     </span><span class="kw">pub fn </span>pages(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; SelectionModel {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::gtk_stack_get_pages(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1499,7 +1499,7 @@
     /// # Returns
     ///
     /// the transition duration
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_get_transition_duration&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_get_transition_duration&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_transition_duration&quot;</span>)]
     </span><span class="kw">pub fn </span>transition_duration(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u32 {
         <span class="kw">unsafe </span>{ ffi::gtk_stack_get_transition_duration(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -1511,7 +1511,7 @@
     /// # Returns
     ///
     /// [`true`] if the transition is currently running, [`false`] otherwise.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_get_transition_running&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_get_transition_running&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_transition_running&quot;</span>)]
     </span><span class="kw">pub fn </span>is_transition_running(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_stack_get_transition_running(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1523,7 +1523,7 @@
     /// # Returns
     ///
     /// the current transition type of @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_get_transition_type&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_get_transition_type&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_transition_type&quot;</span>)]
     </span><span class="kw">pub fn </span>transition_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; StackTransitionType {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_stack_get_transition_type(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1534,7 +1534,7 @@
     /// # Returns
     ///
     /// whether @self is vertically homogeneous.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_get_vhomogeneous&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_get_vhomogeneous&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_vhomogeneous&quot;</span>)]
     </span><span class="kw">pub fn </span>is_vhomogeneous(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_stack_get_vhomogeneous(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1547,7 +1547,7 @@
     /// # Returns
     ///
     /// the visible child of the [`Stack`][crate::Stack]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_get_visible_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_get_visible_child&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_visible_child&quot;</span>)]
     </span><span class="kw">pub fn </span>visible_child(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Widget&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_stack_get_visible_child(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1561,7 +1561,7 @@
     ///
     /// the name of the visible child
     ///   of the [`Stack`][crate::Stack]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_get_visible_child_name&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_get_visible_child_name&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_visible_child_name&quot;</span>)]
     </span><span class="kw">pub fn </span>visible_child_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_stack_get_visible_child_name(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1570,7 +1570,7 @@
     <span class="doccomment">/// Removes a child widget from @self.
     /// ## `child`
     /// the child to remove
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_remove&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_remove&quot;</span>)]
     </span><span class="kw">pub fn </span>remove(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_stack_remove(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, child.as_ref().to_glib_none().<span class="number">0</span>);
@@ -1584,7 +1584,7 @@
     /// may change width when a different child becomes visible.
     /// ## `hhomogeneous`
     /// [`true`] to make @self horizontally homogeneous
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_set_hhomogeneous&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_set_hhomogeneous&quot;</span>)]
     </span><span class="kw">pub fn </span>set_hhomogeneous(<span class="kw-2">&amp;</span><span class="self">self</span>, hhomogeneous: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_stack_set_hhomogeneous(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, hhomogeneous.into_glib());
@@ -1600,7 +1600,7 @@
     /// according to the set transition duration.
     /// ## `interpolate_size`
     /// the new value
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_set_interpolate_size&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_set_interpolate_size&quot;</span>)]
     </span><span class="kw">pub fn </span>set_interpolate_size(<span class="kw-2">&amp;</span><span class="self">self</span>, interpolate_size: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_stack_set_interpolate_size(
@@ -1614,7 +1614,7 @@
     /// will take.
     /// ## `duration`
     /// the new duration, in milliseconds
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_set_transition_duration&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_set_transition_duration&quot;</span>)]
     </span><span class="kw">pub fn </span>set_transition_duration(<span class="kw-2">&amp;</span><span class="self">self</span>, duration: u32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_stack_set_transition_duration(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, duration);
@@ -1631,7 +1631,7 @@
     /// based on the page that is about to become current.
     /// ## `transition`
     /// the new transition type
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_set_transition_type&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_set_transition_type&quot;</span>)]
     </span><span class="kw">pub fn </span>set_transition_type(<span class="kw-2">&amp;</span><span class="self">self</span>, transition: StackTransitionType) {
         <span class="kw">unsafe </span>{
             ffi::gtk_stack_set_transition_type(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, transition.into_glib());
@@ -1645,7 +1645,7 @@
     /// may change height when a different child becomes visible.
     /// ## `vhomogeneous`
     /// [`true`] to make @self vertically homogeneous
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_set_vhomogeneous&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_set_vhomogeneous&quot;</span>)]
     </span><span class="kw">pub fn </span>set_vhomogeneous(<span class="kw-2">&amp;</span><span class="self">self</span>, vhomogeneous: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_stack_set_vhomogeneous(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, vhomogeneous.into_glib());
@@ -1663,7 +1663,7 @@
     /// child of @self.
     /// ## `child`
     /// a child of @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_set_visible_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_set_visible_child&quot;</span>)]
     </span><span class="kw">pub fn </span>set_visible_child(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_stack_set_visible_child(
@@ -1682,7 +1682,7 @@
     /// the name of the child to make visible
     /// ## `transition`
     /// the transition type to use
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_set_visible_child_full&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_set_visible_child_full&quot;</span>)]
     </span><span class="kw">pub fn </span>set_visible_child_full(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw-2">&amp;</span>str, transition: StackTransitionType) {
         <span class="kw">unsafe </span>{
             ffi::gtk_stack_set_visible_child_full(
@@ -1704,14 +1704,14 @@
     /// child of @self.
     /// ## `name`
     /// the name of the child to make visible
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_stack_set_visible_child_name&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_stack_set_visible_child_name&quot;</span>)]
     </span><span class="kw">pub fn </span>set_visible_child_name(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw-2">&amp;</span>str) {
         <span class="kw">unsafe </span>{
             ffi::gtk_stack_set_visible_child_name(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, name.to_glib_none().<span class="number">0</span>);
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;hhomogeneous&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;hhomogeneous&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_hhomogeneous_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_hhomogeneous_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Stack) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkStack,
@@ -1734,7 +1734,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;interpolate-size&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;interpolate-size&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_interpolate_size_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_interpolate_size_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Stack) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkStack,
@@ -1757,7 +1757,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;pages&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;pages&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_pages_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_pages_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Stack) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkStack,
@@ -1780,7 +1780,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;transition-duration&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;transition-duration&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_transition_duration_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1806,7 +1806,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;transition-running&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;transition-running&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_transition_running_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1832,7 +1832,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;transition-type&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;transition-type&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_transition_type_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_transition_type_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Stack) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkStack,
@@ -1855,7 +1855,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;vhomogeneous&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;vhomogeneous&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_vhomogeneous_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_vhomogeneous_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Stack) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkStack,
@@ -1878,7 +1878,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;visible-child&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;visible-child&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_visible_child_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_visible_child_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Stack) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkStack,
@@ -1901,7 +1901,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;visible-child-name&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;visible-child-name&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_visible_child_name_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1934,12 +1934,12 @@
     }
 }
 
-<span class="attribute">#[derive(Clone, Default)]
+<span class="attr">#[derive(Clone, Default)]
 </span><span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`Stack`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attribute">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
+</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
 </span><span class="kw">pub struct </span>StackBuilder {
     hhomogeneous: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     interpolate_size: <span class="prelude-ty">Option</span>&lt;bool&gt;,
@@ -1989,7 +1989,7 @@
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`Stack`].
-    </span><span class="attribute">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
+    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; Stack {
         <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>hhomogeneous) = <span class="self">self</span>.hhomogeneous {
@@ -2103,7 +2103,7 @@
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>accessible_role) = <span class="self">self</span>.accessible_role {
             properties.push((<span class="string">&quot;accessible-role&quot;</span>, accessible_role));
         }
-        glib::Object::new::&lt;Stack&gt;(<span class="kw-2">&amp;</span>properties).expect(<span class="string">&quot;Failed to create an instance of Stack&quot;</span>)
+        glib::Object::new::&lt;Stack&gt;(<span class="kw-2">&amp;</span>properties)
     }
 
     <span class="doccomment">/// [`true`] if the stack allocates the same width for all children.
@@ -2406,4 +2406,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

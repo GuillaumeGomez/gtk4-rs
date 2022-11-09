@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/editable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>editable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/editable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>editable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -1170,7 +1170,7 @@
     /// # Implements
     ///
     /// [`EditableExt`][trait@crate::prelude::EditableExt], [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`EditableExtManual`][trait@crate::prelude::EditableExtManual], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkEditable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkEditable&quot;</span>)]
     </span><span class="kw">pub struct </span>Editable(Interface&lt;ffi::GtkEditable, ffi::GtkEditableInterface&gt;) @requires Widget, Accessible, Buildable, ConstraintTarget;
 
     <span class="kw">match fn </span>{
@@ -1191,7 +1191,7 @@
     <span class="doccomment">/// Deletes the currently selected text of the editable.
     ///
     /// This call doesn’t do anything if there is no selected text.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_delete_selection&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_delete_selection&quot;</span>)]
     </span><span class="kw">fn </span>delete_selection(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Deletes a sequence of characters.
@@ -1206,14 +1206,14 @@
     /// start position
     /// ## `end_pos`
     /// end position
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_delete_text&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_delete_text&quot;</span>)]
     </span><span class="kw">fn </span>delete_text(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32);
 
     <span class="doccomment">/// Undoes the setup done by [`init_delegate()`][Self::init_delegate()].
     ///
     /// This is a helper function that should be called from dispose,
     /// before removing the delegate object.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_finish_delegate&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_finish_delegate&quot;</span>)]
     </span><span class="kw">fn </span>finish_delegate(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Gets the alignment of the editable.
@@ -1221,7 +1221,7 @@
     /// # Returns
     ///
     /// the alignment
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_alignment&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_alignment&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_alignment&quot;</span>)]
     </span><span class="kw">fn </span>alignment(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f32;
 
@@ -1243,7 +1243,7 @@
     /// a pointer to the contents of the widget as a
     ///   string. This string is allocated by the [`Editable`][crate::Editable] implementation
     ///   and should be freed by the caller.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_chars&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_chars&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_chars&quot;</span>)]
     </span><span class="kw">fn </span>chars(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32) -&gt; glib::GString;
 
@@ -1255,7 +1255,7 @@
     /// # Returns
     ///
     /// the delegate [`Editable`][crate::Editable]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_delegate&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_delegate&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_delegate&quot;</span>)]
     #[must_use]
     </span><span class="kw">fn </span>delegate(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Editable&gt;;
@@ -1265,7 +1265,7 @@
     /// # Returns
     ///
     /// [`true`] if @self is editable.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_editable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_editable&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_editable&quot;</span>)]
     </span><span class="kw">fn </span>is_editable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -1274,7 +1274,7 @@
     /// # Returns
     ///
     /// [`true`] if undo is enabled
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_enable_undo&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_enable_undo&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_enable_undo&quot;</span>)]
     </span><span class="kw">fn </span>enables_undo(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -1283,7 +1283,7 @@
     /// # Returns
     ///
     /// the maximum width of the entry, in characters
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_max_width_chars&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_max_width_chars&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_max_width_chars&quot;</span>)]
     </span><span class="kw">fn </span>max_width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
@@ -1295,7 +1295,7 @@
     /// # Returns
     ///
     /// the cursor position
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_position&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_position&quot;</span>)]
     </span><span class="kw">fn </span>position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
@@ -1316,7 +1316,7 @@
     ///
     /// ## `end_pos`
     /// location to store the end position
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_selection_bounds&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_selection_bounds&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_selection_bounds&quot;</span>)]
     </span><span class="kw">fn </span>selection_bounds(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(i32, i32)&gt;;
 
@@ -1327,7 +1327,7 @@
     /// # Returns
     ///
     /// a pointer to the contents of the editable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_text&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_text&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_text&quot;</span>)]
     </span><span class="kw">fn </span>text(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; glib::GString;
 
@@ -1337,7 +1337,7 @@
     /// # Returns
     ///
     /// number of chars to request space for, or negative if unset
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_get_width_chars&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_width_chars&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_width_chars&quot;</span>)]
     </span><span class="kw">fn </span>width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
@@ -1348,7 +1348,7 @@
     ///
     /// This is a helper function that should be called in instance init,
     /// after creating the delegate object.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_init_delegate&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_init_delegate&quot;</span>)]
     </span><span class="kw">fn </span>init_delegate(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Inserts @length bytes of @text into the contents of the
@@ -1363,7 +1363,7 @@
     /// the length of the text in bytes, or -1
     /// ## `position`
     /// location of the position text will be inserted at
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_insert_text&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_insert_text&quot;</span>)]
     </span><span class="kw">fn </span>insert_text(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str, position: <span class="kw-2">&amp;mut </span>i32);
 
     <span class="doccomment">/// Selects a region of text.
@@ -1378,7 +1378,7 @@
     /// start of region
     /// ## `end_pos`
     /// end of region
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_select_region&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_select_region&quot;</span>)]
     </span><span class="kw">fn </span>select_region(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32);
 
     <span class="doccomment">/// Sets the alignment for the contents of the editable.
@@ -1388,14 +1388,14 @@
     /// ## `xalign`
     /// The horizontal alignment, from 0 (left) to 1 (right).
     ///   Reversed for RTL layouts
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_set_alignment&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_alignment&quot;</span>)]
     </span><span class="kw">fn </span>set_alignment(<span class="kw-2">&amp;</span><span class="self">self</span>, xalign: f32);
 
     <span class="doccomment">/// Determines if the user can edit the text in the editable widget.
     /// ## `is_editable`
     /// [`true`] if the user is allowed to edit the text
     ///   in the widget
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_set_editable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_editable&quot;</span>)]
     </span><span class="kw">fn </span>set_editable(<span class="kw-2">&amp;</span><span class="self">self</span>, is_editable: bool);
 
     <span class="doccomment">/// If enabled, changes to @self will be saved for undo/redo
@@ -1406,13 +1406,13 @@
     /// when `property::Text::visibility` is set to [`false`].
     /// ## `enable_undo`
     /// if undo/redo should be enabled
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_set_enable_undo&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_enable_undo&quot;</span>)]
     </span><span class="kw">fn </span>set_enable_undo(<span class="kw-2">&amp;</span><span class="self">self</span>, enable_undo: bool);
 
     <span class="doccomment">/// Sets the desired maximum width in characters of @self.
     /// ## `n_chars`
     /// the new desired maximum width, in characters
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_set_max_width_chars&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_max_width_chars&quot;</span>)]
     </span><span class="kw">fn </span>set_max_width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>, n_chars: i32);
 
     <span class="doccomment">/// Sets the cursor position in the editable to the given value.
@@ -1424,7 +1424,7 @@
     /// of the editable. Note that @position is in characters, not in bytes.
     /// ## `position`
     /// the position of the cursor
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_set_position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_position&quot;</span>)]
     </span><span class="kw">fn </span>set_position(<span class="kw-2">&amp;</span><span class="self">self</span>, position: i32);
 
     <span class="doccomment">/// Sets the text in the editable to the given value.
@@ -1432,7 +1432,7 @@
     /// This is replacing the current contents.
     /// ## `text`
     /// the text to set
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_set_text&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_text&quot;</span>)]
     </span><span class="kw">fn </span>set_text(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str);
 
     <span class="doccomment">/// Changes the size request of the editable to be about the
@@ -1443,15 +1443,15 @@
     /// If @n_chars is -1, the size reverts to the default size.
     /// ## `n_chars`
     /// width in chars
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_editable_set_width_chars&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_width_chars&quot;</span>)]
     </span><span class="kw">fn </span>set_width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>, n_chars: i32);
 
     <span class="doccomment">/// The current position of the insertion cursor in chars.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;cursor-position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;cursor-position&quot;</span>)]
     </span><span class="kw">fn </span>cursor_position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
     <span class="doccomment">/// The position of the opposite end of the selection from the cursor in chars.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;selection-bound&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;selection-bound&quot;</span>)]
     </span><span class="kw">fn </span>selection_bound(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
     <span class="doccomment">/// The horizontal alignment, from 0 (left) to 1 (right).
@@ -1472,7 +1472,7 @@
     /// is implemented by first deleting the selection, then inserting
     /// the new content, and may cause multiple ::notify::text signals
     /// to be emitted).
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;changed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;changed&quot;</span>)]
     </span><span class="kw">fn </span>connect_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
     <span class="doccomment">/// Emitted when text is deleted from the widget by the user.
@@ -1488,31 +1488,31 @@
     /// the starting position
     /// ## `end_pos`
     /// the end position
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;delete-text&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;delete-text&quot;</span>)]
     </span><span class="kw">fn </span>connect_delete_text&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;cursor-position&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;cursor-position&quot;</span>)]
     </span><span class="kw">fn </span>connect_cursor_position_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;editable&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;editable&quot;</span>)]
     </span><span class="kw">fn </span>connect_editable_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;enable-undo&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;enable-undo&quot;</span>)]
     </span><span class="kw">fn </span>connect_enable_undo_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;max-width-chars&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;max-width-chars&quot;</span>)]
     </span><span class="kw">fn </span>connect_max_width_chars_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;selection-bound&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;selection-bound&quot;</span>)]
     </span><span class="kw">fn </span>connect_selection_bound_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;text&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;text&quot;</span>)]
     </span><span class="kw">fn </span>connect_text_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;width-chars&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;width-chars&quot;</span>)]
     </span><span class="kw">fn </span>connect_width_chars_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;xalign&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;xalign&quot;</span>)]
     </span><span class="kw">fn </span>connect_xalign_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
@@ -1613,7 +1613,7 @@
     }
 
     <span class="kw">fn </span>insert_text(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str, position: <span class="kw-2">&amp;mut </span>i32) {
-        <span class="kw">let </span>length = text.len() <span class="kw">as </span>i32;
+        <span class="kw">let </span>length = text.len() <span class="kw">as _</span>;
         <span class="kw">unsafe </span>{
             ffi::gtk_editable_insert_text(
                 <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
@@ -1940,4 +1940,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

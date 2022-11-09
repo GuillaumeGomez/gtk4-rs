@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/entry_completion.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>entry_completion.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/entry_completion.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>entry_completion.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -1068,6 +1068,120 @@
 <span id="995">995</span>
 <span id="996">996</span>
 <span id="997">997</span>
+<span id="998">998</span>
+<span id="999">999</span>
+<span id="1000">1000</span>
+<span id="1001">1001</span>
+<span id="1002">1002</span>
+<span id="1003">1003</span>
+<span id="1004">1004</span>
+<span id="1005">1005</span>
+<span id="1006">1006</span>
+<span id="1007">1007</span>
+<span id="1008">1008</span>
+<span id="1009">1009</span>
+<span id="1010">1010</span>
+<span id="1011">1011</span>
+<span id="1012">1012</span>
+<span id="1013">1013</span>
+<span id="1014">1014</span>
+<span id="1015">1015</span>
+<span id="1016">1016</span>
+<span id="1017">1017</span>
+<span id="1018">1018</span>
+<span id="1019">1019</span>
+<span id="1020">1020</span>
+<span id="1021">1021</span>
+<span id="1022">1022</span>
+<span id="1023">1023</span>
+<span id="1024">1024</span>
+<span id="1025">1025</span>
+<span id="1026">1026</span>
+<span id="1027">1027</span>
+<span id="1028">1028</span>
+<span id="1029">1029</span>
+<span id="1030">1030</span>
+<span id="1031">1031</span>
+<span id="1032">1032</span>
+<span id="1033">1033</span>
+<span id="1034">1034</span>
+<span id="1035">1035</span>
+<span id="1036">1036</span>
+<span id="1037">1037</span>
+<span id="1038">1038</span>
+<span id="1039">1039</span>
+<span id="1040">1040</span>
+<span id="1041">1041</span>
+<span id="1042">1042</span>
+<span id="1043">1043</span>
+<span id="1044">1044</span>
+<span id="1045">1045</span>
+<span id="1046">1046</span>
+<span id="1047">1047</span>
+<span id="1048">1048</span>
+<span id="1049">1049</span>
+<span id="1050">1050</span>
+<span id="1051">1051</span>
+<span id="1052">1052</span>
+<span id="1053">1053</span>
+<span id="1054">1054</span>
+<span id="1055">1055</span>
+<span id="1056">1056</span>
+<span id="1057">1057</span>
+<span id="1058">1058</span>
+<span id="1059">1059</span>
+<span id="1060">1060</span>
+<span id="1061">1061</span>
+<span id="1062">1062</span>
+<span id="1063">1063</span>
+<span id="1064">1064</span>
+<span id="1065">1065</span>
+<span id="1066">1066</span>
+<span id="1067">1067</span>
+<span id="1068">1068</span>
+<span id="1069">1069</span>
+<span id="1070">1070</span>
+<span id="1071">1071</span>
+<span id="1072">1072</span>
+<span id="1073">1073</span>
+<span id="1074">1074</span>
+<span id="1075">1075</span>
+<span id="1076">1076</span>
+<span id="1077">1077</span>
+<span id="1078">1078</span>
+<span id="1079">1079</span>
+<span id="1080">1080</span>
+<span id="1081">1081</span>
+<span id="1082">1082</span>
+<span id="1083">1083</span>
+<span id="1084">1084</span>
+<span id="1085">1085</span>
+<span id="1086">1086</span>
+<span id="1087">1087</span>
+<span id="1088">1088</span>
+<span id="1089">1089</span>
+<span id="1090">1090</span>
+<span id="1091">1091</span>
+<span id="1092">1092</span>
+<span id="1093">1093</span>
+<span id="1094">1094</span>
+<span id="1095">1095</span>
+<span id="1096">1096</span>
+<span id="1097">1097</span>
+<span id="1098">1098</span>
+<span id="1099">1099</span>
+<span id="1100">1100</span>
+<span id="1101">1101</span>
+<span id="1102">1102</span>
+<span id="1103">1103</span>
+<span id="1104">1104</span>
+<span id="1105">1105</span>
+<span id="1106">1106</span>
+<span id="1107">1107</span>
+<span id="1108">1108</span>
+<span id="1109">1109</span>
+<span id="1110">1110</span>
+<span id="1111">1111</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -1132,7 +1246,7 @@
     /// # Implements
     ///
     /// [`trait@glib::ObjectExt`], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`CellLayoutExt`][trait@crate::prelude::CellLayoutExt], [`CellLayoutExtManual`][trait@crate::prelude::CellLayoutExtManual]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkEntryCompletion&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkEntryCompletion&quot;</span>)]
     </span><span class="kw">pub struct </span>EntryCompletion(Object&lt;ffi::GtkEntryCompletion&gt;) @implements Buildable, CellLayout;
 
     <span class="kw">match fn </span>{
@@ -1143,10 +1257,15 @@
 <span class="kw">impl </span>EntryCompletion {
     <span class="doccomment">/// Creates a new [`EntryCompletion`][crate::EntryCompletion] object.
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
+    ///
     /// # Returns
     ///
     /// A newly created [`EntryCompletion`][crate::EntryCompletion] object
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_new&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_new&quot;</span>)]
     </span><span class="kw">pub fn </span>new() -&gt; EntryCompletion {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{ from_glib_full(ffi::gtk_entry_completion_new()) }
@@ -1157,13 +1276,18 @@
     ///
     /// The [`CellArea`][crate::CellArea] is used to layout cells in the underlying
     /// [`TreeViewColumn`][crate::TreeViewColumn] for the drop-down menu.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
     /// ## `area`
     /// the [`CellArea`][crate::CellArea] used to layout cells
     ///
     /// # Returns
     ///
     /// A newly created [`EntryCompletion`][crate::EntryCompletion] object
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_new_with_area&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_new_with_area&quot;</span>)]
     #[doc(alias = <span class="string">&quot;new_with_area&quot;</span>)]
     </span><span class="kw">pub fn </span>with_area(area: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;CellArea&gt;) -&gt; EntryCompletion {
         <span class="macro">skip_assert_initialized!</span>();
@@ -1186,7 +1310,12 @@
     /// current list with completions, using the current key.
     ///
     /// The completion list view will be updated accordingly.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_complete&quot;</span>)]
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_complete&quot;</span>)]
     </span><span class="kw">pub fn </span>complete(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::gtk_entry_completion_complete(<span class="self">self</span>.to_glib_none().<span class="number">0</span>);
@@ -1199,6 +1328,10 @@
     /// If no row matches @key, [`None`] will be returned.
     /// Note that a text column must have been set for this function to work,
     /// see [`set_text_column()`][Self::set_text_column()] for details.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
     /// ## `key`
     /// The text to complete for
     ///
@@ -1206,7 +1339,8 @@
     ///
     /// The common prefix all rows
     ///   starting with @key
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_compute_prefix&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_compute_prefix&quot;</span>)]
     </span><span class="kw">pub fn </span>compute_prefix(<span class="kw-2">&amp;</span><span class="self">self</span>, key: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::gtk_entry_completion_compute_prefix(
@@ -1219,10 +1353,15 @@
     <span class="doccomment">/// Get the original text entered by the user that triggered
     /// the completion or [`None`] if there’s no completion ongoing.
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
+    ///
     /// # Returns
     ///
     /// the prefix for the current completion
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_get_completion_prefix&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_get_completion_prefix&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_completion_prefix&quot;</span>)]
     </span><span class="kw">pub fn </span>completion_prefix(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
         <span class="kw">unsafe </span>{
@@ -1235,10 +1374,15 @@
     <span class="doccomment">/// Returns whether the common prefix of the possible completions should
     /// be automatically inserted in the entry.
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
+    ///
     /// # Returns
     ///
     /// [`true`] if inline completion is turned on
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_get_inline_completion&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_get_inline_completion&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_inline_completion&quot;</span>)]
     </span><span class="kw">pub fn </span>is_inline_completion(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -1250,10 +1394,15 @@
 
     <span class="doccomment">/// Returns [`true`] if inline-selection mode is turned on.
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
+    ///
     /// # Returns
     ///
     /// [`true`] if inline-selection mode is on
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_get_inline_selection&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_get_inline_selection&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_inline_selection&quot;</span>)]
     </span><span class="kw">pub fn </span>is_inline_selection(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -1265,10 +1414,15 @@
 
     <span class="doccomment">/// Returns the minimum key length as set for @self.
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
+    ///
     /// # Returns
     ///
     /// The currently used minimum key length
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_get_minimum_key_length&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_get_minimum_key_length&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_minimum_key_length&quot;</span>)]
     </span><span class="kw">pub fn </span>minimum_key_length(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_entry_completion_get_minimum_key_length(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -1278,10 +1432,15 @@
     ///
     /// Returns [`None`] if the model is unset.
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
+    ///
     /// # Returns
     ///
     /// A [`TreeModel`][crate::TreeModel]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_get_model&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_get_model&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_model&quot;</span>)]
     </span><span class="kw">pub fn </span>model(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;TreeModel&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_entry_completion_get_model(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1289,10 +1448,15 @@
 
     <span class="doccomment">/// Returns whether the completions should be presented in a popup window.
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
+    ///
     /// # Returns
     ///
     /// [`true`] if popup completion is turned on
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_get_popup_completion&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_get_popup_completion&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_popup_completion&quot;</span>)]
     </span><span class="kw">pub fn </span>is_popup_completion(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -1305,11 +1469,16 @@
     <span class="doccomment">/// Returns whether the completion popup window will be resized to the
     /// width of the entry.
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
+    ///
     /// # Returns
     ///
     /// [`true`] if the popup window will be resized to the width of
     ///   the entry
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_get_popup_set_width&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_get_popup_set_width&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_popup_set_width&quot;</span>)]
     </span><span class="kw">pub fn </span>is_popup_set_width(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -1322,11 +1491,16 @@
     <span class="doccomment">/// Returns whether the completion popup window will appear even if there is
     /// only a single match.
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
+    ///
     /// # Returns
     ///
     /// [`true`] if the popup window will appear regardless of the
     ///    number of matches
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_get_popup_single_match&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_get_popup_single_match&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_popup_single_match&quot;</span>)]
     </span><span class="kw">pub fn </span>is_popup_single_match(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -1338,17 +1512,27 @@
 
     <span class="doccomment">/// Returns the column in the model of @self to get strings from.
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
+    ///
     /// # Returns
     ///
     /// the column containing the strings
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_get_text_column&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_get_text_column&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_text_column&quot;</span>)]
     </span><span class="kw">pub fn </span>text_column(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_entry_completion_get_text_column(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
     }
 
     <span class="doccomment">/// Requests a prefix insertion.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_insert_prefix&quot;</span>)]
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_insert_prefix&quot;</span>)]
     </span><span class="kw">pub fn </span>insert_prefix(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::gtk_entry_completion_insert_prefix(<span class="self">self</span>.to_glib_none().<span class="number">0</span>);
@@ -1357,9 +1541,14 @@
 
     <span class="doccomment">/// Sets whether the common prefix of the possible completions should
     /// be automatically inserted in the entry.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
     /// ## `inline_completion`
     /// [`true`] to do inline completion
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_set_inline_completion&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_set_inline_completion&quot;</span>)]
     </span><span class="kw">pub fn </span>set_inline_completion(<span class="kw-2">&amp;</span><span class="self">self</span>, inline_completion: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_entry_completion_set_inline_completion(
@@ -1371,9 +1560,14 @@
 
     <span class="doccomment">/// Sets whether it is possible to cycle through the possible completions
     /// inside the entry.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
     /// ## `inline_selection`
     /// [`true`] to do inline selection
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_set_inline_selection&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_set_inline_selection&quot;</span>)]
     </span><span class="kw">pub fn </span>set_inline_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, inline_selection: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_entry_completion_set_inline_selection(
@@ -1387,13 +1581,18 @@
     ///
     /// The match function is used to determine if a row should or
     /// should not be in the completion list.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
     /// ## `func`
     /// the [`EntryCompletion`][crate::EntryCompletion]MatchFunc to use
     /// ## `func_data`
     /// user data for @func
     /// ## `func_notify`
     /// destroy notify for @func_data.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_set_match_func&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_set_match_func&quot;</span>)]
     </span><span class="kw">pub fn </span>set_match_func&lt;P: Fn(<span class="kw-2">&amp;</span>EntryCompletion, <span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span>TreeIter) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         func: P,
@@ -1440,9 +1639,14 @@
     /// This is useful for long lists, where completing using a small
     /// key takes a lot of time and will come up with meaningless results anyway
     /// (ie, a too large dataset).
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
     /// ## `length`
     /// the minimum length of the key in order to start completing
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_set_minimum_key_length&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_set_minimum_key_length&quot;</span>)]
     </span><span class="kw">pub fn </span>set_minimum_key_length(<span class="kw-2">&amp;</span><span class="self">self</span>, length: i32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_entry_completion_set_minimum_key_length(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, length);
@@ -1454,9 +1658,14 @@
     /// If @self already has a model set, it will remove it
     /// before setting the new model. If model is [`None`], then it
     /// will unset the model.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
     /// ## `model`
     /// the [`TreeModel`][crate::TreeModel]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_set_model&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_set_model&quot;</span>)]
     </span><span class="kw">pub fn </span>set_model(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;TreeModel&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_entry_completion_set_model(
@@ -1467,9 +1676,14 @@
     }
 
     <span class="doccomment">/// Sets whether the completions should be presented in a popup window.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
     /// ## `popup_completion`
     /// [`true`] to do popup completion
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_set_popup_completion&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_set_popup_completion&quot;</span>)]
     </span><span class="kw">pub fn </span>set_popup_completion(<span class="kw-2">&amp;</span><span class="self">self</span>, popup_completion: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_entry_completion_set_popup_completion(
@@ -1481,9 +1695,14 @@
 
     <span class="doccomment">/// Sets whether the completion popup window will be resized to be the same
     /// width as the entry.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
     /// ## `popup_set_width`
     /// [`true`] to make the width of the popup the same as the entry
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_set_popup_set_width&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_set_popup_set_width&quot;</span>)]
     </span><span class="kw">pub fn </span>set_popup_set_width(<span class="kw-2">&amp;</span><span class="self">self</span>, popup_set_width: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_entry_completion_set_popup_set_width(
@@ -1498,9 +1717,14 @@
     ///
     /// You may want to set this to [`false`] if you
     /// are using `property::EntryCompletion::inline-completion`.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
     /// ## `popup_single_match`
     /// [`true`] if the popup should appear even for a single match
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_set_popup_single_match&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_set_popup_single_match&quot;</span>)]
     </span><span class="kw">pub fn </span>set_popup_single_match(<span class="kw-2">&amp;</span><span class="self">self</span>, popup_single_match: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_entry_completion_set_popup_single_match(
@@ -1521,9 +1745,14 @@
     /// column. If you need to set the text column, but don&#39;t want the cell
     /// renderer, use g_object_set() to set the
     /// `property::EntryCompletion::text-column` property directly.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// GtkEntryCompletion will be removed in GTK 5.
     /// ## `column`
     /// the column in the model of @self to get strings from
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_entry_completion_set_text_column&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_entry_completion_set_text_column&quot;</span>)]
     </span><span class="kw">pub fn </span>set_text_column(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_entry_completion_set_text_column(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, column);
@@ -1535,7 +1764,7 @@
     /// If no area is specified when creating the entry completion with
     /// [`with_area()`][Self::with_area()], a horizontally oriented
     /// [`CellAreaBox`][crate::CellAreaBox] will be used.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;cell-area&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;cell-area&quot;</span>)]
     </span><span class="kw">pub fn </span>cell_area(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellArea&gt; {
         glib::ObjectExt::property(<span class="self">self</span>, <span class="string">&quot;cell-area&quot;</span>)
     }
@@ -1556,7 +1785,7 @@
     /// # Returns
     ///
     /// [`true`] if the signal has been handled
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;cursor-on-match&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;cursor-on-match&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_cursor_on_match&lt;
         F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>TreeModel, <span class="kw-2">&amp;</span>TreeIter) -&gt; glib::signal::Inhibit + <span class="lifetime">&#39;static</span>,
     &gt;(
@@ -1607,7 +1836,7 @@
     /// # Returns
     ///
     /// [`true`] if the signal has been handled
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;insert-prefix&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;insert-prefix&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_insert_prefix&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>str) -&gt; glib::signal::Inhibit + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1655,7 +1884,7 @@
     /// # Returns
     ///
     /// [`true`] if the signal has been handled
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;match-selected&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;match-selected&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_match_selected&lt;
         F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>TreeModel, <span class="kw-2">&amp;</span>TreeIter) -&gt; glib::signal::Inhibit + <span class="lifetime">&#39;static</span>,
     &gt;(
@@ -1695,7 +1924,7 @@
     /// number of rows in completion_complete method.
     ///
     /// In other words when [`EntryCompletion`][crate::EntryCompletion] is out of suggestions.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;no-matches&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;no-matches&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_no_matches&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>no_matches_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>EntryCompletion) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkEntryCompletion,
@@ -1717,7 +1946,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;inline-completion&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;inline-completion&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_inline_completion_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1745,7 +1974,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;inline-selection&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;inline-selection&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_inline_selection_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_inline_selection_trampoline&lt;
             F: Fn(<span class="kw-2">&amp;</span>EntryCompletion) + <span class="lifetime">&#39;static</span>,
@@ -1770,7 +1999,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;minimum-key-length&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;minimum-key-length&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_minimum_key_length_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1798,7 +2027,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;model&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;model&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_model_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_model_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>EntryCompletion) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkEntryCompletion,
@@ -1821,7 +2050,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;popup-completion&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;popup-completion&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_popup_completion_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_popup_completion_trampoline&lt;
             F: Fn(<span class="kw-2">&amp;</span>EntryCompletion) + <span class="lifetime">&#39;static</span>,
@@ -1846,7 +2075,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;popup-set-width&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;popup-set-width&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_popup_set_width_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_popup_set_width_trampoline&lt;
             F: Fn(<span class="kw-2">&amp;</span>EntryCompletion) + <span class="lifetime">&#39;static</span>,
@@ -1871,7 +2100,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;popup-single-match&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;popup-single-match&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_popup_single_match_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1899,7 +2128,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;text-column&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;text-column&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_text_column_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_text_column_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>EntryCompletion) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkEntryCompletion,
@@ -1929,12 +2158,12 @@
     }
 }
 
-<span class="attribute">#[derive(Clone, Default)]
+<span class="attr">#[derive(Clone, Default)]
 </span><span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`EntryCompletion`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attribute">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
+</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
 </span><span class="kw">pub struct </span>EntryCompletionBuilder {
     cell_area: <span class="prelude-ty">Option</span>&lt;CellArea&gt;,
     inline_completion: <span class="prelude-ty">Option</span>&lt;bool&gt;,
@@ -1956,7 +2185,7 @@
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`EntryCompletion`].
-    </span><span class="attribute">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
+    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; EntryCompletion {
         <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>cell_area) = <span class="self">self</span>.cell_area {
@@ -1987,7 +2216,6 @@
             properties.push((<span class="string">&quot;text-column&quot;</span>, text_column));
         }
         glib::Object::new::&lt;EntryCompletion&gt;(<span class="kw-2">&amp;</span>properties)
-            .expect(<span class="string">&quot;Failed to create an instance of EntryCompletion&quot;</span>)
     }
 
     <span class="doccomment">/// The [`CellArea`][crate::CellArea] used to layout cell renderers in the treeview column.
@@ -2066,4 +2294,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

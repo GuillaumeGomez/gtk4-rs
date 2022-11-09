@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/spin_button.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>spin_button.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/spin_button.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>spin_button.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -1550,11 +1550,27 @@
 <span id="1477">1477</span>
 <span id="1478">1478</span>
 <span id="1479">1479</span>
+<span id="1480">1480</span>
+<span id="1481">1481</span>
+<span id="1482">1482</span>
+<span id="1483">1483</span>
+<span id="1484">1484</span>
+<span id="1485">1485</span>
+<span id="1486">1486</span>
+<span id="1487">1487</span>
+<span id="1488">1488</span>
+<span id="1489">1489</span>
+<span id="1490">1490</span>
+<span id="1491">1491</span>
+<span id="1492">1492</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
 </span><span class="kw">use </span><span class="kw">crate</span>::Accessible;
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
+</span><span class="kw">use </span><span class="kw">crate</span>::AccessibleRange;
 <span class="kw">use </span><span class="kw">crate</span>::AccessibleRole;
 <span class="kw">use </span><span class="kw">crate</span>::Adjustment;
 <span class="kw">use </span><span class="kw">crate</span>::Align;
@@ -1584,7 +1600,9 @@
 <span class="kw">use </span>std::mem;
 <span class="kw">use </span>std::mem::transmute;
 
-<span class="macro">glib::wrapper! </span>{
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
+</span><span class="macro">glib::wrapper! </span>{
     <span class="doccomment">/// A [`SpinButton`][crate::SpinButton] is an ideal way to allow the user to set the
     /// value of some attribute.
     ///
@@ -1704,8 +1722,18 @@
     ///
     /// # Implements
     ///
-    /// [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`CellEditableExt`][trait@crate::prelude::CellEditableExt], [`EditableExt`][trait@crate::prelude::EditableExt], [`OrientableExt`][trait@crate::prelude::OrientableExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual], [`EditableExtManual`][trait@crate::prelude::EditableExtManual]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkSpinButton&quot;</span>)]
+    /// [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`AccessibleRangeExt`][trait@crate::prelude::AccessibleRangeExt], [`CellEditableExt`][trait@crate::prelude::CellEditableExt], [`EditableExt`][trait@crate::prelude::EditableExt], [`OrientableExt`][trait@crate::prelude::OrientableExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual], [`EditableExtManual`][trait@crate::prelude::EditableExtManual]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkSpinButton&quot;</span>)]
+    </span><span class="kw">pub struct </span>SpinButton(Object&lt;ffi::GtkSpinButton&gt;) @extends Widget, @implements Accessible, Buildable, ConstraintTarget, AccessibleRange, CellEditable, Editable, Orientable;
+
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::gtk_spin_button_get_type(),
+    }
+}
+
+<span class="attr">#[cfg(not(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>)))]
+</span><span class="macro">glib::wrapper! </span>{
+    <span class="attr">#[doc(alias = <span class="string">&quot;GtkSpinButton&quot;</span>)]
     </span><span class="kw">pub struct </span>SpinButton(Object&lt;ffi::GtkSpinButton&gt;) @extends Widget, @implements Accessible, Buildable, ConstraintTarget, CellEditable, Editable, Orientable;
 
     <span class="kw">match fn </span>{
@@ -1726,7 +1754,7 @@
     /// # Returns
     ///
     /// The new [`SpinButton`][crate::SpinButton]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_new&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_new&quot;</span>)]
     </span><span class="kw">pub fn </span>new(
         adjustment: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Adjustment&gt;&gt;,
         climb_rate: f64,
@@ -1766,7 +1794,7 @@
     /// # Returns
     ///
     /// The new [`SpinButton`][crate::SpinButton]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_new_with_range&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_new_with_range&quot;</span>)]
     #[doc(alias = <span class="string">&quot;new_with_range&quot;</span>)]
     </span><span class="kw">pub fn </span>with_range(min: f64, max: f64, step: f64) -&gt; SpinButton {
         <span class="macro">assert_initialized_main_thread!</span>();
@@ -1795,7 +1823,7 @@
     /// the new climb rate
     /// ## `digits`
     /// the number of decimal places to display in the spin button
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_configure&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_configure&quot;</span>)]
     </span><span class="kw">pub fn </span>configure(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         adjustment: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Adjustment&gt;&gt;,
@@ -1817,7 +1845,7 @@
     /// # Returns
     ///
     /// the [`Adjustment`][crate::Adjustment] of @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_adjustment&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_adjustment&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_adjustment&quot;</span>)]
     </span><span class="kw">pub fn </span>adjustment(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Adjustment {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_spin_button_get_adjustment(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1828,7 +1856,7 @@
     /// # Returns
     ///
     /// the acceleration rate
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_climb_rate&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_climb_rate&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_climb_rate&quot;</span>)]
     </span><span class="kw">pub fn </span>climb_rate(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f64 {
         <span class="kw">unsafe </span>{ ffi::gtk_spin_button_get_climb_rate(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -1839,7 +1867,7 @@
     /// # Returns
     ///
     /// the current precision
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_digits&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_digits&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_digits&quot;</span>)]
     </span><span class="kw">pub fn </span>digits(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u32 {
         <span class="kw">unsafe </span>{ ffi::gtk_spin_button_get_digits(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -1858,7 +1886,7 @@
     ///
     /// ## `page`
     /// location to store page increment
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_increments&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_increments&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_increments&quot;</span>)]
     </span><span class="kw">pub fn </span>increments(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (f64, f64) {
         <span class="kw">unsafe </span>{
@@ -1878,7 +1906,7 @@
     /// # Returns
     ///
     /// [`true`] if only numeric text can be entered
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_numeric&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_numeric&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_numeric&quot;</span>)]
     </span><span class="kw">pub fn </span>is_numeric(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_spin_button_get_numeric(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1896,7 +1924,7 @@
     ///
     /// ## `max`
     /// location to store maximum allowed value
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_range&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_range&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_range&quot;</span>)]
     </span><span class="kw">pub fn </span>range(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (f64, f64) {
         <span class="kw">unsafe </span>{
@@ -1916,7 +1944,7 @@
     /// # Returns
     ///
     /// [`true`] if values are snapped to the nearest step
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_snap_to_ticks&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_snap_to_ticks&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_snap_to_ticks&quot;</span>)]
     </span><span class="kw">pub fn </span>snaps_to_ticks(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -1933,7 +1961,7 @@
     /// # Returns
     ///
     /// the current update policy
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_update_policy&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_update_policy&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_update_policy&quot;</span>)]
     </span><span class="kw">pub fn </span>update_policy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; SpinButtonUpdatePolicy {
         <span class="kw">unsafe </span>{
@@ -1948,7 +1976,7 @@
     /// # Returns
     ///
     /// the value of @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_value&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_value&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_value&quot;</span>)]
     </span><span class="kw">pub fn </span>value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f64 {
         <span class="kw">unsafe </span>{ ffi::gtk_spin_button_get_value(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -1959,7 +1987,7 @@
     /// # Returns
     ///
     /// the value of @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_value_as_int&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_value_as_int&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_value_as_int&quot;</span>)]
     </span><span class="kw">pub fn </span>value_as_int(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_spin_button_get_value_as_int(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -1972,7 +2000,7 @@
     /// # Returns
     ///
     /// [`true`] if the spin button wraps around
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_wrap&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_get_wrap&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_wrap&quot;</span>)]
     </span><span class="kw">pub fn </span>wraps(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_spin_button_get_wrap(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1981,7 +2009,7 @@
     <span class="doccomment">/// Replaces the [`Adjustment`][crate::Adjustment] associated with @self.
     /// ## `adjustment`
     /// a [`Adjustment`][crate::Adjustment] to replace the existing adjustment
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_adjustment&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_adjustment&quot;</span>)]
     </span><span class="kw">pub fn </span>set_adjustment(<span class="kw-2">&amp;</span><span class="self">self</span>, adjustment: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Adjustment&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_spin_button_set_adjustment(
@@ -1995,7 +2023,7 @@
     /// hold down a button or key.
     /// ## `climb_rate`
     /// the rate of acceleration, must be &gt;= 0
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_climb_rate&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_climb_rate&quot;</span>)]
     </span><span class="kw">pub fn </span>set_climb_rate(<span class="kw-2">&amp;</span><span class="self">self</span>, climb_rate: f64) {
         <span class="kw">unsafe </span>{
             ffi::gtk_spin_button_set_climb_rate(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, climb_rate);
@@ -2008,7 +2036,7 @@
     /// ## `digits`
     /// the number of digits after the decimal point to be
     ///   displayed for the spin button’s value
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_digits&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_digits&quot;</span>)]
     </span><span class="kw">pub fn </span>set_digits(<span class="kw-2">&amp;</span><span class="self">self</span>, digits: u32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_spin_button_set_digits(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, digits);
@@ -2023,7 +2051,7 @@
     /// increment applied for a button 1 press.
     /// ## `page`
     /// increment applied for a button 2 press.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_increments&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_increments&quot;</span>)]
     </span><span class="kw">pub fn </span>set_increments(<span class="kw-2">&amp;</span><span class="self">self</span>, step: f64, page: f64) {
         <span class="kw">unsafe </span>{
             ffi::gtk_spin_button_set_increments(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, step, page);
@@ -2034,7 +2062,7 @@
     /// into the spin button.
     /// ## `numeric`
     /// flag indicating if only numeric entry is allowed
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_numeric&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_numeric&quot;</span>)]
     </span><span class="kw">pub fn </span>set_numeric(<span class="kw-2">&amp;</span><span class="self">self</span>, numeric: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_spin_button_set_numeric(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, numeric.into_glib());
@@ -2049,7 +2077,7 @@
     /// minimum allowable value
     /// ## `max`
     /// maximum allowable value
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_range&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_range&quot;</span>)]
     </span><span class="kw">pub fn </span>set_range(<span class="kw-2">&amp;</span><span class="self">self</span>, min: f64, max: f64) {
         <span class="kw">unsafe </span>{
             ffi::gtk_spin_button_set_range(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, min, max);
@@ -2061,7 +2089,7 @@
     /// providing an invalid value.
     /// ## `snap_to_ticks`
     /// a flag indicating if invalid values should be corrected
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_snap_to_ticks&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_snap_to_ticks&quot;</span>)]
     </span><span class="kw">pub fn </span>set_snap_to_ticks(<span class="kw-2">&amp;</span><span class="self">self</span>, snap_to_ticks: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_spin_button_set_snap_to_ticks(
@@ -2077,7 +2105,7 @@
     /// updated or only when a valid value is set.
     /// ## `policy`
     /// a [`SpinButtonUpdatePolicy`][crate::SpinButtonUpdatePolicy] value
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_update_policy&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_update_policy&quot;</span>)]
     </span><span class="kw">pub fn </span>set_update_policy(<span class="kw-2">&amp;</span><span class="self">self</span>, policy: SpinButtonUpdatePolicy) {
         <span class="kw">unsafe </span>{
             ffi::gtk_spin_button_set_update_policy(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, policy.into_glib());
@@ -2087,7 +2115,7 @@
     <span class="doccomment">/// Sets the value of @self.
     /// ## `value`
     /// the new value
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_value&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_value&quot;</span>)]
     </span><span class="kw">pub fn </span>set_value(<span class="kw-2">&amp;</span><span class="self">self</span>, value: f64) {
         <span class="kw">unsafe </span>{
             ffi::gtk_spin_button_set_value(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, value);
@@ -2099,7 +2127,7 @@
     /// of the range is exceeded.
     /// ## `wrap`
     /// a flag indicating if wrapping behavior is performed
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_wrap&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_set_wrap&quot;</span>)]
     </span><span class="kw">pub fn </span>set_wrap(<span class="kw-2">&amp;</span><span class="self">self</span>, wrap: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_spin_button_set_wrap(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, wrap.into_glib());
@@ -2112,7 +2140,7 @@
     /// a [`SpinType`][crate::SpinType] indicating the direction to spin
     /// ## `increment`
     /// step increment to apply in the specified direction
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_spin&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_spin&quot;</span>)]
     </span><span class="kw">pub fn </span>spin(<span class="kw-2">&amp;</span><span class="self">self</span>, direction: SpinType, increment: f64) {
         <span class="kw">unsafe </span>{
             ffi::gtk_spin_button_spin(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, direction.into_glib(), increment);
@@ -2120,7 +2148,7 @@
     }
 
     <span class="doccomment">/// Manually force an update of the spin button.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_spin_button_update&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_spin_button_update&quot;</span>)]
     </span><span class="kw">pub fn </span>update(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::gtk_spin_button_update(<span class="self">self</span>.to_glib_none().<span class="number">0</span>);
@@ -2138,7 +2166,7 @@
     /// The default bindings for this signal are Up/Down and PageUp/PageDown.
     /// ## `scroll`
     /// a [`ScrollType`][crate::ScrollType] to specify the speed and amount of change
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;change-value&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;change-value&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_change_value&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, ScrollType) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -2195,7 +2223,7 @@
     /// # Returns
     ///
     /// [`true`] if the value has been displayed
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;output&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;output&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_output&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; glib::signal::Inhibit + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -2225,7 +2253,7 @@
     <span class="doccomment">/// Emitted when the value is changed.
     ///
     /// Also see the `signal::SpinButton::output` signal.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;value-changed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;value-changed&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_value_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>value_changed_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>SpinButton) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkSpinButton,
@@ -2249,7 +2277,7 @@
 
     <span class="doccomment">/// Emitted right after the spinbutton wraps from its maximum
     /// to its minimum value or vice-versa.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;wrapped&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;wrapped&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_wrapped&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>wrapped_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>SpinButton) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkSpinButton,
@@ -2271,7 +2299,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;adjustment&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;adjustment&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_adjustment_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_adjustment_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>SpinButton) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkSpinButton,
@@ -2294,7 +2322,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;climb-rate&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;climb-rate&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_climb_rate_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_climb_rate_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>SpinButton) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkSpinButton,
@@ -2317,7 +2345,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;digits&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;digits&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_digits_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_digits_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>SpinButton) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkSpinButton,
@@ -2340,7 +2368,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;numeric&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;numeric&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_numeric_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_numeric_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>SpinButton) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkSpinButton,
@@ -2363,7 +2391,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;snap-to-ticks&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;snap-to-ticks&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_snap_to_ticks_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_snap_to_ticks_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>SpinButton) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkSpinButton,
@@ -2386,7 +2414,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;update-policy&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;update-policy&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_update_policy_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_update_policy_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>SpinButton) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkSpinButton,
@@ -2409,7 +2437,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;value&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;value&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_value_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_value_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>SpinButton) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkSpinButton,
@@ -2432,7 +2460,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;wrap&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;wrap&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_wrap_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_wrap_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>SpinButton) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkSpinButton,
@@ -2459,16 +2487,15 @@
 <span class="kw">impl </span>Default <span class="kw">for </span>SpinButton {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
         glib::object::Object::new::&lt;<span class="self">Self</span>&gt;(<span class="kw-2">&amp;</span>[])
-            .expect(<span class="string">&quot;Can&#39;t construct SpinButton object with default parameters&quot;</span>)
     }
 }
 
-<span class="attribute">#[derive(Clone, Default)]
+<span class="attr">#[derive(Clone, Default)]
 </span><span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`SpinButton`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attribute">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
+</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
 </span><span class="kw">pub struct </span>SpinButtonBuilder {
     adjustment: <span class="prelude-ty">Option</span>&lt;Adjustment&gt;,
     climb_rate: <span class="prelude-ty">Option</span>&lt;f64&gt;,
@@ -2527,7 +2554,7 @@
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`SpinButton`].
-    </span><span class="attribute">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
+    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; SpinButton {
         <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>adjustment) = <span class="self">self</span>.adjustment {
@@ -2669,7 +2696,6 @@
             properties.push((<span class="string">&quot;orientation&quot;</span>, orientation));
         }
         glib::Object::new::&lt;SpinButton&gt;(<span class="kw-2">&amp;</span>properties)
-            .expect(<span class="string">&quot;Failed to create an instance of SpinButton&quot;</span>)
     }
 
     <span class="doccomment">/// The adjustment that holds the value of the spin button.
@@ -3030,4 +3056,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

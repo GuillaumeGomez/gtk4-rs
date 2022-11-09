@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/file_chooser.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>file_chooser.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/file_chooser.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>file_chooser.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -840,34 +840,6 @@
 <span id="767">767</span>
 <span id="768">768</span>
 <span id="769">769</span>
-<span id="770">770</span>
-<span id="771">771</span>
-<span id="772">772</span>
-<span id="773">773</span>
-<span id="774">774</span>
-<span id="775">775</span>
-<span id="776">776</span>
-<span id="777">777</span>
-<span id="778">778</span>
-<span id="779">779</span>
-<span id="780">780</span>
-<span id="781">781</span>
-<span id="782">782</span>
-<span id="783">783</span>
-<span id="784">784</span>
-<span id="785">785</span>
-<span id="786">786</span>
-<span id="787">787</span>
-<span id="788">788</span>
-<span id="789">789</span>
-<span id="790">790</span>
-<span id="791">791</span>
-<span id="792">792</span>
-<span id="793">793</span>
-<span id="794">794</span>
-<span id="795">795</span>
-<span id="796">796</span>
-<span id="797">797</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -929,7 +901,7 @@
     /// # Implements
     ///
     /// [`FileChooserExt`][trait@crate::prelude::FileChooserExt], [`FileChooserExtManual`][trait@crate::prelude::FileChooserExtManual]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkFileChooser&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkFileChooser&quot;</span>)]
     </span><span class="kw">pub struct </span>FileChooser(Interface&lt;ffi::GtkFileChooser&gt;);
 
     <span class="kw">match fn </span>{
@@ -956,7 +928,7 @@
     /// so you have to ref and sink it if you want to keep a reference.
     /// ## `filter`
     /// a [`FileFilter`][crate::FileFilter]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_add_filter&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_add_filter&quot;</span>)]
     </span><span class="kw">fn </span>add_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="kw-2">&amp;</span>FileFilter);
 
     <span class="doccomment">/// Adds a folder to be displayed with the shortcut folders
@@ -968,7 +940,7 @@
     ///
     /// [`true`] if the folder could be added successfully,
     ///   [`false`] otherwise.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_add_shortcut_folder&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_add_shortcut_folder&quot;</span>)]
     </span><span class="kw">fn </span>add_shortcut_folder(<span class="kw-2">&amp;</span><span class="self">self</span>, folder: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::File&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;;
 
     <span class="doccomment">/// Gets the type of operation that the file chooser is performing.
@@ -976,7 +948,7 @@
     /// # Returns
     ///
     /// the action that the file selector is performing
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_action&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_action&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_action&quot;</span>)]
     </span><span class="kw">fn </span>action(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; FileChooserAction;
 
@@ -987,7 +959,7 @@
     /// # Returns
     ///
     /// the ID of the currently selected option
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_choice&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_choice&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_choice&quot;</span>)]
     </span><span class="kw">fn </span>choice(<span class="kw-2">&amp;</span><span class="self">self</span>, id: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
 
@@ -996,7 +968,7 @@
     /// # Returns
     ///
     /// [`true`] if the Create Folder button should be displayed.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_create_folders&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_create_folders&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_create_folders&quot;</span>)]
     </span><span class="kw">fn </span>creates_folders(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -1005,7 +977,7 @@
     /// # Returns
     ///
     /// the `GFile` for the current folder.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_current_folder&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_current_folder&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_current_folder&quot;</span>)]
     </span><span class="kw">fn </span>current_folder(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gio::File&gt;;
 
@@ -1021,7 +993,7 @@
     ///   whatever the contents of the entry are. Note also that this string is
     ///   in UTF-8 encoding, which is not necessarily the system’s encoding for
     ///   filenames.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_current_name&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_current_name&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_current_name&quot;</span>)]
     </span><span class="kw">fn </span>current_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
 
@@ -1038,7 +1010,7 @@
     ///
     /// a selected `GFile`. You own the
     ///   returned file; use g_object_unref() to release it.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_file&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_file&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_file&quot;</span>)]
     </span><span class="kw">fn </span>file(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gio::File&gt;;
 
@@ -1050,7 +1022,7 @@
     /// a list model containing a `GFile` for each
     ///   selected file and subfolder in the current folder. Free the returned
     ///   list with g_object_unref().
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_files&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_files&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_files&quot;</span>)]
     </span><span class="kw">fn </span>files(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; gio::ListModel;
 
@@ -1059,7 +1031,7 @@
     /// # Returns
     ///
     /// the current filter
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_filter&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_filter&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_filter&quot;</span>)]
     </span><span class="kw">fn </span>filter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;FileFilter&gt;;
 
@@ -1075,7 +1047,7 @@
     ///
     /// a `GListModel` containing the current set
     ///   of user-selectable filters.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_filters&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_filters&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_filters&quot;</span>)]
     </span><span class="kw">fn </span>filters(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; gio::ListModel;
 
@@ -1085,7 +1057,7 @@
     /// # Returns
     ///
     /// [`true`] if multiple files can be selected.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_select_multiple&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_select_multiple&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_select_multiple&quot;</span>)]
     </span><span class="kw">fn </span>selects_multiple(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -1097,20 +1069,20 @@
     /// # Returns
     ///
     /// A list model of `GFile`s
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_shortcut_folders&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_get_shortcut_folders&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_shortcut_folders&quot;</span>)]
     </span><span class="kw">fn </span>shortcut_folders(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; gio::ListModel;
 
     <span class="doccomment">/// Removes a &#39;choice&#39; that has been added with gtk_file_chooser_add_choice().
     /// ## `id`
     /// the ID of the choice to remove
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_remove_choice&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_remove_choice&quot;</span>)]
     </span><span class="kw">fn </span>remove_choice(<span class="kw-2">&amp;</span><span class="self">self</span>, id: <span class="kw-2">&amp;</span>str);
 
     <span class="doccomment">/// Removes @filter from the list of filters that the user can select between.
     /// ## `filter`
     /// a [`FileFilter`][crate::FileFilter]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_remove_filter&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_remove_filter&quot;</span>)]
     </span><span class="kw">fn </span>remove_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="kw-2">&amp;</span>FileFilter);
 
     <span class="doccomment">/// Removes a folder from the shortcut folders in a file chooser.
@@ -1121,7 +1093,7 @@
     ///
     /// [`true`] if the folder could be removed successfully,
     ///   [`false`] otherwise.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_remove_shortcut_folder&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_remove_shortcut_folder&quot;</span>)]
     </span><span class="kw">fn </span>remove_shortcut_folder(<span class="kw-2">&amp;</span><span class="self">self</span>, folder: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::File&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;;
 
     <span class="doccomment">/// Sets the type of operation that the chooser is performing.
@@ -1133,7 +1105,7 @@
     /// action is [`FileChooserAction::Open`][crate::FileChooserAction::Open].
     /// ## `action`
     /// the action that the file selector is performing
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_action&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_action&quot;</span>)]
     </span><span class="kw">fn </span>set_action(<span class="kw-2">&amp;</span><span class="self">self</span>, action: FileChooserAction);
 
     <span class="doccomment">/// Selects an option in a &#39;choice&#39; that has been added with
@@ -1144,7 +1116,7 @@
     /// the ID of the choice to set
     /// ## `option`
     /// the ID of the option to select
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_choice&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_choice&quot;</span>)]
     </span><span class="kw">fn </span>set_choice(<span class="kw-2">&amp;</span><span class="self">self</span>, id: <span class="kw-2">&amp;</span>str, option: <span class="kw-2">&amp;</span>str);
 
     <span class="doccomment">/// Sets whether file chooser will offer to create new folders.
@@ -1153,19 +1125,8 @@
     /// [`FileChooserAction::Open`][crate::FileChooserAction::Open].
     /// ## `create_folders`
     /// [`true`] if the Create Folder button should be displayed
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_create_folders&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_create_folders&quot;</span>)]
     </span><span class="kw">fn </span>set_create_folders(<span class="kw-2">&amp;</span><span class="self">self</span>, create_folders: bool);
-
-    <span class="doccomment">/// Sets the current folder for @self from a `GFile`.
-    /// ## `file`
-    /// the `GFile` for the new folder
-    ///
-    /// # Returns
-    ///
-    /// [`true`] if the folder could be changed successfully, [`false`]
-    ///   otherwise.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_current_folder&quot;</span>)]
-    </span><span class="kw">fn </span>set_current_folder(<span class="kw-2">&amp;</span><span class="self">self</span>, file: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::File&gt;&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;;
 
     <span class="doccomment">/// Sets the current name in the file selector, as if entered
     /// by the user.
@@ -1182,7 +1143,7 @@
     /// of using [`set_current_name()`][Self::set_current_name()] as well.
     /// ## `name`
     /// the filename to use, as a UTF-8 string
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_current_name&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_current_name&quot;</span>)]
     </span><span class="kw">fn </span>set_current_name(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw-2">&amp;</span>str);
 
     <span class="doccomment">/// Sets @file as the current filename for the file chooser.
@@ -1235,7 +1196,7 @@
     /// # Returns
     ///
     /// Not useful
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_file&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_file&quot;</span>)]
     </span><span class="kw">fn </span>set_file(<span class="kw-2">&amp;</span><span class="self">self</span>, file: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::File&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt;;
 
     <span class="doccomment">/// Sets the current filter.
@@ -1249,7 +1210,7 @@
     /// set of files without letting the user change it.
     /// ## `filter`
     /// a [`FileFilter`][crate::FileFilter]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_filter&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_filter&quot;</span>)]
     </span><span class="kw">fn </span>set_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="kw-2">&amp;</span>FileFilter);
 
     <span class="doccomment">/// Sets whether multiple files can be selected in the file chooser.
@@ -1259,25 +1220,25 @@
     /// [`FileChooserAction::SelectFolder`][crate::FileChooserAction::SelectFolder].
     /// ## `select_multiple`
     /// [`true`] if multiple files can be selected.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_select_multiple&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_chooser_set_select_multiple&quot;</span>)]
     </span><span class="kw">fn </span>set_select_multiple(<span class="kw-2">&amp;</span><span class="self">self</span>, select_multiple: bool);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;action&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;action&quot;</span>)]
     </span><span class="kw">fn </span>connect_action_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;create-folders&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;create-folders&quot;</span>)]
     </span><span class="kw">fn </span>connect_create_folders_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;filter&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;filter&quot;</span>)]
     </span><span class="kw">fn </span>connect_filter_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;filters&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;filters&quot;</span>)]
     </span><span class="kw">fn </span>connect_filters_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;select-multiple&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;select-multiple&quot;</span>)]
     </span><span class="kw">fn </span>connect_select_multiple_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;shortcut-folders&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;shortcut-folders&quot;</span>)]
     </span><span class="kw">fn </span>connect_shortcut_folders_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
@@ -1454,23 +1415,6 @@
                 <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
                 create_folders.into_glib(),
             );
-        }
-    }
-
-    <span class="kw">fn </span>set_current_folder(<span class="kw-2">&amp;</span><span class="self">self</span>, file: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::File&gt;&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), glib::Error&gt; {
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
-            <span class="kw">let </span>is_ok = ffi::gtk_file_chooser_set_current_folder(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                file.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                <span class="kw-2">&amp;mut </span>error,
-            );
-            <span class="macro">assert_eq!</span>(is_ok == glib::ffi::GFALSE, !error.is_null());
-            <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(())
-            } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(error))
-            }
         }
     }
 
@@ -1666,4 +1610,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

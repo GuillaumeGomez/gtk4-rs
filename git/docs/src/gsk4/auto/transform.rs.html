@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gsk4/src/auto/transform.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>transform.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gsk4/src/auto/transform.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>transform.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gsk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gsk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gsk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gsk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -508,177 +508,6 @@
 <span id="435">435</span>
 <span id="436">436</span>
 <span id="437">437</span>
-<span id="438">438</span>
-<span id="439">439</span>
-<span id="440">440</span>
-<span id="441">441</span>
-<span id="442">442</span>
-<span id="443">443</span>
-<span id="444">444</span>
-<span id="445">445</span>
-<span id="446">446</span>
-<span id="447">447</span>
-<span id="448">448</span>
-<span id="449">449</span>
-<span id="450">450</span>
-<span id="451">451</span>
-<span id="452">452</span>
-<span id="453">453</span>
-<span id="454">454</span>
-<span id="455">455</span>
-<span id="456">456</span>
-<span id="457">457</span>
-<span id="458">458</span>
-<span id="459">459</span>
-<span id="460">460</span>
-<span id="461">461</span>
-<span id="462">462</span>
-<span id="463">463</span>
-<span id="464">464</span>
-<span id="465">465</span>
-<span id="466">466</span>
-<span id="467">467</span>
-<span id="468">468</span>
-<span id="469">469</span>
-<span id="470">470</span>
-<span id="471">471</span>
-<span id="472">472</span>
-<span id="473">473</span>
-<span id="474">474</span>
-<span id="475">475</span>
-<span id="476">476</span>
-<span id="477">477</span>
-<span id="478">478</span>
-<span id="479">479</span>
-<span id="480">480</span>
-<span id="481">481</span>
-<span id="482">482</span>
-<span id="483">483</span>
-<span id="484">484</span>
-<span id="485">485</span>
-<span id="486">486</span>
-<span id="487">487</span>
-<span id="488">488</span>
-<span id="489">489</span>
-<span id="490">490</span>
-<span id="491">491</span>
-<span id="492">492</span>
-<span id="493">493</span>
-<span id="494">494</span>
-<span id="495">495</span>
-<span id="496">496</span>
-<span id="497">497</span>
-<span id="498">498</span>
-<span id="499">499</span>
-<span id="500">500</span>
-<span id="501">501</span>
-<span id="502">502</span>
-<span id="503">503</span>
-<span id="504">504</span>
-<span id="505">505</span>
-<span id="506">506</span>
-<span id="507">507</span>
-<span id="508">508</span>
-<span id="509">509</span>
-<span id="510">510</span>
-<span id="511">511</span>
-<span id="512">512</span>
-<span id="513">513</span>
-<span id="514">514</span>
-<span id="515">515</span>
-<span id="516">516</span>
-<span id="517">517</span>
-<span id="518">518</span>
-<span id="519">519</span>
-<span id="520">520</span>
-<span id="521">521</span>
-<span id="522">522</span>
-<span id="523">523</span>
-<span id="524">524</span>
-<span id="525">525</span>
-<span id="526">526</span>
-<span id="527">527</span>
-<span id="528">528</span>
-<span id="529">529</span>
-<span id="530">530</span>
-<span id="531">531</span>
-<span id="532">532</span>
-<span id="533">533</span>
-<span id="534">534</span>
-<span id="535">535</span>
-<span id="536">536</span>
-<span id="537">537</span>
-<span id="538">538</span>
-<span id="539">539</span>
-<span id="540">540</span>
-<span id="541">541</span>
-<span id="542">542</span>
-<span id="543">543</span>
-<span id="544">544</span>
-<span id="545">545</span>
-<span id="546">546</span>
-<span id="547">547</span>
-<span id="548">548</span>
-<span id="549">549</span>
-<span id="550">550</span>
-<span id="551">551</span>
-<span id="552">552</span>
-<span id="553">553</span>
-<span id="554">554</span>
-<span id="555">555</span>
-<span id="556">556</span>
-<span id="557">557</span>
-<span id="558">558</span>
-<span id="559">559</span>
-<span id="560">560</span>
-<span id="561">561</span>
-<span id="562">562</span>
-<span id="563">563</span>
-<span id="564">564</span>
-<span id="565">565</span>
-<span id="566">566</span>
-<span id="567">567</span>
-<span id="568">568</span>
-<span id="569">569</span>
-<span id="570">570</span>
-<span id="571">571</span>
-<span id="572">572</span>
-<span id="573">573</span>
-<span id="574">574</span>
-<span id="575">575</span>
-<span id="576">576</span>
-<span id="577">577</span>
-<span id="578">578</span>
-<span id="579">579</span>
-<span id="580">580</span>
-<span id="581">581</span>
-<span id="582">582</span>
-<span id="583">583</span>
-<span id="584">584</span>
-<span id="585">585</span>
-<span id="586">586</span>
-<span id="587">587</span>
-<span id="588">588</span>
-<span id="589">589</span>
-<span id="590">590</span>
-<span id="591">591</span>
-<span id="592">592</span>
-<span id="593">593</span>
-<span id="594">594</span>
-<span id="595">595</span>
-<span id="596">596</span>
-<span id="597">597</span>
-<span id="598">598</span>
-<span id="599">599</span>
-<span id="600">600</span>
-<span id="601">601</span>
-<span id="602">602</span>
-<span id="603">603</span>
-<span id="604">604</span>
-<span id="605">605</span>
-<span id="606">606</span>
-<span id="607">607</span>
-<span id="608">608</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -698,7 +527,7 @@
     /// [`Transform`][crate::Transform] objects are immutable and cannot be changed after creation.
     /// This means code can safely expose them as properties of objects without
     /// having to worry about others changing them.
-    </span><span class="attribute">#[derive(Debug, PartialOrd, Ord, Hash)]
+    </span><span class="attr">#[derive(Debug, PartialOrd, Ord, Hash)]
     </span><span class="kw">pub struct </span>Transform(Shared&lt;ffi::GskTransform&gt;);
 
     <span class="kw">match fn </span>{
@@ -709,13 +538,13 @@
 }
 
 <span class="kw">impl </span>Transform {
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_new&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;gsk_transform_new&quot;</span>)]
     </span><span class="kw">pub fn </span>new() -&gt; Transform {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{ from_glib_full(ffi::gsk_transform_new()) }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_equal&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;gsk_transform_equal&quot;</span>)]
     </span><span class="kw">fn </span>equal(<span class="kw-2">&amp;</span><span class="self">self</span>, second: <span class="kw-2">&amp;</span>Transform) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gsk_transform_equal(
@@ -730,27 +559,10 @@
     /// # Returns
     ///
     /// The category of the transform
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_get_category&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gsk_transform_get_category&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_category&quot;</span>)]
     </span><span class="kw">pub fn </span>category(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; TransformCategory {
         <span class="kw">unsafe </span>{ from_glib(ffi::gsk_transform_get_category(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
-    }
-
-    <span class="doccomment">/// Inverts the given transform.
-    ///
-    /// If @self is not invertible, [`None`] is returned.
-    /// Note that inverting [`None`] also returns [`None`], which is
-    /// the correct inverse of [`None`]. If you need to differentiate
-    /// between those cases, you should check @self is not [`None`]
-    /// before calling this function.
-    ///
-    /// # Returns
-    ///
-    /// The inverted transform
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_invert&quot;</span>)]
-    #[must_use]
-    </span><span class="kw">pub fn </span>invert(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Transform&gt; {
-        <span class="kw">unsafe </span>{ from_glib_full(ffi::gsk_transform_invert(<span class="self">self</span>.to_glib_full())) }
     }
 
     <span class="doccomment">/// Multiplies @self with the given @matrix.
@@ -760,7 +572,7 @@
     /// # Returns
     ///
     /// The new transform
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_matrix&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gsk_transform_matrix&quot;</span>)]
     #[must_use]
     </span><span class="kw">pub fn </span>matrix(<span class="kw-2">&amp;</span><span class="self">self</span>, matrix: <span class="kw-2">&amp;</span>graphene::Matrix) -&gt; Transform {
         <span class="kw">unsafe </span>{
@@ -785,110 +597,10 @@
     /// # Returns
     ///
     /// The new transform
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_perspective&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gsk_transform_perspective&quot;</span>)]
     #[must_use]
     </span><span class="kw">pub fn </span>perspective(<span class="kw-2">&amp;</span><span class="self">self</span>, depth: f32) -&gt; Transform {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::gsk_transform_perspective(<span class="self">self</span>.to_glib_full(), depth)) }
-    }
-
-    <span class="doccomment">/// Rotates @self @angle degrees in 2D - or in 3D-speak, around the z axis.
-    /// ## `angle`
-    /// the rotation angle, in degrees (clockwise)
-    ///
-    /// # Returns
-    ///
-    /// The new transform
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_rotate&quot;</span>)]
-    #[must_use]
-    </span><span class="kw">pub fn </span>rotate(<span class="kw-2">&amp;</span><span class="self">self</span>, angle: f32) -&gt; <span class="prelude-ty">Option</span>&lt;Transform&gt; {
-        <span class="kw">unsafe </span>{ from_glib_full(ffi::gsk_transform_rotate(<span class="self">self</span>.to_glib_full(), angle)) }
-    }
-
-    <span class="doccomment">/// Rotates @self @angle degrees around @axis.
-    ///
-    /// For a rotation in 2D space, use [`rotate()`][Self::rotate()]
-    /// ## `angle`
-    /// the rotation angle, in degrees (clockwise)
-    /// ## `axis`
-    /// The rotation axis
-    ///
-    /// # Returns
-    ///
-    /// The new transform
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_rotate_3d&quot;</span>)]
-    #[must_use]
-    </span><span class="kw">pub fn </span>rotate_3d(<span class="kw-2">&amp;</span><span class="self">self</span>, angle: f32, axis: <span class="kw-2">&amp;</span>graphene::Vec3) -&gt; <span class="prelude-ty">Option</span>&lt;Transform&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gsk_transform_rotate_3d(
-                <span class="self">self</span>.to_glib_full(),
-                angle,
-                axis.to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="doccomment">/// Scales @self in 2-dimensional space by the given factors.
-    ///
-    /// Use [`scale_3d()`][Self::scale_3d()] to scale in all 3 dimensions.
-    /// ## `factor_x`
-    /// scaling factor on the X axis
-    /// ## `factor_y`
-    /// scaling factor on the Y axis
-    ///
-    /// # Returns
-    ///
-    /// The new transform
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_scale&quot;</span>)]
-    #[must_use]
-    </span><span class="kw">pub fn </span>scale(<span class="kw-2">&amp;</span><span class="self">self</span>, factor_x: f32, factor_y: f32) -&gt; <span class="prelude-ty">Option</span>&lt;Transform&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gsk_transform_scale(
-                <span class="self">self</span>.to_glib_full(),
-                factor_x,
-                factor_y,
-            ))
-        }
-    }
-
-    <span class="doccomment">/// Scales @self by the given factors.
-    /// ## `factor_x`
-    /// scaling factor on the X axis
-    /// ## `factor_y`
-    /// scaling factor on the Y axis
-    /// ## `factor_z`
-    /// scaling factor on the Z axis
-    ///
-    /// # Returns
-    ///
-    /// The new transform
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_scale_3d&quot;</span>)]
-    #[must_use]
-    </span><span class="kw">pub fn </span>scale_3d(<span class="kw-2">&amp;</span><span class="self">self</span>, factor_x: f32, factor_y: f32, factor_z: f32) -&gt; <span class="prelude-ty">Option</span>&lt;Transform&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gsk_transform_scale_3d(
-                <span class="self">self</span>.to_glib_full(),
-                factor_x,
-                factor_y,
-                factor_z,
-            ))
-        }
-    }
-
-    <span class="doccomment">/// Applies a skew transform.
-    /// ## `skew_x`
-    /// skew factor, in degrees, on the X axis
-    /// ## `skew_y`
-    /// skew factor, in degrees, on the Y axis
-    ///
-    /// # Returns
-    ///
-    /// The new transform
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;gsk_transform_skew&quot;</span>)]
-    #[must_use]
-    </span><span class="kw">pub fn </span>skew(<span class="kw-2">&amp;</span><span class="self">self</span>, skew_x: f32, skew_y: f32) -&gt; <span class="prelude-ty">Option</span>&lt;Transform&gt; {
-        <span class="kw">unsafe </span>{ from_glib_full(ffi::gsk_transform_skew(<span class="self">self</span>.to_glib_full(), skew_x, skew_y)) }
     }
 
     <span class="doccomment">/// Converts a [`Transform`][crate::Transform] to a 2D transformation matrix.
@@ -929,7 +641,7 @@
     ///
     /// ## `out_dy`
     /// return location for the y0 member
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_to_2d&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gsk_transform_to_2d&quot;</span>)]
     </span><span class="kw">pub fn </span>to_2d(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (f32, f32, f32, f32, f32, f32) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>out_xx = mem::MaybeUninit::uninit();
@@ -1006,7 +718,7 @@
     /// ## `out_dy`
     /// return location for the translation
     ///   in the y direction
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;gsk_transform_to_2d_components&quot;</span>)]
     </span><span class="kw">pub fn </span>to_2d_components(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (f32, f32, f32, f32, f32, f32, f32) {
@@ -1074,7 +786,7 @@
     /// ## `out_dy`
     /// return location for the translation
     ///   in the y direction
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_to_affine&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gsk_transform_to_affine&quot;</span>)]
     </span><span class="kw">pub fn </span>to_affine(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (f32, f32, f32, f32) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>out_scale_x = mem::MaybeUninit::uninit();
@@ -1106,7 +818,7 @@
     ///
     /// ## `out_matrix`
     /// The matrix to set
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_to_matrix&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gsk_transform_to_matrix&quot;</span>)]
     </span><span class="kw">pub fn </span>to_matrix(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; graphene::Matrix {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>out_matrix = graphene::Matrix::uninitialized();
@@ -1124,7 +836,7 @@
     /// # Returns
     ///
     /// A new string for @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_to_string&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gsk_transform_to_string&quot;</span>)]
     #[doc(alias = <span class="string">&quot;to_string&quot;</span>)]
     </span><span class="kw">pub fn </span>to_str(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; glib::GString {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::gsk_transform_to_string(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1149,7 +861,7 @@
     /// ## `out_dy`
     /// return location for the translation
     ///   in the y direction
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_to_translate&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gsk_transform_to_translate&quot;</span>)]
     </span><span class="kw">pub fn </span>to_translate(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (f32, f32) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>out_dx = mem::MaybeUninit::uninit();
@@ -1160,24 +872,6 @@
                 out_dy.as_mut_ptr(),
             );
             (out_dx.assume_init(), out_dy.assume_init())
-        }
-    }
-
-    <span class="doccomment">/// Applies all the operations from @other to @self.
-    /// ## `other`
-    /// Transform to apply
-    ///
-    /// # Returns
-    ///
-    /// The new transform
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_transform&quot;</span>)]
-    #[must_use]
-    </span><span class="kw">pub fn </span>transform(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>Transform&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;Transform&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gsk_transform_transform(
-                <span class="self">self</span>.to_glib_full(),
-                other.to_glib_none().<span class="number">0</span>,
-            ))
         }
     }
 
@@ -1193,7 +887,7 @@
     /// ## `out_rect`
     /// return location for the bounds
     ///   of the transformed rectangle
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_transform_bounds&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gsk_transform_transform_bounds&quot;</span>)]
     </span><span class="kw">pub fn </span>transform_bounds(<span class="kw-2">&amp;</span><span class="self">self</span>, rect: <span class="kw-2">&amp;</span>graphene::Rect) -&gt; graphene::Rect {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>out_rect = graphene::Rect::uninitialized();
@@ -1216,7 +910,7 @@
     /// ## `out_point`
     /// return location for
     ///   the transformed point
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_transform_point&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gsk_transform_transform_point&quot;</span>)]
     </span><span class="kw">pub fn </span>transform_point(<span class="kw-2">&amp;</span><span class="self">self</span>, point: <span class="kw-2">&amp;</span>graphene::Point) -&gt; graphene::Point {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>out_point = graphene::Point::uninitialized();
@@ -1228,42 +922,6 @@
             out_point
         }
     }
-
-    <span class="doccomment">/// Translates @self in 2-dimensional space by @point.
-    /// ## `point`
-    /// the point to translate the transform by
-    ///
-    /// # Returns
-    ///
-    /// The new transform
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_translate&quot;</span>)]
-    #[must_use]
-    </span><span class="kw">pub fn </span>translate(<span class="kw-2">&amp;</span><span class="self">self</span>, point: <span class="kw-2">&amp;</span>graphene::Point) -&gt; <span class="prelude-ty">Option</span>&lt;Transform&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gsk_transform_translate(
-                <span class="self">self</span>.to_glib_full(),
-                point.to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="doccomment">/// Translates @self by @point.
-    /// ## `point`
-    /// the point to translate the transform by
-    ///
-    /// # Returns
-    ///
-    /// The new transform
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gsk_transform_translate_3d&quot;</span>)]
-    #[must_use]
-    </span><span class="kw">pub fn </span>translate_3d(<span class="kw-2">&amp;</span><span class="self">self</span>, point: <span class="kw-2">&amp;</span>graphene::Point3D) -&gt; <span class="prelude-ty">Option</span>&lt;Transform&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gsk_transform_translate_3d(
-                <span class="self">self</span>.to_glib_full(),
-                point.to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
 }
 
 <span class="kw">impl </span>Default <span class="kw">for </span>Transform {
@@ -1273,7 +931,7 @@
 }
 
 <span class="kw">impl </span>PartialEq <span class="kw">for </span>Transform {
-    <span class="attribute">#[inline]
+    <span class="attr">#[inline]
     </span><span class="kw">fn </span>eq(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool {
         <span class="self">self</span>.equal(other)
     }
@@ -1282,10 +940,10 @@
 <span class="kw">impl </span>Eq <span class="kw">for </span>Transform {}
 
 <span class="kw">impl </span>fmt::Display <span class="kw">for </span>Transform {
-    <span class="attribute">#[inline]
+    <span class="attr">#[inline]
     </span><span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
         f.write_str(<span class="kw-2">&amp;</span><span class="self">self</span>.to_str())
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gsk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gsk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/buildable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>buildable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/buildable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>buildable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -389,88 +389,6 @@
 <span id="316">316</span>
 <span id="317">317</span>
 <span id="318">318</span>
-<span id="319">319</span>
-<span id="320">320</span>
-<span id="321">321</span>
-<span id="322">322</span>
-<span id="323">323</span>
-<span id="324">324</span>
-<span id="325">325</span>
-<span id="326">326</span>
-<span id="327">327</span>
-<span id="328">328</span>
-<span id="329">329</span>
-<span id="330">330</span>
-<span id="331">331</span>
-<span id="332">332</span>
-<span id="333">333</span>
-<span id="334">334</span>
-<span id="335">335</span>
-<span id="336">336</span>
-<span id="337">337</span>
-<span id="338">338</span>
-<span id="339">339</span>
-<span id="340">340</span>
-<span id="341">341</span>
-<span id="342">342</span>
-<span id="343">343</span>
-<span id="344">344</span>
-<span id="345">345</span>
-<span id="346">346</span>
-<span id="347">347</span>
-<span id="348">348</span>
-<span id="349">349</span>
-<span id="350">350</span>
-<span id="351">351</span>
-<span id="352">352</span>
-<span id="353">353</span>
-<span id="354">354</span>
-<span id="355">355</span>
-<span id="356">356</span>
-<span id="357">357</span>
-<span id="358">358</span>
-<span id="359">359</span>
-<span id="360">360</span>
-<span id="361">361</span>
-<span id="362">362</span>
-<span id="363">363</span>
-<span id="364">364</span>
-<span id="365">365</span>
-<span id="366">366</span>
-<span id="367">367</span>
-<span id="368">368</span>
-<span id="369">369</span>
-<span id="370">370</span>
-<span id="371">371</span>
-<span id="372">372</span>
-<span id="373">373</span>
-<span id="374">374</span>
-<span id="375">375</span>
-<span id="376">376</span>
-<span id="377">377</span>
-<span id="378">378</span>
-<span id="379">379</span>
-<span id="380">380</span>
-<span id="381">381</span>
-<span id="382">382</span>
-<span id="383">383</span>
-<span id="384">384</span>
-<span id="385">385</span>
-<span id="386">386</span>
-<span id="387">387</span>
-<span id="388">388</span>
-<span id="389">389</span>
-<span id="390">390</span>
-<span id="391">391</span>
-<span id="392">392</span>
-<span id="393">393</span>
-<span id="394">394</span>
-<span id="395">395</span>
-<span id="396">396</span>
-<span id="397">397</span>
-<span id="398">398</span>
-<span id="399">399</span>
-<span id="400">400</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 // rustdoc-stripper-ignore-next
@@ -486,50 +404,32 @@
 <span class="kw">use </span><span class="kw">super</span>::PtrHolder;
 
 <span class="kw">pub trait </span>BuildableImpl: ObjectImpl {
-    <span class="kw">fn </span>set_id(<span class="kw-2">&amp;</span><span class="self">self</span>, buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, id: <span class="kw-2">&amp;</span>str) {
-        <span class="self">self</span>.parent_set_id(buildable, id)
+    <span class="kw">fn </span>set_id(<span class="kw-2">&amp;</span><span class="self">self</span>, id: <span class="kw-2">&amp;</span>str) {
+        <span class="self">self</span>.parent_set_id(id)
     }
-    <span class="kw">fn </span>id(<span class="kw-2">&amp;</span><span class="self">self</span>, buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="prelude-ty">Option</span>&lt;GString&gt; {
-        <span class="self">self</span>.parent_id(buildable)
+    <span class="kw">fn </span>id(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;GString&gt; {
+        <span class="self">self</span>.parent_id()
     }
-    <span class="kw">fn </span>add_child(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        builder: <span class="kw-2">&amp;</span>Builder,
-        child: <span class="kw-2">&amp;</span>Object,
-        type_: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
-    ) {
-        <span class="self">self</span>.parent_add_child(buildable, builder, child, type_)
+    <span class="kw">fn </span>add_child(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder, child: <span class="kw-2">&amp;</span>Object, type_: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
+        <span class="self">self</span>.parent_add_child(builder, child, type_)
     }
-    <span class="kw">fn </span>set_buildable_property(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        builder: <span class="kw-2">&amp;</span>Builder,
-        name: <span class="kw-2">&amp;</span>str,
-        value: <span class="kw-2">&amp;</span>Value,
-    ) {
-        <span class="self">self</span>.parent_set_buildable_property(buildable, builder, name, value)
+    <span class="kw">fn </span>set_buildable_property(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder, name: <span class="kw-2">&amp;</span>str, value: <span class="kw-2">&amp;</span>Value) {
+        <span class="self">self</span>.parent_set_buildable_property(builder, name, value)
     }
-    <span class="kw">fn </span>parser_finished(<span class="kw-2">&amp;</span><span class="self">self</span>, buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, builder: <span class="kw-2">&amp;</span>Builder) {
-        <span class="self">self</span>.parent_parser_finished(buildable, builder)
+    <span class="kw">fn </span>parser_finished(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder) {
+        <span class="self">self</span>.parent_parser_finished(builder)
     }
-    <span class="kw">fn </span>internal_child(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        builder: <span class="kw-2">&amp;</span>Builder,
-        name: <span class="kw-2">&amp;</span>str,
-    ) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt; {
-        <span class="self">self</span>.parent_internal_child(buildable, builder, name)
+    <span class="kw">fn </span>internal_child(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder, name: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt; {
+        <span class="self">self</span>.parent_internal_child(builder, name)
     }
-    <span class="kw">fn </span>construct_child(<span class="kw-2">&amp;</span><span class="self">self</span>, buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, builder: <span class="kw-2">&amp;</span>Builder, name: <span class="kw-2">&amp;</span>str) -&gt; Object {
-        <span class="self">self</span>.parent_construct_child(buildable, builder, name)
+    <span class="kw">fn </span>construct_child(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder, name: <span class="kw-2">&amp;</span>str) -&gt; Object {
+        <span class="self">self</span>.parent_construct_child(builder, name)
     }
     <span class="comment">/*
     Only useful for custom tags, not something the application developer has to often implement
     and needs more thinking in terms of how to handle both BuildableParser &amp; the various ptr you&#39;re supposed to pass around
     fn custom_tag_start(
         &amp;self,
-        buildable: &amp;Self::Type,
         builder: &amp;Builder,
         child: Option&lt;&amp;Object&gt;,
         tagname: &amp;str,
@@ -538,7 +438,6 @@
     );
     fn custom_tag_end(
         &amp;self,
-        buildable: &amp;Self::Type,
         builder: &amp;Builder,
         child: Option&lt;&amp;Object&gt;,
         tagname: &amp;str,
@@ -546,7 +445,6 @@
     );
     fn custom_finished(
         &amp;self,
-        buildable: &amp;Self::Type,
         builder: &amp;Builder,
         child: Option&lt;&amp;Object&gt;,
         tagname: &amp;str,
@@ -556,39 +454,17 @@
 </span>}
 
 <span class="kw">pub trait </span>BuildableImplExt: ObjectSubclass {
-    <span class="kw">fn </span>parent_set_id(<span class="kw-2">&amp;</span><span class="self">self</span>, buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, id: <span class="kw-2">&amp;</span>str);
-    <span class="kw">fn </span>parent_id(<span class="kw-2">&amp;</span><span class="self">self</span>, buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="prelude-ty">Option</span>&lt;GString&gt;;
-    <span class="kw">fn </span>parent_add_child(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        builder: <span class="kw-2">&amp;</span>Builder,
-        child: <span class="kw-2">&amp;</span>Object,
-        type_: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
-    );
-    <span class="kw">fn </span>parent_set_buildable_property(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        builder: <span class="kw-2">&amp;</span>Builder,
-        name: <span class="kw-2">&amp;</span>str,
-        value: <span class="kw-2">&amp;</span>Value,
-    );
-    <span class="kw">fn </span>parent_parser_finished(<span class="kw-2">&amp;</span><span class="self">self</span>, buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, builder: <span class="kw-2">&amp;</span>Builder);
-    <span class="kw">fn </span>parent_internal_child(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        builder: <span class="kw-2">&amp;</span>Builder,
-        name: <span class="kw-2">&amp;</span>str,
-    ) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt;;
-    <span class="kw">fn </span>parent_construct_child(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        builder: <span class="kw-2">&amp;</span>Builder,
-        name: <span class="kw-2">&amp;</span>str,
-    ) -&gt; Object;
+    <span class="kw">fn </span>parent_set_id(<span class="kw-2">&amp;</span><span class="self">self</span>, id: <span class="kw-2">&amp;</span>str);
+    <span class="kw">fn </span>parent_id(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;GString&gt;;
+    <span class="kw">fn </span>parent_add_child(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder, child: <span class="kw-2">&amp;</span>Object, type_: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
+    <span class="kw">fn </span>parent_set_buildable_property(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder, name: <span class="kw-2">&amp;</span>str, value: <span class="kw-2">&amp;</span>Value);
+    <span class="kw">fn </span>parent_parser_finished(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder);
+    <span class="kw">fn </span>parent_internal_child(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder, name: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt;;
+    <span class="kw">fn </span>parent_construct_child(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder, name: <span class="kw-2">&amp;</span>str) -&gt; Object;
 }
 
 <span class="kw">impl</span>&lt;T: BuildableImpl&gt; BuildableImplExt <span class="kw">for </span>T {
-    <span class="kw">fn </span>parent_set_id(<span class="kw-2">&amp;</span><span class="self">self</span>, buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, id: <span class="kw-2">&amp;</span>str) {
+    <span class="kw">fn </span>parent_set_id(<span class="kw-2">&amp;</span><span class="self">self</span>, id: <span class="kw-2">&amp;</span>str) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface =
@@ -599,13 +475,13 @@
                 .expect(<span class="string">&quot;no parent \&quot;set_id\&quot; implementation&quot;</span>);
 
             func(
-                buildable.unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
+                <span class="self">self</span>.obj().unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
                 id.to_glib_none().<span class="number">0</span>,
             )
         }
     }
 
-    <span class="kw">fn </span>parent_id(<span class="kw-2">&amp;</span><span class="self">self</span>, buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="prelude-ty">Option</span>&lt;GString&gt; {
+    <span class="kw">fn </span>parent_id(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;GString&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface =
@@ -616,18 +492,12 @@
                 .expect(<span class="string">&quot;no parent \&quot;get_id\&quot; implementation&quot;</span>);
 
             from_glib_none(func(
-                buildable.unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
+                <span class="self">self</span>.obj().unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn </span>parent_add_child(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        builder: <span class="kw-2">&amp;</span>Builder,
-        child: <span class="kw-2">&amp;</span>Object,
-        type_: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
-    ) {
+    <span class="kw">fn </span>parent_add_child(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder, child: <span class="kw-2">&amp;</span>Object, type_: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface =
@@ -638,7 +508,7 @@
                 .expect(<span class="string">&quot;no parent \&quot;add_child\&quot; implementation&quot;</span>);
 
             func(
-                buildable.unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
+                <span class="self">self</span>.obj().unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
                 builder.to_glib_none().<span class="number">0</span>,
                 child.to_glib_none().<span class="number">0</span>,
                 type_.to_glib_none().<span class="number">0</span>,
@@ -646,13 +516,7 @@
         }
     }
 
-    <span class="kw">fn </span>parent_set_buildable_property(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        builder: <span class="kw-2">&amp;</span>Builder,
-        name: <span class="kw-2">&amp;</span>str,
-        value: <span class="kw-2">&amp;</span>Value,
-    ) {
+    <span class="kw">fn </span>parent_set_buildable_property(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder, name: <span class="kw-2">&amp;</span>str, value: <span class="kw-2">&amp;</span>Value) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface =
@@ -661,22 +525,18 @@
             <span class="comment">// gtk::Builder falls back to using ObjectExt::set_property if the method is not implemented
             </span><span class="kw">if let </span><span class="prelude-val">Some</span>(func) = (<span class="kw-2">*</span>parent_iface).set_buildable_property {
                 func(
-                    buildable.unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
                     builder.to_glib_none().<span class="number">0</span>,
                     name.to_glib_none().<span class="number">0</span>,
                     value.to_glib_none().<span class="number">0</span>,
                 )
             } <span class="kw">else </span>{
-                buildable
-                    .try_set_property_from_value(name, value)
-                    .unwrap_or_else(|err| {
-                        <span class="macro">panic!</span>(<span class="string">&quot;Buildable property `{}` was not found {}&quot;</span>, name, err);
-                    });
+                <span class="self">self</span>.obj().set_property_from_value(name, value);
             }
         }
     }
 
-    <span class="kw">fn </span>parent_parser_finished(<span class="kw-2">&amp;</span><span class="self">self</span>, buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, builder: <span class="kw-2">&amp;</span>Builder) {
+    <span class="kw">fn </span>parent_parser_finished(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface =
@@ -684,19 +544,14 @@
 
             <span class="kw">if let </span><span class="prelude-val">Some</span>(func) = (<span class="kw-2">*</span>parent_iface).parser_finished {
                 func(
-                    buildable.unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
                     builder.to_glib_none().<span class="number">0</span>,
                 )
             }
         }
     }
 
-    <span class="kw">fn </span>parent_internal_child(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        builder: <span class="kw-2">&amp;</span>Builder,
-        name: <span class="kw-2">&amp;</span>str,
-    ) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt; {
+    <span class="kw">fn </span>parent_internal_child(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder, name: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;Object&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface =
@@ -704,7 +559,7 @@
 
             <span class="kw">if let </span><span class="prelude-val">Some</span>(func) = (<span class="kw-2">*</span>parent_iface).get_internal_child {
                 from_glib_none(func(
-                    buildable.unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
                     builder.to_glib_none().<span class="number">0</span>,
                     name.to_glib_none().<span class="number">0</span>,
                 ))
@@ -714,12 +569,7 @@
         }
     }
 
-    <span class="kw">fn </span>parent_construct_child(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        buildable: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        builder: <span class="kw-2">&amp;</span>Builder,
-        name: <span class="kw-2">&amp;</span>str,
-    ) -&gt; Object {
+    <span class="kw">fn </span>parent_construct_child(<span class="kw-2">&amp;</span><span class="self">self</span>, builder: <span class="kw-2">&amp;</span>Builder, name: <span class="kw-2">&amp;</span>str) -&gt; Object {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface =
@@ -730,7 +580,7 @@
                 .expect(<span class="string">&quot;no parent \&quot;construct_child\&quot; implementation&quot;</span>);
 
             from_glib_full(func(
-                buildable.unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
+                <span class="self">self</span>.obj().unsafe_cast_ref::&lt;Buildable&gt;().to_glib_none().<span class="number">0</span>,
                 builder.to_glib_none().<span class="number">0</span>,
                 name.to_glib_none().<span class="number">0</span>,
             ))
@@ -765,10 +615,7 @@
     <span class="kw">let </span>imp = instance.imp();
     <span class="kw">let </span>id = from_glib_borrow::&lt;<span class="kw">_</span>, GString&gt;(id);
 
-    imp.set_id(
-        from_glib_borrow::&lt;<span class="kw">_</span>, Buildable&gt;(buildable).unsafe_cast_ref(),
-        <span class="kw-2">&amp;</span>id,
-    )
+    imp.set_id(<span class="kw-2">&amp;</span>id)
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>buildable_get_id&lt;T: BuildableImpl&gt;(
@@ -777,8 +624,7 @@
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(buildable <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
 
-    imp.id(from_glib_borrow::&lt;<span class="kw">_</span>, Buildable&gt;(buildable).unsafe_cast_ref())
-        .to_glib_full()
+    imp.id().to_glib_full()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>buildable_add_child&lt;T: BuildableImpl&gt;(
@@ -792,7 +638,6 @@
     <span class="kw">let </span>type_ = from_glib_borrow::&lt;<span class="kw">_</span>, <span class="prelude-ty">Option</span>&lt;GString&gt;&gt;(typeptr);
 
     imp.add_child(
-        from_glib_borrow::&lt;<span class="kw">_</span>, Buildable&gt;(buildable).unsafe_cast_ref(),
         <span class="kw-2">&amp;</span>from_glib_borrow(builderptr),
         <span class="kw-2">&amp;</span>from_glib_borrow(objectptr),
         type_.as_ref().as_ref().map(|s| s.as_ref()),
@@ -810,7 +655,6 @@
     <span class="kw">let </span>name = from_glib_borrow::&lt;<span class="kw">_</span>, GString&gt;(nameptr);
 
     imp.set_buildable_property(
-        from_glib_borrow::&lt;<span class="kw">_</span>, Buildable&gt;(buildable).unsafe_cast_ref(),
         <span class="kw-2">&amp;</span>from_glib_borrow(builderptr),
         <span class="kw-2">&amp;</span>name,
         <span class="kw-2">&amp;</span>from_glib_none(valueptr),
@@ -826,12 +670,8 @@
     <span class="kw">let </span>imp = instance.imp();
     <span class="kw">let </span>name = from_glib_borrow::&lt;<span class="kw">_</span>, GString&gt;(nameptr);
 
-    imp.construct_child(
-        from_glib_borrow::&lt;<span class="kw">_</span>, Buildable&gt;(buildable).unsafe_cast_ref(),
-        <span class="kw-2">&amp;</span>from_glib_borrow(builderptr),
-        <span class="kw-2">&amp;</span>name,
-    )
-    .to_glib_full()
+    imp.construct_child(<span class="kw-2">&amp;</span>from_glib_borrow(builderptr), <span class="kw-2">&amp;</span>name)
+        .to_glib_full()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>buildable_parser_finished&lt;T: BuildableImpl&gt;(
@@ -841,10 +681,7 @@
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(buildable <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
 
-    imp.parser_finished(
-        from_glib_borrow::&lt;<span class="kw">_</span>, Buildable&gt;(buildable).unsafe_cast_ref(),
-        <span class="kw-2">&amp;</span>from_glib_borrow(builderptr),
-    )
+    imp.parser_finished(<span class="kw-2">&amp;</span>from_glib_borrow(builderptr))
 }
 
 <span class="kw">static </span>BUILDABLE_GET_INTERNAL_CHILD_QUARK: Lazy&lt;Quark&gt; =
@@ -856,14 +693,13 @@
 ) -&gt; <span class="kw-2">*mut </span>glib::gobject_ffi::GObject {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(buildable <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap = from_glib_borrow::&lt;<span class="kw">_</span>, Buildable&gt;(buildable);
     <span class="kw">let </span>name = from_glib_borrow::&lt;<span class="kw">_</span>, GString&gt;(nameptr);
 
-    <span class="kw">let </span>ret = imp.internal_child(wrap.unsafe_cast_ref(), <span class="kw-2">&amp;</span>from_glib_borrow(builderptr), <span class="kw-2">&amp;</span>name);
+    <span class="kw">let </span>ret = imp.internal_child(<span class="kw-2">&amp;</span>from_glib_borrow(builderptr), <span class="kw-2">&amp;</span>name);
 
     <span class="comment">// transfer none: ensure the internal child stays alive for as long as the object building it
     </span><span class="kw">let </span>ret = ret.to_glib_full();
-    wrap.set_qdata(
+    imp.obj().set_qdata(
         <span class="kw-2">*</span>BUILDABLE_GET_INTERNAL_CHILD_QUARK,
         PtrHolder(ret, |ptr| {
             glib::gobject_ffi::g_object_unref(ptr <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
@@ -872,4 +708,4 @@
     ret
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

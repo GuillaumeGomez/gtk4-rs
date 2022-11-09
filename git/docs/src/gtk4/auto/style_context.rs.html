@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/style_context.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>style_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/style_context.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>style_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -623,6 +623,97 @@
 <span id="550">550</span>
 <span id="551">551</span>
 <span id="552">552</span>
+<span id="553">553</span>
+<span id="554">554</span>
+<span id="555">555</span>
+<span id="556">556</span>
+<span id="557">557</span>
+<span id="558">558</span>
+<span id="559">559</span>
+<span id="560">560</span>
+<span id="561">561</span>
+<span id="562">562</span>
+<span id="563">563</span>
+<span id="564">564</span>
+<span id="565">565</span>
+<span id="566">566</span>
+<span id="567">567</span>
+<span id="568">568</span>
+<span id="569">569</span>
+<span id="570">570</span>
+<span id="571">571</span>
+<span id="572">572</span>
+<span id="573">573</span>
+<span id="574">574</span>
+<span id="575">575</span>
+<span id="576">576</span>
+<span id="577">577</span>
+<span id="578">578</span>
+<span id="579">579</span>
+<span id="580">580</span>
+<span id="581">581</span>
+<span id="582">582</span>
+<span id="583">583</span>
+<span id="584">584</span>
+<span id="585">585</span>
+<span id="586">586</span>
+<span id="587">587</span>
+<span id="588">588</span>
+<span id="589">589</span>
+<span id="590">590</span>
+<span id="591">591</span>
+<span id="592">592</span>
+<span id="593">593</span>
+<span id="594">594</span>
+<span id="595">595</span>
+<span id="596">596</span>
+<span id="597">597</span>
+<span id="598">598</span>
+<span id="599">599</span>
+<span id="600">600</span>
+<span id="601">601</span>
+<span id="602">602</span>
+<span id="603">603</span>
+<span id="604">604</span>
+<span id="605">605</span>
+<span id="606">606</span>
+<span id="607">607</span>
+<span id="608">608</span>
+<span id="609">609</span>
+<span id="610">610</span>
+<span id="611">611</span>
+<span id="612">612</span>
+<span id="613">613</span>
+<span id="614">614</span>
+<span id="615">615</span>
+<span id="616">616</span>
+<span id="617">617</span>
+<span id="618">618</span>
+<span id="619">619</span>
+<span id="620">620</span>
+<span id="621">621</span>
+<span id="622">622</span>
+<span id="623">623</span>
+<span id="624">624</span>
+<span id="625">625</span>
+<span id="626">626</span>
+<span id="627">627</span>
+<span id="628">628</span>
+<span id="629">629</span>
+<span id="630">630</span>
+<span id="631">631</span>
+<span id="632">632</span>
+<span id="633">633</span>
+<span id="634">634</span>
+<span id="635">635</span>
+<span id="636">636</span>
+<span id="637">637</span>
+<span id="638">638</span>
+<span id="639">639</span>
+<span id="640">640</span>
+<span id="641">641</span>
+<span id="642">642</span>
+<span id="643">643</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -682,7 +773,7 @@
     /// # Implements
     ///
     /// [`StyleContextExt`][trait@crate::prelude::StyleContextExt], [`trait@glib::ObjectExt`]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkStyleContext&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkStyleContext&quot;</span>)]
     </span><span class="kw">pub struct </span>StyleContext(Object&lt;ffi::GtkStyleContext, ffi::GtkStyleContextClass&gt;);
 
     <span class="kw">match fn </span>{
@@ -712,7 +803,7 @@
     ///   Typically this will be in the range between
     ///   `GTK_STYLE_PROVIDER_PRIORITY_FALLBACK` and
     ///   `GTK_STYLE_PROVIDER_PRIORITY_USER`
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_add_provider_for_display&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_style_context_add_provider_for_display&quot;</span>)]
     </span><span class="kw">pub fn </span>add_provider_for_display(
         display: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gdk::Display&gt;,
         provider: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;StyleProvider&gt;,
@@ -733,7 +824,7 @@
     /// a [`gdk::Display`][crate::gdk::Display]
     /// ## `provider`
     /// a [`StyleProvider`][crate::StyleProvider]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_remove_provider_for_display&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_style_context_remove_provider_for_display&quot;</span>)]
     </span><span class="kw">pub fn </span>remove_provider_for_display(
         display: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gdk::Display&gt;,
         provider: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;StyleProvider&gt;,
@@ -769,9 +860,14 @@
     /// ```css
     /// .search { ... }
     /// ```
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use [`WidgetExt::add_css_class()`][crate::prelude::WidgetExt::add_css_class()] instead
     /// ## `class_name`
     /// class name to use in styling
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_add_class&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_add_class&quot;</span>)]
     </span><span class="kw">fn </span>add_class(<span class="kw-2">&amp;</span><span class="self">self</span>, class_name: <span class="kw-2">&amp;</span>str);
 
     <span class="doccomment">/// Adds a style provider to @self, to be used in style construction.
@@ -784,6 +880,10 @@
     /// Note: If both priorities are the same, a [`StyleProvider`][crate::StyleProvider]
     /// added through this function takes precedence over another added
     /// through [`StyleContext::add_provider_for_display()`][crate::StyleContext::add_provider_for_display()].
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use style classes instead
     /// ## `provider`
     /// a [`StyleProvider`][crate::StyleProvider]
     /// ## `priority`
@@ -792,59 +892,85 @@
     ///   Typically this will be in the range between
     ///   `GTK_STYLE_PROVIDER_PRIORITY_FALLBACK` and
     ///   `GTK_STYLE_PROVIDER_PRIORITY_USER`
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_add_provider&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_add_provider&quot;</span>)]
     </span><span class="kw">fn </span>add_provider(<span class="kw-2">&amp;</span><span class="self">self</span>, provider: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;StyleProvider&gt;, priority: u32);
 
     <span class="doccomment">/// Gets the border for a given state as a [`Border`][crate::Border].
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// This api will be removed in GTK 5
     ///
     /// # Returns
     ///
     ///
     /// ## `border`
     /// return value for the border settings
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_get_border&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_get_border&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_border&quot;</span>)]
     </span><span class="kw">fn </span>border(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Border;
 
     <span class="doccomment">/// Gets the foreground color for a given state.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use [`WidgetExt::style_color()`][crate::prelude::WidgetExt::style_color()] instead
     ///
     /// # Returns
     ///
     ///
     /// ## `color`
     /// return value for the foreground color
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_get_color&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_get_color&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_color&quot;</span>)]
     </span><span class="kw">fn </span>color(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; gdk::RGBA;
 
     <span class="doccomment">/// Returns the [`gdk::Display`][crate::gdk::Display] to which @self is attached.
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use [`WidgetExt::display()`][crate::prelude::WidgetExt::display()] instead
+    ///
     /// # Returns
     ///
     /// a [`gdk::Display`][crate::gdk::Display].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_get_display&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_get_display&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_display&quot;</span>)]
     </span><span class="kw">fn </span>display(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; gdk::Display;
 
     <span class="doccomment">/// Gets the margin for a given state as a [`Border`][crate::Border].
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// This api will be removed in GTK 5
     ///
     /// # Returns
     ///
     ///
     /// ## `margin`
     /// return value for the margin settings
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_get_margin&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_get_margin&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_margin&quot;</span>)]
     </span><span class="kw">fn </span>margin(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Border;
 
     <span class="doccomment">/// Gets the padding for a given state as a [`Border`][crate::Border].
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// This api will be removed in GTK 5
     ///
     /// # Returns
     ///
     ///
     /// ## `padding`
     /// return value for the padding settings
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_get_padding&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_get_padding&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_padding&quot;</span>)]
     </span><span class="kw">fn </span>padding(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Border;
 
@@ -853,7 +979,9 @@
     /// # Returns
     ///
     /// the scale
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_get_scale&quot;</span>)]
+    ///
+    /// Deprecated 4.10: Use [`WidgetExt::scale_factor()`][crate::prelude::WidgetExt::scale_factor()] instead
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_style_context_get_scale&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_scale&quot;</span>)]
     </span><span class="kw">fn </span>scale(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
@@ -865,25 +993,39 @@
     /// If you need to retrieve the current state of a [`Widget`][crate::Widget], use
     /// [`WidgetExt::state_flags()`][crate::prelude::WidgetExt::state_flags()].
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use [`WidgetExt::state_flags()`][crate::prelude::WidgetExt::state_flags()] instead
+    ///
     /// # Returns
     ///
     /// the state flags
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_get_state&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_get_state&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_state&quot;</span>)]
     </span><span class="kw">fn </span>state(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; StateFlags;
 
     <span class="doccomment">/// Returns [`true`] if @self currently has defined the
     /// given class name.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use [`WidgetExt::has_css_class()`][crate::prelude::WidgetExt::has_css_class()] instead
     /// ## `class_name`
     /// a class name
     ///
     /// # Returns
     ///
     /// [`true`] if @self has @class_name defined
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_has_class&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_has_class&quot;</span>)]
     </span><span class="kw">fn </span>has_class(<span class="kw-2">&amp;</span><span class="self">self</span>, class_name: <span class="kw-2">&amp;</span>str) -&gt; bool;
 
     <span class="doccomment">/// Looks up and resolves a color name in the @self color map.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// This api will be removed in GTK 5
     /// ## `color_name`
     /// color name to lookup
     ///
@@ -893,25 +1035,40 @@
     ///
     /// ## `color`
     /// Return location for the looked up color
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_lookup_color&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_lookup_color&quot;</span>)]
     </span><span class="kw">fn </span>lookup_color(<span class="kw-2">&amp;</span><span class="self">self</span>, color_name: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;gdk::RGBA&gt;;
 
     <span class="doccomment">/// Removes @class_name from @self.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use [`WidgetExt::remove_css_class()`][crate::prelude::WidgetExt::remove_css_class()] instead
     /// ## `class_name`
     /// class name to remove
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_remove_class&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_remove_class&quot;</span>)]
     </span><span class="kw">fn </span>remove_class(<span class="kw-2">&amp;</span><span class="self">self</span>, class_name: <span class="kw-2">&amp;</span>str);
 
     <span class="doccomment">/// Removes @provider from the style providers list in @self.
+    ///
+    /// # Deprecated since 4.10
+    ///
     /// ## `provider`
     /// a [`StyleProvider`][crate::StyleProvider]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_remove_provider&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_remove_provider&quot;</span>)]
     </span><span class="kw">fn </span>remove_provider(<span class="kw-2">&amp;</span><span class="self">self</span>, provider: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;StyleProvider&gt;);
 
     <span class="doccomment">/// Restores @self state to a previous stage.
     ///
     /// See [`save()`][Self::save()].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_restore&quot;</span>)]
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// This API will be removed in GTK 5
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_restore&quot;</span>)]
     </span><span class="kw">fn </span>restore(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Saves the @self state.
@@ -924,7 +1081,12 @@
     ///
     /// The matching call to [`restore()`][Self::restore()]
     /// must be done before GTK returns to the main loop.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_save&quot;</span>)]
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// This API will be removed in GTK 5
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_save&quot;</span>)]
     </span><span class="kw">fn </span>save(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Attaches @self to the given display.
@@ -935,21 +1097,36 @@
     /// If you are using a [`StyleContext`][crate::StyleContext] returned from
     /// [`WidgetExt::style_context()`][crate::prelude::WidgetExt::style_context()], you do not need to
     /// call this yourself.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// You should not use this api
     /// ## `display`
     /// a [`gdk::Display`][crate::gdk::Display]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_set_display&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_set_display&quot;</span>)]
     </span><span class="kw">fn </span>set_display(<span class="kw-2">&amp;</span><span class="self">self</span>, display: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gdk::Display&gt;);
 
     <span class="doccomment">/// Sets the scale to use when getting image assets for the style.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// You should not use this api
     /// ## `scale`
     /// scale
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_set_scale&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_set_scale&quot;</span>)]
     </span><span class="kw">fn </span>set_scale(<span class="kw-2">&amp;</span><span class="self">self</span>, scale: i32);
 
     <span class="doccomment">/// Sets the state to be used for style matching.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// You should not use this api
     /// ## `flags`
     /// state to represent
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_set_state&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_set_state&quot;</span>)]
     </span><span class="kw">fn </span>set_state(<span class="kw-2">&amp;</span><span class="self">self</span>, flags: StateFlags);
 
     <span class="doccomment">/// Converts the style context into a string representation.
@@ -962,16 +1139,21 @@
     /// This function is intended for testing and debugging of the
     /// CSS implementation in GTK. There are no guarantees about
     /// the format of the returned string, it may change.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// This api will be removed in GTK 5
     /// ## `flags`
     /// Flags that determine what to print
     ///
     /// # Returns
     ///
     /// a newly allocated string representing @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_style_context_to_string&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_style_context_to_string&quot;</span>)]
     </span><span class="kw">fn </span>to_string(<span class="kw-2">&amp;</span><span class="self">self</span>, flags: StyleContextPrintFlags) -&gt; glib::GString;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;display&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;display&quot;</span>)]
     </span><span class="kw">fn </span>connect_display_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
@@ -1176,4 +1358,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

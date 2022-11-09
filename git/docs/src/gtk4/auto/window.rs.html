@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/window.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>window.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/window.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>window.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -3035,7 +3035,7 @@
     /// # Implements
     ///
     /// [`GtkWindowExt`][trait@crate::prelude::GtkWindowExt], [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`NativeExt`][trait@crate::prelude::NativeExt], [`RootExt`][trait@crate::prelude::RootExt], [`ShortcutManagerExt`][trait@crate::prelude::ShortcutManagerExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkWindow&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkWindow&quot;</span>)]
     </span><span class="kw">pub struct </span>Window(Object&lt;ffi::GtkWindow, ffi::GtkWindowClass&gt;) @extends Widget, @implements Accessible, Buildable, ConstraintTarget, Native, Root, ShortcutManager;
 
     <span class="kw">match fn </span>{
@@ -3062,7 +3062,7 @@
     /// # Returns
     ///
     /// a new [`Window`][crate::Window].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_new&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_new&quot;</span>)]
     </span><span class="kw">pub fn </span>new() -&gt; Window {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{ Widget::from_glib_none(ffi::gtk_window_new()).unsafe_cast() }
@@ -3085,7 +3085,7 @@
     /// # Returns
     ///
     /// the fallback icon name for windows
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_default_icon_name&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_default_icon_name&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_default_icon_name&quot;</span>)]
     </span><span class="kw">pub fn </span>default_icon_name() -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
         <span class="macro">assert_initialized_main_thread!</span>();
@@ -3102,7 +3102,7 @@
     ///
     /// the list
     ///   of toplevel widgets
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_toplevels&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_toplevels&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_toplevels&quot;</span>)]
     </span><span class="kw">pub fn </span>toplevels() -&gt; gio::ListModel {
         <span class="macro">assert_initialized_main_thread!</span>();
@@ -3121,7 +3121,7 @@
     ///
     /// list of
     ///   toplevel widgets
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_list_toplevels&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_list_toplevels&quot;</span>)]
     </span><span class="kw">pub fn </span>list_toplevels() -&gt; Vec&lt;Widget&gt; {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{ FromGlibPtrContainer::from_glib_container(ffi::gtk_window_list_toplevels()) }
@@ -3141,7 +3141,7 @@
     /// showing the main window would automatically result in notification.
     /// ## `setting`
     /// [`true`] to automatically do startup notification
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_auto_startup_notification&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_auto_startup_notification&quot;</span>)]
     </span><span class="kw">pub fn </span>set_auto_startup_notification(setting: bool) {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{
@@ -3156,7 +3156,7 @@
     /// called on them.
     /// ## `name`
     /// the name of the themed icon
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_default_icon_name&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_default_icon_name&quot;</span>)]
     </span><span class="kw">pub fn </span>set_default_icon_name(name: <span class="kw-2">&amp;</span>str) {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{
@@ -3170,7 +3170,7 @@
     /// and to useful debugging tools.
     /// ## `enable`
     /// [`true`] to enable interactive debugging
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_interactive_debugging&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_interactive_debugging&quot;</span>)]
     </span><span class="kw">pub fn </span>set_interactive_debugging(enable: bool) {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{
@@ -3185,12 +3185,12 @@
     }
 }
 
-<span class="attribute">#[derive(Clone, Default)]
+<span class="attr">#[derive(Clone, Default)]
 </span><span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`Window`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attribute">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
+</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
 </span><span class="kw">pub struct </span>WindowBuilder {
     application: <span class="prelude-ty">Option</span>&lt;Application&gt;,
     child: <span class="prelude-ty">Option</span>&lt;Widget&gt;,
@@ -3204,7 +3204,7 @@
     focus_visible: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     focus_widget: <span class="prelude-ty">Option</span>&lt;Widget&gt;,
     fullscreened: <span class="prelude-ty">Option</span>&lt;bool&gt;,
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_2&quot;</span>)))]
     </span>handle_menubar_accel: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     hide_on_close: <span class="prelude-ty">Option</span>&lt;bool&gt;,
@@ -3215,7 +3215,7 @@
     resizable: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     startup_id: <span class="prelude-ty">Option</span>&lt;String&gt;,
     title: <span class="prelude-ty">Option</span>&lt;String&gt;,
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span>titlebar: <span class="prelude-ty">Option</span>&lt;Widget&gt;,
     transient_for: <span class="prelude-ty">Option</span>&lt;Window&gt;,
@@ -3260,7 +3260,7 @@
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`Window`].
-    </span><span class="attribute">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
+    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; Window {
         <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>application) = <span class="self">self</span>.application {
@@ -3299,7 +3299,7 @@
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>fullscreened) = <span class="self">self</span>.fullscreened {
             properties.push((<span class="string">&quot;fullscreened&quot;</span>, fullscreened));
         }
-        <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+        <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
         </span><span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>handle_menubar_accel) = <span class="self">self</span>.handle_menubar_accel {
             properties.push((<span class="string">&quot;handle-menubar-accel&quot;</span>, handle_menubar_accel));
         }
@@ -3327,7 +3327,7 @@
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>title) = <span class="self">self</span>.title {
             properties.push((<span class="string">&quot;title&quot;</span>, title));
         }
-        <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+        <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
         </span><span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>titlebar) = <span class="self">self</span>.titlebar {
             properties.push((<span class="string">&quot;titlebar&quot;</span>, titlebar));
         }
@@ -3424,7 +3424,7 @@
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>accessible_role) = <span class="self">self</span>.accessible_role {
             properties.push((<span class="string">&quot;accessible-role&quot;</span>, accessible_role));
         }
-        glib::Object::new::&lt;Window&gt;(<span class="kw-2">&amp;</span>properties).expect(<span class="string">&quot;Failed to create an instance of Window&quot;</span>)
+        glib::Object::new::&lt;Window&gt;(<span class="kw-2">&amp;</span>properties)
     }
 
     <span class="doccomment">/// The [`Application`][crate::Application] associated with the window.
@@ -3518,7 +3518,7 @@
 
     <span class="doccomment">/// Whether the window frame should handle F10 for activating
     /// menubars.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_2&quot;</span>)))]
     </span><span class="kw">pub fn </span>handle_menubar_accel(<span class="kw-2">mut </span><span class="self">self</span>, handle_menubar_accel: bool) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.handle_menubar_accel = <span class="prelude-val">Some</span>(handle_menubar_accel);
@@ -3585,7 +3585,7 @@
     </span>}
 
     <span class="doccomment">/// The titlebar widget.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">pub fn </span>titlebar(<span class="kw-2">mut </span><span class="self">self</span>, titlebar: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.titlebar = <span class="prelude-val">Some</span>(titlebar.clone().upcast());
@@ -3863,10 +3863,10 @@
     ///
     /// This function can be used with close buttons in custom
     /// titlebars.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_close&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_close&quot;</span>)]
     </span><span class="kw">fn </span>close(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_destroy&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_destroy&quot;</span>)]
     </span><span class="kw">fn </span>destroy(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Asks to place @self in the fullscreen state.
@@ -3879,7 +3879,7 @@
     /// You can track the result of this operation via the
     /// `property::Gdk::Toplevel::state` property, or by listening to
     /// notifications of the `property::Window::fullscreened` property.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_fullscreen&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_fullscreen&quot;</span>)]
     </span><span class="kw">fn </span>fullscreen(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Asks to place @self in the fullscreen state on the given @monitor.
@@ -3893,7 +3893,7 @@
     /// notifications of the `property::Window::fullscreened` property.
     /// ## `monitor`
     /// which monitor to go fullscreen on
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_fullscreen_on_monitor&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_fullscreen_on_monitor&quot;</span>)]
     </span><span class="kw">fn </span>fullscreen_on_monitor(<span class="kw-2">&amp;</span><span class="self">self</span>, monitor: <span class="kw-2">&amp;</span>gdk::Monitor);
 
     <span class="doccomment">/// Gets the [`Application`][crate::Application] associated with the window.
@@ -3901,7 +3901,7 @@
     /// # Returns
     ///
     /// a [`Application`][crate::Application]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_application&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_application&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_application&quot;</span>)]
     </span><span class="kw">fn </span>application(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Application&gt;;
 
@@ -3910,7 +3910,7 @@
     /// # Returns
     ///
     /// the child widget of @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_child&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_child&quot;</span>)]
     </span><span class="kw">fn </span>child(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Widget&gt;;
 
@@ -3919,7 +3919,7 @@
     /// # Returns
     ///
     /// [`true`] if the window has been set to have decorations
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_decorated&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_decorated&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_decorated&quot;</span>)]
     </span><span class="kw">fn </span>is_decorated(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -3937,7 +3937,7 @@
     ///
     /// ## `height`
     /// location to store the default height
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_default_size&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_default_size&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_default_size&quot;</span>)]
     </span><span class="kw">fn </span>default_size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (i32, i32);
 
@@ -3946,7 +3946,7 @@
     /// # Returns
     ///
     /// the default widget
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_default_widget&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_default_widget&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_default_widget&quot;</span>)]
     </span><span class="kw">fn </span>default_widget(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Widget&gt;;
 
@@ -3955,7 +3955,7 @@
     /// # Returns
     ///
     /// [`true`] if the window has been set to have a close button
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_deletable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_deletable&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_deletable&quot;</span>)]
     </span><span class="kw">fn </span>is_deletable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -3964,7 +3964,7 @@
     /// # Returns
     ///
     /// [`true`] if the window will be destroyed with its transient parent.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_destroy_with_parent&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_destroy_with_parent&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_destroy_with_parent&quot;</span>)]
     </span><span class="kw">fn </span>must_destroy_with_parent(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -3978,7 +3978,7 @@
     /// # Returns
     ///
     /// the currently focused widget
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_focus&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_focus&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_focus&quot;</span>)]
     </span><span class="kw">fn </span>focus(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Widget&gt;;
 
@@ -3988,7 +3988,7 @@
     ///
     /// [`true`] if “focus rectangles” are supposed to be visible
     ///   in this window.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_focus_visible&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_focus_visible&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_focus_visible&quot;</span>)]
     </span><span class="kw">fn </span>gets_focus_visible(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -4000,7 +4000,7 @@
     ///
     /// the [`WindowGroup`][crate::WindowGroup] for a window
     ///   or the default group
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_group&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_group&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_group&quot;</span>)]
     </span><span class="kw">fn </span>group(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; WindowGroup;
 
@@ -4010,7 +4010,7 @@
     /// # Returns
     ///
     /// [`true`] if the window handles F10
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_2&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;gtk_window_get_handle_menubar_accel&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_handle_menubar_accel&quot;</span>)]
@@ -4021,7 +4021,7 @@
     /// # Returns
     ///
     /// [`true`] if the window will be hidden
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_hide_on_close&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_hide_on_close&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_hide_on_close&quot;</span>)]
     </span><span class="kw">fn </span>hides_on_close(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -4030,7 +4030,7 @@
     /// # Returns
     ///
     /// the icon name
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_icon_name&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_icon_name&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_icon_name&quot;</span>)]
     </span><span class="kw">fn </span>icon_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
 
@@ -4040,7 +4040,7 @@
     ///
     /// [`true`] if mnemonics are supposed to be visible
     ///   in this window.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_mnemonics_visible&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_mnemonics_visible&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_mnemonics_visible&quot;</span>)]
     </span><span class="kw">fn </span>is_mnemonics_visible(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -4050,7 +4050,7 @@
     ///
     /// [`true`] if the window is set to be modal and
     ///   establishes a grab when shown
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_modal&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_modal&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_modal&quot;</span>)]
     </span><span class="kw">fn </span>is_modal(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -4059,7 +4059,7 @@
     /// # Returns
     ///
     /// [`true`] if the user can resize the window
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_resizable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_resizable&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_resizable&quot;</span>)]
     </span><span class="kw">fn </span>is_resizable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -4068,7 +4068,7 @@
     /// # Returns
     ///
     /// the title of the window
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_title&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_title&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_title&quot;</span>)]
     </span><span class="kw">fn </span>title(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
 
@@ -4078,7 +4078,7 @@
     /// # Returns
     ///
     /// the custom titlebar
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_titlebar&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_titlebar&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_titlebar&quot;</span>)]
     </span><span class="kw">fn </span>titlebar(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Widget&gt;;
 
@@ -4087,7 +4087,7 @@
     /// # Returns
     ///
     /// the transient parent for this window
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_get_transient_for&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_get_transient_for&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_transient_for&quot;</span>)]
     #[must_use]
     </span><span class="kw">fn </span>transient_for(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Window&gt;;
@@ -4097,7 +4097,7 @@
     /// # Returns
     ///
     /// [`true`] if @self has an explicit window group.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_has_group&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_has_group&quot;</span>)]
     </span><span class="kw">fn </span>has_group(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Returns whether the window is part of the current active toplevel.
@@ -4111,7 +4111,7 @@
     /// # Returns
     ///
     /// [`true`] if the window part of the current active window.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_is_active&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_is_active&quot;</span>)]
     </span><span class="kw">fn </span>is_active(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Retrieves the current fullscreen state of @self.
@@ -4128,7 +4128,7 @@
     /// # Returns
     ///
     /// whether the window has a fullscreen state.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_is_fullscreen&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_is_fullscreen&quot;</span>)]
     </span><span class="kw">fn </span>is_fullscreen(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Retrieves the current maximized state of @self.
@@ -4145,7 +4145,7 @@
     /// # Returns
     ///
     /// whether the window has a maximized state.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_is_maximized&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_is_maximized&quot;</span>)]
     </span><span class="kw">fn </span>is_maximized(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Asks to maximize @self, so that it fills the screen.
@@ -4163,7 +4163,7 @@
     /// `property::Gdk::Toplevel::state` property, or by listening to
     /// notifications on the `property::Window::maximized`
     /// property.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_maximize&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_maximize&quot;</span>)]
     </span><span class="kw">fn </span>maximize(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Asks to minimize the specified @self.
@@ -4180,7 +4180,7 @@
     ///
     /// You can track result of this operation via the
     /// `property::Gdk::Toplevel::state` property.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_minimize&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_minimize&quot;</span>)]
     </span><span class="kw">fn </span>minimize(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Presents a window to the user.
@@ -4188,7 +4188,7 @@
     /// This function should not be used as when it is called,
     /// it is too late to gather a valid timestamp to allow focus
     /// stealing prevention to work correctly.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_present&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_present&quot;</span>)]
     </span><span class="kw">fn </span>present(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Presents a window to the user.
@@ -4214,7 +4214,7 @@
     /// ## `timestamp`
     /// the timestamp of the user interaction (typically a
     ///   button or key press event) which triggered this call
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_present_with_time&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_present_with_time&quot;</span>)]
     </span><span class="kw">fn </span>present_with_time(<span class="kw-2">&amp;</span><span class="self">self</span>, timestamp: u32);
 
     <span class="doccomment">/// Sets or unsets the [`Application`][crate::Application] associated with the window.
@@ -4232,13 +4232,13 @@
     /// as relevant.
     /// ## `application`
     /// a [`Application`][crate::Application], or [`None`] to unset
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_application&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_application&quot;</span>)]
     </span><span class="kw">fn </span>set_application(<span class="kw-2">&amp;</span><span class="self">self</span>, application: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Application&gt;&gt;);
 
     <span class="doccomment">/// Sets the child widget of @self.
     /// ## `child`
     /// the child widget
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_child&quot;</span>)]
     </span><span class="kw">fn </span>set_child(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;&gt;);
 
     <span class="doccomment">/// Sets whether the window should be decorated.
@@ -4256,7 +4256,7 @@
     /// policy involved.
     /// ## `setting`
     /// [`true`] to decorate the window
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_decorated&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_decorated&quot;</span>)]
     </span><span class="kw">fn </span>set_decorated(<span class="kw-2">&amp;</span><span class="self">self</span>, setting: bool);
 
     <span class="doccomment">/// Sets the default size of a window.
@@ -4288,7 +4288,7 @@
     /// width in pixels, or -1 to unset the default width
     /// ## `height`
     /// height in pixels, or -1 to unset the default height
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_default_size&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_default_size&quot;</span>)]
     </span><span class="kw">fn </span>set_default_size(<span class="kw-2">&amp;</span><span class="self">self</span>, width: i32, height: i32);
 
     <span class="doccomment">/// Sets the default widget.
@@ -4298,7 +4298,7 @@
     /// ## `default_widget`
     /// widget to be the default
     ///   to unset the default widget for the toplevel
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_default_widget&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_default_widget&quot;</span>)]
     </span><span class="kw">fn </span>set_default_widget(<span class="kw-2">&amp;</span><span class="self">self</span>, default_widget: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;&gt;);
 
     <span class="doccomment">/// Sets whether the window should be deletable.
@@ -4315,7 +4315,7 @@
     /// manager policy involved.
     /// ## `setting`
     /// [`true`] to decorate the window as deletable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_deletable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_deletable&quot;</span>)]
     </span><span class="kw">fn </span>set_deletable(<span class="kw-2">&amp;</span><span class="self">self</span>, setting: bool);
 
     <span class="doccomment">/// If @setting is [`true`], then destroying the transient parent of @self
@@ -4325,7 +4325,7 @@
     /// of the main window they are associated with, for example.
     /// ## `setting`
     /// whether to destroy @self with its transient parent
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_destroy_with_parent&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_destroy_with_parent&quot;</span>)]
     </span><span class="kw">fn </span>set_destroy_with_parent(<span class="kw-2">&amp;</span><span class="self">self</span>, setting: bool);
 
     <span class="doccomment">/// Sets the [`gdk::Display`][crate::gdk::Display] where the @self is displayed.
@@ -4334,7 +4334,7 @@
     /// and then remapped on the new display.
     /// ## `display`
     /// a [`gdk::Display`][crate::gdk::Display]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_display&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_display&quot;</span>)]
     </span><span class="kw">fn </span>set_display(<span class="kw-2">&amp;</span><span class="self">self</span>, display: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gdk::Display&gt;);
 
     <span class="doccomment">/// Sets the focus widget.
@@ -4347,20 +4347,20 @@
     /// ## `focus`
     /// widget to be the new focus widget, or [`None`] to unset
     ///   any focus widget for the toplevel window.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_focus&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_focus&quot;</span>)]
     </span><span class="kw">fn </span>set_focus(<span class="kw-2">&amp;</span><span class="self">self</span>, focus: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;&gt;);
 
     <span class="doccomment">/// Sets whether “focus rectangles” are supposed to be visible.
     /// ## `setting`
     /// the new value
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_focus_visible&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_focus_visible&quot;</span>)]
     </span><span class="kw">fn </span>set_focus_visible(<span class="kw-2">&amp;</span><span class="self">self</span>, setting: bool);
 
     <span class="doccomment">/// Sets whether this window should react to F10 key presses
     /// by activating a menubar it contains.
     /// ## `handle_menubar_accel`
     /// [`true`] to make @self handle F10
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_2&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;gtk_window_set_handle_menubar_accel&quot;</span>)]
     </span><span class="kw">fn </span>set_handle_menubar_accel(<span class="kw-2">&amp;</span><span class="self">self</span>, handle_menubar_accel: bool);
@@ -4369,7 +4369,7 @@
     /// will not destroy it, but only hide it.
     /// ## `setting`
     /// whether to hide the window when it is closed
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_hide_on_close&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_hide_on_close&quot;</span>)]
     </span><span class="kw">fn </span>set_hide_on_close(<span class="kw-2">&amp;</span><span class="self">self</span>, setting: bool);
 
     <span class="doccomment">/// Sets the icon for the window from a named themed icon.
@@ -4381,13 +4381,13 @@
     /// property which is mentioned in the ICCCM.
     /// ## `name`
     /// the name of the themed icon
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_icon_name&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_icon_name&quot;</span>)]
     </span><span class="kw">fn </span>set_icon_name(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
 
     <span class="doccomment">/// Sets whether mnemonics are supposed to be visible.
     /// ## `setting`
     /// the new value
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_mnemonics_visible&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_mnemonics_visible&quot;</span>)]
     </span><span class="kw">fn </span>set_mnemonics_visible(<span class="kw-2">&amp;</span><span class="self">self</span>, setting: bool);
 
     <span class="doccomment">/// Sets a window modal or non-modal.
@@ -4399,7 +4399,7 @@
     /// dialog below the parent.
     /// ## `modal`
     /// whether the window is modal
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_modal&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_modal&quot;</span>)]
     </span><span class="kw">fn </span>set_modal(<span class="kw-2">&amp;</span><span class="self">self</span>, modal: bool);
 
     <span class="doccomment">/// Sets whether the user can resize a window.
@@ -4407,7 +4407,7 @@
     /// Windows are user resizable by default.
     /// ## `resizable`
     /// [`true`] if the user can resize this window
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_resizable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_resizable&quot;</span>)]
     </span><span class="kw">fn </span>set_resizable(<span class="kw-2">&amp;</span><span class="self">self</span>, resizable: bool);
 
     <span class="doccomment">/// Sets the startup notification ID.
@@ -4426,7 +4426,7 @@
     /// This function is only useful on X11, not with other GTK targets.
     /// ## `startup_id`
     /// a string with startup-notification identifier
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_startup_id&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_startup_id&quot;</span>)]
     </span><span class="kw">fn </span>set_startup_id(<span class="kw-2">&amp;</span><span class="self">self</span>, startup_id: <span class="kw-2">&amp;</span>str);
 
     <span class="doccomment">/// Sets the title of the [`Window`][crate::Window].
@@ -4441,7 +4441,7 @@
     /// Passing [`None`] does the same as setting the title to an empty string.
     /// ## `title`
     /// title of the window
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_title&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_title&quot;</span>)]
     </span><span class="kw">fn </span>set_title(<span class="kw-2">&amp;</span><span class="self">self</span>, title: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
 
     <span class="doccomment">/// Sets a custom titlebar for @self.
@@ -4457,7 +4457,7 @@
     /// [`WidgetExt::show()`][crate::prelude::WidgetExt::show()].
     /// ## `titlebar`
     /// the widget to use as titlebar
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_titlebar&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_titlebar&quot;</span>)]
     </span><span class="kw">fn </span>set_titlebar(<span class="kw-2">&amp;</span><span class="self">self</span>, titlebar: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;&gt;);
 
     <span class="doccomment">/// Dialog windows should be set transient for the main application
@@ -4473,7 +4473,7 @@
     /// much as the window manager would have done on X.
     /// ## `parent`
     /// parent window
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_set_transient_for&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_set_transient_for&quot;</span>)]
     </span><span class="kw">fn </span>set_transient_for(<span class="kw-2">&amp;</span><span class="self">self</span>, parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Window&gt;&gt;);
 
     <span class="doccomment">/// Asks to remove the fullscreen state for @self, and return to
@@ -4489,7 +4489,7 @@
     /// You can track the result of this operation via the
     /// `property::Gdk::Toplevel::state` property, or by listening to
     /// notifications of the `property::Window::fullscreened` property.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_unfullscreen&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_unfullscreen&quot;</span>)]
     </span><span class="kw">fn </span>unfullscreen(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Asks to unmaximize @self.
@@ -4502,7 +4502,7 @@
     /// You can track the result of this operation via the
     /// `property::Gdk::Toplevel::state` property, or by listening to
     /// notifications on the `property::Window::maximized` property.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_unmaximize&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_unmaximize&quot;</span>)]
     </span><span class="kw">fn </span>unmaximize(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Asks to unminimize the specified @self.
@@ -4515,31 +4515,31 @@
     ///
     /// You can track result of this operation via the
     /// `property::Gdk::Toplevel::state` property.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_window_unminimize&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_window_unminimize&quot;</span>)]
     </span><span class="kw">fn </span>unminimize(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// The default height of the window.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;default-height&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;default-height&quot;</span>)]
     </span><span class="kw">fn </span>default_height(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
     <span class="doccomment">/// The default height of the window.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;default-height&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;default-height&quot;</span>)]
     </span><span class="kw">fn </span>set_default_height(<span class="kw-2">&amp;</span><span class="self">self</span>, default_height: i32);
 
     <span class="doccomment">/// The default width of the window.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;default-width&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;default-width&quot;</span>)]
     </span><span class="kw">fn </span>default_width(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
     <span class="doccomment">/// The default width of the window.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;default-width&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;default-width&quot;</span>)]
     </span><span class="kw">fn </span>set_default_width(<span class="kw-2">&amp;</span><span class="self">self</span>, default_width: i32);
 
     <span class="doccomment">/// The focus widget.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;focus-widget&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;focus-widget&quot;</span>)]
     </span><span class="kw">fn </span>focus_widget(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Widget&gt;;
 
     <span class="doccomment">/// The focus widget.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;focus-widget&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;focus-widget&quot;</span>)]
     </span><span class="kw">fn </span>set_focus_widget&lt;P: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, focus_widget: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;);
 
     <span class="doccomment">/// Whether the window is fullscreen.
@@ -4573,7 +4573,7 @@
     /// of @window.
     ///
     /// This is a [keybinding signal](class.SignalAction.html).
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;activate-default&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;activate-default&quot;</span>)]
     </span><span class="kw">fn </span>connect_activate_default&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
     <span class="kw">fn </span>emit_activate_default(<span class="kw-2">&amp;</span><span class="self">self</span>);
@@ -4582,7 +4582,7 @@
     /// widget of @window.
     ///
     /// This is a [keybinding signal](class.SignalAction.html).
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;activate-focus&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;activate-focus&quot;</span>)]
     </span><span class="kw">fn </span>connect_activate_focus&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
     <span class="kw">fn </span>emit_activate_focus(<span class="kw-2">&amp;</span><span class="self">self</span>);
@@ -4592,7 +4592,7 @@
     /// # Returns
     ///
     /// [`true`] to stop other handlers from being invoked for the signal
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;close-request&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;close-request&quot;</span>)]
     </span><span class="kw">fn </span>connect_close_request&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; glib::signal::Inhibit + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -4614,7 +4614,7 @@
     /// # Returns
     ///
     /// [`true`] if the key binding was handled
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;enable-debugging&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;enable-debugging&quot;</span>)]
     </span><span class="kw">fn </span>connect_enable_debugging&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, bool) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -4624,83 +4624,83 @@
 
     <span class="doccomment">/// emitted when the set of accelerators or mnemonics that
     /// are associated with @window changes.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;keys-changed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;keys-changed&quot;</span>)]
     </span><span class="kw">fn </span>connect_keys_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;application&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;application&quot;</span>)]
     </span><span class="kw">fn </span>connect_application_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;child&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;child&quot;</span>)]
     </span><span class="kw">fn </span>connect_child_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;decorated&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;decorated&quot;</span>)]
     </span><span class="kw">fn </span>connect_decorated_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;default-height&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;default-height&quot;</span>)]
     </span><span class="kw">fn </span>connect_default_height_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;default-widget&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;default-widget&quot;</span>)]
     </span><span class="kw">fn </span>connect_default_widget_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;default-width&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;default-width&quot;</span>)]
     </span><span class="kw">fn </span>connect_default_width_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;deletable&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;deletable&quot;</span>)]
     </span><span class="kw">fn </span>connect_deletable_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;destroy-with-parent&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;destroy-with-parent&quot;</span>)]
     </span><span class="kw">fn </span>connect_destroy_with_parent_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;display&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;display&quot;</span>)]
     </span><span class="kw">fn </span>connect_display_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;focus-visible&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;focus-visible&quot;</span>)]
     </span><span class="kw">fn </span>connect_focus_visible_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;focus-widget&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;focus-widget&quot;</span>)]
     </span><span class="kw">fn </span>connect_focus_widget_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;fullscreened&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;fullscreened&quot;</span>)]
     </span><span class="kw">fn </span>connect_fullscreened_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_2&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;handle-menubar-accel&quot;</span>)]
     </span><span class="kw">fn </span>connect_handle_menubar_accel_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;hide-on-close&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;hide-on-close&quot;</span>)]
     </span><span class="kw">fn </span>connect_hide_on_close_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;icon-name&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;icon-name&quot;</span>)]
     </span><span class="kw">fn </span>connect_icon_name_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;is-active&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;is-active&quot;</span>)]
     </span><span class="kw">fn </span>connect_is_active_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;maximized&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;maximized&quot;</span>)]
     </span><span class="kw">fn </span>connect_maximized_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;mnemonics-visible&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;mnemonics-visible&quot;</span>)]
     </span><span class="kw">fn </span>connect_mnemonics_visible_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;modal&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;modal&quot;</span>)]
     </span><span class="kw">fn </span>connect_modal_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;resizable&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;resizable&quot;</span>)]
     </span><span class="kw">fn </span>connect_resizable_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;startup-id&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;startup-id&quot;</span>)]
     </span><span class="kw">fn </span>connect_startup_id_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;title&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;title&quot;</span>)]
     </span><span class="kw">fn </span>connect_title_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;titlebar&quot;</span>)]
     </span><span class="kw">fn </span>connect_titlebar_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;transient-for&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;transient-for&quot;</span>)]
     </span><span class="kw">fn </span>connect_transient_for_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
@@ -4805,7 +4805,7 @@
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_window_get_group(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_2&quot;</span>)))]
     </span><span class="kw">fn </span>is_handle_menubar_accel(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -4989,7 +4989,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_2&quot;</span>)))]
     </span><span class="kw">fn </span>set_handle_menubar_accel(<span class="kw-2">&amp;</span><span class="self">self</span>, handle_menubar_accel: bool) {
         <span class="kw">unsafe </span>{
@@ -5533,7 +5533,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_2&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_2&quot;</span>)))]
     </span><span class="kw">fn </span>connect_handle_menubar_accel_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_handle_menubar_accel_trampoline&lt;
@@ -5764,7 +5764,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>connect_titlebar_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_titlebar_trampoline&lt;P: IsA&lt;Window&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
@@ -5820,4 +5820,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

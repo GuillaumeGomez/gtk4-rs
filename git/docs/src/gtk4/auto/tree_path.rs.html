@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/tree_path.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>tree_path.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/tree_path.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>tree_path.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -317,6 +317,63 @@
 <span id="244">244</span>
 <span id="245">245</span>
 <span id="246">246</span>
+<span id="247">247</span>
+<span id="248">248</span>
+<span id="249">249</span>
+<span id="250">250</span>
+<span id="251">251</span>
+<span id="252">252</span>
+<span id="253">253</span>
+<span id="254">254</span>
+<span id="255">255</span>
+<span id="256">256</span>
+<span id="257">257</span>
+<span id="258">258</span>
+<span id="259">259</span>
+<span id="260">260</span>
+<span id="261">261</span>
+<span id="262">262</span>
+<span id="263">263</span>
+<span id="264">264</span>
+<span id="265">265</span>
+<span id="266">266</span>
+<span id="267">267</span>
+<span id="268">268</span>
+<span id="269">269</span>
+<span id="270">270</span>
+<span id="271">271</span>
+<span id="272">272</span>
+<span id="273">273</span>
+<span id="274">274</span>
+<span id="275">275</span>
+<span id="276">276</span>
+<span id="277">277</span>
+<span id="278">278</span>
+<span id="279">279</span>
+<span id="280">280</span>
+<span id="281">281</span>
+<span id="282">282</span>
+<span id="283">283</span>
+<span id="284">284</span>
+<span id="285">285</span>
+<span id="286">286</span>
+<span id="287">287</span>
+<span id="288">288</span>
+<span id="289">289</span>
+<span id="290">290</span>
+<span id="291">291</span>
+<span id="292">292</span>
+<span id="293">293</span>
+<span id="294">294</span>
+<span id="295">295</span>
+<span id="296">296</span>
+<span id="297">297</span>
+<span id="298">298</span>
+<span id="299">299</span>
+<span id="300">300</span>
+<span id="301">301</span>
+<span id="302">302</span>
+<span id="303">303</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -326,7 +383,7 @@
 
 <span class="macro">glib::wrapper! </span>{
     <span class="doccomment">/// An opaque structure representing a path to a row in a model.
-    </span><span class="attribute">#[derive(Debug, Hash)]
+    </span><span class="attr">#[derive(Debug, Hash)]
     </span><span class="kw">pub struct </span>TreePath(Boxed&lt;ffi::GtkTreePath&gt;);
 
     <span class="kw">match fn </span>{
@@ -340,10 +397,14 @@
     <span class="doccomment">/// Creates a new [`TreePath`][crate::TreePath]
     /// This refers to a row.
     ///
+    /// # Deprecated since 4.10
+    ///
+    ///
     /// # Returns
     ///
     /// A newly created [`TreePath`][crate::TreePath].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_new&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_new&quot;</span>)]
     </span><span class="kw">pub fn </span>new() -&gt; TreePath {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{ from_glib_full(ffi::gtk_tree_path_new()) }
@@ -353,27 +414,35 @@
     ///
     /// The string representation of this path is “0”.
     ///
+    /// # Deprecated since 4.10
+    ///
+    ///
     /// # Returns
     ///
     /// A new [`TreePath`][crate::TreePath]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_new_first&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_new_first&quot;</span>)]
     </span><span class="kw">pub fn </span>new_first() -&gt; TreePath {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{ from_glib_full(ffi::gtk_tree_path_new_first()) }
     }
 
     <span class="doccomment">/// Creates a new path with the given @indices array of @length.
+    ///
+    /// # Deprecated since 4.10
+    ///
     /// ## `indices`
     /// array of indices
     ///
     /// # Returns
     ///
     /// A newly created [`TreePath`][crate::TreePath]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_new_from_indicesv&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_new_from_indicesv&quot;</span>)]
     #[doc(alias = <span class="string">&quot;new_from_indicesv&quot;</span>)]
     </span><span class="kw">pub fn </span>from_indices(indices: <span class="kw-2">&amp;</span>[i32]) -&gt; TreePath {
         <span class="macro">assert_initialized_main_thread!</span>();
-        <span class="kw">let </span>length = indices.len() <span class="kw">as </span>usize;
+        <span class="kw">let </span>length = indices.len() <span class="kw">as _</span>;
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::gtk_tree_path_new_from_indicesv(
                 indices.to_glib_none().<span class="number">0</span>,
@@ -389,13 +458,17 @@
     /// 3 pointing to the 11th child of the root node, the 5th
     /// child of that 11th child, and the 1st child of that 5th child.
     /// If an invalid path string is passed in, [`None`] is returned.
+    ///
+    /// # Deprecated since 4.10
+    ///
     /// ## `path`
     /// The string representation of a path
     ///
     /// # Returns
     ///
     /// A newly-created [`TreePath`][crate::TreePath]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_new_from_string&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_new_from_string&quot;</span>)]
     #[doc(alias = <span class="string">&quot;new_from_string&quot;</span>)]
     </span><span class="kw">pub fn </span>from_string(path: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;TreePath&gt; {
         <span class="macro">assert_initialized_main_thread!</span>();
@@ -405,22 +478,31 @@
     <span class="doccomment">/// Appends a new index to a path.
     ///
     /// As a result, the depth of the path is increased.
+    ///
+    /// # Deprecated since 4.10
+    ///
     /// ## `index_`
     /// the index
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_append_index&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_append_index&quot;</span>)]
     </span><span class="kw">pub fn </span>append_index(<span class="kw-2">&amp;mut </span><span class="self">self</span>, index_: i32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_tree_path_append_index(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>, index_);
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_compare&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_compare&quot;</span>)]
     </span><span class="kw">fn </span>compare(<span class="kw-2">&amp;</span><span class="self">self</span>, b: <span class="kw-2">&amp;</span>TreePath) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_tree_path_compare(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, b.to_glib_none().<span class="number">0</span>) }
     }
 
     <span class="doccomment">/// Moves @self to point to the first child of the current path.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_down&quot;</span>)]
+    ///
+    /// # Deprecated since 4.10
+    ///
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_down&quot;</span>)]
     </span><span class="kw">pub fn </span>down(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::gtk_tree_path_down(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>);
@@ -429,23 +511,31 @@
 
     <span class="doccomment">/// Returns the current depth of @self.
     ///
+    /// # Deprecated since 4.10
+    ///
+    ///
     /// # Returns
     ///
     /// The depth of @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_get_depth&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_get_depth&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_depth&quot;</span>)]
     </span><span class="kw">pub fn </span>depth(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_tree_path_get_depth(mut_override(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Returns [`true`] if @descendant is a descendant of @self.
+    ///
+    /// # Deprecated since 4.10
+    ///
     /// ## `descendant`
     /// another [`TreePath`][crate::TreePath]
     ///
     /// # Returns
     ///
     /// [`true`] if @descendant is contained inside @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_is_ancestor&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_is_ancestor&quot;</span>)]
     </span><span class="kw">pub fn </span>is_ancestor(<span class="kw-2">&amp;</span><span class="self">self</span>, descendant: <span class="kw-2">&amp;</span>TreePath) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_tree_path_is_ancestor(
@@ -456,13 +546,17 @@
     }
 
     <span class="doccomment">/// Returns [`true`] if @self is a descendant of @ancestor.
+    ///
+    /// # Deprecated since 4.10
+    ///
     /// ## `ancestor`
     /// another [`TreePath`][crate::TreePath]
     ///
     /// # Returns
     ///
     /// [`true`] if @ancestor contains @self somewhere below it
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_is_descendant&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_is_descendant&quot;</span>)]
     </span><span class="kw">pub fn </span>is_descendant(<span class="kw-2">&amp;</span><span class="self">self</span>, ancestor: <span class="kw-2">&amp;</span>TreePath) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_tree_path_is_descendant(
@@ -473,7 +567,11 @@
     }
 
     <span class="doccomment">/// Moves the @self to point to the next node at the current depth.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_next&quot;</span>)]
+    ///
+    /// # Deprecated since 4.10
+    ///
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_next&quot;</span>)]
     </span><span class="kw">pub fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::gtk_tree_path_next(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>);
@@ -483,9 +581,13 @@
     <span class="doccomment">/// Prepends a new index to a path.
     ///
     /// As a result, the depth of the path is increased.
+    ///
+    /// # Deprecated since 4.10
+    ///
     /// ## `index_`
     /// the index
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_prepend_index&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_prepend_index&quot;</span>)]
     </span><span class="kw">pub fn </span>prepend_index(<span class="kw-2">&amp;mut </span><span class="self">self</span>, index_: i32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_tree_path_prepend_index(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>, index_);
@@ -495,11 +597,15 @@
     <span class="doccomment">/// Moves the @self to point to the previous node at the
     /// current depth, if it exists.
     ///
+    /// # Deprecated since 4.10
+    ///
+    ///
     /// # Returns
     ///
     /// [`true`] if @self has a previous node, and
     ///   the move was made
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_prev&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_prev&quot;</span>)]
     </span><span class="kw">pub fn </span>prev(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_tree_path_prev(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>)) }
     }
@@ -511,10 +617,14 @@
     /// return value for this string. If the path has
     /// depth 0, [`None`] is returned.
     ///
+    /// # Deprecated since 4.10
+    ///
+    ///
     /// # Returns
     ///
     /// A newly-allocated string
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_to_string&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_to_string&quot;</span>)]
     #[doc(alias = <span class="string">&quot;to_string&quot;</span>)]
     </span><span class="kw">pub fn </span>to_str(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
         <span class="kw">unsafe </span>{
@@ -526,10 +636,14 @@
 
     <span class="doccomment">/// Moves the @self to point to its parent node, if it has a parent.
     ///
+    /// # Deprecated since 4.10
+    ///
+    ///
     /// # Returns
     ///
     /// [`true`] if @self has a parent, and the move was made
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_path_up&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_path_up&quot;</span>)]
     </span><span class="kw">pub fn </span>up(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_tree_path_up(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>)) }
     }
@@ -542,7 +656,7 @@
 }
 
 <span class="kw">impl </span>PartialEq <span class="kw">for </span>TreePath {
-    <span class="attribute">#[inline]
+    <span class="attr">#[inline]
     </span><span class="kw">fn </span>eq(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool {
         <span class="self">self</span>.compare(other) == <span class="number">0
     </span>}
@@ -551,17 +665,17 @@
 <span class="kw">impl </span>Eq <span class="kw">for </span>TreePath {}
 
 <span class="kw">impl </span>PartialOrd <span class="kw">for </span>TreePath {
-    <span class="attribute">#[inline]
+    <span class="attr">#[inline]
     </span><span class="kw">fn </span>partial_cmp(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;cmp::Ordering&gt; {
         <span class="self">self</span>.compare(other).partial_cmp(<span class="kw-2">&amp;</span><span class="number">0</span>)
     }
 }
 
 <span class="kw">impl </span>Ord <span class="kw">for </span>TreePath {
-    <span class="attribute">#[inline]
+    <span class="attr">#[inline]
     </span><span class="kw">fn </span>cmp(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; cmp::Ordering {
         <span class="self">self</span>.compare(other).cmp(<span class="kw-2">&amp;</span><span class="number">0</span>)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

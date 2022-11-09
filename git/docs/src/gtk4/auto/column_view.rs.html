@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/column_view.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>column_view.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/column_view.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>column_view.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -1230,8 +1230,6 @@
 <span id="1157">1157</span>
 <span id="1158">1158</span>
 <span id="1159">1159</span>
-<span id="1160">1160</span>
-<span id="1161">1161</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -1333,7 +1331,7 @@
     /// # Implements
     ///
     /// [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`ScrollableExt`][trait@crate::prelude::ScrollableExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkColumnView&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkColumnView&quot;</span>)]
     </span><span class="kw">pub struct </span>ColumnView(Object&lt;ffi::GtkColumnView, ffi::GtkColumnViewClass&gt;) @extends Widget, @implements Accessible, Buildable, ConstraintTarget, Scrollable;
 
     <span class="kw">match fn </span>{
@@ -1352,7 +1350,7 @@
     /// # Returns
     ///
     /// a new [`ColumnView`][crate::ColumnView]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_new&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_new&quot;</span>)]
     </span><span class="kw">pub fn </span>new(model: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;SelectionModel&gt;&gt;) -&gt; ColumnView {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{
@@ -1375,7 +1373,7 @@
     /// ## `column`
     /// a [`ColumnViewColumn`][crate::ColumnViewColumn] that hasn&#39;t been added to a
     ///   [`ColumnView`][crate::ColumnView] yet
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_append_column&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_append_column&quot;</span>)]
     </span><span class="kw">pub fn </span>append_column(<span class="kw-2">&amp;</span><span class="self">self</span>, column: <span class="kw-2">&amp;</span>ColumnViewColumn) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_append_column(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, column.to_glib_none().<span class="number">0</span>);
@@ -1391,7 +1389,7 @@
     /// # Returns
     ///
     /// The list managing the columns
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_get_columns&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_get_columns&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_columns&quot;</span>)]
     </span><span class="kw">pub fn </span>columns(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; gio::ListModel {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_column_view_get_columns(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1402,7 +1400,7 @@
     /// # Returns
     ///
     /// [`true`] if rubberband selection is enabled
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_get_enable_rubberband&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_get_enable_rubberband&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_enable_rubberband&quot;</span>)]
     </span><span class="kw">pub fn </span>enables_rubberband(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -1417,7 +1415,7 @@
     /// # Returns
     ///
     /// The model in use
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_get_model&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_get_model&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_model&quot;</span>)]
     </span><span class="kw">pub fn </span>model(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;SelectionModel&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_column_view_get_model(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1428,7 +1426,7 @@
     /// # Returns
     ///
     /// [`true`] if columns are reorderable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_get_reorderable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_get_reorderable&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_reorderable&quot;</span>)]
     </span><span class="kw">pub fn </span>is_reorderable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_column_view_get_reorderable(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1440,7 +1438,7 @@
     /// # Returns
     ///
     /// [`true`] if the list shows column separators
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_get_show_column_separators&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_get_show_column_separators&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_show_column_separators&quot;</span>)]
     </span><span class="kw">pub fn </span>shows_column_separators(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -1456,7 +1454,7 @@
     /// # Returns
     ///
     /// [`true`] if the list shows separators
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_get_show_row_separators&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_get_show_row_separators&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_show_row_separators&quot;</span>)]
     </span><span class="kw">pub fn </span>shows_row_separators(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -1472,7 +1470,7 @@
     /// # Returns
     ///
     /// [`true`] if rows are activated on single click
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_get_single_click_activate&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_get_single_click_activate&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_single_click_activate&quot;</span>)]
     </span><span class="kw">pub fn </span>is_single_click_activate(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -1507,7 +1505,7 @@
     /// # Returns
     ///
     /// the [`Sorter`][crate::Sorter] of @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_get_sorter&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_get_sorter&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_sorter&quot;</span>)]
     </span><span class="kw">pub fn </span>sorter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Sorter&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_column_view_get_sorter(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1520,7 +1518,7 @@
     /// the position to insert @column at
     /// ## `column`
     /// the [`ColumnViewColumn`][crate::ColumnViewColumn] to insert
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_insert_column&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_insert_column&quot;</span>)]
     </span><span class="kw">pub fn </span>insert_column(<span class="kw-2">&amp;</span><span class="self">self</span>, position: u32, column: <span class="kw-2">&amp;</span>ColumnViewColumn) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_insert_column(
@@ -1534,7 +1532,7 @@
     <span class="doccomment">/// Removes the @column from the list of columns of @self.
     /// ## `column`
     /// a [`ColumnViewColumn`][crate::ColumnViewColumn] that&#39;s part of @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_remove_column&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_remove_column&quot;</span>)]
     </span><span class="kw">pub fn </span>remove_column(<span class="kw-2">&amp;</span><span class="self">self</span>, column: <span class="kw-2">&amp;</span>ColumnViewColumn) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_remove_column(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, column.to_glib_none().<span class="number">0</span>);
@@ -1544,7 +1542,7 @@
     <span class="doccomment">/// Sets whether selections can be changed by dragging with the mouse.
     /// ## `enable_rubberband`
     /// [`true`] to enable rubberband selection
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_set_enable_rubberband&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_set_enable_rubberband&quot;</span>)]
     </span><span class="kw">pub fn </span>set_enable_rubberband(<span class="kw-2">&amp;</span><span class="self">self</span>, enable_rubberband: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_set_enable_rubberband(
@@ -1559,7 +1557,7 @@
     /// This must be a [`SelectionModel`][crate::SelectionModel].
     /// ## `model`
     /// the model to use
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_set_model&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_set_model&quot;</span>)]
     </span><span class="kw">pub fn </span>set_model(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;SelectionModel&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_set_model(
@@ -1572,7 +1570,7 @@
     <span class="doccomment">/// Sets whether columns should be reorderable by dragging.
     /// ## `reorderable`
     /// whether columns should be reorderable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_set_reorderable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_set_reorderable&quot;</span>)]
     </span><span class="kw">pub fn </span>set_reorderable(<span class="kw-2">&amp;</span><span class="self">self</span>, reorderable: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_set_reorderable(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, reorderable.into_glib());
@@ -1583,7 +1581,7 @@
     /// between columns.
     /// ## `show_column_separators`
     /// [`true`] to show column separators
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_set_show_column_separators&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_set_show_column_separators&quot;</span>)]
     </span><span class="kw">pub fn </span>set_show_column_separators(<span class="kw-2">&amp;</span><span class="self">self</span>, show_column_separators: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_set_show_column_separators(
@@ -1597,7 +1595,7 @@
     /// between rows.
     /// ## `show_row_separators`
     /// [`true`] to show row separators
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_set_show_row_separators&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_set_show_row_separators&quot;</span>)]
     </span><span class="kw">pub fn </span>set_show_row_separators(<span class="kw-2">&amp;</span><span class="self">self</span>, show_row_separators: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_set_show_row_separators(
@@ -1611,7 +1609,7 @@
     /// selected on hover.
     /// ## `single_click_activate`
     /// [`true`] to activate items on single click
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_set_single_click_activate&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_set_single_click_activate&quot;</span>)]
     </span><span class="kw">pub fn </span>set_single_click_activate(<span class="kw-2">&amp;</span><span class="self">self</span>, single_click_activate: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_set_single_click_activate(
@@ -1637,7 +1635,7 @@
     /// the [`ColumnViewColumn`][crate::ColumnViewColumn] to sort by
     /// ## `direction`
     /// the direction to sort in
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_sort_by_column&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_sort_by_column&quot;</span>)]
     </span><span class="kw">pub fn </span>sort_by_column(<span class="kw-2">&amp;</span><span class="self">self</span>, column: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>ColumnViewColumn&gt;, direction: SortType) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_sort_by_column(
@@ -1656,7 +1654,7 @@
     /// signal.
     /// ## `position`
     /// position of item to activate
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;activate&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;activate&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_activate&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, u32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>activate_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnView, u32) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnView,
@@ -1679,7 +1677,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;columns&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;columns&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_columns_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_columns_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnView) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnView,
@@ -1702,7 +1700,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;enable-rubberband&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;enable-rubberband&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_enable_rubberband_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1728,7 +1726,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;model&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;model&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_model_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_model_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnView) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnView,
@@ -1751,7 +1749,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;reorderable&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;reorderable&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_reorderable_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_reorderable_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnView) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnView,
@@ -1774,7 +1772,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;show-column-separators&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;show-column-separators&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_show_column_separators_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1802,7 +1800,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;show-row-separators&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;show-row-separators&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_show_row_separators_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1828,7 +1826,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;single-click-activate&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;single-click-activate&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_single_click_activate_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1856,7 +1854,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;sorter&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;sorter&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_sorter_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_sorter_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnView) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnView,
@@ -1883,16 +1881,15 @@
 <span class="kw">impl </span>Default <span class="kw">for </span>ColumnView {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
         glib::object::Object::new::&lt;<span class="self">Self</span>&gt;(<span class="kw-2">&amp;</span>[])
-            .expect(<span class="string">&quot;Can&#39;t construct ColumnView object with default parameters&quot;</span>)
     }
 }
 
-<span class="attribute">#[derive(Clone, Default)]
+<span class="attr">#[derive(Clone, Default)]
 </span><span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`ColumnView`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attribute">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
+</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
 </span><span class="kw">pub struct </span>ColumnViewBuilder {
     enable_rubberband: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     model: <span class="prelude-ty">Option</span>&lt;SelectionModel&gt;,
@@ -1945,7 +1942,7 @@
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`ColumnView`].
-    </span><span class="attribute">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
+    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; ColumnView {
         <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>enable_rubberband) = <span class="self">self</span>.enable_rubberband {
@@ -2069,7 +2066,6 @@
             properties.push((<span class="string">&quot;vscroll-policy&quot;</span>, vscroll_policy));
         }
         glib::Object::new::&lt;ColumnView&gt;(<span class="kw-2">&amp;</span>properties)
-            .expect(<span class="string">&quot;Failed to create an instance of ColumnView&quot;</span>)
     }
 
     <span class="doccomment">/// Allow rubberband selection.
@@ -2394,4 +2390,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/range.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>range.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/range.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>range.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -855,11 +855,29 @@
 <span id="782">782</span>
 <span id="783">783</span>
 <span id="784">784</span>
+<span id="785">785</span>
+<span id="786">786</span>
+<span id="787">787</span>
+<span id="788">788</span>
+<span id="789">789</span>
+<span id="790">790</span>
+<span id="791">791</span>
+<span id="792">792</span>
+<span id="793">793</span>
+<span id="794">794</span>
+<span id="795">795</span>
+<span id="796">796</span>
+<span id="797">797</span>
+<span id="798">798</span>
+<span id="799">799</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
 </span><span class="kw">use </span><span class="kw">crate</span>::Accessible;
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
+</span><span class="kw">use </span><span class="kw">crate</span>::AccessibleRange;
 <span class="kw">use </span><span class="kw">crate</span>::Adjustment;
 <span class="kw">use </span><span class="kw">crate</span>::Buildable;
 <span class="kw">use </span><span class="kw">crate</span>::ConstraintTarget;
@@ -877,7 +895,9 @@
 <span class="kw">use </span>std::mem;
 <span class="kw">use </span>std::mem::transmute;
 
-<span class="macro">glib::wrapper! </span>{
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
+</span><span class="macro">glib::wrapper! </span>{
     <span class="doccomment">/// [`Range`][crate::Range] is the common base class for widgets which visualize an
     /// adjustment.
     ///
@@ -890,8 +910,18 @@
     ///
     /// # Implements
     ///
-    /// [`RangeExt`][trait@crate::prelude::RangeExt], [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`OrientableExt`][trait@crate::prelude::OrientableExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkRange&quot;</span>)]
+    /// [`RangeExt`][trait@crate::prelude::RangeExt], [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`AccessibleRangeExt`][trait@crate::prelude::AccessibleRangeExt], [`OrientableExt`][trait@crate::prelude::OrientableExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkRange&quot;</span>)]
+    </span><span class="kw">pub struct </span>Range(Object&lt;ffi::GtkRange, ffi::GtkRangeClass&gt;) @extends Widget, @implements Accessible, Buildable, ConstraintTarget, AccessibleRange, Orientable;
+
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::gtk_range_get_type(),
+    }
+}
+
+<span class="attr">#[cfg(not(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>)))]
+</span><span class="macro">glib::wrapper! </span>{
+    <span class="attr">#[doc(alias = <span class="string">&quot;GtkRange&quot;</span>)]
     </span><span class="kw">pub struct </span>Range(Object&lt;ffi::GtkRange, ffi::GtkRangeClass&gt;) @extends Widget, @implements Accessible, Buildable, ConstraintTarget, Orientable;
 
     <span class="kw">match fn </span>{
@@ -914,7 +944,7 @@
     /// # Returns
     ///
     /// a [`Adjustment`][crate::Adjustment]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_get_adjustment&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_get_adjustment&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_adjustment&quot;</span>)]
     </span><span class="kw">fn </span>adjustment(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Adjustment;
 
@@ -923,7 +953,7 @@
     /// # Returns
     ///
     /// The current fill level
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_get_fill_level&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_get_fill_level&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_fill_level&quot;</span>)]
     </span><span class="kw">fn </span>fill_level(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f64;
 
@@ -934,7 +964,7 @@
     /// # Returns
     ///
     /// [`true`] if the range is flippable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_get_flippable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_get_flippable&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_flippable&quot;</span>)]
     </span><span class="kw">fn </span>is_flippable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -945,7 +975,7 @@
     /// # Returns
     ///
     /// [`true`] if the range is inverted
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_get_inverted&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_get_inverted&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_inverted&quot;</span>)]
     </span><span class="kw">fn </span>is_inverted(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -959,7 +989,7 @@
     ///
     /// ## `range_rect`
     /// return location for the range rectangle
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_get_range_rect&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_get_range_rect&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_range_rect&quot;</span>)]
     </span><span class="kw">fn </span>range_rect(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; gdk::Rectangle;
 
@@ -968,7 +998,7 @@
     /// # Returns
     ///
     /// [`true`] if @self is restricted to the fill level.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_get_restrict_to_fill_level&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_get_restrict_to_fill_level&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_restrict_to_fill_level&quot;</span>)]
     </span><span class="kw">fn </span>restricts_to_fill_level(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -980,7 +1010,7 @@
     /// # Returns
     ///
     /// the number of digits to round to
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_get_round_digits&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_get_round_digits&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_round_digits&quot;</span>)]
     </span><span class="kw">fn </span>round_digits(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
@@ -989,7 +1019,7 @@
     /// # Returns
     ///
     /// [`true`] if @self shows the fill level.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_get_show_fill_level&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_get_show_fill_level&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_show_fill_level&quot;</span>)]
     </span><span class="kw">fn </span>shows_fill_level(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -1006,7 +1036,7 @@
     ///
     /// ## `slider_end`
     /// return location for the slider&#39;s end
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_get_slider_range&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_get_slider_range&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_slider_range&quot;</span>)]
     </span><span class="kw">fn </span>slider_range(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (i32, i32);
 
@@ -1017,7 +1047,7 @@
     /// # Returns
     ///
     /// whether the range’s slider has a fixed size.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_get_slider_size_fixed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_get_slider_size_fixed&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_slider_size_fixed&quot;</span>)]
     </span><span class="kw">fn </span>is_slider_size_fixed(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -1026,7 +1056,7 @@
     /// # Returns
     ///
     /// current value of the range.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_get_value&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_get_value&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_value&quot;</span>)]
     </span><span class="kw">fn </span>value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f64;
 
@@ -1041,7 +1071,7 @@
     /// The page size affects the size of the scrollbar slider.
     /// ## `adjustment`
     /// a [`Adjustment`][crate::Adjustment]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_set_adjustment&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_set_adjustment&quot;</span>)]
     </span><span class="kw">fn </span>set_adjustment(<span class="kw-2">&amp;</span><span class="self">self</span>, adjustment: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Adjustment&gt;);
 
     <span class="doccomment">/// Set the new position of the fill level indicator.
@@ -1063,7 +1093,7 @@
     /// enabled.
     /// ## `fill_level`
     /// the new position of the fill level indicator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_set_fill_level&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_set_fill_level&quot;</span>)]
     </span><span class="kw">fn </span>set_fill_level(<span class="kw-2">&amp;</span><span class="self">self</span>, fill_level: f64);
 
     <span class="doccomment">/// Sets whether the [`Range`][crate::Range] respects text direction.
@@ -1074,7 +1104,7 @@
     /// See [`WidgetExt::direction()`][crate::prelude::WidgetExt::direction()].
     /// ## `flippable`
     /// [`true`] to make the range flippable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_set_flippable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_set_flippable&quot;</span>)]
     </span><span class="kw">fn </span>set_flippable(<span class="kw-2">&amp;</span><span class="self">self</span>, flippable: bool);
 
     <span class="doccomment">/// Sets the step and page sizes for the range.
@@ -1086,7 +1116,7 @@
     /// step size
     /// ## `page`
     /// page size
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_set_increments&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_set_increments&quot;</span>)]
     </span><span class="kw">fn </span>set_increments(<span class="kw-2">&amp;</span><span class="self">self</span>, step: f64, page: f64);
 
     <span class="doccomment">/// Sets whether to invert the range.
@@ -1097,7 +1127,7 @@
     /// than on the bottom or left.
     /// ## `setting`
     /// [`true`] to invert the range
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_set_inverted&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_set_inverted&quot;</span>)]
     </span><span class="kw">fn </span>set_inverted(<span class="kw-2">&amp;</span><span class="self">self</span>, setting: bool);
 
     <span class="doccomment">/// Sets the allowable values in the [`Range`][crate::Range].
@@ -1109,7 +1139,7 @@
     /// minimum range value
     /// ## `max`
     /// maximum range value
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_set_range&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_set_range&quot;</span>)]
     </span><span class="kw">fn </span>set_range(<span class="kw-2">&amp;</span><span class="self">self</span>, min: f64, max: f64);
 
     <span class="doccomment">/// Sets whether the slider is restricted to the fill level.
@@ -1118,7 +1148,7 @@
     /// of the fill level concept.
     /// ## `restrict_to_fill_level`
     /// Whether the fill level restricts slider movement.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_set_restrict_to_fill_level&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_set_restrict_to_fill_level&quot;</span>)]
     </span><span class="kw">fn </span>set_restrict_to_fill_level(<span class="kw-2">&amp;</span><span class="self">self</span>, restrict_to_fill_level: bool);
 
     <span class="doccomment">/// Sets the number of digits to round the value to when
@@ -1127,7 +1157,7 @@
     /// See `signal::Range::change-value`.
     /// ## `round_digits`
     /// the precision in digits, or -1
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_set_round_digits&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_set_round_digits&quot;</span>)]
     </span><span class="kw">fn </span>set_round_digits(<span class="kw-2">&amp;</span><span class="self">self</span>, round_digits: i32);
 
     <span class="doccomment">/// Sets whether a graphical fill level is show on the trough.
@@ -1136,7 +1166,7 @@
     /// of the fill level concept.
     /// ## `show_fill_level`
     /// Whether a fill level indicator graphics is shown.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_set_show_fill_level&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_set_show_fill_level&quot;</span>)]
     </span><span class="kw">fn </span>set_show_fill_level(<span class="kw-2">&amp;</span><span class="self">self</span>, show_fill_level: bool);
 
     <span class="doccomment">/// Sets whether the range’s slider has a fixed size, or a size that
@@ -1145,7 +1175,7 @@
     /// This function is useful mainly for [`Range`][crate::Range] subclasses.
     /// ## `size_fixed`
     /// [`true`] to make the slider size constant
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_set_slider_size_fixed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_set_slider_size_fixed&quot;</span>)]
     </span><span class="kw">fn </span>set_slider_size_fixed(<span class="kw-2">&amp;</span><span class="self">self</span>, size_fixed: bool);
 
     <span class="doccomment">/// Sets the current value of the range.
@@ -1155,14 +1185,14 @@
     /// `signal::Range::value-changed` signal if the value changes.
     /// ## `value`
     /// new value of the range
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_range_set_value&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_range_set_value&quot;</span>)]
     </span><span class="kw">fn </span>set_value(<span class="kw-2">&amp;</span><span class="self">self</span>, value: f64);
 
     <span class="doccomment">/// Emitted before clamping a value, to give the application a
     /// chance to adjust the bounds.
     /// ## `value`
     /// the value before we clamp
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;adjust-bounds&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;adjust-bounds&quot;</span>)]
     </span><span class="kw">fn </span>connect_adjust_bounds&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, f64) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
     <span class="doccomment">/// Emitted when a scroll action is performed on a range.
@@ -1186,7 +1216,7 @@
     ///
     /// [`true`] to prevent other handlers from being invoked for
     ///     the signal, [`false`] to propagate the signal further
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;change-value&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;change-value&quot;</span>)]
     </span><span class="kw">fn </span>connect_change_value&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, ScrollType, f64) -&gt; glib::signal::Inhibit + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1197,34 +1227,34 @@
     /// Used for keybindings.
     /// ## `step`
     /// how to move the slider
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;move-slider&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;move-slider&quot;</span>)]
     </span><span class="kw">fn </span>connect_move_slider&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, ScrollType) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
     <span class="kw">fn </span>emit_move_slider(<span class="kw-2">&amp;</span><span class="self">self</span>, step: ScrollType);
 
     <span class="doccomment">/// Emitted when the range value changes.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;value-changed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;value-changed&quot;</span>)]
     </span><span class="kw">fn </span>connect_value_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;adjustment&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;adjustment&quot;</span>)]
     </span><span class="kw">fn </span>connect_adjustment_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;fill-level&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;fill-level&quot;</span>)]
     </span><span class="kw">fn </span>connect_fill_level_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;inverted&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;inverted&quot;</span>)]
     </span><span class="kw">fn </span>connect_inverted_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;restrict-to-fill-level&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;restrict-to-fill-level&quot;</span>)]
     </span><span class="kw">fn </span>connect_restrict_to_fill_level_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;round-digits&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;round-digits&quot;</span>)]
     </span><span class="kw">fn </span>connect_round_digits_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;show-fill-level&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;show-fill-level&quot;</span>)]
     </span><span class="kw">fn </span>connect_show_fill_level_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
@@ -1640,4 +1670,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/column_view_column.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>column_view_column.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/column_view_column.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>column_view_column.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -726,8 +726,6 @@
 <span id="653">653</span>
 <span id="654">654</span>
 <span id="655">655</span>
-<span id="656">656</span>
-<span id="657">657</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -764,7 +762,7 @@
     /// # Implements
     ///
     /// [`trait@glib::ObjectExt`]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkColumnViewColumn&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkColumnViewColumn&quot;</span>)]
     </span><span class="kw">pub struct </span>ColumnViewColumn(Object&lt;ffi::GtkColumnViewColumn, ffi::GtkColumnViewColumnClass&gt;);
 
     <span class="kw">match fn </span>{
@@ -794,7 +792,7 @@
     /// # Returns
     ///
     /// a new [`ColumnViewColumn`][crate::ColumnViewColumn] using the given @factory
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_new&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_new&quot;</span>)]
     </span><span class="kw">pub fn </span>new(
         title: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
         factory: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;ListItemFactory&gt;&gt;,
@@ -823,7 +821,7 @@
     /// # Returns
     ///
     /// The column view displaying @self.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_column_view&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_column_view&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_column_view&quot;</span>)]
     </span><span class="kw">pub fn </span>column_view(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;ColumnView&gt; {
         <span class="kw">unsafe </span>{
@@ -838,7 +836,7 @@
     /// # Returns
     ///
     /// [`true`] if this column expands
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_expand&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_expand&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_expand&quot;</span>)]
     </span><span class="kw">pub fn </span>expands(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -854,7 +852,7 @@
     /// # Returns
     ///
     /// The factory in use
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_factory&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_factory&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_factory&quot;</span>)]
     </span><span class="kw">pub fn </span>factory(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;ListItemFactory&gt; {
         <span class="kw">unsafe </span>{
@@ -869,7 +867,7 @@
     /// # Returns
     ///
     /// the fixed with of the column
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_fixed_width&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_fixed_width&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_fixed_width&quot;</span>)]
     </span><span class="kw">pub fn </span>fixed_width(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_column_view_column_get_fixed_width(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -881,7 +879,7 @@
     /// # Returns
     ///
     /// the `GMenuModel`
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_header_menu&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_header_menu&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_header_menu&quot;</span>)]
     </span><span class="kw">pub fn </span>header_menu(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gio::MenuModel&gt; {
         <span class="kw">unsafe </span>{
@@ -896,7 +894,7 @@
     /// # Returns
     ///
     /// [`true`] if this column is resizable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_resizable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_resizable&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_resizable&quot;</span>)]
     </span><span class="kw">pub fn </span>is_resizable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -911,7 +909,7 @@
     /// # Returns
     ///
     /// the [`Sorter`][crate::Sorter] of @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_sorter&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_sorter&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_sorter&quot;</span>)]
     </span><span class="kw">pub fn </span>sorter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Sorter&gt; {
         <span class="kw">unsafe </span>{
@@ -926,7 +924,7 @@
     /// # Returns
     ///
     /// The column&#39;s title
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_title&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_title&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_title&quot;</span>)]
     </span><span class="kw">pub fn </span>title(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_column_view_column_get_title(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -937,7 +935,7 @@
     /// # Returns
     ///
     /// [`true`] if this column is visible
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_visible&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_get_visible&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_visible&quot;</span>)]
     </span><span class="kw">pub fn </span>is_visible(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -953,7 +951,7 @@
     /// have the expand set to [`true`].
     /// ## `expand`
     /// [`true`] if this column should expand to fill available sace
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_expand&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_expand&quot;</span>)]
     </span><span class="kw">pub fn </span>set_expand(<span class="kw-2">&amp;</span><span class="self">self</span>, expand: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_column_set_expand(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, expand.into_glib());
@@ -964,7 +962,7 @@
     /// column.
     /// ## `factory`
     /// the factory to use
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_factory&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_factory&quot;</span>)]
     </span><span class="kw">pub fn </span>set_factory(<span class="kw-2">&amp;</span><span class="self">self</span>, factory: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;ListItemFactory&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_column_set_factory(
@@ -981,7 +979,7 @@
     /// width. Interactive resizing also sets the “fixed-width” property.
     /// ## `fixed_width`
     /// the new fixed width, or -1
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_fixed_width&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_fixed_width&quot;</span>)]
     </span><span class="kw">pub fn </span>set_fixed_width(<span class="kw-2">&amp;</span><span class="self">self</span>, fixed_width: i32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_column_set_fixed_width(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, fixed_width);
@@ -992,7 +990,7 @@
     /// for the column header.
     /// ## `menu`
     /// a `GMenuModel`
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_header_menu&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_header_menu&quot;</span>)]
     </span><span class="kw">pub fn </span>set_header_menu(<span class="kw-2">&amp;</span><span class="self">self</span>, menu: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::MenuModel&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_column_set_header_menu(
@@ -1005,7 +1003,7 @@
     <span class="doccomment">/// Sets whether this column should be resizable by dragging.
     /// ## `resizable`
     /// whether this column should be resizable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_resizable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_resizable&quot;</span>)]
     </span><span class="kw">pub fn </span>set_resizable(<span class="kw-2">&amp;</span><span class="self">self</span>, resizable: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_column_set_resizable(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, resizable.into_glib());
@@ -1024,7 +1022,7 @@
     /// for setting up customizable sorting for [`ColumnView`][crate::ColumnView].
     /// ## `sorter`
     /// the [`Sorter`][crate::Sorter] to associate with @column
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_sorter&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_sorter&quot;</span>)]
     </span><span class="kw">pub fn </span>set_sorter(<span class="kw-2">&amp;</span><span class="self">self</span>, sorter: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Sorter&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_column_set_sorter(
@@ -1041,7 +1039,7 @@
     /// be translated.
     /// ## `title`
     /// Title to use for this column
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_title&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_title&quot;</span>)]
     </span><span class="kw">pub fn </span>set_title(<span class="kw-2">&amp;</span><span class="self">self</span>, title: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_column_set_title(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, title.to_glib_none().<span class="number">0</span>);
@@ -1051,14 +1049,14 @@
     <span class="doccomment">/// Sets whether this column should be visible in views.
     /// ## `visible`
     /// whether this column should be visible
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_visible&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_column_view_column_set_visible&quot;</span>)]
     </span><span class="kw">pub fn </span>set_visible(<span class="kw-2">&amp;</span><span class="self">self</span>, visible: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_column_view_column_set_visible(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, visible.into_glib());
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;column-view&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;column-view&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_column_view_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_column_view_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnViewColumn) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnViewColumn,
@@ -1081,7 +1079,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;expand&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;expand&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_expand_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_expand_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnViewColumn) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnViewColumn,
@@ -1104,7 +1102,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;factory&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;factory&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_factory_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_factory_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnViewColumn) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnViewColumn,
@@ -1127,7 +1125,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;fixed-width&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;fixed-width&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_fixed_width_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_fixed_width_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnViewColumn) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnViewColumn,
@@ -1150,7 +1148,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;header-menu&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;header-menu&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_header_menu_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_header_menu_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnViewColumn) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnViewColumn,
@@ -1173,7 +1171,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;resizable&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;resizable&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_resizable_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_resizable_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnViewColumn) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnViewColumn,
@@ -1196,7 +1194,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;sorter&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;sorter&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_sorter_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_sorter_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnViewColumn) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnViewColumn,
@@ -1219,7 +1217,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;title&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;title&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_title_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_title_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnViewColumn) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnViewColumn,
@@ -1242,7 +1240,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;visible&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;visible&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_visible_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_visible_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>ColumnViewColumn) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkColumnViewColumn,
@@ -1269,16 +1267,15 @@
 <span class="kw">impl </span>Default <span class="kw">for </span>ColumnViewColumn {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
         glib::object::Object::new::&lt;<span class="self">Self</span>&gt;(<span class="kw-2">&amp;</span>[])
-            .expect(<span class="string">&quot;Can&#39;t construct ColumnViewColumn object with default parameters&quot;</span>)
     }
 }
 
-<span class="attribute">#[derive(Clone, Default)]
+<span class="attr">#[derive(Clone, Default)]
 </span><span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`ColumnViewColumn`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attribute">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
+</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
 </span><span class="kw">pub struct </span>ColumnViewColumnBuilder {
     expand: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     factory: <span class="prelude-ty">Option</span>&lt;ListItemFactory&gt;,
@@ -1299,7 +1296,7 @@
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`ColumnViewColumn`].
-    </span><span class="attribute">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
+    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; ColumnViewColumn {
         <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>expand) = <span class="self">self</span>.expand {
@@ -1327,7 +1324,6 @@
             properties.push((<span class="string">&quot;visible&quot;</span>, visible));
         }
         glib::Object::new::&lt;ColumnViewColumn&gt;(<span class="kw-2">&amp;</span>properties)
-            .expect(<span class="string">&quot;Failed to create an instance of ColumnViewColumn&quot;</span>)
     }
 
     <span class="doccomment">/// Column gets share of extra width allocated to the view.
@@ -1386,4 +1382,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

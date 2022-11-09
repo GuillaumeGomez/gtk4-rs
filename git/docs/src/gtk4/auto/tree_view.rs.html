@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/tree_view.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>tree_view.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/tree_view.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>tree_view.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -4303,6 +4303,445 @@
 <span id="4230">4230</span>
 <span id="4231">4231</span>
 <span id="4232">4232</span>
+<span id="4233">4233</span>
+<span id="4234">4234</span>
+<span id="4235">4235</span>
+<span id="4236">4236</span>
+<span id="4237">4237</span>
+<span id="4238">4238</span>
+<span id="4239">4239</span>
+<span id="4240">4240</span>
+<span id="4241">4241</span>
+<span id="4242">4242</span>
+<span id="4243">4243</span>
+<span id="4244">4244</span>
+<span id="4245">4245</span>
+<span id="4246">4246</span>
+<span id="4247">4247</span>
+<span id="4248">4248</span>
+<span id="4249">4249</span>
+<span id="4250">4250</span>
+<span id="4251">4251</span>
+<span id="4252">4252</span>
+<span id="4253">4253</span>
+<span id="4254">4254</span>
+<span id="4255">4255</span>
+<span id="4256">4256</span>
+<span id="4257">4257</span>
+<span id="4258">4258</span>
+<span id="4259">4259</span>
+<span id="4260">4260</span>
+<span id="4261">4261</span>
+<span id="4262">4262</span>
+<span id="4263">4263</span>
+<span id="4264">4264</span>
+<span id="4265">4265</span>
+<span id="4266">4266</span>
+<span id="4267">4267</span>
+<span id="4268">4268</span>
+<span id="4269">4269</span>
+<span id="4270">4270</span>
+<span id="4271">4271</span>
+<span id="4272">4272</span>
+<span id="4273">4273</span>
+<span id="4274">4274</span>
+<span id="4275">4275</span>
+<span id="4276">4276</span>
+<span id="4277">4277</span>
+<span id="4278">4278</span>
+<span id="4279">4279</span>
+<span id="4280">4280</span>
+<span id="4281">4281</span>
+<span id="4282">4282</span>
+<span id="4283">4283</span>
+<span id="4284">4284</span>
+<span id="4285">4285</span>
+<span id="4286">4286</span>
+<span id="4287">4287</span>
+<span id="4288">4288</span>
+<span id="4289">4289</span>
+<span id="4290">4290</span>
+<span id="4291">4291</span>
+<span id="4292">4292</span>
+<span id="4293">4293</span>
+<span id="4294">4294</span>
+<span id="4295">4295</span>
+<span id="4296">4296</span>
+<span id="4297">4297</span>
+<span id="4298">4298</span>
+<span id="4299">4299</span>
+<span id="4300">4300</span>
+<span id="4301">4301</span>
+<span id="4302">4302</span>
+<span id="4303">4303</span>
+<span id="4304">4304</span>
+<span id="4305">4305</span>
+<span id="4306">4306</span>
+<span id="4307">4307</span>
+<span id="4308">4308</span>
+<span id="4309">4309</span>
+<span id="4310">4310</span>
+<span id="4311">4311</span>
+<span id="4312">4312</span>
+<span id="4313">4313</span>
+<span id="4314">4314</span>
+<span id="4315">4315</span>
+<span id="4316">4316</span>
+<span id="4317">4317</span>
+<span id="4318">4318</span>
+<span id="4319">4319</span>
+<span id="4320">4320</span>
+<span id="4321">4321</span>
+<span id="4322">4322</span>
+<span id="4323">4323</span>
+<span id="4324">4324</span>
+<span id="4325">4325</span>
+<span id="4326">4326</span>
+<span id="4327">4327</span>
+<span id="4328">4328</span>
+<span id="4329">4329</span>
+<span id="4330">4330</span>
+<span id="4331">4331</span>
+<span id="4332">4332</span>
+<span id="4333">4333</span>
+<span id="4334">4334</span>
+<span id="4335">4335</span>
+<span id="4336">4336</span>
+<span id="4337">4337</span>
+<span id="4338">4338</span>
+<span id="4339">4339</span>
+<span id="4340">4340</span>
+<span id="4341">4341</span>
+<span id="4342">4342</span>
+<span id="4343">4343</span>
+<span id="4344">4344</span>
+<span id="4345">4345</span>
+<span id="4346">4346</span>
+<span id="4347">4347</span>
+<span id="4348">4348</span>
+<span id="4349">4349</span>
+<span id="4350">4350</span>
+<span id="4351">4351</span>
+<span id="4352">4352</span>
+<span id="4353">4353</span>
+<span id="4354">4354</span>
+<span id="4355">4355</span>
+<span id="4356">4356</span>
+<span id="4357">4357</span>
+<span id="4358">4358</span>
+<span id="4359">4359</span>
+<span id="4360">4360</span>
+<span id="4361">4361</span>
+<span id="4362">4362</span>
+<span id="4363">4363</span>
+<span id="4364">4364</span>
+<span id="4365">4365</span>
+<span id="4366">4366</span>
+<span id="4367">4367</span>
+<span id="4368">4368</span>
+<span id="4369">4369</span>
+<span id="4370">4370</span>
+<span id="4371">4371</span>
+<span id="4372">4372</span>
+<span id="4373">4373</span>
+<span id="4374">4374</span>
+<span id="4375">4375</span>
+<span id="4376">4376</span>
+<span id="4377">4377</span>
+<span id="4378">4378</span>
+<span id="4379">4379</span>
+<span id="4380">4380</span>
+<span id="4381">4381</span>
+<span id="4382">4382</span>
+<span id="4383">4383</span>
+<span id="4384">4384</span>
+<span id="4385">4385</span>
+<span id="4386">4386</span>
+<span id="4387">4387</span>
+<span id="4388">4388</span>
+<span id="4389">4389</span>
+<span id="4390">4390</span>
+<span id="4391">4391</span>
+<span id="4392">4392</span>
+<span id="4393">4393</span>
+<span id="4394">4394</span>
+<span id="4395">4395</span>
+<span id="4396">4396</span>
+<span id="4397">4397</span>
+<span id="4398">4398</span>
+<span id="4399">4399</span>
+<span id="4400">4400</span>
+<span id="4401">4401</span>
+<span id="4402">4402</span>
+<span id="4403">4403</span>
+<span id="4404">4404</span>
+<span id="4405">4405</span>
+<span id="4406">4406</span>
+<span id="4407">4407</span>
+<span id="4408">4408</span>
+<span id="4409">4409</span>
+<span id="4410">4410</span>
+<span id="4411">4411</span>
+<span id="4412">4412</span>
+<span id="4413">4413</span>
+<span id="4414">4414</span>
+<span id="4415">4415</span>
+<span id="4416">4416</span>
+<span id="4417">4417</span>
+<span id="4418">4418</span>
+<span id="4419">4419</span>
+<span id="4420">4420</span>
+<span id="4421">4421</span>
+<span id="4422">4422</span>
+<span id="4423">4423</span>
+<span id="4424">4424</span>
+<span id="4425">4425</span>
+<span id="4426">4426</span>
+<span id="4427">4427</span>
+<span id="4428">4428</span>
+<span id="4429">4429</span>
+<span id="4430">4430</span>
+<span id="4431">4431</span>
+<span id="4432">4432</span>
+<span id="4433">4433</span>
+<span id="4434">4434</span>
+<span id="4435">4435</span>
+<span id="4436">4436</span>
+<span id="4437">4437</span>
+<span id="4438">4438</span>
+<span id="4439">4439</span>
+<span id="4440">4440</span>
+<span id="4441">4441</span>
+<span id="4442">4442</span>
+<span id="4443">4443</span>
+<span id="4444">4444</span>
+<span id="4445">4445</span>
+<span id="4446">4446</span>
+<span id="4447">4447</span>
+<span id="4448">4448</span>
+<span id="4449">4449</span>
+<span id="4450">4450</span>
+<span id="4451">4451</span>
+<span id="4452">4452</span>
+<span id="4453">4453</span>
+<span id="4454">4454</span>
+<span id="4455">4455</span>
+<span id="4456">4456</span>
+<span id="4457">4457</span>
+<span id="4458">4458</span>
+<span id="4459">4459</span>
+<span id="4460">4460</span>
+<span id="4461">4461</span>
+<span id="4462">4462</span>
+<span id="4463">4463</span>
+<span id="4464">4464</span>
+<span id="4465">4465</span>
+<span id="4466">4466</span>
+<span id="4467">4467</span>
+<span id="4468">4468</span>
+<span id="4469">4469</span>
+<span id="4470">4470</span>
+<span id="4471">4471</span>
+<span id="4472">4472</span>
+<span id="4473">4473</span>
+<span id="4474">4474</span>
+<span id="4475">4475</span>
+<span id="4476">4476</span>
+<span id="4477">4477</span>
+<span id="4478">4478</span>
+<span id="4479">4479</span>
+<span id="4480">4480</span>
+<span id="4481">4481</span>
+<span id="4482">4482</span>
+<span id="4483">4483</span>
+<span id="4484">4484</span>
+<span id="4485">4485</span>
+<span id="4486">4486</span>
+<span id="4487">4487</span>
+<span id="4488">4488</span>
+<span id="4489">4489</span>
+<span id="4490">4490</span>
+<span id="4491">4491</span>
+<span id="4492">4492</span>
+<span id="4493">4493</span>
+<span id="4494">4494</span>
+<span id="4495">4495</span>
+<span id="4496">4496</span>
+<span id="4497">4497</span>
+<span id="4498">4498</span>
+<span id="4499">4499</span>
+<span id="4500">4500</span>
+<span id="4501">4501</span>
+<span id="4502">4502</span>
+<span id="4503">4503</span>
+<span id="4504">4504</span>
+<span id="4505">4505</span>
+<span id="4506">4506</span>
+<span id="4507">4507</span>
+<span id="4508">4508</span>
+<span id="4509">4509</span>
+<span id="4510">4510</span>
+<span id="4511">4511</span>
+<span id="4512">4512</span>
+<span id="4513">4513</span>
+<span id="4514">4514</span>
+<span id="4515">4515</span>
+<span id="4516">4516</span>
+<span id="4517">4517</span>
+<span id="4518">4518</span>
+<span id="4519">4519</span>
+<span id="4520">4520</span>
+<span id="4521">4521</span>
+<span id="4522">4522</span>
+<span id="4523">4523</span>
+<span id="4524">4524</span>
+<span id="4525">4525</span>
+<span id="4526">4526</span>
+<span id="4527">4527</span>
+<span id="4528">4528</span>
+<span id="4529">4529</span>
+<span id="4530">4530</span>
+<span id="4531">4531</span>
+<span id="4532">4532</span>
+<span id="4533">4533</span>
+<span id="4534">4534</span>
+<span id="4535">4535</span>
+<span id="4536">4536</span>
+<span id="4537">4537</span>
+<span id="4538">4538</span>
+<span id="4539">4539</span>
+<span id="4540">4540</span>
+<span id="4541">4541</span>
+<span id="4542">4542</span>
+<span id="4543">4543</span>
+<span id="4544">4544</span>
+<span id="4545">4545</span>
+<span id="4546">4546</span>
+<span id="4547">4547</span>
+<span id="4548">4548</span>
+<span id="4549">4549</span>
+<span id="4550">4550</span>
+<span id="4551">4551</span>
+<span id="4552">4552</span>
+<span id="4553">4553</span>
+<span id="4554">4554</span>
+<span id="4555">4555</span>
+<span id="4556">4556</span>
+<span id="4557">4557</span>
+<span id="4558">4558</span>
+<span id="4559">4559</span>
+<span id="4560">4560</span>
+<span id="4561">4561</span>
+<span id="4562">4562</span>
+<span id="4563">4563</span>
+<span id="4564">4564</span>
+<span id="4565">4565</span>
+<span id="4566">4566</span>
+<span id="4567">4567</span>
+<span id="4568">4568</span>
+<span id="4569">4569</span>
+<span id="4570">4570</span>
+<span id="4571">4571</span>
+<span id="4572">4572</span>
+<span id="4573">4573</span>
+<span id="4574">4574</span>
+<span id="4575">4575</span>
+<span id="4576">4576</span>
+<span id="4577">4577</span>
+<span id="4578">4578</span>
+<span id="4579">4579</span>
+<span id="4580">4580</span>
+<span id="4581">4581</span>
+<span id="4582">4582</span>
+<span id="4583">4583</span>
+<span id="4584">4584</span>
+<span id="4585">4585</span>
+<span id="4586">4586</span>
+<span id="4587">4587</span>
+<span id="4588">4588</span>
+<span id="4589">4589</span>
+<span id="4590">4590</span>
+<span id="4591">4591</span>
+<span id="4592">4592</span>
+<span id="4593">4593</span>
+<span id="4594">4594</span>
+<span id="4595">4595</span>
+<span id="4596">4596</span>
+<span id="4597">4597</span>
+<span id="4598">4598</span>
+<span id="4599">4599</span>
+<span id="4600">4600</span>
+<span id="4601">4601</span>
+<span id="4602">4602</span>
+<span id="4603">4603</span>
+<span id="4604">4604</span>
+<span id="4605">4605</span>
+<span id="4606">4606</span>
+<span id="4607">4607</span>
+<span id="4608">4608</span>
+<span id="4609">4609</span>
+<span id="4610">4610</span>
+<span id="4611">4611</span>
+<span id="4612">4612</span>
+<span id="4613">4613</span>
+<span id="4614">4614</span>
+<span id="4615">4615</span>
+<span id="4616">4616</span>
+<span id="4617">4617</span>
+<span id="4618">4618</span>
+<span id="4619">4619</span>
+<span id="4620">4620</span>
+<span id="4621">4621</span>
+<span id="4622">4622</span>
+<span id="4623">4623</span>
+<span id="4624">4624</span>
+<span id="4625">4625</span>
+<span id="4626">4626</span>
+<span id="4627">4627</span>
+<span id="4628">4628</span>
+<span id="4629">4629</span>
+<span id="4630">4630</span>
+<span id="4631">4631</span>
+<span id="4632">4632</span>
+<span id="4633">4633</span>
+<span id="4634">4634</span>
+<span id="4635">4635</span>
+<span id="4636">4636</span>
+<span id="4637">4637</span>
+<span id="4638">4638</span>
+<span id="4639">4639</span>
+<span id="4640">4640</span>
+<span id="4641">4641</span>
+<span id="4642">4642</span>
+<span id="4643">4643</span>
+<span id="4644">4644</span>
+<span id="4645">4645</span>
+<span id="4646">4646</span>
+<span id="4647">4647</span>
+<span id="4648">4648</span>
+<span id="4649">4649</span>
+<span id="4650">4650</span>
+<span id="4651">4651</span>
+<span id="4652">4652</span>
+<span id="4653">4653</span>
+<span id="4654">4654</span>
+<span id="4655">4655</span>
+<span id="4656">4656</span>
+<span id="4657">4657</span>
+<span id="4658">4658</span>
+<span id="4659">4659</span>
+<span id="4660">4660</span>
+<span id="4661">4661</span>
+<span id="4662">4662</span>
+<span id="4663">4663</span>
+<span id="4664">4664</span>
+<span id="4665">4665</span>
+<span id="4666">4666</span>
+<span id="4667">4667</span>
+<span id="4668">4668</span>
+<span id="4669">4669</span>
+<span id="4670">4670</span>
+<span id="4671">4671</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -4434,7 +4873,7 @@
     /// # Implements
     ///
     /// [`TreeViewExt`][trait@crate::prelude::TreeViewExt], [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`ScrollableExt`][trait@crate::prelude::ScrollableExt], [`TreeViewExtManual`][trait@crate::prelude::TreeViewExtManual], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkTreeView&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkTreeView&quot;</span>)]
     </span><span class="kw">pub struct </span>TreeView(Object&lt;ffi::GtkTreeView, ffi::GtkTreeViewClass&gt;) @extends Widget, @implements Accessible, Buildable, ConstraintTarget, Scrollable;
 
     <span class="kw">match fn </span>{
@@ -4447,23 +4886,33 @@
 
     <span class="doccomment">/// Creates a new [`TreeView`][crate::TreeView] widget.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// A newly created [`TreeView`][crate::TreeView] widget.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_new&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_new&quot;</span>)]
     </span><span class="kw">pub fn </span>new() -&gt; TreeView {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{ Widget::from_glib_none(ffi::gtk_tree_view_new()).unsafe_cast() }
     }
 
     <span class="doccomment">/// Creates a new [`TreeView`][crate::TreeView] widget with the model initialized to @model.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `model`
     /// the model.
     ///
     /// # Returns
     ///
     /// A newly created [`TreeView`][crate::TreeView] widget.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_new_with_model&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_new_with_model&quot;</span>)]
     #[doc(alias = <span class="string">&quot;new_with_model&quot;</span>)]
     </span><span class="kw">pub fn </span>with_model(model: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;TreeModel&gt;) -&gt; TreeView {
         <span class="macro">skip_assert_initialized!</span>();
@@ -4490,12 +4939,12 @@
     }
 }
 
-<span class="attribute">#[derive(Clone, Default)]
+<span class="attr">#[derive(Clone, Default)]
 </span><span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`TreeView`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attribute">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
+</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
 </span><span class="kw">pub struct </span>TreeViewBuilder {
     activate_on_single_click: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     enable_grid_lines: <span class="prelude-ty">Option</span>&lt;TreeViewGridLines&gt;,
@@ -4559,7 +5008,7 @@
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`TreeView`].
-    </span><span class="attribute">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
+    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; TreeView {
         <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>activate_on_single_click) = <span class="self">self</span>.activate_on_single_click {
@@ -4716,7 +5165,6 @@
             properties.push((<span class="string">&quot;vscroll-policy&quot;</span>, vscroll_policy));
         }
         glib::Object::new::&lt;TreeView&gt;(<span class="kw-2">&amp;</span>properties)
-            .expect(<span class="string">&quot;Failed to create an instance of TreeView&quot;</span>)
     }
 
     <span class="doccomment">/// The activate-on-single-click property specifies whether the &quot;row-activated&quot; signal
@@ -5115,36 +5563,60 @@
     <span class="doccomment">/// Appends @column to the list of columns. If @self has “fixed_height”
     /// mode enabled, then @column must have its “sizing” property set to be
     /// GTK_TREE_VIEW_COLUMN_FIXED.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `column`
     /// The [`TreeViewColumn`][crate::TreeViewColumn] to add.
     ///
     /// # Returns
     ///
     /// The number of columns in @self after appending.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_append_column&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_append_column&quot;</span>)]
     </span><span class="kw">fn </span>append_column(<span class="kw-2">&amp;</span><span class="self">self</span>, column: <span class="kw-2">&amp;</span>TreeViewColumn) -&gt; i32;
 
     <span class="doccomment">/// Recursively collapses all visible, expanded nodes in @self.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_collapse_all&quot;</span>)]
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_collapse_all&quot;</span>)]
     </span><span class="kw">fn </span>collapse_all(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Collapses a row (hides its child rows, if they exist).
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `path`
     /// path to a row in the @self
     ///
     /// # Returns
     ///
     /// [`true`] if the row was collapsed.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_collapse_row&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_collapse_row&quot;</span>)]
     </span><span class="kw">fn </span>collapse_row(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>TreePath) -&gt; bool;
 
     <span class="doccomment">/// Resizes all columns to their optimal width. Only works after the
     /// treeview has been realized.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_columns_autosize&quot;</span>)]
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_columns_autosize&quot;</span>)]
     </span><span class="kw">fn </span>columns_autosize(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Converts bin_window coordinates to coordinates for the
     /// tree (the full scrollable area of the tree).
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `bx`
     /// X coordinate relative to bin_window
     /// ## `by`
@@ -5158,10 +5630,15 @@
     ///
     /// ## `ty`
     /// return location for tree Y coordinate
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_convert_bin_window_to_tree_coords&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_convert_bin_window_to_tree_coords&quot;</span>)]
     </span><span class="kw">fn </span>convert_bin_window_to_tree_coords(<span class="kw-2">&amp;</span><span class="self">self</span>, bx: i32, by: i32) -&gt; (i32, i32);
 
     <span class="doccomment">/// Converts bin_window coordinates to widget relative coordinates.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `bx`
     /// bin_window X coordinate
     /// ## `by`
@@ -5175,11 +5652,16 @@
     ///
     /// ## `wy`
     /// return location for widget Y coordinate
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_convert_bin_window_to_widget_coords&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_convert_bin_window_to_widget_coords&quot;</span>)]
     </span><span class="kw">fn </span>convert_bin_window_to_widget_coords(<span class="kw-2">&amp;</span><span class="self">self</span>, bx: i32, by: i32) -&gt; (i32, i32);
 
     <span class="doccomment">/// Converts tree coordinates (coordinates in full scrollable area of the tree)
     /// to bin_window coordinates.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `tx`
     /// tree X coordinate
     /// ## `ty`
@@ -5193,11 +5675,16 @@
     ///
     /// ## `by`
     /// return location for Y coordinate relative to bin_window
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_convert_tree_to_bin_window_coords&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_convert_tree_to_bin_window_coords&quot;</span>)]
     </span><span class="kw">fn </span>convert_tree_to_bin_window_coords(<span class="kw-2">&amp;</span><span class="self">self</span>, tx: i32, ty: i32) -&gt; (i32, i32);
 
     <span class="doccomment">/// Converts tree coordinates (coordinates in full scrollable area of the tree)
     /// to widget coordinates.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `tx`
     /// X coordinate relative to the tree
     /// ## `ty`
@@ -5211,10 +5698,15 @@
     ///
     /// ## `wy`
     /// return location for widget Y coordinate
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_convert_tree_to_widget_coords&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_convert_tree_to_widget_coords&quot;</span>)]
     </span><span class="kw">fn </span>convert_tree_to_widget_coords(<span class="kw-2">&amp;</span><span class="self">self</span>, tx: i32, ty: i32) -&gt; (i32, i32);
 
     <span class="doccomment">/// Converts widget coordinates to coordinates for the bin_window.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `wx`
     /// X coordinate relative to the widget
     /// ## `wy`
@@ -5228,11 +5720,16 @@
     ///
     /// ## `by`
     /// return location for bin_window Y coordinate
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_convert_widget_to_bin_window_coords&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_convert_widget_to_bin_window_coords&quot;</span>)]
     </span><span class="kw">fn </span>convert_widget_to_bin_window_coords(<span class="kw-2">&amp;</span><span class="self">self</span>, wx: i32, wy: i32) -&gt; (i32, i32);
 
     <span class="doccomment">/// Converts widget coordinates to coordinates for the
     /// tree (the full scrollable area of the tree).
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `wx`
     /// X coordinate relative to the widget
     /// ## `wy`
@@ -5246,32 +5743,47 @@
     ///
     /// ## `ty`
     /// return location for tree Y coordinate
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_convert_widget_to_tree_coords&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_convert_widget_to_tree_coords&quot;</span>)]
     </span><span class="kw">fn </span>convert_widget_to_tree_coords(<span class="kw-2">&amp;</span><span class="self">self</span>, wx: i32, wy: i32) -&gt; (i32, i32);
 
     <span class="doccomment">/// Creates a [`cairo::Surface`][crate::cairo::Surface] representation of the row at @path.
     /// This image is used for a drag icon.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `path`
     /// a [`TreePath`][crate::TreePath] in @self
     ///
     /// # Returns
     ///
     /// a newly-allocated surface of the drag icon.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_create_row_drag_icon&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_create_row_drag_icon&quot;</span>)]
     </span><span class="kw">fn </span>create_row_drag_icon(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>TreePath) -&gt; <span class="prelude-ty">Option</span>&lt;gdk::Paintable&gt;;
 
     <span class="doccomment">/// Turns @self into a drop destination for automatic DND. Calling
     /// this method sets [`TreeView`][crate::TreeView]:reorderable to [`false`].
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `formats`
     /// the target formats that the drag will support
     /// ## `actions`
     /// the bitmask of possible actions for a drag from this
     ///    widget
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_enable_model_drag_dest&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_enable_model_drag_dest&quot;</span>)]
     </span><span class="kw">fn </span>enable_model_drag_dest(<span class="kw-2">&amp;</span><span class="self">self</span>, formats: <span class="kw-2">&amp;</span>gdk::ContentFormats, actions: gdk::DragAction);
 
     <span class="doccomment">/// Turns @self into a drag source for automatic DND. Calling this
     /// method sets [`TreeView`][crate::TreeView]:reorderable to [`false`].
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `start_button_mask`
     /// Mask of allowed buttons to start drag
     /// ## `formats`
@@ -5279,7 +5791,8 @@
     /// ## `actions`
     /// the bitmask of possible actions for a drag from this
     ///    widget
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_enable_model_drag_source&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_enable_model_drag_source&quot;</span>)]
     </span><span class="kw">fn </span>enable_model_drag_source(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         start_button_mask: gdk::ModifierType,
@@ -5288,10 +5801,19 @@
     );
 
     <span class="doccomment">/// Recursively expands all nodes in the @self.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_expand_all&quot;</span>)]
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_expand_all&quot;</span>)]
     </span><span class="kw">fn </span>expand_all(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Opens the row so its children are visible.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `path`
     /// path to a row
     /// ## `open_all`
@@ -5300,22 +5822,33 @@
     /// # Returns
     ///
     /// [`true`] if the row existed and had children
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_expand_row&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_expand_row&quot;</span>)]
     </span><span class="kw">fn </span>expand_row(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>TreePath, open_all: bool) -&gt; bool;
 
     <span class="doccomment">/// Expands the row at @path. This will also expand all parent rows of
     /// @path as necessary.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `path`
     /// path to a row.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_expand_to_path&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_expand_to_path&quot;</span>)]
     </span><span class="kw">fn </span>expand_to_path(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>TreePath);
 
     <span class="doccomment">/// Gets the setting set by gtk_tree_view_set_activate_on_single_click().
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// [`true`] if row-activated will be emitted on a single click
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_activate_on_single_click&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_activate_on_single_click&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_activate_on_single_click&quot;</span>)]
     </span><span class="kw">fn </span>activates_on_single_click(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -5328,6 +5861,10 @@
     /// areas tile to cover the entire bin window.  Contrast with the @cell_area,
     /// returned by gtk_tree_view_get_cell_area(), which returns only the cell
     /// itself, excluding surrounding borders and the tree expander area.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `path`
     /// a [`TreePath`][crate::TreePath] for the row, or [`None`] to get only horizontal coordinates
     /// ## `column`
@@ -5338,7 +5875,8 @@
     ///
     /// ## `rect`
     /// rectangle to fill with cell background rect
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_background_area&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_background_area&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_background_area&quot;</span>)]
     </span><span class="kw">fn </span>background_area(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -5355,6 +5893,10 @@
     /// returned rectangle is equivalent to the @cell_area passed to
     /// gtk_cell_renderer_render().  This function is only valid if @self is
     /// realized.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `path`
     /// a [`TreePath`][crate::TreePath] for the row, or [`None`] to get only horizontal coordinates
     /// ## `column`
@@ -5365,12 +5907,17 @@
     ///
     /// ## `rect`
     /// rectangle to fill with cell rect
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_cell_area&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_cell_area&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_cell_area&quot;</span>)]
     </span><span class="kw">fn </span>cell_area(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>TreePath&gt;, column: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>TreeViewColumn&gt;)
         -&gt; gdk::Rectangle;
 
     <span class="doccomment">/// Gets the [`TreeViewColumn`][crate::TreeViewColumn] at the given position in the #tree_view.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `n`
     /// The position of the column, counting from 0.
     ///
@@ -5378,17 +5925,23 @@
     ///
     /// The [`TreeViewColumn`][crate::TreeViewColumn], or [`None`] if the
     /// position is outside the range of columns.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_column&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_column&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_column&quot;</span>)]
     </span><span class="kw">fn </span>column(<span class="kw-2">&amp;</span><span class="self">self</span>, n: i32) -&gt; <span class="prelude-ty">Option</span>&lt;TreeViewColumn&gt;;
 
     <span class="doccomment">/// Returns a `GList` of all the [`TreeViewColumn`][crate::TreeViewColumn]s currently in @self.
     /// The returned list must be freed with g_list_free ().
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// A list of [`TreeViewColumn`][crate::TreeViewColumn]s
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_columns&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_columns&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_columns&quot;</span>)]
     </span><span class="kw">fn </span>columns(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;TreeViewColumn&gt;;
 
@@ -5398,6 +5951,10 @@
     ///
     /// The returned [`TreePath`][crate::TreePath] must be freed with gtk_tree_path_free() when
     /// you are done with it.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     ///
     /// # Returns
     ///
@@ -5409,7 +5966,8 @@
     /// ## `focus_column`
     /// A
     ///   pointer to be filled with the current focus column
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_cursor&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_cursor&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_cursor&quot;</span>)]
     </span><span class="kw">fn </span>cursor(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="prelude-ty">Option</span>&lt;TreePath&gt;, <span class="prelude-ty">Option</span>&lt;TreeViewColumn&gt;);
 
@@ -5417,6 +5975,10 @@
     /// @drag_y are expected to be in widget coordinates.  This function is only
     /// meaningful if @self is realized.  Therefore this function will always
     /// return [`false`] if @self is not realized or does not have a model.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `drag_x`
     /// the position to determine the destination row for
     /// ## `drag_y`
@@ -5434,7 +5996,8 @@
     /// ## `pos`
     /// Return location for the drop position, or
     ///   [`None`]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_dest_row_at_pos&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_dest_row_at_pos&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_dest_row_at_pos&quot;</span>)]
     </span><span class="kw">fn </span>dest_row_at_pos(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -5444,6 +6007,10 @@
 
     <span class="doccomment">/// Gets information about the row that is highlighted for feedback.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     ///
@@ -5452,27 +6019,38 @@
     ///
     /// ## `pos`
     /// Return location for the drop position
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_drag_dest_row&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_drag_dest_row&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_drag_dest_row&quot;</span>)]
     </span><span class="kw">fn </span>drag_dest_row(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="prelude-ty">Option</span>&lt;TreePath&gt;, TreeViewDropPosition);
 
     <span class="doccomment">/// Returns whether or not the tree allows to start interactive searching
     /// by typing in text.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// whether or not to let the user search interactively
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_enable_search&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_enable_search&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_enable_search&quot;</span>)]
     </span><span class="kw">fn </span>enables_search(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Returns whether or not tree lines are drawn in @self.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// [`true`] if tree lines are drawn in @self, [`false`]
     /// otherwise.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_enable_tree_lines&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_enable_tree_lines&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_enable_tree_lines&quot;</span>)]
     </span><span class="kw">fn </span>enables_tree_lines(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -5480,95 +6058,145 @@
     /// or [`None`] if none has been set.
     /// This column has the expander arrow drawn next to it.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// The expander column.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_expander_column&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_expander_column&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_expander_column&quot;</span>)]
     </span><span class="kw">fn </span>expander_column(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;TreeViewColumn&gt;;
 
     <span class="doccomment">/// Returns whether fixed height mode is turned on for @self.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// [`true`] if @self is in fixed height mode
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_fixed_height_mode&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_fixed_height_mode&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_fixed_height_mode&quot;</span>)]
     </span><span class="kw">fn </span>is_fixed_height_mode(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Returns which grid lines are enabled in @self.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// a [`TreeView`][crate::TreeView]GridLines value indicating which grid lines
     /// are enabled.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_grid_lines&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_grid_lines&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_grid_lines&quot;</span>)]
     </span><span class="kw">fn </span>grid_lines(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; TreeViewGridLines;
 
     <span class="doccomment">/// Returns whether all header columns are clickable.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// [`true`] if all header columns are clickable, otherwise [`false`]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_headers_clickable&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_headers_clickable&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_headers_clickable&quot;</span>)]
     </span><span class="kw">fn </span>is_headers_clickable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Returns [`true`] if the headers on the @self are visible.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// Whether the headers are visible or not.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_headers_visible&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_headers_visible&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_headers_visible&quot;</span>)]
     </span><span class="kw">fn </span>is_headers_visible(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Returns whether hover expansion mode is turned on for @self.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// [`true`] if @self is in hover expansion mode
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_hover_expand&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_hover_expand&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_hover_expand&quot;</span>)]
     </span><span class="kw">fn </span>hover_expands(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Returns whether hover selection mode is turned on for @self.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// [`true`] if @self is in hover selection mode
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_hover_selection&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_hover_selection&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_hover_selection&quot;</span>)]
     </span><span class="kw">fn </span>is_hover_selection(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Returns the amount, in pixels, of extra indentation for child levels
     /// in @self.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// the amount of extra indentation for child levels in
     /// @self.  A return value of 0 means that this feature is disabled.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_level_indentation&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_level_indentation&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_level_indentation&quot;</span>)]
     </span><span class="kw">fn </span>level_indentation(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
     <span class="doccomment">/// Returns the model the [`TreeView`][crate::TreeView] is based on.  Returns [`None`] if the
     /// model is unset.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// A [`TreeModel`][crate::TreeModel]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_model&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_model&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_model&quot;</span>)]
     </span><span class="kw">fn </span>model(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;TreeModel&gt;;
 
     <span class="doccomment">/// Queries the number of columns in the given @self.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// The number of columns in the @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_n_columns&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_n_columns&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_n_columns&quot;</span>)]
     </span><span class="kw">fn </span>n_columns(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u32;
 
@@ -5588,6 +6216,10 @@
     /// For converting widget coordinates (eg. the ones you get from
     /// GtkWidget::query-tooltip), please see
     /// gtk_tree_view_convert_widget_to_bin_window_coords().
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `x`
     /// The x position to be identified (relative to bin_window).
     /// ## `y`
@@ -5612,7 +6244,8 @@
     /// ## `cell_y`
     /// A pointer where the Y coordinate
     ///   relative to the cell can be placed
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_path_at_pos&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_path_at_pos&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_path_at_pos&quot;</span>)]
     </span><span class="kw">fn </span>path_at_pos(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -5623,10 +6256,15 @@
     <span class="doccomment">/// Retrieves whether the user can reorder the tree via drag-and-drop. See
     /// gtk_tree_view_set_reorderable().
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// [`true`] if the tree can be reordered.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_reorderable&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_reorderable&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_reorderable&quot;</span>)]
     </span><span class="kw">fn </span>is_reorderable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
@@ -5634,19 +6272,29 @@
     /// selection mode is [`SelectionMode::Multiple`][crate::SelectionMode::Multiple], rubber banding will allow the
     /// user to select multiple rows by dragging the mouse.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// [`true`] if rubber banding in @self is enabled.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_rubber_banding&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_rubber_banding&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_rubber_banding&quot;</span>)]
     </span><span class="kw">fn </span>is_rubber_banding(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Gets the column searched on by the interactive search code.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// the column the interactive search code searches in.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_search_column&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_search_column&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_search_column&quot;</span>)]
     </span><span class="kw">fn </span>search_column(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
@@ -5654,40 +6302,60 @@
     /// entry for @self.  In case the built-in entry is being used, [`None`]
     /// will be returned.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// the entry currently in use as search entry.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_search_entry&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_search_entry&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_search_entry&quot;</span>)]
     </span><span class="kw">fn </span>search_entry(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Editable&gt;;
 
     <span class="doccomment">/// Gets the [`TreeSelection`][crate::TreeSelection] associated with @self.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// A [`TreeSelection`][crate::TreeSelection] object.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_selection&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_selection&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_selection&quot;</span>)]
     </span><span class="kw">fn </span>selection(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; TreeSelection;
 
     <span class="doccomment">/// Returns whether or not expanders are drawn in @self.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// [`true`] if expanders are drawn in @self, [`false`]
     /// otherwise.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_show_expanders&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_show_expanders&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_show_expanders&quot;</span>)]
     </span><span class="kw">fn </span>shows_expanders(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Returns the column of @self’s model which is being used for
     /// displaying tooltips on @self’s rows.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// the index of the tooltip column that is currently being
     /// used, or -1 if this is disabled.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_tooltip_column&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_tooltip_column&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_tooltip_column&quot;</span>)]
     </span><span class="kw">fn </span>tooltip_column(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
@@ -5702,6 +6370,10 @@
     /// @model, @path and @iter which have been provided will be set to point to
     /// that row and the corresponding model. @x and @y will always be converted
     /// to be relative to @self’s bin_window if @keyboard_tooltip is [`false`].
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `x`
     /// the x coordinate (relative to widget coordinates)
     /// ## `y`
@@ -5722,7 +6394,8 @@
     ///
     /// ## `iter`
     /// a pointer to receive a [`TreeIter`][crate::TreeIter]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_tooltip_context&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_tooltip_context&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_tooltip_context&quot;</span>)]
     </span><span class="kw">fn </span>tooltip_context(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -5736,6 +6409,10 @@
     ///
     /// The paths should be freed with gtk_tree_path_free() after use.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// [`true`], if valid paths were placed in @start_path and @end_path.
@@ -5745,7 +6422,8 @@
     ///
     /// ## `end_path`
     /// Return location for end of region
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_visible_range&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_visible_range&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_visible_range&quot;</span>)]
     </span><span class="kw">fn </span>visible_range(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(TreePath, TreePath)&gt;;
 
@@ -5755,12 +6433,17 @@
     /// Tree coordinates start at 0,0 for row 0 of the tree, and cover the entire
     /// scrollable area of the tree.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     ///
     /// ## `visible_rect`
     /// rectangle to fill
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_get_visible_rect&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_get_visible_rect&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_visible_rect&quot;</span>)]
     </span><span class="kw">fn </span>visible_rect(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; gdk::Rectangle;
 
@@ -5768,6 +6451,10 @@
     /// -1, then the column is inserted at the end. If @self has
     /// “fixed_height” mode enabled, then @column must have its “sizing” property
     /// set to be GTK_TREE_VIEW_COLUMN_FIXED.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `column`
     /// The [`TreeViewColumn`][crate::TreeViewColumn] to be inserted.
     /// ## `position`
@@ -5776,7 +6463,8 @@
     /// # Returns
     ///
     /// The number of columns in @self after insertion.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_insert_column&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_insert_column&quot;</span>)]
     </span><span class="kw">fn </span>insert_column(<span class="kw-2">&amp;</span><span class="self">self</span>, column: <span class="kw-2">&amp;</span>TreeViewColumn, position: i32) -&gt; i32;
 
     <span class="doccomment">/// Convenience function that inserts a new column into the [`TreeView`][crate::TreeView]
@@ -5785,6 +6473,10 @@
     /// gtk_tree_view_column_set_cell_data_func(), gtk_tree_view_column_pack_start().
     /// If @self has “fixed_height” mode enabled, then the new column will have its
     /// “sizing” property set to be GTK_TREE_VIEW_COLUMN_FIXED.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `position`
     /// Position to insert, -1 for append
     /// ## `title`
@@ -5797,7 +6489,8 @@
     /// # Returns
     ///
     /// number of columns in the tree view post-insert
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_insert_column_with_data_func&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_insert_column_with_data_func&quot;</span>)]
     </span><span class="kw">fn </span>insert_column_with_data_func&lt;
         P: Fn(<span class="kw-2">&amp;</span>TreeViewColumn, <span class="kw-2">&amp;</span>CellRenderer, <span class="kw-2">&amp;</span>TreeModel, <span class="kw-2">&amp;</span>TreeIter) + <span class="lifetime">&#39;static</span>,
     &gt;(
@@ -5825,6 +6518,10 @@
     /// The @path, @column, @cell_x and @cell_y arguments will be filled in
     /// likewise as for gtk_tree_view_get_path_at_pos().  Please see
     /// gtk_tree_view_get_path_at_pos() for more information.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `x`
     /// The x position to be identified (relative to bin_window)
     /// ## `y`
@@ -5850,7 +6547,8 @@
     /// ## `cell_y`
     /// A pointer where the Y coordinate relative to the
     ///   cell can be placed
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_is_blank_at_pos&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_is_blank_at_pos&quot;</span>)]
     </span><span class="kw">fn </span>is_blank_at_pos(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         x: i32,
@@ -5860,54 +6558,84 @@
     <span class="doccomment">/// Returns whether a rubber banding operation is currently being done
     /// in @self.
     ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    ///
     /// # Returns
     ///
     /// [`true`] if a rubber banding operation is currently being
     /// done in @self.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_is_rubber_banding_active&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_is_rubber_banding_active&quot;</span>)]
     </span><span class="kw">fn </span>is_rubber_banding_active(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Calls @func on all expanded rows.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `func`
     /// A function to be called
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_map_expanded_rows&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_map_expanded_rows&quot;</span>)]
     </span><span class="kw">fn </span>map_expanded_rows&lt;P: FnMut(<span class="kw-2">&amp;</span>TreeView, <span class="kw-2">&amp;</span>TreePath)&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, func: P);
 
     <span class="doccomment">/// Moves @column to be after to @base_column.  If @base_column is [`None`], then
     /// @column is placed in the first position.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `column`
     /// The [`TreeViewColumn`][crate::TreeViewColumn] to be moved.
     /// ## `base_column`
     /// The [`TreeViewColumn`][crate::TreeViewColumn] to be moved relative to
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_move_column_after&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_move_column_after&quot;</span>)]
     </span><span class="kw">fn </span>move_column_after(<span class="kw-2">&amp;</span><span class="self">self</span>, column: <span class="kw-2">&amp;</span>TreeViewColumn, base_column: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>TreeViewColumn&gt;);
 
     <span class="doccomment">/// Removes @column from @self.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `column`
     /// The [`TreeViewColumn`][crate::TreeViewColumn] to remove.
     ///
     /// # Returns
     ///
     /// The number of columns in @self after removing.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_remove_column&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_remove_column&quot;</span>)]
     </span><span class="kw">fn </span>remove_column(<span class="kw-2">&amp;</span><span class="self">self</span>, column: <span class="kw-2">&amp;</span>TreeViewColumn) -&gt; i32;
 
     <span class="doccomment">/// Activates the cell determined by @path and @column.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `path`
     /// The [`TreePath`][crate::TreePath] to be activated.
     /// ## `column`
     /// The [`TreeViewColumn`][crate::TreeViewColumn] to be activated.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_row_activated&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_row_activated&quot;</span>)]
     </span><span class="kw">fn </span>row_activated(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>TreePath, column: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>TreeViewColumn&gt;);
 
     <span class="doccomment">/// Returns [`true`] if the node pointed to by @path is expanded in @self.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `path`
     /// A [`TreePath`][crate::TreePath] to test expansion state.
     ///
     /// # Returns
     ///
     /// [`true`] if #path is expanded.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_row_expanded&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_row_expanded&quot;</span>)]
     </span><span class="kw">fn </span>row_expanded(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>TreePath) -&gt; bool;
 
     <span class="doccomment">/// Moves the alignments of @self to the position specified by @column and
@@ -5926,6 +6654,10 @@
     /// This function only works if the model is set, and @path is a valid row on the
     /// model.  If the model changes before the @self is realized, the centered
     /// path will be modified to reflect this change.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `path`
     /// The path of the row to move to
     /// ## `column`
@@ -5936,7 +6668,8 @@
     /// The vertical alignment of the row specified by @path.
     /// ## `col_align`
     /// The horizontal alignment of the column specified by @column.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_scroll_to_cell&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_scroll_to_cell&quot;</span>)]
     </span><span class="kw">fn </span>scroll_to_cell(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         path: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>TreePath&gt;,
@@ -5953,18 +6686,28 @@
     /// using gtk_tree_view_scroll_to_cell().
     ///
     /// If either @tree_x or @tree_y are -1, then that direction isn’t scrolled.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `tree_x`
     /// X coordinate of new top-left pixel of visible area, or -1
     /// ## `tree_y`
     /// Y coordinate of new top-left pixel of visible area, or -1
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_scroll_to_point&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_scroll_to_point&quot;</span>)]
     </span><span class="kw">fn </span>scroll_to_point(<span class="kw-2">&amp;</span><span class="self">self</span>, tree_x: i32, tree_y: i32);
 
     <span class="doccomment">/// Cause the [`TreeView`][crate::TreeView]::row-activated signal to be emitted
     /// on a single click instead of a double click.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `single`
     /// [`true`] to emit row-activated on a single click
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_activate_on_single_click&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_activate_on_single_click&quot;</span>)]
     </span><span class="kw">fn </span>set_activate_on_single_click(<span class="kw-2">&amp;</span><span class="self">self</span>, single: bool);
 
     <span class="doccomment">/// Sets a user function for determining where a column may be dropped when
@@ -5976,9 +6719,14 @@
     /// are [`None`], then they indicate an edge.  If @func is set to be [`None`], then
     /// @self reverts to the default behavior of allowing all columns to be
     /// dropped everywhere.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `func`
     /// A function to determine which columns are reorderable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_column_drag_function&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_column_drag_function&quot;</span>)]
     </span><span class="kw">fn </span>set_column_drag_function(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         func: <span class="prelude-ty">Option</span>&lt;
@@ -6000,13 +6748,18 @@
     ///
     /// If @path is invalid for @model, the current cursor (if any) will be unset
     /// and the function will return without failing.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `path`
     /// A [`TreePath`][crate::TreePath]
     /// ## `focus_column`
     /// A [`TreeViewColumn`][crate::TreeViewColumn]
     /// ## `start_editing`
     /// [`true`] if the specified cell should start being edited.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_cursor&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_cursor&quot;</span>)]
     </span><span class="kw">fn </span>set_cursor(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         path: <span class="kw-2">&amp;</span>TreePath,
@@ -6028,6 +6781,10 @@
     ///
     /// If @path is invalid for @model, the current cursor (if any) will be unset
     /// and the function will return without failing.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `path`
     /// A [`TreePath`][crate::TreePath]
     /// ## `focus_column`
@@ -6036,7 +6793,8 @@
     /// A [`CellRenderer`][crate::CellRenderer]
     /// ## `start_editing`
     /// [`true`] if the specified cell should start being edited.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_cursor_on_cell&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_cursor_on_cell&quot;</span>)]
     </span><span class="kw">fn </span>set_cursor_on_cell(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         path: <span class="kw-2">&amp;</span>TreePath,
@@ -6047,11 +6805,16 @@
 
     <span class="doccomment">/// Sets the row that is highlighted for feedback.
     /// If @path is [`None`], an existing highlight is removed.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `path`
     /// The path of the row to highlight
     /// ## `pos`
     /// Specifies whether to drop before, after or into the row
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_drag_dest_row&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_drag_dest_row&quot;</span>)]
     </span><span class="kw">fn </span>set_drag_dest_row(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>TreePath&gt;, pos: TreeViewDropPosition);
 
     <span class="doccomment">/// If @enable_search is set, then the user can type in text to search through
@@ -6059,16 +6822,26 @@
     ///
     /// Note that even if this is [`false`], the user can still initiate a search
     /// using the “start-interactive-search” key binding.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `enable_search`
     /// [`true`], if the user can search interactively
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_enable_search&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_enable_search&quot;</span>)]
     </span><span class="kw">fn </span>set_enable_search(<span class="kw-2">&amp;</span><span class="self">self</span>, enable_search: bool);
 
     <span class="doccomment">/// Sets whether to draw lines interconnecting the expanders in @self.
     /// This does not have any visible effects for lists.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `enabled`
     /// [`true`] to enable tree line drawing, [`false`] otherwise.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_enable_tree_lines&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_enable_tree_lines&quot;</span>)]
     </span><span class="kw">fn </span>set_enable_tree_lines(<span class="kw-2">&amp;</span><span class="self">self</span>, enabled: bool);
 
     <span class="doccomment">/// Sets the column to draw the expander arrow at. It must be in @self.
@@ -6077,9 +6850,14 @@
     ///
     /// If you do not want expander arrow to appear in your tree, set the
     /// expander column to a hidden column.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `column`
     /// [`None`], or the column to draw the expander arrow at.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_expander_column&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_expander_column&quot;</span>)]
     </span><span class="kw">fn </span>set_expander_column(<span class="kw-2">&amp;</span><span class="self">self</span>, column: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>TreeViewColumn&gt;);
 
     <span class="doccomment">/// Enables or disables the fixed height mode of @self.
@@ -6087,45 +6865,75 @@
     /// rows have the same height.
     /// Only enable this option if all rows are the same height and all
     /// columns are of type [`TreeViewColumnSizing::Fixed`][crate::TreeViewColumnSizing::Fixed].
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `enable`
     /// [`true`] to enable fixed height mode
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_fixed_height_mode&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_fixed_height_mode&quot;</span>)]
     </span><span class="kw">fn </span>set_fixed_height_mode(<span class="kw-2">&amp;</span><span class="self">self</span>, enable: bool);
 
     <span class="doccomment">/// Sets which grid lines to draw in @self.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `grid_lines`
     /// a [`TreeView`][crate::TreeView]GridLines value indicating which grid lines to
     /// enable.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_grid_lines&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_grid_lines&quot;</span>)]
     </span><span class="kw">fn </span>set_grid_lines(<span class="kw-2">&amp;</span><span class="self">self</span>, grid_lines: TreeViewGridLines);
 
     <span class="doccomment">/// Allow the column title buttons to be clicked.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `setting`
     /// [`true`] if the columns are clickable.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_headers_clickable&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_headers_clickable&quot;</span>)]
     </span><span class="kw">fn </span>set_headers_clickable(<span class="kw-2">&amp;</span><span class="self">self</span>, setting: bool);
 
     <span class="doccomment">/// Sets the visibility state of the headers.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `headers_visible`
     /// [`true`] if the headers are visible
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_headers_visible&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_headers_visible&quot;</span>)]
     </span><span class="kw">fn </span>set_headers_visible(<span class="kw-2">&amp;</span><span class="self">self</span>, headers_visible: bool);
 
     <span class="doccomment">/// Enables or disables the hover expansion mode of @self.
     /// Hover expansion makes rows expand or collapse if the pointer
     /// moves over them.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `expand`
     /// [`true`] to enable hover selection mode
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_hover_expand&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_hover_expand&quot;</span>)]
     </span><span class="kw">fn </span>set_hover_expand(<span class="kw-2">&amp;</span><span class="self">self</span>, expand: bool);
 
     <span class="doccomment">/// Enables or disables the hover selection mode of @self.
     /// Hover selection makes the selected row follow the pointer.
     /// Currently, this works only for the selection modes
     /// [`SelectionMode::Single`][crate::SelectionMode::Single] and [`SelectionMode::Browse`][crate::SelectionMode::Browse].
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `hover`
     /// [`true`] to enable hover selection mode
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_hover_selection&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_hover_selection&quot;</span>)]
     </span><span class="kw">fn </span>set_hover_selection(<span class="kw-2">&amp;</span><span class="self">self</span>, hover: bool);
 
     <span class="doccomment">/// Sets the amount of extra indentation for child levels to use in @self
@@ -6133,17 +6941,27 @@
     /// pixels, a value of 0 disables this feature and in this case only the default
     /// indentation will be used.
     /// This does not have any visible effects for lists.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `indentation`
     /// the amount, in pixels, of extra indentation in @self.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_level_indentation&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_level_indentation&quot;</span>)]
     </span><span class="kw">fn </span>set_level_indentation(<span class="kw-2">&amp;</span><span class="self">self</span>, indentation: i32);
 
     <span class="doccomment">/// Sets the model for a [`TreeView`][crate::TreeView].  If the @self already has a model
     /// set, it will remove it before setting the new model.  If @model is [`None`],
     /// then it will unset the old model.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `model`
     /// The model.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_model&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_model&quot;</span>)]
     </span><span class="kw">fn </span>set_model(<span class="kw-2">&amp;</span><span class="self">self</span>, model: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;TreeModel&gt;&gt;);
 
     <span class="doccomment">/// This function is a convenience function to allow you to reorder
@@ -6160,25 +6978,40 @@
     /// This function does not give you any degree of control over the order -- any
     /// reordering is allowed.  If more control is needed, you should probably
     /// handle drag and drop manually.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `reorderable`
     /// [`true`], if the tree can be reordered.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_reorderable&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_reorderable&quot;</span>)]
     </span><span class="kw">fn </span>set_reorderable(<span class="kw-2">&amp;</span><span class="self">self</span>, reorderable: bool);
 
     <span class="doccomment">/// Sets the row separator function, which is used to determine
     /// whether a row should be drawn as a separator. If the row separator
     /// function is [`None`], no separators are drawn. This is the default value.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `func`
     /// a [`TreeView`][crate::TreeView]RowSeparatorFunc
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_row_separator_func&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_row_separator_func&quot;</span>)]
     </span><span class="kw">fn </span>set_row_separator_func&lt;P: Fn(<span class="kw-2">&amp;</span>TreeModel, <span class="kw-2">&amp;</span>TreeIter) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, func: P);
 
     <span class="doccomment">/// Enables or disables rubber banding in @self.  If the selection mode
     /// is [`SelectionMode::Multiple`][crate::SelectionMode::Multiple], rubber banding will allow the user to select
     /// multiple rows by dragging the mouse.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `enable`
     /// [`true`] to enable rubber banding
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_rubber_banding&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_rubber_banding&quot;</span>)]
     </span><span class="kw">fn </span>set_rubber_banding(<span class="kw-2">&amp;</span><span class="self">self</span>, enable: bool);
 
     <span class="doccomment">/// Sets @column as the column where the interactive search code should
@@ -6190,9 +7023,14 @@
     ///
     /// Note that @column refers to a column of the current model. The search
     /// column is reset to -1 when the model is changed.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `column`
     /// the column of the model to search in, or -1 to disable searching
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_search_column&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_search_column&quot;</span>)]
     </span><span class="kw">fn </span>set_search_column(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32);
 
     <span class="doccomment">/// Sets the entry which the interactive search code will use for this
@@ -6200,17 +7038,27 @@
     /// in our interface at all time at a fixed position.  Passing [`None`] for
     /// @entry will make the interactive search code use the built-in popup
     /// entry again.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `entry`
     /// the entry the interactive search code of @self should use
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_search_entry&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_search_entry&quot;</span>)]
     </span><span class="kw">fn </span>set_search_entry(<span class="kw-2">&amp;</span><span class="self">self</span>, entry: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Editable&gt;&gt;);
 
     <span class="doccomment">/// Sets the compare function for the interactive search capabilities; note
     /// that somewhat like strcmp() returning 0 for equality
     /// [`TreeView`][crate::TreeView]SearchEqualFunc returns [`false`] on matches.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `search_equal_func`
     /// the compare function to use during the search
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_search_equal_func&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_search_equal_func&quot;</span>)]
     </span><span class="kw">fn </span>set_search_equal_func&lt;P: Fn(<span class="kw-2">&amp;</span>TreeModel, i32, <span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span>TreeIter) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         search_equal_func: P,
@@ -6223,9 +7071,14 @@
     /// can set a custom indentation in this case using
     /// gtk_tree_view_set_level_indentation().
     /// This does not have any visible effects for lists.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `enabled`
     /// [`true`] to enable expander drawing, [`false`] otherwise.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_show_expanders&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_show_expanders&quot;</span>)]
     </span><span class="kw">fn </span>set_show_expanders(<span class="kw-2">&amp;</span><span class="self">self</span>, enabled: bool);
 
     <span class="doccomment">/// Sets the tip area of @tooltip to the area @path, @column and @cell have
@@ -6239,6 +7092,10 @@
     /// mouse cursor for this function to operate correctly.
     ///
     /// See also gtk_tree_view_set_tooltip_column() for a simpler alternative.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `tooltip`
     /// a [`Tooltip`][crate::Tooltip]
     /// ## `path`
@@ -6247,7 +7104,8 @@
     /// a [`TreeViewColumn`][crate::TreeViewColumn]
     /// ## `cell`
     /// a [`CellRenderer`][crate::CellRenderer]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_tooltip_cell&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_tooltip_cell&quot;</span>)]
     </span><span class="kw">fn </span>set_tooltip_cell(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         tooltip: <span class="kw-2">&amp;</span>Tooltip,
@@ -6266,48 +7124,68 @@
     ///
     /// Note that the signal handler sets the text with gtk_tooltip_set_markup(),
     /// so &amp;, &lt;, etc have to be escaped in the text.
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `column`
     /// an integer, which is a valid column number for @self’s model
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_tooltip_column&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_tooltip_column&quot;</span>)]
     </span><span class="kw">fn </span>set_tooltip_column(<span class="kw-2">&amp;</span><span class="self">self</span>, column: i32);
 
     <span class="doccomment">/// Sets the tip area of @tooltip to be the area covered by the row at @path.
     /// See also gtk_tree_view_set_tooltip_column() for a simpler alternative.
     /// See also gtk_tooltip_set_tip_area().
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
     /// ## `tooltip`
     /// a [`Tooltip`][crate::Tooltip]
     /// ## `path`
     /// a [`TreePath`][crate::TreePath]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_set_tooltip_row&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_set_tooltip_row&quot;</span>)]
     </span><span class="kw">fn </span>set_tooltip_row(<span class="kw-2">&amp;</span><span class="self">self</span>, tooltip: <span class="kw-2">&amp;</span>Tooltip, path: <span class="kw-2">&amp;</span>TreePath);
 
     <span class="doccomment">/// Undoes the effect of
     /// gtk_tree_view_enable_model_drag_dest(). Calling this method sets
     /// [`TreeView`][crate::TreeView]:reorderable to [`false`].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_unset_rows_drag_dest&quot;</span>)]
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_unset_rows_drag_dest&quot;</span>)]
     </span><span class="kw">fn </span>unset_rows_drag_dest(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Undoes the effect of
     /// gtk_tree_view_enable_model_drag_source(). Calling this method sets
     /// [`TreeView`][crate::TreeView]:reorderable to [`false`].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_view_unset_rows_drag_source&quot;</span>)]
+    ///
+    /// # Deprecated since 4.12
+    ///
+    /// Use GtkListView and GtkColumnView instead
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_12&quot;</span>, deprecated = <span class="string">&quot;Since 4.12&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_view_unset_rows_drag_source&quot;</span>)]
     </span><span class="kw">fn </span>unset_rows_drag_source(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;enable-grid-lines&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;enable-grid-lines&quot;</span>)]
     </span><span class="kw">fn </span>enable_grid_lines(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; TreeViewGridLines;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;enable-grid-lines&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;enable-grid-lines&quot;</span>)]
     </span><span class="kw">fn </span>set_enable_grid_lines(<span class="kw-2">&amp;</span><span class="self">self</span>, enable_grid_lines: TreeViewGridLines);
 
     <span class="doccomment">/// The number of columns of the treeview has changed.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;columns-changed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;columns-changed&quot;</span>)]
     </span><span class="kw">fn </span>connect_columns_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
     <span class="doccomment">/// The position of the cursor (focused cell) has changed.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;cursor-changed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;cursor-changed&quot;</span>)]
     </span><span class="kw">fn </span>connect_cursor_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;expand-collapse-cursor-row&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;expand-collapse-cursor-row&quot;</span>)]
     </span><span class="kw">fn </span>connect_expand_collapse_cursor_row&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, bool, bool, bool) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -6342,7 +7220,7 @@
     /// # Returns
     ///
     /// [`true`] if @step is supported, [`false`] otherwise.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;move-cursor&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;move-cursor&quot;</span>)]
     </span><span class="kw">fn </span>connect_move_cursor&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, MovementStep, i32, bool, bool) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -6374,7 +7252,7 @@
     /// the [`TreePath`][crate::TreePath] for the activated row
     /// ## `column`
     /// the [`TreeViewColumn`][crate::TreeViewColumn] in which the activation occurred
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;row-activated&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;row-activated&quot;</span>)]
     </span><span class="kw">fn </span>connect_row_activated&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>TreePath, <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>TreeViewColumn&gt;) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -6387,7 +7265,7 @@
     /// the tree iter of the collapsed row
     /// ## `path`
     /// a tree path that points to the row
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;row-collapsed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;row-collapsed&quot;</span>)]
     </span><span class="kw">fn </span>connect_row_collapsed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>TreeIter, <span class="kw-2">&amp;</span>TreePath) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -6398,24 +7276,24 @@
     /// the tree iter of the expanded row
     /// ## `path`
     /// a tree path that points to the row
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;row-expanded&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;row-expanded&quot;</span>)]
     </span><span class="kw">fn </span>connect_row_expanded&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>TreeIter, <span class="kw-2">&amp;</span>TreePath) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;select-all&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;select-all&quot;</span>)]
     </span><span class="kw">fn </span>connect_select_all&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
     <span class="kw">fn </span>emit_select_all(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;select-cursor-parent&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;select-cursor-parent&quot;</span>)]
     </span><span class="kw">fn </span>connect_select_cursor_parent&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F)
         -&gt; SignalHandlerId;
 
     <span class="kw">fn </span>emit_select_cursor_parent(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;select-cursor-row&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;select-cursor-row&quot;</span>)]
     </span><span class="kw">fn </span>connect_select_cursor_row&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, bool) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -6423,7 +7301,7 @@
 
     <span class="kw">fn </span>emit_select_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>, object: bool) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;start-interactive-search&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;start-interactive-search&quot;</span>)]
     </span><span class="kw">fn </span>connect_start_interactive_search&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -6441,7 +7319,7 @@
     /// # Returns
     ///
     /// [`false`] to allow collapsing, [`true`] to reject
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;test-collapse-row&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;test-collapse-row&quot;</span>)]
     </span><span class="kw">fn </span>connect_test_collapse_row&lt;
         F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>TreeIter, <span class="kw-2">&amp;</span>TreePath) -&gt; glib::signal::Inhibit + <span class="lifetime">&#39;static</span>,
     &gt;(
@@ -6459,7 +7337,7 @@
     /// # Returns
     ///
     /// [`false`] to allow expansion, [`true`] to reject
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;test-expand-row&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;test-expand-row&quot;</span>)]
     </span><span class="kw">fn </span>connect_test_expand_row&lt;
         F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>TreeIter, <span class="kw-2">&amp;</span>TreePath) -&gt; glib::signal::Inhibit + <span class="lifetime">&#39;static</span>,
     &gt;(
@@ -6467,68 +7345,68 @@
         f: F,
     ) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;toggle-cursor-row&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;toggle-cursor-row&quot;</span>)]
     </span><span class="kw">fn </span>connect_toggle_cursor_row&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
     <span class="kw">fn </span>emit_toggle_cursor_row(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;unselect-all&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;unselect-all&quot;</span>)]
     </span><span class="kw">fn </span>connect_unselect_all&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
     <span class="kw">fn </span>emit_unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;activate-on-single-click&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;activate-on-single-click&quot;</span>)]
     </span><span class="kw">fn </span>connect_activate_on_single_click_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;enable-grid-lines&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;enable-grid-lines&quot;</span>)]
     </span><span class="kw">fn </span>connect_enable_grid_lines_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;enable-search&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;enable-search&quot;</span>)]
     </span><span class="kw">fn </span>connect_enable_search_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;enable-tree-lines&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;enable-tree-lines&quot;</span>)]
     </span><span class="kw">fn </span>connect_enable_tree_lines_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;expander-column&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;expander-column&quot;</span>)]
     </span><span class="kw">fn </span>connect_expander_column_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;fixed-height-mode&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;fixed-height-mode&quot;</span>)]
     </span><span class="kw">fn </span>connect_fixed_height_mode_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;headers-clickable&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;headers-clickable&quot;</span>)]
     </span><span class="kw">fn </span>connect_headers_clickable_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;headers-visible&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;headers-visible&quot;</span>)]
     </span><span class="kw">fn </span>connect_headers_visible_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;hover-expand&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;hover-expand&quot;</span>)]
     </span><span class="kw">fn </span>connect_hover_expand_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;hover-selection&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;hover-selection&quot;</span>)]
     </span><span class="kw">fn </span>connect_hover_selection_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;level-indentation&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;level-indentation&quot;</span>)]
     </span><span class="kw">fn </span>connect_level_indentation_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;model&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;model&quot;</span>)]
     </span><span class="kw">fn </span>connect_model_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;reorderable&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;reorderable&quot;</span>)]
     </span><span class="kw">fn </span>connect_reorderable_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;rubber-banding&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;rubber-banding&quot;</span>)]
     </span><span class="kw">fn </span>connect_rubber_banding_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;search-column&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;search-column&quot;</span>)]
     </span><span class="kw">fn </span>connect_search_column_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;show-expanders&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;show-expanders&quot;</span>)]
     </span><span class="kw">fn </span>connect_show_expanders_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;tooltip-column&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;tooltip-column&quot;</span>)]
     </span><span class="kw">fn </span>connect_tooltip_column_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
@@ -8536,4 +9414,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

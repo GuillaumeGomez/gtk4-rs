@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/text_tag.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>text_tag.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/text_tag.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>text_tag.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -4733,7 +4733,6 @@
 <span id="4660">4660</span>
 <span id="4661">4661</span>
 <span id="4662">4662</span>
-<span id="4663">4663</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -4775,7 +4774,7 @@
     /// # Implements
     ///
     /// [`TextTagExt`][trait@crate::prelude::TextTagExt], [`trait@glib::ObjectExt`]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkTextTag&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkTextTag&quot;</span>)]
     </span><span class="kw">pub struct </span>TextTag(Object&lt;ffi::GtkTextTag, ffi::GtkTextTagClass&gt;);
 
     <span class="kw">match fn </span>{
@@ -4793,7 +4792,7 @@
     /// # Returns
     ///
     /// a new [`TextTag`][crate::TextTag]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_tag_new&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_tag_new&quot;</span>)]
     </span><span class="kw">pub fn </span>new(name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) -&gt; TextTag {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{ from_glib_full(ffi::gtk_text_tag_new(name.to_glib_none().<span class="number">0</span>)) }
@@ -4811,16 +4810,15 @@
 <span class="kw">impl </span>Default <span class="kw">for </span>TextTag {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
         glib::object::Object::new::&lt;<span class="self">Self</span>&gt;(<span class="kw-2">&amp;</span>[])
-            .expect(<span class="string">&quot;Can&#39;t construct TextTag object with default parameters&quot;</span>)
     }
 }
 
-<span class="attribute">#[derive(Clone, Default)]
+<span class="attr">#[derive(Clone, Default)]
 </span><span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`TextTag`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attribute">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
+</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
 </span><span class="kw">pub struct </span>TextTagBuilder {
     accumulative_margin: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     allow_breaks: <span class="prelude-ty">Option</span>&lt;bool&gt;,
@@ -4858,10 +4856,10 @@
     left_margin_set: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     letter_spacing: <span class="prelude-ty">Option</span>&lt;i32&gt;,
     letter_spacing_set: <span class="prelude-ty">Option</span>&lt;bool&gt;,
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span>line_height: <span class="prelude-ty">Option</span>&lt;f32&gt;,
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span>line_height_set: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     name: <span class="prelude-ty">Option</span>&lt;String&gt;,
@@ -4884,10 +4882,10 @@
     rise_set: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     scale: <span class="prelude-ty">Option</span>&lt;f64&gt;,
     scale_set: <span class="prelude-ty">Option</span>&lt;bool&gt;,
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span>sentence: <span class="prelude-ty">Option</span>&lt;bool&gt;,
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span>sentence_set: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     show_spaces: <span class="prelude-ty">Option</span>&lt;pango::ShowFlags&gt;,
@@ -4905,10 +4903,10 @@
     style_set: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     tabs: <span class="prelude-ty">Option</span>&lt;pango::TabArray&gt;,
     tabs_set: <span class="prelude-ty">Option</span>&lt;bool&gt;,
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span>text_transform: <span class="prelude-ty">Option</span>&lt;pango::TextTransform&gt;,
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span>text_transform_set: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     underline: <span class="prelude-ty">Option</span>&lt;pango::Underline&gt;,
@@ -4919,10 +4917,10 @@
     variant_set: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     weight: <span class="prelude-ty">Option</span>&lt;i32&gt;,
     weight_set: <span class="prelude-ty">Option</span>&lt;bool&gt;,
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span>word: <span class="prelude-ty">Option</span>&lt;bool&gt;,
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span>word_set: <span class="prelude-ty">Option</span>&lt;bool&gt;,
     wrap_mode: <span class="prelude-ty">Option</span>&lt;WrapMode&gt;,
@@ -4938,7 +4936,7 @@
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`TextTag`].
-    </span><span class="attribute">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
+    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; TextTag {
         <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>accumulative_margin) = <span class="self">self</span>.accumulative_margin {
@@ -5049,11 +5047,11 @@
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>letter_spacing_set) = <span class="self">self</span>.letter_spacing_set {
             properties.push((<span class="string">&quot;letter-spacing-set&quot;</span>, letter_spacing_set));
         }
-        <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+        <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
         </span><span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>line_height) = <span class="self">self</span>.line_height {
             properties.push((<span class="string">&quot;line-height&quot;</span>, line_height));
         }
-        <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+        <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
         </span><span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>line_height_set) = <span class="self">self</span>.line_height_set {
             properties.push((<span class="string">&quot;line-height-set&quot;</span>, line_height_set));
         }
@@ -5117,11 +5115,11 @@
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>scale_set) = <span class="self">self</span>.scale_set {
             properties.push((<span class="string">&quot;scale-set&quot;</span>, scale_set));
         }
-        <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+        <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
         </span><span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>sentence) = <span class="self">self</span>.sentence {
             properties.push((<span class="string">&quot;sentence&quot;</span>, sentence));
         }
-        <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+        <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
         </span><span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>sentence_set) = <span class="self">self</span>.sentence_set {
             properties.push((<span class="string">&quot;sentence-set&quot;</span>, sentence_set));
         }
@@ -5170,11 +5168,11 @@
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>tabs_set) = <span class="self">self</span>.tabs_set {
             properties.push((<span class="string">&quot;tabs-set&quot;</span>, tabs_set));
         }
-        <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+        <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
         </span><span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>text_transform) = <span class="self">self</span>.text_transform {
             properties.push((<span class="string">&quot;text-transform&quot;</span>, text_transform));
         }
-        <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+        <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
         </span><span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>text_transform_set) = <span class="self">self</span>.text_transform_set {
             properties.push((<span class="string">&quot;text-transform-set&quot;</span>, text_transform_set));
         }
@@ -5202,11 +5200,11 @@
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>weight_set) = <span class="self">self</span>.weight_set {
             properties.push((<span class="string">&quot;weight-set&quot;</span>, weight_set));
         }
-        <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+        <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
         </span><span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>word) = <span class="self">self</span>.word {
             properties.push((<span class="string">&quot;word&quot;</span>, word));
         }
-        <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+        <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
         </span><span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>word_set) = <span class="self">self</span>.word_set {
             properties.push((<span class="string">&quot;word-set&quot;</span>, word_set));
         }
@@ -5216,7 +5214,7 @@
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>wrap_mode_set) = <span class="self">self</span>.wrap_mode_set {
             properties.push((<span class="string">&quot;wrap-mode-set&quot;</span>, wrap_mode_set));
         }
-        glib::Object::new::&lt;TextTag&gt;(<span class="kw-2">&amp;</span>properties).expect(<span class="string">&quot;Failed to create an instance of TextTag&quot;</span>)
+        glib::Object::new::&lt;TextTag&gt;(<span class="kw-2">&amp;</span>properties)
     }
 
     <span class="doccomment">/// Whether the margins accumulate or override each other.
@@ -5442,14 +5440,14 @@
     </span>}
 
     <span class="doccomment">/// Factor to scale line height by.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">pub fn </span>line_height(<span class="kw-2">mut </span><span class="self">self</span>, line_height: f32) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.line_height = <span class="prelude-val">Some</span>(line_height);
         <span class="self">self
     </span>}
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">pub fn </span>line_height_set(<span class="kw-2">mut </span><span class="self">self</span>, line_height_set: bool) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.line_height_set = <span class="prelude-val">Some</span>(line_height_set);
@@ -5579,14 +5577,14 @@
     <span class="doccomment">/// Whether this tag represents a single sentence.
     ///
     /// This affects cursor movement.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">pub fn </span>sentence(<span class="kw-2">mut </span><span class="self">self</span>, sentence: bool) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.sentence = <span class="prelude-val">Some</span>(sentence);
         <span class="self">self
     </span>}
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">pub fn </span>sentence_set(<span class="kw-2">mut </span><span class="self">self</span>, sentence_set: bool) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.sentence_set = <span class="prelude-val">Some</span>(sentence_set);
@@ -5680,14 +5678,14 @@
     </span>}
 
     <span class="doccomment">/// How to transform the text for display.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">pub fn </span>text_transform(<span class="kw-2">mut </span><span class="self">self</span>, text_transform: pango::TextTransform) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.text_transform = <span class="prelude-val">Some</span>(text_transform);
         <span class="self">self
     </span>}
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">pub fn </span>text_transform_set(<span class="kw-2">mut </span><span class="self">self</span>, text_transform_set: bool) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.text_transform_set = <span class="prelude-val">Some</span>(text_transform_set);
@@ -5748,14 +5746,14 @@
     <span class="doccomment">/// Whether this tag represents a single word.
     ///
     /// This affects line breaks and cursor movement.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">pub fn </span>word(<span class="kw-2">mut </span><span class="self">self</span>, word: bool) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.word = <span class="prelude-val">Some</span>(word);
         <span class="self">self
     </span>}
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">pub fn </span>word_set(<span class="kw-2">mut </span><span class="self">self</span>, word_set: bool) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.word_set = <span class="prelude-val">Some</span>(word_set);
@@ -5788,7 +5786,7 @@
     /// This function is useful for a [`TextTag`][crate::TextTag] subclass.
     /// ## `size_changed`
     /// whether the change affects the [`TextView`][crate::TextView] layout
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_tag_changed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_tag_changed&quot;</span>)]
     </span><span class="kw">fn </span>changed(<span class="kw-2">&amp;</span><span class="self">self</span>, size_changed: bool);
 
     <span class="doccomment">/// Get the tag priority.
@@ -5796,7 +5794,7 @@
     /// # Returns
     ///
     /// The tag’s priority.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_tag_get_priority&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_tag_get_priority&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_priority&quot;</span>)]
     </span><span class="kw">fn </span>priority(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
@@ -5816,7 +5814,7 @@
     /// which adds the tag to the buffer’s table automatically.
     /// ## `priority`
     /// the new priority
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_tag_set_priority&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_tag_set_priority&quot;</span>)]
     </span><span class="kw">fn </span>set_priority(<span class="kw-2">&amp;</span><span class="self">self</span>, priority: i32);
 
     <span class="doccomment">/// Whether the margins accumulate or override each other.
@@ -5824,7 +5822,7 @@
     /// When set to [`true`] the margins of this tag are added to the margins
     /// of any other non-accumulative margins present. When set to [`false`]
     /// the margins override one another (the default).
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;accumulative-margin&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;accumulative-margin&quot;</span>)]
     </span><span class="kw">fn </span>is_accumulative_margin(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Whether the margins accumulate or override each other.
@@ -5832,18 +5830,18 @@
     /// When set to [`true`] the margins of this tag are added to the margins
     /// of any other non-accumulative margins present. When set to [`false`]
     /// the margins override one another (the default).
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;accumulative-margin&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;accumulative-margin&quot;</span>)]
     </span><span class="kw">fn </span>set_accumulative_margin(<span class="kw-2">&amp;</span><span class="self">self</span>, accumulative_margin: bool);
 
     <span class="doccomment">/// Whether breaks are allowed.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;allow-breaks&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;allow-breaks&quot;</span>)]
     </span><span class="kw">fn </span>allows_breaks(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Whether breaks are allowed.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;allow-breaks&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;allow-breaks&quot;</span>)]
     </span><span class="kw">fn </span>set_allow_breaks(<span class="kw-2">&amp;</span><span class="self">self</span>, allow_breaks: bool);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;allow-breaks-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;allow-breaks-set&quot;</span>)]
     </span><span class="kw">fn </span>allows_breaks_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Background color as a string.
@@ -5851,26 +5849,26 @@
 
     <span class="doccomment">/// Whether the background color fills the entire line height
     /// or only the height of the tagged characters.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;background-full-height&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;background-full-height&quot;</span>)]
     </span><span class="kw">fn </span>is_background_full_height(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Whether the background color fills the entire line height
     /// or only the height of the tagged characters.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;background-full-height&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;background-full-height&quot;</span>)]
     </span><span class="kw">fn </span>set_background_full_height(<span class="kw-2">&amp;</span><span class="self">self</span>, background_full_height: bool);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;background-full-height-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;background-full-height-set&quot;</span>)]
     </span><span class="kw">fn </span>is_background_full_height_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Background color as a [`gdk::RGBA`][crate::gdk::RGBA].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;background-rgba&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;background-rgba&quot;</span>)]
     </span><span class="kw">fn </span>background_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk::RGBA&gt;;
 
     <span class="doccomment">/// Background color as a [`gdk::RGBA`][crate::gdk::RGBA].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;background-rgba&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;background-rgba&quot;</span>)]
     </span><span class="kw">fn </span>set_background_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>, background_rgba: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk::RGBA&gt;);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;background-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;background-set&quot;</span>)]
     </span><span class="kw">fn </span>is_background_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Text direction, e.g. right-to-left or left-to-right.
@@ -5885,7 +5883,7 @@
     <span class="doccomment">/// Whether the text can be modified by the user.
     </span><span class="kw">fn </span>set_editable(<span class="kw-2">&amp;</span><span class="self">self</span>, editable: bool);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;editable-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;editable-set&quot;</span>)]
     </span><span class="kw">fn </span>is_editable_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Whether font fallback is enabled.
@@ -5900,7 +5898,7 @@
     /// where the current font is missing glyphs.
     </span><span class="kw">fn </span>set_fallback(<span class="kw-2">&amp;</span><span class="self">self</span>, fallback: bool);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;fallback-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;fallback-set&quot;</span>)]
     </span><span class="kw">fn </span>is_fallback_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Name of the font family, e.g. Sans, Helvetica, Times, Monospace.
@@ -5909,7 +5907,7 @@
     <span class="doccomment">/// Name of the font family, e.g. Sans, Helvetica, Times, Monospace.
     </span><span class="kw">fn </span>set_family(<span class="kw-2">&amp;</span><span class="self">self</span>, family: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;family-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;family-set&quot;</span>)]
     </span><span class="kw">fn </span>is_family_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Font description as string, e.g. \&quot;Sans Italic 12\&quot;.
@@ -5925,36 +5923,36 @@
     </span><span class="kw">fn </span>set_font(<span class="kw-2">&amp;</span><span class="self">self</span>, font: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
 
     <span class="doccomment">/// Font description as a [`pango::FontDescription`][crate::pango::FontDescription].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;font-desc&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;font-desc&quot;</span>)]
     </span><span class="kw">fn </span>font_desc(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;pango::FontDescription&gt;;
 
     <span class="doccomment">/// Font description as a [`pango::FontDescription`][crate::pango::FontDescription].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;font-desc&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;font-desc&quot;</span>)]
     </span><span class="kw">fn </span>set_font_desc(<span class="kw-2">&amp;</span><span class="self">self</span>, font_desc: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>pango::FontDescription&gt;);
 
     <span class="doccomment">/// OpenType font features, as a string.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;font-features&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;font-features&quot;</span>)]
     </span><span class="kw">fn </span>font_features(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
 
     <span class="doccomment">/// OpenType font features, as a string.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;font-features&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;font-features&quot;</span>)]
     </span><span class="kw">fn </span>set_font_features(<span class="kw-2">&amp;</span><span class="self">self</span>, font_features: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;font-features-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;font-features-set&quot;</span>)]
     </span><span class="kw">fn </span>is_font_features_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Foreground color as a string.
     </span><span class="kw">fn </span>set_foreground(<span class="kw-2">&amp;</span><span class="self">self</span>, foreground: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
 
     <span class="doccomment">/// Foreground color as a [`gdk::RGBA`][crate::gdk::RGBA].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;foreground-rgba&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;foreground-rgba&quot;</span>)]
     </span><span class="kw">fn </span>foreground_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk::RGBA&gt;;
 
     <span class="doccomment">/// Foreground color as a [`gdk::RGBA`][crate::gdk::RGBA].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;foreground-rgba&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;foreground-rgba&quot;</span>)]
     </span><span class="kw">fn </span>set_foreground_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>, foreground_rgba: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk::RGBA&gt;);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;foreground-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;foreground-set&quot;</span>)]
     </span><span class="kw">fn </span>is_foreground_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Amount to indent the paragraph, in pixels.
@@ -5963,18 +5961,18 @@
     <span class="doccomment">/// Amount to indent the paragraph, in pixels.
     </span><span class="kw">fn </span>set_indent(<span class="kw-2">&amp;</span><span class="self">self</span>, indent: i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;indent-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;indent-set&quot;</span>)]
     </span><span class="kw">fn </span>is_indent_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Whether to insert hyphens at breaks.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;insert-hyphens&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;insert-hyphens&quot;</span>)]
     </span><span class="kw">fn </span>is_insert_hyphens(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Whether to insert hyphens at breaks.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;insert-hyphens&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;insert-hyphens&quot;</span>)]
     </span><span class="kw">fn </span>set_insert_hyphens(<span class="kw-2">&amp;</span><span class="self">self</span>, insert_hyphens: bool);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;insert-hyphens-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;insert-hyphens-set&quot;</span>)]
     </span><span class="kw">fn </span>is_insert_hyphens_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Whether this text is hidden.
@@ -5991,7 +5989,7 @@
     /// containing invisible segments.
     </span><span class="kw">fn </span>set_invisible(<span class="kw-2">&amp;</span><span class="self">self</span>, invisible: bool);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;invisible-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;invisible-set&quot;</span>)]
     </span><span class="kw">fn </span>is_invisible_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Left, right, or center justification.
@@ -6000,7 +5998,7 @@
     <span class="doccomment">/// Left, right, or center justification.
     </span><span class="kw">fn </span>set_justification(<span class="kw-2">&amp;</span><span class="self">self</span>, justification: Justification);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;justification-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;justification-set&quot;</span>)]
     </span><span class="kw">fn </span>is_justification_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// The language this text is in, as an ISO code.
@@ -6021,44 +6019,44 @@
     /// on the current locale, see also [`default_language()`][crate::default_language()].
     </span><span class="kw">fn </span>set_language(<span class="kw-2">&amp;</span><span class="self">self</span>, language: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;language-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;language-set&quot;</span>)]
     </span><span class="kw">fn </span>is_language_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Width of the left margin in pixels.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;left-margin&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;left-margin&quot;</span>)]
     </span><span class="kw">fn </span>left_margin(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
     <span class="doccomment">/// Width of the left margin in pixels.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;left-margin&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;left-margin&quot;</span>)]
     </span><span class="kw">fn </span>set_left_margin(<span class="kw-2">&amp;</span><span class="self">self</span>, left_margin: i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;left-margin-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;left-margin-set&quot;</span>)]
     </span><span class="kw">fn </span>is_left_margin_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Extra spacing between graphemes, in Pango units.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;letter-spacing&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;letter-spacing&quot;</span>)]
     </span><span class="kw">fn </span>letter_spacing(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
     <span class="doccomment">/// Extra spacing between graphemes, in Pango units.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;letter-spacing&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;letter-spacing&quot;</span>)]
     </span><span class="kw">fn </span>set_letter_spacing(<span class="kw-2">&amp;</span><span class="self">self</span>, letter_spacing: i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;letter-spacing-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;letter-spacing-set&quot;</span>)]
     </span><span class="kw">fn </span>is_letter_spacing_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Factor to scale line height by.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;line-height&quot;</span>)]
     </span><span class="kw">fn </span>line_height(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f32;
 
     <span class="doccomment">/// Factor to scale line height by.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;line-height&quot;</span>)]
     </span><span class="kw">fn </span>set_line_height(<span class="kw-2">&amp;</span><span class="self">self</span>, line_height: f32);
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;line-height-set&quot;</span>)]
     </span><span class="kw">fn </span>is_line_height_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
@@ -6077,78 +6075,78 @@
     <span class="doccomment">/// This property modifies the color of overlines.
     ///
     /// If not set, overlines will use the foreground color.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;overline-rgba&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;overline-rgba&quot;</span>)]
     </span><span class="kw">fn </span>overline_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk::RGBA&gt;;
 
     <span class="doccomment">/// This property modifies the color of overlines.
     ///
     /// If not set, overlines will use the foreground color.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;overline-rgba&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;overline-rgba&quot;</span>)]
     </span><span class="kw">fn </span>set_overline_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>, overline_rgba: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk::RGBA&gt;);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;overline-rgba-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;overline-rgba-set&quot;</span>)]
     </span><span class="kw">fn </span>is_overline_rgba_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;overline-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;overline-set&quot;</span>)]
     </span><span class="kw">fn </span>is_overline_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// The paragraph background color as a string.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;paragraph-background&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;paragraph-background&quot;</span>)]
     </span><span class="kw">fn </span>set_paragraph_background(<span class="kw-2">&amp;</span><span class="self">self</span>, paragraph_background: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
 
     <span class="doccomment">/// The paragraph background color as a [`gdk::RGBA`][crate::gdk::RGBA].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;paragraph-background-rgba&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;paragraph-background-rgba&quot;</span>)]
     </span><span class="kw">fn </span>paragraph_background_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk::RGBA&gt;;
 
     <span class="doccomment">/// The paragraph background color as a [`gdk::RGBA`][crate::gdk::RGBA].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;paragraph-background-rgba&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;paragraph-background-rgba&quot;</span>)]
     </span><span class="kw">fn </span>set_paragraph_background_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>, paragraph_background_rgba: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk::RGBA&gt;);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;paragraph-background-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;paragraph-background-set&quot;</span>)]
     </span><span class="kw">fn </span>is_paragraph_background_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Pixels of blank space above paragraphs.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;pixels-above-lines&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;pixels-above-lines&quot;</span>)]
     </span><span class="kw">fn </span>pixels_above_lines(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
     <span class="doccomment">/// Pixels of blank space above paragraphs.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;pixels-above-lines&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;pixels-above-lines&quot;</span>)]
     </span><span class="kw">fn </span>set_pixels_above_lines(<span class="kw-2">&amp;</span><span class="self">self</span>, pixels_above_lines: i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;pixels-above-lines-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixels-above-lines-set&quot;</span>)]
     </span><span class="kw">fn </span>is_pixels_above_lines_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Pixels of blank space below paragraphs.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;pixels-below-lines&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;pixels-below-lines&quot;</span>)]
     </span><span class="kw">fn </span>pixels_below_lines(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
     <span class="doccomment">/// Pixels of blank space below paragraphs.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;pixels-below-lines&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;pixels-below-lines&quot;</span>)]
     </span><span class="kw">fn </span>set_pixels_below_lines(<span class="kw-2">&amp;</span><span class="self">self</span>, pixels_below_lines: i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;pixels-below-lines-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixels-below-lines-set&quot;</span>)]
     </span><span class="kw">fn </span>is_pixels_below_lines_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Pixels of blank space between wrapped lines in a paragraph.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;pixels-inside-wrap&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;pixels-inside-wrap&quot;</span>)]
     </span><span class="kw">fn </span>pixels_inside_wrap(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
     <span class="doccomment">/// Pixels of blank space between wrapped lines in a paragraph.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;pixels-inside-wrap&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;pixels-inside-wrap&quot;</span>)]
     </span><span class="kw">fn </span>set_pixels_inside_wrap(<span class="kw-2">&amp;</span><span class="self">self</span>, pixels_inside_wrap: i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;pixels-inside-wrap-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixels-inside-wrap-set&quot;</span>)]
     </span><span class="kw">fn </span>is_pixels_inside_wrap_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Width of the right margin, in pixels.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;right-margin&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;right-margin&quot;</span>)]
     </span><span class="kw">fn </span>right_margin(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
 
     <span class="doccomment">/// Width of the right margin, in pixels.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;right-margin&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;right-margin&quot;</span>)]
     </span><span class="kw">fn </span>set_right_margin(<span class="kw-2">&amp;</span><span class="self">self</span>, right_margin: i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;right-margin-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;right-margin-set&quot;</span>)]
     </span><span class="kw">fn </span>is_right_margin_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Offset of text above the baseline, in Pango units.
@@ -6161,7 +6159,7 @@
     /// Negative values go below the baseline.
     </span><span class="kw">fn </span>set_rise(<span class="kw-2">&amp;</span><span class="self">self</span>, rise: i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;rise-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;rise-set&quot;</span>)]
     </span><span class="kw">fn </span>is_rise_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Font size as a scale factor relative to the default font size.
@@ -6176,37 +6174,37 @@
     /// Pango predefines some scales such as `PANGO_SCALE_X_LARGE`.
     </span><span class="kw">fn </span>set_scale(<span class="kw-2">&amp;</span><span class="self">self</span>, scale: f64);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;scale-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;scale-set&quot;</span>)]
     </span><span class="kw">fn </span>is_scale_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Whether this tag represents a single sentence.
     ///
     /// This affects cursor movement.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>is_sentence(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Whether this tag represents a single sentence.
     ///
     /// This affects cursor movement.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>set_sentence(<span class="kw-2">&amp;</span><span class="self">self</span>, sentence: bool);
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;sentence-set&quot;</span>)]
     </span><span class="kw">fn </span>is_sentence_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// How to render invisible characters.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;show-spaces&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;show-spaces&quot;</span>)]
     </span><span class="kw">fn </span>show_spaces(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; pango::ShowFlags;
 
     <span class="doccomment">/// How to render invisible characters.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;show-spaces&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;show-spaces&quot;</span>)]
     </span><span class="kw">fn </span>set_show_spaces(<span class="kw-2">&amp;</span><span class="self">self</span>, show_spaces: pango::ShowFlags);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;show-spaces-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;show-spaces-set&quot;</span>)]
     </span><span class="kw">fn </span>shows_spaces_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Font size in Pango units.
@@ -6216,14 +6214,14 @@
     </span><span class="kw">fn </span>set_size(<span class="kw-2">&amp;</span><span class="self">self</span>, size: i32);
 
     <span class="doccomment">/// Font size in points.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;size-points&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;size-points&quot;</span>)]
     </span><span class="kw">fn </span>size_points(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f64;
 
     <span class="doccomment">/// Font size in points.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;size-points&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;size-points&quot;</span>)]
     </span><span class="kw">fn </span>set_size_points(<span class="kw-2">&amp;</span><span class="self">self</span>, size_points: f64);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;size-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;size-set&quot;</span>)]
     </span><span class="kw">fn </span>is_size_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Font stretch as a [`pango::Stretch`][crate::pango::Stretch], e.g. [`pango::Stretch::Condensed`][crate::pango::Stretch::Condensed].
@@ -6232,7 +6230,7 @@
     <span class="doccomment">/// Font stretch as a [`pango::Stretch`][crate::pango::Stretch], e.g. [`pango::Stretch::Condensed`][crate::pango::Stretch::Condensed].
     </span><span class="kw">fn </span>set_stretch(<span class="kw-2">&amp;</span><span class="self">self</span>, stretch: pango::Stretch);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;stretch-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;stretch-set&quot;</span>)]
     </span><span class="kw">fn </span>is_stretch_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Whether to strike through the text.
@@ -6244,20 +6242,20 @@
     <span class="doccomment">/// This property modifies the color of strikeouts.
     ///
     /// If not set, strikeouts will use the foreground color.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;strikethrough-rgba&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;strikethrough-rgba&quot;</span>)]
     </span><span class="kw">fn </span>strikethrough_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk::RGBA&gt;;
 
     <span class="doccomment">/// This property modifies the color of strikeouts.
     ///
     /// If not set, strikeouts will use the foreground color.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;strikethrough-rgba&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;strikethrough-rgba&quot;</span>)]
     </span><span class="kw">fn </span>set_strikethrough_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>, strikethrough_rgba: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk::RGBA&gt;);
 
     <span class="doccomment">/// If the `strikethrough-rgba` property has been set.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;strikethrough-rgba-set&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;strikethrough-rgba-set&quot;</span>)]
     </span><span class="kw">fn </span>is_strikethrough_rgba_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;strikethrough-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;strikethrough-set&quot;</span>)]
     </span><span class="kw">fn </span>is_strikethrough_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Font style as a [`pango::Style`][crate::pango::Style], e.g. [`pango::Style::Italic`][crate::pango::Style::Italic].
@@ -6266,7 +6264,7 @@
     <span class="doccomment">/// Font style as a [`pango::Style`][crate::pango::Style], e.g. [`pango::Style::Italic`][crate::pango::Style::Italic].
     </span><span class="kw">fn </span>set_style(<span class="kw-2">&amp;</span><span class="self">self</span>, style: pango::Style);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;style-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;style-set&quot;</span>)]
     </span><span class="kw">fn </span>is_style_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Custom tabs for this text.
@@ -6275,22 +6273,22 @@
     <span class="doccomment">/// Custom tabs for this text.
     </span><span class="kw">fn </span>set_tabs(<span class="kw-2">&amp;</span><span class="self">self</span>, tabs: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>pango::TabArray&gt;);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;tabs-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;tabs-set&quot;</span>)]
     </span><span class="kw">fn </span>is_tabs_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// How to transform the text for display.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;text-transform&quot;</span>)]
     </span><span class="kw">fn </span>text_transform(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; pango::TextTransform;
 
     <span class="doccomment">/// How to transform the text for display.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;text-transform&quot;</span>)]
     </span><span class="kw">fn </span>set_text_transform(<span class="kw-2">&amp;</span><span class="self">self</span>, text_transform: pango::TextTransform);
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;text-transform-set&quot;</span>)]
     </span><span class="kw">fn </span>is_text_transform_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
@@ -6308,7 +6306,7 @@
     /// If `property::TextTag::underline` is set to [`pango::Underline::Error`][crate::pango::Underline::Error],
     /// an alternate color may be applied instead of the foreground. Setting
     /// this property will always override those defaults.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;underline-rgba&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;underline-rgba&quot;</span>)]
     </span><span class="kw">fn </span>underline_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk::RGBA&gt;;
 
     <span class="doccomment">/// This property modifies the color of underlines.
@@ -6318,14 +6316,14 @@
     /// If `property::TextTag::underline` is set to [`pango::Underline::Error`][crate::pango::Underline::Error],
     /// an alternate color may be applied instead of the foreground. Setting
     /// this property will always override those defaults.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;underline-rgba&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;underline-rgba&quot;</span>)]
     </span><span class="kw">fn </span>set_underline_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>, underline_rgba: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk::RGBA&gt;);
 
     <span class="doccomment">/// If the `underline-rgba` property has been set.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;underline-rgba-set&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;underline-rgba-set&quot;</span>)]
     </span><span class="kw">fn </span>is_underline_rgba_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;underline-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;underline-set&quot;</span>)]
     </span><span class="kw">fn </span>is_underline_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Font variant as a [`pango::Variant`][crate::pango::Variant], e.g. [`pango::Variant::SmallCaps`][crate::pango::Variant::SmallCaps].
@@ -6334,7 +6332,7 @@
     <span class="doccomment">/// Font variant as a [`pango::Variant`][crate::pango::Variant], e.g. [`pango::Variant::SmallCaps`][crate::pango::Variant::SmallCaps].
     </span><span class="kw">fn </span>set_variant(<span class="kw-2">&amp;</span><span class="self">self</span>, variant: pango::Variant);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;variant-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;variant-set&quot;</span>)]
     </span><span class="kw">fn </span>is_variant_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Font weight as an integer.
@@ -6343,343 +6341,343 @@
     <span class="doccomment">/// Font weight as an integer.
     </span><span class="kw">fn </span>set_weight(<span class="kw-2">&amp;</span><span class="self">self</span>, weight: i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;weight-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;weight-set&quot;</span>)]
     </span><span class="kw">fn </span>is_weight_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Whether this tag represents a single word.
     ///
     /// This affects line breaks and cursor movement.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>is_word(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Whether this tag represents a single word.
     ///
     /// This affects line breaks and cursor movement.
-    </span><span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>set_word(<span class="kw-2">&amp;</span><span class="self">self</span>, word: bool);
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;word-set&quot;</span>)]
     </span><span class="kw">fn </span>is_word_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Whether to wrap lines never, at word boundaries, or
     /// at character boundaries.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;wrap-mode&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;wrap-mode&quot;</span>)]
     </span><span class="kw">fn </span>wrap_mode(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; WrapMode;
 
     <span class="doccomment">/// Whether to wrap lines never, at word boundaries, or
     /// at character boundaries.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;wrap-mode&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;wrap-mode&quot;</span>)]
     </span><span class="kw">fn </span>set_wrap_mode(<span class="kw-2">&amp;</span><span class="self">self</span>, wrap_mode: WrapMode);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;wrap-mode-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;wrap-mode-set&quot;</span>)]
     </span><span class="kw">fn </span>wraps_mode_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;accumulative-margin&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;accumulative-margin&quot;</span>)]
     </span><span class="kw">fn </span>connect_accumulative_margin_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;allow-breaks&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;allow-breaks&quot;</span>)]
     </span><span class="kw">fn </span>connect_allow_breaks_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;allow-breaks-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;allow-breaks-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_allow_breaks_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;background&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;background&quot;</span>)]
     </span><span class="kw">fn </span>connect_background_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;background-full-height&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;background-full-height&quot;</span>)]
     </span><span class="kw">fn </span>connect_background_full_height_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;background-full-height-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;background-full-height-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_background_full_height_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;background-rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;background-rgba&quot;</span>)]
     </span><span class="kw">fn </span>connect_background_rgba_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;background-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;background-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_background_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;direction&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;direction&quot;</span>)]
     </span><span class="kw">fn </span>connect_direction_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;editable&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;editable&quot;</span>)]
     </span><span class="kw">fn </span>connect_editable_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;editable-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;editable-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_editable_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;fallback&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;fallback&quot;</span>)]
     </span><span class="kw">fn </span>connect_fallback_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;fallback-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;fallback-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_fallback_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;family&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;family&quot;</span>)]
     </span><span class="kw">fn </span>connect_family_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;family-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;family-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_family_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;font&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;font&quot;</span>)]
     </span><span class="kw">fn </span>connect_font_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;font-desc&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;font-desc&quot;</span>)]
     </span><span class="kw">fn </span>connect_font_desc_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;font-features&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;font-features&quot;</span>)]
     </span><span class="kw">fn </span>connect_font_features_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;font-features-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;font-features-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_font_features_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;foreground&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;foreground&quot;</span>)]
     </span><span class="kw">fn </span>connect_foreground_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;foreground-rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;foreground-rgba&quot;</span>)]
     </span><span class="kw">fn </span>connect_foreground_rgba_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;foreground-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;foreground-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_foreground_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;indent&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;indent&quot;</span>)]
     </span><span class="kw">fn </span>connect_indent_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;indent-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;indent-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_indent_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;insert-hyphens&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;insert-hyphens&quot;</span>)]
     </span><span class="kw">fn </span>connect_insert_hyphens_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;insert-hyphens-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;insert-hyphens-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_insert_hyphens_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;invisible&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;invisible&quot;</span>)]
     </span><span class="kw">fn </span>connect_invisible_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;invisible-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;invisible-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_invisible_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;justification&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;justification&quot;</span>)]
     </span><span class="kw">fn </span>connect_justification_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;justification-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;justification-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_justification_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;language&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;language&quot;</span>)]
     </span><span class="kw">fn </span>connect_language_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;language-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;language-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_language_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;left-margin&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;left-margin&quot;</span>)]
     </span><span class="kw">fn </span>connect_left_margin_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;left-margin-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;left-margin-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_left_margin_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;letter-spacing&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;letter-spacing&quot;</span>)]
     </span><span class="kw">fn </span>connect_letter_spacing_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;letter-spacing-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;letter-spacing-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_letter_spacing_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;line-height&quot;</span>)]
     </span><span class="kw">fn </span>connect_line_height_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;line-height-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_line_height_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;overline&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;overline&quot;</span>)]
     </span><span class="kw">fn </span>connect_overline_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;overline-rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;overline-rgba&quot;</span>)]
     </span><span class="kw">fn </span>connect_overline_rgba_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;overline-rgba-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;overline-rgba-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_overline_rgba_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;overline-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;overline-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_overline_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;paragraph-background&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;paragraph-background&quot;</span>)]
     </span><span class="kw">fn </span>connect_paragraph_background_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;paragraph-background-rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;paragraph-background-rgba&quot;</span>)]
     </span><span class="kw">fn </span>connect_paragraph_background_rgba_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;paragraph-background-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;paragraph-background-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_paragraph_background_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;pixels-above-lines&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixels-above-lines&quot;</span>)]
     </span><span class="kw">fn </span>connect_pixels_above_lines_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;pixels-above-lines-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixels-above-lines-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_pixels_above_lines_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;pixels-below-lines&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixels-below-lines&quot;</span>)]
     </span><span class="kw">fn </span>connect_pixels_below_lines_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;pixels-below-lines-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixels-below-lines-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_pixels_below_lines_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;pixels-inside-wrap&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixels-inside-wrap&quot;</span>)]
     </span><span class="kw">fn </span>connect_pixels_inside_wrap_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;pixels-inside-wrap-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;pixels-inside-wrap-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_pixels_inside_wrap_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;right-margin&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;right-margin&quot;</span>)]
     </span><span class="kw">fn </span>connect_right_margin_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;right-margin-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;right-margin-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_right_margin_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;rise&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;rise&quot;</span>)]
     </span><span class="kw">fn </span>connect_rise_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;rise-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;rise-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_rise_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;scale&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;scale&quot;</span>)]
     </span><span class="kw">fn </span>connect_scale_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;scale-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;scale-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_scale_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;sentence&quot;</span>)]
     </span><span class="kw">fn </span>connect_sentence_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;sentence-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_sentence_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;show-spaces&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;show-spaces&quot;</span>)]
     </span><span class="kw">fn </span>connect_show_spaces_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;show-spaces-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;show-spaces-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_show_spaces_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;size&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;size&quot;</span>)]
     </span><span class="kw">fn </span>connect_size_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;size-points&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;size-points&quot;</span>)]
     </span><span class="kw">fn </span>connect_size_points_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;size-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;size-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_size_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;stretch&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;stretch&quot;</span>)]
     </span><span class="kw">fn </span>connect_stretch_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;stretch-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;stretch-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_stretch_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;strikethrough&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;strikethrough&quot;</span>)]
     </span><span class="kw">fn </span>connect_strikethrough_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;strikethrough-rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;strikethrough-rgba&quot;</span>)]
     </span><span class="kw">fn </span>connect_strikethrough_rgba_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;strikethrough-rgba-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;strikethrough-rgba-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_strikethrough_rgba_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;strikethrough-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;strikethrough-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_strikethrough_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;style&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;style&quot;</span>)]
     </span><span class="kw">fn </span>connect_style_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;style-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;style-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_style_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;tabs&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;tabs&quot;</span>)]
     </span><span class="kw">fn </span>connect_tabs_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;tabs-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;tabs-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_tabs_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;text-transform&quot;</span>)]
     </span><span class="kw">fn </span>connect_text_transform_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;text-transform-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_text_transform_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;underline&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;underline&quot;</span>)]
     </span><span class="kw">fn </span>connect_underline_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;underline-rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;underline-rgba&quot;</span>)]
     </span><span class="kw">fn </span>connect_underline_rgba_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;underline-rgba-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;underline-rgba-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_underline_rgba_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;underline-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;underline-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_underline_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;variant&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;variant&quot;</span>)]
     </span><span class="kw">fn </span>connect_variant_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;variant-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;variant-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_variant_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;weight&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;weight&quot;</span>)]
     </span><span class="kw">fn </span>connect_weight_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;weight-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;weight-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_weight_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;word&quot;</span>)]
     </span><span class="kw">fn </span>connect_word_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;word-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_word_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;wrap-mode&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;wrap-mode&quot;</span>)]
     </span><span class="kw">fn </span>connect_wrap_mode_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;wrap-mode-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;wrap-mode-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_wrap_mode_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
@@ -6924,19 +6922,19 @@
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;letter-spacing-set&quot;</span>)
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>line_height(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f32 {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;line-height&quot;</span>)
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>set_line_height(<span class="kw-2">&amp;</span><span class="self">self</span>, line_height: f32) {
         glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;line-height&quot;</span>, <span class="kw-2">&amp;</span>line_height)
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>is_line_height_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;line-height-set&quot;</span>)
@@ -7062,19 +7060,19 @@
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;scale-set&quot;</span>)
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>is_sentence(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;sentence&quot;</span>)
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>set_sentence(<span class="kw-2">&amp;</span><span class="self">self</span>, sentence: bool) {
         glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;sentence&quot;</span>, <span class="kw-2">&amp;</span>sentence)
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>is_sentence_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;sentence-set&quot;</span>)
@@ -7172,19 +7170,19 @@
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;tabs-set&quot;</span>)
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>text_transform(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; pango::TextTransform {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;text-transform&quot;</span>)
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>set_text_transform(<span class="kw-2">&amp;</span><span class="self">self</span>, text_transform: pango::TextTransform) {
         glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;text-transform&quot;</span>, <span class="kw-2">&amp;</span>text_transform)
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>is_text_transform_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;text-transform-set&quot;</span>)
@@ -7238,19 +7236,19 @@
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;weight-set&quot;</span>)
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>is_word(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;word&quot;</span>)
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>set_word(<span class="kw-2">&amp;</span><span class="self">self</span>, word: bool) {
         glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;word&quot;</span>, <span class="kw-2">&amp;</span>word)
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>is_word_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;word-set&quot;</span>)
@@ -8132,7 +8130,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>connect_line_height_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_line_height_trampoline&lt;P: IsA&lt;TextTag&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
@@ -8156,7 +8154,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>connect_line_height_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_line_height_set_trampoline&lt;
@@ -8658,7 +8656,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>connect_sentence_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_sentence_trampoline&lt;P: IsA&lt;TextTag&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
@@ -8682,7 +8680,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>connect_sentence_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_sentence_set_trampoline&lt;
@@ -9057,7 +9055,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>connect_text_transform_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_text_transform_trampoline&lt;
@@ -9084,7 +9082,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>connect_text_transform_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_text_transform_set_trampoline&lt;
@@ -9296,7 +9294,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>connect_word_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_word_trampoline&lt;P: IsA&lt;TextTag&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
@@ -9320,7 +9318,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_6&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_6&quot;</span>)))]
     </span><span class="kw">fn </span>connect_word_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_word_set_trampoline&lt;P: IsA&lt;TextTag&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
@@ -9398,4 +9396,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

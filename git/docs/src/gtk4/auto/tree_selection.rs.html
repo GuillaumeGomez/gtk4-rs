@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/tree_selection.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>tree_selection.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/tree_selection.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>tree_selection.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -516,6 +516,96 @@
 <span id="443">443</span>
 <span id="444">444</span>
 <span id="445">445</span>
+<span id="446">446</span>
+<span id="447">447</span>
+<span id="448">448</span>
+<span id="449">449</span>
+<span id="450">450</span>
+<span id="451">451</span>
+<span id="452">452</span>
+<span id="453">453</span>
+<span id="454">454</span>
+<span id="455">455</span>
+<span id="456">456</span>
+<span id="457">457</span>
+<span id="458">458</span>
+<span id="459">459</span>
+<span id="460">460</span>
+<span id="461">461</span>
+<span id="462">462</span>
+<span id="463">463</span>
+<span id="464">464</span>
+<span id="465">465</span>
+<span id="466">466</span>
+<span id="467">467</span>
+<span id="468">468</span>
+<span id="469">469</span>
+<span id="470">470</span>
+<span id="471">471</span>
+<span id="472">472</span>
+<span id="473">473</span>
+<span id="474">474</span>
+<span id="475">475</span>
+<span id="476">476</span>
+<span id="477">477</span>
+<span id="478">478</span>
+<span id="479">479</span>
+<span id="480">480</span>
+<span id="481">481</span>
+<span id="482">482</span>
+<span id="483">483</span>
+<span id="484">484</span>
+<span id="485">485</span>
+<span id="486">486</span>
+<span id="487">487</span>
+<span id="488">488</span>
+<span id="489">489</span>
+<span id="490">490</span>
+<span id="491">491</span>
+<span id="492">492</span>
+<span id="493">493</span>
+<span id="494">494</span>
+<span id="495">495</span>
+<span id="496">496</span>
+<span id="497">497</span>
+<span id="498">498</span>
+<span id="499">499</span>
+<span id="500">500</span>
+<span id="501">501</span>
+<span id="502">502</span>
+<span id="503">503</span>
+<span id="504">504</span>
+<span id="505">505</span>
+<span id="506">506</span>
+<span id="507">507</span>
+<span id="508">508</span>
+<span id="509">509</span>
+<span id="510">510</span>
+<span id="511">511</span>
+<span id="512">512</span>
+<span id="513">513</span>
+<span id="514">514</span>
+<span id="515">515</span>
+<span id="516">516</span>
+<span id="517">517</span>
+<span id="518">518</span>
+<span id="519">519</span>
+<span id="520">520</span>
+<span id="521">521</span>
+<span id="522">522</span>
+<span id="523">523</span>
+<span id="524">524</span>
+<span id="525">525</span>
+<span id="526">526</span>
+<span id="527">527</span>
+<span id="528">528</span>
+<span id="529">529</span>
+<span id="530">530</span>
+<span id="531">531</span>
+<span id="532">532</span>
+<span id="533">533</span>
+<span id="534">534</span>
+<span id="535">535</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -564,7 +654,7 @@
     /// # Implements
     ///
     /// [`trait@glib::ObjectExt`]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkTreeSelection&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkTreeSelection&quot;</span>)]
     </span><span class="kw">pub struct </span>TreeSelection(Object&lt;ffi::GtkTreeSelection&gt;);
 
     <span class="kw">match fn </span>{
@@ -575,10 +665,15 @@
 <span class="kw">impl </span>TreeSelection {
     <span class="doccomment">/// Returns the number of rows that have been selected in @tree.
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
+    ///
     /// # Returns
     ///
     /// The number of rows selected.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_count_selected_rows&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_count_selected_rows&quot;</span>)]
     </span><span class="kw">pub fn </span>count_selected_rows(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_tree_selection_count_selected_rows(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
     }
@@ -586,10 +681,15 @@
     <span class="doccomment">/// Gets the selection mode for @self. See
     /// gtk_tree_selection_set_mode().
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
+    ///
     /// # Returns
     ///
     /// the current selection mode
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_get_mode&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_get_mode&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_mode&quot;</span>)]
     </span><span class="kw">pub fn </span>mode(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; SelectionMode {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_tree_selection_get_mode(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -601,6 +701,10 @@
     /// with the current model as a convenience.  This function will not work if you
     /// use @self is [`SelectionMode::Multiple`][crate::SelectionMode::Multiple].
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
+    ///
     /// # Returns
     ///
     /// TRUE, if there is a selected node.
@@ -610,7 +714,8 @@
     ///
     /// ## `iter`
     /// The [`TreeIter`][crate::TreeIter]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_get_selected&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_get_selected&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_selected&quot;</span>)]
     </span><span class="kw">pub fn </span>selected(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(TreeModel, TreeIter)&gt; {
         <span class="kw">unsafe </span>{
@@ -643,13 +748,18 @@
     /// g_list_free_full (list, (GDestroyNotify) gtk_tree_path_free);
     /// ```
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
+    ///
     /// # Returns
     ///
     /// A `GList` containing a [`TreePath`][crate::TreePath] for each selected row.
     ///
     /// ## `model`
     /// A pointer to set to the [`TreeModel`][crate::TreeModel]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_get_selected_rows&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_get_selected_rows&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_selected_rows&quot;</span>)]
     </span><span class="kw">pub fn </span>selected_rows(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (Vec&lt;TreePath&gt;, TreeModel) {
         <span class="kw">unsafe </span>{
@@ -663,23 +773,33 @@
 
     <span class="doccomment">/// Returns the tree view associated with @self.
     ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
+    ///
     /// # Returns
     ///
     /// A [`TreeView`][crate::TreeView]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_get_tree_view&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_get_tree_view&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_tree_view&quot;</span>)]
     </span><span class="kw">pub fn </span>tree_view(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; TreeView {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_tree_selection_get_tree_view(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Returns [`true`] if the row at @iter is currently selected.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
     /// ## `iter`
     /// A valid [`TreeIter`][crate::TreeIter]
     ///
     /// # Returns
     ///
     /// [`true`], if @iter is selected
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_iter_is_selected&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_iter_is_selected&quot;</span>)]
     </span><span class="kw">pub fn </span>iter_is_selected(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_tree_selection_iter_is_selected(
@@ -691,13 +811,18 @@
 
     <span class="doccomment">/// Returns [`true`] if the row pointed to by @path is currently selected.  If @path
     /// does not point to a valid location, [`false`] is returned
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
     /// ## `path`
     /// A [`TreePath`][crate::TreePath] to check selection on.
     ///
     /// # Returns
     ///
     /// [`true`] if @path is selected.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_path_is_selected&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_path_is_selected&quot;</span>)]
     </span><span class="kw">pub fn </span>path_is_selected(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>TreePath) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_tree_selection_path_is_selected(
@@ -709,7 +834,12 @@
 
     <span class="doccomment">/// Selects all the nodes. @self must be set to [`SelectionMode::Multiple`][crate::SelectionMode::Multiple]
     /// mode.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_select_all&quot;</span>)]
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_select_all&quot;</span>)]
     </span><span class="kw">pub fn </span>select_all(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::gtk_tree_selection_select_all(<span class="self">self</span>.to_glib_none().<span class="number">0</span>);
@@ -717,9 +847,14 @@
     }
 
     <span class="doccomment">/// Selects the specified iterator.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
     /// ## `iter`
     /// The [`TreeIter`][crate::TreeIter] to be selected.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_select_iter&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_select_iter&quot;</span>)]
     </span><span class="kw">pub fn </span>select_iter(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter) {
         <span class="kw">unsafe </span>{
             ffi::gtk_tree_selection_select_iter(
@@ -730,9 +865,14 @@
     }
 
     <span class="doccomment">/// Select the row at @path.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
     /// ## `path`
     /// The [`TreePath`][crate::TreePath] to be selected.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_select_path&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_select_path&quot;</span>)]
     </span><span class="kw">pub fn </span>select_path(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>TreePath) {
         <span class="kw">unsafe </span>{
             ffi::gtk_tree_selection_select_path(
@@ -744,11 +884,16 @@
 
     <span class="doccomment">/// Selects a range of nodes, determined by @start_path and @end_path inclusive.
     /// @self must be set to [`SelectionMode::Multiple`][crate::SelectionMode::Multiple] mode.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
     /// ## `start_path`
     /// The initial node of the range.
     /// ## `end_path`
     /// The final node of the range.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_select_range&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_select_range&quot;</span>)]
     </span><span class="kw">pub fn </span>select_range(<span class="kw-2">&amp;</span><span class="self">self</span>, start_path: <span class="kw-2">&amp;</span>TreePath, end_path: <span class="kw-2">&amp;</span>TreePath) {
         <span class="kw">unsafe </span>{
             ffi::gtk_tree_selection_select_range(
@@ -762,9 +907,14 @@
     <span class="doccomment">/// Calls a function for each selected node. Note that you cannot modify
     /// the tree or selection from within this function. As a result,
     /// gtk_tree_selection_get_selected_rows() might be more useful.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
     /// ## `func`
     /// The function to call for each selected node.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_selected_foreach&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_selected_foreach&quot;</span>)]
     </span><span class="kw">pub fn </span>selected_foreach&lt;P: FnMut(<span class="kw-2">&amp;</span>TreeModel, <span class="kw-2">&amp;</span>TreePath, <span class="kw-2">&amp;</span>TreeIter)&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, func: P) {
         <span class="kw">let </span>func_data: P = func;
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>func_func&lt;P: FnMut(<span class="kw-2">&amp;</span>TreeModel, <span class="kw-2">&amp;</span>TreePath, <span class="kw-2">&amp;</span>TreeIter)&gt;(
@@ -793,9 +943,14 @@
     <span class="doccomment">/// Sets the selection mode of the @self.  If the previous type was
     /// [`SelectionMode::Multiple`][crate::SelectionMode::Multiple], then the anchor is kept selected, if it was
     /// previously selected.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
     /// ## `type_`
     /// The selection mode
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_set_mode&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_set_mode&quot;</span>)]
     </span><span class="kw">pub fn </span>set_mode(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: SelectionMode) {
         <span class="kw">unsafe </span>{
             ffi::gtk_tree_selection_set_mode(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, type_.into_glib());
@@ -808,9 +963,14 @@
     /// giving some control over which nodes are selected. The select function
     /// should return [`true`] if the state of the node may be toggled, and [`false`]
     /// if the state of the node should be left unchanged.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
     /// ## `func`
     /// The selection function. May be [`None`]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_set_select_function&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_set_select_function&quot;</span>)]
     </span><span class="kw">pub fn </span>set_select_function&lt;
         P: Fn(<span class="kw-2">&amp;</span>TreeSelection, <span class="kw-2">&amp;</span>TreeModel, <span class="kw-2">&amp;</span>TreePath, bool) -&gt; bool + <span class="lifetime">&#39;static</span>,
     &gt;(
@@ -856,7 +1016,12 @@
     }
 
     <span class="doccomment">/// Unselects all the nodes.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_unselect_all&quot;</span>)]
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_unselect_all&quot;</span>)]
     </span><span class="kw">pub fn </span>unselect_all(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::gtk_tree_selection_unselect_all(<span class="self">self</span>.to_glib_none().<span class="number">0</span>);
@@ -864,9 +1029,14 @@
     }
 
     <span class="doccomment">/// Unselects the specified iterator.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
     /// ## `iter`
     /// The [`TreeIter`][crate::TreeIter] to be unselected.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_unselect_iter&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_unselect_iter&quot;</span>)]
     </span><span class="kw">pub fn </span>unselect_iter(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span>TreeIter) {
         <span class="kw">unsafe </span>{
             ffi::gtk_tree_selection_unselect_iter(
@@ -877,9 +1047,14 @@
     }
 
     <span class="doccomment">/// Unselects the row at @path.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
     /// ## `path`
     /// The [`TreePath`][crate::TreePath] to be unselected.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_unselect_path&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_unselect_path&quot;</span>)]
     </span><span class="kw">pub fn </span>unselect_path(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span>TreePath) {
         <span class="kw">unsafe </span>{
             ffi::gtk_tree_selection_unselect_path(
@@ -891,11 +1066,16 @@
 
     <span class="doccomment">/// Unselects a range of nodes, determined by @start_path and @end_path
     /// inclusive.
+    ///
+    /// # Deprecated since 4.10
+    ///
+    /// Use GtkListView or GtkColumnView
     /// ## `start_path`
     /// The initial node of the range.
     /// ## `end_path`
     /// The initial node of the range.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_tree_selection_unselect_range&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_tree_selection_unselect_range&quot;</span>)]
     </span><span class="kw">pub fn </span>unselect_range(<span class="kw-2">&amp;</span><span class="self">self</span>, start_path: <span class="kw-2">&amp;</span>TreePath, end_path: <span class="kw-2">&amp;</span>TreePath) {
         <span class="kw">unsafe </span>{
             ffi::gtk_tree_selection_unselect_range(
@@ -910,7 +1090,7 @@
     /// this signal is mostly a hint.  It may only be emitted once when a range
     /// of rows are selected, and it may occasionally be emitted when nothing
     /// has happened.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;changed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;changed&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>changed_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>TreeSelection) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkTreeSelection,
@@ -932,7 +1112,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;mode&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;mode&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_mode_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_mode_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>TreeSelection) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkTreeSelection,
@@ -962,4 +1142,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

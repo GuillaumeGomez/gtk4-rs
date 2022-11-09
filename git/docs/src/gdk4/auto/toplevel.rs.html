@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/auto/toplevel.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>toplevel.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/auto/toplevel.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>toplevel.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gdk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gdk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gdk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gdk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -858,7 +858,7 @@
 <span class="kw">use </span><span class="kw">crate</span>::Surface;
 <span class="kw">use </span><span class="kw">crate</span>::SurfaceEdge;
 <span class="kw">use </span><span class="kw">crate</span>::Texture;
-<span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
 #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_4&quot;</span>)))]
 </span><span class="kw">use </span><span class="kw">crate</span>::TitlebarGesture;
 <span class="kw">use </span><span class="kw">crate</span>::ToplevelLayout;
@@ -884,7 +884,7 @@
     /// # Implements
     ///
     /// [`ToplevelExt`][trait@crate::prelude::ToplevelExt], [`SurfaceExt`][trait@crate::prelude::SurfaceExt], [`ToplevelExtManual`][trait@crate::prelude::ToplevelExtManual], [`SurfaceExtManual`][trait@crate::prelude::SurfaceExtManual]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GdkToplevel&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GdkToplevel&quot;</span>)]
     </span><span class="kw">pub struct </span>Toplevel(Interface&lt;ffi::GdkToplevel, ffi::GdkToplevelInterface&gt;) @requires Surface;
 
     <span class="kw">match fn </span>{
@@ -916,7 +916,7 @@
     /// ## `timestamp`
     /// timestamp of mouse click that began the drag (use
     ///   [`Event::time()`][crate::Event::time()])
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_begin_move&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_begin_move&quot;</span>)]
     </span><span class="kw">fn </span>begin_move(<span class="kw-2">&amp;</span><span class="self">self</span>, device: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Device&gt;, button: i32, x: f64, y: f64, timestamp: u32);
 
     <span class="doccomment">/// Begins an interactive resize operation.
@@ -935,7 +935,7 @@
     /// ## `timestamp`
     /// timestamp of mouse click that began the drag (use
     ///   [`Event::time()`][crate::Event::time()])
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_begin_resize&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_begin_resize&quot;</span>)]
     </span><span class="kw">fn </span>begin_resize(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         edge: SurfaceEdge,
@@ -952,7 +952,7 @@
     /// used on a `Gtk::Window`, rather than calling this function.
     /// ## `timestamp`
     /// timestamp of the event triggering the surface focus
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_focus&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_focus&quot;</span>)]
     </span><span class="kw">fn </span>focus(<span class="kw-2">&amp;</span><span class="self">self</span>, timestamp: u32);
 
     <span class="doccomment">/// Gets the bitwise or of the currently active surface state flags,
@@ -961,7 +961,7 @@
     /// # Returns
     ///
     /// surface state bitfield
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_get_state&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_get_state&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_state&quot;</span>)]
     </span><span class="kw">fn </span>state(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ToplevelState;
 
@@ -989,7 +989,7 @@
     /// ## `event`
     /// the [`Event`][crate::Event] that is triggering the inhibit
     ///   request, or [`None`] if none is available
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_inhibit_system_shortcuts&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_inhibit_system_shortcuts&quot;</span>)]
     </span><span class="kw">fn </span>inhibit_system_shortcuts(<span class="kw-2">&amp;</span><span class="self">self</span>, event: <span class="prelude-ty">Option</span>&lt;<span class="kw">impl </span>AsRef&lt;Event&gt;&gt;);
 
     <span class="doccomment">/// Asks to lower the @self below other windows.
@@ -999,7 +999,7 @@
     /// # Returns
     ///
     /// [`true`] if the surface was lowered
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_lower&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_lower&quot;</span>)]
     </span><span class="kw">fn </span>lower(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Asks to minimize the @self.
@@ -1009,7 +1009,7 @@
     /// # Returns
     ///
     /// [`true`] if the surface was minimized
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_minimize&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_minimize&quot;</span>)]
     </span><span class="kw">fn </span>minimize(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Present @self after having processed the [`ToplevelLayout`][crate::ToplevelLayout] rules.
@@ -1025,14 +1025,14 @@
     /// guaranteed to be respected.
     /// ## `layout`
     /// the [`ToplevelLayout`][crate::ToplevelLayout] object used to layout
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_present&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_present&quot;</span>)]
     </span><span class="kw">fn </span>present(<span class="kw-2">&amp;</span><span class="self">self</span>, layout: <span class="kw-2">&amp;</span>ToplevelLayout);
 
     <span class="doccomment">/// Restore default system keyboard shortcuts which were previously
     /// inhibited.
     ///
     /// This undoes the effect of [`inhibit_system_shortcuts()`][Self::inhibit_system_shortcuts()].
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_restore_system_shortcuts&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_restore_system_shortcuts&quot;</span>)]
     </span><span class="kw">fn </span>restore_system_shortcuts(<span class="kw-2">&amp;</span><span class="self">self</span>);
 
     <span class="doccomment">/// Sets the toplevel to be decorated.
@@ -1042,7 +1042,7 @@
     /// does not need to have window decorations added.
     /// ## `decorated`
     /// [`true`] to request decorations
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_decorated&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_decorated&quot;</span>)]
     </span><span class="kw">fn </span>set_decorated(<span class="kw-2">&amp;</span><span class="self">self</span>, decorated: bool);
 
     <span class="doccomment">/// Sets the toplevel to be deletable.
@@ -1051,7 +1051,7 @@
     /// that it should offer the user a way to close the surface.
     /// ## `deletable`
     /// [`true`] to request a delete button
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_deletable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_deletable&quot;</span>)]
     </span><span class="kw">fn </span>set_deletable(<span class="kw-2">&amp;</span><span class="self">self</span>, deletable: bool);
 
     <span class="doccomment">/// Sets a list of icons for the surface.
@@ -1066,7 +1066,7 @@
     /// ## `surfaces`
     ///
     ///   A list of textures to use as icon, of different sizes
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_icon_list&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_icon_list&quot;</span>)]
     </span><span class="kw">fn </span>set_icon_list(<span class="kw-2">&amp;</span><span class="self">self</span>, surfaces: <span class="kw-2">&amp;</span>[Texture]);
 
     <span class="doccomment">/// Sets the toplevel to be modal.
@@ -1080,7 +1080,7 @@
     /// previously called [`set_transient_for()`][Self::set_transient_for()].
     /// ## `modal`
     /// [`true`] if the surface is modal, [`false`] otherwise.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_modal&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_modal&quot;</span>)]
     </span><span class="kw">fn </span>set_modal(<span class="kw-2">&amp;</span><span class="self">self</span>, modal: bool);
 
     <span class="doccomment">/// Sets the startup notification ID.
@@ -1090,7 +1090,7 @@
     /// low-level function.
     /// ## `startup_id`
     /// a string with startup-notification identifier
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_startup_id&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_startup_id&quot;</span>)]
     </span><span class="kw">fn </span>set_startup_id(<span class="kw-2">&amp;</span><span class="self">self</span>, startup_id: <span class="kw-2">&amp;</span>str);
 
     <span class="doccomment">/// Sets the title of a toplevel surface.
@@ -1099,7 +1099,7 @@
     /// in lists of windows, etc.
     /// ## `title`
     /// title of @surface
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_title&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_title&quot;</span>)]
     </span><span class="kw">fn </span>set_title(<span class="kw-2">&amp;</span><span class="self">self</span>, title: <span class="kw-2">&amp;</span>str);
 
     <span class="doccomment">/// Sets a transient-for parent.
@@ -1113,7 +1113,7 @@
     /// `Gtk::Window` or `Gtk::Dialog`.
     /// ## `parent`
     /// another toplevel [`Surface`][crate::Surface]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_transient_for&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_set_transient_for&quot;</span>)]
     </span><span class="kw">fn </span>set_transient_for(<span class="kw-2">&amp;</span><span class="self">self</span>, parent: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Surface&gt;);
 
     <span class="doccomment">/// Asks the windowing system to show the window menu.
@@ -1128,13 +1128,13 @@
     /// # Returns
     ///
     /// [`true`] if the window menu was shown and [`false`] otherwise.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_show_window_menu&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_show_window_menu&quot;</span>)]
     </span><span class="kw">fn </span>show_window_menu(<span class="kw-2">&amp;</span><span class="self">self</span>, event: <span class="kw">impl </span>AsRef&lt;Event&gt;) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gdk_toplevel_supports_edge_constraints&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;gdk_toplevel_supports_edge_constraints&quot;</span>)]
     </span><span class="kw">fn </span>supports_edge_constraints(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_4&quot;</span>)))]
     #[doc(alias = <span class="string">&quot;gdk_toplevel_titlebar_gesture&quot;</span>)]
     </span><span class="kw">fn </span>titlebar_gesture(<span class="kw-2">&amp;</span><span class="self">self</span>, gesture: TitlebarGesture) -&gt; bool;
@@ -1143,10 +1143,10 @@
 
     <span class="kw">fn </span>is_deletable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;fullscreen-mode&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;fullscreen-mode&quot;</span>)]
     </span><span class="kw">fn </span>fullscreen_mode(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; FullscreenMode;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;fullscreen-mode&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;fullscreen-mode&quot;</span>)]
     </span><span class="kw">fn </span>set_fullscreen_mode(<span class="kw-2">&amp;</span><span class="self">self</span>, fullscreen_mode: FullscreenMode);
 
     <span class="comment">//#[doc(alias = &quot;icon-list&quot;)]
@@ -1154,45 +1154,45 @@
 
     </span><span class="kw">fn </span>is_modal(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;shortcuts-inhibited&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;shortcuts-inhibited&quot;</span>)]
     </span><span class="kw">fn </span>is_shortcuts_inhibited(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;startup-id&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;startup-id&quot;</span>)]
     </span><span class="kw">fn </span>startup_id(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
 
     <span class="kw">fn </span>title(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt;;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;transient-for&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;transient-for&quot;</span>)]
     </span><span class="kw">fn </span>transient_for(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Surface&gt;;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;decorated&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;decorated&quot;</span>)]
     </span><span class="kw">fn </span>connect_decorated_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;deletable&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;deletable&quot;</span>)]
     </span><span class="kw">fn </span>connect_deletable_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;fullscreen-mode&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;fullscreen-mode&quot;</span>)]
     </span><span class="kw">fn </span>connect_fullscreen_mode_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;icon-list&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;icon-list&quot;</span>)]
     </span><span class="kw">fn </span>connect_icon_list_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;modal&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;modal&quot;</span>)]
     </span><span class="kw">fn </span>connect_modal_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;shortcuts-inhibited&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;shortcuts-inhibited&quot;</span>)]
     </span><span class="kw">fn </span>connect_shortcuts_inhibited_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;startup-id&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;startup-id&quot;</span>)]
     </span><span class="kw">fn </span>connect_startup_id_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;state&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;state&quot;</span>)]
     </span><span class="kw">fn </span>connect_state_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;title&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;title&quot;</span>)]
     </span><span class="kw">fn </span>connect_title_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;transient-for&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;transient-for&quot;</span>)]
     </span><span class="kw">fn </span>connect_transient_for_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
@@ -1339,7 +1339,7 @@
         }
     }
 
-    <span class="attribute">#[cfg(any(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
     #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_4&quot;</span>)))]
     </span><span class="kw">fn </span>titlebar_gesture(<span class="kw-2">&amp;</span><span class="self">self</span>, gesture: TitlebarGesture) -&gt; bool {
         <span class="kw">unsafe </span>{
@@ -1626,4 +1626,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/cell_layout.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>cell_layout.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/cell_layout.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>cell_layout.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -487,82 +487,6 @@
 <span id="414">414</span>
 <span id="415">415</span>
 <span id="416">416</span>
-<span id="417">417</span>
-<span id="418">418</span>
-<span id="419">419</span>
-<span id="420">420</span>
-<span id="421">421</span>
-<span id="422">422</span>
-<span id="423">423</span>
-<span id="424">424</span>
-<span id="425">425</span>
-<span id="426">426</span>
-<span id="427">427</span>
-<span id="428">428</span>
-<span id="429">429</span>
-<span id="430">430</span>
-<span id="431">431</span>
-<span id="432">432</span>
-<span id="433">433</span>
-<span id="434">434</span>
-<span id="435">435</span>
-<span id="436">436</span>
-<span id="437">437</span>
-<span id="438">438</span>
-<span id="439">439</span>
-<span id="440">440</span>
-<span id="441">441</span>
-<span id="442">442</span>
-<span id="443">443</span>
-<span id="444">444</span>
-<span id="445">445</span>
-<span id="446">446</span>
-<span id="447">447</span>
-<span id="448">448</span>
-<span id="449">449</span>
-<span id="450">450</span>
-<span id="451">451</span>
-<span id="452">452</span>
-<span id="453">453</span>
-<span id="454">454</span>
-<span id="455">455</span>
-<span id="456">456</span>
-<span id="457">457</span>
-<span id="458">458</span>
-<span id="459">459</span>
-<span id="460">460</span>
-<span id="461">461</span>
-<span id="462">462</span>
-<span id="463">463</span>
-<span id="464">464</span>
-<span id="465">465</span>
-<span id="466">466</span>
-<span id="467">467</span>
-<span id="468">468</span>
-<span id="469">469</span>
-<span id="470">470</span>
-<span id="471">471</span>
-<span id="472">472</span>
-<span id="473">473</span>
-<span id="474">474</span>
-<span id="475">475</span>
-<span id="476">476</span>
-<span id="477">477</span>
-<span id="478">478</span>
-<span id="479">479</span>
-<span id="480">480</span>
-<span id="481">481</span>
-<span id="482">482</span>
-<span id="483">483</span>
-<span id="484">484</span>
-<span id="485">485</span>
-<span id="486">486</span>
-<span id="487">487</span>
-<span id="488">488</span>
-<span id="489">489</span>
-<span id="490">490</span>
-<span id="491">491</span>
-<span id="492">492</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 // rustdoc-stripper-ignore-next
@@ -574,7 +498,7 @@
 <span class="kw">use </span>glib::{Cast, IsA, ObjectExt, Quark};
 <span class="kw">use </span>once_cell::sync::Lazy;
 
-<span class="attribute">#[derive(Debug)]
+<span class="attr">#[derive(Debug)]
 </span><span class="kw">pub struct </span>CellLayoutDataCallback {
     callback: ffi::GtkCellLayoutDataFunc,
     user_data: glib::ffi::gpointer,
@@ -613,101 +537,70 @@
     }
 }
 
-<span class="kw">pub trait </span>CellLayoutImpl: ObjectImpl {
-    <span class="kw">fn </span>add_attribute&lt;R: IsA&lt;CellRenderer&gt;&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        cell: <span class="kw-2">&amp;</span>R,
-        attribute: <span class="kw-2">&amp;</span>str,
-        column: i32,
-    ) {
-        <span class="self">self</span>.parent_add_attribute(cell_layout, cell, attribute, column)
+<span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+</span><span class="kw">pub trait </span>CellLayoutImpl: ObjectImpl {
+    <span class="kw">fn </span>add_attribute&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R, attribute: <span class="kw-2">&amp;</span>str, column: i32) {
+        <span class="self">self</span>.parent_add_attribute(cell, attribute, column)
     }
 
-    <span class="kw">fn </span>clear_attributes&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, cell: <span class="kw-2">&amp;</span>R) {
-        <span class="self">self</span>.parent_clear_attributes(cell_layout, cell)
+    <span class="kw">fn </span>clear_attributes&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R) {
+        <span class="self">self</span>.parent_clear_attributes(cell)
     }
 
-    <span class="kw">fn </span>cells(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; Vec&lt;CellRenderer&gt; {
-        <span class="self">self</span>.parent_cells(cell_layout)
+    <span class="kw">fn </span>cells(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;CellRenderer&gt; {
+        <span class="self">self</span>.parent_cells()
     }
 
     <span class="kw">fn </span>set_cell_data_func&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+
         cell: <span class="kw-2">&amp;</span>R,
         callback: <span class="prelude-ty">Option</span>&lt;CellLayoutDataCallback&gt;,
     ) {
-        <span class="self">self</span>.parent_set_cell_data_func(cell_layout, cell, callback)
+        <span class="self">self</span>.parent_set_cell_data_func(cell, callback)
     }
 
-    <span class="kw">fn </span>reorder&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, cell: <span class="kw-2">&amp;</span>R, position: i32) {
-        <span class="self">self</span>.parent_reorder(cell_layout, cell, position)
+    <span class="kw">fn </span>reorder&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R, position: i32) {
+        <span class="self">self</span>.parent_reorder(cell, position)
     }
 
-    <span class="kw">fn </span>clear(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_clear(cell_layout)
+    <span class="kw">fn </span>clear(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_clear()
     }
 
-    <span class="kw">fn </span>pack_start&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, cell: <span class="kw-2">&amp;</span>R, expand: bool) {
-        <span class="self">self</span>.parent_pack_start(cell_layout, cell, expand)
+    <span class="kw">fn </span>pack_start&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R, expand: bool) {
+        <span class="self">self</span>.parent_pack_start(cell, expand)
     }
 
-    <span class="kw">fn </span>pack_end&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, cell: <span class="kw-2">&amp;</span>R, expand: bool) {
-        <span class="self">self</span>.parent_pack_end(cell_layout, cell, expand)
+    <span class="kw">fn </span>pack_end&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R, expand: bool) {
+        <span class="self">self</span>.parent_pack_end(cell, expand)
     }
 
-    <span class="kw">fn </span>area(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="prelude-ty">Option</span>&lt;CellArea&gt; {
-        <span class="self">self</span>.parent_area(cell_layout)
+    <span class="kw">fn </span>area(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellArea&gt; {
+        <span class="self">self</span>.parent_area()
     }
 }
 
-<span class="kw">pub trait </span>CellLayoutImplExt: ObjectSubclass {
-    <span class="kw">fn </span>parent_add_attribute&lt;R: IsA&lt;CellRenderer&gt;&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        cell: <span class="kw-2">&amp;</span>R,
-        attribute: <span class="kw-2">&amp;</span>str,
-        column: i32,
-    );
-    <span class="kw">fn </span>parent_clear_attributes&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, cell: <span class="kw-2">&amp;</span>R);
-    <span class="kw">fn </span>parent_cells(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; Vec&lt;CellRenderer&gt;;
+<span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+</span><span class="kw">pub trait </span>CellLayoutImplExt: ObjectSubclass {
+    <span class="kw">fn </span>parent_add_attribute&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R, attribute: <span class="kw-2">&amp;</span>str, column: i32);
+    <span class="kw">fn </span>parent_clear_attributes&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R);
+    <span class="kw">fn </span>parent_cells(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;CellRenderer&gt;;
     <span class="kw">fn </span>parent_set_cell_data_func&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+
         cell: <span class="kw-2">&amp;</span>R,
         callback: <span class="prelude-ty">Option</span>&lt;CellLayoutDataCallback&gt;,
     );
-    <span class="kw">fn </span>parent_reorder&lt;R: IsA&lt;CellRenderer&gt;&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        cell: <span class="kw-2">&amp;</span>R,
-        position: i32,
-    );
-    <span class="kw">fn </span>parent_clear(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
-    <span class="kw">fn </span>parent_pack_start&lt;R: IsA&lt;CellRenderer&gt;&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        cell: <span class="kw-2">&amp;</span>R,
-        expand: bool,
-    );
-    <span class="kw">fn </span>parent_pack_end&lt;R: IsA&lt;CellRenderer&gt;&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        cell: <span class="kw-2">&amp;</span>R,
-        expand: bool,
-    );
-    <span class="kw">fn </span>parent_area(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="prelude-ty">Option</span>&lt;CellArea&gt;;
+    <span class="kw">fn </span>parent_reorder&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R, position: i32);
+    <span class="kw">fn </span>parent_clear(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>parent_pack_start&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R, expand: bool);
+    <span class="kw">fn </span>parent_pack_end&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R, expand: bool);
+    <span class="kw">fn </span>parent_area(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellArea&gt;;
 }
 
 <span class="kw">impl</span>&lt;O: CellLayoutImpl&gt; CellLayoutImplExt <span class="kw">for </span>O {
-    <span class="kw">fn </span>parent_add_attribute&lt;R: IsA&lt;CellRenderer&gt;&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        cell: <span class="kw-2">&amp;</span>R,
-        attribute: <span class="kw-2">&amp;</span>str,
-        column: i32,
-    ) {
+    <span class="kw">fn </span>parent_add_attribute&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R, attribute: <span class="kw-2">&amp;</span>str, column: i32) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
@@ -715,7 +608,7 @@
 
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_iface).add_attribute {
                 f(
-                    cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
                     cell.as_ref().to_glib_none().<span class="number">0</span>,
                     attribute.to_glib_none().<span class="number">0</span>,
                     column,
@@ -724,7 +617,7 @@
         }
     }
 
-    <span class="kw">fn </span>parent_clear_attributes&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, cell: <span class="kw-2">&amp;</span>R) {
+    <span class="kw">fn </span>parent_clear_attributes&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
@@ -732,14 +625,14 @@
 
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_iface).clear_attributes {
                 f(
-                    cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
                     cell.as_ref().to_glib_none().<span class="number">0</span>,
                 );
             }
         }
     }
 
-    <span class="kw">fn </span>parent_cells(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; Vec&lt;CellRenderer&gt; {
+    <span class="kw">fn </span>parent_cells(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;CellRenderer&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
@@ -750,14 +643,14 @@
                 .as_ref()
                 .expect(<span class="string">&quot;no parent \&quot;get_cells\&quot; implementation&quot;</span>);
 
-            <span class="kw">let </span>cells = f(cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>);
+            <span class="kw">let </span>cells = f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>);
             FromGlibPtrArrayContainerAsVec::from_glib_container_as_vec(cells)
         }
     }
 
     <span class="kw">fn </span>parent_set_cell_data_func&lt;R: IsA&lt;CellRenderer&gt;&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
+
         cell: <span class="kw-2">&amp;</span>R,
         callback: <span class="prelude-ty">Option</span>&lt;CellLayoutDataCallback&gt;,
     ) {
@@ -773,7 +666,7 @@
 
             <span class="kw">if let </span><span class="prelude-val">Some</span>(data_cb) = callback {
                 f(
-                    cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
                     cell.as_ref().to_glib_none().<span class="number">0</span>,
                     data_cb.callback,
                     data_cb.user_data,
@@ -781,7 +674,7 @@
                 );
             } <span class="kw">else </span>{
                 f(
-                    cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
                     cell.as_ref().to_glib_none().<span class="number">0</span>,
                     <span class="prelude-val">None</span>,
                     std::ptr::null_mut(),
@@ -791,12 +684,7 @@
         }
     }
 
-    <span class="kw">fn </span>parent_reorder&lt;R: IsA&lt;CellRenderer&gt;&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        cell: <span class="kw-2">&amp;</span>R,
-        position: i32,
-    ) {
+    <span class="kw">fn </span>parent_reorder&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R, position: i32) {
         {
             <span class="kw">unsafe </span>{
                 <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
@@ -805,7 +693,7 @@
 
                 <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_iface).reorder {
                     f(
-                        cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                        <span class="self">self</span>.obj().unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
                         cell.as_ref().to_glib_none().<span class="number">0</span>,
                         position,
                     );
@@ -814,24 +702,19 @@
         }
     }
 
-    <span class="kw">fn </span>parent_clear(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_clear(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkCellLayoutIface;
 
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_iface).clear {
-                f(cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>);
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>);
             }
         }
     }
 
-    <span class="kw">fn </span>parent_pack_start&lt;R: IsA&lt;CellRenderer&gt;&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        cell: <span class="kw-2">&amp;</span>R,
-        expand: bool,
-    ) {
+    <span class="kw">fn </span>parent_pack_start&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R, expand: bool) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
@@ -839,7 +722,7 @@
 
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_iface).pack_start {
                 f(
-                    cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
                     cell.as_ref().to_glib_none().<span class="number">0</span>,
                     expand.into_glib(),
                 );
@@ -847,12 +730,7 @@
         }
     }
 
-    <span class="kw">fn </span>parent_pack_end&lt;R: IsA&lt;CellRenderer&gt;&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        cell: <span class="kw-2">&amp;</span>R,
-        expand: bool,
-    ) {
+    <span class="kw">fn </span>parent_pack_end&lt;R: IsA&lt;CellRenderer&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, cell: <span class="kw-2">&amp;</span>R, expand: bool) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
@@ -860,7 +738,7 @@
 
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_iface).pack_end {
                 f(
-                    cell_layout.unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;CellLayout&gt;().to_glib_none().<span class="number">0</span>,
                     cell.as_ref().to_glib_none().<span class="number">0</span>,
                     expand.into_glib(),
                 );
@@ -868,14 +746,15 @@
         }
     }
 
-    <span class="kw">fn </span>parent_area(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_layout: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="prelude-ty">Option</span>&lt;CellArea&gt; {
+    <span class="kw">fn </span>parent_area(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;CellArea&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
             <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;CellLayout&gt;()
                 <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkCellLayoutIface;
 
             (<span class="kw-2">*</span>parent_iface).get_area.map(|f| {
-                from_glib_none(f(cell_layout
+                from_glib_none(f(<span class="self">self
+                    </span>.obj()
                     .unsafe_cast_ref::&lt;CellLayout&gt;()
                     .to_glib_none()
                     .<span class="number">0</span>))
@@ -911,8 +790,7 @@
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
 
-    imp.area(from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref())
-        .to_glib_full()
+    imp.area().to_glib_full()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_pack_start&lt;T: CellLayoutImpl&gt;(
@@ -922,14 +800,9 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-
     <span class="kw">let </span>cell: Borrowed&lt;CellRenderer&gt; = from_glib_borrow(cellptr);
 
-    imp.pack_start(
-        from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref(),
-        <span class="kw-2">&amp;*</span>cell,
-        from_glib(expand),
-    )
+    imp.pack_start(<span class="kw-2">&amp;*</span>cell, from_glib(expand))
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_pack_end&lt;T: CellLayoutImpl&gt;(
@@ -939,21 +812,16 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-
     <span class="kw">let </span>cell: Borrowed&lt;CellRenderer&gt; = from_glib_borrow(cellptr);
 
-    imp.pack_end(
-        from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref(),
-        <span class="kw-2">&amp;*</span>cell,
-        from_glib(expand),
-    )
+    imp.pack_end(<span class="kw-2">&amp;*</span>cell, from_glib(expand))
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_clear&lt;T: CellLayoutImpl&gt;(cell_layout: <span class="kw-2">*mut </span>ffi::GtkCellLayout) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
 
-    imp.clear(from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref())
+    imp.clear()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_reorder&lt;T: CellLayoutImpl&gt;(
@@ -963,14 +831,9 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-
     <span class="kw">let </span>cell: Borrowed&lt;CellRenderer&gt; = from_glib_borrow(cellptr);
 
-    imp.reorder(
-        from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref(),
-        <span class="kw-2">&amp;*</span>cell,
-        position,
-    )
+    imp.reorder(<span class="kw-2">&amp;*</span>cell, position)
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_add_attribute&lt;T: CellLayoutImpl&gt;(
@@ -981,16 +844,10 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-
     <span class="kw">let </span>cell: Borrowed&lt;CellRenderer&gt; = from_glib_borrow(cellptr);
     <span class="kw">let </span>attribute: Borrowed&lt;glib::GString&gt; = from_glib_borrow(attributeptr);
 
-    imp.add_attribute(
-        from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref(),
-        <span class="kw-2">&amp;*</span>cell,
-        <span class="kw-2">&amp;</span>attribute,
-        column,
-    )
+    imp.add_attribute(<span class="kw-2">&amp;*</span>cell, <span class="kw-2">&amp;</span>attribute, column)
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_clear_attributes&lt;T: CellLayoutImpl&gt;(
@@ -999,13 +856,9 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-
     <span class="kw">let </span>cell: Borrowed&lt;CellRenderer&gt; = from_glib_borrow(cellptr);
 
-    imp.clear_attributes(
-        from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref(),
-        <span class="kw-2">&amp;*</span>cell,
-    )
+    imp.clear_attributes(<span class="kw-2">&amp;*</span>cell)
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cell_layout_set_cell_data_func&lt;T: CellLayoutImpl&gt;(
@@ -1030,11 +883,7 @@
         })
     };
 
-    imp.set_cell_data_func(
-        from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout).unsafe_cast_ref(),
-        <span class="kw-2">&amp;*</span>cell,
-        callback,
-    )
+    imp.set_cell_data_func(<span class="kw-2">&amp;*</span>cell, callback)
 }
 
 <span class="kw">static </span>CELL_LAYOUT_GET_CELLS_QUARK: Lazy&lt;Quark&gt; =
@@ -1046,14 +895,13 @@
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(cell_layout <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
 
-    <span class="kw">let </span>wrap = from_glib_borrow::&lt;<span class="kw">_</span>, CellLayout&gt;(cell_layout);
-
-    <span class="kw">let </span>cells = imp.cells(wrap.unsafe_cast_ref());
+    <span class="kw">let </span>cells = imp.cells();
 
     <span class="comment">// transfer container: list owned by the caller by not the actual content
     // so we need to keep the cells around and return a ptr of the list
-    </span>wrap.set_qdata(<span class="kw-2">*</span>CELL_LAYOUT_GET_CELLS_QUARK, cells.clone());
+    </span>imp.obj()
+        .set_qdata(<span class="kw-2">*</span>CELL_LAYOUT_GET_CELLS_QUARK, cells.clone());
     cells.to_glib_container().<span class="number">0
 </span>}
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

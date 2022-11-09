@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/paned.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>paned.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/paned.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>paned.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -1398,11 +1398,28 @@
 <span id="1325">1325</span>
 <span id="1326">1326</span>
 <span id="1327">1327</span>
+<span id="1328">1328</span>
+<span id="1329">1329</span>
+<span id="1330">1330</span>
+<span id="1331">1331</span>
+<span id="1332">1332</span>
+<span id="1333">1333</span>
+<span id="1334">1334</span>
+<span id="1335">1335</span>
+<span id="1336">1336</span>
+<span id="1337">1337</span>
+<span id="1338">1338</span>
+<span id="1339">1339</span>
+<span id="1340">1340</span>
+<span id="1341">1341</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
 </span><span class="kw">use </span><span class="kw">crate</span>::Accessible;
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
+</span><span class="kw">use </span><span class="kw">crate</span>::AccessibleRange;
 <span class="kw">use </span><span class="kw">crate</span>::AccessibleRole;
 <span class="kw">use </span><span class="kw">crate</span>::Align;
 <span class="kw">use </span><span class="kw">crate</span>::Buildable;
@@ -1426,7 +1443,9 @@
 <span class="kw">use </span>std::fmt;
 <span class="kw">use </span>std::mem::transmute;
 
-<span class="macro">glib::wrapper! </span>{
+<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
+#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
+</span><span class="macro">glib::wrapper! </span>{
     <span class="doccomment">/// A widget with two panes, arranged either horizontally or vertically.
     ///
     /// ![An example GtkPaned](panes.png)
@@ -1487,20 +1506,30 @@
     /// gtk_widget_set_size_request (hpaned, 200, -1);
     ///
     /// gtk_paned_set_start_child (GTK_PANED (hpaned), frame1);
-    /// gtk_paned_set_start_child_resize (GTK_PANED (hpaned), TRUE);
-    /// gtk_paned_set_start_child_shrink (GTK_PANED (hpaned), FALSE);
+    /// gtk_paned_set_resize_start_child (GTK_PANED (hpaned), TRUE);
+    /// gtk_paned_set_shrink_start_child (GTK_PANED (hpaned), FALSE);
     /// gtk_widget_set_size_request (frame1, 50, -1);
     ///
     /// gtk_paned_set_end_child (GTK_PANED (hpaned), frame2);
-    /// gtk_paned_set_end_child_resize (GTK_PANED (hpaned), FALSE);
-    /// gtk_paned_set_end_child_shrink (GTK_PANED (hpaned), FALSE);
+    /// gtk_paned_set_resize_end_child (GTK_PANED (hpaned), FALSE);
+    /// gtk_paned_set_shrink_end_child (GTK_PANED (hpaned), FALSE);
     /// gtk_widget_set_size_request (frame2, 50, -1);
     /// ```
     ///
     /// # Implements
     ///
-    /// [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`OrientableExt`][trait@crate::prelude::OrientableExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkPaned&quot;</span>)]
+    /// [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`AccessibleRangeExt`][trait@crate::prelude::AccessibleRangeExt], [`OrientableExt`][trait@crate::prelude::OrientableExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkPaned&quot;</span>)]
+    </span><span class="kw">pub struct </span>Paned(Object&lt;ffi::GtkPaned&gt;) @extends Widget, @implements Accessible, Buildable, ConstraintTarget, AccessibleRange, Orientable;
+
+    <span class="kw">match fn </span>{
+        type_ =&gt; || ffi::gtk_paned_get_type(),
+    }
+}
+
+<span class="attr">#[cfg(not(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>)))]
+</span><span class="macro">glib::wrapper! </span>{
+    <span class="attr">#[doc(alias = <span class="string">&quot;GtkPaned&quot;</span>)]
     </span><span class="kw">pub struct </span>Paned(Object&lt;ffi::GtkPaned&gt;) @extends Widget, @implements Accessible, Buildable, ConstraintTarget, Orientable;
 
     <span class="kw">match fn </span>{
@@ -1516,7 +1545,7 @@
     /// # Returns
     ///
     /// the newly created paned widget
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_new&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_new&quot;</span>)]
     </span><span class="kw">pub fn </span>new(orientation: Orientation) -&gt; Paned {
         <span class="macro">assert_initialized_main_thread!</span>();
         <span class="kw">unsafe </span>{ Widget::from_glib_none(ffi::gtk_paned_new(orientation.into_glib())).unsafe_cast() }
@@ -1535,7 +1564,7 @@
     /// # Returns
     ///
     /// the end child widget
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_get_end_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_get_end_child&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_end_child&quot;</span>)]
     </span><span class="kw">pub fn </span>end_child(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Widget&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_paned_get_end_child(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1546,7 +1575,7 @@
     /// # Returns
     ///
     /// the position of the divider, in pixels
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_get_position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_get_position&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_position&quot;</span>)]
     </span><span class="kw">pub fn </span>position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_paned_get_position(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -1557,7 +1586,7 @@
     /// # Returns
     ///
     /// true if the end child is resizable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_get_resize_end_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_get_resize_end_child&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_resize_end_child&quot;</span>)]
     </span><span class="kw">pub fn </span>resizes_end_child(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_paned_get_resize_end_child(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1568,7 +1597,7 @@
     /// # Returns
     ///
     /// true if the start child is resizable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_get_resize_start_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_get_resize_start_child&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_resize_start_child&quot;</span>)]
     </span><span class="kw">pub fn </span>resizes_start_child(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_paned_get_resize_start_child(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1579,7 +1608,7 @@
     /// # Returns
     ///
     /// true if the end child is shrinkable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_get_shrink_end_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_get_shrink_end_child&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_shrink_end_child&quot;</span>)]
     </span><span class="kw">pub fn </span>shrinks_end_child(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_paned_get_shrink_end_child(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1590,7 +1619,7 @@
     /// # Returns
     ///
     /// true if the start child is shrinkable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_get_shrink_start_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_get_shrink_start_child&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_shrink_start_child&quot;</span>)]
     </span><span class="kw">pub fn </span>shrinks_start_child(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_paned_get_shrink_start_child(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1601,7 +1630,7 @@
     /// # Returns
     ///
     /// the start child widget
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_get_start_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_get_start_child&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_start_child&quot;</span>)]
     </span><span class="kw">pub fn </span>start_child(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Widget&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_paned_get_start_child(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1612,7 +1641,7 @@
     /// # Returns
     ///
     /// [`true`] if the paned should have a wide handle
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_get_wide_handle&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_get_wide_handle&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_wide_handle&quot;</span>)]
     </span><span class="kw">pub fn </span>is_wide_handle(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_paned_get_wide_handle(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -1623,7 +1652,7 @@
     /// If @child is `NULL`, the existing child will be removed.
     /// ## `child`
     /// the widget to add
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_set_end_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_set_end_child&quot;</span>)]
     </span><span class="kw">pub fn </span>set_end_child(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_paned_set_end_child(
@@ -1637,7 +1666,7 @@
     /// ## `position`
     /// pixel position of divider, a negative value means that the position
     ///   is unset
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_set_position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_set_position&quot;</span>)]
     </span><span class="kw">pub fn </span>set_position(<span class="kw-2">&amp;</span><span class="self">self</span>, position: i32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_paned_set_position(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, position);
@@ -1647,7 +1676,7 @@
     <span class="doccomment">/// Sets whether the `property::Paned::end-child` can be resized.
     /// ## `resize`
     /// true to let the end child be resized
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_set_resize_end_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_set_resize_end_child&quot;</span>)]
     </span><span class="kw">pub fn </span>set_resize_end_child(<span class="kw-2">&amp;</span><span class="self">self</span>, resize: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_paned_set_resize_end_child(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, resize.into_glib());
@@ -1657,7 +1686,7 @@
     <span class="doccomment">/// Sets whether the `property::Paned::start-child` can be resized.
     /// ## `resize`
     /// true to let the start child be resized
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_set_resize_start_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_set_resize_start_child&quot;</span>)]
     </span><span class="kw">pub fn </span>set_resize_start_child(<span class="kw-2">&amp;</span><span class="self">self</span>, resize: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_paned_set_resize_start_child(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, resize.into_glib());
@@ -1667,7 +1696,7 @@
     <span class="doccomment">/// Sets whether the `property::Paned::end-child` can shrink.
     /// ## `resize`
     /// true to let the end child be shrunk
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_set_shrink_end_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_set_shrink_end_child&quot;</span>)]
     </span><span class="kw">pub fn </span>set_shrink_end_child(<span class="kw-2">&amp;</span><span class="self">self</span>, resize: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_paned_set_shrink_end_child(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, resize.into_glib());
@@ -1677,7 +1706,7 @@
     <span class="doccomment">/// Sets whether the `property::Paned::start-child` can shrink.
     /// ## `resize`
     /// true to let the start child be shrunk
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_set_shrink_start_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_set_shrink_start_child&quot;</span>)]
     </span><span class="kw">pub fn </span>set_shrink_start_child(<span class="kw-2">&amp;</span><span class="self">self</span>, resize: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_paned_set_shrink_start_child(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, resize.into_glib());
@@ -1689,7 +1718,7 @@
     /// If @child is `NULL`, the existing child will be removed.
     /// ## `child`
     /// the widget to add
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_set_start_child&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_set_start_child&quot;</span>)]
     </span><span class="kw">pub fn </span>set_start_child(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_paned_set_start_child(
@@ -1702,7 +1731,7 @@
     <span class="doccomment">/// Sets whether the separator should be wide.
     /// ## `wide`
     /// the new value for the `property::Paned::wide-handle` property
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_paned_set_wide_handle&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_paned_set_wide_handle&quot;</span>)]
     </span><span class="kw">pub fn </span>set_wide_handle(<span class="kw-2">&amp;</span><span class="self">self</span>, wide: bool) {
         <span class="kw">unsafe </span>{
             ffi::gtk_paned_set_wide_handle(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, wide.into_glib());
@@ -1714,7 +1743,7 @@
     ///
     /// This property is derived from the size and shrinkability
     /// of the widget&#39;s children.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;max-position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;max-position&quot;</span>)]
     </span><span class="kw">pub fn </span>max_position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         glib::ObjectExt::property(<span class="self">self</span>, <span class="string">&quot;max-position&quot;</span>)
     }
@@ -1724,13 +1753,13 @@
     ///
     /// This property is derived from the size and shrinkability
     /// of the widget&#39;s children.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;min-position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;min-position&quot;</span>)]
     </span><span class="kw">pub fn </span>min_position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         glib::ObjectExt::property(<span class="self">self</span>, <span class="string">&quot;min-position&quot;</span>)
     }
 
     <span class="doccomment">/// Whether the `property::Paned::position` property has been set.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;position-set&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;position-set&quot;</span>)]
     </span><span class="kw">pub fn </span>is_position_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         glib::ObjectExt::property(<span class="self">self</span>, <span class="string">&quot;position-set&quot;</span>)
     }
@@ -1742,7 +1771,7 @@
     ///
     /// The default binding for this signal is &lt;kbd&gt;Return&lt;/kbd&gt; or
     /// &lt;kbd&gt;Space&lt;/kbd&gt;.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;accept-position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;accept-position&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_accept_position&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>accept_position_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Paned) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkPaned,
@@ -1777,7 +1806,7 @@
     /// This is a [keybinding signal](class.SignalAction.html).
     ///
     /// The default binding for this signal is &lt;kbd&gt;Escape&lt;/kbd&gt;.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;cancel-position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;cancel-position&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_cancel_position&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cancel_position_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Paned) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkPaned,
@@ -1810,7 +1839,7 @@
     /// The default binding is &lt;kbd&gt;F6&lt;/kbd&gt;.
     /// ## `reversed`
     /// whether cycling backward or forward
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;cycle-child-focus&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;cycle-child-focus&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_cycle_child_focus&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, bool) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1848,7 +1877,7 @@
     /// The default binding for this signal is &lt;kbd&gt;F8&lt;/kbd&gt;.
     /// ## `reversed`
     /// whether cycling backward or forward
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;cycle-handle-focus&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;cycle-handle-focus&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_cycle_handle_focus&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, bool) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1885,7 +1914,7 @@
     /// This is a [keybinding signal](class.SignalAction.html).
     /// ## `scroll_type`
     /// a [`ScrollType`][crate::ScrollType]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;move-handle&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;move-handle&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_move_handle&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, ScrollType) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1921,7 +1950,7 @@
     /// This is a [keybinding signal](class.SignalAction.html).
     ///
     /// The default binding is &lt;kbd&gt;Tab&lt;/kbd&gt;.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;toggle-handle-focus&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;toggle-handle-focus&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_toggle_handle_focus&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -1950,7 +1979,7 @@
         <span class="self">self</span>.emit_by_name(<span class="string">&quot;toggle-handle-focus&quot;</span>, <span class="kw-2">&amp;</span>[])
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;end-child&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;end-child&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_end_child_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_end_child_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Paned) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkPaned,
@@ -1973,7 +2002,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;max-position&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;max-position&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_max_position_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_max_position_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Paned) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkPaned,
@@ -1996,7 +2025,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;min-position&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;min-position&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_min_position_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_min_position_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Paned) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkPaned,
@@ -2019,7 +2048,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;position&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;position&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_position_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_position_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Paned) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkPaned,
@@ -2042,7 +2071,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;position-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;position-set&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_position_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_position_set_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Paned) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkPaned,
@@ -2065,7 +2094,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;resize-end-child&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;resize-end-child&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_resize_end_child_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_resize_end_child_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Paned) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkPaned,
@@ -2088,7 +2117,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;resize-start-child&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;resize-start-child&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_resize_start_child_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -2114,7 +2143,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;shrink-end-child&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;shrink-end-child&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_shrink_end_child_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_shrink_end_child_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Paned) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkPaned,
@@ -2137,7 +2166,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;shrink-start-child&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;shrink-start-child&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_shrink_start_child_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
@@ -2163,7 +2192,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;start-child&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;start-child&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_start_child_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_start_child_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Paned) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkPaned,
@@ -2186,7 +2215,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;wide-handle&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;wide-handle&quot;</span>)]
     </span><span class="kw">pub fn </span>connect_wide_handle_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
         <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_wide_handle_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Paned) + <span class="lifetime">&#39;static</span>&gt;(
             this: <span class="kw-2">*mut </span>ffi::GtkPaned,
@@ -2213,16 +2242,15 @@
 <span class="kw">impl </span>Default <span class="kw">for </span>Paned {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
         glib::object::Object::new::&lt;<span class="self">Self</span>&gt;(<span class="kw-2">&amp;</span>[])
-            .expect(<span class="string">&quot;Can&#39;t construct Paned object with default parameters&quot;</span>)
     }
 }
 
-<span class="attribute">#[derive(Clone, Default)]
+<span class="attr">#[derive(Clone, Default)]
 </span><span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`Paned`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attribute">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
+</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
 </span><span class="kw">pub struct </span>PanedBuilder {
     end_child: <span class="prelude-ty">Option</span>&lt;Widget&gt;,
     position: <span class="prelude-ty">Option</span>&lt;i32&gt;,
@@ -2275,7 +2303,7 @@
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`Paned`].
-    </span><span class="attribute">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
+    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; Paned {
         <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>end_child) = <span class="self">self</span>.end_child {
@@ -2398,7 +2426,7 @@
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>orientation) = <span class="self">self</span>.orientation {
             properties.push((<span class="string">&quot;orientation&quot;</span>, orientation));
         }
-        glib::Object::new::&lt;Paned&gt;(<span class="kw-2">&amp;</span>properties).expect(<span class="string">&quot;Failed to create an instance of Paned&quot;</span>)
+        glib::Object::new::&lt;Paned&gt;(<span class="kw-2">&amp;</span>properties)
     }
 
     <span class="doccomment">/// The second child.
@@ -2726,4 +2754,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

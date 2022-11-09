@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/cell_renderer.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>cell_renderer.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/cell_renderer.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>cell_renderer.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -1211,6 +1211,36 @@
 <span id="1138">1138</span>
 <span id="1139">1139</span>
 <span id="1140">1140</span>
+<span id="1141">1141</span>
+<span id="1142">1142</span>
+<span id="1143">1143</span>
+<span id="1144">1144</span>
+<span id="1145">1145</span>
+<span id="1146">1146</span>
+<span id="1147">1147</span>
+<span id="1148">1148</span>
+<span id="1149">1149</span>
+<span id="1150">1150</span>
+<span id="1151">1151</span>
+<span id="1152">1152</span>
+<span id="1153">1153</span>
+<span id="1154">1154</span>
+<span id="1155">1155</span>
+<span id="1156">1156</span>
+<span id="1157">1157</span>
+<span id="1158">1158</span>
+<span id="1159">1159</span>
+<span id="1160">1160</span>
+<span id="1161">1161</span>
+<span id="1162">1162</span>
+<span id="1163">1163</span>
+<span id="1164">1164</span>
+<span id="1165">1165</span>
+<span id="1166">1166</span>
+<span id="1167">1167</span>
+<span id="1168">1168</span>
+<span id="1169">1169</span>
+<span id="1170">1170</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -1280,7 +1310,7 @@
     /// # Implements
     ///
     /// [`CellRendererExt`][trait@crate::prelude::CellRendererExt], [`trait@glib::ObjectExt`], [`CellRendererExtManual`][trait@crate::prelude::CellRendererExtManual]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkCellRenderer&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkCellRenderer&quot;</span>)]
     </span><span class="kw">pub struct </span>CellRenderer(Object&lt;ffi::GtkCellRenderer, ffi::GtkCellRendererClass&gt;);
 
     <span class="kw">match fn </span>{
@@ -1301,6 +1331,9 @@
     <span class="doccomment">/// Passes an activate event to the cell renderer for possible processing.
     /// Some cell renderers may use events; for example, [`CellRendererToggle`][crate::CellRendererToggle]
     /// toggles when it gets a mouse click.
+    ///
+    /// # Deprecated since 4.10
+    ///
     /// ## `event`
     /// a [`gdk::Event`][crate::gdk::Event]
     /// ## `widget`
@@ -1318,7 +1351,8 @@
     /// # Returns
     ///
     /// [`true`] if the event was consumed/handled
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_activate&quot;</span>)]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_activate&quot;</span>)]
     </span><span class="kw">fn </span>activate(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         event: <span class="kw">impl </span>AsRef&lt;gdk::Event&gt;,
@@ -1329,7 +1363,8 @@
         flags: CellRendererState,
     ) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_aligned_area&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_aligned_area&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_aligned_area&quot;</span>)]
     </span><span class="kw">fn </span>aligned_area(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
@@ -1338,98 +1373,122 @@
         cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
     ) -&gt; gdk::Rectangle;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_alignment&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_alignment&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_alignment&quot;</span>)]
     </span><span class="kw">fn </span>alignment(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (f32, f32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_fixed_size&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_fixed_size&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_fixed_size&quot;</span>)]
     </span><span class="kw">fn </span>fixed_size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (i32, i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_is_expanded&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_is_expanded&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_is_expanded&quot;</span>)]
     </span><span class="kw">fn </span>is_expanded(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_is_expander&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_is_expander&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_is_expander&quot;</span>)]
     </span><span class="kw">fn </span>is_expander(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_padding&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_padding&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_padding&quot;</span>)]
     </span><span class="kw">fn </span>padding(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (i32, i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_preferred_height&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_preferred_height&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_preferred_height&quot;</span>)]
     </span><span class="kw">fn </span>preferred_height(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;) -&gt; (i32, i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_preferred_height_for_width&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_preferred_height_for_width&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_preferred_height_for_width&quot;</span>)]
     </span><span class="kw">fn </span>preferred_height_for_width(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;, width: i32) -&gt; (i32, i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_preferred_size&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_preferred_size&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_preferred_size&quot;</span>)]
     </span><span class="kw">fn </span>preferred_size(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;) -&gt; (Requisition, Requisition);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_preferred_width&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_preferred_width&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_preferred_width&quot;</span>)]
     </span><span class="kw">fn </span>preferred_width(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;) -&gt; (i32, i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_preferred_width_for_height&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_preferred_width_for_height&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_preferred_width_for_height&quot;</span>)]
     </span><span class="kw">fn </span>preferred_width_for_height(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;, height: i32) -&gt; (i32, i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_request_mode&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_request_mode&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_request_mode&quot;</span>)]
     </span><span class="kw">fn </span>request_mode(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; SizeRequestMode;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_sensitive&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_sensitive&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_sensitive&quot;</span>)]
     </span><span class="kw">fn </span>is_sensitive(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_state&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_state&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_state&quot;</span>)]
     </span><span class="kw">fn </span>state(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;&gt;, cell_state: CellRendererState)
         -&gt; StateFlags;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_visible&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_get_visible&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_visible&quot;</span>)]
     </span><span class="kw">fn </span>is_visible(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_is_activatable&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_is_activatable&quot;</span>)]
     </span><span class="kw">fn </span>is_activatable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_alignment&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_alignment&quot;</span>)]
     </span><span class="kw">fn </span>set_alignment(<span class="kw-2">&amp;</span><span class="self">self</span>, xalign: f32, yalign: f32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_fixed_size&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_fixed_size&quot;</span>)]
     </span><span class="kw">fn </span>set_fixed_size(<span class="kw-2">&amp;</span><span class="self">self</span>, width: i32, height: i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_is_expanded&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_is_expanded&quot;</span>)]
     </span><span class="kw">fn </span>set_is_expanded(<span class="kw-2">&amp;</span><span class="self">self</span>, is_expanded: bool);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_is_expander&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_is_expander&quot;</span>)]
     </span><span class="kw">fn </span>set_is_expander(<span class="kw-2">&amp;</span><span class="self">self</span>, is_expander: bool);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_padding&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_padding&quot;</span>)]
     </span><span class="kw">fn </span>set_padding(<span class="kw-2">&amp;</span><span class="self">self</span>, xpad: i32, ypad: i32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_sensitive&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_sensitive&quot;</span>)]
     </span><span class="kw">fn </span>set_sensitive(<span class="kw-2">&amp;</span><span class="self">self</span>, sensitive: bool);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_visible&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_set_visible&quot;</span>)]
     </span><span class="kw">fn </span>set_visible(<span class="kw-2">&amp;</span><span class="self">self</span>, visible: bool);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_snapshot&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_snapshot&quot;</span>)]
     </span><span class="kw">fn </span>snapshot(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        snapshot: <span class="kw-2">&amp;</span>Snapshot,
+        snapshot: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Snapshot&gt;,
         widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
         background_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
         cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
         flags: CellRendererState,
     );
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_start_editing&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_start_editing&quot;</span>)]
     </span><span class="kw">fn </span>start_editing(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         event: <span class="prelude-ty">Option</span>&lt;<span class="kw">impl </span>AsRef&lt;gdk::Event&gt;&gt;,
@@ -1440,19 +1499,20 @@
         flags: CellRendererState,
     ) -&gt; <span class="prelude-ty">Option</span>&lt;CellEditable&gt;;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_cell_renderer_stop_editing&quot;</span>)]
+    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    #[doc(alias = <span class="string">&quot;gtk_cell_renderer_stop_editing&quot;</span>)]
     </span><span class="kw">fn </span>stop_editing(<span class="kw-2">&amp;</span><span class="self">self</span>, canceled: bool);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;cell-background&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;cell-background&quot;</span>)]
     </span><span class="kw">fn </span>set_cell_background(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_background: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;cell-background-rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;cell-background-rgba&quot;</span>)]
     </span><span class="kw">fn </span>cell_background_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk::RGBA&gt;;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;cell-background-rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;cell-background-rgba&quot;</span>)]
     </span><span class="kw">fn </span>set_cell_background_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>, cell_background_rgba: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>gdk::RGBA&gt;);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;cell-background-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;cell-background-set&quot;</span>)]
     </span><span class="kw">fn </span>is_cell_background_set(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="kw">fn </span>is_editing(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
@@ -1485,58 +1545,58 @@
 
     <span class="kw">fn </span>set_ypad(<span class="kw-2">&amp;</span><span class="self">self</span>, ypad: u32);
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;editing-canceled&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;editing-canceled&quot;</span>)]
     </span><span class="kw">fn </span>connect_editing_canceled&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;editing-started&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;editing-started&quot;</span>)]
     </span><span class="kw">fn </span>connect_editing_started&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>CellEditable, TreePath) + <span class="lifetime">&#39;static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;cell-background&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;cell-background&quot;</span>)]
     </span><span class="kw">fn </span>connect_cell_background_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;cell-background-rgba&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;cell-background-rgba&quot;</span>)]
     </span><span class="kw">fn </span>connect_cell_background_rgba_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;cell-background-set&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;cell-background-set&quot;</span>)]
     </span><span class="kw">fn </span>connect_cell_background_set_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;editing&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;editing&quot;</span>)]
     </span><span class="kw">fn </span>connect_editing_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;height&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;height&quot;</span>)]
     </span><span class="kw">fn </span>connect_height_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;is-expanded&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;is-expanded&quot;</span>)]
     </span><span class="kw">fn </span>connect_is_expanded_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;is-expander&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;is-expander&quot;</span>)]
     </span><span class="kw">fn </span>connect_is_expander_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;mode&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;mode&quot;</span>)]
     </span><span class="kw">fn </span>connect_mode_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;sensitive&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;sensitive&quot;</span>)]
     </span><span class="kw">fn </span>connect_sensitive_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;visible&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;visible&quot;</span>)]
     </span><span class="kw">fn </span>connect_visible_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;width&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;width&quot;</span>)]
     </span><span class="kw">fn </span>connect_width_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;xalign&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;xalign&quot;</span>)]
     </span><span class="kw">fn </span>connect_xalign_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;xpad&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;xpad&quot;</span>)]
     </span><span class="kw">fn </span>connect_xpad_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;yalign&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;yalign&quot;</span>)]
     </span><span class="kw">fn </span>connect_yalign_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;ypad&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;ypad&quot;</span>)]
     </span><span class="kw">fn </span>connect_ypad_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
@@ -1808,7 +1868,7 @@
 
     <span class="kw">fn </span>snapshot(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        snapshot: <span class="kw-2">&amp;</span>Snapshot,
+        snapshot: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Snapshot&gt;,
         widget: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Widget&gt;,
         background_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
         cell_area: <span class="kw-2">&amp;</span>gdk::Rectangle,
@@ -1817,7 +1877,7 @@
         <span class="kw">unsafe </span>{
             ffi::gtk_cell_renderer_snapshot(
                 <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                snapshot.to_glib_none().<span class="number">0</span>,
+                snapshot.as_ref().to_glib_none().<span class="number">0</span>,
                 widget.as_ref().to_glib_none().<span class="number">0</span>,
                 background_area.to_glib_none().<span class="number">0</span>,
                 cell_area.to_glib_none().<span class="number">0</span>,
@@ -2352,4 +2412,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

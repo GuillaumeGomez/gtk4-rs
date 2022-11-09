@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/text_iter.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>text_iter.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/text_iter.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>text_iter.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -1852,7 +1852,7 @@
     /// [text widget conceptual overview](section-text-widget.html),
     /// which gives an overview of all the objects and data types
     /// related to the text widget and how they work together.
-    </span><span class="attribute">#[derive(Debug)]
+    </span><span class="attr">#[derive(Debug)]
     </span><span class="kw">pub struct </span>TextIter(BoxedInline&lt;ffi::GtkTextIter&gt;);
 
     <span class="kw">match fn </span>{
@@ -1871,7 +1871,7 @@
     /// The function is used by language bindings.
     /// ## `other`
     /// another [`TextIter`][crate::TextIter]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_assign&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_assign&quot;</span>)]
     </span><span class="kw">pub fn </span>assign(<span class="kw-2">&amp;mut </span><span class="self">self</span>, other: <span class="kw-2">&amp;</span>TextIter) {
         <span class="kw">unsafe </span>{
             ffi::gtk_text_iter_assign(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>, other.to_glib_none().<span class="number">0</span>);
@@ -1887,7 +1887,7 @@
     /// # Returns
     ///
     /// whether movement was possible
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_char&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_char&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_char(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_backward_char(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>)) }
     }
@@ -1907,7 +1907,7 @@
     /// # Returns
     ///
     /// whether @self moved and is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_chars&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_chars&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_chars(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_chars(
@@ -1922,7 +1922,7 @@
     /// # Returns
     ///
     /// [`true`] if we moved
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_cursor_position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_cursor_position&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_cursor_position(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_cursor_position(
@@ -1940,7 +1940,7 @@
     /// # Returns
     ///
     /// [`true`] if we moved and the new position is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_cursor_positions&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_cursor_positions&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_cursor_positions(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_cursor_positions(
@@ -1960,7 +1960,7 @@
     /// # Returns
     ///
     /// whether a match was found
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_find_char&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_find_char&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_find_char&lt;P: FnMut(char) -&gt; bool&gt;(
         <span class="kw-2">&amp;mut </span><span class="self">self</span>,
         pred: P,
@@ -2002,7 +2002,7 @@
     /// # Returns
     ///
     /// whether @self moved
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_line&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_line&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_line(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_backward_line(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>)) }
     }
@@ -2023,7 +2023,7 @@
     /// # Returns
     ///
     /// whether @self moved and is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_lines&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_lines&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_lines(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_lines(
@@ -2053,7 +2053,7 @@
     ///
     /// ## `match_end`
     /// return location for end of match
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_search&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_search&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_search(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         str: <span class="kw-2">&amp;</span>str,
@@ -2090,7 +2090,7 @@
     /// # Returns
     ///
     /// [`true`] if @self moved and is not the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_sentence_start&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_sentence_start&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_sentence_start(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_sentence_start(
@@ -2108,7 +2108,7 @@
     /// # Returns
     ///
     /// [`true`] if @self moved and is not the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_sentence_starts&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_sentence_starts&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_sentence_starts(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_sentence_starts(
@@ -2133,7 +2133,7 @@
     /// # Returns
     ///
     /// whether we found a tag toggle before @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_to_tag_toggle&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_to_tag_toggle&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_to_tag_toggle(<span class="kw-2">&amp;mut </span><span class="self">self</span>, tag: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;TextTag&gt;&gt;) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_to_tag_toggle(
@@ -2150,7 +2150,7 @@
     /// # Returns
     ///
     /// [`true`] if we moved and the new position is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_visible_cursor_position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_visible_cursor_position&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_visible_cursor_position(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_visible_cursor_position(
@@ -2168,7 +2168,7 @@
     /// # Returns
     ///
     /// [`true`] if we moved and the new position is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_visible_cursor_positions&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_visible_cursor_positions&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_visible_cursor_positions(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_visible_cursor_positions(
@@ -2191,7 +2191,7 @@
     /// # Returns
     ///
     /// whether @self moved
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_visible_line&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_visible_line&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_visible_line(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_visible_line(
@@ -2216,7 +2216,7 @@
     /// # Returns
     ///
     /// whether @self moved and is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_visible_lines&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_visible_lines&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_visible_lines(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_visible_lines(
@@ -2237,7 +2237,7 @@
     /// # Returns
     ///
     /// [`true`] if @self moved and is not the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_visible_word_start&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_visible_word_start&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_visible_word_start(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_visible_word_start(
@@ -2253,7 +2253,7 @@
     /// # Returns
     ///
     /// [`true`] if @self moved and is not the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_visible_word_starts&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_visible_word_starts&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_visible_word_starts(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_visible_word_starts(
@@ -2274,7 +2274,7 @@
     /// # Returns
     ///
     /// [`true`] if @self moved and is not the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_word_start&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_word_start&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_word_start(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_word_start(
@@ -2290,7 +2290,7 @@
     /// # Returns
     ///
     /// [`true`] if @self moved and is not the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_word_starts&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_backward_word_starts&quot;</span>)]
     </span><span class="kw">pub fn </span>backward_word_starts(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_backward_word_starts(
@@ -2314,7 +2314,7 @@
     /// # Returns
     ///
     /// whether text inserted at @self would be editable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_can_insert&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_can_insert&quot;</span>)]
     </span><span class="kw">pub fn </span>can_insert(<span class="kw-2">&amp;</span><span class="self">self</span>, default_editability: bool) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_can_insert(
@@ -2324,7 +2324,7 @@
         }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_compare&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_compare&quot;</span>)]
     </span><span class="kw">fn </span>compare(<span class="kw-2">&amp;</span><span class="self">self</span>, rhs: <span class="kw-2">&amp;</span>TextIter) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_text_iter_compare(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, rhs.to_glib_none().<span class="number">0</span>) }
     }
@@ -2348,7 +2348,7 @@
     /// # Returns
     ///
     /// whether @self is inside an editable range
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_editable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_editable&quot;</span>)]
     </span><span class="kw">pub fn </span>editable(<span class="kw-2">&amp;</span><span class="self">self</span>, default_setting: bool) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_editable(
@@ -2373,7 +2373,7 @@
     /// # Returns
     ///
     /// whether @self is at the end of a line
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_ends_line&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_ends_line&quot;</span>)]
     </span><span class="kw">pub fn </span>ends_line(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_ends_line(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
@@ -2386,7 +2386,7 @@
     /// # Returns
     ///
     /// [`true`] if @self is at the end of a sentence.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_ends_sentence&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_ends_sentence&quot;</span>)]
     </span><span class="kw">pub fn </span>ends_sentence(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_ends_sentence(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
@@ -2407,7 +2407,7 @@
     /// # Returns
     ///
     /// whether @self is the end of a range tagged with @tag
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_ends_tag&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_ends_tag&quot;</span>)]
     </span><span class="kw">pub fn </span>ends_tag(<span class="kw-2">&amp;</span><span class="self">self</span>, tag: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;TextTag&gt;&gt;) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_ends_tag(
@@ -2425,12 +2425,12 @@
     /// # Returns
     ///
     /// [`true`] if @self is at the end of a word
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_ends_word&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_ends_word&quot;</span>)]
     </span><span class="kw">pub fn </span>ends_word(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_ends_word(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_equal&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_equal&quot;</span>)]
     </span><span class="kw">fn </span>equal(<span class="kw-2">&amp;</span><span class="self">self</span>, rhs: <span class="kw-2">&amp;</span>TextIter) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_equal(
@@ -2451,7 +2451,7 @@
     /// # Returns
     ///
     /// whether @self moved and is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_char&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_char&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_char(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_forward_char(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>)) }
     }
@@ -2471,7 +2471,7 @@
     /// # Returns
     ///
     /// whether @self moved and is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_chars&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_chars&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_chars(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_chars(
@@ -2500,7 +2500,7 @@
     /// # Returns
     ///
     /// [`true`] if we moved and the new position is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_cursor_position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_cursor_position&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_cursor_position(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_cursor_position(
@@ -2518,7 +2518,7 @@
     /// # Returns
     ///
     /// [`true`] if we moved and the new position is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_cursor_positions&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_cursor_positions&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_cursor_positions(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_cursor_positions(
@@ -2541,7 +2541,7 @@
     /// # Returns
     ///
     /// whether a match was found
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_find_char&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_find_char&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_find_char&lt;P: FnMut(char) -&gt; bool&gt;(
         <span class="kw-2">&amp;mut </span><span class="self">self</span>,
         pred: P,
@@ -2580,7 +2580,7 @@
     /// # Returns
     ///
     /// whether @self can be dereferenced
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_line&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_line&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_line(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_forward_line(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>)) }
     }
@@ -2601,7 +2601,7 @@
     /// # Returns
     ///
     /// whether @self moved and is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_lines&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_lines&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_lines(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_lines(
@@ -2637,7 +2637,7 @@
     ///
     /// ## `match_end`
     /// return location for end of match
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_search&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_search&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_search(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         str: <span class="kw-2">&amp;</span>str,
@@ -2674,7 +2674,7 @@
     /// # Returns
     ///
     /// [`true`] if @self moved and is not the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_sentence_end&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_sentence_end&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_sentence_end(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_sentence_end(
@@ -2692,7 +2692,7 @@
     /// # Returns
     ///
     /// [`true`] if @self moved and is not the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_sentence_ends&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_sentence_ends&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_sentence_ends(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_sentence_ends(
@@ -2707,7 +2707,7 @@
     ///
     /// gtk_text_iter_get_char() called on the end iterator
     /// returns 0, which is convenient for writing loops.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_to_end&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_to_end&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_to_end(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             ffi::gtk_text_iter_forward_to_end(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>);
@@ -2729,7 +2729,7 @@
     /// # Returns
     ///
     /// [`true`] if we moved and the new location is not the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_to_line_end&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_to_line_end&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_to_line_end(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_to_line_end(
@@ -2753,7 +2753,7 @@
     /// # Returns
     ///
     /// whether we found a tag toggle after @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_to_tag_toggle&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_to_tag_toggle&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_to_tag_toggle(<span class="kw-2">&amp;mut </span><span class="self">self</span>, tag: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;TextTag&gt;&gt;) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_to_tag_toggle(
@@ -2770,7 +2770,7 @@
     /// # Returns
     ///
     /// [`true`] if we moved and the new position is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_visible_cursor_position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_visible_cursor_position&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_visible_cursor_position(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_visible_cursor_position(
@@ -2788,7 +2788,7 @@
     /// # Returns
     ///
     /// [`true`] if we moved and the new position is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_visible_cursor_positions&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_visible_cursor_positions&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_visible_cursor_positions(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_visible_cursor_positions(
@@ -2808,7 +2808,7 @@
     /// # Returns
     ///
     /// whether @self can be dereferenced
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_visible_line&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_visible_line&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_visible_line(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_visible_line(
@@ -2833,7 +2833,7 @@
     /// # Returns
     ///
     /// whether @self moved and is dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_visible_lines&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_visible_lines&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_visible_lines(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_visible_lines(
@@ -2854,7 +2854,7 @@
     /// # Returns
     ///
     /// [`true`] if @self moved and is not the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_visible_word_end&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_visible_word_end&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_visible_word_end(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_visible_word_end(
@@ -2870,7 +2870,7 @@
     /// # Returns
     ///
     /// [`true`] if @self moved and is not the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_visible_word_ends&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_visible_word_ends&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_visible_word_ends(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_visible_word_ends(
@@ -2891,7 +2891,7 @@
     /// # Returns
     ///
     /// [`true`] if @self moved and is not the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_word_end&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_word_end&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_word_end(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_word_end(
@@ -2907,7 +2907,7 @@
     /// # Returns
     ///
     /// [`true`] if @self moved and is not the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_word_ends&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_forward_word_ends&quot;</span>)]
     </span><span class="kw">pub fn </span>forward_word_ends(<span class="kw-2">&amp;mut </span><span class="self">self</span>, count: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_forward_word_ends(
@@ -2922,7 +2922,7 @@
     /// # Returns
     ///
     /// the buffer
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_buffer&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_buffer&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_buffer&quot;</span>)]
     </span><span class="kw">pub fn </span>buffer(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; TextBuffer {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_text_iter_get_buffer(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -2934,7 +2934,7 @@
     /// # Returns
     ///
     /// number of bytes in the line
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_bytes_in_line&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_bytes_in_line&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_bytes_in_line&quot;</span>)]
     </span><span class="kw">pub fn </span>bytes_in_line(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_text_iter_get_bytes_in_line(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -2953,7 +2953,7 @@
     /// # Returns
     ///
     /// a Unicode character, or 0 if @self is not dereferenceable
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_char&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_char&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_char&quot;</span>)]
     </span><span class="kw">pub fn </span>char(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; char {
         <span class="kw">unsafe </span>{
@@ -2968,7 +2968,7 @@
     /// # Returns
     ///
     /// number of characters in the line
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_chars_in_line&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_chars_in_line&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_chars_in_line&quot;</span>)]
     </span><span class="kw">pub fn </span>chars_in_line(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_text_iter_get_chars_in_line(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -2982,7 +2982,7 @@
     /// # Returns
     ///
     /// the anchor at @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_child_anchor&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_child_anchor&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_child_anchor&quot;</span>)]
     </span><span class="kw">pub fn </span>child_anchor(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;TextChildAnchor&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_text_iter_get_child_anchor(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -2996,7 +2996,7 @@
     /// # Returns
     ///
     /// language in effect at @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_language&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_language&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_language&quot;</span>)]
     </span><span class="kw">pub fn </span>language(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; pango::Language {
         <span class="kw">unsafe </span>{ from_glib_full(ffi::gtk_text_iter_get_language(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -3010,7 +3010,7 @@
     /// # Returns
     ///
     /// a line number
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_line&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_line&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_line&quot;</span>)]
     </span><span class="kw">pub fn </span>line(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_text_iter_get_line(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -3026,7 +3026,7 @@
     /// # Returns
     ///
     /// distance from start of line, in bytes
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_line_index&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_line_index&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_line_index&quot;</span>)]
     </span><span class="kw">pub fn </span>line_index(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_text_iter_get_line_index(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -3040,7 +3040,7 @@
     /// # Returns
     ///
     /// offset from start of line
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_line_offset&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_line_offset&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_line_offset&quot;</span>)]
     </span><span class="kw">pub fn </span>line_offset(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_text_iter_get_line_offset(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -3058,7 +3058,7 @@
     ///
     ///
     ///   list of [`TextMark`][crate::TextMark]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_marks&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_marks&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_marks&quot;</span>)]
     </span><span class="kw">pub fn </span>marks(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;TextMark&gt; {
         <span class="kw">unsafe </span>{
@@ -3078,7 +3078,7 @@
     /// # Returns
     ///
     /// a character offset
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_offset&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_offset&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_offset&quot;</span>)]
     </span><span class="kw">pub fn </span>offset(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_text_iter_get_offset(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -3091,7 +3091,7 @@
     /// # Returns
     ///
     /// the paintable at @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_paintable&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_paintable&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_paintable&quot;</span>)]
     </span><span class="kw">pub fn </span>paintable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gdk::Paintable&gt; {
         <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_text_iter_get_paintable(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
@@ -3113,7 +3113,7 @@
     /// # Returns
     ///
     /// slice of text from the buffer
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_slice&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_slice&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_slice&quot;</span>)]
     </span><span class="kw">pub fn </span>slice(<span class="kw-2">&amp;</span><span class="self">self</span>, end: <span class="kw-2">&amp;</span>TextIter) -&gt; glib::GString {
         <span class="kw">unsafe </span>{
@@ -3136,7 +3136,7 @@
     ///
     /// list of
     ///   [`TextTag`][crate::TextTag]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_tags&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_tags&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_tags&quot;</span>)]
     </span><span class="kw">pub fn </span>tags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;TextTag&gt; {
         <span class="kw">unsafe </span>{
@@ -3159,7 +3159,7 @@
     /// # Returns
     ///
     /// array of characters from the buffer
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_text&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_text&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_text&quot;</span>)]
     </span><span class="kw">pub fn </span>text(<span class="kw-2">&amp;</span><span class="self">self</span>, end: <span class="kw-2">&amp;</span>TextIter) -&gt; glib::GString {
         <span class="kw">unsafe </span>{
@@ -3185,7 +3185,7 @@
     ///
     /// tags
     ///   toggled at this point
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_toggled_tags&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_toggled_tags&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_toggled_tags&quot;</span>)]
     </span><span class="kw">pub fn </span>toggled_tags(<span class="kw-2">&amp;</span><span class="self">self</span>, toggled_on: bool) -&gt; Vec&lt;TextTag&gt; {
         <span class="kw">unsafe </span>{
@@ -3204,7 +3204,7 @@
     /// # Returns
     ///
     /// byte index of @self with respect to the start of the line
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_visible_line_index&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_visible_line_index&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_visible_line_index&quot;</span>)]
     </span><span class="kw">pub fn </span>visible_line_index(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_text_iter_get_visible_line_index(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -3218,7 +3218,7 @@
     /// # Returns
     ///
     /// offset in visible characters from the start of the line
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_visible_line_offset&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_visible_line_offset&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_visible_line_offset&quot;</span>)]
     </span><span class="kw">pub fn </span>visible_line_offset(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="kw">unsafe </span>{ ffi::gtk_text_iter_get_visible_line_offset(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
@@ -3236,7 +3236,7 @@
     /// # Returns
     ///
     /// slice of text from the buffer
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_visible_slice&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_visible_slice&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_visible_slice&quot;</span>)]
     </span><span class="kw">pub fn </span>visible_slice(<span class="kw-2">&amp;</span><span class="self">self</span>, end: <span class="kw-2">&amp;</span>TextIter) -&gt; glib::GString {
         <span class="kw">unsafe </span>{
@@ -3260,7 +3260,7 @@
     ///
     /// string containing visible text in the
     /// range
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_visible_text&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_get_visible_text&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_visible_text&quot;</span>)]
     </span><span class="kw">pub fn </span>visible_text(<span class="kw-2">&amp;</span><span class="self">self</span>, end: <span class="kw-2">&amp;</span>TextIter) -&gt; glib::GString {
         <span class="kw">unsafe </span>{
@@ -3282,7 +3282,7 @@
     /// # Returns
     ///
     /// whether @self is tagged with @tag
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_has_tag&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_has_tag&quot;</span>)]
     </span><span class="kw">pub fn </span>has_tag(<span class="kw-2">&amp;</span><span class="self">self</span>, tag: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;TextTag&gt;) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_has_tag(
@@ -3303,7 +3303,7 @@
     /// # Returns
     ///
     /// [`true`] if @self is in the range
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_in_range&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_in_range&quot;</span>)]
     </span><span class="kw">pub fn </span>in_range(<span class="kw-2">&amp;</span><span class="self">self</span>, start: <span class="kw-2">&amp;</span>TextIter, end: <span class="kw-2">&amp;</span>TextIter) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_in_range(
@@ -3324,7 +3324,7 @@
     /// # Returns
     ///
     /// [`true`] if @self is inside a sentence.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_inside_sentence&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_inside_sentence&quot;</span>)]
     </span><span class="kw">pub fn </span>inside_sentence(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_inside_sentence(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
@@ -3342,7 +3342,7 @@
     /// # Returns
     ///
     /// [`true`] if @self is inside a word
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_inside_word&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_inside_word&quot;</span>)]
     </span><span class="kw">pub fn </span>inside_word(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_inside_word(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
@@ -3356,7 +3356,7 @@
     /// # Returns
     ///
     /// [`true`] if the cursor can be placed at @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_is_cursor_position&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_is_cursor_position&quot;</span>)]
     </span><span class="kw">pub fn </span>is_cursor_position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_is_cursor_position(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
@@ -3370,7 +3370,7 @@
     /// # Returns
     ///
     /// whether @self is the end iterator
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_is_end&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_is_end&quot;</span>)]
     </span><span class="kw">pub fn </span>is_end(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_is_end(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
@@ -3380,7 +3380,7 @@
     /// # Returns
     ///
     /// whether @self is the first in the buffer
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_is_start&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_is_start&quot;</span>)]
     </span><span class="kw">pub fn </span>is_start(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_is_start(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
@@ -3396,7 +3396,7 @@
     /// pre-sorted range.
     /// ## `second`
     /// another [`TextIter`][crate::TextIter]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_order&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_order&quot;</span>)]
     </span><span class="kw">pub fn </span>order(<span class="kw-2">&amp;mut </span><span class="self">self</span>, second: <span class="kw-2">&amp;mut </span>TextIter) {
         <span class="kw">unsafe </span>{
             ffi::gtk_text_iter_order(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>, second.to_glib_none_mut().<span class="number">0</span>);
@@ -3409,7 +3409,7 @@
     /// in the buffer, moves @self to the start of the last line in the buffer.
     /// ## `line_number`
     /// line number (counted from 0)
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_set_line&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_set_line&quot;</span>)]
     </span><span class="kw">pub fn </span>set_line(<span class="kw-2">&amp;mut </span><span class="self">self</span>, line_number: i32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_text_iter_set_line(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>, line_number);
@@ -3422,7 +3422,7 @@
     /// encoded character.
     /// ## `byte_on_line`
     /// a byte index relative to the start of @self’s current line
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_set_line_index&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_set_line_index&quot;</span>)]
     </span><span class="kw">pub fn </span>set_line_index(<span class="kw-2">&amp;mut </span><span class="self">self</span>, byte_on_line: i32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_text_iter_set_line_index(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>, byte_on_line);
@@ -3437,7 +3437,7 @@
     /// index rather than a character offset.
     /// ## `char_on_line`
     /// a character offset relative to the start of @self’s current line
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_set_line_offset&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_set_line_offset&quot;</span>)]
     </span><span class="kw">pub fn </span>set_line_offset(<span class="kw-2">&amp;mut </span><span class="self">self</span>, char_on_line: i32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_text_iter_set_line_offset(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>, char_on_line);
@@ -3450,7 +3450,7 @@
     /// of the entire text buffer, starting with 0.
     /// ## `char_offset`
     /// a character number
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_set_offset&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_set_offset&quot;</span>)]
     </span><span class="kw">pub fn </span>set_offset(<span class="kw-2">&amp;mut </span><span class="self">self</span>, char_offset: i32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_text_iter_set_offset(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>, char_offset);
@@ -3462,7 +3462,7 @@
     /// in the index.
     /// ## `byte_on_line`
     /// a byte index
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_set_visible_line_index&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_set_visible_line_index&quot;</span>)]
     </span><span class="kw">pub fn </span>set_visible_line_index(<span class="kw-2">&amp;mut </span><span class="self">self</span>, byte_on_line: i32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_text_iter_set_visible_line_index(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>, byte_on_line);
@@ -3474,7 +3474,7 @@
     /// counted in the offset.
     /// ## `char_on_line`
     /// a character offset
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_set_visible_line_offset&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_set_visible_line_offset&quot;</span>)]
     </span><span class="kw">pub fn </span>set_visible_line_offset(<span class="kw-2">&amp;mut </span><span class="self">self</span>, char_on_line: i32) {
         <span class="kw">unsafe </span>{
             ffi::gtk_text_iter_set_visible_line_offset(<span class="self">self</span>.to_glib_none_mut().<span class="number">0</span>, char_on_line);
@@ -3492,7 +3492,7 @@
     /// # Returns
     ///
     /// whether @self begins a line
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_starts_line&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_starts_line&quot;</span>)]
     </span><span class="kw">pub fn </span>starts_line(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_starts_line(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
@@ -3505,7 +3505,7 @@
     /// # Returns
     ///
     /// [`true`] if @self is at the start of a sentence.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_starts_sentence&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_starts_sentence&quot;</span>)]
     </span><span class="kw">pub fn </span>starts_sentence(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_starts_sentence(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
@@ -3526,7 +3526,7 @@
     /// # Returns
     ///
     /// whether @self is the start of a range tagged with @tag
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_starts_tag&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_starts_tag&quot;</span>)]
     </span><span class="kw">pub fn </span>starts_tag(<span class="kw-2">&amp;</span><span class="self">self</span>, tag: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;TextTag&gt;&gt;) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_starts_tag(
@@ -3544,7 +3544,7 @@
     /// # Returns
     ///
     /// [`true`] if @self is at the start of a word
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_starts_word&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_starts_word&quot;</span>)]
     </span><span class="kw">pub fn </span>starts_word(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{ from_glib(ffi::gtk_text_iter_starts_word(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
     }
@@ -3560,7 +3560,7 @@
     /// # Returns
     ///
     /// whether @tag is toggled on or off at @self
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_text_iter_toggles_tag&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_text_iter_toggles_tag&quot;</span>)]
     </span><span class="kw">pub fn </span>toggles_tag(<span class="kw-2">&amp;</span><span class="self">self</span>, tag: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;TextTag&gt;&gt;) -&gt; bool {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_text_iter_toggles_tag(
@@ -3572,21 +3572,21 @@
 }
 
 <span class="kw">impl </span>PartialOrd <span class="kw">for </span>TextIter {
-    <span class="attribute">#[inline]
+    <span class="attr">#[inline]
     </span><span class="kw">fn </span>partial_cmp(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;cmp::Ordering&gt; {
         <span class="self">self</span>.compare(other).partial_cmp(<span class="kw-2">&amp;</span><span class="number">0</span>)
     }
 }
 
 <span class="kw">impl </span>Ord <span class="kw">for </span>TextIter {
-    <span class="attribute">#[inline]
+    <span class="attr">#[inline]
     </span><span class="kw">fn </span>cmp(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; cmp::Ordering {
         <span class="self">self</span>.compare(other).cmp(<span class="kw-2">&amp;</span><span class="number">0</span>)
     }
 }
 
 <span class="kw">impl </span>PartialEq <span class="kw">for </span>TextIter {
-    <span class="attribute">#[inline]
+    <span class="attr">#[inline]
     </span><span class="kw">fn </span>eq(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool {
         <span class="self">self</span>.equal(other)
     }
@@ -3594,4 +3594,4 @@
 
 <span class="kw">impl </span>Eq <span class="kw">for </span>TextIter {}
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

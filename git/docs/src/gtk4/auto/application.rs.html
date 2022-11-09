@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/application.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>application.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/application.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>application.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -915,7 +915,6 @@
 <span id="842">842</span>
 <span id="843">843</span>
 <span id="844">844</span>
-<span id="845">845</span>
 </pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -1001,7 +1000,7 @@
     /// # Implements
     ///
     /// [`GtkApplicationExt`][trait@crate::prelude::GtkApplicationExt], [`trait@gio::prelude::ApplicationExt`], [`trait@glib::ObjectExt`], [`trait@gio::prelude::ActionGroupExt`], [`trait@gio::prelude::ActionMapExt`]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;GtkApplication&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkApplication&quot;</span>)]
     </span><span class="kw">pub struct </span>Application(Object&lt;ffi::GtkApplication, ffi::GtkApplicationClass&gt;) @extends gio::Application, @implements gio::ActionGroup, gio::ActionMap;
 
     <span class="kw">match fn </span>{
@@ -1021,12 +1020,12 @@
     }
 }
 
-<span class="attribute">#[derive(Clone, Default)]
+<span class="attr">#[derive(Clone, Default)]
 </span><span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`Application`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attribute">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
+</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
 </span><span class="kw">pub struct </span>ApplicationBuilder {
     menubar: <span class="prelude-ty">Option</span>&lt;gio::MenuModel&gt;,
     register_session: <span class="prelude-ty">Option</span>&lt;bool&gt;,
@@ -1046,7 +1045,7 @@
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`Application`].
-    </span><span class="attribute">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
+    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; Application {
         <span class="kw">let </span><span class="kw-2">mut </span>properties: Vec&lt;(<span class="kw-2">&amp;</span>str, <span class="kw-2">&amp;</span><span class="kw">dyn </span>ToValue)&gt; = <span class="macro">vec!</span>[];
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>menubar) = <span class="self">self</span>.menubar {
@@ -1070,8 +1069,7 @@
         <span class="kw">if let </span><span class="prelude-val">Some</span>(<span class="kw-2">ref </span>resource_base_path) = <span class="self">self</span>.resource_base_path {
             properties.push((<span class="string">&quot;resource-base-path&quot;</span>, resource_base_path));
         }
-        <span class="kw">let </span>ret = glib::Object::new::&lt;Application&gt;(<span class="kw-2">&amp;</span>properties)
-            .expect(<span class="string">&quot;Failed to create an instance of Application&quot;</span>);
+        <span class="kw">let </span>ret = glib::Object::new::&lt;Application&gt;(<span class="kw-2">&amp;</span>properties);
         {
             Application::register_startup_hook(<span class="kw-2">&amp;</span>ret);
         }
@@ -1142,7 +1140,7 @@
     /// any windows.
     /// ## `window`
     /// a [`Window`][crate::Window]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_add_window&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_add_window&quot;</span>)]
     </span><span class="kw">fn </span>add_window(<span class="kw-2">&amp;</span><span class="self">self</span>, window: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Window&gt;);
 
     <span class="doccomment">/// Gets the accelerators that are currently associated with
@@ -1155,7 +1153,7 @@
     ///
     ///
     ///   accelerators for `detailed_action_name`
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_get_accels_for_action&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_get_accels_for_action&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_accels_for_action&quot;</span>)]
     </span><span class="kw">fn </span>accels_for_action(<span class="kw-2">&amp;</span><span class="self">self</span>, detailed_action_name: <span class="kw-2">&amp;</span>str) -&gt; Vec&lt;glib::GString&gt;;
 
@@ -1182,7 +1180,7 @@
     /// # Returns
     ///
     /// a [`None`]-terminated array of actions for `accel`
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_get_actions_for_accel&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_get_actions_for_accel&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_actions_for_accel&quot;</span>)]
     </span><span class="kw">fn </span>actions_for_accel(<span class="kw-2">&amp;</span><span class="self">self</span>, accel: <span class="kw-2">&amp;</span>str) -&gt; Vec&lt;glib::GString&gt;;
 
@@ -1196,7 +1194,7 @@
     /// # Returns
     ///
     /// the active window
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_get_active_window&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_get_active_window&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_active_window&quot;</span>)]
     </span><span class="kw">fn </span>active_window(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Window&gt;;
 
@@ -1211,7 +1209,7 @@
     ///
     /// Gets the menu with the
     ///   given id from the automatically loaded resources
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_get_menu_by_id&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_get_menu_by_id&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_menu_by_id&quot;</span>)]
     </span><span class="kw">fn </span>menu_by_id(<span class="kw-2">&amp;</span><span class="self">self</span>, id: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;gio::Menu&gt;;
 
@@ -1221,7 +1219,7 @@
     /// # Returns
     ///
     /// the menubar for windows of `application`
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_get_menubar&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_get_menubar&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_menubar&quot;</span>)]
     </span><span class="kw">fn </span>menubar(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gio::MenuModel&gt;;
 
@@ -1235,7 +1233,7 @@
     /// # Returns
     ///
     /// the window for the given `id`
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_get_window_by_id&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_get_window_by_id&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_window_by_id&quot;</span>)]
     </span><span class="kw">fn </span>window_by_id(<span class="kw-2">&amp;</span><span class="self">self</span>, id: u32) -&gt; <span class="prelude-ty">Option</span>&lt;Window&gt;;
 
@@ -1253,7 +1251,7 @@
     ///
     /// a `GList` of [`Window`][crate::Window]
     ///   instances
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_get_windows&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_get_windows&quot;</span>)]
     #[doc(alias = <span class="string">&quot;get_windows&quot;</span>)]
     </span><span class="kw">fn </span>windows(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;Window&gt;;
 
@@ -1294,7 +1292,7 @@
     ///   request. It should be used as an argument to [`uninhibit()`][Self::uninhibit()]
     ///   in order to remove the request. If the platform does not support
     ///   inhibiting or the request failed for some reason, 0 is returned.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_inhibit&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_inhibit&quot;</span>)]
     </span><span class="kw">fn </span>inhibit(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         window: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Window&gt;&gt;,
@@ -1309,7 +1307,7 @@
     /// # Returns
     ///
     /// the detailed action names
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_list_action_descriptions&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_list_action_descriptions&quot;</span>)]
     </span><span class="kw">fn </span>list_action_descriptions(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Vec&lt;glib::GString&gt;;
 
     <span class="doccomment">/// Remove a window from `application`.
@@ -1322,7 +1320,7 @@
     /// function, if `window` was the last window of the `application`.
     /// ## `window`
     /// a [`Window`][crate::Window]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_remove_window&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_remove_window&quot;</span>)]
     </span><span class="kw">fn </span>remove_window(<span class="kw-2">&amp;</span><span class="self">self</span>, window: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Window&gt;);
 
     <span class="doccomment">/// Sets zero or more keyboard accelerators that will trigger the
@@ -1342,7 +1340,7 @@
     /// ## `accels`
     /// a list of accelerators in the format
     ///   understood by [`accelerator_parse()`][crate::accelerator_parse()]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_set_accels_for_action&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_set_accels_for_action&quot;</span>)]
     </span><span class="kw">fn </span>set_accels_for_action(<span class="kw-2">&amp;</span><span class="self">self</span>, detailed_action_name: <span class="kw-2">&amp;</span>str, accels: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>str]);
 
     <span class="doccomment">/// Sets or unsets the menubar for windows of `application`.
@@ -1365,7 +1363,7 @@
     /// user selecting these menu items.
     /// ## `menubar`
     /// a `GMenuModel`
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_set_menubar&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_set_menubar&quot;</span>)]
     </span><span class="kw">fn </span>set_menubar(<span class="kw-2">&amp;</span><span class="self">self</span>, menubar: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::MenuModel&gt;&gt;);
 
     <span class="doccomment">/// Removes an inhibitor that has been previously established.
@@ -1375,21 +1373,21 @@
     /// Inhibitors are also cleared when the application exits.
     /// ## `cookie`
     /// a cookie that was returned by [`inhibit()`][Self::inhibit()]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;gtk_application_uninhibit&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_application_uninhibit&quot;</span>)]
     </span><span class="kw">fn </span>uninhibit(<span class="kw-2">&amp;</span><span class="self">self</span>, cookie: u32);
 
     <span class="doccomment">/// Set this property to `TRUE` to register with the session manager.
     ///
     /// This will make GTK track the session state (such as the
     /// `property::Application::screensaver-active` property).
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;register-session&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;register-session&quot;</span>)]
     </span><span class="kw">fn </span>is_register_session(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Set this property to `TRUE` to register with the session manager.
     ///
     /// This will make GTK track the session state (such as the
     /// `property::Application::screensaver-active` property).
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;register-session&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;register-session&quot;</span>)]
     </span><span class="kw">fn </span>set_register_session(<span class="kw-2">&amp;</span><span class="self">self</span>, register_session: bool);
 
     <span class="doccomment">/// This property is `TRUE` if GTK believes that the screensaver is
@@ -1400,7 +1398,7 @@
     ///
     /// Tracking the screensaver state is currently only supported on
     /// Linux.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;screensaver-active&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;screensaver-active&quot;</span>)]
     </span><span class="kw">fn </span>is_screensaver_active(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 
     <span class="doccomment">/// Emitted when the session manager is about to end the session.
@@ -1409,14 +1407,14 @@
     /// is `TRUE`. Applications can connect to this signal and call
     /// [`inhibit()`][Self::inhibit()] with `GTK_APPLICATION_INHIBIT_LOGOUT`
     /// to delay the end of the session until state has been saved.
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;query-end&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;query-end&quot;</span>)]
     </span><span class="kw">fn </span>connect_query_end&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
     <span class="doccomment">/// Emitted when a [`Window`][crate::Window] is added to `application` through
     /// [`add_window()`][Self::add_window()].
     /// ## `window`
     /// the newly-added [`Window`][crate::Window]
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;window-added&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;window-added&quot;</span>)]
     </span><span class="kw">fn </span>connect_window_added&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>Window) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
     <span class="doccomment">/// Emitted when a [`Window`][crate::Window] is removed from `application`.
@@ -1425,19 +1423,19 @@
     /// or explicitly through [`remove_window()`][Self::remove_window()].
     /// ## `window`
     /// the [`Window`][crate::Window] that is being removed
-    </span><span class="attribute">#[doc(alias = <span class="string">&quot;window-removed&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">&quot;window-removed&quot;</span>)]
     </span><span class="kw">fn </span>connect_window_removed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span>Window) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;active-window&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;active-window&quot;</span>)]
     </span><span class="kw">fn </span>connect_active_window_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;menubar&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;menubar&quot;</span>)]
     </span><span class="kw">fn </span>connect_menubar_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;register-session&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;register-session&quot;</span>)]
     </span><span class="kw">fn </span>connect_register_session_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 
-    <span class="attribute">#[doc(alias = <span class="string">&quot;screensaver-active&quot;</span>)]
+    <span class="attr">#[doc(alias = <span class="string">&quot;screensaver-active&quot;</span>)]
     </span><span class="kw">fn </span>connect_screensaver_active_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
 }
 
@@ -1762,4 +1760,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>

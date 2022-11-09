@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/im_context.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>im_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/im_context.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>im_context.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ef244fc9943488f7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-c11f492748536797.css"><link rel="stylesheet" disabled href="../../../static.files/dark-a78f946771c40031.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-70b683d68cb31790.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-74087aa2e88f4475.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-0dede64717b247ca.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-201a7e04dc4c6fce.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -577,33 +577,6 @@
 <span id="504">504</span>
 <span id="505">505</span>
 <span id="506">506</span>
-<span id="507">507</span>
-<span id="508">508</span>
-<span id="509">509</span>
-<span id="510">510</span>
-<span id="511">511</span>
-<span id="512">512</span>
-<span id="513">513</span>
-<span id="514">514</span>
-<span id="515">515</span>
-<span id="516">516</span>
-<span id="517">517</span>
-<span id="518">518</span>
-<span id="519">519</span>
-<span id="520">520</span>
-<span id="521">521</span>
-<span id="522">522</span>
-<span id="523">523</span>
-<span id="524">524</span>
-<span id="525">525</span>
-<span id="526">526</span>
-<span id="527">527</span>
-<span id="528">528</span>
-<span id="529">529</span>
-<span id="530">530</span>
-<span id="531">531</span>
-<span id="532">532</span>
-<span id="533">533</span>
 </pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 // rustdoc-stripper-ignore-next
@@ -615,107 +588,101 @@
 <span class="kw">use </span>glib::{Cast, GString, IsA};
 <span class="kw">use </span>pango::AttrList;
 
-<span class="attribute">#[allow(clippy::upper_case_acronyms)]
+<span class="attr">#[allow(clippy::upper_case_acronyms)]
 </span><span class="kw">pub trait </span>IMContextImpl: IMContextImplExt + ObjectImpl {
-    <span class="kw">fn </span>commit(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, string: <span class="kw-2">&amp;</span>str) {
-        <span class="self">self</span>.parent_commit(im_context, string)
+    <span class="kw">fn </span>commit(<span class="kw-2">&amp;</span><span class="self">self</span>, string: <span class="kw-2">&amp;</span>str) {
+        <span class="self">self</span>.parent_commit(string)
     }
-    <span class="kw">fn </span>delete_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, offset: i32, n_chars: i32) -&gt; bool {
-        <span class="self">self</span>.parent_delete_surrounding(im_context, offset, n_chars)
+    <span class="kw">fn </span>delete_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: i32, n_chars: i32) -&gt; bool {
+        <span class="self">self</span>.parent_delete_surrounding(offset, n_chars)
     }
-    <span class="kw">fn </span>filter_keypress(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, event: <span class="kw-2">&amp;</span>gdk::Event) -&gt; bool {
-        <span class="self">self</span>.parent_filter_keypress(im_context, event)
+    <span class="kw">fn </span>filter_keypress(<span class="kw-2">&amp;</span><span class="self">self</span>, event: <span class="kw-2">&amp;</span>gdk::Event) -&gt; bool {
+        <span class="self">self</span>.parent_filter_keypress(event)
     }
-    <span class="kw">fn </span>focus_in(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_focus_in(im_context)
+    <span class="kw">fn </span>focus_in(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_focus_in()
     }
-    <span class="kw">fn </span>focus_out(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_focus_out(im_context)
+    <span class="kw">fn </span>focus_out(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_focus_out()
     }
-    <span class="attribute">#[doc(alias = <span class="string">&quot;get_preedit_string&quot;</span>)]
-    </span><span class="kw">fn </span>preedit_string(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; (GString, AttrList, i32) {
-        <span class="self">self</span>.parent_preedit_string(im_context)
+    <span class="attr">#[doc(alias = <span class="string">&quot;get_preedit_string&quot;</span>)]
+    </span><span class="kw">fn </span>preedit_string(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (GString, AttrList, i32) {
+        <span class="self">self</span>.parent_preedit_string()
     }
-    <span class="attribute">#[doc(alias = <span class="string">&quot;get_surrounding&quot;</span>)]
-    </span><span class="kw">fn </span>surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="prelude-ty">Option</span>&lt;(GString, i32)&gt; {
-        <span class="self">self</span>.parent_surrounding(im_context)
+    <span class="attr">#[doc(alias = <span class="string">&quot;get_surrounding&quot;</span>)]
+    </span><span class="kw">fn </span>surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(GString, i32)&gt; {
+        <span class="self">self</span>.parent_surrounding()
     }
-    <span class="kw">fn </span>preedit_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_preedit_changed(im_context)
+    <span class="kw">fn </span>preedit_changed(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_preedit_changed()
     }
-    <span class="kw">fn </span>preedit_end(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_preedit_end(im_context)
+    <span class="kw">fn </span>preedit_end(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_preedit_end()
     }
-    <span class="kw">fn </span>preedit_start(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_preedit_start(im_context)
+    <span class="kw">fn </span>preedit_start(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_preedit_start()
     }
-    <span class="kw">fn </span>reset(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
-        <span class="self">self</span>.parent_reset(im_context)
+    <span class="kw">fn </span>reset(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="self">self</span>.parent_reset()
     }
-    <span class="kw">fn </span>retrieve_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
-        <span class="self">self</span>.parent_retrieve_surrounding(im_context)
+    <span class="kw">fn </span>retrieve_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="self">self</span>.parent_retrieve_surrounding()
     }
-    <span class="kw">fn </span>set_client_widget&lt;P: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, widget: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;) {
-        <span class="self">self</span>.parent_set_client_widget(im_context, widget)
+    <span class="kw">fn </span>set_client_widget&lt;P: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;) {
+        <span class="self">self</span>.parent_set_client_widget(widget)
     }
-    <span class="kw">fn </span>set_cursor_location(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, area: <span class="kw-2">&amp;</span>gdk::Rectangle) {
-        <span class="self">self</span>.parent_set_cursor_location(im_context, area)
+    <span class="kw">fn </span>set_cursor_location(<span class="kw-2">&amp;</span><span class="self">self</span>, area: <span class="kw-2">&amp;</span>gdk::Rectangle) {
+        <span class="self">self</span>.parent_set_cursor_location(area)
     }
-    <span class="kw">fn </span>set_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, text: <span class="kw-2">&amp;</span>str, cursor_index: i32) {
-        <span class="self">self</span>.parent_set_surrounding(im_context, text, cursor_index)
+    <span class="kw">fn </span>set_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str, cursor_index: i32) {
+        <span class="self">self</span>.parent_set_surrounding(text, cursor_index)
     }
-    <span class="kw">fn </span>set_use_preedit(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, use_preedit: bool) {
-        <span class="self">self</span>.parent_set_use_preedit(im_context, use_preedit)
+    <span class="kw">fn </span>set_use_preedit(<span class="kw-2">&amp;</span><span class="self">self</span>, use_preedit: bool) {
+        <span class="self">self</span>.parent_set_use_preedit(use_preedit)
     }
 }
 
-<span class="attribute">#[allow(clippy::upper_case_acronyms)]
+<span class="attr">#[allow(clippy::upper_case_acronyms)]
 </span><span class="kw">pub trait </span>IMContextImplExt: ObjectSubclass {
-    <span class="kw">fn </span>parent_commit(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, string: <span class="kw-2">&amp;</span>str);
-    <span class="kw">fn </span>parent_delete_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, offset: i32, n_chars: i32)
-        -&gt; bool;
-    <span class="kw">fn </span>parent_filter_keypress(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, event: <span class="kw-2">&amp;</span>gdk::Event) -&gt; bool;
-    <span class="kw">fn </span>parent_focus_in(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
-    <span class="kw">fn </span>parent_focus_out(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
-    <span class="kw">fn </span>parent_preedit_string(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; (GString, AttrList, i32);
-    <span class="kw">fn </span>parent_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="prelude-ty">Option</span>&lt;(GString, i32)&gt;;
-    <span class="kw">fn </span>parent_preedit_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
-    <span class="kw">fn </span>parent_preedit_end(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
-    <span class="kw">fn </span>parent_preedit_start(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
-    <span class="kw">fn </span>parent_reset(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type);
-    <span class="kw">fn </span>parent_retrieve_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool;
-    <span class="kw">fn </span>parent_set_client_widget&lt;P: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, widget: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;);
-    <span class="kw">fn </span>parent_set_cursor_location(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, area: <span class="kw-2">&amp;</span>gdk::Rectangle);
-    <span class="kw">fn </span>parent_set_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, text: <span class="kw-2">&amp;</span>str, cursor_index: i32);
-    <span class="kw">fn </span>parent_set_use_preedit(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, use_preedit: bool);
+    <span class="kw">fn </span>parent_commit(<span class="kw-2">&amp;</span><span class="self">self</span>, string: <span class="kw-2">&amp;</span>str);
+    <span class="kw">fn </span>parent_delete_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: i32, n_chars: i32) -&gt; bool;
+    <span class="kw">fn </span>parent_filter_keypress(<span class="kw-2">&amp;</span><span class="self">self</span>, event: <span class="kw-2">&amp;</span>gdk::Event) -&gt; bool;
+    <span class="kw">fn </span>parent_focus_in(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>parent_focus_out(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>parent_preedit_string(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (GString, AttrList, i32);
+    <span class="kw">fn </span>parent_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(GString, i32)&gt;;
+    <span class="kw">fn </span>parent_preedit_changed(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>parent_preedit_end(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>parent_preedit_start(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>parent_reset(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    <span class="kw">fn </span>parent_retrieve_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    <span class="kw">fn </span>parent_set_client_widget&lt;P: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;);
+    <span class="kw">fn </span>parent_set_cursor_location(<span class="kw-2">&amp;</span><span class="self">self</span>, area: <span class="kw-2">&amp;</span>gdk::Rectangle);
+    <span class="kw">fn </span>parent_set_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str, cursor_index: i32);
+    <span class="kw">fn </span>parent_set_use_preedit(<span class="kw-2">&amp;</span><span class="self">self</span>, use_preedit: bool);
 }
 
 <span class="kw">impl</span>&lt;T: IMContextImpl&gt; IMContextImplExt <span class="kw">for </span>T {
-    <span class="kw">fn </span>parent_commit(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, string: <span class="kw-2">&amp;</span>str) {
+    <span class="kw">fn </span>parent_commit(<span class="kw-2">&amp;</span><span class="self">self</span>, string: <span class="kw-2">&amp;</span>str) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).commit {
                 f(
-                    im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
                     string.to_glib_none().<span class="number">0</span>,
                 );
             }
         }
     }
 
-    <span class="kw">fn </span>parent_delete_surrounding(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        offset: i32,
-        n_chars: i32,
-    ) -&gt; bool {
+    <span class="kw">fn </span>parent_delete_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: i32, n_chars: i32) -&gt; bool {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).delete_surrounding {
                 from_glib(f(
-                    im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
                     offset,
                     n_chars,
                 ))
@@ -726,13 +693,13 @@
         }
     }
 
-    <span class="kw">fn </span>parent_filter_keypress(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, event: <span class="kw-2">&amp;</span>gdk::Event) -&gt; bool {
+    <span class="kw">fn </span>parent_filter_keypress(<span class="kw-2">&amp;</span><span class="self">self</span>, event: <span class="kw-2">&amp;</span>gdk::Event) -&gt; bool {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).filter_keypress {
                 from_glib(f(
-                    im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
                     event.to_glib_none().<span class="number">0</span>,
                 ))
             } <span class="kw">else </span>{
@@ -742,27 +709,27 @@
         }
     }
 
-    <span class="kw">fn </span>parent_focus_in(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_focus_in(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).focus_in {
-                f(im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_focus_out(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_focus_out(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).focus_out {
-                f(im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; <span class="prelude-ty">Option</span>&lt;(GString, i32)&gt; {
+    <span class="kw">fn </span>parent_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(GString, i32)&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
@@ -770,7 +737,7 @@
                 <span class="kw">let </span><span class="kw-2">mut </span>text = std::ptr::null_mut();
                 <span class="kw">let </span><span class="kw-2">mut </span>cursor_index = std::mem::MaybeUninit::uninit();
                 <span class="kw">let </span>ret = from_glib(f(
-                    im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
                     <span class="kw-2">&amp;mut </span>text,
                     cursor_index.as_mut_ptr(),
                 ));
@@ -782,7 +749,7 @@
         </span>}
     }
 
-    <span class="kw">fn </span>parent_preedit_string(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; (GString, AttrList, i32) {
+    <span class="kw">fn </span>parent_preedit_string(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (GString, AttrList, i32) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
@@ -793,7 +760,7 @@
             <span class="kw">let </span><span class="kw-2">mut </span>attrs = std::ptr::null_mut();
             <span class="kw">let </span><span class="kw-2">mut </span>cursor_pos = std::mem::MaybeUninit::uninit();
             f(
-                im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
+                <span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
                 <span class="kw-2">&amp;mut </span>string,
                 <span class="kw-2">&amp;mut </span>attrs,
                 cursor_pos.as_mut_ptr(),
@@ -806,52 +773,53 @@
         }
     }
 
-    <span class="kw">fn </span>parent_preedit_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_preedit_changed(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).preedit_changed {
-                f(im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_preedit_end(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_preedit_end(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).preedit_end {
-                f(im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_preedit_start(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_preedit_start(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).preedit_start {
-                f(im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_reset(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) {
+    <span class="kw">fn </span>parent_reset(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).reset {
-                f(im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>)
+                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_retrieve_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type) -&gt; bool {
+    <span class="kw">fn </span>parent_retrieve_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).retrieve_surrounding {
-                from_glib(f(im_context
+                from_glib(f(<span class="self">self
+                    </span>.obj()
                     .unsafe_cast_ref::&lt;IMContext&gt;()
                     .to_glib_none()
                     .<span class="number">0</span>))
@@ -862,43 +830,39 @@
         }
     }
 
-    <span class="kw">fn </span>parent_set_client_widget&lt;P: IsA&lt;Widget&gt;&gt;(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type,
-        widget: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;,
-    ) {
+    <span class="kw">fn </span>parent_set_client_widget&lt;P: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).set_client_widget {
                 f(
-                    im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
                     widget.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
                 )
             }
         }
     }
 
-    <span class="kw">fn </span>parent_set_cursor_location(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, area: <span class="kw-2">&amp;</span>gdk::Rectangle) {
+    <span class="kw">fn </span>parent_set_cursor_location(<span class="kw-2">&amp;</span><span class="self">self</span>, area: <span class="kw-2">&amp;</span>gdk::Rectangle) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).set_cursor_location {
                 f(
-                    im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
                     area.to_glib_none().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                 );
             }
         }
     }
 
-    <span class="kw">fn </span>parent_set_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, text: <span class="kw-2">&amp;</span>str, cursor_index: i32) {
+    <span class="kw">fn </span>parent_set_surrounding(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str, cursor_index: i32) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).set_surrounding {
                 f(
-                    im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
                     text.to_glib_none().<span class="number">0</span>,
                     text.len() <span class="kw">as </span>i32,
                     cursor_index,
@@ -907,13 +871,13 @@
         }
     }
 
-    <span class="kw">fn </span>parent_set_use_preedit(<span class="kw-2">&amp;</span><span class="self">self</span>, im_context: <span class="kw-2">&amp;</span><span class="self">Self</span>::Type, use_preedit: bool) {
+    <span class="kw">fn </span>parent_set_use_preedit(<span class="kw-2">&amp;</span><span class="self">self</span>, use_preedit: bool) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>data = T::type_data();
             <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkIMContextClass;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).set_use_preedit {
                 f(
-                    im_context.unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
+                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;IMContext&gt;().to_glib_none().<span class="number">0</span>,
                     use_preedit.into_glib(),
                 )
             }
@@ -956,10 +920,9 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
     <span class="kw">let </span>string: Borrowed&lt;GString&gt; = from_glib_borrow(stringptr);
 
-    imp.commit(wrap.unsafe_cast_ref(), string.as_str())
+    imp.commit(string.as_str())
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_delete_surrounding&lt;T: IMContextImpl&gt;(
@@ -969,10 +932,8 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
 
-    imp.delete_surrounding(wrap.unsafe_cast_ref(), offset, n_chars)
-        .into_glib()
+    imp.delete_surrounding(offset, n_chars).into_glib()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_filter_keypress&lt;T: IMContextImpl&gt;(
@@ -981,26 +942,22 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
     <span class="kw">let </span>event: Borrowed&lt;gdk::Event&gt; = from_glib_borrow(eventptr);
-    imp.filter_keypress(wrap.unsafe_cast_ref(), <span class="kw-2">&amp;</span>event)
-        .into_glib()
+    imp.filter_keypress(<span class="kw-2">&amp;</span>event).into_glib()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_focus_in&lt;T: IMContextImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkIMContext) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
 
-    imp.focus_in(wrap.unsafe_cast_ref())
+    imp.focus_in()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_focus_out&lt;T: IMContextImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkIMContext) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
 
-    imp.focus_out(wrap.unsafe_cast_ref())
+    imp.focus_out()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_get_preedit_string&lt;T: IMContextImpl&gt;(
@@ -1011,9 +968,8 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
 
-    <span class="kw">let </span>(text, attrs, cursor_idx) = imp.preedit_string(wrap.unsafe_cast_ref());
+    <span class="kw">let </span>(text, attrs, cursor_idx) = imp.preedit_string();
 
     <span class="kw-2">*</span>text_ptr = text.to_glib_full();
     <span class="kw-2">*</span>cursor_index_ptr = cursor_idx;
@@ -1027,9 +983,8 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
 
-    <span class="kw">if let </span><span class="prelude-val">Some</span>((text, cursor_idx)) = imp.surrounding(wrap.unsafe_cast_ref()) {
+    <span class="kw">if let </span><span class="prelude-val">Some</span>((text, cursor_idx)) = imp.surrounding() {
         <span class="kw-2">*</span>text_ptr = text.to_glib_full();
         <span class="kw-2">*</span>cursor_index_ptr = cursor_idx;
         <span class="bool-val">true</span>.into_glib()
@@ -1043,33 +998,29 @@
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_preedit_changed&lt;T: IMContextImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkIMContext) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
 
-    imp.preedit_changed(wrap.unsafe_cast_ref())
+    imp.preedit_changed()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_preedit_end&lt;T: IMContextImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkIMContext) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
 
-    imp.preedit_end(wrap.unsafe_cast_ref())
+    imp.preedit_end()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_preedit_start&lt;T: IMContextImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkIMContext) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
 
-    imp.preedit_start(wrap.unsafe_cast_ref())
+    imp.preedit_start()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_reset&lt;T: IMContextImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkIMContext) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
 
-    imp.reset(wrap.unsafe_cast_ref())
+    imp.reset()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_retrieve_surrounding&lt;T: IMContextImpl&gt;(
@@ -1077,9 +1028,8 @@
 ) -&gt; glib::ffi::gboolean {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
 
-    imp.retrieve_surrounding(wrap.unsafe_cast_ref()).into_glib()
+    imp.retrieve_surrounding().into_glib()
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_set_client_widget&lt;T: IMContextImpl&gt;(
@@ -1088,10 +1038,9 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
     <span class="kw">let </span>widget: Borrowed&lt;<span class="prelude-ty">Option</span>&lt;Widget&gt;&gt; = from_glib_borrow(widgetptr);
 
-    imp.set_client_widget(wrap.unsafe_cast_ref(), widget.as_ref().as_ref());
+    imp.set_client_widget(widget.as_ref().as_ref());
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_set_cursor_location&lt;T: IMContextImpl&gt;(
@@ -1100,10 +1049,9 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
     <span class="kw">let </span>area = from_glib_borrow(areaptr);
 
-    imp.set_cursor_location(wrap.unsafe_cast_ref(), <span class="kw-2">&amp;</span>area);
+    imp.set_cursor_location(<span class="kw-2">&amp;</span>area);
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_set_surrounding&lt;T: IMContextImpl&gt;(
@@ -1114,7 +1062,6 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
     <span class="kw">let </span>text: Borrowed&lt;GString&gt; = from_glib_borrow(textptr);
 
     <span class="comment">// length == -1 if text is null-terminated
@@ -1124,7 +1071,7 @@
         <span class="kw-2">&amp;</span>text[<span class="number">0</span>..(length <span class="kw">as </span>usize)]
     };
 
-    imp.set_surrounding(wrap.unsafe_cast_ref(), text, cursor_index)
+    imp.set_surrounding(text, cursor_index)
 }
 
 <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>im_context_set_use_preedit&lt;T: IMContextImpl&gt;(
@@ -1133,9 +1080,8 @@
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
     <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>wrap: Borrowed&lt;IMContext&gt; = from_glib_borrow(ptr);
 
-    imp.set_use_preedit(wrap.unsafe_cast_ref(), from_glib(use_preedit))
+    imp.set_use_preedit(from_glib(use_preedit))
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (b44197abb 2022-09-05)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (85f4f41de 2022-11-08)" data-search-js="search-39ee4160c7dc16c9.js" data-settings-js="settings-3a0b9947ba1bd99a.js" data-settings-css="settings-a66f7524084a489a.css" ></div></body></html>
