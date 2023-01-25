@@ -4,8 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Adding Collections - GUI development with Rust and GTK 4</title>
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -16,9 +18,11 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
@@ -26,16 +30,17 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="theme/style.css">
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -51,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -63,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -84,7 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -95,7 +100,7 @@
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
@@ -114,6 +119,7 @@
                         <a href="https://github.com/gtk-rs/gtk4-rs/tree/master/book" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -127,8 +133,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -366,8 +373,7 @@ impl ObjectSubclass for Window {
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span><span class="boring">
 </span><span class="boring">// Trait shared by all adwaita application windows
-</span><span class="boring">impl AdwApplicationWindowImpl for Window {}
-</span></code></pre>
+</span><span class="boring">impl AdwApplicationWindowImpl for Window {}</span></code></pre>
 <p>That also means that we have to implement the trait <code>AdwApplicationWindowImpl</code>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/7/window/imp.rs">listings/todo/7/window/imp.rs</a></p>
 <pre><code class="language-rust no_run noplayground"><span class="boring">use std::cell::RefCell;
@@ -462,8 +468,7 @@ impl ObjectSubclass for Window {
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span><span class="boring">
 </span>// Trait shared by all adwaita application windows
-impl AdwApplicationWindowImpl for Window {}
-</code></pre>
+impl AdwApplicationWindowImpl for Window {}</code></pre>
 <p>Finally, we add <code>adw::ApplicationWindow</code> to the ancestors of <code>Window</code> in <code>mod.rs</code>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/7/window/mod.rs">listings/todo/7/window/mod.rs</a></p>
 <pre><code class="language-rust no_run noplayground"><span class="boring">mod imp;
@@ -697,8 +702,7 @@ impl AdwApplicationWindowImpl for Window {}
 </span><span class="boring">        );
 </span><span class="boring">        self.add_action(&amp;action_remove_done_tasks);
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <h2 id="placeholder-page"><a class="header" href="#placeholder-page">Placeholder Page</a></h2>
 <p>Even before we start to populate the collection view, we ought to think about a different challenge: the empty state of our To-Do app.
 Before, the empty state without a single task was quite okay.
@@ -852,8 +856,7 @@ impl ObjectSubclass for CollectionObject {
 </span><span class="boring">            _ =&gt; unimplemented!(),
 </span><span class="boring">        }
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p>We also add the struct <code>CollectionData</code> to aid in serialization and deserialization.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/8/collection_object/mod.rs">listings/todo/8/collection_object/mod.rs</a></p>
 <pre><code class="language-rust no_run noplayground"><span class="boring">mod imp;
@@ -918,8 +921,7 @@ impl ObjectSubclass for CollectionObject {
 pub struct CollectionData {
     pub title: String,
     pub tasks_data: Vec&lt;TaskData&gt;,
-}
-</code></pre>
+}</code></pre>
 <p>Finally, we add methods to <code>CollectionObject</code> in order to</p>
 <ul>
 <li>construct it with <code>new</code>,</li>
@@ -989,8 +991,7 @@ pub struct CollectionData {
 </span><span class="boring">pub struct CollectionData {
 </span><span class="boring">    pub title: String,
 </span><span class="boring">    pub tasks_data: Vec&lt;TaskData&gt;,
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <h2 id="window"><a class="header" href="#window">Window</a></h2>
 <p>In order to hook up the new logic, we have to add more state to <code>imp::Window</code>.
 There are additional widgets that we access via the <code>template_child</code> macro.
@@ -1103,8 +1104,7 @@ pub struct Window {
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span><span class="boring">
 </span><span class="boring">// Trait shared by all adwaita application windows
-</span><span class="boring">impl AdwApplicationWindowImpl for Window {}
-</span></code></pre>
+</span><span class="boring">impl AdwApplicationWindowImpl for Window {}</span></code></pre>
 <p>Further, we add a couple of helper methods which will come in handy later on.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/8/window/imp.rs">listings/todo/8/window/mod.rs</a></p>
 <pre><code class="language-rust no_run noplayground"><span class="boring">mod imp;
@@ -1561,8 +1561,7 @@ pub struct Window {
 </span><span class="boring">        );
 </span><span class="boring">        dialog.present();
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p>As always, we want our data to be saved when we close the window.
 Since most of the implementation is in the method <code>CollectionObject::to_collection_data</code>, the implementation of <code>close_request</code> doesn't change much.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/8/window/imp.rs">listings/todo/8/window/imp.rs</a></p>
@@ -1671,8 +1670,7 @@ impl WindowImpl for Window {
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span><span class="boring">
 </span><span class="boring">// Trait shared by all adwaita application windows
-</span><span class="boring">impl AdwApplicationWindowImpl for Window {}
-</span></code></pre>
+</span><span class="boring">impl AdwApplicationWindowImpl for Window {}</span></code></pre>
 <p><code>constructed</code> stays mostly the same as well.
 Instead of <code>setup_tasks</code> we now call <code>setup_collections</code>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/7/window/imp.rs">listings/todo/8/window/imp.rs</a></p>
@@ -1781,8 +1779,7 @@ impl ObjectImpl for Window {
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span><span class="boring">
 </span><span class="boring">// Trait shared by all adwaita application windows
-</span><span class="boring">impl AdwApplicationWindowImpl for Window {}
-</span></code></pre>
+</span><span class="boring">impl AdwApplicationWindowImpl for Window {}</span></code></pre>
 <p><code>setup_collections</code> sets up the <code>collections</code> list store as well as assuring that changes in the model will be reflected in the <code>collections_list</code>.
 To do that it uses the method <code>create_collection_row</code>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/8/window/imp.rs">listings/todo/8/window/mod.rs</a></p>
@@ -2240,8 +2237,7 @@ To do that it uses the method <code>create_collection_row</code>.</p>
 </span><span class="boring">        );
 </span><span class="boring">        dialog.present();
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p><code>create_collection_row</code> takes a <code>CollectionObject</code> and builds a <a href="../docs/gtk4/struct.ListBoxRow.html"><code>gtk::ListBoxRow</code></a> from its information.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/8/window/imp.rs">listings/todo/8/window/mod.rs</a></p>
 <pre><code class="language-rust no_run noplayground"><span class="boring">mod imp;
@@ -2698,8 +2694,7 @@ To do that it uses the method <code>create_collection_row</code>.</p>
 </span><span class="boring">        );
 </span><span class="boring">        dialog.present();
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p>We also adapt <code>restore_data</code>.
 Again, the heavy lifting comes from <code>CollectionObject::from_collection_data</code>, so we don't have to change too much here.
 Since the rows of <code>collections_list</code> can be selected, we have to select one of them after restoring the data.
@@ -3159,8 +3154,7 @@ We choose the first one and let the method <code>set_current_collection</code> d
 </span><span class="boring">        );
 </span><span class="boring">        dialog.present();
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p><code>set_current_collection</code> assures that all elements accessing tasks refer to the task model of the current collection.
 We bind the <code>tasks_list</code> to the current collection and store the filter model.
 Whenever there are no tasks in our current collection we want to hide our tasks list.
@@ -3623,8 +3617,7 @@ Finally, we select the collection row.</p>
 </span><span class="boring">        );
 </span><span class="boring">        dialog.present();
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p>Previously, we used the method <code>set_task_list_visible</code>.
 It assures that <code>tasks_list</code> is only visible if the number of tasks is greater than 0.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/8/window/imp.rs">listings/todo/8/window/mod.rs</a></p>
@@ -4082,8 +4075,7 @@ It assures that <code>tasks_list</code> is only visible if the number of tasks i
 </span><span class="boring">        );
 </span><span class="boring">        dialog.present();
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p><code>select_collection_row</code> assures that the row for the current collection is selected in <code>collections_list</code>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/8/window/imp.rs">listings/todo/8/window/mod.rs</a></p>
 <pre><code class="language-rust no_run noplayground"><span class="boring">mod imp;
@@ -4540,8 +4532,7 @@ It assures that <code>tasks_list</code> is only visible if the number of tasks i
 </span><span class="boring">        );
 </span><span class="boring">        dialog.present();
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <h2 id="leaflet-and-dialog"><a class="header" href="#leaflet-and-dialog">Leaflet and Dialog</a></h2>
 <p>Thanks to the leaflet the To-Do app folds now when we resize it to a smaller width.
 However, there isn't yet a way to navigate between the different leaflet pages.
@@ -5015,8 +5006,7 @@ This action will be activated by a click on the <code>+</code> button as well as
 </span><span class="boring">        );
 </span><span class="boring">        dialog.present();
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p>As soon as the &quot;new-collection&quot; action is activated, the <code>new_collection</code> method is called.
 Here, we create the dialog, set up the buttons as well as add the entry to it.
 We add a callback to the entry to ensure that when the content changes, an empty content sets <code>dialog_button</code> as insensitive and adds an &quot;error&quot; CSS class to the entry.
@@ -5479,8 +5469,7 @@ Afterwards we navigate forward on our leaflet, which means we navigate to the ta
         );
         dialog.present();
     }
-<span class="boring">}
-</span></code></pre>
+<span class="boring">}</span></code></pre>
 <p>We also add more callbacks to <code>setup_callbacks</code>.
 Importantly, we want to filter our current task model whenever the value of the &quot;filter&quot; setting changes.
 Whenever the items of our collections change we also want to set the stack.
@@ -5943,8 +5932,7 @@ Finally, we connect to a click of the <code>back_button</code> in the task view 
 </span><span class="boring">        );
 </span><span class="boring">        dialog.present();
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p>Before, we called the method <code>set_stack</code>.
 This method ensure when there is at least one collection, the &quot;main&quot; page is shown, and the &quot;placeholder&quot; page otherwise.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/8/window/imp.rs">listings/todo/8/window/mod.rs</a></p>
@@ -6402,8 +6390,7 @@ This method ensure when there is at least one collection, the &quot;main&quot; p
 </span><span class="boring">        );
 </span><span class="boring">        dialog.present();
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p>And that was it!
 Now we can enjoy the final result.</p>
 <div style="text-align:center">
@@ -6425,6 +6412,8 @@ Which edge cases do you have to consider?</p>
                             <a rel="prev" href="todo_3.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -6434,20 +6423,29 @@ Which edge cases do you have to consider?</p>
                     <a rel="prev" href="todo_3.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
             </nav>
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
+
+
     </body>
 </html>

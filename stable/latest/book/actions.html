@@ -4,8 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Actions - GUI development with Rust and GTK 4</title>
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -16,9 +18,11 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
@@ -26,16 +30,17 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="theme/style.css">
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -51,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -63,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -84,7 +89,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -95,7 +100,7 @@
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
@@ -114,6 +119,7 @@
                         <a href="https://github.com/gtk-rs/gtk4-rs/tree/master/book" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -127,8 +133,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -183,8 +190,7 @@ Let's check out the simplest case where we activate an action without a paramete
 
     // Present window
     window.present();
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>First, we created a new <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/gio/struct.SimpleAction.html"><code>gio::SimpleAction</code></a> which is named &quot;close&quot; and takes no parameter.
 We also connected a callback which closes the window.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/actions/1/main.rs">listings/actions/1/main.rs</a></p>
@@ -226,8 +232,7 @@ fn main() {
 </span><span class="boring">
 </span><span class="boring">    // Present window
 </span><span class="boring">    window.present();
-</span><span class="boring">}
-</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre></pre>
 <p>One of the most popular reasons to use actions are keyboard accelerators, so we added one here.
 With <a href="../docs/gtk4/prelude/trait.GtkApplicationExt.html#tymethod.set_accels_for_action"><code>set_accels_for_action</code></a> one can assign one or more accelerators to a certain action.
 Check the documentation of <a href="../docs/gtk4/functions/fn.accelerator_parse.html"><code>accelerator_parse</code></a> in order to learn more about its syntax.</p>
@@ -285,8 +290,7 @@ The answer is that it is so common to add actions to windows and applications th
 <span class="boring">
 </span><span class="boring">    // Present window
 </span><span class="boring">    window.present();
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p>Also, if we had multiple instances of the same windows we would expect that only the currently focused window will be closed when activating &quot;win.close&quot;.
 And indeed, the &quot;win.close&quot; will be dispatched to the currently focused window.
 However, that also means that we actually define one action per window instance.
@@ -390,8 +394,7 @@ Let's see how this works.</p>
 
     // Present window
     window.present();
-}
-</code></pre>
+}</code></pre>
 <p>Here we created a &quot;win.count&quot; action that increases its state by the given parameter every time it is activated.
 It also takes care of updating the <code>label</code> with the current state.
 The button activates the action with each click while passing &quot;1&quot; as parameter.
@@ -493,8 +496,7 @@ With <a href="../docs/gtk4/builders/struct.ButtonBuilder.html"><code>ButtonBuild
 </span><span class="boring">
 </span><span class="boring">    // Present window
 </span><span class="boring">    window.present();
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p>Actionable widgets are also easily accessible through the interface builder.
 As usual, we build up the window via a composite template.
 Within the template we can then set the &quot;action-name&quot; and &quot;action-target&quot; properties.</p>
@@ -586,8 +588,7 @@ Within the template we can then set the &quot;action-name&quot; and &quot;action
         }));
         self.add_action(&amp;action_count);
     }
-}
-</code></pre>
+}</code></pre>
 <p>Finally, <code>setup_actions</code> will be called within <code>constructed</code>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/actions/5/window/imp.rs">listings/actions/5/window/imp.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">use glib::subclass::InitializingObject;
@@ -638,8 +639,7 @@ impl ObjectImpl for Window {
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
 </span><span class="boring">// Trait shared by all application windows
-</span><span class="boring">impl ApplicationWindowImpl for Window {}
-</span></code></pre>
+</span><span class="boring">impl ApplicationWindowImpl for Window {}</span></code></pre>
 <p>This app behaves the same as our previous example, but it leads us to menu creation.</p>
 <h2 id="menus"><a class="header" href="#menus">Menus</a></h2>
 <p>If you want to create a <a href="https://developer.gnome.org/hig/patterns/controls/menus.html">menu</a> you have to use actions and you will want to use the interface builder.
@@ -748,8 +748,7 @@ This means that the caller can expect the boolean state to toggle after activati
 </span><span class="boring">        }));
 </span><span class="boring">        self.add_action(&amp;action_orientation);
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <blockquote>
 <p>A <code>PropertyAction</code> is useful when you need an action that manipulates the property of a GObject.
 The property then acts as the state of the action.
@@ -853,8 +852,7 @@ We don't need the action state to implement orientation switching, however it is
         }));
         self.add_action(&amp;action_orientation);
 <span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p>Even though <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/gio/struct.Menu.html"><code>gio::Menu</code></a> can also be created with the bindings, the most convenient way is to use the interface builder for that.
 We do that by adding the menu in front of the template.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/actions/6/resources/window.ui">listings/actions/6/resources/window.ui</a></p>
@@ -1007,8 +1005,7 @@ pub struct Window {
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
 </span><span class="boring">// Trait shared by all application windows
-</span><span class="boring">impl ApplicationWindowImpl for Window {}
-</span></code></pre>
+</span><span class="boring">impl ApplicationWindowImpl for Window {}</span></code></pre>
 <p>Now we create functions to make it easier to access settings.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/actions/7/window/mod.rs">listings/actions/7/window/mod.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">mod imp;
@@ -1129,8 +1126,7 @@ pub struct Window {
 </span><span class="boring">            })
 </span><span class="boring">            .build();
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p>Creating stateful actions from setting entries is so common that <code>Settings</code> provides a method for that exact purpose.
 We create actions with the<a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/gio/prelude/trait.SettingsExt.html#tymethod.create_action"> <code>create_action</code></a> method and then add them to the action group of our window.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/actions/7/window/mod.rs">listings/actions/7/window/mod.rs</a></p>
@@ -1252,8 +1248,7 @@ We create actions with the<a href="https://gtk-rs.org/gtk-rs-core/stable/latest/
 </span><span class="boring">            })
 </span><span class="boring">            .build();
 </span><span class="boring">    }
-</span><span class="boring">}
-</span></code></pre>
+</span><span class="boring">}</span></code></pre>
 <p>Since actions from <code>create_action</code> follow the aforementioned conventions, we can keep further changes to a minimum.
 The action &quot;win.sensitive-button&quot; toggles its state with each activation and the state of the &quot;win.orientation&quot; action follows the given parameter.</p>
 <p>We still have to specify what should happen when the actions are activated though.
@@ -1377,8 +1372,7 @@ For the stateful actions, instead of adding callbacks to their &quot;activate&qu
             })
             .build();
     }
-<span class="boring">}
-</span></code></pre>
+<span class="boring">}</span></code></pre>
 <p>Finally, we make sure that <code>bind_settings</code> is called within <code>constructed</code>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/actions/7/window/imp.rs">listings/actions/7/window/imp.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">use gio::Settings;
@@ -1439,8 +1433,7 @@ impl ObjectImpl for Window {
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
 </span><span class="boring">// Trait shared by all application windows
-</span><span class="boring">impl ApplicationWindowImpl for Window {}
-</span></code></pre>
+</span><span class="boring">impl ApplicationWindowImpl for Window {}</span></code></pre>
 <p>Actions are extremely powerful and we are only scratching the surface here.
 If you want to learn more about them, the <a href="https://developer.gnome.org/documentation/tutorials/actions.html">GNOME developer documentation</a> is a good place to start.</p>
 
@@ -1451,9 +1444,11 @@ If you want to learn more about them, the <a href="https://developer.gnome.org/d
                             <a rel="prev" href="todo_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="todo_2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -1463,6 +1458,7 @@ If you want to learn more about them, the <a href="https://developer.gnome.org/d
                     <a rel="prev" href="todo_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="todo_2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -1470,16 +1466,24 @@ If you want to learn more about them, the <a href="https://developer.gnome.org/d
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
+
+
     </body>
 </html>
