@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js rust">
+<html lang="en" class="rust" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -10,7 +10,7 @@
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -32,7 +32,8 @@
         <link rel="stylesheet" href="theme/style.css">
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
@@ -61,40 +62,71 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('rust')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
                 <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="installation_linux.html"><strong aria-hidden="true">1.1.</strong> Linux</a></li><li class="chapter-item expanded "><a href="installation_macos.html"><strong aria-hidden="true">1.2.</strong> macOS</a></li><li class="chapter-item expanded "><a href="installation_windows.html"><strong aria-hidden="true">1.3.</strong> Windows</a></li></ol></li><li class="chapter-item expanded "><a href="project_setup.html"><strong aria-hidden="true">2.</strong> Project Setup</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">3.</strong> Hello World!</a></li><li class="chapter-item expanded "><a href="widgets.html"><strong aria-hidden="true">4.</strong> Widgets</a></li><li class="chapter-item expanded "><a href="g_object_concepts.html"><strong aria-hidden="true">5.</strong> GObject Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="g_object_memory_management.html"><strong aria-hidden="true">5.1.</strong> Memory Management</a></li><li class="chapter-item expanded "><a href="g_object_subclassing.html"><strong aria-hidden="true">5.2.</strong> Subclassing</a></li><li class="chapter-item expanded "><a href="g_object_values.html"><strong aria-hidden="true">5.3.</strong> Generic Values</a></li><li class="chapter-item expanded "><a href="g_object_properties.html"><strong aria-hidden="true">5.4.</strong> Properties</a></li><li class="chapter-item expanded "><a href="g_object_signals.html"><strong aria-hidden="true">5.5.</strong> Signals</a></li></ol></li><li class="chapter-item expanded "><a href="main_event_loop.html"><strong aria-hidden="true">6.</strong> The Main Event Loop</a></li><li class="chapter-item expanded "><a href="settings.html"><strong aria-hidden="true">7.</strong> Settings</a></li><li class="chapter-item expanded "><a href="saving_window_state.html" class="active"><strong aria-hidden="true">8.</strong> Saving Window State</a></li><li class="chapter-item expanded "><a href="list_widgets.html"><strong aria-hidden="true">9.</strong> List Widgets</a></li><li class="chapter-item expanded "><a href="composite_templates.html"><strong aria-hidden="true">10.</strong> Composite Templates</a></li><li class="chapter-item expanded "><a href="todo_1.html"><strong aria-hidden="true">11.</strong> Building a Simple To-Do App</a></li><li class="chapter-item expanded "><a href="actions.html"><strong aria-hidden="true">12.</strong> Actions</a></li><li class="chapter-item expanded "><a href="todo_2.html"><strong aria-hidden="true">13.</strong> Manipulating State of To-Do App</a></li><li class="chapter-item expanded "><a href="css.html"><strong aria-hidden="true">14.</strong> CSS</a></li><li class="chapter-item expanded "><a href="libadwaita.html"><strong aria-hidden="true">15.</strong> Libadwaita</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="todo_3.html"><strong aria-hidden="true">15.1.</strong> Let To-Do App use Libadwaita</a></li><li class="chapter-item expanded "><a href="todo_4.html"><strong aria-hidden="true">15.2.</strong> Adding Collections</a></li></ol></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -152,18 +184,18 @@ GTK does not provide this functionality out of the box, but luckily it is not to
 We basically want two integers (<code>height</code> &amp; <code>width</code>) and a boolean (<code>is_maximized</code>) to persist.
 We already know how to do this by using <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/gio/struct.Settings.html"><code>gio::Settings</code></a>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/saving_window_state/1/org.gtk_rs.SavingWindowState1.gschema.xml">listings/saving_window_state/1/org.gtk_rs.SavingWindowState1.gschema.xml</a></p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+<pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;schemalist&gt;
-  &lt;schema id=&quot;org.gtk_rs.SavingWindowState1&quot; path=&quot;/org/gtk_rs/SavingWindowState1/&quot;&gt;
-    &lt;key name=&quot;window-width&quot; type=&quot;i&quot;&gt;
+  &lt;schema id="org.gtk_rs.SavingWindowState1" path="/org/gtk_rs/SavingWindowState1/"&gt;
+    &lt;key name="window-width" type="i"&gt;
       &lt;default&gt;-1&lt;/default&gt;
       &lt;summary&gt;Default window width&lt;/summary&gt;
     &lt;/key&gt;
-    &lt;key name=&quot;window-height&quot; type=&quot;i&quot;&gt;
+    &lt;key name="window-height" type="i"&gt;
       &lt;default&gt;-1&lt;/default&gt;
       &lt;summary&gt;Default window height&lt;/summary&gt;
     &lt;/key&gt;
-    &lt;key name=&quot;is-maximized&quot; type=&quot;b&quot;&gt;
+    &lt;key name="is-maximized" type="b"&gt;
       &lt;default&gt;false&lt;/default&gt;
       &lt;summary&gt;Default window maximized behaviour&lt;/summary&gt;
     &lt;/key&gt;
@@ -174,7 +206,7 @@ We already know how to do this by using <a href="https://gtk-rs.org/gtk-rs-core/
 That can be done by creating a custom window.
 First, we create one and add convenience methods for accessing settings as well as the window state.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/saving_window_state/1/custom_window/mod.rs">listings/saving_window_state/1/custom_window/mod.rs</a></p>
-<pre><code class="language-rust  no_run noplayground"><span class="boring">mod imp;
+<pre><code class="language-rust"><span class="boring">mod imp;
 </span><span class="boring">
 </span><span class="boring">use gio::Settings;
 </span><span class="boring">use glib::Object;
@@ -194,7 +226,7 @@ First, we create one and add convenience methods for accessing settings as well 
 impl Window {
     pub fn new(app: &amp;Application) -&gt; Self {
         // Create new window
-        Object::builder().property(&quot;application&quot;, app).build()
+        Object::builder().property("application", app).build()
     }
 
     fn setup_settings(&amp;self) {
@@ -202,14 +234,14 @@ impl Window {
         self.imp()
             .settings
             .set(settings)
-            .expect(&quot;`settings` should not be set before calling `setup_settings`.&quot;);
+            .expect("`settings` should not be set before calling `setup_settings`.");
     }
 
     fn settings(&amp;self) -&gt; &amp;Settings {
         self.imp()
             .settings
             .get()
-            .expect(&quot;`settings` should be set in `setup_settings`.&quot;)
+            .expect("`settings` should be set in `setup_settings`.")
     }
 
     pub fn save_window_size(&amp;self) -&gt; Result&lt;(), glib::BoolError&gt; {
@@ -217,19 +249,19 @@ impl Window {
         let size = self.default_size();
 
         // Set the window state in `settings`
-        self.settings().set_int(&quot;window-width&quot;, size.0)?;
-        self.settings().set_int(&quot;window-height&quot;, size.1)?;
+        self.settings().set_int("window-width", size.0)?;
+        self.settings().set_int("window-height", size.1)?;
         self.settings()
-            .set_boolean(&quot;is-maximized&quot;, self.is_maximized())?;
+            .set_boolean("is-maximized", self.is_maximized())?;
 
         Ok(())
     }
 
     fn load_window_size(&amp;self) {
         // Get the window state from `settings`
-        let width = self.settings().int(&quot;window-width&quot;);
-        let height = self.settings().int(&quot;window-height&quot;);
-        let is_maximized = self.settings().boolean(&quot;is-maximized&quot;);
+        let width = self.settings().int("window-width");
+        let height = self.settings().int("window-height");
+        let is_maximized = self.settings().boolean("is-maximized");
 
         // Set the size of the window
         self.set_default_size(width, height);
@@ -241,18 +273,19 @@ impl Window {
     }
 }</code></pre>
 <blockquote>
-<p>We set the property &quot;application&quot; by passing it to <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/struct.Object.html#method.new"><code>glib::Object::new</code></a>.
+<p>We set the property "application" by passing it to <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/struct.Object.html#method.new"><code>glib::Object::new</code></a>.
 You can even set multiple properties that way.
 When creating new GObjects, this is nicer than calling the setter methods manually.</p>
 </blockquote>
 <p>The implementation struct holds the <code>settings</code>.
-We also override the <code>constructed</code> and <code>close_request</code> methods, where we load or save the window state. </p>
+You can see that we embed <code>Settings</code> in <a href="https://doc.rust-lang.org/std/cell/struct.OnceCell.html"><code>std::cell::OnceCell</code></a>.
+This is a nice alternative to <code>RefCell&lt;Option&lt;T&gt;&gt;</code> when you know that you will initialize the value only once.</p>
+<p>We also override the <code>constructed</code> and <code>close_request</code> methods, where we load or save the window state.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/saving_window_state/1/custom_window/imp.rs">listings/saving_window_state/1/custom_window/imp.rs</a></p>
-<pre><code class="language-rust  no_run noplayground"><span class="boring">use gio::Settings;
-</span><span class="boring">use glib::signal::Inhibit;
+<pre><code class="language-rust"><span class="boring">use gio::Settings;
 </span><span class="boring">use gtk::subclass::prelude::*;
 </span><span class="boring">use gtk::{gio, glib, ApplicationWindow};
-</span><span class="boring">use once_cell::sync::OnceCell;
+</span><span class="boring">use std::cell::OnceCell;
 </span><span class="boring">
 </span>#[derive(Default)]
 pub struct Window {
@@ -261,7 +294,7 @@ pub struct Window {
 
 #[glib::object_subclass]
 impl ObjectSubclass for Window {
-    const NAME: &amp;'static str = &quot;MyGtkAppWindow&quot;;
+    const NAME: &amp;'static str = "MyGtkAppWindow";
     type Type = super::Window;
     type ParentType = ApplicationWindow;
 }
@@ -277,14 +310,13 @@ impl ObjectImpl for Window {
 impl WidgetImpl for Window {}
 impl WindowImpl for Window {
     // Save window state right before the window will be closed
-    fn close_request(&amp;self) -&gt; Inhibit {
+    fn close_request(&amp;self) -&gt; glib::Propagation {
         // Save window size
         self.obj()
             .save_window_size()
-            .expect(&quot;Failed to save window state&quot;);
-
-        // Don't inhibit the default handler
-        Inhibit(false)
+            .expect("Failed to save window state");
+        // Allow to invoke other event handlers
+        glib::Propagation::Proceed
     }
 }
 impl ApplicationWindowImpl for Window {}</code></pre>
@@ -299,7 +331,7 @@ Now our window retains its state between app sessions.</p>
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="list_widgets.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="list_widgets.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -313,7 +345,7 @@ Now our window retains its state between app sessions.</p>
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="list_widgets.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="list_widgets.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -339,5 +371,6 @@ Now our window retains its state between app sessions.</p>
         <!-- Custom JS scripts -->
 
 
+    </div>
     </body>
 </html>
