@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/recent_data.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>recent_data.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/recent_data.rs`."><title>recent_data.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../gtk4/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -186,21 +188,17 @@
 <a href="#113" id="113">113</a>
 <a href="#114" id="114">114</a>
 <a href="#115" id="115">115</a>
-<a href="#116" id="116">116</a>
-<a href="#117" id="117">117</a>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
+</pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use </span>glib::{
-    collections::{StrV, StrVItem},
-    translate::<span class="kw-2">*</span>,
-};
-<span class="kw">use </span>std::ffi::CStr;
+</span><span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/core/ffi/c_str/struct.CStr.html">std::ffi::CStr</a>;
 
-<span class="macro">glib::wrapper! </span>{
+<span class="kw">use </span>glib::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/collections/strv/struct.StrV.html">collections::StrV</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GStringPtr.html">GStringPtr</a>};
+
+<a class="macro" href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/macro.wrapper.html">glib::wrapper! </a>{
     <span class="doccomment">/// Meta-data to be passed to gtk_recent_manager_add_full() when
     /// registering a recently used resource.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkRecentData&quot;</span>)]
-    </span><span class="kw">pub struct </span>RecentData(BoxedInline&lt;ffi::GtkRecentData&gt;);
+    </span><span class="attr">#[doc(alias = <span class="string">"GtkRecentData"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../gtk4/struct.RecentData.html">RecentData</a>(BoxedInline&lt;<a href="../../gtk4_sys/struct.GtkRecentData.html">ffi::GtkRecentData</a>&gt;);
 
     <span class="kw">match fn </span>{
         init =&gt; |ptr| init_recent_data(ptr),
@@ -209,101 +207,100 @@
     }
 }
 
-<span class="kw">impl </span>RecentData {
+<span class="kw">impl </span><a href="#7-18">RecentData</a> {
     <span class="attr">#[inline]
     </span><span class="kw">pub fn </span>new(
-        display_name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
-        description: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;,
-        mime_type: <span class="kw-2">&amp;</span>str,
-        app_name: <span class="kw-2">&amp;</span>str,
-        app_exec: <span class="kw-2">&amp;</span>str,
-        groups: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>str],
-        is_private: bool,
+        display_name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
+        description: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
+        mime_type: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
+        app_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
+        app_exec: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
+        groups: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>],
+        is_private: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
     ) -&gt; <span class="self">Self </span>{
-        <span class="macro">assert_initialized_main_thread!</span>();
+        <a class="macro" href="rt.rs.html#23-35">assert_initialized_main_thread!</a>();
         <span class="kw">unsafe </span>{
-            <span class="self">Self</span>::unsafe_from(ffi::GtkRecentData {
-                display_name: display_name.to_glib_full(),
-                description: description.to_glib_full(),
-                mime_type: mime_type.to_glib_full(),
-                app_name: app_name.to_glib_full(),
-                app_exec: app_exec.to_glib_full(),
-                groups: groups.to_glib_full(),
-                is_private: is_private.into_glib(),
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.UnsafeFrom.html"><span class="self">Self</span>::unsafe_from</a>(<a href="../../gtk4_sys/struct.GtkRecentData.html">ffi::GtkRecentData</a> {
+                display_name: <a href="#23">display_name</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_full</a>(),
+                description: <a href="#24">description</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_full</a>(),
+                mime_type: <a href="#25">mime_type</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_full</a>(),
+                app_name: <a href="#26">app_name</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_full</a>(),
+                app_exec: <a href="#27">app_exec</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_full</a>(),
+                groups: <a href="#28">groups</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_full</a>(),
+                is_private: <a href="#29">is_private</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
             })
         }
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">pub fn </span>display_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt; {
+    </span><span class="kw">pub fn </span>display_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">if </span><span class="self">self</span>.inner.display_name.is_null() {
                 <span class="prelude-val">None
             </span>} <span class="kw">else </span>{
-                CStr::from_ptr(<span class="self">self</span>.inner.display_name).to_str().ok()
+                CStr::from_ptr(<a class="self" href="#46">self</a>.inner.display_name).to_str().ok()
             }
         }
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">pub fn </span>description(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt; {
+    </span><span class="kw">pub fn </span>description(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">if </span><span class="self">self</span>.inner.description.is_null() {
                 <span class="prelude-val">None
             </span>} <span class="kw">else </span>{
-                CStr::from_ptr(<span class="self">self</span>.inner.description).to_str().ok()
+                CStr::from_ptr(<a class="self" href="#57">self</a>.inner.description).to_str().ok()
             }
         }
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">pub fn </span>mime_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span>str {
-        <span class="kw">unsafe </span>{ CStr::from_ptr(<span class="self">self</span>.inner.mime_type).to_str().unwrap() }
+    </span><span class="kw">pub fn </span>mime_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> {
+        <span class="kw">unsafe </span>{ CStr::from_ptr(<a class="self" href="#68">self</a>.inner.mime_type).to_str().unwrap() }
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">pub fn </span>app_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span>str {
-        <span class="kw">unsafe </span>{ CStr::from_ptr(<span class="self">self</span>.inner.app_name).to_str().unwrap() }
+    </span><span class="kw">pub fn </span>app_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> {
+        <span class="kw">unsafe </span>{ CStr::from_ptr(<a class="self" href="#73">self</a>.inner.app_name).to_str().unwrap() }
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">pub fn </span>app_exec(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span>str {
-        <span class="kw">unsafe </span>{ CStr::from_ptr(<span class="self">self</span>.inner.app_exec).to_str().unwrap() }
+    </span><span class="kw">pub fn </span>app_exec(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a> {
+        <span class="kw">unsafe </span>{ CStr::from_ptr(<a class="self" href="#78">self</a>.inner.app_exec).to_str().unwrap() }
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">pub fn </span>groups&lt;<span class="lifetime">&#39;a</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[StrVItem] {
-        <span class="kw">unsafe </span>{ StrV::from_glib_borrow(<span class="self">self</span>.inner.groups <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>) }
+    </span><span class="kw">pub fn </span>groups&lt;<span class="lifetime">'a</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GStringPtr.html">GStringPtr</a>] {
+        <span class="kw">unsafe </span>{ StrV::from_glib_borrow(<a class="self" href="#83">self</a>.inner.groups <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>) }
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">pub fn </span>is_private(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{ from_glib(<span class="self">self</span>.inner.is_private) }
+    </span><span class="kw">pub fn </span>is_private(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+        <span class="kw">unsafe </span>{ from_glib(<a class="self" href="#88">self</a>.inner.is_private) }
     }
 }
 
-<span class="kw">unsafe fn </span>init_recent_data(recent_data: <span class="kw-2">*mut </span>ffi::GtkRecentData) {
-    std::ptr::write(recent_data, std::mem::zeroed());
+<span class="kw">unsafe fn </span>init_recent_data(recent_data: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkRecentData.html">ffi::GtkRecentData</a>) {
+    std::ptr::write(<a href="#93">recent_data</a>, std::mem::zeroed());
 }
 
-<span class="kw">unsafe fn </span>copy_into_recent_data(dest: <span class="kw-2">*mut </span>ffi::GtkRecentData, src: <span class="kw-2">*const </span>ffi::GtkRecentData) {
-    init_recent_data(dest);
-    (<span class="kw-2">*</span>dest).display_name = glib::ffi::g_strdup((<span class="kw-2">*</span>src).display_name);
-    (<span class="kw-2">*</span>dest).description = glib::ffi::g_strdup((<span class="kw-2">*</span>src).description);
-    (<span class="kw-2">*</span>dest).mime_type = glib::ffi::g_strdup((<span class="kw-2">*</span>src).mime_type);
-    (<span class="kw-2">*</span>dest).app_name = glib::ffi::g_strdup((<span class="kw-2">*</span>src).app_name);
-    (<span class="kw-2">*</span>dest).app_exec = glib::ffi::g_strdup((<span class="kw-2">*</span>src).app_exec);
-    (<span class="kw-2">*</span>dest).groups = glib::ffi::g_strdupv((<span class="kw-2">*</span>src).groups);
-    (<span class="kw-2">*</span>dest).is_private = (<span class="kw-2">*</span>src).is_private;
+<span class="kw">unsafe fn </span>copy_into_recent_data(dest: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkRecentData.html">ffi::GtkRecentData</a>, src: <span class="kw-2">*const </span><a href="../../gtk4_sys/struct.GtkRecentData.html">ffi::GtkRecentData</a>) {
+    <a href="#93-95">init_recent_data</a>(<a href="#97">dest</a>);
+    (<span class="kw-2">*</span><a href="#97">dest</a>).display_name = glib::ffi::g_strdup((<span class="kw-2">*</span><a href="#97">src</a>).display_name);
+    (<span class="kw-2">*</span><a href="#97">dest</a>).description = glib::ffi::g_strdup((<span class="kw-2">*</span><a href="#97">src</a>).description);
+    (<span class="kw-2">*</span><a href="#97">dest</a>).mime_type = glib::ffi::g_strdup((<span class="kw-2">*</span><a href="#97">src</a>).mime_type);
+    (<span class="kw-2">*</span><a href="#97">dest</a>).app_name = glib::ffi::g_strdup((<span class="kw-2">*</span><a href="#97">src</a>).app_name);
+    (<span class="kw-2">*</span><a href="#97">dest</a>).app_exec = glib::ffi::g_strdup((<span class="kw-2">*</span><a href="#97">src</a>).app_exec);
+    (<span class="kw-2">*</span><a href="#97">dest</a>).groups = glib::ffi::g_strdupv((<span class="kw-2">*</span><a href="#97">src</a>).groups);
+    (<span class="kw-2">*</span><a href="#97">dest</a>).is_private = (<span class="kw-2">*</span><a href="#97">src</a>).is_private;
 }
 
-<span class="kw">unsafe fn </span>clear_recent_data(recent_data: <span class="kw-2">*mut </span>ffi::GtkRecentData) {
-    glib::ffi::g_free((<span class="kw-2">*</span>recent_data).display_name <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-    glib::ffi::g_free((<span class="kw-2">*</span>recent_data).description <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-    glib::ffi::g_free((<span class="kw-2">*</span>recent_data).mime_type <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-    glib::ffi::g_free((<span class="kw-2">*</span>recent_data).app_name <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-    glib::ffi::g_free((<span class="kw-2">*</span>recent_data).app_exec <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-    glib::ffi::g_strfreev((<span class="kw-2">*</span>recent_data).groups <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+<span class="kw">unsafe fn </span>clear_recent_data(recent_data: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkRecentData.html">ffi::GtkRecentData</a>) {
+    glib::ffi::g_free((<span class="kw-2">*</span><a href="#108">recent_data</a>).display_name <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+    glib::ffi::g_free((<span class="kw-2">*</span><a href="#108">recent_data</a>).description <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+    glib::ffi::g_free((<span class="kw-2">*</span><a href="#108">recent_data</a>).mime_type <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+    glib::ffi::g_free((<span class="kw-2">*</span><a href="#108">recent_data</a>).app_name <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+    glib::ffi::g_free((<span class="kw-2">*</span><a href="#108">recent_data</a>).app_exec <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+    glib::ffi::g_strfreev((<span class="kw-2">*</span><a href="#108">recent_data</a>).groups <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

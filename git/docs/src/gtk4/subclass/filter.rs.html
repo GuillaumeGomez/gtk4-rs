@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/filter.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>filter.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/filter.rs`."><title>filter.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -151,85 +153,116 @@
 <a href="#78" id="78">78</a>
 <a href="#79" id="79">79</a>
 <a href="#80" id="80">80</a>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
+<a href="#81" id="81">81</a>
+<a href="#82" id="82">82</a>
+<a href="#83" id="83">83</a>
+<a href="#84" id="84">84</a>
+<a href="#85" id="85">85</a>
+<a href="#86" id="86">86</a>
+<a href="#87" id="87">87</a>
+<a href="#88" id="88">88</a>
+<a href="#89" id="89">89</a>
+<a href="#90" id="90">90</a>
+<a href="#91" id="91">91</a>
+<a href="#92" id="92">92</a>
+<a href="#93" id="93">93</a>
+<a href="#94" id="94">94</a>
+<a href="#95" id="95">95</a>
+<a href="#96" id="96">96</a>
+</pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 // rustdoc-stripper-ignore-next
 </span><span class="doccomment">//! Traits intended for subclassing [`Filter`](crate::Filter).
 
-</span><span class="kw">use crate</span>::{prelude::<span class="kw-2">*</span>, subclass::prelude::<span class="kw-2">*</span>, Filter, FilterMatch};
-<span class="kw">use </span>glib::{translate::<span class="kw-2">*</span>, Object};
+</span><span class="kw">use </span>glib::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.Object.html">Object</a>};
 
-<span class="kw">pub trait </span>FilterImpl: FilterImplExt + ObjectImpl {
-    <span class="attr">#[doc(alias = <span class="string">&quot;get_strictness&quot;</span>)]
-    </span><span class="kw">fn </span>strictness(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; FilterMatch {
-        <span class="self">self</span>.parent_strictness()
+<span class="kw">use crate</span>::{<a href="../lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="mod.rs.html#91-174">subclass::prelude</a>::<span class="kw-2">*</span>, <a href="../auto/filter.rs.html#13-59">Filter</a>, <a href="../auto/enums.rs.html#4916-4931">FilterMatch</a>};
+
+<span class="kw">pub trait </span><a href="../../../gtk4/subclass/filter/trait.FilterImpl.html">FilterImpl</a>: <a href="#38-63">FilterImplExt</a> + <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/object/trait.ObjectImpl.html">ObjectImpl</a> {
+    <span class="doccomment">/// Gets the known strictness of @filters.
+    ///
+    /// If the strictness is not known, [`FilterMatch::Some`][crate::FilterMatch::Some] is returned.
+    ///
+    /// This value may change after emission of the [`changed`][struct@crate::Filter#changed]
+    /// signal.
+    ///
+    /// This function is meant purely for optimization purposes, filters can
+    /// choose to omit implementing it, but [`FilterListModel`][crate::FilterListModel] uses it.
+    ///
+    /// # Returns
+    ///
+    /// the strictness of @self
+    </span><span class="attr">#[doc(alias = <span class="string">"get_strictness"</span>)]
+    </span><span class="kw">fn </span>strictness(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../auto/enums.rs.html#4916-4931">FilterMatch</a> {
+        <a class="self" href="#25">self</a>.<a href="#39-48">parent_strictness</a>()
     }
-    <span class="kw">fn </span>match_(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span>Object) -&gt; bool {
-        <span class="self">self</span>.parent_match_(item)
+    <span class="kw">fn </span>match_(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.Object.html">Object</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+        <a class="self" href="#28">self</a>.<a href="#50-62">parent_match_</a>(<a href="#28">item</a>)
     }
 }
 
-<span class="kw">pub trait </span>FilterImplExt: ObjectSubclass {
-    <span class="kw">fn </span>parent_strictness(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; FilterMatch;
-    <span class="kw">fn </span>parent_match_(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span>Object) -&gt; bool;
+<span class="kw">mod </span>sealed {
+    <span class="kw">pub trait </span>Sealed {}
+    <span class="kw">impl</span>&lt;T: <a href="#38-63"><span class="kw">super</span>::FilterImplExt</a>&gt; <a href="#34">Sealed</a> <span class="kw">for </span>T {}
 }
 
-<span class="kw">impl</span>&lt;T: FilterImpl&gt; FilterImplExt <span class="kw">for </span>T {
-    <span class="kw">fn </span>parent_strictness(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; FilterMatch {
+<span class="kw">pub trait </span><a href="../../../gtk4/subclass/filter/trait.FilterImplExt.html">FilterImplExt</a>: <a href="#34">sealed::Sealed</a> + <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclass.html">ObjectSubclass</a> {
+    <span class="kw">fn </span>parent_strictness(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="../auto/enums.rs.html#4916-4931">FilterMatch</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkFilterClass;
-            <span class="kw">let </span>f = (<span class="kw-2">*</span>parent_class)
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#41">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkFilterClass.html">ffi::GtkFilterClass</a>;
+            <span class="kw">let </span>f = (<span class="kw-2">*</span><a href="#42">parent_class</a>)
                 .get_strictness
-                .expect(<span class="string">&quot;No parent class impl for \&quot;get_strictness\&quot;&quot;</span>);
-            from_glib(f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;Filter&gt;().to_glib_none().<span class="number">0</span>))
+                .expect(<span class="string">"No parent class impl for \"get_strictness\""</span>);
+            from_glib(<a href="#43">f</a>(<a class="self" href="#39">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/filter.rs.html#13-59">Filter</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
         }
     }
 
-    <span class="kw">fn </span>parent_match_(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span>Object) -&gt; bool {
+    <span class="kw">fn </span>parent_match_(<span class="kw-2">&amp;</span><span class="self">self</span>, item: <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.Object.html">Object</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkFilterClass;
-            <span class="kw">let </span>f = (<span class="kw-2">*</span>parent_class)
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#52">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkFilterClass.html">ffi::GtkFilterClass</a>;
+            <span class="kw">let </span>f = (<span class="kw-2">*</span><a href="#53">parent_class</a>)
                 .match_
-                .expect(<span class="string">&quot;No parent class impl for \&quot;match\&quot;&quot;</span>);
-            from_glib(f(
-                <span class="self">self</span>.obj().unsafe_cast_ref::&lt;Filter&gt;().to_glib_none().<span class="number">0</span>,
-                item.to_glib_none().<span class="number">0</span>,
+                .expect(<span class="string">"No parent class impl for \"match\""</span>);
+            from_glib(<a href="#54">f</a>(
+                <a class="self" href="#50">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/filter.rs.html#13-59">Filter</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#50">item</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 }
 
-<span class="kw">unsafe impl</span>&lt;T: FilterImpl&gt; IsSubclassable&lt;T&gt; <span class="kw">for </span>Filter {
+<span class="kw">impl</span>&lt;T: <a href="#10-31">FilterImpl</a>&gt; <a href="#38-63">FilterImplExt</a> <span class="kw">for </span>T {}
+
+<span class="kw">unsafe impl</span>&lt;T: <a href="#10-31">FilterImpl</a>&gt; IsSubclassable&lt;T&gt; <span class="kw">for </span><a href="../auto/filter.rs.html#13-59">Filter</a> {
     <span class="kw">fn </span>class_init(class: <span class="kw-2">&amp;mut </span>glib::Class&lt;<span class="self">Self</span>&gt;) {
-        <span class="self">Self</span>::parent_class_init::&lt;T&gt;(class);
+        <span class="self">Self</span>::parent_class_init::&lt;T&gt;(<a href="#68">class</a>);
 
-        <span class="macro">assert_initialized_main_thread!</span>();
+        <a class="macro" href="../rt.rs.html#23-35">assert_initialized_main_thread!</a>();
 
-        <span class="kw">let </span>klass = class.as_mut();
-        klass.match_ = <span class="prelude-val">Some</span>(filter_match::&lt;T&gt;);
-        klass.get_strictness = <span class="prelude-val">Some</span>(filter_get_strictness::&lt;T&gt;);
+        <span class="kw">let </span>klass = <a href="#68">class</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsMut.html">as_mut</a>();
+        <a href="#73">klass</a>.match_ = <span class="prelude-val">Some</span>(filter_match::&lt;T&gt;);
+        <a href="#73">klass</a>.get_strictness = <span class="prelude-val">Some</span>(filter_get_strictness::&lt;T&gt;);
     }
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>filter_get_strictness&lt;T: FilterImpl&gt;(
-    ptr: <span class="kw-2">*mut </span>ffi::GtkFilter,
-) -&gt; ffi::GtkFilterMatch {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>filter_get_strictness&lt;T: <a href="#10-31">FilterImpl</a>&gt;(
+    ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkFilter.html">ffi::GtkFilter</a>,
+) -&gt; <a href="../../../gtk4_sys/type.GtkFilterMatch.html">ffi::GtkFilterMatch</a> {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#80">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#82">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.strictness().into_glib()
+    <a href="#83">imp</a>.<a href="#25-27">strictness</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>()
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>filter_match&lt;T: FilterImpl&gt;(
-    ptr: <span class="kw-2">*mut </span>ffi::GtkFilter,
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>filter_match&lt;T: <a href="#10-31">FilterImpl</a>&gt;(
+    ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkFilter.html">ffi::GtkFilter</a>,
     itemptr: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
 ) -&gt; glib::ffi::gboolean {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#89">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#92">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.match_(<span class="kw-2">&amp;</span>from_glib_borrow(itemptr)).into_glib()
+    <a href="#93">imp</a>.<a href="#28-30">match_</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#90">itemptr</a>)).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>()
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

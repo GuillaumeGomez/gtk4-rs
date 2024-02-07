@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4-wayland/src/wayland_display.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>wayland_display.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4-wayland/src/wayland_display.rs`."><title>wayland_display.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4_wayland" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../gdk4_wayland/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gdk4_wayland/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -182,48 +184,41 @@
 <a href="#109" id="109">109</a>
 <a href="#110" id="110">110</a>
 <a href="#111" id="111">111</a>
-<a href="#112" id="112">112</a>
-<a href="#113" id="113">113</a>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
+</pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use </span><span class="kw">crate</span>::WaylandDisplay;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;wayland_crate&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;wayland_crate&quot;</span>)))]
-</span><span class="kw">use </span>glib::{once_cell::sync::Lazy, prelude::<span class="kw-2">*</span>, translate::<span class="kw-2">*</span>, Quark};
-
-<span class="attr">#[cfg(any(all(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;egl&quot;</span>), feature = <span class="string">&quot;dox&quot;</span>))]
-#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(all(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;egl&quot;</span>))))]
-</span><span class="kw">use </span>khronos_egl <span class="kw">as </span>egl;
-
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;wayland_crate&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;wayland_crate&quot;</span>)))]
+</span><span class="attr">#[cfg(feature = <span class="string">"wayland_crate"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"wayland_crate"</span>)))]
+</span><span class="kw">use </span>glib::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/quark/struct.Quark.html">Quark</a>};
+<span class="attr">#[cfg(all(feature = <span class="string">"v4_4"</span>, feature = <span class="string">"egl"</span>))]
+#[cfg_attr(docsrs, doc(cfg(all(feature = <span class="string">"v4_4"</span>, feature = <span class="string">"egl"</span>))))]
+</span><span class="kw">use </span><a href="https://docs.rs/khronos-egl/latest/khronos_egl/index.html">khronos_egl</a> <span class="kw">as </span>egl;
+<span class="attr">#[cfg(feature = <span class="string">"wayland_crate"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"wayland_crate"</span>)))]
 </span><span class="kw">use </span>wayland_client::{
     backend::ObjectId,
-    protocol::{wl_compositor::WlCompositor, wl_display::WlDisplay},
-    Proxy,
+    protocol::{<a href="https://smithay.github.io/wayland-rs/wayland_client/protocol/wl_compositor/struct.WlCompositor.html">wl_compositor::WlCompositor</a>, <a href="https://smithay.github.io/wayland-rs/wayland_client/protocol/wl_display/struct.WlDisplay.html">wl_display::WlDisplay</a>},
+    <a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html">Proxy</a>,
 };
 
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;wayland_crate&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-</span><span class="kw">static </span>WAYLAND_DISPLAY_CONNECTION_QUARK: Lazy&lt;Quark&gt; =
-    Lazy::new(|| Quark::from_str(<span class="string">&quot;gtk-rs-wayland-display-connection-quark&quot;</span>));
+<span class="kw">use </span><a href="auto/wayland_display.rs.html#8-28"><span class="kw">crate</span>::WaylandDisplay</a>;
 
-<span class="kw">impl </span>WaylandDisplay {
+<span class="kw">impl </span><a href="auto/wayland_display.rs.html#8-28">WaylandDisplay</a> {
     <span class="doccomment">/// Retrieves the EGL display connection object for the given GDK display.
     ///
     /// # Returns
     ///
     /// the EGL display
-    </span><span class="attr">#[cfg(any(all(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;egl&quot;</span>), feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(all(feature = <span class="string">&quot;v4_4&quot;</span>, feature = <span class="string">&quot;egl&quot;</span>))))]
-    #[doc(alias = <span class="string">&quot;gdk_wayland_display_get_egl_display&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_egl_display&quot;</span>)]
-    </span><span class="kw">pub fn </span>egl_display(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;egl::Display&gt; {
+    </span><span class="attr">#[cfg(all(feature = <span class="string">"v4_4"</span>, feature = <span class="string">"egl"</span>))]
+    #[cfg_attr(docsrs, doc(cfg(all(feature = <span class="string">"v4_4"</span>, feature = <span class="string">"egl"</span>))))]
+    #[doc(alias = <span class="string">"gdk_wayland_display_get_egl_display"</span>)]
+    #[doc(alias = <span class="string">"get_egl_display"</span>)]
+    </span><span class="kw">pub fn </span>egl_display(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://docs.rs/khronos-egl/latest/khronos_egl/egl1_0/struct.Display.html">egl::Display</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>ptr = ffi::gdk_wayland_display_get_egl_display(<span class="self">self</span>.to_glib_none().<span class="number">0</span>);
+            <span class="kw">let </span>ptr = ffi::gdk_wayland_display_get_egl_display(<a class="self" href="#29">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
             <span class="kw">if </span>ptr.is_null() {
                 <span class="prelude-val">None
             </span>} <span class="kw">else </span>{
-                <span class="prelude-val">Some</span>(egl::Display::from_ptr(ptr))
+                <span class="prelude-val">Some</span>(egl::Display::from_ptr(<a href="#31">ptr</a>))
             }
         }
     }
@@ -233,21 +228,21 @@
     /// # Returns
     ///
     /// a Wayland `wl_compositor`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_wayland_display_get_wl_compositor&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_wl_compositor&quot;</span>)]
-    #[cfg(any(feature = <span class="string">&quot;wayland_crate&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;wayland_crate&quot;</span>)))]
-    </span><span class="kw">pub fn </span>wl_compositor(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;WlCompositor&gt; {
+    </span><span class="attr">#[doc(alias = <span class="string">"gdk_wayland_display_get_wl_compositor"</span>)]
+    #[doc(alias = <span class="string">"get_wl_compositor"</span>)]
+    #[cfg(feature = <span class="string">"wayland_crate"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"wayland_crate"</span>)))]
+    </span><span class="kw">pub fn </span>wl_compositor(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://smithay.github.io/wayland-rs/wayland_client/protocol/wl_compositor/struct.WlCompositor.html">WlCompositor</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>compositor_ptr = ffi::gdk_wayland_display_get_wl_compositor(<span class="self">self</span>.to_glib_none().<span class="number">0</span>);
+            <span class="kw">let </span>compositor_ptr = ffi::gdk_wayland_display_get_wl_compositor(<a class="self" href="#49">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
             <span class="kw">if </span>compositor_ptr.is_null() {
                 <span class="prelude-val">None
             </span>} <span class="kw">else </span>{
-                <span class="kw">let </span>cnx = <span class="self">self</span>.connection();
-                <span class="kw">let </span>id = ObjectId::from_ptr(WlCompositor::interface(), compositor_ptr <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>)
+                <span class="kw">let </span>cnx = <a class="self" href="#49">self</a>.<a href="#88-110">connection</a>();
+                <span class="kw">let </span>id = ObjectId::from_ptr(<a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html">WlCompositor::interface</a>(), <a href="#51">compositor_ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>)
                     .unwrap();
 
-                WlCompositor::from_id(<span class="kw-2">&amp;</span>cnx, id).ok()
+                <a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html">WlCompositor::from_id</a>(<span class="kw-2">&amp;</span><a href="#55">cnx</a>, <a href="#56">id</a>).ok()
             }
         }
     }
@@ -257,45 +252,47 @@
     /// # Returns
     ///
     /// a Wayland `wl_display`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_wayland_display_get_wl_display&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_wl_display&quot;</span>)]
-    #[cfg(any(feature = <span class="string">&quot;wayland_crate&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;wayland_crate&quot;</span>)))]
-    </span><span class="kw">pub fn </span>wl_display(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;WlDisplay&gt; {
+    </span><span class="attr">#[doc(alias = <span class="string">"gdk_wayland_display_get_wl_display"</span>)]
+    #[doc(alias = <span class="string">"get_wl_display"</span>)]
+    #[cfg(feature = <span class="string">"wayland_crate"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"wayland_crate"</span>)))]
+    </span><span class="kw">pub fn </span>wl_display(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://smithay.github.io/wayland-rs/wayland_client/protocol/wl_display/struct.WlDisplay.html">WlDisplay</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>display_ptr = ffi::gdk_wayland_display_get_wl_display(<span class="self">self</span>.to_glib_none().<span class="number">0</span>);
+            <span class="kw">let </span>display_ptr = ffi::gdk_wayland_display_get_wl_display(<a class="self" href="#73">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
             <span class="kw">if </span>display_ptr.is_null() {
                 <span class="prelude-val">None
             </span>} <span class="kw">else </span>{
-                <span class="kw">let </span>cnx = <span class="self">self</span>.connection();
-                <span class="kw">let </span>id = ObjectId::from_ptr(WlDisplay::interface(), display_ptr <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>).unwrap();
+                <span class="kw">let </span>cnx = <a class="self" href="#73">self</a>.<a href="#88-110">connection</a>();
+                <span class="kw">let </span>id = ObjectId::from_ptr(<a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html">WlDisplay::interface</a>(), <a href="#75">display_ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>).unwrap();
 
-                WlDisplay::from_id(<span class="kw-2">&amp;</span>cnx, id).ok()
+                <a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html">WlDisplay::from_id</a>(<span class="kw-2">&amp;</span><a href="#79">cnx</a>, <a href="#80">id</a>).ok()
             }
         }
     }
 
-    <span class="attr">#[cfg(any(feature = <span class="string">&quot;wayland_crate&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>connection(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; wayland_client::Connection {
+    <span class="attr">#[cfg(feature = <span class="string">"wayland_crate"</span>)]
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>connection(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://smithay.github.io/wayland-rs/wayland_client/conn/struct.Connection.html">wayland_client::Connection</a> {
+        <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/std/sync/once_lock/struct.OnceLock.html">std::sync::OnceLock</a>;
+        <span class="kw">static </span>QUARK: OnceLock&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/quark/struct.Quark.html">Quark</a>&gt; = OnceLock::new();
+        <span class="kw">let </span>quark =
+            <span class="kw-2">*</span><a href="#90">QUARK</a>.get_or_init(|| Quark::from_str(<span class="string">"gtk-rs-wayland-display-connection-quark"</span>));
+
         <span class="kw">unsafe </span>{
-            <span class="kw">match </span><span class="self">self
-                </span>.qdata::&lt;<span class="prelude-ty">Option</span>&lt;wayland_client::Connection&gt;&gt;(<span class="kw-2">*</span>WAYLAND_DISPLAY_CONNECTION_QUARK)
-            {
-                <span class="prelude-val">Some</span>(conn) =&gt; conn.as_ref().clone().unwrap(),
+            <span class="kw">match </span><a class="self" href="#88">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">qdata</a>::&lt;<span class="prelude-ty">Option</span>&lt;<a href="https://smithay.github.io/wayland-rs/wayland_client/conn/struct.Connection.html">wayland_client::Connection</a>&gt;&gt;(<a href="#91">quark</a>) {
+                <span class="prelude-val">Some</span>(conn) =&gt; <a href="#96">conn</a>.as_ref().<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>().unwrap(),
                 <span class="prelude-val">None </span>=&gt; {
                     <span class="kw">let </span>display_ptr =
-                        ffi::gdk_wayland_display_get_wl_display(<span class="self">self</span>.to_glib_none().<span class="number">0</span>);
+                        ffi::gdk_wayland_display_get_wl_display(<a class="self" href="#88">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
                     <span class="kw">let </span>backend = wayland_backend::sys::client::Backend::from_foreign_display(
-                        display_ptr <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                        <a href="#98">display_ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                     );
-                    <span class="kw">let </span>conn = wayland_client::Connection::from_backend(backend);
-                    <span class="self">self</span>.set_qdata(<span class="kw-2">*</span>WAYLAND_DISPLAY_CONNECTION_QUARK, conn.clone());
+                    <span class="kw">let </span>conn = wayland_client::Connection::from_backend(<a href="#100">backend</a>);
+                    <a class="self" href="#88">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">set_qdata</a>(<a href="#91">quark</a>, <a href="#103">conn</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>());
 
-                    conn
+                    <a href="#103">conn</a>
                 }
             }
         }
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4_wayland" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

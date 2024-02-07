@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/gesture_long_press.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>gesture_long_press.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/gesture_long_press.rs`."><title>gesture_long_press.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -468,25 +470,19 @@
 <a href="#395" id="395">395</a>
 <a href="#396" id="396">396</a>
 <a href="#397" id="397">397</a>
-<a href="#398" id="398">398</a>
-<a href="#399" id="399">399</a>
-<a href="#400" id="400">400</a>
-<a href="#401" id="401">401</a>
-<a href="#402" id="402">402</a>
-<a href="#403" id="403">403</a>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+</pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use crate</span>::{EventController, Gesture, GestureSingle, PropagationLimit, PropagationPhase};
+</span><span class="kw">use crate</span>::{<a href="event_controller.rs.html#13-64">EventController</a>, <a href="gesture.rs.html#14-213">Gesture</a>, <a href="gesture_single.rs.html#13-95">GestureSingle</a>, <a href="enums.rs.html#9067-9079">PropagationLimit</a>, <a href="enums.rs.html#9169-9191">PropagationPhase</a>};
 <span class="kw">use </span>glib::{
-    prelude::<span class="kw-2">*</span>,
-    signal::{connect_raw, SignalHandlerId},
-    translate::<span class="kw-2">*</span>,
+    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>,
+    signal::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a>},
+    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>,
 };
-<span class="kw">use </span>std::{boxed::Box <span class="kw">as </span>Box_, fmt, mem::transmute};
+<span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">std::boxed::Box</a> <span class="kw">as </span>Box_;
 
-<span class="macro">glib::wrapper! </span>{
+<a class="macro" href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/macro.wrapper.html">glib::wrapper! </a>{
     <span class="doccomment">/// [`GestureLongPress`][crate::GestureLongPress] is a [`Gesture`][crate::Gesture] for long presses.
     ///
     /// This gesture is also known as “Press and Hold”.
@@ -594,8 +590,8 @@
     ///
     /// Note: These conditions may also happen when an extra touch
     /// (eg. a third touch on a 2-touches gesture) is lifted, in that
-    /// situation @sequence won&#39;t pertain to the current set of active
-    /// touches, so don&#39;t rely on this being true.
+    /// situation @sequence won't pertain to the current set of active
+    /// touches, so don't rely on this being true.
     ///
     ///
     ///
@@ -606,7 +602,7 @@
     /// This usually happens on active touches when
     /// [`EventControllerExt::reset()`][crate::prelude::EventControllerExt::reset()] is called on @gesture
     /// (manually, due to grabs...), or the individual @sequence
-    /// was claimed by parent widgets&#39; controllers (see
+    /// was claimed by parent widgets' controllers (see
     /// [`GestureExt::set_sequence_state()`][crate::prelude::GestureExt::set_sequence_state()]).
     ///
     /// @gesture must forget everything about @sequence as in
@@ -649,32 +645,32 @@
     /// # Implements
     ///
     /// [`GestureSingleExt`][trait@crate::prelude::GestureSingleExt], [`GestureExt`][trait@crate::prelude::GestureExt], [`EventControllerExt`][trait@crate::prelude::EventControllerExt], [`trait@glib::ObjectExt`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkGestureLongPress&quot;</span>)]
-    </span><span class="kw">pub struct </span>GestureLongPress(Object&lt;ffi::GtkGestureLongPress, ffi::GtkGestureLongPressClass&gt;) @extends GestureSingle, Gesture, EventController;
+    </span><span class="attr">#[doc(alias = <span class="string">"GtkGestureLongPress"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../../gtk4/struct.GestureLongPress.html">GestureLongPress</a>(Object&lt;<a href="../../../gtk4_sys/struct.GtkGestureLongPress.html">ffi::GtkGestureLongPress</a>, <a href="../../../gtk4_sys/type.GtkGestureLongPressClass.html">ffi::GtkGestureLongPressClass</a>&gt;) @extends <a href="gesture_single.rs.html#13-95">GestureSingle</a>, <a href="gesture.rs.html#14-213">Gesture</a>, <a href="event_controller.rs.html#13-64">EventController</a>;
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::gtk_gesture_long_press_get_type(),
     }
 }
 
-<span class="kw">impl </span>GestureLongPress {
+<span class="kw">impl </span><a href="#13-182">GestureLongPress</a> {
     <span class="doccomment">/// Returns a newly created [`Gesture`][crate::Gesture] that recognizes long presses.
     ///
     /// # Returns
     ///
     /// a newly created [`GestureLongPress`][crate::GestureLongPress].
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_gesture_long_press_new&quot;</span>)]
-    </span><span class="kw">pub fn </span>new() -&gt; GestureLongPress {
-        <span class="macro">assert_initialized_main_thread!</span>();
-        <span class="kw">unsafe </span>{ Gesture::from_glib_full(ffi::gtk_gesture_long_press_new()).unsafe_cast() }
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_gesture_long_press_new"</span>)]
+    </span><span class="kw">pub fn </span>new() -&gt; <a href="#13-182">GestureLongPress</a> {
+        <a class="macro" href="../rt.rs.html#23-35">assert_initialized_main_thread!</a>();
+        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrFull.html">Gesture::from_glib_full</a>(ffi::gtk_gesture_long_press_new()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast</a>() }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Creates a new builder-pattern struct instance to construct [`GestureLongPress`] objects.
     ///
     /// This method returns an instance of [`GestureLongPressBuilder`](crate::builders::GestureLongPressBuilder) which can be used to create [`GestureLongPress`] objects.
-    </span><span class="kw">pub fn </span>builder() -&gt; GestureLongPressBuilder {
-        GestureLongPressBuilder::new()
+    </span><span class="kw">pub fn </span>builder() -&gt; <a href="#317-319">GestureLongPressBuilder</a> {
+        <a href="#322-326">GestureLongPressBuilder::new</a>()
     }
 
     <span class="doccomment">/// Returns the delay factor.
@@ -682,10 +678,10 @@
     /// # Returns
     ///
     /// the delay factor
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_gesture_long_press_get_delay_factor&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_delay_factor&quot;</span>)]
-    </span><span class="kw">pub fn </span>delay_factor(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f64 {
-        <span class="kw">unsafe </span>{ ffi::gtk_gesture_long_press_get_delay_factor(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_gesture_long_press_get_delay_factor"</span>)]
+    #[doc(alias = <span class="string">"get_delay_factor"</span>)]
+    </span><span class="kw">pub fn </span>delay_factor(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a> {
+        <span class="kw">unsafe </span>{ ffi::gtk_gesture_long_press_get_delay_factor(<a class="self" href="#211">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 
     <span class="doccomment">/// Applies the given delay factor.
@@ -694,33 +690,33 @@
     /// Valid values are in the range [0.5..2.0].
     /// ## `delay_factor`
     /// The delay factor to apply
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_gesture_long_press_set_delay_factor&quot;</span>)]
-    </span><span class="kw">pub fn </span>set_delay_factor(<span class="kw-2">&amp;</span><span class="self">self</span>, delay_factor: f64) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_gesture_long_press_set_delay_factor"</span>)]
+    </span><span class="kw">pub fn </span>set_delay_factor(<span class="kw-2">&amp;</span><span class="self">self</span>, delay_factor: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_gesture_long_press_set_delay_factor(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, delay_factor);
+            ffi::gtk_gesture_long_press_set_delay_factor(<a class="self" href="#222">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#222">delay_factor</a>);
         }
     }
 
     <span class="doccomment">/// Emitted whenever a press moved too far, or was released
     /// before [`pressed`][struct@crate::GestureLongPress#pressed] happened.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;cancelled&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_cancelled&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cancelled_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>GestureLongPress) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkGestureLongPress,
+    </span><span class="attr">#[doc(alias = <span class="string">"cancelled"</span>)]
+    </span><span class="kw">pub fn </span>connect_cancelled&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>cancelled_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-182">GestureLongPress</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkGestureLongPress.html">ffi::GtkGestureLongPress</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#234">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#236">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#233">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;cancelled\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#231">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#231">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"cancelled\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     cancelled_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#240">f</a>),
             )
         }
     }
@@ -731,57 +727,57 @@
     /// the X coordinate where the press happened, relative to the widget allocation
     /// ## `y`
     /// the Y coordinate where the press happened, relative to the widget allocation
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;pressed&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_pressed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, f64, f64) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>pressed_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>GestureLongPress, f64, f64) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkGestureLongPress,
+    </span><span class="attr">#[doc(alias = <span class="string">"pressed"</span>)]
+    </span><span class="kw">pub fn </span>connect_pressed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>pressed_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-182">GestureLongPress</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkGestureLongPress.html">ffi::GtkGestureLongPress</a>,
             x: libc::c_double,
             y: libc::c_double,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this), x, y)
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#264">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#266">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#261">this</a>), <a href="#262">x</a>, <a href="#263">y</a>)
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;pressed\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#259">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#259">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"pressed\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     pressed_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#270">f</a>),
             )
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;delay-factor&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_delay_factor_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_delay_factor_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>GestureLongPress) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkGestureLongPress,
+    <span class="attr">#[doc(alias = <span class="string">"delay-factor"</span>)]
+    </span><span class="kw">pub fn </span>connect_delay_factor_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_delay_factor_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-182">GestureLongPress</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkGestureLongPress.html">ffi::GtkGestureLongPress</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#287">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#289">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#285">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::delay-factor\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#283">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#283">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::delay-factor\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_delay_factor_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#293">f</a>),
             )
         }
     }
 }
 
-<span class="kw">impl </span>Default <span class="kw">for </span>GestureLongPress {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default</a> <span class="kw">for </span><a href="#13-182">GestureLongPress</a> {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::new()
+        <a href="#191-194"><span class="self">Self</span>::new</a>()
     }
 }
 
@@ -789,12 +785,12 @@
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`GestureLongPress`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
-</span><span class="kw">pub struct </span>GestureLongPressBuilder {
-    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">&#39;static</span>, GestureLongPress&gt;,
+</span><span class="attr">#[must_use = <span class="string">"The builder must be built to be used"</span>]
+</span><span class="kw">pub struct </span><a href="../../../gtk4/builders/struct.GestureLongPressBuilder.html">GestureLongPressBuilder</a> {
+    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">'static</span>, <a href="#13-182">GestureLongPress</a>&gt;,
 }
 
-<span class="kw">impl </span>GestureLongPressBuilder {
+<span class="kw">impl </span><a href="#317-319">GestureLongPressBuilder</a> {
     <span class="kw">fn </span>new() -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             builder: glib::object::Object::builder(),
@@ -802,80 +798,73 @@
     }
 
     <span class="doccomment">/// Factor by which to modify the default timeout.
-    </span><span class="kw">pub fn </span>delay_factor(<span class="self">self</span>, delay_factor: f64) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>delay_factor(<span class="self">self</span>, delay_factor: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;delay-factor&quot;</span>, delay_factor),
+            builder: <a class="self" href="#329">self</a>.builder.property(<span class="string">"delay-factor"</span>, <a href="#329">delay_factor</a>),
         }
     }
 
     <span class="doccomment">/// Mouse button number to listen to, or 0 to listen for any button.
-    </span><span class="kw">pub fn </span>button(<span class="self">self</span>, button: u32) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>button(<span class="self">self</span>, button: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;button&quot;</span>, button),
+            builder: <a class="self" href="#336">self</a>.builder.property(<span class="string">"button"</span>, <a href="#336">button</a>),
         }
     }
 
     <span class="doccomment">/// Whether the gesture is exclusive.
     ///
     /// Exclusive gestures only listen to pointer and pointer emulated events.
-    </span><span class="kw">pub fn </span>exclusive(<span class="self">self</span>, exclusive: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>exclusive(<span class="self">self</span>, exclusive: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;exclusive&quot;</span>, exclusive),
+            builder: <a class="self" href="#345">self</a>.builder.property(<span class="string">"exclusive"</span>, <a href="#345">exclusive</a>),
         }
     }
 
     <span class="doccomment">/// Whether the gesture handles only touch events.
-    </span><span class="kw">pub fn </span>touch_only(<span class="self">self</span>, touch_only: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>touch_only(<span class="self">self</span>, touch_only: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;touch-only&quot;</span>, touch_only),
+            builder: <a class="self" href="#352">self</a>.builder.property(<span class="string">"touch-only"</span>, <a href="#352">touch_only</a>),
         }
     }
 
     <span class="doccomment">/// The number of touch points that trigger
     /// recognition on this gesture.
-    </span><span class="kw">pub fn </span>n_points(<span class="self">self</span>, n_points: u32) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>n_points(<span class="self">self</span>, n_points: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;n-points&quot;</span>, n_points),
+            builder: <a class="self" href="#360">self</a>.builder.property(<span class="string">"n-points"</span>, <a href="#360">n_points</a>),
         }
     }
 
     <span class="doccomment">/// The name for this controller, typically used for debugging purposes.
-    </span><span class="kw">pub fn </span>name(<span class="self">self</span>, name: <span class="kw">impl </span>Into&lt;glib::GString&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>name(<span class="self">self</span>, name: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;name&quot;</span>, name.into()),
+            builder: <a class="self" href="#367">self</a>.builder.property(<span class="string">"name"</span>, <a href="#367">name</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
         }
     }
 
     <span class="doccomment">/// The limit for which events this controller will handle.
-    </span><span class="kw">pub fn </span>propagation_limit(<span class="self">self</span>, propagation_limit: PropagationLimit) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>propagation_limit(<span class="self">self</span>, propagation_limit: <a href="enums.rs.html#9067-9079">PropagationLimit</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self
+            builder: <span class="self"><a href="#374">self</a>
                 </span>.builder
-                .property(<span class="string">&quot;propagation-limit&quot;</span>, propagation_limit),
+                .property(<span class="string">"propagation-limit"</span>, <a href="#374">propagation_limit</a>),
         }
     }
 
     <span class="doccomment">/// The propagation phase at which this controller will handle events.
-    </span><span class="kw">pub fn </span>propagation_phase(<span class="self">self</span>, propagation_phase: PropagationPhase) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>propagation_phase(<span class="self">self</span>, propagation_phase: <a href="enums.rs.html#9169-9191">PropagationPhase</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self
+            builder: <span class="self"><a href="#383">self</a>
                 </span>.builder
-                .property(<span class="string">&quot;propagation-phase&quot;</span>, propagation_phase),
+                .property(<span class="string">"propagation-phase"</span>, <a href="#383">propagation_phase</a>),
         }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`GestureLongPress`].
-    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
-    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; GestureLongPress {
-        <span class="self">self</span>.builder.build()
+    </span><span class="attr">#[must_use = <span class="string">"Building the object from the builder is usually expensive and is not expected to have side effects"</span>]
+    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; <a href="#13-182">GestureLongPress</a> {
+        <a class="self" href="#394">self</a>.builder.build()
     }
 }
-
-<span class="kw">impl </span>fmt::Display <span class="kw">for </span>GestureLongPress {
-    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
-        f.write_str(<span class="string">&quot;GestureLongPress&quot;</span>)
-    }
-}
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

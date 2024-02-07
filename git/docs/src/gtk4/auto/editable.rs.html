@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/editable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>editable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/editable.rs`."><title>editable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1473,47 +1475,22 @@
 <a href="#1400" id="1400">1400</a>
 <a href="#1401" id="1401">1401</a>
 <a href="#1402" id="1402">1402</a>
-<a href="#1403" id="1403">1403</a>
-<a href="#1404" id="1404">1404</a>
-<a href="#1405" id="1405">1405</a>
-<a href="#1406" id="1406">1406</a>
-<a href="#1407" id="1407">1407</a>
-<a href="#1408" id="1408">1408</a>
-<a href="#1409" id="1409">1409</a>
-<a href="#1410" id="1410">1410</a>
-<a href="#1411" id="1411">1411</a>
-<a href="#1412" id="1412">1412</a>
-<a href="#1413" id="1413">1413</a>
-<a href="#1414" id="1414">1414</a>
-<a href="#1415" id="1415">1415</a>
-<a href="#1416" id="1416">1416</a>
-<a href="#1417" id="1417">1417</a>
-<a href="#1418" id="1418">1418</a>
-<a href="#1419" id="1419">1419</a>
-<a href="#1420" id="1420">1420</a>
-<a href="#1421" id="1421">1421</a>
-<a href="#1422" id="1422">1422</a>
-<a href="#1423" id="1423">1423</a>
-<a href="#1424" id="1424">1424</a>
-<a href="#1425" id="1425">1425</a>
-<a href="#1426" id="1426">1426</a>
-<a href="#1427" id="1427">1427</a>
-<a href="#1428" id="1428">1428</a>
-<a href="#1429" id="1429">1429</a>
-<a href="#1430" id="1430">1430</a>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+</pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use crate</span>::{Accessible, Buildable, ConstraintTarget, Widget};
+</span><span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+</span><span class="kw">use </span><a href="enums.rs.html#246-258"><span class="kw">crate</span>::AccessiblePlatformState</a>;
+<span class="kw">use crate</span>::{<a href="accessible.rs.html#16-66">Accessible</a>, <a href="buildable.rs.html#7-31">Buildable</a>, <a href="constraint_target.rs.html#7-22">ConstraintTarget</a>, <a href="widget.rs.html#18-853">Widget</a>};
 <span class="kw">use </span>glib::{
-    prelude::<span class="kw-2">*</span>,
-    signal::{connect_raw, SignalHandlerId},
-    translate::<span class="kw-2">*</span>,
+    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>,
+    signal::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a>},
+    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>,
 };
-<span class="kw">use </span>std::{boxed::Box <span class="kw">as </span>Box_, fmt, mem, mem::transmute};
+<span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">std::boxed::Box</a> <span class="kw">as </span>Box_;
 
-<span class="macro">glib::wrapper! </span>{
+<a class="macro" href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/macro.wrapper.html">glib::wrapper! </a>{
     <span class="doccomment">/// [`Editable`][crate::Editable] is an interface for text editing widgets.
     ///
     /// Typical examples of editable widgets are [`Entry`][crate::Entry] and
@@ -1548,7 +1525,7 @@
     ///   g_signal_handlers_unblock_by_func (editable,
     ///                                      (gpointer) insert_text_handler, data);
     ///
-    ///   g_signal_stop_emission_by_name (editable, &quot;insert_text&quot;);
+    ///   g_signal_stop_emission_by_name (editable, "insert_text");
     ///
     ///   g_free (result);
     /// }
@@ -1596,7 +1573,7 @@
     /// }
     /// ```
     ///
-    /// You don&#39;t need to provide any other vfuncs. The default implementations
+    /// You don't need to provide any other vfuncs. The default implementations
     /// work by forwarding to the delegate that the GtkEditableInterface.get_delegate()
     /// vfunc returns.
     ///
@@ -1649,8 +1626,8 @@
     /// It is important to note that if you create a [`Editable`][crate::Editable] that uses
     /// a delegate, the low level [`insert-text`][struct@crate::Editable#insert-text] and
     /// [`delete-text`][struct@crate::Editable#delete-text] signals will be propagated from the
-    /// &quot;wrapper&quot; editable to the delegate, but they will not be propagated from
-    /// the delegate to the &quot;wrapper&quot; editable, as they would cause an infinite
+    /// "wrapper" editable to the delegate, but they will not be propagated from
+    /// the delegate to the "wrapper" editable, as they would cause an infinite
     /// recursion. If you wish to connect to the [`insert-text`][struct@crate::Editable#insert-text]
     /// and [`delete-text`][struct@crate::Editable#delete-text] signals, you will need to connect
     /// to them on the delegate obtained via [`EditableExt::delegate()`][crate::prelude::EditableExt::delegate()].
@@ -1821,7 +1798,7 @@
     /// #### `margin-bottom`
     ///  Margin on bottom side of widget.
     ///
-    /// This property adds margin outside of the widget&#39;s normal size
+    /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
     ///
@@ -1834,7 +1811,7 @@
     /// This property supports left-to-right and right-to-left text
     /// directions.
     ///
-    /// This property adds margin outside of the widget&#39;s normal size
+    /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
     ///
@@ -1847,7 +1824,7 @@
     /// This property supports left-to-right and right-to-left text
     /// directions.
     ///
-    /// This property adds margin outside of the widget&#39;s normal size
+    /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
     ///
@@ -1857,7 +1834,7 @@
     /// #### `margin-top`
     ///  Margin on top side of widget.
     ///
-    /// This property adds margin outside of the widget&#39;s normal size
+    /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
     ///
@@ -1877,7 +1854,7 @@
     ///
     ///
     /// #### `overflow`
-    ///  How content outside the widget&#39;s content area is treated.
+    ///  How content outside the widget's content area is treated.
     ///
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
@@ -2093,15 +2070,20 @@
     /// #### `move-focus`
     ///  Emitted when the focus is moved.
     ///
+    /// The ::move-focus signal is a [keybinding signal](class.SignalAction.html).
+    ///
+    /// The default bindings for this signal are &lt;kbd&gt;Tab&lt;/kbd&gt; to move forward,
+    /// and &lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;Tab&lt;/kbd&gt; to move backward.
+    ///
     /// Action
     ///
     ///
     /// #### `query-tooltip`
-    ///  Emitted when the widgets tooltip is about to be shown.
+    ///  Emitted when the widget’s tooltip is about to be shown.
     ///
     /// This happens when the [`has-tooltip`][struct@crate::Widget#has-tooltip] property
     /// is [`true`] and the hover timeout has expired with the cursor hovering
-    /// &quot;above&quot; @widget; or emitted when @widget got focus in keyboard mode.
+    /// "above" @widget; or emitted when @widget got focus in keyboard mode.
     ///
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for @widget. If this is the case
@@ -2162,16 +2144,21 @@
     /// # Implements
     ///
     /// [`EditableExt`][trait@crate::prelude::EditableExt], [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`EditableExtManual`][trait@crate::prelude::EditableExtManual], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkEditable&quot;</span>)]
-    </span><span class="kw">pub struct </span>Editable(Interface&lt;ffi::GtkEditable, ffi::GtkEditableInterface&gt;) @requires Widget, Accessible, Buildable, ConstraintTarget;
+    </span><span class="attr">#[doc(alias = <span class="string">"GtkEditable"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../../gtk4/struct.Editable.html">Editable</a>(Interface&lt;<a href="../../../gtk4_sys/struct.GtkEditable.html">ffi::GtkEditable</a>, <a href="../../../gtk4_sys/struct.GtkEditableInterface.html">ffi::GtkEditableInterface</a>&gt;) @requires <a href="widget.rs.html#18-853">Widget</a>, <a href="accessible.rs.html#16-66">Accessible</a>, <a href="buildable.rs.html#7-31">Buildable</a>, <a href="constraint_target.rs.html#7-22">ConstraintTarget</a>;
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::gtk_editable_get_type(),
     }
 }
 
-<span class="kw">impl </span>Editable {
-    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>Editable&gt; = <span class="prelude-val">None</span>;
+<span class="kw">impl </span><a href="#16-676">Editable</a> {
+    <span class="kw">pub const </span>NONE: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="lifetime">'static </span><a href="#16-676">Editable</a>&gt; = <span class="prelude-val">None</span>;
+}
+
+<span class="kw">mod </span>sealed {
+    <span class="kw">pub trait </span>Sealed {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="#16-676"><span class="kw">super</span>::Editable</a>&gt;&gt; <a href="#683">Sealed</a> <span class="kw">for </span>T {}
 }
 
 <span class="doccomment">/// Trait containing all [`struct@Editable`] methods.
@@ -2179,12 +2166,55 @@
 /// # Implementors
 ///
 /// [`EditableLabel`][struct@crate::EditableLabel], [`Editable`][struct@crate::Editable], [`Entry`][struct@crate::Entry], [`PasswordEntry`][struct@crate::PasswordEntry], [`SearchEntry`][struct@crate::SearchEntry], [`SpinButton`][struct@crate::SpinButton], [`Text`][struct@crate::Text]
-</span><span class="kw">pub trait </span>EditableExt: <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub trait </span><a href="../../../gtk4/prelude/trait.EditableExt.html">EditableExt</a>: IsA&lt;<a href="#16-676">Editable</a>&gt; + <a href="#683">sealed::Sealed</a> + <span class="lifetime">'static </span>{
+    <span class="doccomment">/// Retrieves the accessible platform state from the editable delegate.
+    ///
+    /// This is an helper function to retrieve the accessible state for
+    /// [`Editable`][crate::Editable] interface implementations using a delegate pattern.
+    ///
+    /// You should call this function in your editable widget implementation
+    /// of the `vfunc::Gtk::Accessible::get_platform_state` virtual function, for
+    /// instance:
+    ///
+    /// **⚠️ The following code is in c ⚠️**
+    ///
+    /// ```c
+    /// static void
+    /// accessible_interface_init (GtkAccessibleInterface *iface)
+    /// {
+    ///   iface-&gt;get_platform_state = your_editable_get_accessible_platform_state;
+    /// }
+    ///
+    /// static gboolean
+    /// your_editable_get_accessible_platform_state (GtkAccessible *accessible,
+    ///                                              GtkAccessiblePlatformState state)
+    /// {
+    ///   return gtk_editable_delegate_get_accessible_platform_state (GTK_EDITABLE (accessible), state);
+    /// }
+    /// ```
+    /// ## `state`
+    /// what kind of accessible state to retrieve
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    #[doc(alias = <span class="string">"gtk_editable_delegate_get_accessible_platform_state"</span>)]
+    </span><span class="kw">fn </span>delegate_get_accessible_platform_state(<span class="kw-2">&amp;</span><span class="self">self</span>, state: <a href="enums.rs.html#246-258">AccessiblePlatformState</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_editable_delegate_get_accessible_platform_state(
+                <a class="self" href="#723">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#723">state</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
+            ))
+        }
+    }
+
     <span class="doccomment">/// Deletes the currently selected text of the editable.
     ///
     /// This call doesn’t do anything if there is no selected text.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_delete_selection&quot;</span>)]
-    </span><span class="kw">fn </span>delete_selection(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_delete_selection"</span>)]
+    </span><span class="kw">fn </span>delete_selection(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_delete_selection(<a class="self" href="#736">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        }
+    }
 
     <span class="doccomment">/// Deletes a sequence of characters.
     ///
@@ -2198,24 +2228,34 @@
     /// start position
     /// ## `end_pos`
     /// end position
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_delete_text&quot;</span>)]
-    </span><span class="kw">fn </span>delete_text(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_delete_text"</span>)]
+    </span><span class="kw">fn </span>delete_text(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, end_pos: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_delete_text(<a class="self" href="#755">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#755">start_pos</a>, <a href="#755">end_pos</a>);
+        }
+    }
 
     <span class="doccomment">/// Undoes the setup done by [`init_delegate()`][Self::init_delegate()].
     ///
     /// This is a helper function that should be called from dispose,
     /// before removing the delegate object.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_finish_delegate&quot;</span>)]
-    </span><span class="kw">fn </span>finish_delegate(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_finish_delegate"</span>)]
+    </span><span class="kw">fn </span>finish_delegate(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_finish_delegate(<a class="self" href="#766">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        }
+    }
 
     <span class="doccomment">/// Gets the alignment of the editable.
     ///
     /// # Returns
     ///
     /// the alignment
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_alignment&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_alignment&quot;</span>)]
-    </span><span class="kw">fn </span>alignment(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f32;
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_get_alignment"</span>)]
+    #[doc(alias = <span class="string">"get_alignment"</span>)]
+    </span><span class="kw">fn </span>alignment(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a> {
+        <span class="kw">unsafe </span>{ ffi::gtk_editable_get_alignment(<a class="self" href="#779">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
+    }
 
     <span class="doccomment">/// Retrieves a sequence of characters.
     ///
@@ -2235,9 +2275,17 @@
     /// a pointer to the contents of the widget as a
     ///   string. This string is allocated by the [`Editable`][crate::Editable] implementation
     ///   and should be freed by the caller.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_chars&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_chars&quot;</span>)]
-    </span><span class="kw">fn </span>chars(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32) -&gt; glib::GString;
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_get_chars"</span>)]
+    #[doc(alias = <span class="string">"get_chars"</span>)]
+    </span><span class="kw">fn </span>chars(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, end_pos: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a> {
+        <span class="kw">unsafe </span>{
+            from_glib_full(ffi::gtk_editable_get_chars(
+                <a class="self" href="#803">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#803">start_pos</a>,
+                <a href="#803">end_pos</a>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets the [`Editable`][crate::Editable] that @self is delegating its
     /// implementation to.
@@ -2247,37 +2295,57 @@
     /// # Returns
     ///
     /// the delegate [`Editable`][crate::Editable]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_delegate&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_delegate&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_get_delegate"</span>)]
+    #[doc(alias = <span class="string">"get_delegate"</span>)]
     #[must_use]
-    </span><span class="kw">fn </span>delegate(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Editable&gt;;
+    </span><span class="kw">fn </span>delegate(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="#16-676">Editable</a>&gt; {
+        <span class="kw">unsafe </span>{
+            from_glib_none(ffi::gtk_editable_get_delegate(
+                <a class="self" href="#824">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Retrieves whether @self is editable.
     ///
     /// # Returns
     ///
     /// [`true`] if @self is editable.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_editable&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_editable&quot;</span>)]
-    </span><span class="kw">fn </span>is_editable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_get_editable"</span>)]
+    #[doc(alias = <span class="string">"get_editable"</span>)]
+    </span><span class="kw">fn </span>is_editable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_editable_get_editable(
+                <a class="self" href="#839">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Gets if undo/redo actions are enabled for @self
     ///
     /// # Returns
     ///
     /// [`true`] if undo is enabled
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_enable_undo&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_enable_undo&quot;</span>)]
-    </span><span class="kw">fn </span>enables_undo(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_get_enable_undo"</span>)]
+    #[doc(alias = <span class="string">"get_enable_undo"</span>)]
+    </span><span class="kw">fn </span>enables_undo(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_editable_get_enable_undo(
+                <a class="self" href="#854">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="doccomment">/// Retrieves the desired maximum width of @self, in characters.
     ///
     /// # Returns
     ///
     /// the maximum width of the entry, in characters
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_max_width_chars&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_max_width_chars&quot;</span>)]
-    </span><span class="kw">fn </span>max_width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_get_max_width_chars"</span>)]
+    #[doc(alias = <span class="string">"get_max_width_chars"</span>)]
+    </span><span class="kw">fn </span>max_width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
+        <span class="kw">unsafe </span>{ ffi::gtk_editable_get_max_width_chars(<a class="self" href="#869">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
+    }
 
     <span class="doccomment">/// Retrieves the current position of the cursor relative
     /// to the start of the content of the editable.
@@ -2287,9 +2355,11 @@
     /// # Returns
     ///
     /// the cursor position
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_position&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_position&quot;</span>)]
-    </span><span class="kw">fn </span>position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_get_position"</span>)]
+    #[doc(alias = <span class="string">"get_position"</span>)]
+    </span><span class="kw">fn </span>position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
+        <span class="kw">unsafe </span>{ ffi::gtk_editable_get_position(<a class="self" href="#883">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
+    }
 
     <span class="doccomment">/// Retrieves the selection bound of the editable.
     ///
@@ -2308,9 +2378,24 @@
     ///
     /// ## `end_pos`
     /// location to store the end position
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_selection_bounds&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_selection_bounds&quot;</span>)]
-    </span><span class="kw">fn </span>selection_bounds(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(i32, i32)&gt;;
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_get_selection_bounds"</span>)]
+    #[doc(alias = <span class="string">"get_selection_bounds"</span>)]
+    </span><span class="kw">fn </span>selection_bounds(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(<a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>)&gt; {
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>start_pos = std::mem::MaybeUninit::uninit();
+            <span class="kw">let </span><span class="kw-2">mut </span>end_pos = std::mem::MaybeUninit::uninit();
+            <span class="kw">let </span>ret = from_glib(ffi::gtk_editable_get_selection_bounds(
+                <a class="self" href="#906">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#908">start_pos</a>.as_mut_ptr(),
+                <a href="#909">end_pos</a>.as_mut_ptr(),
+            ));
+            <span class="kw">if </span>ret {
+                <span class="prelude-val">Some</span>((<a href="#908">start_pos</a>.assume_init(), <a href="#909">end_pos</a>.assume_init()))
+            } <span class="kw">else </span>{
+                <span class="prelude-val">None
+            </span>}
+        }
+    }
 
     <span class="doccomment">/// Retrieves the contents of @self.
     ///
@@ -2319,9 +2404,11 @@
     /// # Returns
     ///
     /// a pointer to the contents of the editable
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_text&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_text&quot;</span>)]
-    </span><span class="kw">fn </span>text(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; glib::GString;
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_get_text"</span>)]
+    #[doc(alias = <span class="string">"get_text"</span>)]
+    </span><span class="kw">fn </span>text(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a> {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_editable_get_text(<a class="self" href="#932">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+    }
 
     <span class="doccomment">/// Gets the number of characters of space reserved
     /// for the contents of the editable.
@@ -2329,19 +2416,25 @@
     /// # Returns
     ///
     /// number of chars to request space for, or negative if unset
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_get_width_chars&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_width_chars&quot;</span>)]
-    </span><span class="kw">fn </span>width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_get_width_chars"</span>)]
+    #[doc(alias = <span class="string">"get_width_chars"</span>)]
+    </span><span class="kw">fn </span>width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
+        <span class="kw">unsafe </span>{ ffi::gtk_editable_get_width_chars(<a class="self" href="#944">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
+    }
 
     <span class="doccomment">/// Sets up a delegate for [`Editable`][crate::Editable].
     ///
     /// This is assuming that the get_delegate vfunc in the [`Editable`][crate::Editable]
-    /// interface has been set up for the @self&#39;s type.
+    /// interface has been set up for the @self's type.
     ///
     /// This is a helper function that should be called in instance init,
     /// after creating the delegate object.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_init_delegate&quot;</span>)]
-    </span><span class="kw">fn </span>init_delegate(<span class="kw-2">&amp;</span><span class="self">self</span>);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_init_delegate"</span>)]
+    </span><span class="kw">fn </span>init_delegate(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_init_delegate(<a class="self" href="#956">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        }
+    }
 
     <span class="doccomment">/// Inserts @length bytes of @text into the contents of the
     /// widget, at position @position.
@@ -2355,8 +2448,18 @@
     /// the length of the text in bytes, or -1
     /// ## `position`
     /// location of the position text will be inserted at
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_insert_text&quot;</span>)]
-    </span><span class="kw">fn </span>insert_text(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str, position: <span class="kw-2">&amp;mut </span>i32);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_insert_text"</span>)]
+    </span><span class="kw">fn </span>insert_text(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, position: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
+        <span class="kw">let </span>length = <a href="#975">text</a>.len() <span class="kw">as _</span>;
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_insert_text(
+                <a class="self" href="#975">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#975">text</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#976">length</a>,
+                <a href="#975">position</a>,
+            );
+        }
+    }
 
     <span class="doccomment">/// Selects a region of text.
     ///
@@ -2370,8 +2473,12 @@
     /// start of region
     /// ## `end_pos`
     /// end of region
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_select_region&quot;</span>)]
-    </span><span class="kw">fn </span>select_region(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_select_region"</span>)]
+    </span><span class="kw">fn </span>select_region(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, end_pos: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_select_region(<a class="self" href="#1000">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1000">start_pos</a>, <a href="#1000">end_pos</a>);
+        }
+    }
 
     <span class="doccomment">/// Sets the alignment for the contents of the editable.
     ///
@@ -2380,15 +2487,23 @@
     /// ## `xalign`
     /// The horizontal alignment, from 0 (left) to 1 (right).
     ///   Reversed for RTL layouts
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_alignment&quot;</span>)]
-    </span><span class="kw">fn </span>set_alignment(<span class="kw-2">&amp;</span><span class="self">self</span>, xalign: f32);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_set_alignment"</span>)]
+    </span><span class="kw">fn </span>set_alignment(<span class="kw-2">&amp;</span><span class="self">self</span>, xalign: <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_set_alignment(<a class="self" href="#1014">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1014">xalign</a>);
+        }
+    }
 
     <span class="doccomment">/// Determines if the user can edit the text in the editable widget.
     /// ## `is_editable`
     /// [`true`] if the user is allowed to edit the text
     ///   in the widget
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_editable&quot;</span>)]
-    </span><span class="kw">fn </span>set_editable(<span class="kw-2">&amp;</span><span class="self">self</span>, is_editable: bool);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_set_editable"</span>)]
+    </span><span class="kw">fn </span>set_editable(<span class="kw-2">&amp;</span><span class="self">self</span>, is_editable: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_set_editable(<a class="self" href="#1025">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1025">is_editable</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>());
+        }
+    }
 
     <span class="doccomment">/// If enabled, changes to @self will be saved for undo/redo
     /// actions.
@@ -2398,14 +2513,25 @@
     /// when [`visibility`][struct@crate::Text#visibility] is set to [`false`].
     /// ## `enable_undo`
     /// if undo/redo should be enabled
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_enable_undo&quot;</span>)]
-    </span><span class="kw">fn </span>set_enable_undo(<span class="kw-2">&amp;</span><span class="self">self</span>, enable_undo: bool);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_set_enable_undo"</span>)]
+    </span><span class="kw">fn </span>set_enable_undo(<span class="kw-2">&amp;</span><span class="self">self</span>, enable_undo: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_set_enable_undo(
+                <a class="self" href="#1040">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#1040">enable_undo</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
+            );
+        }
+    }
 
     <span class="doccomment">/// Sets the desired maximum width in characters of @self.
     /// ## `n_chars`
     /// the new desired maximum width, in characters
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_max_width_chars&quot;</span>)]
-    </span><span class="kw">fn </span>set_max_width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>, n_chars: i32);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_set_max_width_chars"</span>)]
+    </span><span class="kw">fn </span>set_max_width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>, n_chars: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_set_max_width_chars(<a class="self" href="#1053">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1053">n_chars</a>);
+        }
+    }
 
     <span class="doccomment">/// Sets the cursor position in the editable to the given value.
     ///
@@ -2416,16 +2542,24 @@
     /// of the editable. Note that @position is in characters, not in bytes.
     /// ## `position`
     /// the position of the cursor
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_position&quot;</span>)]
-    </span><span class="kw">fn </span>set_position(<span class="kw-2">&amp;</span><span class="self">self</span>, position: i32);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_set_position"</span>)]
+    </span><span class="kw">fn </span>set_position(<span class="kw-2">&amp;</span><span class="self">self</span>, position: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_set_position(<a class="self" href="#1069">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1069">position</a>);
+        }
+    }
 
     <span class="doccomment">/// Sets the text in the editable to the given value.
     ///
     /// This is replacing the current contents.
     /// ## `text`
     /// the text to set
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_text&quot;</span>)]
-    </span><span class="kw">fn </span>set_text(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_set_text"</span>)]
+    </span><span class="kw">fn </span>set_text(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_set_text(<a class="self" href="#1081">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1081">text</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        }
+    }
 
     <span class="doccomment">/// Changes the size request of the editable to be about the
     /// right size for @n_chars characters.
@@ -2435,26 +2569,38 @@
     /// If @n_chars is -1, the size reverts to the default size.
     /// ## `n_chars`
     /// width in chars
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_editable_set_width_chars&quot;</span>)]
-    </span><span class="kw">fn </span>set_width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>, n_chars: i32);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_editable_set_width_chars"</span>)]
+    </span><span class="kw">fn </span>set_width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>, n_chars: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
+        <span class="kw">unsafe </span>{
+            ffi::gtk_editable_set_width_chars(<a class="self" href="#1096">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#1096">n_chars</a>);
+        }
+    }
 
     <span class="doccomment">/// The current position of the insertion cursor in chars.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;cursor-position&quot;</span>)]
-    </span><span class="kw">fn </span>cursor_position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
+    </span><span class="attr">#[doc(alias = <span class="string">"cursor-position"</span>)]
+    </span><span class="kw">fn </span>cursor_position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1104">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"cursor-position"</span>)
+    }
 
     <span class="doccomment">/// The position of the opposite end of the selection from the cursor in chars.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;selection-bound&quot;</span>)]
-    </span><span class="kw">fn </span>selection_bound(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32;
+    </span><span class="attr">#[doc(alias = <span class="string">"selection-bound"</span>)]
+    </span><span class="kw">fn </span>selection_bound(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1110">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"selection-bound"</span>)
+    }
 
     <span class="doccomment">/// The horizontal alignment, from 0 (left) to 1 (right).
     ///
     /// Reversed for RTL layouts.
-    </span><span class="kw">fn </span>xalign(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f32;
+    </span><span class="kw">fn </span>xalign(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a> {
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#1117">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"xalign"</span>)
+    }
 
     <span class="doccomment">/// The horizontal alignment, from 0 (left) to 1 (right).
     ///
     /// Reversed for RTL layouts.
-    </span><span class="kw">fn </span>set_xalign(<span class="kw-2">&amp;</span><span class="self">self</span>, xalign: f32);
+    </span><span class="kw">fn </span>set_xalign(<span class="kw-2">&amp;</span><span class="self">self</span>, xalign: <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>) {
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#1124">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>(), <span class="string">"xalign"</span>, <a href="#1124">xalign</a>)
+    }
 
     <span class="doccomment">/// Emitted at the end of a single user-visible operation on the
     /// contents.
@@ -2464,8 +2610,27 @@
     /// is implemented by first deleting the selection, then inserting
     /// the new content, and may cause multiple ::notify::text signals
     /// to be emitted).
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;changed&quot;</span>)]
-    </span><span class="kw">fn </span>connect_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
+    </span><span class="attr">#[doc(alias = <span class="string">"changed"</span>)]
+    </span><span class="kw">fn </span>connect_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>changed_trampoline&lt;P: IsA&lt;<a href="#16-676">Editable</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkEditable.html">ffi::GtkEditable</a>,
+            f: glib::ffi::gpointer,
+        ) {
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1140">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1142">f</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">Editable::from_glib_borrow</a>(<a href="#1139">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>())
+        }
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1137">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#1137">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"changed\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                    changed_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
+                )),
+                Box_::into_raw(<a href="#1146">f</a>),
+            )
+        }
+    }
 
     <span class="doccomment">/// Emitted when text is deleted from the widget by the user.
     ///
@@ -2480,456 +2645,236 @@
     /// the starting position
     /// ## `end_pos`
     /// the end position
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;delete-text&quot;</span>)]
-    </span><span class="kw">fn </span>connect_delete_text&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;cursor-position&quot;</span>)]
-    </span><span class="kw">fn </span>connect_cursor_position_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;editable&quot;</span>)]
-    </span><span class="kw">fn </span>connect_editable_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;enable-undo&quot;</span>)]
-    </span><span class="kw">fn </span>connect_enable_undo_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;max-width-chars&quot;</span>)]
-    </span><span class="kw">fn </span>connect_max_width_chars_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;selection-bound&quot;</span>)]
-    </span><span class="kw">fn </span>connect_selection_bound_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;text&quot;</span>)]
-    </span><span class="kw">fn </span>connect_text_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;width-chars&quot;</span>)]
-    </span><span class="kw">fn </span>connect_width_chars_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-
-    <span class="attr">#[doc(alias = <span class="string">&quot;xalign&quot;</span>)]
-    </span><span class="kw">fn </span>connect_xalign_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId;
-}
-
-<span class="kw">impl</span>&lt;O: IsA&lt;Editable&gt;&gt; EditableExt <span class="kw">for </span>O {
-    <span class="kw">fn </span>delete_selection(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_editable_delete_selection(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
-        }
-    }
-
-    <span class="kw">fn </span>delete_text(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_editable_delete_text(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, start_pos, end_pos);
-        }
-    }
-
-    <span class="kw">fn </span>finish_delegate(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_editable_finish_delegate(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
-        }
-    }
-
-    <span class="kw">fn </span>alignment(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f32 {
-        <span class="kw">unsafe </span>{ ffi::gtk_editable_get_alignment(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
-    }
-
-    <span class="kw">fn </span>chars(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32) -&gt; glib::GString {
-        <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gtk_editable_get_chars(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                start_pos,
-                end_pos,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>delegate(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Editable&gt; {
-        <span class="kw">unsafe </span>{
-            from_glib_none(ffi::gtk_editable_get_delegate(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>is_editable(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_editable_get_editable(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>enables_undo(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_editable_get_enable_undo(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>max_width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
-        <span class="kw">unsafe </span>{ ffi::gtk_editable_get_max_width_chars(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
-    }
-
-    <span class="kw">fn </span>position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
-        <span class="kw">unsafe </span>{ ffi::gtk_editable_get_position(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
-    }
-
-    <span class="kw">fn </span>selection_bounds(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(i32, i32)&gt; {
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>start_pos = mem::MaybeUninit::uninit();
-            <span class="kw">let </span><span class="kw-2">mut </span>end_pos = mem::MaybeUninit::uninit();
-            <span class="kw">let </span>ret = from_glib(ffi::gtk_editable_get_selection_bounds(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                start_pos.as_mut_ptr(),
-                end_pos.as_mut_ptr(),
-            ));
-            <span class="kw">if </span>ret {
-                <span class="prelude-val">Some</span>((start_pos.assume_init(), end_pos.assume_init()))
-            } <span class="kw">else </span>{
-                <span class="prelude-val">None
-            </span>}
-        }
-    }
-
-    <span class="kw">fn </span>text(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; glib::GString {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_editable_get_text(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>)) }
-    }
-
-    <span class="kw">fn </span>width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
-        <span class="kw">unsafe </span>{ ffi::gtk_editable_get_width_chars(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>) }
-    }
-
-    <span class="kw">fn </span>init_delegate(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_editable_init_delegate(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>);
-        }
-    }
-
-    <span class="kw">fn </span>insert_text(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str, position: <span class="kw-2">&amp;mut </span>i32) {
-        <span class="kw">let </span>length = text.len() <span class="kw">as _</span>;
-        <span class="kw">unsafe </span>{
-            ffi::gtk_editable_insert_text(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                text.to_glib_none().<span class="number">0</span>,
-                length,
-                position,
-            );
-        }
-    }
-
-    <span class="kw">fn </span>select_region(<span class="kw-2">&amp;</span><span class="self">self</span>, start_pos: i32, end_pos: i32) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_editable_select_region(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, start_pos, end_pos);
-        }
-    }
-
-    <span class="kw">fn </span>set_alignment(<span class="kw-2">&amp;</span><span class="self">self</span>, xalign: f32) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_editable_set_alignment(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, xalign);
-        }
-    }
-
-    <span class="kw">fn </span>set_editable(<span class="kw-2">&amp;</span><span class="self">self</span>, is_editable: bool) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_editable_set_editable(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, is_editable.into_glib());
-        }
-    }
-
-    <span class="kw">fn </span>set_enable_undo(<span class="kw-2">&amp;</span><span class="self">self</span>, enable_undo: bool) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_editable_set_enable_undo(
-                <span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>,
-                enable_undo.into_glib(),
-            );
-        }
-    }
-
-    <span class="kw">fn </span>set_max_width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>, n_chars: i32) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_editable_set_max_width_chars(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, n_chars);
-        }
-    }
-
-    <span class="kw">fn </span>set_position(<span class="kw-2">&amp;</span><span class="self">self</span>, position: i32) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_editable_set_position(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, position);
-        }
-    }
-
-    <span class="kw">fn </span>set_text(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_editable_set_text(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, text.to_glib_none().<span class="number">0</span>);
-        }
-    }
-
-    <span class="kw">fn </span>set_width_chars(<span class="kw-2">&amp;</span><span class="self">self</span>, n_chars: i32) {
-        <span class="kw">unsafe </span>{
-            ffi::gtk_editable_set_width_chars(<span class="self">self</span>.as_ref().to_glib_none().<span class="number">0</span>, n_chars);
-        }
-    }
-
-    <span class="kw">fn </span>cursor_position(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
-        glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;cursor-position&quot;</span>)
-    }
-
-    <span class="kw">fn </span>selection_bound(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
-        glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;selection-bound&quot;</span>)
-    }
-
-    <span class="kw">fn </span>xalign(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; f32 {
-        glib::ObjectExt::property(<span class="self">self</span>.as_ref(), <span class="string">&quot;xalign&quot;</span>)
-    }
-
-    <span class="kw">fn </span>set_xalign(<span class="kw-2">&amp;</span><span class="self">self</span>, xalign: f32) {
-        glib::ObjectExt::set_property(<span class="self">self</span>.as_ref(), <span class="string">&quot;xalign&quot;</span>, <span class="kw-2">&amp;</span>xalign)
-    }
-
-    <span class="kw">fn </span>connect_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>changed_trampoline&lt;P: IsA&lt;Editable&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkEditable,
-            f: glib::ffi::gpointer,
-        ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(Editable::from_glib_borrow(this).unsafe_cast_ref())
-        }
-        <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;changed\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
-                    changed_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
-                )),
-                Box_::into_raw(f),
-            )
-        }
-    }
-
-    <span class="kw">fn </span>connect_delete_text&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, i32, i32) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>delete_text_trampoline&lt;
-            P: IsA&lt;Editable&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, i32, i32) + <span class="lifetime">&#39;static</span>,
+    </span><span class="attr">#[doc(alias = <span class="string">"delete-text"</span>)]
+    </span><span class="kw">fn </span>connect_delete_text&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>delete_text_trampoline&lt;
+            P: IsA&lt;<a href="#16-676">Editable</a>&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkEditable,
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkEditable.html">ffi::GtkEditable</a>,
             start_pos: libc::c_int,
             end_pos: libc::c_int,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(
-                Editable::from_glib_borrow(this).unsafe_cast_ref(),
-                start_pos,
-                end_pos,
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1180">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1182">f</a>(
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">Editable::from_glib_borrow</a>(<a href="#1177">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
+                <a href="#1178">start_pos</a>,
+                <a href="#1179">end_pos</a>,
             )
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;delete-text\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1172">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#1172">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"delete-text\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     delete_text_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#1190">f</a>),
             )
         }
     }
 
-    <span class="kw">fn </span>connect_cursor_position_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_cursor_position_trampoline&lt;
-            P: IsA&lt;Editable&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+    <span class="attr">#[doc(alias = <span class="string">"cursor-position"</span>)]
+    </span><span class="kw">fn </span>connect_cursor_position_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_cursor_position_trampoline&lt;
+            P: IsA&lt;<a href="#16-676">Editable</a>&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkEditable,
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkEditable.html">ffi::GtkEditable</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(Editable::from_glib_borrow(this).unsafe_cast_ref())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1210">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1212">f</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">Editable::from_glib_borrow</a>(<a href="#1208">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::cursor-position\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1203">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#1203">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::cursor-position\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_cursor_position_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#1216">f</a>),
             )
         }
     }
 
-    <span class="kw">fn </span>connect_editable_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_editable_trampoline&lt;P: IsA&lt;Editable&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkEditable,
+    <span class="attr">#[doc(alias = <span class="string">"editable"</span>)]
+    </span><span class="kw">fn </span>connect_editable_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_editable_trampoline&lt;P: IsA&lt;<a href="#16-676">Editable</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkEditable.html">ffi::GtkEditable</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(Editable::from_glib_borrow(this).unsafe_cast_ref())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1233">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1235">f</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">Editable::from_glib_borrow</a>(<a href="#1231">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::editable\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1229">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#1229">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::editable\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_editable_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#1239">f</a>),
             )
         }
     }
 
-    <span class="kw">fn </span>connect_enable_undo_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_enable_undo_trampoline&lt;
-            P: IsA&lt;Editable&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+    <span class="attr">#[doc(alias = <span class="string">"enable-undo"</span>)]
+    </span><span class="kw">fn </span>connect_enable_undo_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_enable_undo_trampoline&lt;
+            P: IsA&lt;<a href="#16-676">Editable</a>&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkEditable,
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkEditable.html">ffi::GtkEditable</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(Editable::from_glib_borrow(this).unsafe_cast_ref())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1259">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1261">f</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">Editable::from_glib_borrow</a>(<a href="#1257">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::enable-undo\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1252">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#1252">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::enable-undo\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_enable_undo_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#1265">f</a>),
             )
         }
     }
 
-    <span class="kw">fn </span>connect_max_width_chars_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_max_width_chars_trampoline&lt;
-            P: IsA&lt;Editable&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+    <span class="attr">#[doc(alias = <span class="string">"max-width-chars"</span>)]
+    </span><span class="kw">fn </span>connect_max_width_chars_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_max_width_chars_trampoline&lt;
+            P: IsA&lt;<a href="#16-676">Editable</a>&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkEditable,
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkEditable.html">ffi::GtkEditable</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(Editable::from_glib_borrow(this).unsafe_cast_ref())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1285">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1287">f</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">Editable::from_glib_borrow</a>(<a href="#1283">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::max-width-chars\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1278">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#1278">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::max-width-chars\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_max_width_chars_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#1291">f</a>),
             )
         }
     }
 
-    <span class="kw">fn </span>connect_selection_bound_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_selection_bound_trampoline&lt;
-            P: IsA&lt;Editable&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+    <span class="attr">#[doc(alias = <span class="string">"selection-bound"</span>)]
+    </span><span class="kw">fn </span>connect_selection_bound_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_selection_bound_trampoline&lt;
+            P: IsA&lt;<a href="#16-676">Editable</a>&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkEditable,
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkEditable.html">ffi::GtkEditable</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(Editable::from_glib_borrow(this).unsafe_cast_ref())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1311">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1313">f</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">Editable::from_glib_borrow</a>(<a href="#1309">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::selection-bound\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1304">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#1304">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::selection-bound\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_selection_bound_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#1317">f</a>),
             )
         }
     }
 
-    <span class="kw">fn </span>connect_text_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_text_trampoline&lt;P: IsA&lt;Editable&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkEditable,
+    <span class="attr">#[doc(alias = <span class="string">"text"</span>)]
+    </span><span class="kw">fn </span>connect_text_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_text_trampoline&lt;P: IsA&lt;<a href="#16-676">Editable</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkEditable.html">ffi::GtkEditable</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(Editable::from_glib_borrow(this).unsafe_cast_ref())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1334">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1336">f</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">Editable::from_glib_borrow</a>(<a href="#1332">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::text\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1330">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#1330">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::text\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_text_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#1340">f</a>),
             )
         }
     }
 
-    <span class="kw">fn </span>connect_width_chars_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_width_chars_trampoline&lt;
-            P: IsA&lt;Editable&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>,
+    <span class="attr">#[doc(alias = <span class="string">"width-chars"</span>)]
+    </span><span class="kw">fn </span>connect_width_chars_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_width_chars_trampoline&lt;
+            P: IsA&lt;<a href="#16-676">Editable</a>&gt;,
+            F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkEditable,
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkEditable.html">ffi::GtkEditable</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(Editable::from_glib_borrow(this).unsafe_cast_ref())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1360">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1362">f</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">Editable::from_glib_borrow</a>(<a href="#1358">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::width-chars\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1353">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#1353">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::width-chars\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_width_chars_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#1366">f</a>),
             )
         }
     }
 
-    <span class="kw">fn </span>connect_xalign_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_xalign_trampoline&lt;P: IsA&lt;Editable&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkEditable,
+    <span class="attr">#[doc(alias = <span class="string">"xalign"</span>)]
+    </span><span class="kw">fn </span>connect_xalign_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_xalign_trampoline&lt;P: IsA&lt;<a href="#16-676">Editable</a>&gt;, F: Fn(<span class="kw-2">&amp;</span>P) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkEditable.html">ffi::GtkEditable</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(Editable::from_glib_borrow(this).unsafe_cast_ref())
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1383">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1385">f</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">Editable::from_glib_borrow</a>(<a href="#1381">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>())
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::xalign\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1379">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#1379">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::xalign\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_xalign_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#1389">f</a>),
             )
         }
     }
 }
 
-<span class="kw">impl </span>fmt::Display <span class="kw">for </span>Editable {
-    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
-        f.write_str(<span class="string">&quot;Editable&quot;</span>)
-    }
-}
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="#16-676">Editable</a>&gt;&gt; <a href="#692-1400">EditableExt</a> <span class="kw">for </span>O {}
+</code></pre></div></section></main></body></html>

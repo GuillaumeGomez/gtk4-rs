@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/shortcut_manager.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>shortcut_manager.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/shortcut_manager.rs`."><title>shortcut_manager.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -166,100 +168,107 @@
 <a href="#93" id="93">93</a>
 <a href="#94" id="94">94</a>
 <a href="#95" id="95">95</a>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
+<a href="#96" id="96">96</a>
+<a href="#97" id="97">97</a>
+<a href="#98" id="98">98</a>
+<a href="#99" id="99">99</a>
+</pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 // rustdoc-stripper-ignore-next
-</span><span class="doccomment">//! Traits intended for implementing the [`ShortcutManager`](crate::ShortcutManager) interface.
+</span><span class="doccomment">//! Traits intended for implementing the
+//! [`ShortcutManager`](crate::ShortcutManager) interface.
 
-</span><span class="kw">use crate</span>::{prelude::<span class="kw-2">*</span>, subclass::prelude::<span class="kw-2">*</span>, ShortcutController, ShortcutManager};
-<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+</span><span class="kw">use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
 
-<span class="kw">pub trait </span>ShortcutManagerImpl: ObjectImpl {
-    <span class="kw">fn </span>add_controller(<span class="kw-2">&amp;</span><span class="self">self</span>, controller: <span class="kw-2">&amp;</span>ShortcutController) {
-        <span class="self">self</span>.parent_add_controller(controller);
+<span class="kw">use crate</span>::{<a href="../lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="mod.rs.html#91-174">subclass::prelude</a>::<span class="kw-2">*</span>, <a href="../auto/shortcut_controller.rs.html#13-122">ShortcutController</a>, <a href="../auto/shortcut_manager.rs.html#7-30">ShortcutManager</a>};
+
+<span class="kw">pub trait </span><a href="../../../gtk4/subclass/shortcut_manager/trait.ShortcutManagerImpl.html">ShortcutManagerImpl</a>: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/object/trait.ObjectImpl.html">ObjectImpl</a> {
+    <span class="kw">fn </span>add_controller(<span class="kw-2">&amp;</span><span class="self">self</span>, controller: <span class="kw-2">&amp;</span><a href="../auto/shortcut_controller.rs.html#13-122">ShortcutController</a>) {
+        <a class="self" href="#12">self</a>.<a href="#27-45">parent_add_controller</a>(<a href="#12">controller</a>);
     }
 
-    <span class="kw">fn </span>remove_controller(<span class="kw-2">&amp;</span><span class="self">self</span>, controller: <span class="kw-2">&amp;</span>ShortcutController) {
-        <span class="self">self</span>.parent_remove_controller(controller)
+    <span class="kw">fn </span>remove_controller(<span class="kw-2">&amp;</span><span class="self">self</span>, controller: <span class="kw-2">&amp;</span><a href="../auto/shortcut_controller.rs.html#13-122">ShortcutController</a>) {
+        <a class="self" href="#16">self</a>.<a href="#47-65">parent_remove_controller</a>(<a href="#16">controller</a>)
     }
 }
 
-<span class="kw">pub trait </span>ShortcutManagerImplExt: ObjectSubclass {
-    <span class="kw">fn </span>parent_add_controller(<span class="kw-2">&amp;</span><span class="self">self</span>, controller: <span class="kw-2">&amp;</span>ShortcutController);
-    <span class="kw">fn </span>parent_remove_controller(<span class="kw-2">&amp;</span><span class="self">self</span>, controller: <span class="kw-2">&amp;</span>ShortcutController);
+<span class="kw">mod </span>sealed {
+    <span class="kw">pub trait </span>Sealed {}
+    <span class="kw">impl</span>&lt;T: <a href="#26-66"><span class="kw">super</span>::ShortcutManagerImplExt</a>&gt; <a href="#22">Sealed</a> <span class="kw">for </span>T {}
 }
 
-<span class="kw">impl</span>&lt;T: ShortcutManagerImpl&gt; ShortcutManagerImplExt <span class="kw">for </span>T {
-    <span class="kw">fn </span>parent_add_controller(<span class="kw-2">&amp;</span><span class="self">self</span>, controller: <span class="kw-2">&amp;</span>ShortcutController) {
+<span class="kw">pub trait </span><a href="../../../gtk4/subclass/shortcut_manager/trait.ShortcutManagerImplExt.html">ShortcutManagerImplExt</a>: <a href="#22">sealed::Sealed</a> + <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclass.html">ObjectSubclass</a> {
+    <span class="kw">fn </span>parent_add_controller(<span class="kw-2">&amp;</span><span class="self">self</span>, controller: <span class="kw-2">&amp;</span><a href="../auto/shortcut_controller.rs.html#13-122">ShortcutController</a>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
-            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;ShortcutManager&gt;()
-                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkShortcutManagerInterface;
+            <span class="kw">let </span>type_data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_iface = <a href="#29">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/shortcut_manager.rs.html#7-30">ShortcutManager</a>&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gtk4_sys/struct.GtkShortcutManagerInterface.html">ffi::GtkShortcutManagerInterface</a>;
 
-            <span class="kw">let </span>func = (<span class="kw-2">*</span>parent_iface)
+            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#30">parent_iface</a>)
                 .add_controller
-                .expect(<span class="string">&quot;no parent \&quot;add_controller\&quot; implementation&quot;</span>);
+                .expect(<span class="string">"no parent \"add_controller\" implementation"</span>);
 
-            func(
-                <span class="self">self</span>.obj()
-                    .unsafe_cast_ref::&lt;ShortcutManager&gt;()
-                    .to_glib_none()
+            <a href="#33">func</a>(
+                <a class="self" href="#27">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/shortcut_manager.rs.html#7-30">ShortcutManager</a>&gt;()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>()
                     .<span class="number">0</span>,
-                controller.to_glib_none().<span class="number">0</span>,
+                <a href="#27">controller</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             )
         }
     }
 
-    <span class="kw">fn </span>parent_remove_controller(<span class="kw-2">&amp;</span><span class="self">self</span>, controller: <span class="kw-2">&amp;</span>ShortcutController) {
+    <span class="kw">fn </span>parent_remove_controller(<span class="kw-2">&amp;</span><span class="self">self</span>, controller: <span class="kw-2">&amp;</span><a href="../auto/shortcut_controller.rs.html#13-122">ShortcutController</a>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>type_data = <span class="self">Self</span>::type_data();
-            <span class="kw">let </span>parent_iface = type_data.as_ref().parent_interface::&lt;ShortcutManager&gt;()
-                <span class="kw">as </span><span class="kw-2">*const </span>ffi::GtkShortcutManagerInterface;
+            <span class="kw">let </span>type_data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_iface = <a href="#49">type_data</a>.as_ref().parent_interface::&lt;<a href="../auto/shortcut_manager.rs.html#7-30">ShortcutManager</a>&gt;()
+                <span class="kw">as </span><span class="kw-2">*const </span><a href="../../../gtk4_sys/struct.GtkShortcutManagerInterface.html">ffi::GtkShortcutManagerInterface</a>;
 
-            <span class="kw">let </span>func = (<span class="kw-2">*</span>parent_iface)
+            <span class="kw">let </span>func = (<span class="kw-2">*</span><a href="#50">parent_iface</a>)
                 .remove_controller
-                .expect(<span class="string">&quot;no parent \&quot;remove_controller\&quot; implementation&quot;</span>);
+                .expect(<span class="string">"no parent \"remove_controller\" implementation"</span>);
 
-            func(
-                <span class="self">self</span>.obj()
-                    .unsafe_cast_ref::&lt;ShortcutManager&gt;()
-                    .to_glib_none()
+            <a href="#53">func</a>(
+                <a class="self" href="#47">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/shortcut_manager.rs.html#7-30">ShortcutManager</a>&gt;()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>()
                     .<span class="number">0</span>,
-                controller.to_glib_none().<span class="number">0</span>,
+                <a href="#47">controller</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             )
         }
     }
 }
 
-<span class="kw">unsafe impl</span>&lt;T: ShortcutManagerImpl&gt; IsImplementable&lt;T&gt; <span class="kw">for </span>ShortcutManager {
+<span class="kw">impl</span>&lt;T: <a href="#11-19">ShortcutManagerImpl</a>&gt; <a href="#26-66">ShortcutManagerImplExt</a> <span class="kw">for </span>T {}
+
+<span class="kw">unsafe impl</span>&lt;T: <a href="#11-19">ShortcutManagerImpl</a>&gt; IsImplementable&lt;T&gt; <span class="kw">for </span><a href="../auto/shortcut_manager.rs.html#7-30">ShortcutManager</a> {
     <span class="kw">fn </span>interface_init(iface: <span class="kw-2">&amp;mut </span>glib::Interface&lt;<span class="self">Self</span>&gt;) {
-        <span class="kw">let </span>iface = iface.as_mut();
+        <span class="kw">let </span>iface = <a href="#71">iface</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsMut.html">as_mut</a>();
 
-        <span class="macro">assert_initialized_main_thread!</span>();
+        <a class="macro" href="../rt.rs.html#23-35">assert_initialized_main_thread!</a>();
 
-        iface.add_controller = <span class="prelude-val">Some</span>(shortcut_manager_add_controller::&lt;T&gt;);
-        iface.remove_controller = <span class="prelude-val">Some</span>(shortcut_manager_remove_controller::&lt;T&gt;);
+        <a href="#72">iface</a>.add_controller = <span class="prelude-val">Some</span>(shortcut_manager_add_controller::&lt;T&gt;);
+        <a href="#72">iface</a>.remove_controller = <span class="prelude-val">Some</span>(shortcut_manager_remove_controller::&lt;T&gt;);
     }
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>shortcut_manager_add_controller&lt;T: ShortcutManagerImpl&gt;(
-    shortcut_manager: <span class="kw-2">*mut </span>ffi::GtkShortcutManager,
-    controller: <span class="kw-2">*mut </span>ffi::GtkShortcutController,
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>shortcut_manager_add_controller&lt;T: <a href="#11-19">ShortcutManagerImpl</a>&gt;(
+    shortcut_manager: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkShortcutManager.html">ffi::GtkShortcutManager</a>,
+    controller: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkShortcutController.html">ffi::GtkShortcutController</a>,
 ) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(shortcut_manager <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#82">shortcut_manager</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#85">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.add_controller(<span class="kw-2">&amp;</span>ShortcutController::from_glib_borrow(controller))
+    <a href="#86">imp</a>.<a href="#12-14">add_controller</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">ShortcutController::from_glib_borrow</a>(<a href="#83">controller</a>))
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>shortcut_manager_remove_controller&lt;T: ShortcutManagerImpl&gt;(
-    shortcut_manager: <span class="kw-2">*mut </span>ffi::GtkShortcutManager,
-    controller: <span class="kw-2">*mut </span>ffi::GtkShortcutController,
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>shortcut_manager_remove_controller&lt;T: <a href="#11-19">ShortcutManagerImpl</a>&gt;(
+    shortcut_manager: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkShortcutManager.html">ffi::GtkShortcutManager</a>,
+    controller: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkShortcutController.html">ffi::GtkShortcutController</a>,
 ) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(shortcut_manager <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#92">shortcut_manager</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#95">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.remove_controller(<span class="kw-2">&amp;</span>ShortcutController::from_glib_borrow(controller))
+    <a href="#96">imp</a>.<a href="#16-18">remove_controller</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">ShortcutController::from_glib_borrow</a>(<a href="#93">controller</a>))
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

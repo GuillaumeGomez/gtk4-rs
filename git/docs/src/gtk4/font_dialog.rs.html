@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/font_dialog.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>font_dialog.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/font_dialog.rs`."><title>font_dialog.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../gtk4/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -216,13 +218,17 @@
 <a href="#143" id="143">143</a>
 <a href="#144" id="144">144</a>
 <a href="#145" id="145">145</a>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
+<a href="#146" id="146">146</a>
+<a href="#147" id="147">147</a>
+</pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use crate</span>::{prelude::<span class="kw-2">*</span>, FontDialog, Window};
-<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
-<span class="kw">use </span>std::{boxed::Box <span class="kw">as </span>Box_, pin::Pin, ptr};
+</span><span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">boxed::Box</a> <span class="kw">as </span>Box_, <a href="https://doc.rust-lang.org/nightly/core/pin/struct.Pin.html">pin::Pin</a>, <a href="https://doc.rust-lang.org/nightly/core/ptr/index.html">ptr</a>};
 
-<span class="kw">impl </span>FontDialog {
+<span class="kw">use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
+
+<span class="kw">use crate</span>::{<a href="lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="auto/font_dialog.rs.html#13-73">FontDialog</a>, <a href="auto/window.rs.html#17-733">Window</a>};
+
+<span class="kw">impl </span><a href="auto/font_dialog.rs.html#13-73">FontDialog</a> {
     <span class="doccomment">/// This function initiates a font selection operation by
     /// presenting a dialog to the user for selecting a font and
     /// font features.
@@ -241,49 +247,49 @@
     /// a `GCancellable` to cancel the operation
     /// ## `callback`
     /// a callback to call when the operation is complete
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_font_dialog_choose_font_and_features&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;gtk_font_dialog_choose_font_and_features_finish&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_font_dialog_choose_font_and_features"</span>)]
+    #[doc(alias = <span class="string">"gtk_font_dialog_choose_font_and_features_finish"</span>)]
     </span><span class="kw">pub fn </span>choose_font_and_features&lt;
         P: FnOnce(
                 <span class="prelude-ty">Result</span>&lt;
                     (
-                        <span class="prelude-ty">Option</span>&lt;pango::FontDescription&gt;,
-                        glib::GString,
-                        pango::Language,
+                        <span class="prelude-ty">Option</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/font_description/struct.FontDescription.html">pango::FontDescription</a>&gt;,
+                        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>,
+                        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/language/struct.Language.html">pango::Language</a>,
                     ),
-                    glib::Error,
+                    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>,
                 &gt;,
-            ) + <span class="lifetime">&#39;static</span>,
+            ) + <span class="lifetime">'static</span>,
     &gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Window&gt;&gt;,
-        initial_value: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>pango::FontDescription&gt;,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Cancellable&gt;&gt;,
+        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="auto/window.rs.html#17-733">Window</a>&gt;&gt;,
+        initial_value: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/font_description/struct.FontDescription.html">pango::FontDescription</a>&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/cancellable/struct.Cancellable.html">gio::Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
-        <span class="kw">let </span>is_main_context_owner = main_context.is_owner();
-        <span class="kw">let </span>has_acquired_main_context = (!is_main_context_owner)
-            .then(|| main_context.acquire().ok())
+        <span class="kw">let </span>is_main_context_owner = <a href="#48">main_context</a>.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!<a href="#49">is_main_context_owner</a>)
+            .then(|| <a href="#48">main_context</a>.acquire().ok())
             .flatten();
-        <span class="macro">assert!</span>(
+        <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-            Box_::new(glib::thread_guard::ThreadGuard::new(callback));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>choose_font_and_features_trampoline&lt;
+            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#46">callback</a>));
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>choose_font_and_features_trampoline&lt;
             P: FnOnce(
                     <span class="prelude-ty">Result</span>&lt;
                         (
-                            <span class="prelude-ty">Option</span>&lt;pango::FontDescription&gt;,
-                            glib::GString,
-                            pango::Language,
+                            <span class="prelude-ty">Option</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/font_description/struct.FontDescription.html">pango::FontDescription</a>&gt;,
+                            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>,
+                            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/language/struct.Language.html">pango::Language</a>,
                         ),
-                        glib::Error,
+                        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>,
                     &gt;,
-                ) + <span class="lifetime">&#39;static</span>,
+                ) + <span class="lifetime">'static</span>,
         &gt;(
             _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
             res: <span class="kw-2">*mut </span>gio::ffi::GAsyncResult,
@@ -294,36 +300,36 @@
             <span class="kw">let </span><span class="kw-2">mut </span>font_features = ptr::null_mut();
             <span class="kw">let </span><span class="kw-2">mut </span>language = ptr::null_mut();
             <span class="kw">let _ </span>= ffi::gtk_font_dialog_choose_font_and_features_finish(
-                _source_object <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                res,
-                <span class="kw-2">&amp;mut </span>font_desc,
-                <span class="kw-2">&amp;mut </span>font_features,
-                <span class="kw-2">&amp;mut </span>language,
-                <span class="kw-2">&amp;mut </span>error,
+                <a href="#72">_source_object</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a href="#73">res</a>,
+                <span class="kw-2">&amp;mut </span><a href="#77">font_desc</a>,
+                <span class="kw-2">&amp;mut </span><a href="#78">font_features</a>,
+                <span class="kw-2">&amp;mut </span><a href="#79">language</a>,
+                <span class="kw-2">&amp;mut </span><a href="#76">error</a>,
             );
             <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
                 <span class="prelude-val">Ok</span>((
-                    from_glib_full(font_desc),
-                    from_glib_full(font_features),
-                    from_glib_full(language),
+                    from_glib_full(<a href="#77">font_desc</a>),
+                    from_glib_full(<a href="#78">font_features</a>),
+                    from_glib_full(<a href="#79">language</a>),
                 ))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(error))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#76">error</a>))
             };
             <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-                Box_::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-            <span class="kw">let </span>callback: P = callback.into_inner();
-            callback(result);
+                Box_::from_raw(<a href="#74">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = <a href="#97">callback</a>.into_inner();
+            <a href="#99">callback</a>(<a href="#88">result</a>);
         }
         <span class="kw">let </span>callback = choose_font_and_features_trampoline::&lt;P&gt;;
         <span class="kw">unsafe </span>{
             ffi::gtk_font_dialog_choose_font_and_features(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
-                parent.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                mut_override(initial_value.to_glib_none().<span class="number">0</span>),
-                cancellable.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(callback),
-                Box_::into_raw(user_data) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a class="self" href="#42">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#43">parent</a>.map(|p| <a href="#106">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                mut_override(<a href="#44">initial_value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+                <a href="#45">cancellable</a>.map(|p| <a href="#108">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(<a href="#102">callback</a>),
+                Box_::into_raw(<a href="#58">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
@@ -331,35 +337,34 @@
     <span class="attr">#[allow(clippy::type_complexity)]
     </span><span class="kw">pub fn </span>choose_font_and_features_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;Window&gt; + Clone + <span class="lifetime">&#39;static</span>)&gt;,
-        initial_value: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>pango::FontDescription&gt;,
+        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="auto/window.rs.html#17-733">Window</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
+        initial_value: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/font_description/struct.FontDescription.html">pango::FontDescription</a>&gt;,
     ) -&gt; Pin&lt;
         Box_&lt;
             <span class="kw">dyn </span>std::future::Future&lt;
                     Output = <span class="prelude-ty">Result</span>&lt;
                         (
-                            <span class="prelude-ty">Option</span>&lt;pango::FontDescription&gt;,
-                            glib::GString,
-                            pango::Language,
+                            <span class="prelude-ty">Option</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/font_description/struct.FontDescription.html">pango::FontDescription</a>&gt;,
+                            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>,
+                            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/language/struct.Language.html">pango::Language</a>,
                         ),
-                        glib::Error,
+                        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>,
                     &gt;,
-                &gt; + <span class="lifetime">&#39;static</span>,
+                &gt; + <span class="lifetime">'static</span>,
         &gt;,
     &gt; {
-        <span class="kw">let </span>parent = parent.map(ToOwned::to_owned);
-        <span class="kw">let </span>initial_value = initial_value.map(ToOwned::to_owned);
-        Box_::pin(gio::GioFuture::new(<span class="self">self</span>, <span class="kw">move </span>|obj, cancellable, send| {
-            obj.choose_font_and_features(
-                parent.as_ref().map(::std::borrow::Borrow::borrow),
-                initial_value.as_ref().map(::std::borrow::Borrow::borrow),
-                <span class="prelude-val">Some</span>(cancellable),
+        <span class="kw">let </span>parent = <a href="#118">parent</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
+        <span class="kw">let </span>initial_value = <a href="#119">initial_value</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
+        Box_::pin(gio::GioFuture::new(<a class="self" href="#117">self</a>, <span class="kw">move </span>|obj, cancellable, send| {
+            <a href="#136">obj</a>.<a href="#30-113">choose_font_and_features</a>(
+                <a href="#134">parent</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
+                <a href="#135">initial_value</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
+                <span class="prelude-val">Some</span>(<a href="#136">cancellable</a>),
                 <span class="kw">move </span>|res| {
-                    send.resolve(res);
+                    <a href="#136">send</a>.resolve(<a href="#141">res</a>);
                 },
             );
         }))
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/dialog.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>dialog.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/dialog.rs`."><title>dialog.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../gtk4/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -309,19 +311,21 @@
 <a href="#236" id="236">236</a>
 <a href="#237" id="237">237</a>
 <a href="#238" id="238">238</a>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
+</pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use crate</span>::{prelude::<span class="kw-2">*</span>, Dialog, DialogFlags, ResponseType, Widget, Window};
-<span class="kw">use </span>glib::{translate::<span class="kw-2">*</span>, IntoOptionalGStr};
-<span class="kw">use </span>std::{
-    cell::{Cell, RefCell},
-    future::Future,
-    pin::Pin,
-    ptr,
-    rc::Rc,
+</span><span class="kw">use </span>std::{
+    cell::{<a href="https://doc.rust-lang.org/nightly/core/cell/struct.Cell.html">Cell</a>, <a href="https://doc.rust-lang.org/nightly/core/cell/struct.RefCell.html">RefCell</a>},
+    <a href="https://doc.rust-lang.org/nightly/core/future/future/trait.Future.html">future::Future</a>,
+    <a href="https://doc.rust-lang.org/nightly/core/pin/struct.Pin.html">pin::Pin</a>,
+    <a href="https://doc.rust-lang.org/nightly/core/ptr/index.html">ptr</a>,
+    <a href="https://doc.rust-lang.org/nightly/alloc/rc/struct.Rc.html">rc::Rc</a>,
 };
 
-<span class="kw">impl </span>Dialog {
+<span class="kw">use </span>glib::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/trait.IntoOptionalGStr.html">IntoOptionalGStr</a>};
+
+<span class="kw">use crate</span>::{<a href="lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="auto/dialog.rs.html#17-850">Dialog</a>, <a href="auto/flags.rs.html#452-468">DialogFlags</a>, <a href="response_type.rs.html#18-56">ResponseType</a>, <a href="auto/widget.rs.html#18-853">Widget</a>, <a href="auto/window.rs.html#17-733">Window</a>};
+
+<span class="kw">impl </span><a href="auto/dialog.rs.html#17-850">Dialog</a> {
     <span class="doccomment">/// Creates a new [`Dialog`][crate::Dialog] with the given title and transient parent.
     ///
     /// The @flags argument can be used to make the dialog modal, have it
@@ -348,12 +352,12 @@
     /// GtkWindow *main_app_window; // Window the dialog should show up on
     /// GtkWidget *dialog;
     /// GtkDialogFlags flags = GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT;
-    /// dialog = gtk_dialog_new_with_buttons (&quot;My dialog&quot;,
+    /// dialog = gtk_dialog_new_with_buttons ("My dialog",
     ///                                       main_app_window,
     ///                                       flags,
-    ///                                       _(&quot;_OK&quot;),
+    ///                                       _("_OK"),
     ///                                       GTK_RESPONSE_ACCEPT,
-    ///                                       _(&quot;_Cancel&quot;),
+    ///                                       _("_Cancel"),
     ///                                       GTK_RESPONSE_REJECT,
     ///                                       NULL);
     /// ```
@@ -373,39 +377,44 @@
     /// # Returns
     ///
     /// a new [`Dialog`][crate::Dialog]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_dialog_new_with_buttons&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;new_with_buttons&quot;</span>)]
-    #[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_dialog_new_with_buttons"</span>)]
+    #[doc(alias = <span class="string">"new_with_buttons"</span>)]
+    #[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
-    </span><span class="kw">pub fn </span>with_buttons&lt;T: IsA&lt;Window&gt;&gt;(
-        title: <span class="kw">impl </span>IntoOptionalGStr,
+    </span><span class="kw">pub fn </span>with_buttons&lt;T: IsA&lt;<a href="auto/window.rs.html#17-733">Window</a>&gt;&gt;(
+        title: <span class="kw">impl </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/trait.IntoOptionalGStr.html">IntoOptionalGStr</a>,
         parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>T&gt;,
-        flags: DialogFlags,
-        buttons: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span>str, ResponseType)],
+        flags: <a href="auto/flags.rs.html#452-468">DialogFlags</a>,
+        buttons: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <a href="response_type.rs.html#18-56">ResponseType</a>)],
     ) -&gt; <span class="self">Self </span>{
-        <span class="macro">assert_initialized_main_thread!</span>();
+        <a class="macro" href="rt.rs.html#23-35">assert_initialized_main_thread!</a>();
         <span class="kw">let </span>ret: <span class="self">Self </span>= <span class="kw">unsafe </span>{
-            title.run_with_gstr(|title| {
-                Widget::from_glib_none(ffi::gtk_dialog_new_with_buttons(
-                    title.to_glib_none().<span class="number">0</span>,
-                    parent.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                    flags.into_glib(),
+            <a href="#72">title</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/trait.IntoOptionalGStr.html">run_with_gstr</a>(|title| {
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrNone.html">Widget::from_glib_none</a>(ffi::gtk_dialog_new_with_buttons(
+                    <a href="#79">title</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#73">parent</a>.map(|p| <a href="#82">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#74">flags</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
                     ptr::null_mut(),
                 ))
-                .unsafe_cast()
+                .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast</a>()
             })
         };
 
-        ret.add_buttons(buttons);
-        ret
+        <a href="#78">ret</a>.<a href="#118-122">add_buttons</a>(<a href="#75">buttons</a>);
+        <a href="#78">ret</a>
     }
+}
+
+<span class="kw">mod </span>sealed {
+    <span class="kw">pub trait </span>Sealed {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/dialog.rs.html#17-850"><span class="kw">super</span>::Dialog</a>&gt;&gt; <a href="#96">Sealed</a> <span class="kw">for </span>T {}
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Trait containing manually implemented methods of [`Dialog`](crate::Dialog).
-</span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;v4_10&quot;</span>, deprecated = <span class="string">&quot;Since 4.10&quot;</span>)]
+</span><span class="attr">#[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
 #[allow(deprecated)]
-</span><span class="kw">pub trait </span>DialogExtManual: <span class="lifetime">&#39;static </span>{
+</span><span class="kw">pub trait </span><a href="../../gtk4/prelude/trait.DialogExtManual.html">DialogExtManual</a>: <a href="#96">sealed::Sealed</a> + IsA&lt;<a href="auto/dialog.rs.html#17-850">Dialog</a>&gt; + <span class="lifetime">'static </span>{
     <span class="doccomment">/// Adds multiple buttons.
     ///
     /// This is the same as calling [`DialogExt::add_button()`][crate::prelude::DialogExt::add_button()]
@@ -418,8 +427,12 @@
     /// Use [`Window`][crate::Window] instead
     /// ## `first_button_text`
     /// button text
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_dialog_add_buttons&quot;</span>)]
-    </span><span class="kw">fn </span>add_buttons(<span class="kw-2">&amp;</span><span class="self">self</span>, buttons: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span>str, ResponseType)]);
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_dialog_add_buttons"</span>)]
+    </span><span class="kw">fn </span>add_buttons(<span class="kw-2">&amp;</span><span class="self">self</span>, buttons: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <a href="response_type.rs.html#18-56">ResponseType</a>)]) {
+        <span class="kw">for </span><span class="kw-2">&amp;</span>(text, id) <span class="kw">in </span>buttons {
+            <span class="self">Self</span>::add_button(<span class="self">self</span>, text, id);
+        }
+    }
 
     <span class="doccomment">/// Gets the response id of a widget in the action area
     /// of a dialog.
@@ -434,9 +447,16 @@
     ///
     /// the response id of @widget, or [`ResponseType::None`][crate::ResponseType::None]
     ///  if @widget doesn’t have a response id set.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_dialog_get_response_for_widget&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_response_for_widget&quot;</span>)]
-    </span><span class="kw">fn </span>response_for_widget&lt;P: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span>P) -&gt; ResponseType;
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_dialog_get_response_for_widget"</span>)]
+    #[doc(alias = <span class="string">"get_response_for_widget"</span>)]
+    </span><span class="kw">fn </span>response_for_widget&lt;P: IsA&lt;<a href="auto/widget.rs.html#18-853">Widget</a>&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span>P) -&gt; <a href="response_type.rs.html#18-56">ResponseType</a> {
+        <span class="kw">unsafe </span>{
+            from_glib(ffi::gtk_dialog_get_response_for_widget(
+                AsRef::&lt;<a href="auto/dialog.rs.html#17-850">Dialog</a>&gt;::as_ref(<a class="self" href="#139">self</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#139">widget</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            ))
+        }
+    }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Shows the dialog and returns a `Future` that resolves to the
@@ -447,90 +467,72 @@
     ///
     /// # async fn run() {
     /// let dialog = gtk4::MessageDialog::builder()
-    ///    .buttons(gtk4::ButtonsType::OkCancel)
-    ///    .text(&quot;What is your answer?&quot;)
-    ///    .build();
+    ///     .buttons(gtk4::ButtonsType::OkCancel)
+    ///     .text("What is your answer?")
+    ///     .build();
     ///
     /// let answer = dialog.run_future().await;
     /// dialog.close();
-    /// println!(&quot;Answer: {:?}&quot;, answer);
+    /// println!("Answer: {:?}", answer);
     /// # }
     /// ```
-    </span><span class="kw">fn </span>run_future&lt;<span class="lifetime">&#39;a</span>&gt;(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ResponseType&gt; + <span class="lifetime">&#39;a</span>&gt;&gt;;
+    </span><span class="kw">fn </span>run_future&lt;<span class="lifetime">'a</span>&gt;(<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = <a href="response_type.rs.html#18-56">ResponseType</a>&gt; + <span class="lifetime">'a</span>&gt;&gt; {
+        Box::pin(<span class="kw">async move </span>{
+            <span class="kw">let </span>(sender, receiver) = futures_channel::oneshot::channel();
+
+            <span class="kw">let </span>sender = Cell::new(<span class="prelude-val">Some</span>(<a href="#168">sender</a>));
+
+            <span class="kw">let </span>response_handler = <a class="self" href="#166">self</a>.<a href="auto/dialog.rs.html#1723-1749">connect_response</a>(<span class="kw">move </span>|<span class="kw">_</span>, response_type| {
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(m) = <a href="#170">sender</a>.replace(<span class="prelude-val">None</span>) {
+                    <span class="kw">let </span>_result = <a href="#173">m</a>.send(<a href="#172">response_type</a>);
+                }
+            });
+
+            <a class="self" href="#166">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="auto/window.rs.html#1893-1897">present</a>();
+
+            <span class="kw">if let </span><span class="prelude-val">Ok</span>(response) = <a href="#168">receiver</a>.<span class="kw">await </span>{
+                <a class="self" href="#166">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">disconnect</a>(<a href="#172">response_handler</a>);
+                <a href="#180">response</a>
+            } <span class="kw">else </span>{
+                <a href="response_type.rs.html#22">ResponseType::None</a>
+            }
+        })
+    }
 
     <span class="comment">// rustdoc-stripper-ignore-next
-    </span><span class="doccomment">/// Shows the dialog and calls the callback when a response has been received.
+    </span><span class="doccomment">/// Shows the dialog and calls the callback when a response has been
+    /// received.
     ///
-    /// **Important**: this function isn&#39;t blocking.
+    /// **Important**: this function isn't blocking.
     ///
     /// ```no_run
     /// use gtk4::prelude::*;
     ///
     /// let dialog = gtk4::MessageDialog::builder()
-    ///    .buttons(gtk4::ButtonsType::OkCancel)
-    ///    .text(&quot;What is your answer?&quot;)
-    ///    .build();
+    ///     .buttons(gtk4::ButtonsType::OkCancel)
+    ///     .text("What is your answer?")
+    ///     .build();
     ///
     /// dialog.run_async(|obj, answer| {
     ///     obj.close();
-    ///     println!(&quot;Answer: {:?}&quot;, answer);
+    ///     println!("Answer: {:?}", answer);
     /// });
     /// ```
-    </span><span class="kw">fn </span>run_async&lt;F: FnOnce(<span class="kw-2">&amp;</span><span class="self">Self</span>, ResponseType) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F);
-}
-
-<span class="kw">impl</span>&lt;O: IsA&lt;Dialog&gt;&gt; DialogExtManual <span class="kw">for </span>O {
-    <span class="kw">fn </span>add_buttons(<span class="kw-2">&amp;</span><span class="self">self</span>, buttons: <span class="kw-2">&amp;</span>[(<span class="kw-2">&amp;</span>str, ResponseType)]) {
-        <span class="kw">for </span><span class="kw-2">&amp;</span>(text, id) <span class="kw">in </span>buttons {
-            O::add_button(<span class="self">self</span>, text, id);
-        }
-    }
-
-    <span class="kw">fn </span>response_for_widget&lt;P: IsA&lt;Widget&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span>P) -&gt; ResponseType {
-        <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_dialog_get_response_for_widget(
-                AsRef::&lt;Dialog&gt;::as_ref(<span class="self">self</span>).to_glib_none().<span class="number">0</span>,
-                widget.as_ref().to_glib_none().<span class="number">0</span>,
-            ))
-        }
-    }
-
-    <span class="kw">fn </span>run_future&lt;<span class="lifetime">&#39;a</span>&gt;(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="self">self</span>) -&gt; Pin&lt;Box&lt;<span class="kw">dyn </span>Future&lt;Output = ResponseType&gt; + <span class="lifetime">&#39;a</span>&gt;&gt; {
-        Box::pin(<span class="kw">async move </span>{
-            <span class="kw">let </span>(sender, receiver) = futures_channel::oneshot::channel();
-
-            <span class="kw">let </span>sender = Cell::new(<span class="prelude-val">Some</span>(sender));
-
-            <span class="kw">let </span>response_handler = <span class="self">self</span>.connect_response(<span class="kw">move </span>|<span class="kw">_</span>, response_type| {
-                <span class="kw">if let </span><span class="prelude-val">Some</span>(m) = sender.replace(<span class="prelude-val">None</span>) {
-                    <span class="kw">let </span>_result = m.send(response_type);
-                }
-            });
-
-            <span class="self">self</span>.as_ref().present();
-
-            <span class="kw">if let </span><span class="prelude-val">Ok</span>(response) = receiver.<span class="kw">await </span>{
-                <span class="self">self</span>.disconnect(response_handler);
-                response
-            } <span class="kw">else </span>{
-                ResponseType::None
-            }
-        })
-    }
-
-    <span class="kw">fn </span>run_async&lt;F: FnOnce(<span class="kw-2">&amp;</span><span class="self">Self</span>, ResponseType) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) {
+    </span><span class="kw">fn </span>run_async&lt;F: FnOnce(<span class="kw-2">&amp;</span><span class="self">Self</span>, <a href="response_type.rs.html#18-56">ResponseType</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) {
         <span class="kw">let </span>response_handler = Rc::new(RefCell::new(<span class="prelude-val">None</span>));
-        <span class="kw">let </span>response_handler_clone = response_handler.clone();
-        <span class="kw">let </span>f = RefCell::new(<span class="prelude-val">Some</span>(f));
-        <span class="kw-2">*</span>response_handler.borrow_mut() = <span class="prelude-val">Some</span>(<span class="self">self</span>.connect_response(<span class="kw">move </span>|s, response_type| {
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(handler) = response_handler_clone.borrow_mut().take() {
-                s.disconnect(handler);
+        <span class="kw">let </span>response_handler_clone = <a href="#209">response_handler</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>();
+        <span class="kw">let </span>f = RefCell::new(<span class="prelude-val">Some</span>(<a href="#208">f</a>));
+        <span class="kw-2">*</span><a href="#209">response_handler</a>.borrow_mut() = <span class="prelude-val">Some</span>(<a class="self" href="#208">self</a>.<a href="auto/dialog.rs.html#1723-1749">connect_response</a>(<span class="kw">move </span>|s, response_type| {
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(handler) = <a href="#210">response_handler_clone</a>.borrow_mut().take() {
+                <a href="#212">s</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">disconnect</a>(<a href="#213">handler</a>);
             }
-            (<span class="kw-2">*</span>f.borrow_mut()).take().expect(<span class="string">&quot;cannot get callback&quot;</span>)(s, response_type);
+            (<span class="kw-2">*</span><a href="#211">f</a>.borrow_mut()).take().expect(<span class="string">"cannot get callback"</span>)(<a href="#212">s</a>, <a href="#212">response_type</a>);
         }));
-        <span class="self">self</span>.as_ref().present();
+        <a class="self" href="#208">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="auto/window.rs.html#1893-1897">present</a>();
     }
 }
+
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/dialog.rs.html#17-850">Dialog</a>&gt;&gt; <a href="#104-220">DialogExtManual</a> <span class="kw">for </span>O {}
 
 <span class="attr">#[cfg(test)]
 </span><span class="kw">mod </span>tests {
@@ -547,5 +549,4 @@
         <span class="macro">assert_eq!</span>(response, ResponseType::Ok);
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

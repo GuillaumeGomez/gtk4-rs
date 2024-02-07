@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/auto/frame_timings.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>frame_timings.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/auto/frame_timings.rs`."><title>frame_timings.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gdk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gdk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -204,13 +206,13 @@
 <a href="#131" id="131">131</a>
 <a href="#132" id="132">132</a>
 <a href="#133" id="133">133</a>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+</pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+</span><span class="kw">use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
 
-<span class="macro">glib::wrapper! </span>{
+<a class="macro" href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/macro.wrapper.html">glib::wrapper! </a>{
     <span class="doccomment">/// A [`FrameTimings`][crate::FrameTimings] object holds timing information for a single frame
     /// of the application’s displays.
     ///
@@ -220,7 +222,7 @@
     /// the event or audio streams, and for measuring quality metrics for the
     /// application’s display, such as latency and jitter.
     </span><span class="attr">#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
-    </span><span class="kw">pub struct </span>FrameTimings(Shared&lt;ffi::GdkFrameTimings&gt;);
+    </span><span class="kw">pub struct </span><a href="../../../gdk4/struct.FrameTimings.html">FrameTimings</a>(Shared&lt;<a href="../../../gdk4_sys/struct.GdkFrameTimings.html">ffi::GdkFrameTimings</a>&gt;);
 
     <span class="kw">match fn </span>{
         <span class="kw-2">ref </span>=&gt; |ptr| ffi::gdk_frame_timings_ref(ptr),
@@ -229,7 +231,7 @@
     }
 }
 
-<span class="kw">impl </span>FrameTimings {
+<span class="kw">impl </span><a href="#7-24">FrameTimings</a> {
     <span class="doccomment">/// Returns whether @self are complete.
     ///
     /// The timing information in a [`FrameTimings`][crate::FrameTimings] is filled in
@@ -237,7 +239,7 @@
     /// window system for processing and display to the user. The
     /// accessor functions for [`FrameTimings`][crate::FrameTimings] can return 0 to
     /// indicate an unavailable value for two reasons: either because
-    /// the information is not yet available, or because it isn&#39;t
+    /// the information is not yet available, or because it isn't
     /// available at all.
     ///
     /// Once this function returns [`true`] for a frame, you can be
@@ -248,10 +250,10 @@
     ///
     /// [`true`] if all information that will be available
     ///   for the frame has been filled in.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_frame_timings_get_complete&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_complete&quot;</span>)]
-    </span><span class="kw">pub fn </span>is_complete(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{ from_glib(ffi::gdk_frame_timings_get_complete(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gdk_frame_timings_get_complete"</span>)]
+    #[doc(alias = <span class="string">"get_complete"</span>)]
+    </span><span class="kw">pub fn </span>is_complete(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+        <span class="kw">unsafe </span>{ from_glib(ffi::gdk_frame_timings_get_complete(<a class="self" href="#47">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Gets the frame counter value of the [`FrameClock`][crate::FrameClock] when
@@ -260,10 +262,10 @@
     /// # Returns
     ///
     /// the frame counter value for this frame
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_frame_timings_get_frame_counter&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_frame_counter&quot;</span>)]
-    </span><span class="kw">pub fn </span>frame_counter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i64 {
-        <span class="kw">unsafe </span>{ ffi::gdk_frame_timings_get_frame_counter(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gdk_frame_timings_get_frame_counter"</span>)]
+    #[doc(alias = <span class="string">"get_frame_counter"</span>)]
+    </span><span class="kw">pub fn </span>frame_counter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a> {
+        <span class="kw">unsafe </span>{ ffi::gdk_frame_timings_get_frame_counter(<a class="self" href="#59">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 
     <span class="doccomment">/// Returns the frame time for the frame.
@@ -275,10 +277,10 @@
     ///
     /// the frame time for the frame, in the timescale
     ///  of g_get_monotonic_time()
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_frame_timings_get_frame_time&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_frame_time&quot;</span>)]
-    </span><span class="kw">pub fn </span>frame_time(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i64 {
-        <span class="kw">unsafe </span>{ ffi::gdk_frame_timings_get_frame_time(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gdk_frame_timings_get_frame_time"</span>)]
+    #[doc(alias = <span class="string">"get_frame_time"</span>)]
+    </span><span class="kw">pub fn </span>frame_time(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a> {
+        <span class="kw">unsafe </span>{ ffi::gdk_frame_timings_get_frame_time(<a class="self" href="#74">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 
     <span class="doccomment">/// Gets the predicted time at which this frame will be displayed.
@@ -299,10 +301,10 @@
     /// The predicted time at which the frame will be presented,
     ///   in the timescale of g_get_monotonic_time(), or 0 if no predicted
     ///   presentation time is available.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_frame_timings_get_predicted_presentation_time&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_predicted_presentation_time&quot;</span>)]
-    </span><span class="kw">pub fn </span>predicted_presentation_time(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i64 {
-        <span class="kw">unsafe </span>{ ffi::gdk_frame_timings_get_predicted_presentation_time(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gdk_frame_timings_get_predicted_presentation_time"</span>)]
+    #[doc(alias = <span class="string">"get_predicted_presentation_time"</span>)]
+    </span><span class="kw">pub fn </span>predicted_presentation_time(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a> {
+        <span class="kw">unsafe </span>{ ffi::gdk_frame_timings_get_predicted_presentation_time(<a class="self" href="#98">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 
     <span class="doccomment">/// Reurns the presentation time.
@@ -314,10 +316,10 @@
     /// the time the frame was displayed to the user, in the
     ///   timescale of g_get_monotonic_time(), or 0 if no presentation
     ///   time is available. See [`is_complete()`][Self::is_complete()]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_frame_timings_get_presentation_time&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_presentation_time&quot;</span>)]
-    </span><span class="kw">pub fn </span>presentation_time(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i64 {
-        <span class="kw">unsafe </span>{ ffi::gdk_frame_timings_get_presentation_time(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gdk_frame_timings_get_presentation_time"</span>)]
+    #[doc(alias = <span class="string">"get_presentation_time"</span>)]
+    </span><span class="kw">pub fn </span>presentation_time(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a> {
+        <span class="kw">unsafe </span>{ ffi::gdk_frame_timings_get_presentation_time(<a class="self" href="#113">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 
     <span class="doccomment">/// Gets the natural interval between presentation times for
@@ -331,11 +333,10 @@
     /// the refresh interval of the display, in microseconds,
     ///   or 0 if the refresh interval is not available.
     ///   See [`is_complete()`][Self::is_complete()].
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_frame_timings_get_refresh_interval&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_refresh_interval&quot;</span>)]
-    </span><span class="kw">pub fn </span>refresh_interval(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i64 {
-        <span class="kw">unsafe </span>{ ffi::gdk_frame_timings_get_refresh_interval(<span class="self">self</span>.to_glib_none().<span class="number">0</span>) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gdk_frame_timings_get_refresh_interval"</span>)]
+    #[doc(alias = <span class="string">"get_refresh_interval"</span>)]
+    </span><span class="kw">pub fn </span>refresh_interval(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a> {
+        <span class="kw">unsafe </span>{ ffi::gdk_frame_timings_get_refresh_interval(<a class="self" href="#130">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

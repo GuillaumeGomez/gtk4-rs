@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/text_view.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>text_view.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/text_view.rs`."><title>text_view.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -449,134 +451,156 @@
 <a href="#376" id="376">376</a>
 <a href="#377" id="377">377</a>
 <a href="#378" id="378">378</a>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
+<a href="#379" id="379">379</a>
+<a href="#380" id="380">380</a>
+<a href="#381" id="381">381</a>
+<a href="#382" id="382">382</a>
+<a href="#383" id="383">383</a>
+<a href="#384" id="384">384</a>
+<a href="#385" id="385">385</a>
+<a href="#386" id="386">386</a>
+<a href="#387" id="387">387</a>
+<a href="#388" id="388">388</a>
+<a href="#389" id="389">389</a>
+<a href="#390" id="390">390</a>
+</pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 // rustdoc-stripper-ignore-next
 </span><span class="doccomment">//! Traits intended for subclassing [`TextView`](crate::TextView).
 
-</span><span class="kw">use crate</span>::{
-    prelude::<span class="kw-2">*</span>, subclass::prelude::<span class="kw-2">*</span>, DeleteType, MovementStep, Snapshot, TextExtendSelection,
-    TextIter, TextView, TextViewLayer,
+</span><span class="kw">use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
+
+<span class="kw">use crate</span>::{
+    <a href="../lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="mod.rs.html#91-174">subclass::prelude</a>::<span class="kw-2">*</span>, <a href="../auto/enums.rs.html#3807-3840">DeleteType</a>, <a href="../auto/enums.rs.html#6676-6709">MovementStep</a>, <a href="../auto/snapshot.rs.html#9-32">Snapshot</a>, <a href="../auto/enums.rs.html#11882-11893">TextExtendSelection</a>,
+    <a href="../auto/text_iter.rs.html#8-23">TextIter</a>, <a href="../auto/text_view.rs.html#18-862">TextView</a>, <a href="../auto/enums.rs.html#11984-11993">TextViewLayer</a>,
 };
-<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
 
-<span class="kw">pub trait </span>TextViewImpl: TextViewImplExt + WidgetImpl {
-    <span class="kw">fn </span>backspace(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.parent_backspace()
+<span class="kw">pub trait </span><a href="../../../gtk4/subclass/text_view/trait.TextViewImpl.html">TextViewImpl</a>: <a href="#99-249">TextViewImplExt</a> + <a href="widget.rs.html#107-394">WidgetImpl</a> {
+    <span class="doccomment">/// The class handler for the `GtkTextView::backspace`
+    ///   keybinding signal.
+    </span><span class="kw">fn </span>backspace(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <a class="self" href="#16">self</a>.<a href="#100-108">parent_backspace</a>()
     }
 
-    <span class="kw">fn </span>copy_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.parent_copy_clipboard()
+    <span class="doccomment">/// The class handler for the `GtkTextView::copy-clipboard`
+    ///   keybinding signal.
+    </span><span class="kw">fn </span>copy_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <a class="self" href="#22">self</a>.<a href="#110-118">parent_copy_clipboard</a>()
     }
 
-    <span class="kw">fn </span>cut_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.parent_cut_clipboard()
+    <span class="doccomment">/// The class handler for the `GtkTextView::cut-clipboard`
+    ///   keybinding signal
+    </span><span class="kw">fn </span>cut_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <a class="self" href="#28">self</a>.<a href="#120-128">parent_cut_clipboard</a>()
     }
 
-    <span class="kw">fn </span>delete_from_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: DeleteType, count: i32) {
-        <span class="self">self</span>.parent_delete_from_cursor(type_, count)
+    <span class="doccomment">/// The class handler for the `GtkTextView::delete-from-cursor`
+    ///   keybinding signal.
+    </span><span class="kw">fn </span>delete_from_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../auto/enums.rs.html#3807-3840">DeleteType</a>, count: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
+        <a class="self" href="#34">self</a>.<a href="#130-142">parent_delete_from_cursor</a>(<a href="#34">type_</a>, <a href="#34">count</a>)
     }
 
-    <span class="kw">fn </span>extend_selection(
+    <span class="doccomment">/// The class handler for the `GtkTextView::extend-selection` signal.
+    </span><span class="kw">fn </span>extend_selection(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        granularity: TextExtendSelection,
-        location: <span class="kw-2">&amp;</span>TextIter,
-        start: <span class="kw-2">&amp;mut </span>TextIter,
-        end: <span class="kw-2">&amp;mut </span>TextIter,
-    ) -&gt; glib::signal::Inhibit {
-        <span class="self">self</span>.parent_extend_selection(granularity, location, start, end)
+        granularity: <a href="../auto/enums.rs.html#11882-11893">TextExtendSelection</a>,
+        location: <span class="kw-2">&amp;</span><a href="../auto/text_iter.rs.html#8-23">TextIter</a>,
+        start: <span class="kw-2">&amp;mut </span><a href="../auto/text_iter.rs.html#8-23">TextIter</a>,
+        end: <span class="kw-2">&amp;mut </span><a href="../auto/text_iter.rs.html#8-23">TextIter</a>,
+    ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/control_flow/enum.ControlFlow.html">glib::ControlFlow</a> {
+        <a class="self" href="#40">self</a>.<a href="#144-166">parent_extend_selection</a>(<a href="#41">granularity</a>, <a href="#42">location</a>, <a href="#43">start</a>, <a href="#44">end</a>)
     }
 
-    <span class="kw">fn </span>insert_at_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str) {
-        <span class="self">self</span>.parent_insert_at_cursor(text)
+    <span class="doccomment">/// The class handler for the `GtkTextView::insert-at-cursor`
+    ///   keybinding signal.
+    </span><span class="kw">fn </span>insert_at_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
+        <a class="self" href="#51">self</a>.<a href="#168-179">parent_insert_at_cursor</a>(<a href="#51">text</a>)
     }
 
-    <span class="kw">fn </span>insert_emoji(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.parent_insert_emoji()
+    <span class="doccomment">/// The class handler for the `GtkTextView::insert-emoji` signal.
+    </span><span class="kw">fn </span>insert_emoji(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <a class="self" href="#56">self</a>.<a href="#181-189">parent_insert_emoji</a>()
     }
 
-    <span class="kw">fn </span>move_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, step: MovementStep, count: i32, extend_selection: bool) {
-        <span class="self">self</span>.parent_move_cursor(step, count, extend_selection)
+    <span class="doccomment">/// The class handler for the `GtkTextView::move-cursor`
+    ///   keybinding signal.
+    </span><span class="kw">fn </span>move_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, step: <a href="../auto/enums.rs.html#6676-6709">MovementStep</a>, count: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, extend_selection: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
+        <a class="self" href="#62">self</a>.<a href="#191-204">parent_move_cursor</a>(<a href="#62">step</a>, <a href="#62">count</a>, <a href="#62">extend_selection</a>)
     }
 
-    <span class="kw">fn </span>paste_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.parent_paste_clipboard()
+    <span class="doccomment">/// The class handler for the `GtkTextView::paste-clipboard`
+    ///   keybinding signal.
+    </span><span class="kw">fn </span>paste_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <a class="self" href="#68">self</a>.<a href="#206-214">parent_paste_clipboard</a>()
     }
 
-    <span class="kw">fn </span>set_anchor(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.parent_set_anchor()
+    <span class="doccomment">/// The class handler for the `GtkTextView::set-anchor`
+    ///   keybinding signal.
+    </span><span class="kw">fn </span>set_anchor(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <a class="self" href="#74">self</a>.<a href="#216-224">parent_set_anchor</a>()
     }
 
-    <span class="kw">fn </span>snapshot_layer(<span class="kw-2">&amp;</span><span class="self">self</span>, layer: TextViewLayer, snapshot: Snapshot) {
-        <span class="self">self</span>.parent_snapshot_layer(layer, snapshot)
+    <span class="doccomment">/// The snapshot_layer vfunc is called before and after the text
+    ///   view is drawing its own text. Applications can override this vfunc
+    ///   in a subclass to draw customized content underneath or above the
+    ///   text. In the [`TextViewLayer::BelowText`][crate::TextViewLayer::BelowText] and [`TextViewLayer::AboveText`][crate::TextViewLayer::AboveText]
+    ///   layers the drawing is done in the buffer coordinate space.
+    </span><span class="kw">fn </span>snapshot_layer(<span class="kw-2">&amp;</span><span class="self">self</span>, layer: <a href="../auto/enums.rs.html#11984-11993">TextViewLayer</a>, snapshot: <a href="../auto/snapshot.rs.html#9-32">Snapshot</a>) {
+        <a class="self" href="#83">self</a>.<a href="#226-238">parent_snapshot_layer</a>(<a href="#83">layer</a>, <a href="#83">snapshot</a>)
     }
 
-    <span class="kw">fn </span>toggle_overwrite(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.parent_toggle_overwrite()
+    <span class="doccomment">/// The class handler for the `GtkTextView::toggle-overwrite`
+    ///   keybinding signal.
+    </span><span class="kw">fn </span>toggle_overwrite(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+        <a class="self" href="#89">self</a>.<a href="#240-248">parent_toggle_overwrite</a>()
     }
 }
 
-<span class="kw">pub trait </span>TextViewImplExt: ObjectSubclass {
-    <span class="kw">fn </span>parent_backspace(<span class="kw-2">&amp;</span><span class="self">self</span>);
-    <span class="kw">fn </span>parent_copy_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>);
-    <span class="kw">fn </span>parent_cut_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>);
-    <span class="kw">fn </span>parent_delete_from_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: DeleteType, count: i32);
-    <span class="kw">fn </span>parent_extend_selection(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        granularity: TextExtendSelection,
-        location: <span class="kw-2">&amp;</span>TextIter,
-        start: <span class="kw-2">&amp;mut </span>TextIter,
-        end: <span class="kw-2">&amp;mut </span>TextIter,
-    ) -&gt; glib::signal::Inhibit;
-    <span class="kw">fn </span>parent_insert_at_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str);
-    <span class="kw">fn </span>parent_insert_emoji(<span class="kw-2">&amp;</span><span class="self">self</span>);
-    <span class="kw">fn </span>parent_move_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, step: MovementStep, count: i32, extend_selection: bool);
-    <span class="kw">fn </span>parent_paste_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>);
-    <span class="kw">fn </span>parent_set_anchor(<span class="kw-2">&amp;</span><span class="self">self</span>);
-    <span class="kw">fn </span>parent_snapshot_layer(<span class="kw-2">&amp;</span><span class="self">self</span>, layer: TextViewLayer, snapshot: Snapshot);
-    <span class="kw">fn </span>parent_toggle_overwrite(<span class="kw-2">&amp;</span><span class="self">self</span>);
+<span class="kw">mod </span>sealed {
+    <span class="kw">pub trait </span>Sealed {}
+    <span class="kw">impl</span>&lt;T: <a href="#99-249"><span class="kw">super</span>::TextViewImplExt</a>&gt; <a href="#95">Sealed</a> <span class="kw">for </span>T {}
 }
 
-<span class="kw">impl</span>&lt;T: TextViewImpl&gt; TextViewImplExt <span class="kw">for </span>T {
+<span class="kw">pub trait </span><a href="../../../gtk4/subclass/text_view/trait.TextViewImplExt.html">TextViewImplExt</a>: <a href="#95">sealed::Sealed</a> + <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclass.html">ObjectSubclass</a> {
     <span class="kw">fn </span>parent_backspace(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextViewClass;
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).backspace {
-                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextView&gt;().to_glib_none().<span class="number">0</span>)
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#102">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextViewClass.html">ffi::GtkTextViewClass</a>;
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#103">parent_class</a>).backspace {
+                <a href="#104">f</a>(<a class="self" href="#100">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/text_view.rs.html#18-862">TextView</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
             }
         }
     }
 
     <span class="kw">fn </span>parent_copy_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextViewClass;
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).copy_clipboard {
-                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextView&gt;().to_glib_none().<span class="number">0</span>)
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#112">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextViewClass.html">ffi::GtkTextViewClass</a>;
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#113">parent_class</a>).copy_clipboard {
+                <a href="#114">f</a>(<a class="self" href="#110">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/text_view.rs.html#18-862">TextView</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
             }
         }
     }
 
     <span class="kw">fn </span>parent_cut_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextViewClass;
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).cut_clipboard {
-                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextView&gt;().to_glib_none().<span class="number">0</span>)
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#122">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextViewClass.html">ffi::GtkTextViewClass</a>;
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#123">parent_class</a>).cut_clipboard {
+                <a href="#124">f</a>(<a class="self" href="#120">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/text_view.rs.html#18-862">TextView</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_delete_from_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: DeleteType, count: i32) {
+    <span class="kw">fn </span>parent_delete_from_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="../auto/enums.rs.html#3807-3840">DeleteType</a>, count: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextViewClass;
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).delete_from_cursor {
-                f(
-                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextView&gt;().to_glib_none().<span class="number">0</span>,
-                    type_.into_glib(),
-                    count,
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#132">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextViewClass.html">ffi::GtkTextViewClass</a>;
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#133">parent_class</a>).delete_from_cursor {
+                <a href="#134">f</a>(
+                    <a class="self" href="#130">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/text_view.rs.html#18-862">TextView</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#130">type_</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                    <a href="#130">count</a>,
                 )
             }
         }
@@ -584,36 +608,36 @@
 
     <span class="kw">fn </span>parent_extend_selection(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        granularity: TextExtendSelection,
-        location: <span class="kw-2">&amp;</span>TextIter,
-        start: <span class="kw-2">&amp;mut </span>TextIter,
-        end: <span class="kw-2">&amp;mut </span>TextIter,
-    ) -&gt; glib::signal::Inhibit {
+        granularity: <a href="../auto/enums.rs.html#11882-11893">TextExtendSelection</a>,
+        location: <span class="kw-2">&amp;</span><a href="../auto/text_iter.rs.html#8-23">TextIter</a>,
+        start: <span class="kw-2">&amp;mut </span><a href="../auto/text_iter.rs.html#8-23">TextIter</a>,
+        end: <span class="kw-2">&amp;mut </span><a href="../auto/text_iter.rs.html#8-23">TextIter</a>,
+    ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/control_flow/enum.ControlFlow.html">glib::ControlFlow</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextViewClass;
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).extend_selection {
-                glib::signal::Inhibit(from_glib(f(
-                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextView&gt;().to_glib_none().<span class="number">0</span>,
-                    granularity.into_glib(),
-                    location.to_glib_none().<span class="number">0</span>,
-                    start.to_glib_none_mut().<span class="number">0</span>,
-                    end.to_glib_none_mut().<span class="number">0</span>,
-                )))
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#152">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextViewClass.html">ffi::GtkTextViewClass</a>;
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#153">parent_class</a>).extend_selection {
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlib.html">glib::ControlFlow::from_glib</a>(<a href="#154">f</a>(
+                    <a class="self" href="#145">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/text_view.rs.html#18-862">TextView</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#146">granularity</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                    <a href="#147">location</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#148">start</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
+                    <a href="#149">end</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
+                ))
             } <span class="kw">else </span>{
-                glib::signal::Inhibit(<span class="bool-val">false</span>)
+                glib::ControlFlow::Break
             }
         }
     }
 
-    <span class="kw">fn </span>parent_insert_at_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str) {
+    <span class="kw">fn </span>parent_insert_at_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextViewClass;
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).insert_at_cursor {
-                f(
-                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextView&gt;().to_glib_none().<span class="number">0</span>,
-                    text.to_glib_none().<span class="number">0</span>,
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#170">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextViewClass.html">ffi::GtkTextViewClass</a>;
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#171">parent_class</a>).insert_at_cursor {
+                <a href="#172">f</a>(
+                    <a class="self" href="#168">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/text_view.rs.html#18-862">TextView</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#168">text</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
                 )
             }
         }
@@ -621,24 +645,24 @@
 
     <span class="kw">fn </span>parent_insert_emoji(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextViewClass;
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).insert_emoji {
-                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextView&gt;().to_glib_none().<span class="number">0</span>)
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#183">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextViewClass.html">ffi::GtkTextViewClass</a>;
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#184">parent_class</a>).insert_emoji {
+                <a href="#185">f</a>(<a class="self" href="#181">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/text_view.rs.html#18-862">TextView</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_move_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, step: MovementStep, count: i32, extend_selection: bool) {
+    <span class="kw">fn </span>parent_move_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, step: <a href="../auto/enums.rs.html#6676-6709">MovementStep</a>, count: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, extend_selection: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextViewClass;
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).move_cursor {
-                f(
-                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextView&gt;().to_glib_none().<span class="number">0</span>,
-                    step.into_glib(),
-                    count,
-                    extend_selection.into_glib(),
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#193">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextViewClass.html">ffi::GtkTextViewClass</a>;
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#194">parent_class</a>).move_cursor {
+                <a href="#195">f</a>(
+                    <a class="self" href="#191">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/text_view.rs.html#18-862">TextView</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#191">step</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                    <a href="#191">count</a>,
+                    <a href="#191">extend_selection</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
                 )
             }
         }
@@ -646,33 +670,33 @@
 
     <span class="kw">fn </span>parent_paste_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextViewClass;
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).paste_clipboard {
-                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextView&gt;().to_glib_none().<span class="number">0</span>)
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#208">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextViewClass.html">ffi::GtkTextViewClass</a>;
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#209">parent_class</a>).paste_clipboard {
+                <a href="#210">f</a>(<a class="self" href="#206">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/text_view.rs.html#18-862">TextView</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
             }
         }
     }
 
     <span class="kw">fn </span>parent_set_anchor(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextViewClass;
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).set_anchor {
-                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextView&gt;().to_glib_none().<span class="number">0</span>)
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#218">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextViewClass.html">ffi::GtkTextViewClass</a>;
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#219">parent_class</a>).set_anchor {
+                <a href="#220">f</a>(<a class="self" href="#216">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/text_view.rs.html#18-862">TextView</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
             }
         }
     }
 
-    <span class="kw">fn </span>parent_snapshot_layer(<span class="kw-2">&amp;</span><span class="self">self</span>, layer: TextViewLayer, snapshot: Snapshot) {
+    <span class="kw">fn </span>parent_snapshot_layer(<span class="kw-2">&amp;</span><span class="self">self</span>, layer: <a href="../auto/enums.rs.html#11984-11993">TextViewLayer</a>, snapshot: <a href="../auto/snapshot.rs.html#9-32">Snapshot</a>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextViewClass;
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).snapshot_layer {
-                f(
-                    <span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextView&gt;().to_glib_none().<span class="number">0</span>,
-                    layer.into_glib(),
-                    snapshot.to_glib_none().<span class="number">0</span>,
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#228">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextViewClass.html">ffi::GtkTextViewClass</a>;
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#229">parent_class</a>).snapshot_layer {
+                <a href="#230">f</a>(
+                    <a class="self" href="#226">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/text_view.rs.html#18-862">TextView</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#226">layer</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                    <a href="#226">snapshot</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
                 )
             }
         }
@@ -680,152 +704,153 @@
 
     <span class="kw">fn </span>parent_toggle_overwrite(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = T::type_data();
-            <span class="kw">let </span>parent_class = data.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span>ffi::GtkTextViewClass;
-            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span>parent_class).toggle_overwrite {
-                f(<span class="self">self</span>.obj().unsafe_cast_ref::&lt;TextView&gt;().to_glib_none().<span class="number">0</span>)
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#242">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextViewClass.html">ffi::GtkTextViewClass</a>;
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#243">parent_class</a>).toggle_overwrite {
+                <a href="#244">f</a>(<a class="self" href="#240">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/text_view.rs.html#18-862">TextView</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
             }
         }
     }
 }
 
-<span class="kw">unsafe impl</span>&lt;T: TextViewImpl&gt; IsSubclassable&lt;T&gt; <span class="kw">for </span>TextView {
-    <span class="kw">fn </span>class_init(class: <span class="kw-2">&amp;mut </span>glib::Class&lt;<span class="self">Self</span>&gt;) {
-        <span class="self">Self</span>::parent_class_init::&lt;T&gt;(class);
+<span class="kw">impl</span>&lt;T: <a href="#13-92">TextViewImpl</a>&gt; <a href="#99-249">TextViewImplExt</a> <span class="kw">for </span>T {}
 
-        <span class="kw">let </span>klass = class.as_mut();
-        klass.backspace = <span class="prelude-val">Some</span>(text_view_backspace::&lt;T&gt;);
-        klass.copy_clipboard = <span class="prelude-val">Some</span>(text_view_copy_clipboard::&lt;T&gt;);
-        klass.cut_clipboard = <span class="prelude-val">Some</span>(text_view_cut_clipboard::&lt;T&gt;);
-        klass.delete_from_cursor = <span class="prelude-val">Some</span>(text_view_delete_from_cursor::&lt;T&gt;);
-        klass.extend_selection = <span class="prelude-val">Some</span>(text_view_extend_selection::&lt;T&gt;);
-        klass.insert_at_cursor = <span class="prelude-val">Some</span>(text_view_insert_at_cursor::&lt;T&gt;);
-        klass.insert_emoji = <span class="prelude-val">Some</span>(text_view_insert_emoji::&lt;T&gt;);
-        klass.move_cursor = <span class="prelude-val">Some</span>(text_view_move_cursor::&lt;T&gt;);
-        klass.paste_clipboard = <span class="prelude-val">Some</span>(text_view_paste_clipboard::&lt;T&gt;);
-        klass.set_anchor = <span class="prelude-val">Some</span>(text_view_set_anchor::&lt;T&gt;);
-        klass.snapshot_layer = <span class="prelude-val">Some</span>(text_view_snapshot_layer::&lt;T&gt;);
-        klass.toggle_overwrite = <span class="prelude-val">Some</span>(text_view_toggle_overwrite::&lt;T&gt;);
+<span class="kw">unsafe impl</span>&lt;T: <a href="#13-92">TextViewImpl</a>&gt; IsSubclassable&lt;T&gt; <span class="kw">for </span><a href="../auto/text_view.rs.html#18-862">TextView</a> {
+    <span class="kw">fn </span>class_init(class: <span class="kw-2">&amp;mut </span>glib::Class&lt;<span class="self">Self</span>&gt;) {
+        <span class="self">Self</span>::parent_class_init::&lt;T&gt;(<a href="#254">class</a>);
+
+        <span class="kw">let </span>klass = <a href="#254">class</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsMut.html">as_mut</a>();
+        <a href="#257">klass</a>.backspace = <span class="prelude-val">Some</span>(text_view_backspace::&lt;T&gt;);
+        <a href="#257">klass</a>.copy_clipboard = <span class="prelude-val">Some</span>(text_view_copy_clipboard::&lt;T&gt;);
+        <a href="#257">klass</a>.cut_clipboard = <span class="prelude-val">Some</span>(text_view_cut_clipboard::&lt;T&gt;);
+        <a href="#257">klass</a>.delete_from_cursor = <span class="prelude-val">Some</span>(text_view_delete_from_cursor::&lt;T&gt;);
+        <a href="#257">klass</a>.extend_selection = <span class="prelude-val">Some</span>(text_view_extend_selection::&lt;T&gt;);
+        <a href="#257">klass</a>.insert_at_cursor = <span class="prelude-val">Some</span>(text_view_insert_at_cursor::&lt;T&gt;);
+        <a href="#257">klass</a>.insert_emoji = <span class="prelude-val">Some</span>(text_view_insert_emoji::&lt;T&gt;);
+        <a href="#257">klass</a>.move_cursor = <span class="prelude-val">Some</span>(text_view_move_cursor::&lt;T&gt;);
+        <a href="#257">klass</a>.paste_clipboard = <span class="prelude-val">Some</span>(text_view_paste_clipboard::&lt;T&gt;);
+        <a href="#257">klass</a>.set_anchor = <span class="prelude-val">Some</span>(text_view_set_anchor::&lt;T&gt;);
+        <a href="#257">klass</a>.snapshot_layer = <span class="prelude-val">Some</span>(text_view_snapshot_layer::&lt;T&gt;);
+        <a href="#257">klass</a>.toggle_overwrite = <span class="prelude-val">Some</span>(text_view_toggle_overwrite::&lt;T&gt;);
     }
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_view_backspace&lt;T: TextViewImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTextView) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>text_view_backspace&lt;T: <a href="#13-92">TextViewImpl</a>&gt;(ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextView.html">ffi::GtkTextView</a>) {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#273">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#274">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.backspace()
+    <a href="#275">imp</a>.<a href="#16-18">backspace</a>()
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_view_copy_clipboard&lt;T: TextViewImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTextView) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>text_view_copy_clipboard&lt;T: <a href="#13-92">TextViewImpl</a>&gt;(ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextView.html">ffi::GtkTextView</a>) {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#280">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#281">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.copy_clipboard()
+    <a href="#282">imp</a>.<a href="#22-24">copy_clipboard</a>()
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_view_cut_clipboard&lt;T: TextViewImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTextView) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>text_view_cut_clipboard&lt;T: <a href="#13-92">TextViewImpl</a>&gt;(ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextView.html">ffi::GtkTextView</a>) {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#287">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#288">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.cut_clipboard()
+    <a href="#289">imp</a>.<a href="#28-30">cut_clipboard</a>()
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_view_delete_from_cursor&lt;T: TextViewImpl&gt;(
-    ptr: <span class="kw-2">*mut </span>ffi::GtkTextView,
-    type_: ffi::GtkDeleteType,
-    count: i32,
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>text_view_delete_from_cursor&lt;T: <a href="#13-92">TextViewImpl</a>&gt;(
+    ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextView.html">ffi::GtkTextView</a>,
+    type_: <a href="../../../gtk4_sys/type.GtkDeleteType.html">ffi::GtkDeleteType</a>,
+    count: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
 ) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#295">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#299">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.delete_from_cursor(from_glib(type_), count)
+    <a href="#300">imp</a>.<a href="#34-36">delete_from_cursor</a>(from_glib(<a href="#296">type_</a>), <a href="#297">count</a>)
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_view_extend_selection&lt;T: TextViewImpl&gt;(
-    ptr: <span class="kw-2">*mut </span>ffi::GtkTextView,
-    granularity: ffi::GtkTextExtendSelection,
-    location: <span class="kw-2">*const </span>ffi::GtkTextIter,
-    start: <span class="kw-2">*mut </span>ffi::GtkTextIter,
-    end: <span class="kw-2">*mut </span>ffi::GtkTextIter,
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>text_view_extend_selection&lt;T: <a href="#13-92">TextViewImpl</a>&gt;(
+    ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextView.html">ffi::GtkTextView</a>,
+    granularity: <a href="../../../gtk4_sys/type.GtkTextExtendSelection.html">ffi::GtkTextExtendSelection</a>,
+    location: <span class="kw-2">*const </span><a href="../../../gtk4_sys/struct.GtkTextIter.html">ffi::GtkTextIter</a>,
+    start: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextIter.html">ffi::GtkTextIter</a>,
+    end: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextIter.html">ffi::GtkTextIter</a>,
 ) -&gt; glib::ffi::gboolean {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#306">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#312">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    <span class="kw">let </span><span class="kw-2">mut </span>start_copy = from_glib_none(start);
-    <span class="kw">let </span><span class="kw-2">mut </span>end_copy = from_glib_none(end);
+    <span class="kw">let </span><span class="kw-2">mut </span>start_copy = from_glib_none(<a href="#309">start</a>);
+    <span class="kw">let </span><span class="kw-2">mut </span>end_copy = from_glib_none(<a href="#310">end</a>);
 
-    <span class="kw">let </span>result = imp.extend_selection(
-        from_glib(granularity),
-        <span class="kw-2">&amp;</span>from_glib_borrow(location),
-        <span class="kw-2">&amp;mut </span>start_copy,
-        <span class="kw-2">&amp;mut </span>end_copy,
+    <span class="kw">let </span>result = <a href="#313">imp</a>.<a href="#39-47">extend_selection</a>(
+        from_glib(<a href="#307">granularity</a>),
+        <span class="kw-2">&amp;</span>from_glib_borrow(<a href="#308">location</a>),
+        <span class="kw-2">&amp;mut </span><a href="#315">start_copy</a>,
+        <span class="kw-2">&amp;mut </span><a href="#316">end_copy</a>,
     );
-    <span class="kw-2">*</span>start = <span class="kw-2">*</span>start_copy.to_glib_none().<span class="number">0</span>;
-    <span class="kw-2">*</span>end = <span class="kw-2">*</span>end_copy.to_glib_none().<span class="number">0</span>;
+    <span class="kw-2">*</span><a href="#309">start</a> = <span class="kw-2">*</span><a href="#315">start_copy</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>;
+    <span class="kw-2">*</span><a href="#310">end</a> = <span class="kw-2">*</span><a href="#316">end_copy</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>;
 
-    result.into_glib()
+    <a href="#318">result</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>()
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_view_insert_at_cursor&lt;T: TextViewImpl&gt;(
-    ptr: <span class="kw-2">*mut </span>ffi::GtkTextView,
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>text_view_insert_at_cursor&lt;T: <a href="#13-92">TextViewImpl</a>&gt;(
+    ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextView.html">ffi::GtkTextView</a>,
     text_ptr: <span class="kw-2">*const </span>libc::c_char,
 ) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
-    <span class="kw">let </span>text: Borrowed&lt;glib::GString&gt; = from_glib_borrow(text_ptr);
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#331">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#334">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>text: Borrowed&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt; = from_glib_borrow(<a href="#332">text_ptr</a>);
 
-    imp.insert_at_cursor(text.as_str())
+    <a href="#335">imp</a>.<a href="#51-53">insert_at_cursor</a>(<a href="#336">text</a>.as_str())
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_view_insert_emoji&lt;T: TextViewImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTextView) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>text_view_insert_emoji&lt;T: <a href="#13-92">TextViewImpl</a>&gt;(ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextView.html">ffi::GtkTextView</a>) {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#341">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#342">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.insert_emoji()
+    <a href="#343">imp</a>.<a href="#56-58">insert_emoji</a>()
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_view_move_cursor&lt;T: TextViewImpl&gt;(
-    ptr: <span class="kw-2">*mut </span>ffi::GtkTextView,
-    step: ffi::GtkMovementStep,
-    count: i32,
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>text_view_move_cursor&lt;T: <a href="#13-92">TextViewImpl</a>&gt;(
+    ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextView.html">ffi::GtkTextView</a>,
+    step: <a href="../../../gtk4_sys/type.GtkMovementStep.html">ffi::GtkMovementStep</a>,
+    count: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
     extend_selection: glib::ffi::gboolean,
 ) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#349">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#354">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.move_cursor(from_glib(step), count, from_glib(extend_selection))
+    <a href="#355">imp</a>.<a href="#62-64">move_cursor</a>(from_glib(<a href="#350">step</a>), <a href="#351">count</a>, from_glib(<a href="#352">extend_selection</a>))
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_view_paste_clipboard&lt;T: TextViewImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTextView) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>text_view_paste_clipboard&lt;T: <a href="#13-92">TextViewImpl</a>&gt;(ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextView.html">ffi::GtkTextView</a>) {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#360">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#361">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.paste_clipboard()
+    <a href="#362">imp</a>.<a href="#68-70">paste_clipboard</a>()
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_view_set_anchor&lt;T: TextViewImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTextView) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>text_view_set_anchor&lt;T: <a href="#13-92">TextViewImpl</a>&gt;(ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextView.html">ffi::GtkTextView</a>) {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#367">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#368">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.set_anchor()
+    <a href="#369">imp</a>.<a href="#74-76">set_anchor</a>()
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_view_snapshot_layer&lt;T: TextViewImpl&gt;(
-    ptr: <span class="kw-2">*mut </span>ffi::GtkTextView,
-    layer: ffi::GtkTextViewLayer,
-    snapshot: <span class="kw-2">*mut </span>ffi::GtkSnapshot,
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>text_view_snapshot_layer&lt;T: <a href="#13-92">TextViewImpl</a>&gt;(
+    ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextView.html">ffi::GtkTextView</a>,
+    layer: <a href="../../../gtk4_sys/type.GtkTextViewLayer.html">ffi::GtkTextViewLayer</a>,
+    snapshot: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkSnapshot.html">ffi::GtkSnapshot</a>,
 ) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#375">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#379">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.snapshot_layer(from_glib(layer), from_glib_none(snapshot))
+    <a href="#380">imp</a>.<a href="#83-85">snapshot_layer</a>(from_glib(<a href="#376">layer</a>), from_glib_none(<a href="#377">snapshot</a>))
 }
 
-<span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>text_view_toggle_overwrite&lt;T: TextViewImpl&gt;(ptr: <span class="kw-2">*mut </span>ffi::GtkTextView) {
-    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(ptr <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = instance.imp();
+<span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>text_view_toggle_overwrite&lt;T: <a href="#13-92">TextViewImpl</a>&gt;(ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTextView.html">ffi::GtkTextView</a>) {
+    <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#385">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
+    <span class="kw">let </span>imp = <a href="#386">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
 
-    imp.toggle_overwrite()
+    <a href="#387">imp</a>.<a href="#89-91">toggle_overwrite</a>()
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

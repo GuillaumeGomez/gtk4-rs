@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/text.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>text.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/text.rs`."><title>text.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../gtk4/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -479,36 +481,40 @@
 <a href="#406" id="406">406</a>
 <a href="#407" id="407">407</a>
 <a href="#408" id="408">408</a>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
+<a href="#409" id="409">409</a>
+<a href="#410" id="410">410</a>
+</pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use crate</span>::{prelude::<span class="kw-2">*</span>, DeleteType, MovementStep, Text, Widget};
+</span><span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">std::mem::transmute</a>;
+
 <span class="kw">use </span>glib::{
-    signal::{connect_raw, SignalHandlerId},
-    translate::<span class="kw-2">*</span>,
-    GString, IntoGStr,
+    signal::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a>},
+    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>,
+    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">GString</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/trait.IntoGStr.html">IntoGStr</a>,
 };
-<span class="kw">use </span>std::mem::transmute;
 
-<span class="kw">impl </span>Text {
-    <span class="doccomment">/// Emitted when the user hits the Enter key.
+<span class="kw">use crate</span>::{<a href="lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="auto/enums.rs.html#3807-3840">DeleteType</a>, <a href="auto/enums.rs.html#6676-6709">MovementStep</a>, <a href="auto/text.rs.html#16-872">Text</a>, <a href="auto/widget.rs.html#18-853">Widget</a>};
+
+<span class="kw">impl </span><a href="auto/text.rs.html#16-872">Text</a> {
+    <span class="doccomment">/// Emitted when the user hits the &lt;kbd&gt;Enter&lt;/kbd&gt; key.
     ///
     /// The default bindings for this signal are all forms
     /// of the &lt;kbd&gt;Enter&lt;/kbd&gt; key.
-    </span><span class="kw">pub fn </span>connect_activate&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>activate_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkText,
+    </span><span class="kw">pub fn </span>connect_activate&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>activate_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkText.html">ffi::GtkText</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#21">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#23">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#20">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;activate\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute(activate_trampoline::&lt;F&gt; <span class="kw">as </span>usize)),
-                Box::into_raw(f),
+            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(<a href="#18">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#18">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"activate\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">transmute</a>(activate_trampoline::&lt;F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)),
+                Box::into_raw(<a href="#27">f</a>),
             )
         }
     }
@@ -518,22 +524,22 @@
     /// This is a [keybinding signal](class.SignalAction.html).
     ///
     /// The default bindings for this signal are
-    /// &lt;kbd&gt;Backspace&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt;-&lt;kbd&gt;Backspace&lt;/kbd&gt;.
-    </span><span class="kw">pub fn </span>connect_backspace&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>backspace_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkText,
+    /// &lt;kbd&gt;Backspace&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;Backspace&lt;/kbd&gt;.
+    </span><span class="kw">pub fn </span>connect_backspace&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>backspace_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkText.html">ffi::GtkText</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#46">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#48">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#45">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;backspace\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute(backspace_trampoline::&lt;F&gt; <span class="kw">as </span>usize)),
-                Box::into_raw(f),
+            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(<a href="#43">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#43">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"backspace\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">transmute</a>(backspace_trampoline::&lt;F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)),
+                Box::into_raw(<a href="#52">f</a>),
             )
         }
     }
@@ -543,23 +549,23 @@
     /// This is a [keybinding signal](class.SignalAction.html).
     ///
     /// The default bindings for this signal are
-    /// &lt;kbd&gt;Ctrl&lt;/kbd&gt;-&lt;kbd&gt;c&lt;/kbd&gt; and
-    /// &lt;kbd&gt;Ctrl&lt;/kbd&gt;-&lt;kbd&gt;Insert&lt;/kbd&gt;.
-    </span><span class="kw">pub fn </span>connect_copy_clipboard&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>copy_clipboard_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkText,
+    /// &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;c&lt;/kbd&gt; and
+    /// &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Insert&lt;/kbd&gt;.
+    </span><span class="kw">pub fn </span>connect_copy_clipboard&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>copy_clipboard_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkText.html">ffi::GtkText</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#72">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#74">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#71">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;copy-clipboard\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute(copy_clipboard_trampoline::&lt;F&gt; <span class="kw">as </span>usize)),
-                Box::into_raw(f),
+            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(<a href="#69">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#69">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"copy-clipboard\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">transmute</a>(copy_clipboard_trampoline::&lt;F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)),
+                Box::into_raw(<a href="#78">f</a>),
             )
         }
     }
@@ -569,23 +575,23 @@
     /// This is a [keybinding signal](class.SignalAction.html).
     ///
     /// The default bindings for this signal are
-    /// &lt;kbd&gt;Ctrl&lt;/kbd&gt;-&lt;kbd&gt;x&lt;/kbd&gt; and
-    /// &lt;kbd&gt;Shift&lt;/kbd&gt;-&lt;kbd&gt;Delete&lt;/kbd&gt;.
-    </span><span class="kw">pub fn </span>connect_cut_clipboard&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>cut_clipboard_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkText,
+    /// &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;x&lt;/kbd&gt; and
+    /// &lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;Delete&lt;/kbd&gt;.
+    </span><span class="kw">pub fn </span>connect_cut_clipboard&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>cut_clipboard_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkText.html">ffi::GtkText</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#98">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#100">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#97">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;cut-clipboard\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute(cut_clipboard_trampoline::&lt;F&gt; <span class="kw">as </span>usize)),
-                Box::into_raw(f),
+            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(<a href="#95">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#95">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"cut-clipboard\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">transmute</a>(cut_clipboard_trampoline::&lt;F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)),
+                Box::into_raw(<a href="#104">f</a>),
             )
         }
     }
@@ -599,34 +605,34 @@
     /// of characters.
     ///
     /// The default bindings for this signal are &lt;kbd&gt;Delete&lt;/kbd&gt;
-    /// for deleting a character and &lt;kbd&gt;Ctrl&lt;/kbd&gt;-&lt;kbd&gt;Delete&lt;/kbd&gt;
+    /// for deleting a character and &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Delete&lt;/kbd&gt;
     /// for deleting a word.
     /// ## `type_`
     /// the granularity of the deletion, as a [`DeleteType`][crate::DeleteType]
     /// ## `count`
     /// the number of @type_ units to delete
-    </span><span class="kw">pub fn </span>connect_delete_from_cursor&lt;F: Fn(<span class="kw-2">&amp;</span>Text, DeleteType, i32) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="kw">pub fn </span>connect_delete_from_cursor&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>, <a href="auto/enums.rs.html#3807-3840">DeleteType</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
-    ) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>delete_from_cursor_trampoline&lt;
-            F: Fn(<span class="kw-2">&amp;</span>Text, DeleteType, i32) + <span class="lifetime">&#39;static</span>,
+    ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>delete_from_cursor_trampoline&lt;
+            F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>, <a href="auto/enums.rs.html#3807-3840">DeleteType</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkText,
-            type_: ffi::GtkDeleteType,
+            this: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkText.html">ffi::GtkText</a>,
+            type_: <a href="../../gtk4_sys/type.GtkDeleteType.html">ffi::GtkDeleteType</a>,
             count: libc::c_int,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this), from_glib(type_), count)
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#139">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#141">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#136">this</a>), from_glib(<a href="#137">type_</a>), <a href="#138">count</a>)
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;delete-from-cursor\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute(delete_from_cursor_trampoline::&lt;F&gt; <span class="kw">as </span>usize)),
-                Box::into_raw(f),
+            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(<a href="#131">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#130">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"delete-from-cursor\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">transmute</a>(delete_from_cursor_trampoline::&lt;F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)),
+                Box::into_raw(<a href="#145">f</a>),
             )
         }
     }
@@ -639,22 +645,22 @@
     /// This signal has no default bindings.
     /// ## `string`
     /// the string to insert
-    </span><span class="kw">pub fn </span>connect_insert_at_cursor&lt;F: Fn(<span class="kw-2">&amp;</span>Text, <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>insert_at_cursor_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Text, <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkText,
+    </span><span class="kw">pub fn </span>connect_insert_at_cursor&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>insert_at_cursor_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkText.html">ffi::GtkText</a>,
             string: <span class="kw-2">*mut </span>libc::c_char,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this), <span class="kw-2">&amp;</span>GString::from_glib_borrow(string))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#167">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#169">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#165">this</a>), <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#166">string</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;insert-at-cursor\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute(insert_at_cursor_trampoline::&lt;F&gt; <span class="kw">as </span>usize)),
-                Box::into_raw(f),
+            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(<a href="#163">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#163">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"insert-at-cursor\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">transmute</a>(insert_at_cursor_trampoline::&lt;F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)),
+                Box::into_raw(<a href="#173">f</a>),
             )
         }
     }
@@ -664,23 +670,23 @@
     /// This is a [keybinding signal](class.SignalAction.html).
     ///
     /// The default bindings for this signal are
-    /// &lt;kbd&gt;Ctrl&lt;/kbd&gt;-&lt;kbd&gt;.&lt;/kbd&gt; and
-    /// &lt;kbd&gt;Ctrl&lt;/kbd&gt;-&lt;kbd&gt;;&lt;/kbd&gt;
-    </span><span class="kw">pub fn </span>connect_insert_emoji&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>insert_emoji_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkText,
+    /// &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;.&lt;/kbd&gt; and
+    /// &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;;&lt;/kbd&gt;
+    </span><span class="kw">pub fn </span>connect_insert_emoji&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>insert_emoji_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkText.html">ffi::GtkText</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#193">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#195">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#192">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;insert-emoji\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute(insert_emoji_trampoline::&lt;F&gt; <span class="kw">as </span>usize)),
-                Box::into_raw(f),
+            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(<a href="#190">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#190">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"insert-emoji\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">transmute</a>(insert_emoji_trampoline::&lt;F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)),
+                Box::into_raw(<a href="#199">f</a>),
             )
         }
     }
@@ -703,42 +709,42 @@
     ///
     /// - &lt;kbd&gt;←&lt;/kbd&gt;, &lt;kbd&gt;→&lt;/kbd&gt;, &lt;kbd&gt;↑&lt;/kbd&gt;, &lt;kbd&gt;↓&lt;/kbd&gt;
     ///   move by individual characters/lines
-    /// - &lt;kbd&gt;Ctrl&lt;/kbd&gt;-&lt;kbd&gt;→&lt;/kbd&gt;, etc. move by words/paragraphs
-    /// - &lt;kbd&gt;Home&lt;/kbd&gt;, &lt;kbd&gt;End&lt;/kbd&gt; move to the ends of the buffer
+    /// - &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;←&lt;/kbd&gt;, etc. move by words/paragraphs
+    /// - &lt;kbd&gt;Home&lt;/kbd&gt; and &lt;kbd&gt;End&lt;/kbd&gt; move to the ends of the buffer
     /// ## `step`
     /// the granularity of the move, as a [`MovementStep`][crate::MovementStep]
     /// ## `count`
     /// the number of @step units to move
     /// ## `extend`
     /// [`true`] if the move should extend the selection
-    </span><span class="kw">pub fn </span>connect_move_cursor&lt;F: Fn(<span class="kw-2">&amp;</span>Text, MovementStep, i32, bool) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="kw">pub fn </span>connect_move_cursor&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>, <a href="auto/enums.rs.html#6676-6709">MovementStep</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
-    ) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>move_cursor_trampoline&lt;
-            F: Fn(<span class="kw-2">&amp;</span>Text, MovementStep, i32, bool) + <span class="lifetime">&#39;static</span>,
+    ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>move_cursor_trampoline&lt;
+            F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>, <a href="auto/enums.rs.html#6676-6709">MovementStep</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) + <span class="lifetime">'static</span>,
         &gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkText,
-            step: ffi::GtkMovementStep,
+            this: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkText.html">ffi::GtkText</a>,
+            step: <a href="../../gtk4_sys/type.GtkMovementStep.html">ffi::GtkMovementStep</a>,
             count: libc::c_int,
             extend: glib::ffi::gboolean,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(
-                <span class="kw-2">&amp;</span>from_glib_borrow(this),
-                from_glib(step),
-                count,
-                from_glib(extend),
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#246">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#248">f</a>(
+                <span class="kw-2">&amp;</span>from_glib_borrow(<a href="#242">this</a>),
+                from_glib(<a href="#243">step</a>),
+                <a href="#244">count</a>,
+                from_glib(<a href="#245">extend</a>),
             )
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;move-cursor\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute(move_cursor_trampoline::&lt;F&gt; <span class="kw">as </span>usize)),
-                Box::into_raw(f),
+            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(<a href="#237">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#236">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"move-cursor\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">transmute</a>(move_cursor_trampoline::&lt;F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)),
+                Box::into_raw(<a href="#257">f</a>),
             )
         }
     }
@@ -748,42 +754,42 @@
     /// This is a [keybinding signal](class.SignalAction.html).
     ///
     /// The default bindings for this signal are
-    /// &lt;kbd&gt;Ctrl&lt;/kbd&gt;-&lt;kbd&gt;v&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt;-&lt;kbd&gt;Insert&lt;/kbd&gt;.
-    </span><span class="kw">pub fn </span>connect_paste_clipboard&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>paste_clipboard_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkText,
+    /// &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;v&lt;/kbd&gt; and &lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;Insert&lt;/kbd&gt;.
+    </span><span class="kw">pub fn </span>connect_paste_clipboard&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>paste_clipboard_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkText.html">ffi::GtkText</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#276">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#278">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#275">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;paste-clipboard\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute(paste_clipboard_trampoline::&lt;F&gt; <span class="kw">as </span>usize)),
-                Box::into_raw(f),
+            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(<a href="#273">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#273">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"paste-clipboard\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">transmute</a>(paste_clipboard_trampoline::&lt;F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)),
+                Box::into_raw(<a href="#282">f</a>),
             )
         }
     }
 
-    <span class="kw">pub fn </span>connect_populate_popup&lt;F: Fn(<span class="kw-2">&amp;</span>Text, <span class="kw-2">&amp;</span>Widget) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>populate_popup_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Text, <span class="kw-2">&amp;</span>Widget) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkText,
-            widget: <span class="kw-2">*mut </span>ffi::GtkWidget,
+    <span class="kw">pub fn </span>connect_populate_popup&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>, <span class="kw-2">&amp;</span><a href="auto/widget.rs.html#18-853">Widget</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>populate_popup_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>, <span class="kw-2">&amp;</span><a href="auto/widget.rs.html#18-853">Widget</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkText.html">ffi::GtkText</a>,
+            widget: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkWidget.html">ffi::GtkWidget</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this), <span class="kw-2">&amp;</span>from_glib_borrow(widget))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#296">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#298">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#294">this</a>), <span class="kw-2">&amp;</span>from_glib_borrow(<a href="#295">widget</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;populate-popup\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute(populate_popup_trampoline::&lt;F&gt; <span class="kw">as </span>usize)),
-                Box::into_raw(f),
+            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(<a href="#292">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#292">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"populate-popup\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">transmute</a>(populate_popup_trampoline::&lt;F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)),
+                Box::into_raw(<a href="#302">f</a>),
             )
         }
     }
@@ -795,22 +801,22 @@
     /// connect to this signal.
     /// ## `preedit`
     /// the current preedit string
-    </span><span class="kw">pub fn </span>connect_preedit_changed&lt;F: Fn(<span class="kw-2">&amp;</span>Text, <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>preedit_changed_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Text, <span class="kw-2">&amp;</span>str) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkText,
+    </span><span class="kw">pub fn </span>connect_preedit_changed&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>preedit_changed_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>, <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkText.html">ffi::GtkText</a>,
             preedit: <span class="kw-2">*mut </span>libc::c_char,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this), <span class="kw-2">&amp;</span>GString::from_glib_borrow(preedit))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#323">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#325">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#321">this</a>), <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">GString::from_glib_borrow</a>(<a href="#322">preedit</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;preedit-changed\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute(preedit_changed_trampoline::&lt;F&gt; <span class="kw">as </span>usize)),
-                Box::into_raw(f),
+            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(<a href="#319">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#319">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"preedit-changed\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">transmute</a>(preedit_changed_trampoline::&lt;F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)),
+                Box::into_raw(<a href="#329">f</a>),
             )
         }
     }
@@ -820,72 +826,71 @@
     /// This is a [keybinding signal](class.SignalAction.html).
     ///
     /// The default bindings for this signal is &lt;kbd&gt;Insert&lt;/kbd&gt;.
-    </span><span class="kw">pub fn </span>connect_toggle_overwrite&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>toggle_overwrite_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Text) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkText,
+    </span><span class="kw">pub fn </span>connect_toggle_overwrite&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>toggle_overwrite_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="auto/text.rs.html#16-872">Text</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../gtk4_sys/struct.GtkText.html">ffi::GtkText</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#347">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#349">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#346">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;toggle-overwrite\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute(toggle_overwrite_trampoline::&lt;F&gt; <span class="kw">as </span>usize)),
-                Box::into_raw(f),
+            <span class="kw">let </span>f: Box&lt;F&gt; = Box::new(<a href="#344">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#344">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"toggle-overwrite\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">transmute</a>(toggle_overwrite_trampoline::&lt;F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)),
+                Box::into_raw(<a href="#353">f</a>),
             )
         }
     }
 
     <span class="kw">pub fn </span>emit_activate(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;activate&quot;</span>, <span class="kw-2">&amp;</span>[]);
+        <a class="self" href="#363">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"activate"</span>, <span class="kw-2">&amp;</span>[]);
     }
 
     <span class="kw">pub fn </span>emit_backspace(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;backspace&quot;</span>, <span class="kw-2">&amp;</span>[]);
+        <a class="self" href="#367">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"backspace"</span>, <span class="kw-2">&amp;</span>[]);
     }
 
     <span class="kw">pub fn </span>emit_copy_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;copy-clipboard&quot;</span>, <span class="kw-2">&amp;</span>[]);
+        <a class="self" href="#371">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"copy-clipboard"</span>, <span class="kw-2">&amp;</span>[]);
     }
 
     <span class="kw">pub fn </span>emit_cut_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;cut-clipboard&quot;</span>, <span class="kw-2">&amp;</span>[]);
+        <a class="self" href="#375">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"cut-clipboard"</span>, <span class="kw-2">&amp;</span>[]);
     }
 
-    <span class="kw">pub fn </span>emit_delete_from_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: DeleteType, count: i32) {
-        <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;delete-from-cursor&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>type_, <span class="kw-2">&amp;</span>count]);
+    <span class="kw">pub fn </span>emit_delete_from_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, type_: <a href="auto/enums.rs.html#3807-3840">DeleteType</a>, count: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
+        <a class="self" href="#379">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"delete-from-cursor"</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><a href="#379">type_</a>, <span class="kw-2">&amp;</span><a href="#379">count</a>]);
     }
 
-    <span class="kw">pub fn </span>emit_insert_at_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, string: <span class="kw">impl </span>IntoGStr) {
-        string.run_with_gstr(|string| {
-            <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;insert-at-cursor&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>string]);
+    <span class="kw">pub fn </span>emit_insert_at_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, string: <span class="kw">impl </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/trait.IntoGStr.html">IntoGStr</a>) {
+        <a href="#383">string</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/trait.IntoGStr.html">run_with_gstr</a>(|string| {
+            <a class="self" href="#383">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"insert-at-cursor"</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><a href="#384">string</a>]);
         });
     }
 
     <span class="kw">pub fn </span>emit_insert_emoji(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;insert-emoji&quot;</span>, <span class="kw-2">&amp;</span>[]);
+        <a class="self" href="#389">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"insert-emoji"</span>, <span class="kw-2">&amp;</span>[]);
     }
 
-    <span class="kw">pub fn </span>emit_move_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, step: MovementStep, count: i32, extend: bool) {
-        <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;move-cursor&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>step, <span class="kw-2">&amp;</span>count, <span class="kw-2">&amp;</span>extend]);
+    <span class="kw">pub fn </span>emit_move_cursor(<span class="kw-2">&amp;</span><span class="self">self</span>, step: <a href="auto/enums.rs.html#6676-6709">MovementStep</a>, count: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, extend: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
+        <a class="self" href="#393">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"move-cursor"</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><a href="#393">step</a>, <span class="kw-2">&amp;</span><a href="#393">count</a>, <span class="kw-2">&amp;</span><a href="#393">extend</a>]);
     }
 
     <span class="kw">pub fn </span>emit_paste_clipboard(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;paste-clipboard&quot;</span>, <span class="kw-2">&amp;</span>[]);
+        <a class="self" href="#397">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"paste-clipboard"</span>, <span class="kw-2">&amp;</span>[]);
     }
 
-    <span class="kw">pub fn </span>emit_preedit_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, preedit: <span class="kw">impl </span>IntoGStr) {
-        preedit.run_with_gstr(|preedit| {
-            <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;preedit-changed&quot;</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>preedit]);
+    <span class="kw">pub fn </span>emit_preedit_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, preedit: <span class="kw">impl </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/trait.IntoGStr.html">IntoGStr</a>) {
+        <a href="#401">preedit</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/trait.IntoGStr.html">run_with_gstr</a>(|preedit| {
+            <a class="self" href="#401">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"preedit-changed"</span>, <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><a href="#402">preedit</a>]);
         });
     }
 
     <span class="kw">pub fn </span>emit_toggle_overwrite(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="self">self</span>.emit_by_name::&lt;()&gt;(<span class="string">&quot;toggle-overwrite&quot;</span>, <span class="kw-2">&amp;</span>[]);
+        <a class="self" href="#407">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"toggle-overwrite"</span>, <span class="kw-2">&amp;</span>[]);
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/file_dialog.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>file_dialog.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/file_dialog.rs`."><title>file_dialog.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1150,30 +1152,19 @@
 <a href="#1077" id="1077">1077</a>
 <a href="#1078" id="1078">1078</a>
 <a href="#1079" id="1079">1079</a>
-<a href="#1080" id="1080">1080</a>
-<a href="#1081" id="1081">1081</a>
-<a href="#1082" id="1082">1082</a>
-<a href="#1083" id="1083">1083</a>
-<a href="#1084" id="1084">1084</a>
-<a href="#1085" id="1085">1085</a>
-<a href="#1086" id="1086">1086</a>
-<a href="#1087" id="1087">1087</a>
-<a href="#1088" id="1088">1088</a>
-<a href="#1089" id="1089">1089</a>
-<a href="#1090" id="1090">1090</a>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+</pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use crate</span>::{FileFilter, Window};
+</span><span class="kw">use crate</span>::{<a href="file_filter.rs.html#13-99">FileFilter</a>, <a href="window.rs.html#17-733">Window</a>};
 <span class="kw">use </span>glib::{
-    prelude::<span class="kw-2">*</span>,
-    signal::{connect_raw, SignalHandlerId},
-    translate::<span class="kw-2">*</span>,
+    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>,
+    signal::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a>},
+    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>,
 };
-<span class="kw">use </span>std::{boxed::Box <span class="kw">as </span>Box_, fmt, mem::transmute, pin::Pin, ptr};
+<span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">boxed::Box</a> <span class="kw">as </span>Box_, <a href="https://doc.rust-lang.org/nightly/core/pin/struct.Pin.html">pin::Pin</a>};
 
-<span class="macro">glib::wrapper! </span>{
+<a class="macro" href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/macro.wrapper.html">glib::wrapper! </a>{
     <span class="doccomment">/// A [`FileDialog`][crate::FileDialog] object collects the arguments that
     /// are needed to present a file chooser dialog to the
     /// user, such as a title for the dialog and whether it
@@ -1189,7 +1180,7 @@
     ///
     ///
     /// #### `accept-label`
-    ///  Label for the file chooser&#39;s accept button.
+    ///  Label for the file chooser's accept button.
     ///
     /// Readable | Writeable
     ///
@@ -1217,7 +1208,7 @@
     ///
     ///
     /// #### `initial-file`
-    ///  The inital file, that is, the file that is initially selected
+    ///  The initial file, that is, the file that is initially selected
     /// in the file chooser dialog
     ///
     /// This is a utility property that sets both [`initial-folder`][struct@crate::FileDialog#initial-folder] and
@@ -1227,14 +1218,14 @@
     ///
     ///
     /// #### `initial-folder`
-    ///  The inital folder, that is, the directory that is initially
+    ///  The initial folder, that is, the directory that is initially
     /// opened in the file chooser dialog
     ///
     /// Readable | Writeable
     ///
     ///
     /// #### `initial-name`
-    ///  The inital name, that is, the filename that is initially
+    ///  The initial name, that is, the filename that is initially
     /// selected in the file chooser dialog.
     ///
     /// Readable | Writeable
@@ -1254,23 +1245,23 @@
     /// # Implements
     ///
     /// [`trait@glib::ObjectExt`]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkFileDialog&quot;</span>)]
-    </span><span class="kw">pub struct </span>FileDialog(Object&lt;ffi::GtkFileDialog, ffi::GtkFileDialogClass&gt;);
+    </span><span class="attr">#[doc(alias = <span class="string">"GtkFileDialog"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../../gtk4/struct.FileDialog.html">FileDialog</a>(Object&lt;<a href="../../../gtk4_sys/struct.GtkFileDialog.html">ffi::GtkFileDialog</a>, <a href="../../../gtk4_sys/struct.GtkFileDialogClass.html">ffi::GtkFileDialogClass</a>&gt;);
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::gtk_file_dialog_get_type(),
     }
 }
 
-<span class="kw">impl </span>FileDialog {
+<span class="kw">impl </span><a href="#13-100">FileDialog</a> {
     <span class="doccomment">/// Creates a new [`FileDialog`][crate::FileDialog] object.
     ///
     /// # Returns
     ///
     /// the new [`FileDialog`][crate::FileDialog]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_new&quot;</span>)]
-    </span><span class="kw">pub fn </span>new() -&gt; FileDialog {
-        <span class="macro">assert_initialized_main_thread!</span>();
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_new"</span>)]
+    </span><span class="kw">pub fn </span>new() -&gt; <a href="#13-100">FileDialog</a> {
+        <a class="macro" href="../rt.rs.html#23-35">assert_initialized_main_thread!</a>();
         <span class="kw">unsafe </span>{ from_glib_full(ffi::gtk_file_dialog_new()) }
     }
 
@@ -1278,18 +1269,18 @@
     </span><span class="doccomment">/// Creates a new builder-pattern struct instance to construct [`FileDialog`] objects.
     ///
     /// This method returns an instance of [`FileDialogBuilder`](crate::builders::FileDialogBuilder) which can be used to create [`FileDialog`] objects.
-    </span><span class="kw">pub fn </span>builder() -&gt; FileDialogBuilder {
-        FileDialogBuilder::new()
+    </span><span class="kw">pub fn </span>builder() -&gt; <a href="#968-970">FileDialogBuilder</a> {
+        <a href="#973-977">FileDialogBuilder::new</a>()
     }
 
     <span class="doccomment">///
     /// # Returns
     ///
-    /// the label shown on the file chooser&#39;s accept button.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_get_accept_label&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_accept_label&quot;</span>)]
-    </span><span class="kw">pub fn </span>accept_label(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_file_dialog_get_accept_label(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
+    /// the label shown on the file chooser's accept button.
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_get_accept_label"</span>)]
+    #[doc(alias = <span class="string">"get_accept_label"</span>)]
+    </span><span class="kw">pub fn </span>accept_label(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt; {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_file_dialog_get_accept_label(<a class="self" href="#128">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Gets the filter that will be selected by default
@@ -1298,12 +1289,12 @@
     /// # Returns
     ///
     /// the current filter
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_get_default_filter&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_default_filter&quot;</span>)]
-    </span><span class="kw">pub fn </span>default_filter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;FileFilter&gt; {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_get_default_filter"</span>)]
+    #[doc(alias = <span class="string">"get_default_filter"</span>)]
+    </span><span class="kw">pub fn </span>default_filter(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="file_filter.rs.html#13-99">FileFilter</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::gtk_file_dialog_get_default_filter(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                <a class="self" href="#140">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -1315,10 +1306,10 @@
     ///
     /// the filters, as
     ///   a `GListModel` of `GtkFileFilters`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_get_filters&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_filters&quot;</span>)]
-    </span><span class="kw">pub fn </span>filters(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gio::ListModel&gt; {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_file_dialog_get_filters(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_get_filters"</span>)]
+    #[doc(alias = <span class="string">"get_filters"</span>)]
+    </span><span class="kw">pub fn </span>filters(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/list_model/struct.ListModel.html">gio::ListModel</a>&gt; {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_file_dialog_get_filters(<a class="self" href="#157">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Gets the file that will be initially selected in
@@ -1327,10 +1318,10 @@
     /// # Returns
     ///
     /// the file
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_get_initial_file&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_initial_file&quot;</span>)]
-    </span><span class="kw">pub fn </span>initial_file(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gio::File&gt; {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_file_dialog_get_initial_file(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_get_initial_file"</span>)]
+    #[doc(alias = <span class="string">"get_initial_file"</span>)]
+    </span><span class="kw">pub fn </span>initial_file(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>&gt; {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_file_dialog_get_initial_file(<a class="self" href="#169">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Gets the folder that will be set as the
@@ -1339,12 +1330,12 @@
     /// # Returns
     ///
     /// the folder
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_get_initial_folder&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_initial_folder&quot;</span>)]
-    </span><span class="kw">pub fn </span>initial_folder(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;gio::File&gt; {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_get_initial_folder"</span>)]
+    #[doc(alias = <span class="string">"get_initial_folder"</span>)]
+    </span><span class="kw">pub fn </span>initial_folder(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>&gt; {
         <span class="kw">unsafe </span>{
             from_glib_none(ffi::gtk_file_dialog_get_initial_folder(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                <a class="self" href="#181">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -1354,10 +1345,10 @@
     /// # Returns
     ///
     /// the name
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_get_initial_name&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_initial_name&quot;</span>)]
-    </span><span class="kw">pub fn </span>initial_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;glib::GString&gt; {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_file_dialog_get_initial_name(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_get_initial_name"</span>)]
+    #[doc(alias = <span class="string">"get_initial_name"</span>)]
+    </span><span class="kw">pub fn </span>initial_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt; {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_file_dialog_get_initial_name(<a class="self" href="#196">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Returns whether the file chooser dialog
@@ -1367,10 +1358,10 @@
     /// # Returns
     ///
     /// `TRUE` if the file chooser dialog is modal
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_get_modal&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_modal&quot;</span>)]
-    </span><span class="kw">pub fn </span>is_modal(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{ from_glib(ffi::gtk_file_dialog_get_modal(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_get_modal"</span>)]
+    #[doc(alias = <span class="string">"get_modal"</span>)]
+    </span><span class="kw">pub fn </span>is_modal(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+        <span class="kw">unsafe </span>{ from_glib(ffi::gtk_file_dialog_get_modal(<a class="self" href="#209">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Returns the title that will be shown on the
@@ -1379,10 +1370,10 @@
     /// # Returns
     ///
     /// the title
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_get_title&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_title&quot;</span>)]
-    </span><span class="kw">pub fn </span>title(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; glib::GString {
-        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_file_dialog_get_title(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_get_title"</span>)]
+    #[doc(alias = <span class="string">"get_title"</span>)]
+    </span><span class="kw">pub fn </span>title(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a> {
+        <span class="kw">unsafe </span>{ from_glib_none(ffi::gtk_file_dialog_get_title(<a class="self" href="#221">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// This function initiates a file selection operation by
@@ -1397,67 +1388,67 @@
     /// a `GCancellable` to cancel the operation
     /// ## `callback`
     /// a callback to call when the operation is complete
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_open&quot;</span>)]
-    </span><span class="kw">pub fn </span>open&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;gio::File, glib::Error&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_open"</span>)]
+    </span><span class="kw">pub fn </span>open&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Window&gt;&gt;,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Cancellable&gt;&gt;,
+        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="window.rs.html#17-733">Window</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/cancellable/struct.Cancellable.html">gio::Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
-        <span class="kw">let </span>is_main_context_owner = main_context.is_owner();
-        <span class="kw">let </span>has_acquired_main_context = (!is_main_context_owner)
-            .then(|| main_context.acquire().ok())
+        <span class="kw">let </span>is_main_context_owner = <a href="#244">main_context</a>.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!<a href="#245">is_main_context_owner</a>)
+            .then(|| <a href="#244">main_context</a>.acquire().ok())
             .flatten();
-        <span class="macro">assert!</span>(
+        <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-            Box_::new(glib::thread_guard::ThreadGuard::new(callback));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>open_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;gio::File, glib::Error&gt;) + <span class="lifetime">&#39;static</span>,
+            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#242">callback</a>));
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>open_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
             _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
             res: <span class="kw-2">*mut </span>gio::ffi::GAsyncResult,
             user_data: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
-            <span class="kw">let </span>ret = ffi::gtk_file_dialog_open_finish(_source_object <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, res, <span class="kw-2">&amp;mut </span>error);
+            <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
+            <span class="kw">let </span>ret = ffi::gtk_file_dialog_open_finish(<a href="#259">_source_object</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, <a href="#260">res</a>, <span class="kw-2">&amp;mut </span><a href="#263">error</a>);
             <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(ret))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#264">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(error))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#263">error</a>))
             };
             <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-                Box_::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-            <span class="kw">let </span>callback: P = callback.into_inner();
-            callback(result);
+                Box_::from_raw(<a href="#261">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = <a href="#270">callback</a>.into_inner();
+            <a href="#272">callback</a>(<a href="#265">result</a>);
         }
         <span class="kw">let </span>callback = open_trampoline::&lt;P&gt;;
         <span class="kw">unsafe </span>{
             ffi::gtk_file_dialog_open(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
-                parent.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                cancellable.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(callback),
-                Box_::into_raw(user_data) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a class="self" href="#239">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#240">parent</a>.map(|p| <a href="#279">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#241">cancellable</a>.map(|p| <a href="#280">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(<a href="#275">callback</a>),
+                Box_::into_raw(<a href="#254">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
 
     <span class="kw">pub fn </span>open_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;Window&gt; + Clone + <span class="lifetime">&#39;static</span>)&gt;,
-    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;gio::File, glib::Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
-        <span class="kw">let </span>parent = parent.map(ToOwned::to_owned);
-        Box_::pin(gio::GioFuture::new(<span class="self">self</span>, <span class="kw">move </span>|obj, cancellable, send| {
-            obj.open(
-                parent.as_ref().map(::std::borrow::Borrow::borrow),
-                <span class="prelude-val">Some</span>(cancellable),
+        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="window.rs.html#17-733">Window</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt; {
+        <span class="kw">let </span>parent = <a href="#289">parent</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
+        Box_::pin(gio::GioFuture::new(<a class="self" href="#288">self</a>, <span class="kw">move </span>|obj, cancellable, send| {
+            <a href="#292">obj</a>.<a href="#238-285">open</a>(
+                <a href="#291">parent</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
+                <span class="prelude-val">Some</span>(<a href="#292">cancellable</a>),
                 <span class="kw">move </span>|res| {
-                    send.resolve(res);
+                    <a href="#292">send</a>.resolve(<a href="#296">res</a>);
                 },
             );
         }))
@@ -1478,72 +1469,72 @@
     /// a `GCancellable` to cancel the operation
     /// ## `callback`
     /// a callback to call when the operation is complete
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_open_multiple&quot;</span>)]
-    </span><span class="kw">pub fn </span>open_multiple&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;gio::ListModel, glib::Error&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_open_multiple"</span>)]
+    </span><span class="kw">pub fn </span>open_multiple&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/list_model/struct.ListModel.html">gio::ListModel</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Window&gt;&gt;,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Cancellable&gt;&gt;,
+        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="window.rs.html#17-733">Window</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/cancellable/struct.Cancellable.html">gio::Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
-        <span class="kw">let </span>is_main_context_owner = main_context.is_owner();
-        <span class="kw">let </span>has_acquired_main_context = (!is_main_context_owner)
-            .then(|| main_context.acquire().ok())
+        <span class="kw">let </span>is_main_context_owner = <a href="#325">main_context</a>.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!<a href="#326">is_main_context_owner</a>)
+            .then(|| <a href="#325">main_context</a>.acquire().ok())
             .flatten();
-        <span class="macro">assert!</span>(
+        <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-            Box_::new(glib::thread_guard::ThreadGuard::new(callback));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>open_multiple_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;gio::ListModel, glib::Error&gt;) + <span class="lifetime">&#39;static</span>,
+            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#323">callback</a>));
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>open_multiple_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/list_model/struct.ListModel.html">gio::ListModel</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
             _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
             res: <span class="kw-2">*mut </span>gio::ffi::GAsyncResult,
             user_data: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::gtk_file_dialog_open_multiple_finish(
-                _source_object <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                res,
-                <span class="kw-2">&amp;mut </span>error,
+                <a href="#340">_source_object</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a href="#341">res</a>,
+                <span class="kw-2">&amp;mut </span><a href="#344">error</a>,
             );
             <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(ret))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#345">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(error))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#344">error</a>))
             };
             <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-                Box_::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-            <span class="kw">let </span>callback: P = callback.into_inner();
-            callback(result);
+                Box_::from_raw(<a href="#342">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = <a href="#355">callback</a>.into_inner();
+            <a href="#357">callback</a>(<a href="#350">result</a>);
         }
         <span class="kw">let </span>callback = open_multiple_trampoline::&lt;P&gt;;
         <span class="kw">unsafe </span>{
             ffi::gtk_file_dialog_open_multiple(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
-                parent.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                cancellable.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(callback),
-                Box_::into_raw(user_data) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a class="self" href="#320">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#321">parent</a>.map(|p| <a href="#364">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#322">cancellable</a>.map(|p| <a href="#365">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(<a href="#360">callback</a>),
+                Box_::into_raw(<a href="#335">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
 
     <span class="kw">pub fn </span>open_multiple_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;Window&gt; + Clone + <span class="lifetime">&#39;static</span>)&gt;,
-    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;gio::ListModel, glib::Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt;
+        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="window.rs.html#17-733">Window</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/list_model/struct.ListModel.html">gio::ListModel</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt;
     {
-        <span class="kw">let </span>parent = parent.map(ToOwned::to_owned);
-        Box_::pin(gio::GioFuture::new(<span class="self">self</span>, <span class="kw">move </span>|obj, cancellable, send| {
-            obj.open_multiple(
-                parent.as_ref().map(::std::borrow::Borrow::borrow),
-                <span class="prelude-val">Some</span>(cancellable),
+        <span class="kw">let </span>parent = <a href="#374">parent</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
+        Box_::pin(gio::GioFuture::new(<a class="self" href="#373">self</a>, <span class="kw">move </span>|obj, cancellable, send| {
+            <a href="#378">obj</a>.<a href="#319-370">open_multiple</a>(
+                <a href="#377">parent</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
+                <span class="prelude-val">Some</span>(<a href="#378">cancellable</a>),
                 <span class="kw">move </span>|res| {
-                    send.resolve(res);
+                    <a href="#378">send</a>.resolve(<a href="#382">res</a>);
                 },
             );
         }))
@@ -1561,67 +1552,67 @@
     /// a `GCancellable` to cancel the operation
     /// ## `callback`
     /// a callback to call when the operation is complete
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_save&quot;</span>)]
-    </span><span class="kw">pub fn </span>save&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;gio::File, glib::Error&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_save"</span>)]
+    </span><span class="kw">pub fn </span>save&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Window&gt;&gt;,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Cancellable&gt;&gt;,
+        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="window.rs.html#17-733">Window</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/cancellable/struct.Cancellable.html">gio::Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
-        <span class="kw">let </span>is_main_context_owner = main_context.is_owner();
-        <span class="kw">let </span>has_acquired_main_context = (!is_main_context_owner)
-            .then(|| main_context.acquire().ok())
+        <span class="kw">let </span>is_main_context_owner = <a href="#408">main_context</a>.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!<a href="#409">is_main_context_owner</a>)
+            .then(|| <a href="#408">main_context</a>.acquire().ok())
             .flatten();
-        <span class="macro">assert!</span>(
+        <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-            Box_::new(glib::thread_guard::ThreadGuard::new(callback));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>save_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;gio::File, glib::Error&gt;) + <span class="lifetime">&#39;static</span>,
+            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#406">callback</a>));
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>save_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
             _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
             res: <span class="kw-2">*mut </span>gio::ffi::GAsyncResult,
             user_data: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
-            <span class="kw">let </span>ret = ffi::gtk_file_dialog_save_finish(_source_object <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, res, <span class="kw-2">&amp;mut </span>error);
+            <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
+            <span class="kw">let </span>ret = ffi::gtk_file_dialog_save_finish(<a href="#423">_source_object</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, <a href="#424">res</a>, <span class="kw-2">&amp;mut </span><a href="#427">error</a>);
             <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(ret))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#428">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(error))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#427">error</a>))
             };
             <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-                Box_::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-            <span class="kw">let </span>callback: P = callback.into_inner();
-            callback(result);
+                Box_::from_raw(<a href="#425">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = <a href="#434">callback</a>.into_inner();
+            <a href="#436">callback</a>(<a href="#429">result</a>);
         }
         <span class="kw">let </span>callback = save_trampoline::&lt;P&gt;;
         <span class="kw">unsafe </span>{
             ffi::gtk_file_dialog_save(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
-                parent.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                cancellable.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(callback),
-                Box_::into_raw(user_data) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a class="self" href="#403">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#404">parent</a>.map(|p| <a href="#443">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#405">cancellable</a>.map(|p| <a href="#444">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(<a href="#439">callback</a>),
+                Box_::into_raw(<a href="#418">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
 
     <span class="kw">pub fn </span>save_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;Window&gt; + Clone + <span class="lifetime">&#39;static</span>)&gt;,
-    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;gio::File, glib::Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
-        <span class="kw">let </span>parent = parent.map(ToOwned::to_owned);
-        Box_::pin(gio::GioFuture::new(<span class="self">self</span>, <span class="kw">move </span>|obj, cancellable, send| {
-            obj.save(
-                parent.as_ref().map(::std::borrow::Borrow::borrow),
-                <span class="prelude-val">Some</span>(cancellable),
+        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="window.rs.html#17-733">Window</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt; {
+        <span class="kw">let </span>parent = <a href="#453">parent</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
+        Box_::pin(gio::GioFuture::new(<a class="self" href="#452">self</a>, <span class="kw">move </span>|obj, cancellable, send| {
+            <a href="#456">obj</a>.<a href="#402-449">save</a>(
+                <a href="#455">parent</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
+                <span class="prelude-val">Some</span>(<a href="#456">cancellable</a>),
                 <span class="kw">move </span>|res| {
-                    send.resolve(res);
+                    <a href="#456">send</a>.resolve(<a href="#460">res</a>);
                 },
             );
         }))
@@ -1643,71 +1634,71 @@
     /// a `GCancellable` to cancel the operation
     /// ## `callback`
     /// a callback to call when the operation is complete
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_select_folder&quot;</span>)]
-    </span><span class="kw">pub fn </span>select_folder&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;gio::File, glib::Error&gt;) + <span class="lifetime">&#39;static</span>&gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_select_folder"</span>)]
+    </span><span class="kw">pub fn </span>select_folder&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Window&gt;&gt;,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Cancellable&gt;&gt;,
+        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="window.rs.html#17-733">Window</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/cancellable/struct.Cancellable.html">gio::Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
-        <span class="kw">let </span>is_main_context_owner = main_context.is_owner();
-        <span class="kw">let </span>has_acquired_main_context = (!is_main_context_owner)
-            .then(|| main_context.acquire().ok())
+        <span class="kw">let </span>is_main_context_owner = <a href="#490">main_context</a>.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!<a href="#491">is_main_context_owner</a>)
+            .then(|| <a href="#490">main_context</a>.acquire().ok())
             .flatten();
-        <span class="macro">assert!</span>(
+        <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-            Box_::new(glib::thread_guard::ThreadGuard::new(callback));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>select_folder_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;gio::File, glib::Error&gt;) + <span class="lifetime">&#39;static</span>,
+            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#488">callback</a>));
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>select_folder_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
             _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
             res: <span class="kw-2">*mut </span>gio::ffi::GAsyncResult,
             user_data: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::gtk_file_dialog_select_folder_finish(
-                _source_object <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                res,
-                <span class="kw-2">&amp;mut </span>error,
+                <a href="#505">_source_object</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a href="#506">res</a>,
+                <span class="kw-2">&amp;mut </span><a href="#509">error</a>,
             );
             <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(ret))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#510">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(error))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#509">error</a>))
             };
             <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-                Box_::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-            <span class="kw">let </span>callback: P = callback.into_inner();
-            callback(result);
+                Box_::from_raw(<a href="#507">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = <a href="#520">callback</a>.into_inner();
+            <a href="#522">callback</a>(<a href="#515">result</a>);
         }
         <span class="kw">let </span>callback = select_folder_trampoline::&lt;P&gt;;
         <span class="kw">unsafe </span>{
             ffi::gtk_file_dialog_select_folder(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
-                parent.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                cancellable.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(callback),
-                Box_::into_raw(user_data) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a class="self" href="#485">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#486">parent</a>.map(|p| <a href="#529">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#487">cancellable</a>.map(|p| <a href="#530">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(<a href="#525">callback</a>),
+                Box_::into_raw(<a href="#500">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
 
     <span class="kw">pub fn </span>select_folder_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;Window&gt; + Clone + <span class="lifetime">&#39;static</span>)&gt;,
-    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;gio::File, glib::Error&gt;&gt; + <span class="lifetime">&#39;static</span>&gt;&gt; {
-        <span class="kw">let </span>parent = parent.map(ToOwned::to_owned);
-        Box_::pin(gio::GioFuture::new(<span class="self">self</span>, <span class="kw">move </span>|obj, cancellable, send| {
-            obj.select_folder(
-                parent.as_ref().map(::std::borrow::Borrow::borrow),
-                <span class="prelude-val">Some</span>(cancellable),
+        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="window.rs.html#17-733">Window</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt; {
+        <span class="kw">let </span>parent = <a href="#539">parent</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
+        Box_::pin(gio::GioFuture::new(<a class="self" href="#538">self</a>, <span class="kw">move </span>|obj, cancellable, send| {
+            <a href="#542">obj</a>.<a href="#484-535">select_folder</a>(
+                <a href="#541">parent</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
+                <span class="prelude-val">Some</span>(<a href="#542">cancellable</a>),
                 <span class="kw">move </span>|res| {
-                    send.resolve(res);
+                    <a href="#542">send</a>.resolve(<a href="#546">res</a>);
                 },
             );
         }))
@@ -1728,94 +1719,89 @@
     /// a `GCancellable` to cancel the operation
     /// ## `callback`
     /// a callback to call when the operation is complete
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_select_multiple_folders&quot;</span>)]
-    </span><span class="kw">pub fn </span>select_multiple_folders&lt;
-        P: FnOnce(<span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;gio::ListModel&gt;, glib::Error&gt;) + <span class="lifetime">&#39;static</span>,
-    &gt;(
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_select_multiple_folders"</span>)]
+    </span><span class="kw">pub fn </span>select_multiple_folders&lt;P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/list_model/struct.ListModel.html">gio::ListModel</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;Window&gt;&gt;,
-        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::Cancellable&gt;&gt;,
+        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="window.rs.html#17-733">Window</a>&gt;&gt;,
+        cancellable: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/cancellable/struct.Cancellable.html">gio::Cancellable</a>&gt;&gt;,
         callback: P,
     ) {
         <span class="kw">let </span>main_context = glib::MainContext::ref_thread_default();
-        <span class="kw">let </span>is_main_context_owner = main_context.is_owner();
-        <span class="kw">let </span>has_acquired_main_context = (!is_main_context_owner)
-            .then(|| main_context.acquire().ok())
+        <span class="kw">let </span>is_main_context_owner = <a href="#575">main_context</a>.is_owner();
+        <span class="kw">let </span>has_acquired_main_context = (!<a href="#576">is_main_context_owner</a>)
+            .then(|| <a href="#575">main_context</a>.acquire().ok())
             .flatten();
-        <span class="macro">assert!</span>(
+        <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
             is_main_context_owner || has_acquired_main_context.is_some(),
-            <span class="string">&quot;Async operations only allowed if the thread is owning the MainContext&quot;
+            <span class="string">"Async operations only allowed if the thread is owning the MainContext"
         </span>);
 
         <span class="kw">let </span>user_data: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-            Box_::new(glib::thread_guard::ThreadGuard::new(callback));
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>select_multiple_folders_trampoline&lt;
-            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;gio::ListModel&gt;, glib::Error&gt;) + <span class="lifetime">&#39;static</span>,
+            Box_::new(glib::thread_guard::ThreadGuard::new(<a href="#573">callback</a>));
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>select_multiple_folders_trampoline&lt;
+            P: FnOnce(<span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/list_model/struct.ListModel.html">gio::ListModel</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;) + <span class="lifetime">'static</span>,
         &gt;(
             _source_object: <span class="kw-2">*mut </span>glib::gobject_ffi::GObject,
             res: <span class="kw-2">*mut </span>gio::ffi::GAsyncResult,
             user_data: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span><span class="kw-2">mut </span>error = ptr::null_mut();
+            <span class="kw">let </span><span class="kw-2">mut </span>error = std::ptr::null_mut();
             <span class="kw">let </span>ret = ffi::gtk_file_dialog_select_multiple_folders_finish(
-                _source_object <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                res,
-                <span class="kw-2">&amp;mut </span>error,
+                <a href="#590">_source_object</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a href="#591">res</a>,
+                <span class="kw-2">&amp;mut </span><a href="#594">error</a>,
             );
             <span class="kw">let </span>result = <span class="kw">if </span>error.is_null() {
-                <span class="prelude-val">Ok</span>(from_glib_full(ret))
+                <span class="prelude-val">Ok</span>(from_glib_full(<a href="#595">ret</a>))
             } <span class="kw">else </span>{
-                <span class="prelude-val">Err</span>(from_glib_full(error))
+                <span class="prelude-val">Err</span>(from_glib_full(<a href="#594">error</a>))
             };
             <span class="kw">let </span>callback: Box_&lt;glib::thread_guard::ThreadGuard&lt;P&gt;&gt; =
-                Box_::from_raw(user_data <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
-            <span class="kw">let </span>callback: P = callback.into_inner();
-            callback(result);
+                Box_::from_raw(<a href="#592">user_data</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>);
+            <span class="kw">let </span>callback: P = <a href="#605">callback</a>.into_inner();
+            <a href="#607">callback</a>(<a href="#600">result</a>);
         }
         <span class="kw">let </span>callback = select_multiple_folders_trampoline::&lt;P&gt;;
         <span class="kw">unsafe </span>{
             ffi::gtk_file_dialog_select_multiple_folders(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
-                parent.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                cancellable.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
-                <span class="prelude-val">Some</span>(callback),
-                Box_::into_raw(user_data) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <a class="self" href="#570">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#571">parent</a>.map(|p| <a href="#614">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#572">cancellable</a>.map(|p| <a href="#615">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <span class="prelude-val">Some</span>(<a href="#610">callback</a>),
+                Box_::into_raw(<a href="#585">user_data</a>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
         }
     }
 
     <span class="kw">pub fn </span>select_multiple_folders_future(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;Window&gt; + Clone + <span class="lifetime">&#39;static</span>)&gt;,
-    ) -&gt; Pin&lt;
-        Box_&lt;
-            <span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;gio::ListModel&gt;, glib::Error&gt;&gt; + <span class="lifetime">&#39;static</span>,
-        &gt;,
-    &gt; {
-        <span class="kw">let </span>parent = parent.map(ToOwned::to_owned);
-        Box_::pin(gio::GioFuture::new(<span class="self">self</span>, <span class="kw">move </span>|obj, cancellable, send| {
-            obj.select_multiple_folders(
-                parent.as_ref().map(::std::borrow::Borrow::borrow),
-                <span class="prelude-val">Some</span>(cancellable),
+        parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>(<span class="kw">impl </span>IsA&lt;<a href="window.rs.html#17-733">Window</a>&gt; + <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">Clone</a> + <span class="lifetime">'static</span>)&gt;,
+    ) -&gt; Pin&lt;Box_&lt;<span class="kw">dyn </span>std::future::Future&lt;Output = <span class="prelude-ty">Result</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/list_model/struct.ListModel.html">gio::ListModel</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/error/struct.Error.html">glib::Error</a>&gt;&gt; + <span class="lifetime">'static</span>&gt;&gt;
+    {
+        <span class="kw">let </span>parent = <a href="#624">parent</a>.map(<a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html">ToOwned::to_owned</a>);
+        Box_::pin(gio::GioFuture::new(<a class="self" href="#623">self</a>, <span class="kw">move </span>|obj, cancellable, send| {
+            <a href="#628">obj</a>.<a href="#569-620">select_multiple_folders</a>(
+                <a href="#627">parent</a>.as_ref().map(<a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html">::std::borrow::Borrow::borrow</a>),
+                <span class="prelude-val">Some</span>(<a href="#628">cancellable</a>),
                 <span class="kw">move </span>|res| {
-                    send.resolve(res);
+                    <a href="#628">send</a>.resolve(<a href="#632">res</a>);
                 },
             );
         }))
     }
 
-    <span class="doccomment">/// Sets the label shown on the file chooser&#39;s accept button.
+    <span class="doccomment">/// Sets the label shown on the file chooser's accept button.
     ///
     /// Leaving the accept label unset or setting it as `NULL` will fall back to
     /// a default label, depending on what API is used to launch the file dialog.
     /// ## `accept_label`
     /// the new accept label
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_set_accept_label&quot;</span>)]
-    </span><span class="kw">pub fn </span>set_accept_label(<span class="kw-2">&amp;</span><span class="self">self</span>, accept_label: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_set_accept_label"</span>)]
+    </span><span class="kw">pub fn </span>set_accept_label(<span class="kw-2">&amp;</span><span class="self">self</span>, accept_label: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_file_dialog_set_accept_label(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
-                accept_label.to_glib_none().<span class="number">0</span>,
+                <a class="self" href="#646">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#646">accept_label</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
@@ -1828,10 +1814,10 @@
     /// will be unfiltered.
     /// ## `filter`
     /// a [`FileFilter`][crate::FileFilter]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_set_default_filter&quot;</span>)]
-    </span><span class="kw">pub fn </span>set_default_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>FileFilter&gt;) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_set_default_filter"</span>)]
+    </span><span class="kw">pub fn </span>set_default_filter(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="file_filter.rs.html#13-99">FileFilter</a>&gt;) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_file_dialog_set_default_filter(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, filter.to_glib_none().<span class="number">0</span>);
+            ffi::gtk_file_dialog_set_default_filter(<a class="self" href="#664">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#664">filter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
@@ -1839,12 +1825,12 @@
     /// in the file chooser dialog.
     /// ## `filters`
     /// a `GListModel` of `GtkFileFilters`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_set_filters&quot;</span>)]
-    </span><span class="kw">pub fn </span>set_filters(<span class="kw-2">&amp;</span><span class="self">self</span>, filters: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::ListModel&gt;) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_set_filters"</span>)]
+    </span><span class="kw">pub fn </span>set_filters(<span class="kw-2">&amp;</span><span class="self">self</span>, filters: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/list_model/struct.ListModel.html">gio::ListModel</a>&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_file_dialog_set_filters(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
-                filters.as_ref().to_glib_none().<span class="number">0</span>,
+                <a class="self" href="#675">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#675">filters</a>.map(|p| <a href="#679">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
@@ -1858,12 +1844,12 @@
     /// name of @file respectively.
     /// ## `file`
     /// a `GFile`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_set_initial_file&quot;</span>)]
-    </span><span class="kw">pub fn </span>set_initial_file(<span class="kw-2">&amp;</span><span class="self">self</span>, file: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::File&gt;&gt;) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_set_initial_file"</span>)]
+    </span><span class="kw">pub fn </span>set_initial_file(<span class="kw-2">&amp;</span><span class="self">self</span>, file: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_file_dialog_set_initial_file(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
-                file.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
+                <a class="self" href="#694">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#694">file</a>.map(|p| <a href="#698">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
@@ -1872,12 +1858,12 @@
     /// initial folder in the file chooser dialog.
     /// ## `folder`
     /// a `GFile`
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_set_initial_folder&quot;</span>)]
-    </span><span class="kw">pub fn </span>set_initial_folder(<span class="kw-2">&amp;</span><span class="self">self</span>, folder: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::File&gt;&gt;) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_set_initial_folder"</span>)]
+    </span><span class="kw">pub fn </span>set_initial_folder(<span class="kw-2">&amp;</span><span class="self">self</span>, folder: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>&gt;&gt;) {
         <span class="kw">unsafe </span>{
             ffi::gtk_file_dialog_set_initial_folder(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
-                folder.map(|p| p.as_ref()).to_glib_none().<span class="number">0</span>,
+                <a class="self" href="#708">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#708">folder</a>.map(|p| <a href="#712">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
@@ -1889,10 +1875,10 @@
     /// [`initial-folder`][struct@crate::FileDialog#initial-folder], the dialog should preselect it.
     /// ## `name`
     /// a UTF8 string
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_set_initial_name&quot;</span>)]
-    </span><span class="kw">pub fn </span>set_initial_name(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>str&gt;) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_set_initial_name"</span>)]
+    </span><span class="kw">pub fn </span>set_initial_name(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_file_dialog_set_initial_name(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, name.to_glib_none().<span class="number">0</span>);
+            ffi::gtk_file_dialog_set_initial_name(<a class="self" href="#725">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#725">name</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
@@ -1901,10 +1887,10 @@
     /// while it is presented.
     /// ## `modal`
     /// the new value
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_set_modal&quot;</span>)]
-    </span><span class="kw">pub fn </span>set_modal(<span class="kw-2">&amp;</span><span class="self">self</span>, modal: bool) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_set_modal"</span>)]
+    </span><span class="kw">pub fn </span>set_modal(<span class="kw-2">&amp;</span><span class="self">self</span>, modal: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_file_dialog_set_modal(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, modal.into_glib());
+            ffi::gtk_file_dialog_set_modal(<a class="self" href="#737">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#737">modal</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
     }
 
@@ -1912,219 +1898,219 @@
     /// file chooser dialog.
     /// ## `title`
     /// the new title
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_file_dialog_set_title&quot;</span>)]
-    </span><span class="kw">pub fn </span>set_title(<span class="kw-2">&amp;</span><span class="self">self</span>, title: <span class="kw-2">&amp;</span>str) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_file_dialog_set_title"</span>)]
+    </span><span class="kw">pub fn </span>set_title(<span class="kw-2">&amp;</span><span class="self">self</span>, title: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_file_dialog_set_title(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, title.to_glib_none().<span class="number">0</span>);
+            ffi::gtk_file_dialog_set_title(<a class="self" href="#748">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#748">title</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
-    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;accept-label&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_accept_label_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_accept_label_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>FileDialog) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkFileDialog,
+    <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    #[doc(alias = <span class="string">"accept-label"</span>)]
+    </span><span class="kw">pub fn </span>connect_accept_label_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_accept_label_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-100">FileDialog</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkFileDialog.html">ffi::GtkFileDialog</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#761">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#763">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#759">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::accept-label\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#757">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#757">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::accept-label\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_accept_label_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#767">f</a>),
             )
         }
     }
 
-    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;default-filter&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_default_filter_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_default_filter_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>FileDialog) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkFileDialog,
+    <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    #[doc(alias = <span class="string">"default-filter"</span>)]
+    </span><span class="kw">pub fn </span>connect_default_filter_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_default_filter_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-100">FileDialog</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkFileDialog.html">ffi::GtkFileDialog</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#786">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#788">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#784">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::default-filter\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#782">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#782">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::default-filter\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_default_filter_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#792">f</a>),
             )
         }
     }
 
-    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;filters&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_filters_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_filters_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>FileDialog) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkFileDialog,
+    <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    #[doc(alias = <span class="string">"filters"</span>)]
+    </span><span class="kw">pub fn </span>connect_filters_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_filters_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-100">FileDialog</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkFileDialog.html">ffi::GtkFileDialog</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#811">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#813">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#809">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::filters\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#807">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#807">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::filters\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_filters_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#817">f</a>),
             )
         }
     }
 
-    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;initial-file&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_initial_file_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_initial_file_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>FileDialog) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkFileDialog,
+    <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    #[doc(alias = <span class="string">"initial-file"</span>)]
+    </span><span class="kw">pub fn </span>connect_initial_file_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_initial_file_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-100">FileDialog</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkFileDialog.html">ffi::GtkFileDialog</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#836">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#838">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#834">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::initial-file\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#832">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#832">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::initial-file\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_initial_file_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#842">f</a>),
             )
         }
     }
 
-    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;initial-folder&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_initial_folder_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_initial_folder_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>FileDialog) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkFileDialog,
+    <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    #[doc(alias = <span class="string">"initial-folder"</span>)]
+    </span><span class="kw">pub fn </span>connect_initial_folder_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_initial_folder_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-100">FileDialog</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkFileDialog.html">ffi::GtkFileDialog</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#861">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#863">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#859">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::initial-folder\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#857">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#857">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::initial-folder\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_initial_folder_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#867">f</a>),
             )
         }
     }
 
-    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;initial-name&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_initial_name_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_initial_name_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>FileDialog) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkFileDialog,
+    <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    #[doc(alias = <span class="string">"initial-name"</span>)]
+    </span><span class="kw">pub fn </span>connect_initial_name_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_initial_name_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-100">FileDialog</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkFileDialog.html">ffi::GtkFileDialog</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#886">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#888">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#884">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::initial-name\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#882">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#882">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::initial-name\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_initial_name_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#892">f</a>),
             )
         }
     }
 
-    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;modal&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_modal_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_modal_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>FileDialog) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkFileDialog,
+    <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    #[doc(alias = <span class="string">"modal"</span>)]
+    </span><span class="kw">pub fn </span>connect_modal_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_modal_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-100">FileDialog</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkFileDialog.html">ffi::GtkFileDialog</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#911">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#913">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#909">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::modal\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#907">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#907">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::modal\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_modal_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#917">f</a>),
             )
         }
     }
 
-    <span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    #[doc(alias = <span class="string">&quot;title&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_title_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_title_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>FileDialog) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkFileDialog,
+    <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    #[doc(alias = <span class="string">"title"</span>)]
+    </span><span class="kw">pub fn </span>connect_title_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_title_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#13-100">FileDialog</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkFileDialog.html">ffi::GtkFileDialog</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#936">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#938">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#934">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::title\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#932">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#932">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::title\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_title_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#942">f</a>),
             )
         }
     }
 }
 
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-#[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-</span><span class="kw">impl </span>Default <span class="kw">for </span>FileDialog {
+<span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+</span><span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default</a> <span class="kw">for </span><a href="#13-100">FileDialog</a> {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::new()
+        <a href="#109-112"><span class="self">Self</span>::new</a>()
     }
 }
 
@@ -2132,24 +2118,24 @@
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`FileDialog`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
-</span><span class="kw">pub struct </span>FileDialogBuilder {
-    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">&#39;static</span>, FileDialog&gt;,
+</span><span class="attr">#[must_use = <span class="string">"The builder must be built to be used"</span>]
+</span><span class="kw">pub struct </span><a href="../../../gtk4/builders/struct.FileDialogBuilder.html">FileDialogBuilder</a> {
+    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">'static</span>, <a href="#13-100">FileDialog</a>&gt;,
 }
 
-<span class="kw">impl </span>FileDialogBuilder {
+<span class="kw">impl </span><a href="#968-970">FileDialogBuilder</a> {
     <span class="kw">fn </span>new() -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             builder: glib::object::Object::builder(),
         }
     }
 
-    <span class="doccomment">/// Label for the file chooser&#39;s accept button.
-    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    </span><span class="kw">pub fn </span>accept_label(<span class="self">self</span>, accept_label: <span class="kw">impl </span>Into&lt;glib::GString&gt;) -&gt; <span class="self">Self </span>{
+    <span class="doccomment">/// Label for the file chooser's accept button.
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    </span><span class="kw">pub fn </span>accept_label(<span class="self">self</span>, accept_label: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;accept-label&quot;</span>, accept_label.into()),
+            builder: <a class="self" href="#982">self</a>.builder.property(<span class="string">"accept-label"</span>, <a href="#982">accept_label</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
         }
     }
 
@@ -2162,94 +2148,87 @@
     ///
     /// If [`filters`][struct@crate::FileDialog#filters] is not [`None`], the default filter should be part
     /// of the list. If it is not, the dialog may choose to not make it available.
-    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    </span><span class="kw">pub fn </span>default_filter(<span class="self">self</span>, default_filter: <span class="kw-2">&amp;</span>FileFilter) -&gt; <span class="self">Self </span>{
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    </span><span class="kw">pub fn </span>default_filter(<span class="self">self</span>, default_filter: <span class="kw-2">&amp;</span><a href="file_filter.rs.html#13-99">FileFilter</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self
+            builder: <span class="self"><a href="#999">self</a>
                 </span>.builder
-                .property(<span class="string">&quot;default-filter&quot;</span>, default_filter.clone()),
+                .property(<span class="string">"default-filter"</span>, <a href="#999">default_filter</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>()),
         }
     }
 
     <span class="doccomment">/// The list of filters.
     ///
     /// See [`default-filter`][struct@crate::FileDialog#default-filter] about how those two properties interact.
-    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    </span><span class="kw">pub fn </span>filters(<span class="self">self</span>, filters: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::ListModel&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    </span><span class="kw">pub fn </span>filters(<span class="self">self</span>, filters: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/list_model/struct.ListModel.html">gio::ListModel</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;filters&quot;</span>, filters.clone().upcast()),
+            builder: <a class="self" href="#1012">self</a>.builder.property(<span class="string">"filters"</span>, <a href="#1012">filters</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">upcast</a>()),
         }
     }
 
-    <span class="doccomment">/// The inital file, that is, the file that is initially selected
+    <span class="doccomment">/// The initial file, that is, the file that is initially selected
     /// in the file chooser dialog
     ///
     /// This is a utility property that sets both [`initial-folder`][struct@crate::FileDialog#initial-folder] and
     /// [`initial-name`][struct@crate::FileDialog#initial-name].
-    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    </span><span class="kw">pub fn </span>initial_file(<span class="self">self</span>, initial_file: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::File&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    </span><span class="kw">pub fn </span>initial_file(<span class="self">self</span>, initial_file: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self
+            builder: <span class="self"><a href="#1025">self</a>
                 </span>.builder
-                .property(<span class="string">&quot;initial-file&quot;</span>, initial_file.clone().upcast()),
+                .property(<span class="string">"initial-file"</span>, <a href="#1025">initial_file</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">upcast</a>()),
         }
     }
 
-    <span class="doccomment">/// The inital folder, that is, the directory that is initially
+    <span class="doccomment">/// The initial folder, that is, the directory that is initially
     /// opened in the file chooser dialog
-    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    </span><span class="kw">pub fn </span>initial_folder(<span class="self">self</span>, initial_folder: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;gio::File&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    </span><span class="kw">pub fn </span>initial_folder(<span class="self">self</span>, initial_folder: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/auto/file/struct.File.html">gio::File</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self
+            builder: <span class="self"><a href="#1037">self</a>
                 </span>.builder
-                .property(<span class="string">&quot;initial-folder&quot;</span>, initial_folder.clone().upcast()),
+                .property(<span class="string">"initial-folder"</span>, <a href="#1037">initial_folder</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">upcast</a>()),
         }
     }
 
-    <span class="doccomment">/// The inital name, that is, the filename that is initially
+    <span class="doccomment">/// The initial name, that is, the filename that is initially
     /// selected in the file chooser dialog.
-    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    </span><span class="kw">pub fn </span>initial_name(<span class="self">self</span>, initial_name: <span class="kw">impl </span>Into&lt;glib::GString&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    </span><span class="kw">pub fn </span>initial_name(<span class="self">self</span>, initial_name: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;initial-name&quot;</span>, initial_name.into()),
+            builder: <a class="self" href="#1049">self</a>.builder.property(<span class="string">"initial-name"</span>, <a href="#1049">initial_name</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
         }
     }
 
     <span class="doccomment">/// Whether the file chooser dialog is modal.
-    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    </span><span class="kw">pub fn </span>modal(<span class="self">self</span>, modal: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    </span><span class="kw">pub fn </span>modal(<span class="self">self</span>, modal: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;modal&quot;</span>, modal),
+            builder: <a class="self" href="#1058">self</a>.builder.property(<span class="string">"modal"</span>, <a href="#1058">modal</a>),
         }
     }
 
     <span class="doccomment">/// A title that may be shown on the file chooser dialog.
-    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;v4_10&quot;</span>, feature = <span class="string">&quot;dox&quot;</span>))]
-    #[cfg_attr(feature = <span class="string">&quot;dox&quot;</span>, doc(cfg(feature = <span class="string">&quot;v4_10&quot;</span>)))]
-    </span><span class="kw">pub fn </span>title(<span class="self">self</span>, title: <span class="kw">impl </span>Into&lt;glib::GString&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
+    </span><span class="kw">pub fn </span>title(<span class="self">self</span>, title: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;title&quot;</span>, title.into()),
+            builder: <a class="self" href="#1067">self</a>.builder.property(<span class="string">"title"</span>, <a href="#1067">title</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
         }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`FileDialog`].
-    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
-    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; FileDialog {
-        <span class="self">self</span>.builder.build()
+    </span><span class="attr">#[must_use = <span class="string">"Building the object from the builder is usually expensive and is not expected to have side effects"</span>]
+    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; <a href="#13-100">FileDialog</a> {
+        <a class="self" href="#1076">self</a>.builder.build()
     }
 }
-
-<span class="kw">impl </span>fmt::Display <span class="kw">for </span>FileDialog {
-    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
-        f.write_str(<span class="string">&quot;FileDialog&quot;</span>)
-    }
-}
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>

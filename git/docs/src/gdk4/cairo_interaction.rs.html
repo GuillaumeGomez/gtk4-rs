@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/cairo_interaction.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>cairo_interaction.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/cairo_interaction.rs`."><title>cairo_interaction.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../gdk4/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gdk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -254,24 +256,17 @@
 <a href="#181" id="181">181</a>
 <a href="#182" id="182">182</a>
 <a href="#183" id="183">183</a>
-<a href="#184" id="184">184</a>
-<a href="#185" id="185">185</a>
-<a href="#186" id="186">186</a>
-<a href="#187" id="187">187</a>
-<a href="#188" id="188">188</a>
-<a href="#189" id="189">189</a>
-<a href="#190" id="190">190</a>
-<a href="#191" id="191">191</a>
-</pre><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
+</pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use crate</span>::{Rectangle, Surface, RGBA};
-<span class="kw">use </span>cairo::{Context, Region};
-<span class="kw">use </span>gdk_pixbuf::Pixbuf;
-<span class="kw">use </span>glib::translate::<span class="kw-2">*</span>;
+</span><span class="kw">use </span>cairo::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/context/struct.Context.html">Context</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/region/struct.Region.html">Region</a>};
+<span class="kw">use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/gdk_pixbuf/auto/pixbuf/struct.Pixbuf.html">gdk_pixbuf::Pixbuf</a>;
+<span class="kw">use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
+
+<span class="kw">use crate</span>::{<a href="auto/rectangle.rs.html#7-30">Rectangle</a>, <a href="auto/surface.rs.html#17-128">Surface</a>, <a href="auto/rgba.rs.html#7-24">RGBA</a>};
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Trait containing integration methods with [`cairo::Surface`].
-</span><span class="kw">pub trait </span>GdkCairoSurfaceExt {
+</span><span class="kw">pub trait </span><a href="../../gdk4/prelude/trait.GdkCairoSurfaceExt.html">GdkCairoSurfaceExt</a> {
     <span class="doccomment">/// Creates region that covers the area where the given
     /// @surface is more than 50% opaque.
     ///
@@ -283,15 +278,15 @@
     /// # Returns
     ///
     /// A [`cairo::Region`][crate::cairo::Region]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_cairo_region_create_from_surface&quot;</span>)]
-    </span><span class="kw">fn </span>create_region(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Region;
+    </span><span class="attr">#[doc(alias = <span class="string">"gdk_cairo_region_create_from_surface"</span>)]
+    </span><span class="kw">fn </span>create_region(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/region/struct.Region.html">Region</a>;
 }
 
-<span class="kw">impl </span>GdkCairoSurfaceExt <span class="kw">for </span>cairo::Surface {
-    <span class="kw">fn </span>create_region(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Region {
+<span class="kw">impl </span><a href="#11-25">GdkCairoSurfaceExt</a> <span class="kw">for </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/surface/struct.Surface.html">cairo::Surface</a> {
+    <span class="kw">fn </span>create_region(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/region/struct.Region.html">Region</a> {
         <span class="kw">unsafe </span>{
             from_glib_full(ffi::gdk_cairo_region_create_from_surface(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                <a class="self" href="#28">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -299,11 +294,11 @@
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Trait containing integration methods with [`cairo::Context`].
-</span><span class="kw">pub trait </span>GdkCairoContextExt {
+</span><span class="kw">pub trait </span><a href="../../gdk4/prelude/trait.GdkCairoContextExt.html">GdkCairoContextExt</a>: <a href="#174-176">sealed::Sealed</a> {
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// # Safety
     ///
-    /// It&#39;s the responsibility of the caller to ensure that source
+    /// It's the responsibility of the caller to ensure that source
     /// is a valid GL resource.
     </span><span class="comment">// rustdoc-stripper-ignore-next-stop
     </span><span class="doccomment">/// The main way to not draw GL content in GTK.
@@ -335,7 +330,7 @@
     /// ## `cr`
     /// a cairo context
     /// ## `surface`
-    /// The surface we&#39;re rendering for (not necessarily into)
+    /// The surface we're rendering for (not necessarily into)
     /// ## `source`
     /// The GL ID of the source buffer
     /// ## `source_type`
@@ -350,26 +345,40 @@
     /// The width of the region to draw
     /// ## `height`
     /// The height of the region to draw
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_cairo_draw_from_gl&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"gdk_cairo_draw_from_gl"</span>)]
+    #[allow(clippy::too_many_arguments)]
     </span><span class="kw">unsafe fn </span>draw_from_gl(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        surface: <span class="kw-2">&amp;</span>Surface,
-        source: i32,
-        source_type: i32,
-        buffer_scale: i32,
-        x: i32,
-        y: i32,
-        width: i32,
-        height: i32,
-    );
+        surface: <span class="kw-2">&amp;</span><a href="auto/surface.rs.html#17-128">Surface</a>,
+        source: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
+        source_type: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
+        buffer_scale: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
+        x: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
+        y: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
+        width: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
+        height: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
+    ) {
+        <span class="macro">skip_assert_initialized!</span>();
+        ffi::gdk_cairo_draw_from_gl(
+            <a class="self" href="#93">self</a>.<a href="#175">to_raw</a>(),
+            <a href="#94">surface</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#95">source</a>,
+            <a href="#96">source_type</a>,
+            <a href="#97">buffer_scale</a>,
+            <a href="#98">x</a>,
+            <a href="#99">y</a>,
+            <a href="#100">width</a>,
+            <a href="#101">height</a>,
+        );
+    }
 
-    <span class="doccomment">/// Sets the specified [`RGBA`][crate::RGBA] as the source color of @cr.
-    /// ## `cr`
-    /// a cairo context
-    /// ## `rgba`
-    /// a [`RGBA`][crate::RGBA]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_cairo_set_source_rgba&quot;</span>)]
-    </span><span class="kw">fn </span>set_source_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>, rgba: <span class="kw-2">&amp;</span>RGBA);
+    <span class="attr">#[doc(alias = <span class="string">"gdk_cairo_set_source_rgba"</span>)]
+    #[doc(alias = <span class="string">"set_source_rgba"</span>)]
+    </span><span class="kw">fn </span>set_source_color(<span class="kw-2">&amp;</span><span class="self">self</span>, rgba: <span class="kw-2">&amp;</span><a href="auto/rgba.rs.html#7-24">RGBA</a>) {
+        <span class="kw">unsafe </span>{
+            ffi::gdk_cairo_set_source_rgba(<a class="self" href="#119">self</a>.<a href="#175">to_raw</a>(), <a href="#119">rgba</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        }
+    }
 
     <span class="doccomment">/// Sets the given pixbuf as the source pattern for @cr.
     ///
@@ -383,75 +392,51 @@
     /// X coordinate of location to place upper left corner of @pixbuf
     /// ## `pixbuf_y`
     /// Y coordinate of location to place upper left corner of @pixbuf
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_cairo_set_source_pixbuf&quot;</span>)]
-    </span><span class="kw">fn </span>set_source_pixbuf(<span class="kw-2">&amp;</span><span class="self">self</span>, pixbuf: <span class="kw-2">&amp;</span>Pixbuf, x: f64, y: f64);
+    </span><span class="attr">#[doc(alias = <span class="string">"gdk_cairo_set_source_pixbuf"</span>)]
+    </span><span class="kw">fn </span>set_source_pixbuf(<span class="kw-2">&amp;</span><span class="self">self</span>, pixbuf: <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/gdk_pixbuf/auto/pixbuf/struct.Pixbuf.html">Pixbuf</a>, x: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
+        <span class="kw">unsafe </span>{
+            ffi::gdk_cairo_set_source_pixbuf(<a class="self" href="#138">self</a>.<a href="#175">to_raw</a>(), <a href="#138">pixbuf</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#138">x</a>, <a href="#138">y</a>);
+        }
+    }
 
     <span class="doccomment">/// Adds the given rectangle to the current path of @cr.
     /// ## `cr`
     /// a cairo context
     /// ## `rectangle`
     /// a [`Rectangle`][crate::Rectangle]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_cairo_rectangle&quot;</span>)]
-    </span><span class="kw">fn </span>add_rectangle(<span class="kw-2">&amp;</span><span class="self">self</span>, rectangle: <span class="kw-2">&amp;</span>Rectangle);
+    </span><span class="attr">#[doc(alias = <span class="string">"gdk_cairo_rectangle"</span>)]
+    </span><span class="kw">fn </span>add_rectangle(<span class="kw-2">&amp;</span><span class="self">self</span>, rectangle: <span class="kw-2">&amp;</span><a href="auto/rectangle.rs.html#7-30">Rectangle</a>) {
+        <span class="kw">unsafe </span>{
+            ffi::gdk_cairo_rectangle(<a class="self" href="#150">self</a>.<a href="#175">to_raw</a>(), <a href="#150">rectangle</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+        }
+    }
 
     <span class="doccomment">/// Adds the given region to the current path of @cr.
     /// ## `cr`
     /// a cairo context
     /// ## `region`
     /// a [`cairo::Region`][crate::cairo::Region]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gdk_cairo_region&quot;</span>)]
-    </span><span class="kw">fn </span>add_region(<span class="kw-2">&amp;</span><span class="self">self</span>, region: <span class="kw-2">&amp;</span>Region);
-}
-
-<span class="kw">impl </span>GdkCairoContextExt <span class="kw">for </span>Context {
-    <span class="kw">unsafe fn </span>draw_from_gl(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        surface: <span class="kw-2">&amp;</span>Surface,
-        source: i32,
-        source_type: i32,
-        buffer_scale: i32,
-        x: i32,
-        y: i32,
-        width: i32,
-        height: i32,
-    ) {
-        <span class="macro">skip_assert_initialized!</span>();
-        ffi::gdk_cairo_draw_from_gl(
-            mut_override(<span class="self">self</span>.to_glib_none().<span class="number">0</span>),
-            surface.to_glib_none().<span class="number">0</span>,
-            source,
-            source_type,
-            buffer_scale,
-            x,
-            y,
-            width,
-            height,
-        );
-    }
-
-    <span class="kw">fn </span>set_source_rgba(<span class="kw-2">&amp;</span><span class="self">self</span>, rgba: <span class="kw-2">&amp;</span>RGBA) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gdk_cairo_region"</span>)]
+    </span><span class="kw">fn </span>add_region(<span class="kw-2">&amp;</span><span class="self">self</span>, region: <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/region/struct.Region.html">Region</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gdk_cairo_set_source_rgba(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, rgba.to_glib_none().<span class="number">0</span>);
-        }
-    }
-
-    <span class="kw">fn </span>set_source_pixbuf(<span class="kw-2">&amp;</span><span class="self">self</span>, pixbuf: <span class="kw-2">&amp;</span>Pixbuf, x: f64, y: f64) {
-        <span class="kw">unsafe </span>{
-            ffi::gdk_cairo_set_source_pixbuf(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, pixbuf.to_glib_none().<span class="number">0</span>, x, y);
-        }
-    }
-
-    <span class="kw">fn </span>add_rectangle(<span class="kw-2">&amp;</span><span class="self">self</span>, rectangle: <span class="kw-2">&amp;</span>Rectangle) {
-        <span class="kw">unsafe </span>{
-            ffi::gdk_cairo_rectangle(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, rectangle.to_glib_none().<span class="number">0</span>);
-        }
-    }
-
-    <span class="kw">fn </span>add_region(<span class="kw-2">&amp;</span><span class="self">self</span>, region: <span class="kw-2">&amp;</span>Region) {
-        <span class="kw">unsafe </span>{
-            ffi::gdk_cairo_region(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, region.to_glib_none().<span class="number">0</span>);
+            ffi::gdk_cairo_region(<a class="self" href="#162">self</a>.<a href="#175">to_raw</a>(), <a href="#162">region</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 }
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+
+<span class="kw">impl </span><a href="#39-167">GdkCairoContextExt</a> <span class="kw">for </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/context/struct.Context.html">Context</a> {}
+
+<span class="kw">mod </span>sealed {
+    <span class="kw">use </span>cairo::{ffi::cairo_t, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/context/struct.Context.html">Context</a>};
+
+    <span class="kw">pub trait </span>Sealed {
+        <span class="kw">fn </span>to_raw(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">*mut </span>cairo_t;
+    }
+
+    <span class="kw">impl </span><a href="#174-176">Sealed</a> <span class="kw">for </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/context/struct.Context.html">Context</a> {
+        <span class="kw">fn </span>to_raw(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">*mut </span>cairo_t {
+            <a class="self" href="#179">self</a>.to_raw_none()
+        }
+    }
+}
+</code></pre></div></section></main></body></html>

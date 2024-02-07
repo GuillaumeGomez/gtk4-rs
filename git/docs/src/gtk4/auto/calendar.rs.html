@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/calendar.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>calendar.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-6d262342be62306e.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-5f7299aa2b503fb1.css"><link rel="stylesheet" disabled href="../../../static.files/dark-dfb18ef8114bb428.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-4047a6aaddd3789d.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-ea63cb6500f71309.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-3367e395607fafc1.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/calendar.rs`."><title>calendar.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,9 @@
 </script>
 
 
-<nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1466,22 +1468,21 @@
 <a href="#1393" id="1393">1393</a>
 <a href="#1394" id="1394">1394</a>
 <a href="#1395" id="1395">1395</a>
-<a href="#1396" id="1396">1396</a>
-</pre><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
+</pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
 </span><span class="kw">use crate</span>::{
-    Accessible, AccessibleRole, Align, Buildable, ConstraintTarget, LayoutManager, Overflow, Widget,
+    <a href="accessible.rs.html#16-66">Accessible</a>, <a href="enums.rs.html#803-1098">AccessibleRole</a>, <a href="../enums.rs.html#77-107">Align</a>, <a href="buildable.rs.html#7-31">Buildable</a>, <a href="constraint_target.rs.html#7-22">ConstraintTarget</a>, <a href="layout_manager.rs.html#8-71">LayoutManager</a>, <a href="enums.rs.html#7388-7399">Overflow</a>, <a href="widget.rs.html#18-853">Widget</a>,
 };
 <span class="kw">use </span>glib::{
-    prelude::<span class="kw-2">*</span>,
-    signal::{connect_raw, SignalHandlerId},
-    translate::<span class="kw-2">*</span>,
+    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>,
+    signal::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a>},
+    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>,
 };
-<span class="kw">use </span>std::{boxed::Box <span class="kw">as </span>Box_, fmt, mem::transmute};
+<span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">std::boxed::Box</a> <span class="kw">as </span>Box_;
 
-<span class="macro">glib::wrapper! </span>{
+<a class="macro" href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/macro.wrapper.html">glib::wrapper! </a>{
     <span class="doccomment">/// [`Calendar`][crate::Calendar] is a widget that displays a Gregorian calendar, one month
     /// at a time.
     ///
@@ -1688,7 +1689,7 @@
     /// #### `margin-bottom`
     ///  Margin on bottom side of widget.
     ///
-    /// This property adds margin outside of the widget&#39;s normal size
+    /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
     ///
@@ -1701,7 +1702,7 @@
     /// This property supports left-to-right and right-to-left text
     /// directions.
     ///
-    /// This property adds margin outside of the widget&#39;s normal size
+    /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
     ///
@@ -1714,7 +1715,7 @@
     /// This property supports left-to-right and right-to-left text
     /// directions.
     ///
-    /// This property adds margin outside of the widget&#39;s normal size
+    /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
     ///
@@ -1724,7 +1725,7 @@
     /// #### `margin-top`
     ///  Margin on top side of widget.
     ///
-    /// This property adds margin outside of the widget&#39;s normal size
+    /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
     ///
@@ -1744,7 +1745,7 @@
     ///
     ///
     /// #### `overflow`
-    ///  How content outside the widget&#39;s content area is treated.
+    ///  How content outside the widget's content area is treated.
     ///
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
@@ -1952,15 +1953,20 @@
     /// #### `move-focus`
     ///  Emitted when the focus is moved.
     ///
+    /// The ::move-focus signal is a [keybinding signal](class.SignalAction.html).
+    ///
+    /// The default bindings for this signal are &lt;kbd&gt;Tab&lt;/kbd&gt; to move forward,
+    /// and &lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;Tab&lt;/kbd&gt; to move backward.
+    ///
     /// Action
     ///
     ///
     /// #### `query-tooltip`
-    ///  Emitted when the widgets tooltip is about to be shown.
+    ///  Emitted when the widget’s tooltip is about to be shown.
     ///
     /// This happens when the [`has-tooltip`][struct@crate::Widget#has-tooltip] property
     /// is [`true`] and the hover timeout has expired with the cursor hovering
-    /// &quot;above&quot; @widget; or emitted when @widget got focus in keyboard mode.
+    /// "above" @widget; or emitted when @widget got focus in keyboard mode.
     ///
     /// Using the given coordinates, the signal handler should determine
     /// whether a tooltip should be shown for @widget. If this is the case
@@ -2021,39 +2027,39 @@
     /// # Implements
     ///
     /// [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual]
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;GtkCalendar&quot;</span>)]
-    </span><span class="kw">pub struct </span>Calendar(Object&lt;ffi::GtkCalendar&gt;) @extends Widget, @implements Accessible, Buildable, ConstraintTarget;
+    </span><span class="attr">#[doc(alias = <span class="string">"GtkCalendar"</span>)]
+    </span><span class="kw">pub struct </span><a href="../../../gtk4/struct.Calendar.html">Calendar</a>(Object&lt;<a href="../../../gtk4_sys/struct.GtkCalendar.html">ffi::GtkCalendar</a>&gt;) @extends <a href="widget.rs.html#18-853">Widget</a>, @implements <a href="accessible.rs.html#16-66">Accessible</a>, <a href="buildable.rs.html#7-31">Buildable</a>, <a href="constraint_target.rs.html#7-22">ConstraintTarget</a>;
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::gtk_calendar_get_type(),
     }
 }
 
-<span class="kw">impl </span>Calendar {
+<span class="kw">impl </span><a href="#15-566">Calendar</a> {
     <span class="doccomment">/// Creates a new calendar, with the current date being selected.
     ///
     /// # Returns
     ///
     /// a newly [`Calendar`][crate::Calendar] widget
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_calendar_new&quot;</span>)]
-    </span><span class="kw">pub fn </span>new() -&gt; Calendar {
-        <span class="macro">assert_initialized_main_thread!</span>();
-        <span class="kw">unsafe </span>{ Widget::from_glib_none(ffi::gtk_calendar_new()).unsafe_cast() }
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_calendar_new"</span>)]
+    </span><span class="kw">pub fn </span>new() -&gt; <a href="#15-566">Calendar</a> {
+        <a class="macro" href="../rt.rs.html#23-35">assert_initialized_main_thread!</a>();
+        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrNone.html">Widget::from_glib_none</a>(ffi::gtk_calendar_new()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast</a>() }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Creates a new builder-pattern struct instance to construct [`Calendar`] objects.
     ///
     /// This method returns an instance of [`CalendarBuilder`](crate::builders::CalendarBuilder) which can be used to create [`Calendar`] objects.
-    </span><span class="kw">pub fn </span>builder() -&gt; CalendarBuilder {
-        CalendarBuilder::new()
+    </span><span class="kw">pub fn </span>builder() -&gt; <a href="#1045-1047">CalendarBuilder</a> {
+        <a href="#1050-1054">CalendarBuilder::new</a>()
     }
 
     <span class="doccomment">/// Remove all visual markers.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_calendar_clear_marks&quot;</span>)]
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_calendar_clear_marks"</span>)]
     </span><span class="kw">pub fn </span>clear_marks(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_calendar_clear_marks(<span class="self">self</span>.to_glib_none().<span class="number">0</span>);
+            ffi::gtk_calendar_clear_marks(<a class="self" href="#590">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
@@ -2065,10 +2071,10 @@
     /// # Returns
     ///
     /// the `GDate` representing the shown date
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_calendar_get_date&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_date&quot;</span>)]
-    </span><span class="kw">pub fn </span>date(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; glib::DateTime {
-        <span class="kw">unsafe </span>{ from_glib_full(ffi::gtk_calendar_get_date(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_calendar_get_date"</span>)]
+    #[doc(alias = <span class="string">"get_date"</span>)]
+    </span><span class="kw">pub fn </span>date(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/auto/date_time/struct.DateTime.html">glib::DateTime</a> {
+        <span class="kw">unsafe </span>{ from_glib_full(ffi::gtk_calendar_get_date(<a class="self" href="#606">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Returns if the @day of the @self is already marked.
@@ -2078,13 +2084,13 @@
     /// # Returns
     ///
     /// whether the day is marked.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_calendar_get_day_is_marked&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_day_is_marked&quot;</span>)]
-    </span><span class="kw">pub fn </span>day_is_marked(<span class="kw-2">&amp;</span><span class="self">self</span>, day: u32) -&gt; bool {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_calendar_get_day_is_marked"</span>)]
+    #[doc(alias = <span class="string">"get_day_is_marked"</span>)]
+    </span><span class="kw">pub fn </span>day_is_marked(<span class="kw-2">&amp;</span><span class="self">self</span>, day: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_calendar_get_day_is_marked(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
-                day,
+                <a class="self" href="#619">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#619">day</a>,
             ))
         }
     }
@@ -2098,10 +2104,10 @@
     /// # Returns
     ///
     /// Whether the calendar shows day names.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_calendar_get_show_day_names&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_show_day_names&quot;</span>)]
-    </span><span class="kw">pub fn </span>shows_day_names(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{ from_glib(ffi::gtk_calendar_get_show_day_names(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_calendar_get_show_day_names"</span>)]
+    #[doc(alias = <span class="string">"get_show_day_names"</span>)]
+    </span><span class="kw">pub fn </span>shows_day_names(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+        <span class="kw">unsafe </span>{ from_glib(ffi::gtk_calendar_get_show_day_names(<a class="self" href="#639">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Returns whether @self is currently showing the heading.
@@ -2112,10 +2118,10 @@
     /// # Returns
     ///
     /// Whether the calendar is showing a heading.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_calendar_get_show_heading&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_show_heading&quot;</span>)]
-    </span><span class="kw">pub fn </span>shows_heading(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
-        <span class="kw">unsafe </span>{ from_glib(ffi::gtk_calendar_get_show_heading(<span class="self">self</span>.to_glib_none().<span class="number">0</span>)) }
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_calendar_get_show_heading"</span>)]
+    #[doc(alias = <span class="string">"get_show_heading"</span>)]
+    </span><span class="kw">pub fn </span>shows_heading(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+        <span class="kw">unsafe </span>{ from_glib(ffi::gtk_calendar_get_show_heading(<a class="self" href="#653">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Returns whether @self is showing week numbers right
@@ -2127,12 +2133,12 @@
     /// # Returns
     ///
     /// Whether the calendar is showing week numbers.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_calendar_get_show_week_numbers&quot;</span>)]
-    #[doc(alias = <span class="string">&quot;get_show_week_numbers&quot;</span>)]
-    </span><span class="kw">pub fn </span>shows_week_numbers(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_calendar_get_show_week_numbers"</span>)]
+    #[doc(alias = <span class="string">"get_show_week_numbers"</span>)]
+    </span><span class="kw">pub fn </span>shows_week_numbers(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             from_glib(ffi::gtk_calendar_get_show_week_numbers(
-                <span class="self">self</span>.to_glib_none().<span class="number">0</span>,
+                <a class="self" href="#668">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -2140,30 +2146,30 @@
     <span class="doccomment">/// Places a visual marker on a particular day of the current month.
     /// ## `day`
     /// the day number to mark between 1 and 31.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_calendar_mark_day&quot;</span>)]
-    </span><span class="kw">pub fn </span>mark_day(<span class="kw-2">&amp;</span><span class="self">self</span>, day: u32) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_calendar_mark_day"</span>)]
+    </span><span class="kw">pub fn </span>mark_day(<span class="kw-2">&amp;</span><span class="self">self</span>, day: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_calendar_mark_day(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, day);
+            ffi::gtk_calendar_mark_day(<a class="self" href="#680">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#680">day</a>);
         }
     }
 
-    <span class="doccomment">/// Switches to @date&#39;s year and month and select its day.
+    <span class="doccomment">/// Switches to @date's year and month and select its day.
     /// ## `date`
     /// a `GDateTime` representing the day to select
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_calendar_select_day&quot;</span>)]
-    </span><span class="kw">pub fn </span>select_day(<span class="kw-2">&amp;</span><span class="self">self</span>, date: <span class="kw-2">&amp;</span>glib::DateTime) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_calendar_select_day"</span>)]
+    </span><span class="kw">pub fn </span>select_day(<span class="kw-2">&amp;</span><span class="self">self</span>, date: <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/auto/date_time/struct.DateTime.html">glib::DateTime</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_calendar_select_day(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, date.to_glib_none().<span class="number">0</span>);
+            ffi::gtk_calendar_select_day(<a class="self" href="#690">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#690">date</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
     <span class="doccomment">/// Sets whether the calendar shows day names.
     /// ## `value`
     /// Whether to show day names above the day numbers
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_calendar_set_show_day_names&quot;</span>)]
-    </span><span class="kw">pub fn </span>set_show_day_names(<span class="kw-2">&amp;</span><span class="self">self</span>, value: bool) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_calendar_set_show_day_names"</span>)]
+    </span><span class="kw">pub fn </span>set_show_day_names(<span class="kw-2">&amp;</span><span class="self">self</span>, value: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_calendar_set_show_day_names(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, value.into_glib());
+            ffi::gtk_calendar_set_show_day_names(<a class="self" href="#700">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#700">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
     }
 
@@ -2173,331 +2179,331 @@
     /// buttons for changing both.
     /// ## `value`
     /// Whether to show the heading in the calendar
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_calendar_set_show_heading&quot;</span>)]
-    </span><span class="kw">pub fn </span>set_show_heading(<span class="kw-2">&amp;</span><span class="self">self</span>, value: bool) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_calendar_set_show_heading"</span>)]
+    </span><span class="kw">pub fn </span>set_show_heading(<span class="kw-2">&amp;</span><span class="self">self</span>, value: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_calendar_set_show_heading(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, value.into_glib());
+            ffi::gtk_calendar_set_show_heading(<a class="self" href="#713">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#713">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
     }
 
     <span class="doccomment">/// Sets whether week numbers are shown in the calendar.
     /// ## `value`
     /// whether to show week numbers on the left of the days
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_calendar_set_show_week_numbers&quot;</span>)]
-    </span><span class="kw">pub fn </span>set_show_week_numbers(<span class="kw-2">&amp;</span><span class="self">self</span>, value: bool) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_calendar_set_show_week_numbers"</span>)]
+    </span><span class="kw">pub fn </span>set_show_week_numbers(<span class="kw-2">&amp;</span><span class="self">self</span>, value: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_calendar_set_show_week_numbers(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, value.into_glib());
+            ffi::gtk_calendar_set_show_week_numbers(<a class="self" href="#723">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#723">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>());
         }
     }
 
     <span class="doccomment">/// Removes the visual marker from a particular day.
     /// ## `day`
     /// the day number to unmark between 1 and 31.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;gtk_calendar_unmark_day&quot;</span>)]
-    </span><span class="kw">pub fn </span>unmark_day(<span class="kw-2">&amp;</span><span class="self">self</span>, day: u32) {
+    </span><span class="attr">#[doc(alias = <span class="string">"gtk_calendar_unmark_day"</span>)]
+    </span><span class="kw">pub fn </span>unmark_day(<span class="kw-2">&amp;</span><span class="self">self</span>, day: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_calendar_unmark_day(<span class="self">self</span>.to_glib_none().<span class="number">0</span>, day);
+            ffi::gtk_calendar_unmark_day(<a class="self" href="#733">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#733">day</a>);
         }
     }
 
     <span class="doccomment">/// The selected day (as a number between 1 and 31).
-    </span><span class="kw">pub fn </span>day(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
-        glib::ObjectExt::property(<span class="self">self</span>, <span class="string">&quot;day&quot;</span>)
+    </span><span class="kw">pub fn </span>day(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#740">self</a>, <span class="string">"day"</span>)
     }
 
     <span class="doccomment">/// The selected day (as a number between 1 and 31).
-    </span><span class="kw">pub fn </span>set_day(<span class="kw-2">&amp;</span><span class="self">self</span>, day: i32) {
-        glib::ObjectExt::set_property(<span class="self">self</span>, <span class="string">&quot;day&quot;</span>, <span class="kw-2">&amp;</span>day)
+    </span><span class="kw">pub fn </span>set_day(<span class="kw-2">&amp;</span><span class="self">self</span>, day: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#745">self</a>, <span class="string">"day"</span>, <a href="#745">day</a>)
     }
 
     <span class="doccomment">/// The selected month (as a number between 0 and 11).
     ///
     /// This property gets initially set to the current month.
-    </span><span class="kw">pub fn </span>month(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
-        glib::ObjectExt::property(<span class="self">self</span>, <span class="string">&quot;month&quot;</span>)
+    </span><span class="kw">pub fn </span>month(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#752">self</a>, <span class="string">"month"</span>)
     }
 
     <span class="doccomment">/// The selected month (as a number between 0 and 11).
     ///
     /// This property gets initially set to the current month.
-    </span><span class="kw">pub fn </span>set_month(<span class="kw-2">&amp;</span><span class="self">self</span>, month: i32) {
-        glib::ObjectExt::set_property(<span class="self">self</span>, <span class="string">&quot;month&quot;</span>, <span class="kw-2">&amp;</span>month)
+    </span><span class="kw">pub fn </span>set_month(<span class="kw-2">&amp;</span><span class="self">self</span>, month: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#759">self</a>, <span class="string">"month"</span>, <a href="#759">month</a>)
     }
 
     <span class="doccomment">/// The selected year.
     ///
     /// This property gets initially set to the current year.
-    </span><span class="kw">pub fn </span>year(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
-        glib::ObjectExt::property(<span class="self">self</span>, <span class="string">&quot;year&quot;</span>)
+    </span><span class="kw">pub fn </span>year(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#766">self</a>, <span class="string">"year"</span>)
     }
 
     <span class="doccomment">/// The selected year.
     ///
     /// This property gets initially set to the current year.
-    </span><span class="kw">pub fn </span>set_year(<span class="kw-2">&amp;</span><span class="self">self</span>, year: i32) {
-        glib::ObjectExt::set_property(<span class="self">self</span>, <span class="string">&quot;year&quot;</span>, <span class="kw-2">&amp;</span>year)
+    </span><span class="kw">pub fn </span>set_year(<span class="kw-2">&amp;</span><span class="self">self</span>, year: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#773">self</a>, <span class="string">"year"</span>, <a href="#773">year</a>)
     }
 
     <span class="doccomment">/// Emitted when the user selects a day.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;day-selected&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_day_selected&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>day_selected_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Calendar) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkCalendar,
+    </span><span class="attr">#[doc(alias = <span class="string">"day-selected"</span>)]
+    </span><span class="kw">pub fn </span>connect_day_selected&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>day_selected_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#15-566">Calendar</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkCalendar.html">ffi::GtkCalendar</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#782">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#784">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#781">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;day-selected\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#779">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#779">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"day-selected\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     day_selected_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#788">f</a>),
             )
         }
     }
 
     <span class="doccomment">/// Emitted when the user switched to the next month.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;next-month&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_next_month&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>next_month_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Calendar) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkCalendar,
+    </span><span class="attr">#[doc(alias = <span class="string">"next-month"</span>)]
+    </span><span class="kw">pub fn </span>connect_next_month&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>next_month_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#15-566">Calendar</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkCalendar.html">ffi::GtkCalendar</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#805">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#807">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#804">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;next-month\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#802">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#802">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"next-month\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     next_month_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#811">f</a>),
             )
         }
     }
 
     <span class="doccomment">/// Emitted when user switched to the next year.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;next-year&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_next_year&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>next_year_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Calendar) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkCalendar,
+    </span><span class="attr">#[doc(alias = <span class="string">"next-year"</span>)]
+    </span><span class="kw">pub fn </span>connect_next_year&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>next_year_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#15-566">Calendar</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkCalendar.html">ffi::GtkCalendar</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#828">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#830">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#827">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;next-year\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#825">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#825">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"next-year\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     next_year_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#834">f</a>),
             )
         }
     }
 
     <span class="doccomment">/// Emitted when the user switched to the previous month.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;prev-month&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_prev_month&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>prev_month_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Calendar) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkCalendar,
+    </span><span class="attr">#[doc(alias = <span class="string">"prev-month"</span>)]
+    </span><span class="kw">pub fn </span>connect_prev_month&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>prev_month_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#15-566">Calendar</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkCalendar.html">ffi::GtkCalendar</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#851">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#853">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#850">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;prev-month\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#848">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#848">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"prev-month\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     prev_month_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#857">f</a>),
             )
         }
     }
 
     <span class="doccomment">/// Emitted when user switched to the previous year.
-    </span><span class="attr">#[doc(alias = <span class="string">&quot;prev-year&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_prev_year&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>prev_year_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Calendar) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkCalendar,
+    </span><span class="attr">#[doc(alias = <span class="string">"prev-year"</span>)]
+    </span><span class="kw">pub fn </span>connect_prev_year&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>prev_year_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#15-566">Calendar</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkCalendar.html">ffi::GtkCalendar</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#874">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#876">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#873">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;prev-year\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#871">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#871">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"prev-year\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     prev_year_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#880">f</a>),
             )
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;day&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_day_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_day_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Calendar) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkCalendar,
+    <span class="attr">#[doc(alias = <span class="string">"day"</span>)]
+    </span><span class="kw">pub fn </span>connect_day_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_day_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#15-566">Calendar</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkCalendar.html">ffi::GtkCalendar</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#897">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#899">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#895">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::day\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#893">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#893">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::day\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_day_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#903">f</a>),
             )
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;month&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_month_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_month_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Calendar) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkCalendar,
+    <span class="attr">#[doc(alias = <span class="string">"month"</span>)]
+    </span><span class="kw">pub fn </span>connect_month_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_month_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#15-566">Calendar</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkCalendar.html">ffi::GtkCalendar</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#920">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#922">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#918">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::month\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#916">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#916">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::month\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_month_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#926">f</a>),
             )
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;show-day-names&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_show_day_names_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_show_day_names_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Calendar) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkCalendar,
+    <span class="attr">#[doc(alias = <span class="string">"show-day-names"</span>)]
+    </span><span class="kw">pub fn </span>connect_show_day_names_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_show_day_names_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#15-566">Calendar</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkCalendar.html">ffi::GtkCalendar</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#943">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#945">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#941">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::show-day-names\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#939">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#939">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::show-day-names\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_show_day_names_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#949">f</a>),
             )
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;show-heading&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_show_heading_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_show_heading_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Calendar) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkCalendar,
+    <span class="attr">#[doc(alias = <span class="string">"show-heading"</span>)]
+    </span><span class="kw">pub fn </span>connect_show_heading_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_show_heading_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#15-566">Calendar</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkCalendar.html">ffi::GtkCalendar</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#966">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#968">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#964">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::show-heading\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#962">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#962">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::show-heading\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_show_heading_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#972">f</a>),
             )
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;show-week-numbers&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_show_week_numbers_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(
+    <span class="attr">#[doc(alias = <span class="string">"show-week-numbers"</span>)]
+    </span><span class="kw">pub fn </span>connect_show_week_numbers_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
-    ) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_show_week_numbers_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Calendar) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkCalendar,
+    ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_show_week_numbers_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#15-566">Calendar</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkCalendar.html">ffi::GtkCalendar</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#992">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#994">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#990">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::show-week-numbers\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#987">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#986">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::show-week-numbers\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_show_week_numbers_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#998">f</a>),
             )
         }
     }
 
-    <span class="attr">#[doc(alias = <span class="string">&quot;year&quot;</span>)]
-    </span><span class="kw">pub fn </span>connect_year_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">&#39;static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; SignalHandlerId {
-        <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn </span>notify_year_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span>Calendar) + <span class="lifetime">&#39;static</span>&gt;(
-            this: <span class="kw-2">*mut </span>ffi::GtkCalendar,
+    <span class="attr">#[doc(alias = <span class="string">"year"</span>)]
+    </span><span class="kw">pub fn </span>connect_year_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_year_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#15-566">Calendar</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkCalendar.html">ffi::GtkCalendar</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(f <span class="kw">as </span><span class="kw-2">*const </span>F);
-            f(<span class="kw-2">&amp;</span>from_glib_borrow(this))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1015">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1017">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#1013">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(f);
-            connect_raw(
-                <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b&quot;notify::year\0&quot;</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">&quot;C&quot; </span><span class="kw">fn</span>()&gt;(
+            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1011">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#1011">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::year\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_year_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(f),
+                Box_::into_raw(<a href="#1021">f</a>),
             )
         }
     }
 }
 
-<span class="kw">impl </span>Default <span class="kw">for </span>Calendar {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default</a> <span class="kw">for </span><a href="#15-566">Calendar</a> {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::new()
+        <a href="#575-578"><span class="self">Self</span>::new</a>()
     }
 }
 
@@ -2505,12 +2511,12 @@
 </span><span class="doccomment">/// A [builder-pattern] type to construct [`Calendar`] objects.
 ///
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
-</span><span class="attr">#[must_use = <span class="string">&quot;The builder must be built to be used&quot;</span>]
-</span><span class="kw">pub struct </span>CalendarBuilder {
-    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">&#39;static</span>, Calendar&gt;,
+</span><span class="attr">#[must_use = <span class="string">"The builder must be built to be used"</span>]
+</span><span class="kw">pub struct </span><a href="../../../gtk4/builders/struct.CalendarBuilder.html">CalendarBuilder</a> {
+    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">'static</span>, <a href="#15-566">Calendar</a>&gt;,
 }
 
-<span class="kw">impl </span>CalendarBuilder {
+<span class="kw">impl </span><a href="#1045-1047">CalendarBuilder</a> {
     <span class="kw">fn </span>new() -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             builder: glib::object::Object::builder(),
@@ -2518,50 +2524,50 @@
     }
 
     <span class="doccomment">/// The selected day (as a number between 1 and 31).
-    </span><span class="kw">pub fn </span>day(<span class="self">self</span>, day: i32) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>day(<span class="self">self</span>, day: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;day&quot;</span>, day),
+            builder: <a class="self" href="#1057">self</a>.builder.property(<span class="string">"day"</span>, <a href="#1057">day</a>),
         }
     }
 
     <span class="doccomment">/// The selected month (as a number between 0 and 11).
     ///
     /// This property gets initially set to the current month.
-    </span><span class="kw">pub fn </span>month(<span class="self">self</span>, month: i32) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>month(<span class="self">self</span>, month: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;month&quot;</span>, month),
+            builder: <a class="self" href="#1066">self</a>.builder.property(<span class="string">"month"</span>, <a href="#1066">month</a>),
         }
     }
 
     <span class="doccomment">/// Determines whether day names are displayed.
-    </span><span class="kw">pub fn </span>show_day_names(<span class="self">self</span>, show_day_names: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>show_day_names(<span class="self">self</span>, show_day_names: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;show-day-names&quot;</span>, show_day_names),
+            builder: <a class="self" href="#1073">self</a>.builder.property(<span class="string">"show-day-names"</span>, <a href="#1073">show_day_names</a>),
         }
     }
 
     <span class="doccomment">/// Determines whether a heading is displayed.
-    </span><span class="kw">pub fn </span>show_heading(<span class="self">self</span>, show_heading: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>show_heading(<span class="self">self</span>, show_heading: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;show-heading&quot;</span>, show_heading),
+            builder: <a class="self" href="#1080">self</a>.builder.property(<span class="string">"show-heading"</span>, <a href="#1080">show_heading</a>),
         }
     }
 
     <span class="doccomment">/// Determines whether week numbers are displayed.
-    </span><span class="kw">pub fn </span>show_week_numbers(<span class="self">self</span>, show_week_numbers: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>show_week_numbers(<span class="self">self</span>, show_week_numbers: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self
+            builder: <span class="self"><a href="#1087">self</a>
                 </span>.builder
-                .property(<span class="string">&quot;show-week-numbers&quot;</span>, show_week_numbers),
+                .property(<span class="string">"show-week-numbers"</span>, <a href="#1087">show_week_numbers</a>),
         }
     }
 
     <span class="doccomment">/// The selected year.
     ///
     /// This property gets initially set to the current year.
-    </span><span class="kw">pub fn </span>year(<span class="self">self</span>, year: i32) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>year(<span class="self">self</span>, year: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;year&quot;</span>, year),
+            builder: <a class="self" href="#1098">self</a>.builder.property(<span class="string">"year"</span>, <a href="#1098">year</a>),
         }
     }
 
@@ -2570,23 +2576,23 @@
     ///
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
-    </span><span class="kw">pub fn </span>can_focus(<span class="self">self</span>, can_focus: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>can_focus(<span class="self">self</span>, can_focus: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;can-focus&quot;</span>, can_focus),
+            builder: <a class="self" href="#1109">self</a>.builder.property(<span class="string">"can-focus"</span>, <a href="#1109">can_focus</a>),
         }
     }
 
     <span class="doccomment">/// Whether the widget can receive pointer events.
-    </span><span class="kw">pub fn </span>can_target(<span class="self">self</span>, can_target: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>can_target(<span class="self">self</span>, can_target: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;can-target&quot;</span>, can_target),
+            builder: <a class="self" href="#1116">self</a>.builder.property(<span class="string">"can-target"</span>, <a href="#1116">can_target</a>),
         }
     }
 
     <span class="doccomment">/// A list of css classes applied to this widget.
-    </span><span class="kw">pub fn </span>css_classes(<span class="self">self</span>, css_classes: <span class="kw">impl </span>Into&lt;glib::StrV&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>css_classes(<span class="self">self</span>, css_classes: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/collections/strv/struct.StrV.html">glib::StrV</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;css-classes&quot;</span>, css_classes.into()),
+            builder: <a class="self" href="#1123">self</a>.builder.property(<span class="string">"css-classes"</span>, <a href="#1123">css_classes</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
         }
     }
 
@@ -2594,39 +2600,39 @@
     ///
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
-    </span><span class="kw">pub fn </span>css_name(<span class="self">self</span>, css_name: <span class="kw">impl </span>Into&lt;glib::GString&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>css_name(<span class="self">self</span>, css_name: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;css-name&quot;</span>, css_name.into()),
+            builder: <a class="self" href="#1133">self</a>.builder.property(<span class="string">"css-name"</span>, <a href="#1133">css_name</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
         }
     }
 
     <span class="doccomment">/// The cursor used by @widget.
-    </span><span class="kw">pub fn </span>cursor(<span class="self">self</span>, cursor: <span class="kw-2">&amp;</span>gdk::Cursor) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>cursor(<span class="self">self</span>, cursor: <span class="kw-2">&amp;</span><a href="../../../gdk4/auto/cursor/struct.Cursor.html">gdk::Cursor</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;cursor&quot;</span>, cursor.clone()),
+            builder: <a class="self" href="#1140">self</a>.builder.property(<span class="string">"cursor"</span>, <a href="#1140">cursor</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>()),
         }
     }
 
     <span class="doccomment">/// Whether the widget should grab focus when it is clicked with the mouse.
     ///
     /// This property is only relevant for widgets that can take focus.
-    </span><span class="kw">pub fn </span>focus_on_click(<span class="self">self</span>, focus_on_click: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>focus_on_click(<span class="self">self</span>, focus_on_click: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;focus-on-click&quot;</span>, focus_on_click),
+            builder: <a class="self" href="#1149">self</a>.builder.property(<span class="string">"focus-on-click"</span>, <a href="#1149">focus_on_click</a>),
         }
     }
 
     <span class="doccomment">/// Whether this widget itself will accept the input focus.
-    </span><span class="kw">pub fn </span>focusable(<span class="self">self</span>, focusable: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>focusable(<span class="self">self</span>, focusable: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;focusable&quot;</span>, focusable),
+            builder: <a class="self" href="#1156">self</a>.builder.property(<span class="string">"focusable"</span>, <a href="#1156">focusable</a>),
         }
     }
 
     <span class="doccomment">/// How to distribute horizontal space if widget gets extra space.
-    </span><span class="kw">pub fn </span>halign(<span class="self">self</span>, halign: Align) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>halign(<span class="self">self</span>, halign: <a href="../enums.rs.html#77-107">Align</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;halign&quot;</span>, halign),
+            builder: <a class="self" href="#1163">self</a>.builder.property(<span class="string">"halign"</span>, <a href="#1163">halign</a>),
         }
     }
 
@@ -2635,32 +2641,32 @@
     /// A value of [`true`] indicates that @widget can have a tooltip, in this case
     /// the widget will be queried using [`query-tooltip`][struct@crate::Widget#query-tooltip] to
     /// determine whether it will provide a tooltip or not.
-    </span><span class="kw">pub fn </span>has_tooltip(<span class="self">self</span>, has_tooltip: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>has_tooltip(<span class="self">self</span>, has_tooltip: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;has-tooltip&quot;</span>, has_tooltip),
+            builder: <a class="self" href="#1174">self</a>.builder.property(<span class="string">"has-tooltip"</span>, <a href="#1174">has_tooltip</a>),
         }
     }
 
     <span class="doccomment">/// Override for height request of the widget.
     ///
     /// If this is -1, the natural request will be used.
-    </span><span class="kw">pub fn </span>height_request(<span class="self">self</span>, height_request: i32) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>height_request(<span class="self">self</span>, height_request: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;height-request&quot;</span>, height_request),
+            builder: <a class="self" href="#1183">self</a>.builder.property(<span class="string">"height-request"</span>, <a href="#1183">height_request</a>),
         }
     }
 
     <span class="doccomment">/// Whether to expand horizontally.
-    </span><span class="kw">pub fn </span>hexpand(<span class="self">self</span>, hexpand: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>hexpand(<span class="self">self</span>, hexpand: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;hexpand&quot;</span>, hexpand),
+            builder: <a class="self" href="#1190">self</a>.builder.property(<span class="string">"hexpand"</span>, <a href="#1190">hexpand</a>),
         }
     }
 
     <span class="doccomment">/// Whether to use the `hexpand` property.
-    </span><span class="kw">pub fn </span>hexpand_set(<span class="self">self</span>, hexpand_set: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>hexpand_set(<span class="self">self</span>, hexpand_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;hexpand-set&quot;</span>, hexpand_set),
+            builder: <a class="self" href="#1197">self</a>.builder.property(<span class="string">"hexpand-set"</span>, <a href="#1197">hexpand_set</a>),
         }
     }
 
@@ -2669,22 +2675,22 @@
     ///
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
-    </span><span class="kw">pub fn </span>layout_manager(<span class="self">self</span>, layout_manager: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;LayoutManager&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>layout_manager(<span class="self">self</span>, layout_manager: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="layout_manager.rs.html#8-71">LayoutManager</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self
+            builder: <span class="self"><a href="#1208">self</a>
                 </span>.builder
-                .property(<span class="string">&quot;layout-manager&quot;</span>, layout_manager.clone().upcast()),
+                .property(<span class="string">"layout-manager"</span>, <a href="#1208">layout_manager</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">upcast</a>()),
         }
     }
 
     <span class="doccomment">/// Margin on bottom side of widget.
     ///
-    /// This property adds margin outside of the widget&#39;s normal size
+    /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
-    </span><span class="kw">pub fn </span>margin_bottom(<span class="self">self</span>, margin_bottom: i32) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>margin_bottom(<span class="self">self</span>, margin_bottom: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;margin-bottom&quot;</span>, margin_bottom),
+            builder: <a class="self" href="#1221">self</a>.builder.property(<span class="string">"margin-bottom"</span>, <a href="#1221">margin_bottom</a>),
         }
     }
 
@@ -2693,12 +2699,12 @@
     /// This property supports left-to-right and right-to-left text
     /// directions.
     ///
-    /// This property adds margin outside of the widget&#39;s normal size
+    /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
-    </span><span class="kw">pub fn </span>margin_end(<span class="self">self</span>, margin_end: i32) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>margin_end(<span class="self">self</span>, margin_end: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;margin-end&quot;</span>, margin_end),
+            builder: <a class="self" href="#1235">self</a>.builder.property(<span class="string">"margin-end"</span>, <a href="#1235">margin_end</a>),
         }
     }
 
@@ -2707,61 +2713,61 @@
     /// This property supports left-to-right and right-to-left text
     /// directions.
     ///
-    /// This property adds margin outside of the widget&#39;s normal size
+    /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
-    </span><span class="kw">pub fn </span>margin_start(<span class="self">self</span>, margin_start: i32) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>margin_start(<span class="self">self</span>, margin_start: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;margin-start&quot;</span>, margin_start),
+            builder: <a class="self" href="#1249">self</a>.builder.property(<span class="string">"margin-start"</span>, <a href="#1249">margin_start</a>),
         }
     }
 
     <span class="doccomment">/// Margin on top side of widget.
     ///
-    /// This property adds margin outside of the widget&#39;s normal size
+    /// This property adds margin outside of the widget's normal size
     /// request, the margin will be added in addition to the size from
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
-    </span><span class="kw">pub fn </span>margin_top(<span class="self">self</span>, margin_top: i32) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>margin_top(<span class="self">self</span>, margin_top: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;margin-top&quot;</span>, margin_top),
+            builder: <a class="self" href="#1260">self</a>.builder.property(<span class="string">"margin-top"</span>, <a href="#1260">margin_top</a>),
         }
     }
 
     <span class="doccomment">/// The name of the widget.
-    </span><span class="kw">pub fn </span>name(<span class="self">self</span>, name: <span class="kw">impl </span>Into&lt;glib::GString&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>name(<span class="self">self</span>, name: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;name&quot;</span>, name.into()),
+            builder: <a class="self" href="#1267">self</a>.builder.property(<span class="string">"name"</span>, <a href="#1267">name</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
         }
     }
 
     <span class="doccomment">/// The requested opacity of the widget.
-    </span><span class="kw">pub fn </span>opacity(<span class="self">self</span>, opacity: f64) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>opacity(<span class="self">self</span>, opacity: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;opacity&quot;</span>, opacity),
+            builder: <a class="self" href="#1274">self</a>.builder.property(<span class="string">"opacity"</span>, <a href="#1274">opacity</a>),
         }
     }
 
-    <span class="doccomment">/// How content outside the widget&#39;s content area is treated.
+    <span class="doccomment">/// How content outside the widget's content area is treated.
     ///
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
-    </span><span class="kw">pub fn </span>overflow(<span class="self">self</span>, overflow: Overflow) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>overflow(<span class="self">self</span>, overflow: <a href="enums.rs.html#7388-7399">Overflow</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;overflow&quot;</span>, overflow),
+            builder: <a class="self" href="#1284">self</a>.builder.property(<span class="string">"overflow"</span>, <a href="#1284">overflow</a>),
         }
     }
 
     <span class="doccomment">/// Whether the widget will receive the default action when it is focused.
-    </span><span class="kw">pub fn </span>receives_default(<span class="self">self</span>, receives_default: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>receives_default(<span class="self">self</span>, receives_default: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;receives-default&quot;</span>, receives_default),
+            builder: <a class="self" href="#1291">self</a>.builder.property(<span class="string">"receives-default"</span>, <a href="#1291">receives_default</a>),
         }
     }
 
     <span class="doccomment">/// Whether the widget responds to input.
-    </span><span class="kw">pub fn </span>sensitive(<span class="self">self</span>, sensitive: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>sensitive(<span class="self">self</span>, sensitive: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;sensitive&quot;</span>, sensitive),
+            builder: <a class="self" href="#1298">self</a>.builder.property(<span class="string">"sensitive"</span>, <a href="#1298">sensitive</a>),
         }
     }
 
@@ -2778,11 +2784,11 @@
     ///
     /// Note that if both [`tooltip-text`][struct@crate::Widget#tooltip-text] and
     /// [`tooltip-markup`][struct@crate::Widget#tooltip-markup] are set, the last one wins.
-    </span><span class="kw">pub fn </span>tooltip_markup(<span class="self">self</span>, tooltip_markup: <span class="kw">impl </span>Into&lt;glib::GString&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>tooltip_markup(<span class="self">self</span>, tooltip_markup: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self
+            builder: <span class="self"><a href="#1317">self</a>
                 </span>.builder
-                .property(<span class="string">&quot;tooltip-markup&quot;</span>, tooltip_markup.into()),
+                .property(<span class="string">"tooltip-markup"</span>, <a href="#1317">tooltip_markup</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
         }
     }
 
@@ -2798,70 +2804,63 @@
     ///
     /// Note that if both [`tooltip-text`][struct@crate::Widget#tooltip-text] and
     /// [`tooltip-markup`][struct@crate::Widget#tooltip-markup] are set, the last one wins.
-    </span><span class="kw">pub fn </span>tooltip_text(<span class="self">self</span>, tooltip_text: <span class="kw">impl </span>Into&lt;glib::GString&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>tooltip_text(<span class="self">self</span>, tooltip_text: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;tooltip-text&quot;</span>, tooltip_text.into()),
+            builder: <a class="self" href="#1337">self</a>.builder.property(<span class="string">"tooltip-text"</span>, <a href="#1337">tooltip_text</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
         }
     }
 
     <span class="doccomment">/// How to distribute vertical space if widget gets extra space.
-    </span><span class="kw">pub fn </span>valign(<span class="self">self</span>, valign: Align) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>valign(<span class="self">self</span>, valign: <a href="../enums.rs.html#77-107">Align</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;valign&quot;</span>, valign),
+            builder: <a class="self" href="#1344">self</a>.builder.property(<span class="string">"valign"</span>, <a href="#1344">valign</a>),
         }
     }
 
     <span class="doccomment">/// Whether to expand vertically.
-    </span><span class="kw">pub fn </span>vexpand(<span class="self">self</span>, vexpand: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>vexpand(<span class="self">self</span>, vexpand: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;vexpand&quot;</span>, vexpand),
+            builder: <a class="self" href="#1351">self</a>.builder.property(<span class="string">"vexpand"</span>, <a href="#1351">vexpand</a>),
         }
     }
 
     <span class="doccomment">/// Whether to use the `vexpand` property.
-    </span><span class="kw">pub fn </span>vexpand_set(<span class="self">self</span>, vexpand_set: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>vexpand_set(<span class="self">self</span>, vexpand_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;vexpand-set&quot;</span>, vexpand_set),
+            builder: <a class="self" href="#1358">self</a>.builder.property(<span class="string">"vexpand-set"</span>, <a href="#1358">vexpand_set</a>),
         }
     }
 
     <span class="doccomment">/// Whether the widget is visible.
-    </span><span class="kw">pub fn </span>visible(<span class="self">self</span>, visible: bool) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>visible(<span class="self">self</span>, visible: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;visible&quot;</span>, visible),
+            builder: <a class="self" href="#1365">self</a>.builder.property(<span class="string">"visible"</span>, <a href="#1365">visible</a>),
         }
     }
 
     <span class="doccomment">/// Override for width request of the widget.
     ///
     /// If this is -1, the natural request will be used.
-    </span><span class="kw">pub fn </span>width_request(<span class="self">self</span>, width_request: i32) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>width_request(<span class="self">self</span>, width_request: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;width-request&quot;</span>, width_request),
+            builder: <a class="self" href="#1374">self</a>.builder.property(<span class="string">"width-request"</span>, <a href="#1374">width_request</a>),
         }
     }
 
     <span class="doccomment">/// The accessible role of the given [`Accessible`][crate::Accessible] implementation.
     ///
     /// The accessible role cannot be changed once set.
-    </span><span class="kw">pub fn </span>accessible_role(<span class="self">self</span>, accessible_role: AccessibleRole) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>accessible_role(<span class="self">self</span>, accessible_role: <a href="enums.rs.html#803-1098">AccessibleRole</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self">self</span>.builder.property(<span class="string">&quot;accessible-role&quot;</span>, accessible_role),
+            builder: <a class="self" href="#1383">self</a>.builder.property(<span class="string">"accessible-role"</span>, <a href="#1383">accessible_role</a>),
         }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`Calendar`].
-    </span><span class="attr">#[must_use = <span class="string">&quot;Building the object from the builder is usually expensive and is not expected to have side effects&quot;</span>]
-    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; Calendar {
-        <span class="self">self</span>.builder.build()
+    </span><span class="attr">#[must_use = <span class="string">"Building the object from the builder is usually expensive and is not expected to have side effects"</span>]
+    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; <a href="#15-566">Calendar</a> {
+        <a class="self" href="#1392">self</a>.builder.build()
     }
 }
-
-<span class="kw">impl </span>fmt::Display <span class="kw">for </span>Calendar {
-    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
-        f.write_str(<span class="string">&quot;Calendar&quot;</span>)
-    }
-}
-</code></pre></div>
-</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0-nightly (c8e6a9e8b 2023-01-23)" data-search-js="search-98d53477a794af0b.js" data-settings-js="settings-c3c521c753752a1a.js" data-settings-css="settings-08ddfdda51b8ee2e.css" ></div></body></html>
+</code></pre></div></section></main></body></html>
