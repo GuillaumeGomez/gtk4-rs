@@ -201,14 +201,9 @@ You will want to go for the GNU toolchain if you depend on libraries that can on
 <li>Search for 'Advanced system settings'</li>
 <li>Click 'Environment Variables...'</li>
 <li>Ensure there is a user variable named <code>PKG_CONFIG_PATH</code> with value <code>C:\gtk-build\gtk\x64\release\lib\pkgconfig</code></li>
-<li>Edit the variable named <code>Path</code> and add <code>C:\gtk-build\gtk\x64\release\lib\pkgconfig</code> to it</li>
+<li>Edit the variable named <code>Path</code> and add <code>C:\gtk-build\gtk\x64\release\bin</code> to it</li>
+<li>Ensure there is a user variable named <code>Lib</code> with value <code>C:\gtk-build\gtk\x64\release\lib</code> (or add new value to existing variable if already exists)</li>
 </ol>
-<h3 id="ensure-your-linker-can-find-gtks-library-files"><a class="header" href="#ensure-your-linker-can-find-gtks-library-files">Ensure your linker can find GTK's library files</a></h3>
-<p>Open <code>%HOMEPATH%\.cargo\config</code> for editing. You can add extra flags for your linker here to tell it where GTK's library files are. If you're using the <code>stable-x86_64-pc-windows-msvc</code> Rust toolchain, your config may look like this:</p>
-<pre><code class="language-toml">[target.x86_64-pc-windows-msvc]
-rustflags = ["-C", "link-args=/LIBPATH:C:\\gtk-build\\gtk\\x64\\release\\lib\\"]
-</code></pre>
-<p>This <code>rustflags</code> value should work for Microsoft's linker as well as LLVM's <code>lld-link.exe</code>.</p>
 <p>You can now continue with the <a href="./project_setup.html">project setup</a>.</p>
 </details>
 <details>

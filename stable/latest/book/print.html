@@ -267,14 +267,9 @@ You will want to go for the GNU toolchain if you depend on libraries that can on
 <li>Search for 'Advanced system settings'</li>
 <li>Click 'Environment Variables...'</li>
 <li>Ensure there is a user variable named <code>PKG_CONFIG_PATH</code> with value <code>C:\gtk-build\gtk\x64\release\lib\pkgconfig</code></li>
-<li>Edit the variable named <code>Path</code> and add <code>C:\gtk-build\gtk\x64\release\lib\pkgconfig</code> to it</li>
+<li>Edit the variable named <code>Path</code> and add <code>C:\gtk-build\gtk\x64\release\bin</code> to it</li>
+<li>Ensure there is a user variable named <code>Lib</code> with value <code>C:\gtk-build\gtk\x64\release\lib</code> (or add new value to existing variable if already exists)</li>
 </ol>
-<h3 id="ensure-your-linker-can-find-gtks-library-files"><a class="header" href="#ensure-your-linker-can-find-gtks-library-files">Ensure your linker can find GTK's library files</a></h3>
-<p>Open <code>%HOMEPATH%\.cargo\config</code> for editing. You can add extra flags for your linker here to tell it where GTK's library files are. If you're using the <code>stable-x86_64-pc-windows-msvc</code> Rust toolchain, your config may look like this:</p>
-<pre><code class="language-toml">[target.x86_64-pc-windows-msvc]
-rustflags = ["-C", "link-args=/LIBPATH:C:\\gtk-build\\gtk\\x64\\release\\lib\\"]
-</code></pre>
-<p>This <code>rustflags</code> value should work for Microsoft's linker as well as LLVM's <code>lld-link.exe</code>.</p>
 <p>You can now continue with the <a href="./project_setup.html">project setup</a>.</p>
 </details>
 <details>
@@ -667,7 +662,7 @@ help: to force the closure to take ownership of `number` (and any other referenc
    |  
 </code></pre>
 <p>Our closure only borrows <code>number</code>.
-Signal handlers in GTK require <code>static'</code> lifetimes for their references, so we cannot borrow a variable that only lives for the scope of the function <code>build_ui</code>.
+Signal handlers in GTK require <code>'static</code> lifetimes for their references, so we cannot borrow a variable that only lives for the scope of the function <code>build_ui</code>.
 The compiler also suggests how to fix this.
 By adding the <code>move</code> keyword in front of the closure, <code>number</code> will be moved into the closure.</p>
 <pre><code class="language-rust  no_run compile_fail"><span class="boring">use gtk::prelude::*;
@@ -3081,7 +3076,7 @@ If you decide to share it, you user name will be printed on the console.</p>
 Therefore, many high-quality crates are part of its ecosystem.
 The web client <a href="https://docs.rs/reqwest/latest/reqwest/"><code>reqwest</code></a> belongs to this group.
 Let's add it by executing the following command</p>
-<pre><code>cargo add reqwest@0.11 --features rustls-tls --no-default-features
+<pre><code>cargo add reqwest@0.12 --features rustls-tls --no-default-features
 </code></pre>
 <p>As soon as the button is pressed, we want to send a <code>GET</code> request to <a href="https://www.gtk-rs.org">www.gtk-rs.org</a>.
 The response should then be sent to the main thread via a channel.</p>
@@ -3985,7 +3980,7 @@ The following figure demonstrates how this works in practice.</p>
 <p>We start by defining and filling up our model.
 The model is an instance of <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/gio/struct.ListStore.html"><code>gio::ListStore</code></a>.
 The main limitation here is that <code>gio::ListStore</code> only accepts GObjects.
-So let's create a custom GObject <code>IntegerObject</code> that which is initialized with a number.</p>
+So let's create a custom GObject <code>IntegerObject</code> that is initialized with a number.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/list_widgets/2/integer_object/mod.rs">listings/list_widgets/2/integer_object/mod.rs</a></p>
 <pre><code class="language-rust"><span class="boring">mod imp;
 </span><span class="boring">
@@ -6750,7 +6745,7 @@ impl ObjectImpl for Window {
 </span><span class="boring">
 </span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}</span></code></pre>
-<p>Since we need to access the list model quite often, we add the convenience method <code>Window::model</code> for that.
+<p>Since we need to access the list model quite often, we add the convenience method <code>Window::tasks</code> for that.
 In <code>Window::setup_tasks</code> we create a new model.
 Then we store a reference to the model in <code>imp::Window</code> as well as in <code>gtk::ListView</code>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/todo/1/window/mod.rs">listings/todo/1/window/mod.rs</a></p>
@@ -11474,7 +11469,7 @@ In this chapter we will discuss how to follow GNOME's <a href="https://developer
 <li>adds <a href="https://world.pages.gitlab.gnome.org/Rust/libadwaita-rs/stable/latest/docs/libadwaita/struct.StyleManager.html">API</a> to support the cross-desktop dark style preference</li>
 </ul>
 <p>In order to use the Rust bindings, add the <a href="https://crates.io/crates/libadwaita">libadwaita crate</a> as dependency by executing:</p>
-<pre><code>cargo add libadwaita --rename adw --features v1_4
+<pre><code>cargo add libadwaita --rename adw --features v1_5
 </code></pre>
 <p>The versions of the <code>gtk4</code> and <code>libadwaita</code> crates need to be synced.
 Just remember that when you update one of them to the newest version to update the other one as well.</p>
@@ -13809,7 +13804,7 @@ pub struct Window {
 </span><span class="boring">
 </span><span class="boring">use adw::prelude::*;
 </span><span class="boring">use adw::subclass::prelude::*;
-</span><span class="boring">use adw::{ActionRow, MessageDialog, ResponseAppearance};
+</span><span class="boring">use adw::{ActionRow, AlertDialog, ResponseAppearance};
 </span><span class="boring">use gio::Settings;
 </span><span class="boring">use glib::{clone, Object};
 </span><span class="boring">use gtk::{
@@ -14154,11 +14149,8 @@ pub struct Window {
 </span><span class="boring">        let create_response = "create";
 </span><span class="boring">
 </span><span class="boring">        // Create new dialog
-</span><span class="boring">        let dialog = MessageDialog::builder()
+</span><span class="boring">        let dialog = AlertDialog::builder()
 </span><span class="boring">            .heading("New Collection")
-</span><span class="boring">            .transient_for(self)
-</span><span class="boring">            .modal(true)
-</span><span class="boring">            .destroy_with_parent(true)
 </span><span class="boring">            .close_response(cancel_response)
 </span><span class="boring">            .default_response(create_response)
 </span><span class="boring">            .extra_child(&amp;entry)
@@ -14183,7 +14175,7 @@ pub struct Window {
 </span><span class="boring">            }
 </span><span class="boring">        }));
 </span><span class="boring">
-</span><span class="boring">        let response = dialog.choose_future().await;
+</span><span class="boring">        let response = dialog.choose_future(self).await;
 </span><span class="boring">
 </span><span class="boring">        // Return if the user chose `cancel_response`
 </span><span class="boring">        if response == cancel_response {
@@ -14446,7 +14438,7 @@ To do that it uses the method <code>create_collection_row</code>.</p>
 </span><span class="boring">
 </span><span class="boring">use adw::prelude::*;
 </span><span class="boring">use adw::subclass::prelude::*;
-</span><span class="boring">use adw::{ActionRow, MessageDialog, ResponseAppearance};
+</span><span class="boring">use adw::{ActionRow, AlertDialog, ResponseAppearance};
 </span><span class="boring">use gio::Settings;
 </span><span class="boring">use glib::{clone, Object};
 </span><span class="boring">use gtk::{
@@ -14791,11 +14783,8 @@ To do that it uses the method <code>create_collection_row</code>.</p>
 </span><span class="boring">        let create_response = "create";
 </span><span class="boring">
 </span><span class="boring">        // Create new dialog
-</span><span class="boring">        let dialog = MessageDialog::builder()
+</span><span class="boring">        let dialog = AlertDialog::builder()
 </span><span class="boring">            .heading("New Collection")
-</span><span class="boring">            .transient_for(self)
-</span><span class="boring">            .modal(true)
-</span><span class="boring">            .destroy_with_parent(true)
 </span><span class="boring">            .close_response(cancel_response)
 </span><span class="boring">            .default_response(create_response)
 </span><span class="boring">            .extra_child(&amp;entry)
@@ -14820,7 +14809,7 @@ To do that it uses the method <code>create_collection_row</code>.</p>
 </span><span class="boring">            }
 </span><span class="boring">        }));
 </span><span class="boring">
-</span><span class="boring">        let response = dialog.choose_future().await;
+</span><span class="boring">        let response = dialog.choose_future(self).await;
 </span><span class="boring">
 </span><span class="boring">        // Return if the user chose `cancel_response`
 </span><span class="boring">        if response == cancel_response {
@@ -14850,7 +14839,7 @@ To do that it uses the method <code>create_collection_row</code>.</p>
 </span><span class="boring">
 </span><span class="boring">use adw::prelude::*;
 </span><span class="boring">use adw::subclass::prelude::*;
-</span><span class="boring">use adw::{ActionRow, MessageDialog, ResponseAppearance};
+</span><span class="boring">use adw::{ActionRow, AlertDialog, ResponseAppearance};
 </span><span class="boring">use gio::Settings;
 </span><span class="boring">use glib::{clone, Object};
 </span><span class="boring">use gtk::{
@@ -15195,11 +15184,8 @@ To do that it uses the method <code>create_collection_row</code>.</p>
 </span><span class="boring">        let create_response = "create";
 </span><span class="boring">
 </span><span class="boring">        // Create new dialog
-</span><span class="boring">        let dialog = MessageDialog::builder()
+</span><span class="boring">        let dialog = AlertDialog::builder()
 </span><span class="boring">            .heading("New Collection")
-</span><span class="boring">            .transient_for(self)
-</span><span class="boring">            .modal(true)
-</span><span class="boring">            .destroy_with_parent(true)
 </span><span class="boring">            .close_response(cancel_response)
 </span><span class="boring">            .default_response(create_response)
 </span><span class="boring">            .extra_child(&amp;entry)
@@ -15224,7 +15210,7 @@ To do that it uses the method <code>create_collection_row</code>.</p>
 </span><span class="boring">            }
 </span><span class="boring">        }));
 </span><span class="boring">
-</span><span class="boring">        let response = dialog.choose_future().await;
+</span><span class="boring">        let response = dialog.choose_future(self).await;
 </span><span class="boring">
 </span><span class="boring">        // Return if the user chose `cancel_response`
 </span><span class="boring">        if response == cancel_response {
@@ -15257,7 +15243,7 @@ We choose the first one and let the method <code>set_current_collection</code> d
 </span><span class="boring">
 </span><span class="boring">use adw::prelude::*;
 </span><span class="boring">use adw::subclass::prelude::*;
-</span><span class="boring">use adw::{ActionRow, MessageDialog, ResponseAppearance};
+</span><span class="boring">use adw::{ActionRow, AlertDialog, ResponseAppearance};
 </span><span class="boring">use gio::Settings;
 </span><span class="boring">use glib::{clone, Object};
 </span><span class="boring">use gtk::{
@@ -15602,11 +15588,8 @@ We choose the first one and let the method <code>set_current_collection</code> d
 </span><span class="boring">        let create_response = "create";
 </span><span class="boring">
 </span><span class="boring">        // Create new dialog
-</span><span class="boring">        let dialog = MessageDialog::builder()
+</span><span class="boring">        let dialog = AlertDialog::builder()
 </span><span class="boring">            .heading("New Collection")
-</span><span class="boring">            .transient_for(self)
-</span><span class="boring">            .modal(true)
-</span><span class="boring">            .destroy_with_parent(true)
 </span><span class="boring">            .close_response(cancel_response)
 </span><span class="boring">            .default_response(create_response)
 </span><span class="boring">            .extra_child(&amp;entry)
@@ -15631,7 +15614,7 @@ We choose the first one and let the method <code>set_current_collection</code> d
 </span><span class="boring">            }
 </span><span class="boring">        }));
 </span><span class="boring">
-</span><span class="boring">        let response = dialog.choose_future().await;
+</span><span class="boring">        let response = dialog.choose_future(self).await;
 </span><span class="boring">
 </span><span class="boring">        // Return if the user chose `cancel_response`
 </span><span class="boring">        if response == cancel_response {
@@ -15667,7 +15650,7 @@ Finally, we select the collection row.</p>
 </span><span class="boring">
 </span><span class="boring">use adw::prelude::*;
 </span><span class="boring">use adw::subclass::prelude::*;
-</span><span class="boring">use adw::{ActionRow, MessageDialog, ResponseAppearance};
+</span><span class="boring">use adw::{ActionRow, AlertDialog, ResponseAppearance};
 </span><span class="boring">use gio::Settings;
 </span><span class="boring">use glib::{clone, Object};
 </span><span class="boring">use gtk::{
@@ -16012,11 +15995,8 @@ Finally, we select the collection row.</p>
 </span><span class="boring">        let create_response = "create";
 </span><span class="boring">
 </span><span class="boring">        // Create new dialog
-</span><span class="boring">        let dialog = MessageDialog::builder()
+</span><span class="boring">        let dialog = AlertDialog::builder()
 </span><span class="boring">            .heading("New Collection")
-</span><span class="boring">            .transient_for(self)
-</span><span class="boring">            .modal(true)
-</span><span class="boring">            .destroy_with_parent(true)
 </span><span class="boring">            .close_response(cancel_response)
 </span><span class="boring">            .default_response(create_response)
 </span><span class="boring">            .extra_child(&amp;entry)
@@ -16041,7 +16021,7 @@ Finally, we select the collection row.</p>
 </span><span class="boring">            }
 </span><span class="boring">        }));
 </span><span class="boring">
-</span><span class="boring">        let response = dialog.choose_future().await;
+</span><span class="boring">        let response = dialog.choose_future(self).await;
 </span><span class="boring">
 </span><span class="boring">        // Return if the user chose `cancel_response`
 </span><span class="boring">        if response == cancel_response {
@@ -16072,7 +16052,7 @@ It assures that <code>tasks_list</code> is only visible if the number of tasks i
 </span><span class="boring">
 </span><span class="boring">use adw::prelude::*;
 </span><span class="boring">use adw::subclass::prelude::*;
-</span><span class="boring">use adw::{ActionRow, MessageDialog, ResponseAppearance};
+</span><span class="boring">use adw::{ActionRow, AlertDialog, ResponseAppearance};
 </span><span class="boring">use gio::Settings;
 </span><span class="boring">use glib::{clone, Object};
 </span><span class="boring">use gtk::{
@@ -16417,11 +16397,8 @@ It assures that <code>tasks_list</code> is only visible if the number of tasks i
 </span><span class="boring">        let create_response = "create";
 </span><span class="boring">
 </span><span class="boring">        // Create new dialog
-</span><span class="boring">        let dialog = MessageDialog::builder()
+</span><span class="boring">        let dialog = AlertDialog::builder()
 </span><span class="boring">            .heading("New Collection")
-</span><span class="boring">            .transient_for(self)
-</span><span class="boring">            .modal(true)
-</span><span class="boring">            .destroy_with_parent(true)
 </span><span class="boring">            .close_response(cancel_response)
 </span><span class="boring">            .default_response(create_response)
 </span><span class="boring">            .extra_child(&amp;entry)
@@ -16446,7 +16423,7 @@ It assures that <code>tasks_list</code> is only visible if the number of tasks i
 </span><span class="boring">            }
 </span><span class="boring">        }));
 </span><span class="boring">
-</span><span class="boring">        let response = dialog.choose_future().await;
+</span><span class="boring">        let response = dialog.choose_future(self).await;
 </span><span class="boring">
 </span><span class="boring">        // Return if the user chose `cancel_response`
 </span><span class="boring">        if response == cancel_response {
@@ -16476,7 +16453,7 @@ It assures that <code>tasks_list</code> is only visible if the number of tasks i
 </span><span class="boring">
 </span><span class="boring">use adw::prelude::*;
 </span><span class="boring">use adw::subclass::prelude::*;
-</span><span class="boring">use adw::{ActionRow, MessageDialog, ResponseAppearance};
+</span><span class="boring">use adw::{ActionRow, AlertDialog, ResponseAppearance};
 </span><span class="boring">use gio::Settings;
 </span><span class="boring">use glib::{clone, Object};
 </span><span class="boring">use gtk::{
@@ -16821,11 +16798,8 @@ It assures that <code>tasks_list</code> is only visible if the number of tasks i
 </span><span class="boring">        let create_response = "create";
 </span><span class="boring">
 </span><span class="boring">        // Create new dialog
-</span><span class="boring">        let dialog = MessageDialog::builder()
+</span><span class="boring">        let dialog = AlertDialog::builder()
 </span><span class="boring">            .heading("New Collection")
-</span><span class="boring">            .transient_for(self)
-</span><span class="boring">            .modal(true)
-</span><span class="boring">            .destroy_with_parent(true)
 </span><span class="boring">            .close_response(cancel_response)
 </span><span class="boring">            .default_response(create_response)
 </span><span class="boring">            .extra_child(&amp;entry)
@@ -16850,7 +16824,7 @@ It assures that <code>tasks_list</code> is only visible if the number of tasks i
 </span><span class="boring">            }
 </span><span class="boring">        }));
 </span><span class="boring">
-</span><span class="boring">        let response = dialog.choose_future().await;
+</span><span class="boring">        let response = dialog.choose_future(self).await;
 </span><span class="boring">
 </span><span class="boring">        // Return if the user chose `cancel_response`
 </span><span class="boring">        if response == cancel_response {
@@ -17006,7 +16980,7 @@ impl ObjectSubclass for Window {
 </span><span class="boring">// Trait shared by all adwaita application windows
 </span><span class="boring">impl AdwApplicationWindowImpl for Window {}</span></code></pre>
 <p>As soon as the "new-collection" action is activated, the <code>async</code> <code>new_collection</code> method is called.
-Here, we create the <a href="https://world.pages.gitlab.gnome.org/Rust/libadwaita-rs/stable/latest/docs/libadwaita/struct.MessageDialog.html"><code>adw::MessageDialog</code></a>, set up the buttons as well as add the entry to it.
+Here, we create the <a href="https://world.pages.gitlab.gnome.org/Rust/libadwaita-rs/stable/latest/docs/libadwaita/struct.AlertDialog.html"><code>adw::AlertDialog</code></a>, set up the buttons as well as add the entry to it.
 We add a callback to the entry to ensure that when the content changes, an empty content sets <code>dialog_button</code> as insensitive and adds an "error" CSS class to the entry.
 We then <code>await</code> on the user pressing a button on the dialog.
 If they click "Cancel", we simply return.
@@ -17019,7 +16993,7 @@ Afterwards we navigate forward on our leaflet, which means we navigate to the ta
 </span><span class="boring">
 </span><span class="boring">use adw::prelude::*;
 </span><span class="boring">use adw::subclass::prelude::*;
-</span><span class="boring">use adw::{ActionRow, MessageDialog, ResponseAppearance};
+</span><span class="boring">use adw::{ActionRow, AlertDialog, ResponseAppearance};
 </span><span class="boring">use gio::Settings;
 </span><span class="boring">use glib::{clone, Object};
 </span><span class="boring">use gtk::{
@@ -17364,11 +17338,8 @@ Afterwards we navigate forward on our leaflet, which means we navigate to the ta
         let create_response = "create";
 
         // Create new dialog
-        let dialog = MessageDialog::builder()
+        let dialog = AlertDialog::builder()
             .heading("New Collection")
-            .transient_for(self)
-            .modal(true)
-            .destroy_with_parent(true)
             .close_response(cancel_response)
             .default_response(create_response)
             .extra_child(&amp;entry)
@@ -17393,7 +17364,7 @@ Afterwards we navigate forward on our leaflet, which means we navigate to the ta
             }
         }));
 
-        let response = dialog.choose_future().await;
+        let response = dialog.choose_future(self).await;
 
         // Return if the user chose `cancel_response`
         if response == cancel_response {
@@ -17427,7 +17398,7 @@ Finally, we assure that when we click on a row of <code>collections_list</code>,
 </span><span class="boring">
 </span><span class="boring">use adw::prelude::*;
 </span><span class="boring">use adw::subclass::prelude::*;
-</span><span class="boring">use adw::{ActionRow, MessageDialog, ResponseAppearance};
+</span><span class="boring">use adw::{ActionRow, AlertDialog, ResponseAppearance};
 </span><span class="boring">use gio::Settings;
 </span><span class="boring">use glib::{clone, Object};
 </span><span class="boring">use gtk::{
@@ -17772,11 +17743,8 @@ Finally, we assure that when we click on a row of <code>collections_list</code>,
 </span><span class="boring">        let create_response = "create";
 </span><span class="boring">
 </span><span class="boring">        // Create new dialog
-</span><span class="boring">        let dialog = MessageDialog::builder()
+</span><span class="boring">        let dialog = AlertDialog::builder()
 </span><span class="boring">            .heading("New Collection")
-</span><span class="boring">            .transient_for(self)
-</span><span class="boring">            .modal(true)
-</span><span class="boring">            .destroy_with_parent(true)
 </span><span class="boring">            .close_response(cancel_response)
 </span><span class="boring">            .default_response(create_response)
 </span><span class="boring">            .extra_child(&amp;entry)
@@ -17801,7 +17769,7 @@ Finally, we assure that when we click on a row of <code>collections_list</code>,
 </span><span class="boring">            }
 </span><span class="boring">        }));
 </span><span class="boring">
-</span><span class="boring">        let response = dialog.choose_future().await;
+</span><span class="boring">        let response = dialog.choose_future(self).await;
 </span><span class="boring">
 </span><span class="boring">        // Return if the user chose `cancel_response`
 </span><span class="boring">        if response == cancel_response {
@@ -17832,7 +17800,7 @@ This method ensure when there is at least one collection, the "main" page is sho
 </span><span class="boring">
 </span><span class="boring">use adw::prelude::*;
 </span><span class="boring">use adw::subclass::prelude::*;
-</span><span class="boring">use adw::{ActionRow, MessageDialog, ResponseAppearance};
+</span><span class="boring">use adw::{ActionRow, AlertDialog, ResponseAppearance};
 </span><span class="boring">use gio::Settings;
 </span><span class="boring">use glib::{clone, Object};
 </span><span class="boring">use gtk::{
@@ -18177,11 +18145,8 @@ This method ensure when there is at least one collection, the "main" page is sho
 </span><span class="boring">        let create_response = "create";
 </span><span class="boring">
 </span><span class="boring">        // Create new dialog
-</span><span class="boring">        let dialog = MessageDialog::builder()
+</span><span class="boring">        let dialog = AlertDialog::builder()
 </span><span class="boring">            .heading("New Collection")
-</span><span class="boring">            .transient_for(self)
-</span><span class="boring">            .modal(true)
-</span><span class="boring">            .destroy_with_parent(true)
 </span><span class="boring">            .close_response(cancel_response)
 </span><span class="boring">            .default_response(create_response)
 </span><span class="boring">            .extra_child(&amp;entry)
@@ -18206,7 +18171,7 @@ This method ensure when there is at least one collection, the "main" page is sho
 </span><span class="boring">            }
 </span><span class="boring">        }));
 </span><span class="boring">
-</span><span class="boring">        let response = dialog.choose_future().await;
+</span><span class="boring">        let response = dialog.choose_future(self).await;
 </span><span class="boring">
 </span><span class="boring">        // Return if the user chose `cancel_response`
 </span><span class="boring">        if response == cancel_response {
