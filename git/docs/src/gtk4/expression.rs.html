@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/expression.rs`."><title>expression.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/expression.rs`."><title>expression.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.0-nightly (032af18af 2024-06-02)" data-channel="nightly" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,9 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -508,16 +506,25 @@
 <a href="#433" id="433">433</a>
 <a href="#434" id="434">434</a>
 <a href="#435" id="435">435</a>
+<a href="#436" id="436">436</a>
+<a href="#437" id="437">437</a>
+<a href="#438" id="438">438</a>
+<a href="#439" id="439">439</a>
+<a href="#440" id="440">440</a>
+<a href="#441" id="441">441</a>
+<a href="#442" id="442">442</a>
+<a href="#443" id="443">443</a>
+<a href="#444" id="444">444</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="kw">use </span>glib::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.FromValue.html">value::FromValue</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.Object.html">Object</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/struct.Type.html">Type</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/struct.Value.html">Value</a>};
 
-<span class="kw">use crate</span>::{<a href="lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="auto/expression.rs.html#9-157">Expression</a>};
+<span class="kw">use crate</span>::{<a href="../../gtk4_sys/index.html">ffi</a>, <a href="lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="auto/expression.rs.html#9-174">Expression</a>};
 
 <span class="attr">#[doc(hidden)]
-</span><span class="kw">impl </span>AsRef&lt;<a href="auto/expression.rs.html#9-157">Expression</a>&gt; <span class="kw">for </span><a href="auto/expression.rs.html#9-157">Expression</a> {
+</span><span class="kw">impl </span>AsRef&lt;<a href="auto/expression.rs.html#9-174">Expression</a>&gt; <span class="kw">for </span><a href="auto/expression.rs.html#9-174">Expression</a> {
     <span class="attr">#[inline]
-    </span><span class="kw">fn </span>as_ref(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><a href="auto/expression.rs.html#9-157">Expression</a> {
+    </span><span class="kw">fn </span>as_ref(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><a href="auto/expression.rs.html#9-174">Expression</a> {
         <span class="self"><a href="#10">self</a>
     </span>}
 }
@@ -534,7 +541,7 @@
 </span>{
 }
 
-<span class="kw">impl </span><a href="auto/expression.rs.html#9-157">Expression</a> {
+<span class="kw">impl </span><a href="auto/expression.rs.html#9-174">Expression</a> {
     <span class="attr">#[inline]
     </span><span class="kw">pub fn </span>upcast(<span class="self">self</span>) -&gt; <span class="self">Self </span>{
         <span class="self"><a href="#29">self</a>
@@ -547,14 +554,14 @@
 
     <span class="attr">#[inline]
     </span><span class="kw">pub fn </span>is&lt;E: <a href="#22-25">IsExpression</a>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-        <a class="self" href="#39">self</a>.<a href="#66-71">type_</a>().is_a(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/trait.StaticType.html">E::static_type</a>())
+        <a class="self" href="#39">self</a>.<a href="#66-71">type_</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/struct.Type.html#method.is_a">is_a</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/trait.StaticType.html#tymethod.static_type">E::static_type</a>())
     }
 
     <span class="attr">#[inline]
-    </span><span class="kw">pub fn </span>downcast&lt;E: <a href="#22-25">IsExpression</a>&gt;(<span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;E, <a href="auto/expression.rs.html#9-157">Expression</a>&gt; {
+    </span><span class="kw">pub fn </span>downcast&lt;E: <a href="#22-25">IsExpression</a>&gt;(<span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;E, <a href="auto/expression.rs.html#9-174">Expression</a>&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">if </span><span class="self">self</span>.is::&lt;E&gt;() {
-                <span class="prelude-val">Ok</span>(from_glib_full(<a class="self" href="#44">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>()))
+                <span class="prelude-val">Ok</span>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_full.html">from_glib_full</a>(<a class="self" href="#44">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlibPtr.html#tymethod.into_glib_ptr">into_glib_ptr</a>()))
             } <span class="kw">else </span>{
                 <span class="prelude-val">Err</span>(<a class="self" href="#44">self</a>)
             }
@@ -565,7 +572,7 @@
     </span><span class="kw">pub fn </span>downcast_ref&lt;E: <a href="#22-25">IsExpression</a>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>E&gt; {
         <span class="kw">unsafe </span>{
             <span class="kw">if </span><span class="self">self</span>.is::&lt;E&gt;() {
-                <span class="prelude-val">Some</span>(<span class="kw-2">&amp;*</span>(<span class="self"><a href="#55">self</a> </span><span class="kw">as </span><span class="kw-2">*const </span><a href="auto/expression.rs.html#9-157">Expression</a> <span class="kw">as </span><span class="kw-2">*const </span>E))
+                <span class="prelude-val">Some</span>(<span class="kw-2">&amp;*</span>(<span class="self"><a href="#55">self</a> </span><span class="kw">as </span><span class="kw-2">*const </span><a href="auto/expression.rs.html#9-174">Expression</a> <span class="kw">as </span><span class="kw-2">*const </span>E))
             } <span class="kw">else </span>{
                 <span class="prelude-val">None
             </span>}
@@ -575,20 +582,20 @@
     <span class="attr">#[inline]
     </span><span class="kw">pub fn </span>type_(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/struct.Type.html">Type</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>ptr = <a class="self" href="#66">self</a>.<a href="auto/expression.rs.html#9-157">as_ptr</a>();
-            from_glib((<span class="kw-2">*</span>(<span class="kw-2">*</span>(<a href="#68">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>glib::gobject_ffi::GTypeInstance)).g_class).g_type)
+            <span class="kw">let </span>ptr = <a class="self" href="#66">self</a>.<a href="auto/expression.rs.html#9-174">as_ptr</a>();
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>((<span class="kw-2">*</span>(<span class="kw-2">*</span>(<a href="#68">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>glib::gobject_ffi::GTypeInstance)).g_class).g_type)
         }
     }
 
     <span class="attr">#[doc(alias = <span class="string">"gtk_expression_evaluate"</span>)]
     </span><span class="kw">pub fn </span>evaluate(<span class="kw-2">&amp;</span><span class="self">self</span>, this: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.Object.html">Object</a>&gt;&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/struct.Value.html">Value</a>&gt; {
-        <a class="macro" href="rt.rs.html#23-35">assert_initialized_main_thread!</a>();
+        <a class="macro" href="rt.rs.html#24-36">assert_initialized_main_thread!</a>();
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>value = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html">Value::uninitialized</a>();
-            <span class="kw">let </span>ret = ffi::gtk_expression_evaluate(
-                <a class="self" href="#74">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#74">this</a>.map(|t| <a href="#80">t</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#77">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
+            <span class="kw">let </span><span class="kw-2">mut </span>value = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html#tymethod.uninitialized">Value::uninitialized</a>();
+            <span class="kw">let </span>ret = <a href="../../gtk4_sys/fn.gtk_expression_evaluate.html">ffi::gtk_expression_evaluate</a>(
+                <a class="self" href="#74">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#74">this</a>.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map">map</a>(|t| <a href="#80">t</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#77">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
             );
             <span class="kw">if </span>from_glib(ret) {
                 <span class="prelude-val">Some</span>(<a href="#77">value</a>)
@@ -606,9 +613,9 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         this: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>T&gt;,
     ) -&gt; <span class="prelude-ty">Option</span>&lt;V&gt; {
-        <a class="self" href="#96">self</a>.<a href="#74-89">evaluate</a>(<a href="#97">this</a>).map(|v| {
-            <a href="#99">v</a>.get_owned::&lt;V&gt;()
-                .expect(<span class="string">"Failed to evaluate to this value type"</span>)
+        <a class="self" href="#96">self</a>.<a href="#74-89">evaluate</a>(<a href="#97">this</a>).<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map">map</a>(|v| {
+            <a href="#99">v</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/struct.Value.html#method.get_owned">get_owned</a>::&lt;V&gt;()
+                .<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.expect">expect</a>(<span class="string">"Failed to evaluate to this value type"</span>)
         })
     }
 
@@ -620,7 +627,7 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         property_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
     ) -&gt; <a href="auto/property_expression.rs.html#8-17"><span class="kw">crate</span>::PropertyExpression</a> {
-        <a href="auto/property_expression.rs.html#49-64"><span class="kw">crate</span>::PropertyExpression::new</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/trait.StaticType.html">T::static_type</a>(), <span class="prelude-val">Some</span>(<a class="self" href="#110">self</a>), <a href="#111">property_name</a>)
+        <a href="auto/property_expression.rs.html#49-64"><span class="kw">crate</span>::PropertyExpression::new</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/trait.StaticType.html#tymethod.static_type">T::static_type</a>(), <span class="prelude-val">Some</span>(<a class="self" href="#110">self</a>), <a href="#111">property_name</a>)
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
@@ -651,7 +658,7 @@
     ///     .evaluate_as::&lt;String, _&gt;(gtk::Widget::NONE);
     /// assert_eq!(label.unwrap(), "Hello World");
     /// ```
-    </span><span class="kw">pub fn </span>chain_closure&lt;R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, closure: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/closure/struct.RustClosure.html">glib::RustClosure</a>) -&gt; <a href="auto/closure_expression.rs.html#7-17"><span class="kw">crate</span>::ClosureExpression</a>
+    </span><span class="kw">pub fn </span>chain_closure&lt;R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, closure: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/closure/struct.RustClosure.html">glib::RustClosure</a>) -&gt; <a href="auto/closure_expression.rs.html#8-18"><span class="kw">crate</span>::ClosureExpression</a>
     <span class="kw">where
         </span>R: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ValueType.html">glib::value::ValueType</a>,
     {
@@ -662,7 +669,7 @@
     </span><span class="doccomment">/// Create a [`ClosureExpression`](crate::ClosureExpression) with self as
     /// the second parameter. This is useful in long chains of
     /// [`Expression`](crate::Expression)s.
-    </span><span class="kw">pub fn </span>chain_closure_with_callback&lt;F, R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="auto/closure_expression.rs.html#7-17"><span class="kw">crate</span>::ClosureExpression</a>
+    </span><span class="kw">pub fn </span>chain_closure_with_callback&lt;F, R&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="auto/closure_expression.rs.html#8-18"><span class="kw">crate</span>::ClosureExpression</a>
     <span class="kw">where
         </span>F: Fn(<span class="kw-2">&amp;</span>[<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/struct.Value.html">glib::Value</a>]) -&gt; R + <span class="lifetime">'static</span>,
         R: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ValueType.html">glib::value::ValueType</a>,
@@ -671,58 +678,64 @@
     }
 }
 
-<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">std::fmt::Debug</a> <span class="kw">for </span><a href="auto/expression.rs.html#9-157">Expression</a> {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">std::fmt::Debug</a> <span class="kw">for </span><a href="auto/expression.rs.html#9-174">Expression</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>std::fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">std::fmt::Result</a> {
-        <a href="#165">f</a>.debug_struct(<span class="string">"Expression"</span>)
-            .field(<span class="string">"value_type"</span>, <span class="kw-2">&amp;</span><a class="self" href="#165">self</a>.<a href="auto/expression.rs.html#218-224">value_type</a>())
-            .field(<span class="string">"is_static"</span>, <span class="kw-2">&amp;</span><a class="self" href="#165">self</a>.<a href="auto/expression.rs.html#238-244">is_static</a>())
-            .finish()
+        <a href="#165">f</a>.<a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html#method.debug_struct">debug_struct</a>(<span class="string">"Expression"</span>)
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"value_type"</span>, <span class="kw-2">&amp;</span><a class="self" href="#165">self</a>.<a href="auto/expression.rs.html#235-241">value_type</a>())
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"is_static"</span>, <span class="kw-2">&amp;</span><a class="self" href="#165">self</a>.<a href="auto/expression.rs.html#255-261">is_static</a>())
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.finish">finish</a>()
     }
 }
 
-<span class="kw">impl </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="auto/expression.rs.html#9-157">Expression</a> {
+<span class="kw">impl </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ValueType.html">glib::value::ValueType</a> <span class="kw">for </span><a href="auto/expression.rs.html#9-174">Expression</a> {
     <span class="kw">type </span>Type = <span class="self">Self</span>;
 }
 
-<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="auto/expression.rs.html#9-157">Expression</a> {
+<span class="kw">unsafe impl</span>&lt;<span class="lifetime">'a</span>&gt; glib::value::FromValue&lt;<span class="lifetime">'a</span>&gt; <span class="kw">for </span><a href="auto/expression.rs.html#9-174">Expression</a> {
     <span class="kw">type </span>Checker = glib::value::GenericValueTypeOrNoneChecker&lt;<span class="self">Self</span>&gt;;
 
     <span class="attr">#[inline]
     </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/struct.Value.html">glib::Value</a>) -&gt; <span class="self">Self </span>{
         <span class="macro">skip_assert_initialized!</span>();
-        from_glib_full(ffi::gtk_value_dup_expression(<a href="#181">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>))
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_full.html">from_glib_full</a>(<a href="../../gtk4_sys/fn.gtk_value_dup_expression.html"><span class="kw">crate</span>::ffi::gtk_value_dup_expression</a>(<a href="#181">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>))
     }
 }
 
-<span class="kw">impl </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ToValue.html">glib::value::ToValue</a> <span class="kw">for </span><a href="auto/expression.rs.html#9-157">Expression</a> {
+<span class="kw">impl </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ToValue.html">glib::value::ToValue</a> <span class="kw">for </span><a href="auto/expression.rs.html#9-174">Expression</a> {
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/struct.Value.html">glib::Value</a> {
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
-        <span class="kw">unsafe </span>{ ffi::gtk_value_set_expression(<a href="#190">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#189">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
+        <span class="kw">unsafe </span>{
+            <a href="../../gtk4_sys/fn.gtk_value_set_expression.html"><span class="kw">crate</span>::ffi::gtk_value_set_expression</a>(<a href="#190">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>, <a class="self" href="#189">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)
+        }
         <a href="#190">value</a>
     }
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>value_type(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/struct.Type.html">glib::Type</a> {
-        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/trait.StaticType.html"><span class="self">Self</span>::static_type</a>()
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/trait.StaticType.html#tymethod.static_type"><span class="self">Self</span>::static_type</a>()
     }
 }
 
-<span class="kw">impl </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ToValueOptional.html">glib::value::ToValueOptional</a> <span class="kw">for </span><a href="auto/expression.rs.html#9-157">Expression</a> {
+<span class="kw">impl </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ToValueOptional.html">glib::value::ToValueOptional</a> <span class="kw">for </span><a href="auto/expression.rs.html#9-174">Expression</a> {
     <span class="kw">fn </span>to_value_optional(s: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="self">Self</span>&gt;) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/struct.Value.html">glib::Value</a> {
         <span class="macro">skip_assert_initialized!</span>();
         <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
-        <span class="kw">unsafe </span>{ ffi::gtk_value_set_expression(<a href="#204">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a href="#202">s</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
-        <a href="#204">value</a>
+        <span class="kw">unsafe </span>{
+            <a href="../../gtk4_sys/fn.gtk_value_set_expression.html"><span class="kw">crate</span>::ffi::gtk_value_set_expression</a>(<a href="#206">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>, <a href="#204">s</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)
+        }
+        <a href="#206">value</a>
     }
 }
 
-<span class="kw">impl </span>From&lt;<a href="auto/expression.rs.html#9-157">Expression</a>&gt; <span class="kw">for </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/struct.Value.html">glib::Value</a> {
-    <span class="kw">fn </span>from(e: <a href="auto/expression.rs.html#9-157">Expression</a>) -&gt; <span class="self">Self </span>{
+<span class="kw">impl </span>From&lt;<a href="auto/expression.rs.html#9-174">Expression</a>&gt; <span class="kw">for </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/struct.Value.html">glib::Value</a> {
+    <span class="kw">fn </span>from(e: <a href="auto/expression.rs.html#9-174">Expression</a>) -&gt; <span class="self">Self </span>{
         <span class="macro">skip_assert_initialized!</span>();
-        <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<a href="auto/expression.rs.html#9-157">Expression</a>&gt;();
-        <span class="kw">unsafe </span>{ ffi::gtk_value_take_expression(<a href="#213">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>, <a href="#211">e</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>()) }
-        <a href="#213">value</a>
+        <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<a href="auto/expression.rs.html#9-174">Expression</a>&gt;();
+        <span class="kw">unsafe </span>{
+            <a href="../../gtk4_sys/fn.gtk_value_take_expression.html"><span class="kw">crate</span>::ffi::gtk_value_take_expression</a>(<a href="#217">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>, <a href="#215">e</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlibPtr.html#tymethod.into_glib_ptr">into_glib_ptr</a>())
+        }
+        <a href="#217">value</a>
     }
 }
 
@@ -749,29 +762,29 @@
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Create an expression looking up an object's property.
     </span><span class="kw">fn </span>property_expression(<span class="kw-2">&amp;</span><span class="self">self</span>, property_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="auto/property_expression.rs.html#8-17"><span class="kw">crate</span>::PropertyExpression</a> {
-        <span class="kw">let </span>obj_expr = <a href="constant_expression.rs.html#20-27"><span class="kw">crate</span>::ConstantExpression::new</a>(<a class="self" href="#241">self</a>);
-        <a href="auto/property_expression.rs.html#49-64"><span class="kw">crate</span>::PropertyExpression::new</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/trait.StaticType.html"><span class="self">Self</span>::static_type</a>(), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><a href="#242">obj_expr</a>), <a href="#241">property_name</a>)
+        <span class="kw">let </span>obj_expr = <a href="constant_expression.rs.html#20-27"><span class="kw">crate</span>::ConstantExpression::new</a>(<a class="self" href="#247">self</a>);
+        <a href="auto/property_expression.rs.html#49-64"><span class="kw">crate</span>::PropertyExpression::new</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/trait.StaticType.html#tymethod.static_type"><span class="self">Self</span>::static_type</a>(), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><a href="#248">obj_expr</a>), <a href="#247">property_name</a>)
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Create an expression looking up an object's property with a weak
     /// reference.
     </span><span class="kw">fn </span>property_expression_weak(<span class="kw-2">&amp;</span><span class="self">self</span>, property_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="auto/property_expression.rs.html#8-17"><span class="kw">crate</span>::PropertyExpression</a> {
-        <span class="kw">let </span>obj_expr = <a href="auto/object_expression.rs.html#39-46"><span class="kw">crate</span>::ObjectExpression::new</a>(<a class="self" href="#249">self</a>);
-        <a href="auto/property_expression.rs.html#49-64"><span class="kw">crate</span>::PropertyExpression::new</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/trait.StaticType.html"><span class="self">Self</span>::static_type</a>(), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><a href="#250">obj_expr</a>), <a href="#249">property_name</a>)
+        <span class="kw">let </span>obj_expr = <a href="auto/object_expression.rs.html#40-47"><span class="kw">crate</span>::ObjectExpression::new</a>(<a class="self" href="#255">self</a>);
+        <a href="auto/property_expression.rs.html#49-64"><span class="kw">crate</span>::PropertyExpression::new</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/trait.StaticType.html#tymethod.static_type"><span class="self">Self</span>::static_type</a>(), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><a href="#256">obj_expr</a>), <a href="#255">property_name</a>)
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Create an expression looking up a property in the bound `this` object.
     </span><span class="kw">fn </span>this_expression(property_name: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="auto/property_expression.rs.html#8-17"><span class="kw">crate</span>::PropertyExpression</a> {
         <span class="macro">skip_assert_initialized!</span>();
-        <a href="auto/property_expression.rs.html#49-64"><span class="kw">crate</span>::PropertyExpression::new</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/trait.StaticType.html"><span class="self">Self</span>::static_type</a>(), Expression::NONE, <a href="#256">property_name</a>)
+        <a href="auto/property_expression.rs.html#49-64"><span class="kw">crate</span>::PropertyExpression::new</a>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/trait.StaticType.html#tymethod.static_type"><span class="self">Self</span>::static_type</a>(), Expression::NONE, <a href="#262">property_name</a>)
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.Object.html">glib::Object</a>&gt;&gt; <a href="#238-260">GObjectPropertyExpressionExt</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.Object.html">glib::Object</a>&gt;&gt; <a href="#244-266">GObjectPropertyExpressionExt</a> <span class="kw">for </span>O {}
 
-<span class="macro">macro_rules! </span>define_expression {
+<span class="macro">macro_rules!</span> define_expression {
     (<span class="macro-nonterminal">$rust_type</span>:ident, <span class="macro-nonterminal">$ffi_type</span>:path) =&gt; {
         <span class="kw">impl </span>std::ops::Deref <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
             <span class="kw">type </span>Target = <span class="kw">crate</span>::Expression;
@@ -802,68 +815,68 @@
         }
 
         <span class="attr">#[doc(hidden)]
-        </span><span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>ffi::GtkExpression&gt; <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
+        </span><span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span><span class="kw">crate</span>::ffi::GtkExpression&gt; <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
             <span class="kw">type </span>Storage =
                 ::std::marker::PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="macro-nonterminal">$crate::glib::shared::Shared</span>&lt;<span class="macro-nonterminal">$ffi_type</span>, <span class="macro-nonterminal">$rust_type</span>&gt;&gt;;
 
             <span class="attr">#[inline]
             </span><span class="kw">fn </span>to_glib_none(
                 <span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>,
-            ) -&gt; <span class="macro-nonterminal">$crate::glib::translate::Stash</span>&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span>ffi::GtkExpression, <span class="self">Self</span>&gt; {
+            ) -&gt; <span class="macro-nonterminal">$crate::glib::translate::Stash</span>&lt;<span class="lifetime">'a</span>, <span class="kw-2">*const </span><span class="kw">crate</span>::ffi::GtkExpression, <span class="self">Self</span>&gt; {
                 <span class="kw">let </span>stash =
                     <span class="macro-nonterminal">$crate::glib::translate::ToGlibPtr</span>::&lt;<span class="kw-2">*const </span><span class="macro-nonterminal">$ffi_type</span>&gt;::to_glib_none(<span class="self">self</span>);
                 <span class="macro-nonterminal">$crate::glib::translate::Stash</span>(stash.<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>, stash.<span class="number">1</span>)
             }
 
             <span class="attr">#[inline]
-            </span><span class="kw">fn </span>to_glib_full(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">*const </span>ffi::GtkExpression {
+            </span><span class="kw">fn </span>to_glib_full(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">*const </span><span class="kw">crate</span>::ffi::GtkExpression {
                 <span class="macro-nonterminal">$crate::glib::translate::ToGlibPtr</span>::&lt;<span class="kw-2">*const </span><span class="macro-nonterminal">$ffi_type</span>&gt;::to_glib_full(<span class="self">self</span>)
                     <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_
             </span>}
         }
 
         <span class="attr">#[doc(hidden)]
-        </span><span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>ffi::GtkExpression&gt; <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
+        </span><span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; ToGlibPtr&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GtkExpression&gt; <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
             <span class="kw">type </span>Storage =
                 ::std::marker::PhantomData&lt;<span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="macro-nonterminal">$crate::glib::shared::Shared</span>&lt;<span class="macro-nonterminal">$ffi_type</span>, <span class="macro-nonterminal">$rust_type</span>&gt;&gt;;
 
             <span class="attr">#[inline]
             </span><span class="kw">fn </span>to_glib_none(
                 <span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="self">self</span>,
-            ) -&gt; <span class="macro-nonterminal">$crate::glib::translate::Stash</span>&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span>ffi::GtkExpression, <span class="self">Self</span>&gt; {
+            ) -&gt; <span class="macro-nonterminal">$crate::glib::translate::Stash</span>&lt;<span class="lifetime">'a</span>, <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GtkExpression, <span class="self">Self</span>&gt; {
                 <span class="kw">let </span>stash =
                     <span class="macro-nonterminal">$crate::glib::translate::ToGlibPtr</span>::&lt;<span class="kw-2">*mut </span><span class="macro-nonterminal">$ffi_type</span>&gt;::to_glib_none(<span class="self">self</span>);
                 <span class="macro-nonterminal">$crate::glib::translate::Stash</span>(stash.<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>, stash.<span class="number">1</span>)
             }
 
             <span class="attr">#[inline]
-            </span><span class="kw">fn </span>to_glib_full(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">*mut </span>ffi::GtkExpression {
+            </span><span class="kw">fn </span>to_glib_full(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GtkExpression {
                 <span class="macro-nonterminal">$crate::glib::translate::ToGlibPtr</span>::&lt;<span class="kw-2">*mut </span><span class="macro-nonterminal">$ffi_type</span>&gt;::to_glib_full(<span class="self">self</span>) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_
             </span>}
         }
 
         <span class="attr">#[doc(hidden)]
-        </span><span class="kw">impl </span>IntoGlibPtr&lt;<span class="kw-2">*mut </span>ffi::GtkExpression&gt; <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
+        </span><span class="kw">impl </span>IntoGlibPtr&lt;<span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GtkExpression&gt; <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
             <span class="attr">#[inline]
-            </span><span class="kw">unsafe fn </span>into_glib_ptr(<span class="self">self</span>) -&gt; <span class="kw-2">*mut </span>ffi::GtkExpression {
+            </span><span class="kw">unsafe fn </span>into_glib_ptr(<span class="self">self</span>) -&gt; <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GtkExpression {
                 <span class="kw">let </span>s = std::mem::ManuallyDrop::new(<span class="self">self</span>);
                 s.to_glib_none().<span class="number">0
             </span>}
         }
 
         <span class="attr">#[doc(hidden)]
-        </span><span class="kw">impl </span>IntoGlibPtr&lt;<span class="kw-2">*const </span>ffi::GtkExpression&gt; <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
+        </span><span class="kw">impl </span>IntoGlibPtr&lt;<span class="kw-2">*const </span><span class="kw">crate</span>::ffi::GtkExpression&gt; <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
             <span class="attr">#[inline]
-            </span><span class="kw">unsafe fn </span>into_glib_ptr(<span class="self">self</span>) -&gt; <span class="kw-2">*const </span>ffi::GtkExpression {
+            </span><span class="kw">unsafe fn </span>into_glib_ptr(<span class="self">self</span>) -&gt; <span class="kw-2">*const </span><span class="kw">crate</span>::ffi::GtkExpression {
                 <span class="kw">let </span>s = std::mem::ManuallyDrop::new(<span class="self">self</span>);
                 s.to_glib_none().<span class="number">0
             </span>}
         }
 
         <span class="attr">#[doc(hidden)]
-        </span><span class="kw">impl </span>FromGlibPtrFull&lt;<span class="kw-2">*mut </span>ffi::GtkExpression&gt; <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
+        </span><span class="kw">impl </span>FromGlibPtrFull&lt;<span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GtkExpression&gt; <span class="kw">for </span><span class="macro-nonterminal">$rust_type </span>{
             <span class="attr">#[inline]
-            </span><span class="kw">unsafe fn </span>from_glib_full(ptr: <span class="kw-2">*mut </span>ffi::GtkExpression) -&gt; <span class="self">Self </span>{
+            </span><span class="kw">unsafe fn </span>from_glib_full(ptr: <span class="kw-2">*mut </span><span class="kw">crate</span>::ffi::GtkExpression) -&gt; <span class="self">Self </span>{
                 from_glib_full(ptr <span class="kw">as </span><span class="kw-2">*mut </span><span class="macro-nonterminal">$ffi_type</span>)
             }
         }
@@ -880,7 +893,7 @@
             <span class="attr">#[inline]
             </span><span class="kw">unsafe fn </span>from_value(value: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>glib::Value) -&gt; <span class="self">Self </span>{
                 <span class="macro">skip_assert_initialized!</span>();
-                from_glib_full(ffi::gtk_value_dup_expression(value.to_glib_none().<span class="number">0</span>))
+                from_glib_full(<span class="kw">crate</span>::ffi::gtk_value_dup_expression(value.to_glib_none().<span class="number">0</span>))
             }
         }
 
@@ -889,7 +902,7 @@
             </span><span class="kw">fn </span>to_value(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; glib::Value {
                 <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
                 <span class="kw">unsafe </span>{
-                    ffi::gtk_value_set_expression(
+                    <span class="kw">crate</span>::ffi::gtk_value_set_expression(
                         value.to_glib_none_mut().<span class="number">0</span>,
                         <span class="self">self</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                     )
@@ -910,7 +923,7 @@
                 <span class="macro">skip_assert_initialized!</span>();
                 <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="self">Self</span>&gt;();
                 <span class="kw">unsafe </span>{
-                    ffi::gtk_value_set_expression(
+                    <span class="kw">crate</span>::ffi::gtk_value_set_expression(
                         value.to_glib_none_mut().<span class="number">0</span>,
                         s.map(|s| s.as_ptr()).unwrap_or(std::ptr::null_mut()) <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                     )
@@ -924,7 +937,10 @@
                 <span class="macro">skip_assert_initialized!</span>();
                 <span class="kw">let </span><span class="kw-2">mut </span>value = glib::Value::for_value_type::&lt;<span class="macro-nonterminal">$rust_type</span>&gt;();
                 <span class="kw">unsafe </span>{
-                    ffi::gtk_value_take_expression(value.to_glib_none_mut().<span class="number">0</span>, e.into_glib_ptr())
+                    <span class="kw">crate</span>::ffi::gtk_value_take_expression(
+                        value.to_glib_none_mut().<span class="number">0</span>,
+                        e.into_glib_ptr(),
+                    )
                 }
                 value
             }

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4-macros/src/composite_template_derive.rs`."><title>composite_template_derive.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4-macros/src/composite_template_derive.rs`."><title>composite_template_derive.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.0-nightly (032af18af 2024-06-02)" data-channel="nightly" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,9 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gtk4_macros/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -317,66 +315,63 @@
 <a href="#242" id="242">242</a>
 <a href="#243" id="243">243</a>
 <a href="#244" id="244">244</a>
-<a href="#245" id="245">245</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="attr">#[cfg(feature = <span class="string">"xml_validation"</span>)]
 </span><span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html">std::collections::HashMap</a>;
-<span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html">std::string::ToString</a>;
 
-<span class="kw">use </span><a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.TokenStream.html">proc_macro2::TokenStream</a>;
-<span class="kw">use </span>proc_macro_error::{emit_call_site_error, emit_error};
+<span class="kw">use </span>proc_macro2::{<a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.Span.html">Span</a>, <a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.TokenStream.html">TokenStream</a>};
 <span class="attr">#[cfg(feature = <span class="string">"xml_validation"</span>)]
 </span><span class="kw">use </span>quick_xml::name::QName;
-<span class="kw">use </span><a href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote::quote</a>;
-<span class="kw">use </span><a href="https://docs.rs/syn/1.0.109/syn/derive/enum.Data.html">syn::Data</a>;
+<span class="kw">use </span><a href="https://docs.rs/quote/1.0.36/quote/macro.quote.html">quote::quote</a>;
+<span class="kw">use </span>syn::{<a href="https://docs.rs/syn/2.0.66/syn/derive/enum.Data.html">Data</a>, <a href="https://docs.rs/syn/2.0.66/syn/error/struct.Error.html">Error</a>, <span class="prelude-ty">Result</span>};
 
 <span class="attr">#[cfg(feature = <span class="string">"blueprint"</span>)]
 </span><span class="kw">use </span><a href="lib.rs.html#9"><span class="kw">crate</span>::blueprint</a>::<span class="kw-2">*</span>;
 <span class="kw">use crate</span>::{<a href="lib.rs.html#7">attribute_parser</a>::<span class="kw-2">*</span>, <a href="lib.rs.html#12">util</a>::<span class="kw-2">*</span>};
 
-<span class="kw">fn </span>gen_set_template(source: <span class="kw-2">&amp;</span><a href="attribute_parser.rs.html#15-21">TemplateSource</a>, crate_ident: <span class="kw-2">&amp;</span><a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.Ident.html">proc_macro2::Ident</a>) -&gt; <a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.TokenStream.html">TokenStream</a> {
-    <span class="kw">match </span><a href="#18">source</a> {
-        <a href="attribute_parser.rs.html#16">TemplateSource::File</a>(file) =&gt; {
+<span class="kw">fn </span>gen_set_template(source: <span class="kw-2">&amp;</span><a href="attribute_parser.rs.html#115-121">TemplateSource</a>, crate_ident: <span class="kw-2">&amp;</span><a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.Ident.html">proc_macro2::Ident</a>) -&gt; <a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.TokenStream.html">TokenStream</a> {
+    <span class="kw">match </span><a href="#16">source</a> {
+        <a href="attribute_parser.rs.html#116">TemplateSource::File</a>(file) =&gt; {
             <span class="kw">let </span>template = <span class="kw">if </span>file.ends_with(<span class="string">".blp"</span>) {
                 <span class="kw">if </span><a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.cfg.html">cfg!</a>(feature = <span class="string">"blueprint"</span>) {
-                    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+                    <a class="macro" href="https://docs.rs/quote/1.0.36/quote/macro.quote.html">quote!</a> {
                         #<span class="macro">crate_ident::gtk4_macros::include_blueprint!</span>(#file).as_bytes()
                     }
                 } <span class="kw">else </span>{
                     <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">"blueprint feature is disabled"</span>)
                 }
             } <span class="kw">else </span>{
-                <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+                <a class="macro" href="https://docs.rs/quote/1.0.36/quote/macro.quote.html">quote!</a> {
                     <span class="macro">include_bytes!</span>(#file)
                 }
             };
 
-            <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+            <a class="macro" href="https://docs.rs/quote/1.0.36/quote/macro.quote.html">quote!</a> {
                 #crate_ident::subclass::widget::WidgetClassExt::set_template_static(
                         klass,
                         #template,
                 );
             }
         }
-        <a href="attribute_parser.rs.html#17">TemplateSource::Resource</a>(resource) =&gt; <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+        <a href="attribute_parser.rs.html#117">TemplateSource::Resource</a>(resource) =&gt; <a class="macro" href="https://docs.rs/quote/1.0.36/quote/macro.quote.html">quote!</a> {
             #crate_ident::subclass::widget::WidgetClassExt::set_template_from_resource(
                 klass,
                 <span class="kw-2">&amp;</span>#resource,
             );
         },
-        <a href="attribute_parser.rs.html#18">TemplateSource::Xml</a>(template) =&gt; <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+        <a href="attribute_parser.rs.html#118">TemplateSource::Xml</a>(template) =&gt; <a class="macro" href="https://docs.rs/quote/1.0.36/quote/macro.quote.html">quote!</a> {
             #crate_ident::subclass::widget::WidgetClassExt::set_template_static(
                 klass,
                 #template.as_bytes(),
             );
         },
         <span class="attr">#[cfg(feature = <span class="string">"blueprint"</span>)]
-        </span><a href="attribute_parser.rs.html#20">TemplateSource::Blueprint</a>(blueprint) =&gt; {
+        </span><a href="attribute_parser.rs.html#120">TemplateSource::Blueprint</a>(blueprint) =&gt; {
             <span class="kw">let </span>template =
-                <a href="blueprint.rs.html#10-31">compile_blueprint</a>(<a href="#55">blueprint</a>.as_bytes()).expect(<span class="string">"can't compile blueprint"</span>);
+                <a href="blueprint.rs.html#8-29">compile_blueprint</a>(<a href="#53">blueprint</a>.<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html#method.as_bytes">as_bytes</a>()).<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.expect">expect</a>(<span class="string">"can't compile blueprint"</span>);
 
-            <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+            <a class="macro" href="https://docs.rs/quote/1.0.36/quote/macro.quote.html">quote!</a> {
                 #crate_ident::subclass::widget::WidgetClassExt::set_template_static(
                     klass,
                     #template.as_bytes(),
@@ -387,80 +382,83 @@
 }
 
 <span class="attr">#[cfg(feature = <span class="string">"xml_validation"</span>)]
-</span><span class="kw">fn </span>check_template_fields(source: <span class="kw-2">&amp;</span><a href="attribute_parser.rs.html#15-21">TemplateSource</a>, fields: <span class="kw-2">&amp;</span>[<a href="attribute_parser.rs.html#155-159">AttributedField</a>]) {
+</span><span class="kw">fn </span>check_template_fields(source: <span class="kw-2">&amp;</span><a href="attribute_parser.rs.html#115-121">TemplateSource</a>, fields: <span class="kw-2">&amp;</span>[<a href="attribute_parser.rs.html#190-194">AttributedField</a>]) -&gt; <span class="prelude-ty">Result</span>&lt;()&gt; {
     <span class="attr">#[allow(unused_assignments)]
-    </span><span class="kw">let </span>xml = <span class="kw">match </span><a href="#70">source</a> {
-        <a href="attribute_parser.rs.html#18">TemplateSource::Xml</a>(template) =&gt; <a href="#73">template</a>,
-        <span class="kw">_ </span>=&gt; <span class="kw">return</span>,
+    </span><span class="kw">let </span>xml = <span class="kw">match </span><a href="#68">source</a> {
+        <a href="attribute_parser.rs.html#118">TemplateSource::Xml</a>(template) =&gt; <a href="#71">template</a>,
+        <span class="kw">_ </span>=&gt; <span class="kw">return </span><span class="prelude-val">Ok</span>(()),
     };
 
-    <span class="kw">let </span><span class="kw-2">mut </span>reader = quick_xml::Reader::from_str(<a href="#72">xml</a>);
-    <span class="kw">let </span><span class="kw-2">mut </span>ids_left = <a href="#70">fields</a>
-        .iter()
-        .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|field| <span class="kw">match </span><a href="#80">field</a>.attr.ty {
-            <a href="attribute_parser.rs.html#145">FieldAttributeType::TemplateChild</a> =&gt; (<a href="#80">field</a>.<a href="attribute_parser.rs.html#162-170">id</a>(), <a href="#80">field</a>.<a href="attribute_parser.rs.html#173-180">id_span</a>()),
+    <span class="kw">let </span><span class="kw-2">mut </span>reader = quick_xml::Reader::from_str(<a href="#70">xml</a>);
+    <span class="kw">let </span><span class="kw-2">mut </span>ids_left = <a href="#68">fields</a>
+        .<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>()
+        .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.map">map</a>(|field| <span class="kw">match </span><a href="#78">field</a>.attr.ty {
+            <a href="attribute_parser.rs.html#180">FieldAttributeType::TemplateChild</a> =&gt; (<a href="#78">field</a>.<a href="attribute_parser.rs.html#197-205">id</a>(), <a href="#78">field</a>.<a href="attribute_parser.rs.html#208-215">id_span</a>()),
         })
-        .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>::&lt;HashMap&lt;<span class="kw">_</span>, <span class="kw">_</span>&gt;&gt;();
+        .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.collect">collect</a>::&lt;HashMap&lt;<span class="kw">_</span>, <span class="kw">_</span>&gt;&gt;();
 
     <span class="kw">loop </span>{
         <span class="kw">use </span>quick_xml::events::Event;
 
-        <span class="kw">let </span>event = <a href="#77">reader</a>.read_event();
-        <span class="kw">let </span>elem = <span class="kw">match </span><span class="kw-2">&amp;</span><a href="#88">event</a> {
-            <span class="prelude-val">Ok</span>(Event::Start(e)) =&gt; <span class="prelude-val">Some</span>(<a href="#90">e</a>),
-            <span class="prelude-val">Ok</span>(Event::Empty(e)) =&gt; <span class="prelude-val">Some</span>(<a href="#91">e</a>),
+        <span class="kw">let </span>event = <a href="#75">reader</a>.read_event();
+        <span class="kw">let </span>elem = <span class="kw">match </span><span class="kw-2">&amp;</span><a href="#86">event</a> {
+            <span class="prelude-val">Ok</span>(Event::Start(e)) =&gt; <span class="prelude-val">Some</span>(<a href="#88">e</a>),
+            <span class="prelude-val">Ok</span>(Event::Empty(e)) =&gt; <span class="prelude-val">Some</span>(<a href="#89">e</a>),
             <span class="prelude-val">Ok</span>(Event::Eof) =&gt; <span class="kw">break</span>,
             <span class="prelude-val">Err</span>(e) =&gt; {
-                <span class="macro">emit_call_site_error!</span>(
-                    <span class="string">"Failed reading template XML at position {}: {:?}"</span>,
-                    reader.buffer_position(),
-                    e
-                );
-                <span class="kw">break</span>;
+                <span class="kw">return </span><span class="prelude-val">Err</span>(<a href="https://docs.rs/syn/2.0.66/syn/error/struct.Error.html#method.new">Error::new</a>(
+                    <a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.Span.html#method.call_site">Span::call_site</a>(),
+                    <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(
+                        <span class="string">"Failed reading template XML at position {}: {:?}"</span>,
+                        reader.buffer_position(),
+                        e
+                    ),
+                ));
             }
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         };
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(e) = <a href="#89">elem</a> {
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(e) = <a href="#87">elem</a> {
             <span class="kw">let </span>name = <a href="#103">e</a>.name();
             <span class="kw">if </span>name == QName(<span class="string">b"object"</span>) || name == QName(<span class="string">b"template"</span>) {
                 <span class="kw">let </span>id = <a href="#103">e</a>
                     .attributes()
-                    .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">find_map</a>(|a| <a href="#108">a</a>.ok().and_then(|a| (<a href="#108">a</a>.key == QName(<span class="string">b"id"</span>)).then_some(<a href="#108">a</a>)));
-                <span class="kw">let </span>id = <a href="#106">id</a>.as_ref().and_then(|a| <a href="https://doc.rust-lang.org/nightly/core/str/converts/fn.from_utf8.html">std::str::from_utf8</a>(<span class="kw-2">&amp;</span><a href="#109">a</a>.value).ok());
+                    .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.find_map">find_map</a>(|a| <a href="#108">a</a>.<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.ok">ok</a>().<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.and_then">and_then</a>(|a| (<a href="#108">a</a>.key == QName(<span class="string">b"id"</span>)).<a href="https://doc.rust-lang.org/nightly/core/foreigntype.bool.html#method.then_some">then_some</a>(<a href="#108">a</a>)));
+                <span class="kw">let </span>id = <a href="#106">id</a>.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.as_ref">as_ref</a>().<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.and_then">and_then</a>(|a| <a href="https://doc.rust-lang.org/nightly/core/str/converts/fn.from_utf8.html">std::str::from_utf8</a>(<span class="kw-2">&amp;</span><a href="#109">a</a>.value).<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.ok">ok</a>());
                 <span class="kw">if let </span><span class="prelude-val">Some</span>(id) = <a href="#109">id</a> {
-                    <a href="#78">ids_left</a>.remove(<a href="#110">id</a>);
+                    <a href="#76">ids_left</a>.<a href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html#method.remove">remove</a>(<a href="#110">id</a>);
                 }
             }
         }
     }
 
-    <span class="kw">if let </span><span class="prelude-val">Some</span>((name, span)) = <a href="#78">ids_left</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">next</a>() {
-        <span class="macro">emit_error!</span>(
-            span,
-            <span class="string">"Template child with id `{}` not found in template XML"</span>,
-            name
-        );
+    <span class="kw">if let </span><span class="prelude-val">Some</span>((name, span)) = <a href="#76">ids_left</a>.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/collect/trait.IntoIterator.html#tymethod.into_iter">into_iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.next">next</a>() {
+        <span class="kw">return </span><span class="prelude-val">Err</span>(<a href="https://docs.rs/syn/2.0.66/syn/error/struct.Error.html#method.new">Error::new</a>(
+            <a href="#117">span</a>,
+            <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"Template child with id `{name}` not found in template XML"</span>,),
+        ));
     }
+
+    <span class="prelude-val">Ok</span>(())
 }
 
-<span class="kw">fn </span>gen_template_child_bindings(fields: <span class="kw-2">&amp;</span>[<a href="attribute_parser.rs.html#155-159">AttributedField</a>]) -&gt; <a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.TokenStream.html">TokenStream</a> {
+<span class="kw">fn </span>gen_template_child_bindings(fields: <span class="kw-2">&amp;</span>[<a href="attribute_parser.rs.html#190-194">AttributedField</a>]) -&gt; <a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.TokenStream.html">TokenStream</a> {
     <span class="kw">let </span>crate_ident = <a href="util.rs.html#6-17">crate_ident_new</a>();
 
-    <span class="kw">let </span>recurse = <a href="#126">fields</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|field| <span class="kw">match </span><a href="#129">field</a>.attr.ty {
-        <a href="attribute_parser.rs.html#145">FieldAttributeType::TemplateChild</a> =&gt; {
-            <span class="kw">let </span><span class="kw-2">mut </span>value_id = <span class="kw-2">&amp;</span><a href="#129">field</a>.ident.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html">to_string</a>();
-            <span class="kw">let </span>ident = <span class="kw-2">&amp;</span><a href="#129">field</a>.ident;
+    <span class="kw">let </span>recurse = <a href="#127">fields</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.map">map</a>(|field| <span class="kw">match </span><a href="#130">field</a>.attr.ty {
+        <a href="attribute_parser.rs.html#180">FieldAttributeType::TemplateChild</a> =&gt; {
+            <span class="kw">let </span><span class="kw-2">mut </span>value_id = <span class="kw-2">&amp;</span><a href="#130">field</a>.ident.<a href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html#tymethod.to_string">to_string</a>();
+            <span class="kw">let </span>ident = <span class="kw-2">&amp;</span><a href="#130">field</a>.ident;
             <span class="kw">let </span><span class="kw-2">mut </span>value_internal = <span class="bool-val">false</span>;
-            <a href="#129">field</a>.attr.args.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">for_each</a>(|arg| <span class="kw">match </span><a href="#134">arg</a> {
-                <a href="attribute_parser.rs.html#139">FieldAttributeArg::Id</a>(value, <span class="kw">_</span>) =&gt; {
-                    <a href="#131">value_id</a> = <a href="#135">value</a>;
+            <a href="#130">field</a>.attr.args.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.for_each">for_each</a>(|arg| <span class="kw">match </span><a href="#135">arg</a> {
+                <a href="attribute_parser.rs.html#164">FieldAttributeArg::Id</a>(value, <span class="kw">_</span>) =&gt; {
+                    <a href="#132">value_id</a> = <a href="#136">value</a>;
                 }
-                <a href="attribute_parser.rs.html#140">FieldAttributeArg::Internal</a>(internal) =&gt; {
-                    <a href="#133">value_internal</a> = <span class="kw-2">*</span><a href="#138">internal</a>;
+                <a href="attribute_parser.rs.html#165">FieldAttributeArg::Internal</a>(internal) =&gt; {
+                    <a href="#134">value_internal</a> = <span class="kw-2">*</span><a href="#139">internal</a>;
                 }
             });
 
-            <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+            <a class="macro" href="https://docs.rs/quote/1.0.36/quote/macro.quote.html">quote!</a> {
                 klass.bind_template_child_with_offset(
                     <span class="kw-2">&amp;</span>#value_id,
                     #value_internal,
@@ -470,20 +468,20 @@
         }
     });
 
-    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+    <a class="macro" href="https://docs.rs/quote/1.0.36/quote/macro.quote.html">quote!</a> {
         #(#recurse)*
     }
 }
 
-<span class="kw">fn </span>gen_template_child_type_checks(fields: <span class="kw-2">&amp;</span>[<a href="attribute_parser.rs.html#155-159">AttributedField</a>]) -&gt; <a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.TokenStream.html">TokenStream</a> {
+<span class="kw">fn </span>gen_template_child_type_checks(fields: <span class="kw-2">&amp;</span>[<a href="attribute_parser.rs.html#190-194">AttributedField</a>]) -&gt; <a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.TokenStream.html">TokenStream</a> {
     <span class="kw">let </span>crate_ident = <a href="util.rs.html#6-17">crate_ident_new</a>();
 
-    <span class="kw">let </span>recurse = <a href="#158">fields</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|field| <span class="kw">match </span><a href="#161">field</a>.attr.ty {
-        <a href="attribute_parser.rs.html#145">FieldAttributeType::TemplateChild</a> =&gt; {
-            <span class="kw">let </span>ty = <span class="kw-2">&amp;</span><a href="#161">field</a>.ty;
-            <span class="kw">let </span>ident = <span class="kw-2">&amp;</span><a href="#161">field</a>.ident;
+    <span class="kw">let </span>recurse = <a href="#159">fields</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.map">map</a>(|field| <span class="kw">match </span><a href="#162">field</a>.attr.ty {
+        <a href="attribute_parser.rs.html#180">FieldAttributeType::TemplateChild</a> =&gt; {
+            <span class="kw">let </span>ty = <span class="kw-2">&amp;</span><a href="#162">field</a>.ty;
+            <span class="kw">let </span>ident = <span class="kw-2">&amp;</span><a href="#162">field</a>.ident;
             <span class="kw">let </span>type_err = <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"Template child with id `{}` has incompatible type. XML has {{:?}}, struct has {{:?}}"</span>, field.id());
-            <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+            <a class="macro" href="https://docs.rs/quote/1.0.36/quote/macro.quote.html">quote!</a> {
                 <span class="kw">let </span>ty = &lt;&lt;#ty <span class="kw">as </span>::std::ops::Deref&gt;::Target <span class="kw">as </span>#crate_ident::glib::prelude::StaticType&gt;::static_type();
                 <span class="kw">let </span>child_ty = #crate_ident::glib::prelude::ObjectExt::type_(::std::ops::Deref::deref(<span class="kw-2">&amp;</span>imp.#ident));
                 <span class="kw">if </span>!child_ty.is_a(ty) {
@@ -493,61 +491,59 @@
         }
     });
 
-    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+    <a class="macro" href="https://docs.rs/quote/1.0.36/quote/macro.quote.html">quote!</a> {
         #(#recurse)*
     }
 }
 
-<span class="kw">pub fn </span>impl_composite_template(input: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/1.0.109/syn/derive/struct.DeriveInput.html">syn::DeriveInput</a>) -&gt; <a href="https://docs.rs/proc-macro2/1.0.78/proc_macro2/struct.TokenStream.html">TokenStream</a> {
-    <span class="kw">let </span>name = <span class="kw-2">&amp;</span><a href="#181">input</a>.ident;
+<span class="kw">pub fn </span>impl_composite_template(input: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.66/syn/derive/struct.DeriveInput.html">syn::DeriveInput</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.TokenStream.html">TokenStream</a>&gt; {
+    <span class="kw">let </span>name = <span class="kw-2">&amp;</span><a href="#182">input</a>.ident;
     <span class="kw">let </span>crate_ident = <a href="util.rs.html#6-17">crate_ident_new</a>();
 
-    <span class="kw">let </span>template = <span class="kw">match </span><a href="attribute_parser.rs.html#44-101">parse_template_source</a>(<a href="#181">input</a>) {
-        <span class="prelude-val">Ok</span>(v) =&gt; <span class="prelude-val">Some</span>(<a href="#186">v</a>),
+    <span class="kw">let </span>template = <span class="kw">match </span><a href="attribute_parser.rs.html#145-158">parse_template_source</a>(<a href="#182">input</a>) {
+        <span class="prelude-val">Ok</span>(v) =&gt; <span class="prelude-val">Some</span>(<a href="#187">v</a>),
         <span class="prelude-val">Err</span>(e) =&gt; {
-            <span class="macro">emit_call_site_error!</span>(
-                <span class="string">"{}: derive(CompositeTemplate) requires #[template(...)] to specify 'file', 'resource', or 'string'"</span>,
-                e
-            );
-            <span class="prelude-val">None
-        </span>}
-    };
-
-    <span class="kw">let </span>allow_without_attribute = <a href="#185">template</a>
-        .as_ref()
-        .map(|t| <a href="#198">t</a>.allow_template_child_without_attribute)
-        .unwrap_or(<span class="bool-val">false</span>);
-    <span class="kw">let </span>source = <a href="#185">template</a>.as_ref().map(|t| <span class="kw-2">&amp;</span><a href="#200">t</a>.source);
-
-    <span class="kw">let </span>set_template = <a href="#200">source</a>.map(|s| <a href="#18-67">gen_set_template</a>(<a href="#202">s</a>, <span class="kw-2">&amp;</span><a href="#183">crate_ident</a>));
-
-    <span class="kw">let </span>fields = <span class="kw">match </span><a href="#181">input</a>.data {
-        Data::Struct(<span class="kw-2">ref </span>s) =&gt; <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><a href="#205">s</a>.fields),
-        <span class="kw">_ </span>=&gt; {
-            <span class="macro">emit_call_site_error!</span>(<span class="string">"derive(CompositeTemplate) only supports structs"</span>);
-            <span class="prelude-val">None
-        </span>}
-    };
-
-    <span class="kw">let </span>attributed_fields = <span class="kw">match </span><a href="#204">fields</a>.map(|f| <a href="attribute_parser.rs.html#356-384">parse_fields</a>(<a href="#212">f</a>, <a href="#196">allow_without_attribute</a>)) {
-        <span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(fields)) =&gt; <a href="#213">fields</a>,
-        <span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(err)) =&gt; {
-            <span class="macro">emit_error!</span>(err.span(), err);
-            <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.vec.html">vec!</a>[]
+            <span class="kw">return </span><span class="prelude-val">Err</span>(<a href="https://docs.rs/syn/2.0.66/syn/error/struct.Error.html#method.new">Error::new</a>(
+                <a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.Span.html#method.call_site">Span::call_site</a>(),
+                <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"{}: derive(CompositeTemplate) requires #[template(...)] to specify 'file', 'resource', or 'string'"</span>,
+                e)
+            ));
         }
+    };
+
+    <span class="kw">let </span>allow_without_attribute = <a href="#186">template</a>
+        .<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.as_ref">as_ref</a>()
+        .<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map">map</a>(|t| <a href="#199">t</a>.allow_template_child_without_attribute)
+        .<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.unwrap_or">unwrap_or</a>(<span class="bool-val">false</span>);
+    <span class="kw">let </span>source = <a href="#186">template</a>.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.as_ref">as_ref</a>().<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map">map</a>(|t| <span class="kw-2">&amp;</span><a href="#201">t</a>.source);
+
+    <span class="kw">let </span>set_template = <a href="#201">source</a>.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map">map</a>(|s| <a href="#16-65">gen_set_template</a>(<a href="#203">s</a>, <span class="kw-2">&amp;</span><a href="#184">crate_ident</a>));
+
+    <span class="kw">let </span>fields = <span class="kw">match </span><a href="#182">input</a>.data {
+        <a href="https://docs.rs/syn/2.0.66/syn/derive/enum.Data.html#variant.Struct">Data::Struct</a>(<span class="kw-2">ref </span>s) =&gt; <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><a href="#206">s</a>.fields),
+        <span class="kw">_ </span>=&gt; {
+            <span class="kw">return </span><span class="prelude-val">Err</span>(<a href="https://docs.rs/syn/2.0.66/syn/error/struct.Error.html#method.new">Error::new</a>(
+                <a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.Span.html#method.call_site">Span::call_site</a>(),
+                <span class="string">"derive(CompositeTemplate) only supports structs"</span>,
+            ));
+        }
+    };
+
+    <span class="kw">let </span>attributed_fields = <span class="kw">match </span><a href="#205">fields</a>.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map">map</a>(|f| <a href="attribute_parser.rs.html#344-372">parse_fields</a>(<a href="#215">f</a>, <a href="#197">allow_without_attribute</a>)) {
+        <span class="prelude-val">Some</span>(fields) =&gt; <a href="#216">fields</a><span class="question-mark">?</span>,
         <span class="prelude-val">None </span>=&gt; <a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.vec.html">vec!</a>[],
     };
 
     <span class="attr">#[cfg(feature = <span class="string">"xml_validation"</span>)]
     </span>{
-        <span class="kw">if let </span><span class="prelude-val">Some</span>(source) = <a href="#200">source</a> {
-            <a href="#70-124">check_template_fields</a>(<a href="#223">source</a>, <span class="kw-2">&amp;</span><a href="#212">attributed_fields</a>);
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(source) = <a href="#201">source</a> {
+            <a href="#68-125">check_template_fields</a>(<a href="#222">source</a>, <span class="kw-2">&amp;</span><a href="#215">attributed_fields</a>)<span class="question-mark">?</span>;
         }
     }
-    <span class="kw">let </span>template_children = <a href="#126-156">gen_template_child_bindings</a>(<span class="kw-2">&amp;</span><a href="#212">attributed_fields</a>);
-    <span class="kw">let </span>checks = <a href="#158-179">gen_template_child_type_checks</a>(<span class="kw-2">&amp;</span><a href="#212">attributed_fields</a>);
+    <span class="kw">let </span>template_children = <a href="#127-157">gen_template_child_bindings</a>(<span class="kw-2">&amp;</span><a href="#215">attributed_fields</a>);
+    <span class="kw">let </span>checks = <a href="#159-180">gen_template_child_type_checks</a>(<span class="kw-2">&amp;</span><a href="#215">attributed_fields</a>);
 
-    <a class="macro" href="https://docs.rs/quote/1.0.35/quote/macro.quote.html">quote! </a>{
+    <span class="prelude-val">Ok</span>(<a class="macro" href="https://docs.rs/quote/1.0.36/quote/macro.quote.html">quote!</a> {
         <span class="kw">impl </span>#crate_ident::subclass::widget::CompositeTemplate <span class="kw">for </span>#name {
             <span class="kw">fn </span>bind_template(klass: <span class="kw-2">&amp;mut </span><span class="self">Self</span>::Class) {
                 #set_template
@@ -561,6 +557,6 @@
                 #checks
             }
         }
-    }
+    })
 }
 </code></pre></div></section></main></body></html>

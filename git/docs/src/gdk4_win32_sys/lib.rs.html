@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4-win32/sys/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4_win32_sys" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4-win32/sys/src/lib.rs`."><title>lib.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4_win32_sys" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.0-nightly (032af18af 2024-06-02)" data-channel="nightly" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,9 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gdk4_win32_sys/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -378,6 +376,9 @@
 <a href="#303" id="303">303</a>
 <a href="#304" id="304">304</a>
 <a href="#305" id="305">305</a>
+<a href="#306" id="306">306</a>
+<a href="#307" id="307">307</a>
+<a href="#308" id="308">308</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
@@ -397,25 +398,28 @@
 <span class="attr">#[allow(unused_imports)]
 </span><span class="kw">use </span>libc::{
     c_char, c_double, c_float, c_int, c_long, c_short, c_uchar, c_uint, c_ulong, c_ushort, <a href="https://doc.rust-lang.org/nightly/core/ffi/enum.c_void.html">c_void</a>,
-    intptr_t, size_t, ssize_t, uintptr_t, FILE,
+    intptr_t, off_t, size_t, ssize_t, time_t, uintptr_t, FILE,
 };
+<span class="attr">#[cfg(unix)]
+#[allow(unused_imports)]
+</span><span class="kw">use </span>libc::{dev_t, gid_t, pid_t, socklen_t, uid_t};
 
 <span class="attr">#[allow(unused_imports)]
 </span><span class="kw">use </span>glib::{gboolean, gconstpointer, gpointer, GType};
 
 <span class="comment">// Enums
 </span><span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32MessageFilterReturn.html">GdkWin32MessageFilterReturn</a> = c_int;
-<span class="kw">pub const </span><a href="../../gdk4_win32_sys/constant.GDK_WIN32_MESSAGE_FILTER_CONTINUE.html">GDK_WIN32_MESSAGE_FILTER_CONTINUE</a>: <a href="#27">GdkWin32MessageFilterReturn</a> = <span class="number">0</span>;
-<span class="kw">pub const </span><a href="../../gdk4_win32_sys/constant.GDK_WIN32_MESSAGE_FILTER_REMOVE.html">GDK_WIN32_MESSAGE_FILTER_REMOVE</a>: <a href="#27">GdkWin32MessageFilterReturn</a> = <span class="number">1</span>;
+<span class="kw">pub const </span><a href="../../gdk4_win32_sys/constant.GDK_WIN32_MESSAGE_FILTER_CONTINUE.html">GDK_WIN32_MESSAGE_FILTER_CONTINUE</a>: <a href="#30">GdkWin32MessageFilterReturn</a> = <span class="number">0</span>;
+<span class="kw">pub const </span><a href="../../gdk4_win32_sys/constant.GDK_WIN32_MESSAGE_FILTER_REMOVE.html">GDK_WIN32_MESSAGE_FILTER_REMOVE</a>: <a href="#30">GdkWin32MessageFilterReturn</a> = <span class="number">1</span>;
 
 <span class="comment">// Callbacks
 </span><span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32MessageFilterFunc.html">GdkWin32MessageFilterFunc</a> = <span class="prelude-ty">Option</span>&lt;
     <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>(
-        <span class="kw-2">*mut </span><a href="#108-111">GdkWin32Display</a>,
+        <span class="kw-2">*mut </span><a href="#111-114">GdkWin32Display</a>,
         gpointer,
         <span class="kw-2">*mut </span>c_int,
         gpointer,
-    ) -&gt; <a href="#27">GdkWin32MessageFilterReturn</a>,
+    ) -&gt; <a href="#30">GdkWin32MessageFilterReturn</a>,
 &gt;;
 
 <span class="comment">// Records
@@ -425,7 +429,7 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32DisplayClass.html">GdkWin32DisplayClass</a> = <a href="#43-46">_GdkWin32DisplayClass</a>;
+<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32DisplayClass.html">GdkWin32DisplayClass</a> = <a href="#46-49">_GdkWin32DisplayClass</a>;
 
 <span class="attr">#[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gdk4_win32_sys/struct._GdkWin32DisplayManagerClass.html">_GdkWin32DisplayManagerClass</a> {
@@ -433,7 +437,7 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32DisplayManagerClass.html">GdkWin32DisplayManagerClass</a> = <a href="#51-54">_GdkWin32DisplayManagerClass</a>;
+<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32DisplayManagerClass.html">GdkWin32DisplayManagerClass</a> = <a href="#54-57">_GdkWin32DisplayManagerClass</a>;
 
 <span class="attr">#[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gdk4_win32_sys/struct._GdkWin32DragClass.html">_GdkWin32DragClass</a> {
@@ -441,7 +445,7 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32DragClass.html">GdkWin32DragClass</a> = <a href="#59-62">_GdkWin32DragClass</a>;
+<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32DragClass.html">GdkWin32DragClass</a> = <a href="#62-65">_GdkWin32DragClass</a>;
 
 <span class="attr">#[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gdk4_win32_sys/struct._GdkWin32GLContextClass.html">_GdkWin32GLContextClass</a> {
@@ -449,7 +453,7 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32GLContextClass.html">GdkWin32GLContextClass</a> = <a href="#67-70">_GdkWin32GLContextClass</a>;
+<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32GLContextClass.html">GdkWin32GLContextClass</a> = <a href="#70-73">_GdkWin32GLContextClass</a>;
 
 <span class="attr">#[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gdk4_win32_sys/struct._GdkWin32HCursorClass.html">_GdkWin32HCursorClass</a> {
@@ -457,7 +461,7 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32HCursorClass.html">GdkWin32HCursorClass</a> = <a href="#75-78">_GdkWin32HCursorClass</a>;
+<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32HCursorClass.html">GdkWin32HCursorClass</a> = <a href="#78-81">_GdkWin32HCursorClass</a>;
 
 <span class="attr">#[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gdk4_win32_sys/struct._GdkWin32MonitorClass.html">_GdkWin32MonitorClass</a> {
@@ -465,7 +469,7 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32MonitorClass.html">GdkWin32MonitorClass</a> = <a href="#83-86">_GdkWin32MonitorClass</a>;
+<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32MonitorClass.html">GdkWin32MonitorClass</a> = <a href="#86-89">_GdkWin32MonitorClass</a>;
 
 <span class="attr">#[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gdk4_win32_sys/struct._GdkWin32ScreenClass.html">_GdkWin32ScreenClass</a> {
@@ -473,7 +477,7 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32ScreenClass.html">GdkWin32ScreenClass</a> = <a href="#91-94">_GdkWin32ScreenClass</a>;
+<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32ScreenClass.html">GdkWin32ScreenClass</a> = <a href="#94-97">_GdkWin32ScreenClass</a>;
 
 <span class="attr">#[repr(C)]
 </span><span class="kw">pub struct </span><a href="../../gdk4_win32_sys/struct._GdkWin32SurfaceClass.html">_GdkWin32SurfaceClass</a> {
@@ -481,7 +485,7 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32SurfaceClass.html">GdkWin32SurfaceClass</a> = <a href="#99-102">_GdkWin32SurfaceClass</a>;
+<span class="kw">pub type </span><a href="../../gdk4_win32_sys/type.GdkWin32SurfaceClass.html">GdkWin32SurfaceClass</a> = <a href="#102-105">_GdkWin32SurfaceClass</a>;
 
 <span class="comment">// Classes
 </span><span class="attr">#[repr(C)]
@@ -490,10 +494,10 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#108-111">GdkWin32Display</a> {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#111-114">GdkWin32Display</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#114">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32Display @ {self:p}"</span>))
-            .finish()
+        <a href="#117">f</a>.<a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html#method.debug_struct">debug_struct</a>(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32Display @ {self:p}"</span>))
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.finish">finish</a>()
     }
 }
 
@@ -503,10 +507,10 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#121-124">GdkWin32DisplayManager</a> {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#124-127">GdkWin32DisplayManager</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#127">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32DisplayManager @ {self:p}"</span>))
-            .finish()
+        <a href="#130">f</a>.<a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html#method.debug_struct">debug_struct</a>(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32DisplayManager @ {self:p}"</span>))
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.finish">finish</a>()
     }
 }
 
@@ -516,9 +520,9 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#134-137">GdkWin32Drag</a> {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#137-140">GdkWin32Drag</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#140">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32Drag @ {self:p}"</span>)).finish()
+        <a href="#143">f</a>.<a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html#method.debug_struct">debug_struct</a>(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32Drag @ {self:p}"</span>)).<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.finish">finish</a>()
     }
 }
 
@@ -528,10 +532,10 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#146-149">GdkWin32GLContext</a> {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#149-152">GdkWin32GLContext</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#152">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32GLContext @ {self:p}"</span>))
-            .finish()
+        <a href="#155">f</a>.<a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html#method.debug_struct">debug_struct</a>(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32GLContext @ {self:p}"</span>))
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.finish">finish</a>()
     }
 }
 
@@ -541,10 +545,10 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#159-162">GdkWin32HCursor</a> {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#162-165">GdkWin32HCursor</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#165">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32HCursor @ {self:p}"</span>))
-            .finish()
+        <a href="#168">f</a>.<a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html#method.debug_struct">debug_struct</a>(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32HCursor @ {self:p}"</span>))
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.finish">finish</a>()
     }
 }
 
@@ -554,10 +558,10 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#172-175">GdkWin32Monitor</a> {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#175-178">GdkWin32Monitor</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#178">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32Monitor @ {self:p}"</span>))
-            .finish()
+        <a href="#181">f</a>.<a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html#method.debug_struct">debug_struct</a>(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32Monitor @ {self:p}"</span>))
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.finish">finish</a>()
     }
 }
 
@@ -567,10 +571,10 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#185-188">GdkWin32Screen</a> {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#188-191">GdkWin32Screen</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#191">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32Screen @ {self:p}"</span>))
-            .finish()
+        <a href="#194">f</a>.<a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html#method.debug_struct">debug_struct</a>(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32Screen @ {self:p}"</span>))
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.finish">finish</a>()
     }
 }
 
@@ -580,10 +584,10 @@
     _marker: core::marker::PhantomData&lt;(<span class="kw-2">*mut </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a href="https://doc.rust-lang.org/nightly/core/marker/struct.PhantomPinned.html">core::marker::PhantomPinned</a>)&gt;,
 }
 
-<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#198-201">GdkWin32Surface</a> {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">::std::fmt::Debug</a> <span class="kw">for </span><a href="#201-204">GdkWin32Surface</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">::std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">::std::fmt::Result</a> {
-        <a href="#204">f</a>.debug_struct(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32Surface @ {self:p}"</span>))
-            .finish()
+        <a href="#207">f</a>.<a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html#method.debug_struct">debug_struct</a>(<span class="kw-2">&amp;</span><a class="macro" href="https://doc.rust-lang.org/nightly/alloc/macro.format.html">format!</a>(<span class="string">"GdkWin32Surface @ {self:p}"</span>))
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.finish">finish</a>()
     }
 }
 
@@ -603,24 +607,24 @@
         minor: <span class="kw-2">*mut </span>c_int,
     ) -&gt; gboolean;
     <span class="kw">pub fn </span>gdk_win32_display_add_filter(
-        display: <span class="kw-2">*mut </span><a href="#108-111">GdkWin32Display</a>,
-        function: <a href="#32-39">GdkWin32MessageFilterFunc</a>,
+        display: <span class="kw-2">*mut </span><a href="#111-114">GdkWin32Display</a>,
+        function: <a href="#35-42">GdkWin32MessageFilterFunc</a>,
         data: gpointer,
     );
     <span class="attr">#[cfg(feature = <span class="string">"v4_4"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_4"</span>)))]
-    </span><span class="kw">pub fn </span>gdk_win32_display_get_egl_display(display: <span class="kw-2">*mut </span><a href="#108-111">GdkWin32Display</a>) -&gt; gpointer;
+    </span><span class="kw">pub fn </span>gdk_win32_display_get_egl_display(display: <span class="kw-2">*mut </span><a href="#111-114">GdkWin32Display</a>) -&gt; gpointer;
     <span class="kw">pub fn </span>gdk_win32_display_get_win32hcursor(
-        display: <span class="kw-2">*mut </span><a href="#108-111">GdkWin32Display</a>,
+        display: <span class="kw-2">*mut </span><a href="#111-114">GdkWin32Display</a>,
         cursor: <span class="kw-2">*mut </span>gdk::GdkCursor,
-    ) -&gt; <span class="kw-2">*mut </span><a href="#159-162">GdkWin32HCursor</a>;
+    ) -&gt; <span class="kw-2">*mut </span><a href="#162-165">GdkWin32HCursor</a>;
     <span class="kw">pub fn </span>gdk_win32_display_remove_filter(
-        display: <span class="kw-2">*mut </span><a href="#108-111">GdkWin32Display</a>,
-        function: <a href="#32-39">GdkWin32MessageFilterFunc</a>,
+        display: <span class="kw-2">*mut </span><a href="#111-114">GdkWin32Display</a>,
+        function: <a href="#35-42">GdkWin32MessageFilterFunc</a>,
         data: gpointer,
     );
     <span class="kw">pub fn </span>gdk_win32_display_set_cursor_theme(
-        display: <span class="kw-2">*mut </span><a href="#108-111">GdkWin32Display</a>,
+        display: <span class="kw-2">*mut </span><a href="#111-114">GdkWin32Display</a>,
         name: <span class="kw-2">*const </span>c_char,
         size: c_int,
     );
@@ -645,10 +649,10 @@
     //=========================================================================
     </span><span class="kw">pub fn </span>gdk_win32_hcursor_get_type() -&gt; GType;
     <span class="kw">pub fn </span>gdk_win32_hcursor_new(
-        display: <span class="kw-2">*mut </span><a href="#108-111">GdkWin32Display</a>,
+        display: <span class="kw-2">*mut </span><a href="#111-114">GdkWin32Display</a>,
         handle: ssize_t,
         destroyable: gboolean,
-    ) -&gt; <span class="kw-2">*mut </span><a href="#159-162">GdkWin32HCursor</a>;
+    ) -&gt; <span class="kw-2">*mut </span><a href="#162-165">GdkWin32HCursor</a>;
 
     <span class="comment">//=========================================================================
     // GdkWin32Monitor
@@ -674,8 +678,8 @@
         display: <span class="kw-2">*mut </span>gdk::GdkDisplay,
         anid: ssize_t,
     ) -&gt; <span class="kw-2">*mut </span>gdk::GdkSurface;
-    <span class="kw">pub fn </span>gdk_win32_surface_get_handle(surface: <span class="kw-2">*mut </span><a href="#198-201">GdkWin32Surface</a>) -&gt; ssize_t;
-    <span class="kw">pub fn </span>gdk_win32_surface_set_urgency_hint(surface: <span class="kw-2">*mut </span><a href="#198-201">GdkWin32Surface</a>, urgent: gboolean);
+    <span class="kw">pub fn </span>gdk_win32_surface_get_handle(surface: <span class="kw-2">*mut </span><a href="#201-204">GdkWin32Surface</a>) -&gt; ssize_t;
+    <span class="kw">pub fn </span>gdk_win32_surface_set_urgency_hint(surface: <span class="kw-2">*mut </span><a href="#201-204">GdkWin32Surface</a>, urgent: gboolean);
 
     <span class="comment">//=========================================================================
     // Other functions

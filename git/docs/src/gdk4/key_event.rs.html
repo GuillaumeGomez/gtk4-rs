@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/key_event.rs`."><title>key_event.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/key_event.rs`."><title>key_event.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.0-nightly (032af18af 2024-06-02)" data-channel="nightly" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,9 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gdk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -181,9 +179,9 @@
 
 <span class="kw">use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
 
-<span class="kw">use crate</span>::{<a href="auto/enums.rs.html#790-890">EventType</a>, <a href="keys.rs.html#9">Key</a>, <a href="auto/key_event.rs.html#8-17">KeyEvent</a>, <a href="auto/enums.rs.html#1540-1553">KeyMatch</a>, <a href="auto/flags.rs.html#570-628">ModifierType</a>};
+<span class="kw">use crate</span>::{<a href="../../gdk4_sys/index.html">ffi</a>, <a href="auto/enums.rs.html#791-891">EventType</a>, <a href="keys.rs.html#9">Key</a>, <a href="auto/key_event.rs.html#8-17">KeyEvent</a>, <a href="auto/enums.rs.html#1541-1554">KeyMatch</a>, <a href="auto/flags.rs.html#571-629">ModifierType</a>};
 
-<a class="macro" href="event.rs.html#193-238">define_event! </a>{
+<a class="macro" href="event.rs.html#193-238">define_event!</a> {
     KeyEvent,
     ffi::GdkKeyEvent,
     <span class="kw-2">&amp;</span>[EventType::KeyPress, EventType::KeyRelease]
@@ -198,7 +196,7 @@
     </span><span class="attr">#[doc(alias = <span class="string">"gdk_key_event_get_keyval"</span>)]
     #[doc(alias = <span class="string">"get_keyval"</span>)]
     </span><span class="kw">pub fn </span>keyval(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="keys.rs.html#9">Key</a> {
-        <span class="kw">unsafe </span>{ from_glib(ffi::gdk_key_event_get_keyval(<a class="self" href="#23">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../gdk4_sys/fn.gdk_key_event_get_keyval.html">ffi::gdk_key_event_get_keyval</a>(<a class="self" href="#23">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Gets a keyval and modifier combination that will match
@@ -217,19 +215,19 @@
     /// return location for modifiers
     </span><span class="attr">#[doc(alias = <span class="string">"gdk_key_event_get_match"</span>)]
     #[doc(alias = <span class="string">"get_match"</span>)]
-    </span><span class="kw">pub fn </span>match_(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(<a href="keys.rs.html#9">Key</a>, <a href="auto/flags.rs.html#570-628">ModifierType</a>)&gt; {
+    </span><span class="kw">pub fn </span>match_(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;(<a href="keys.rs.html#9">Key</a>, <a href="auto/flags.rs.html#571-629">ModifierType</a>)&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>keyval = mem::MaybeUninit::uninit();
-            <span class="kw">let </span><span class="kw-2">mut </span>modifiers = mem::MaybeUninit::uninit();
-            <span class="kw">let </span>ret = from_glib(ffi::gdk_key_event_get_match(
-                <a class="self" href="#43">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#45">keyval</a>.as_mut_ptr(),
-                <a href="#46">modifiers</a>.as_mut_ptr(),
+            <span class="kw">let </span><span class="kw-2">mut </span>keyval = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">mem::MaybeUninit::uninit</a>();
+            <span class="kw">let </span><span class="kw-2">mut </span>modifiers = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">mem::MaybeUninit::uninit</a>();
+            <span class="kw">let </span>ret = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../gdk4_sys/fn.gdk_key_event_get_match.html">ffi::gdk_key_event_get_match</a>(
+                <a class="self" href="#43">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#45">keyval</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.as_mut_ptr">as_mut_ptr</a>(),
+                <a href="#46">modifiers</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.as_mut_ptr">as_mut_ptr</a>(),
             ));
             <span class="kw">if </span>ret {
-                <span class="kw">let </span>keyval = <a href="#45">keyval</a>.assume_init();
-                <span class="kw">let </span>modifiers = <a href="#46">modifiers</a>.assume_init();
-                <span class="prelude-val">Some</span>((from_glib(<a href="#53">keyval</a>), from_glib(<a href="#54">modifiers</a>)))
+                <span class="kw">let </span>keyval = <a href="#45">keyval</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.assume_init">assume_init</a>();
+                <span class="kw">let </span>modifiers = <a href="#46">modifiers</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.assume_init">assume_init</a>();
+                <span class="prelude-val">Some</span>((<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="#53">keyval</a>), <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="#54">modifiers</a>)))
             } <span class="kw">else </span>{
                 <span class="prelude-val">None
             </span>}
@@ -253,12 +251,12 @@
     ///
     /// a [`KeyMatch`][crate::KeyMatch] value describing whether @self matches
     </span><span class="attr">#[doc(alias = <span class="string">"gdk_key_event_matches"</span>)]
-    </span><span class="kw">pub fn </span>matches(<span class="kw-2">&amp;</span><span class="self">self</span>, keyval: <a href="keys.rs.html#9">Key</a>, modifiers: <a href="auto/flags.rs.html#570-628">ModifierType</a>) -&gt; <a href="auto/enums.rs.html#1540-1553">KeyMatch</a> {
+    </span><span class="kw">pub fn </span>matches(<span class="kw-2">&amp;</span><span class="self">self</span>, keyval: <a href="keys.rs.html#9">Key</a>, modifiers: <a href="auto/flags.rs.html#571-629">ModifierType</a>) -&gt; <a href="auto/enums.rs.html#1541-1554">KeyMatch</a> {
         <span class="kw">unsafe </span>{
-            from_glib(ffi::gdk_key_event_matches(
-                <a class="self" href="#79">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#79">keyval</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <a href="#79">modifiers</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../gdk4_sys/fn.gdk_key_event_matches.html">ffi::gdk_key_event_matches</a>(
+                <a class="self" href="#79">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#79">keyval</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>(),
+                <a href="#79">modifiers</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>(),
             ))
         }
     }
@@ -266,15 +264,15 @@
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">fmt::Debug</a> <span class="kw">for </span><a href="auto/key_event.rs.html#8-17">KeyEvent</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">fmt::Result</a> {
-        <a href="#91">f</a>.debug_struct(<span class="string">"KeyEvent"</span>)
-            .field(<span class="string">"consumed_modifiers"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="auto/key_event.rs.html#33-39">consumed_modifiers</a>())
-            .field(<span class="string">"keycode"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="auto/key_event.rs.html#48-50">keycode</a>())
-            .field(<span class="string">"keyval"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="#23-25">keyval</a>())
-            .field(<span class="string">"layout"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="auto/key_event.rs.html#59-61">layout</a>())
-            .field(<span class="string">"level"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="auto/key_event.rs.html#70-72">level</a>())
-            .field(<span class="string">"match"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="#43-60">match_</a>())
-            .field(<span class="string">"is_modifier"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="auto/key_event.rs.html#80-82">is_modifier</a>())
-            .finish()
+        <a href="#91">f</a>.<a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html#method.debug_struct">debug_struct</a>(<span class="string">"KeyEvent"</span>)
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"consumed_modifiers"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="auto/key_event.rs.html#33-39">consumed_modifiers</a>())
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"keycode"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="auto/key_event.rs.html#48-50">keycode</a>())
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"keyval"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="#23-25">keyval</a>())
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"layout"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="auto/key_event.rs.html#59-61">layout</a>())
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"level"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="auto/key_event.rs.html#70-72">level</a>())
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"match"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="#43-60">match_</a>())
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"is_modifier"</span>, <span class="kw-2">&amp;</span><a class="self" href="#91">self</a>.<a href="auto/key_event.rs.html#80-82">is_modifier</a>())
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.finish">finish</a>()
     }
 }
 </code></pre></div></section></main></body></html>

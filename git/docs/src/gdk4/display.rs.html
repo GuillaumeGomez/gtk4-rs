@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/display.rs`."><title>display.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/display.rs`."><title>display.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.0-nightly (032af18af 2024-06-02)" data-channel="nightly" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,9 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gdk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -356,15 +354,11 @@
 <a href="#281" id="281">281</a>
 <a href="#282" id="282">282</a>
 <a href="#283" id="283">283</a>
-<a href="#284" id="284">284</a>
-<a href="#285" id="285">285</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/core/mem/index.html">mem</a>, <a href="https://doc.rust-lang.org/nightly/core/ptr/index.html">ptr</a>};
+</span><span class="kw">use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
 
-<span class="kw">use </span>glib::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/trait.IntoGStr.html">IntoGStr</a>};
-
-<span class="kw">use crate</span>::{<a href="lib.rs.html#78">prelude</a>::<span class="kw-2">*</span>, <a href="auto/display.rs.html#20-109">Display</a>, <a href="keys.rs.html#9">Key</a>, <a href="keymap_key.rs.html#7-11">KeymapKey</a>, <a href="auto/flags.rs.html#570-628">ModifierType</a>};
+<span class="kw">use crate</span>::{<a href="../../gdk4_sys/index.html">ffi</a>, <a href="lib.rs.html#79">prelude</a>::<span class="kw-2">*</span>, <a href="auto/display.rs.html#20-109">Display</a>, <a href="keys.rs.html#9">Key</a>, <a href="keymap_key.rs.html#8-12">KeymapKey</a>, <a href="auto/flags.rs.html#571-629">ModifierType</a>};
 
 <span class="attr">#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
 </span><span class="kw">pub enum </span><a href="../../gdk4/enum.Backend.html">Backend</a> {
@@ -375,7 +369,7 @@
     Broadway,
 }
 
-<span class="kw">impl </span><a href="#10-16">Backend</a> {
+<span class="kw">impl </span><a href="#8-14">Backend</a> {
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Equivalent to the C macro `GDK_IS_WAYLAND_DISPLAY`
     </span><span class="attr">#[doc(alias = <span class="string">"GDK_IS_WAYLAND_DISPLAY"</span>)]
@@ -414,13 +408,13 @@
 
 <span class="kw">mod </span>sealed {
     <span class="kw">pub trait </span>Sealed {}
-    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/display.rs.html#20-109"><span class="kw">super</span>::Display</a>&gt;&gt; <a href="#56">Sealed</a> <span class="kw">for </span>T {}
+    <span class="kw">impl</span>&lt;T: <span class="kw">super</span>::IsA&lt;<a href="auto/display.rs.html#20-109"><span class="kw">super</span>::Display</a>&gt;&gt; <a href="#54">Sealed</a> <span class="kw">for </span>T {}
 }
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Trait containing manually implemented methods of
 /// [`Display`](crate::Display).
-</span><span class="kw">pub trait </span><a href="../../gdk4/prelude/trait.DisplayExtManual.html">DisplayExtManual</a>: <a href="#56">sealed::Sealed</a> + IsA&lt;<a href="auto/display.rs.html#20-109">Display</a>&gt; + <span class="lifetime">'static </span>{
+</span><span class="kw">pub trait </span><a href="../../gdk4/prelude/trait.DisplayExtManual.html">DisplayExtManual</a>: <a href="#54">sealed::Sealed</a> + IsA&lt;<a href="auto/display.rs.html#20-109">Display</a>&gt; + <span class="lifetime">'static </span>{
     <span class="doccomment">/// Translates the contents of a `GdkEventKey` into a keyval, effective group,
     /// and level.
     ///
@@ -467,34 +461,34 @@
     </span><span class="kw">fn </span>translate_key(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         keycode: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>,
-        state: <a href="auto/flags.rs.html#570-628">ModifierType</a>,
+        state: <a href="auto/flags.rs.html#571-629">ModifierType</a>,
         group: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-    ) -&gt; <span class="prelude-ty">Option</span>&lt;(<a href="keys.rs.html#9">Key</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="auto/flags.rs.html#570-628">ModifierType</a>)&gt; {
+    ) -&gt; <span class="prelude-ty">Option</span>&lt;(<a href="keys.rs.html#9">Key</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="auto/flags.rs.html#571-629">ModifierType</a>)&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>keyval = mem::MaybeUninit::uninit();
-            <span class="kw">let </span><span class="kw-2">mut </span>effective_group = mem::MaybeUninit::uninit();
-            <span class="kw">let </span><span class="kw-2">mut </span>level = mem::MaybeUninit::uninit();
-            <span class="kw">let </span><span class="kw-2">mut </span>consumed = mem::MaybeUninit::uninit();
-            <span class="kw">let </span>ret = from_glib(ffi::gdk_display_translate_key(
-                <a class="self" href="#108">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#109">keycode</a>,
-                <a href="#110">state</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <a href="#111">group</a>,
-                <a href="#114">keyval</a>.as_mut_ptr(),
-                <a href="#115">effective_group</a>.as_mut_ptr(),
-                <a href="#116">level</a>.as_mut_ptr(),
-                <a href="#117">consumed</a>.as_mut_ptr(),
+            <span class="kw">let </span><span class="kw-2">mut </span>keyval = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">std::mem::MaybeUninit::uninit</a>();
+            <span class="kw">let </span><span class="kw-2">mut </span>effective_group = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">std::mem::MaybeUninit::uninit</a>();
+            <span class="kw">let </span><span class="kw-2">mut </span>level = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">std::mem::MaybeUninit::uninit</a>();
+            <span class="kw">let </span><span class="kw-2">mut </span>consumed = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">std::mem::MaybeUninit::uninit</a>();
+            <span class="kw">let </span>ret = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../gdk4_sys/fn.gdk_display_translate_key.html">ffi::gdk_display_translate_key</a>(
+                <a class="self" href="#106">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#107">keycode</a>,
+                <a href="#108">state</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>(),
+                <a href="#109">group</a>,
+                <a href="#112">keyval</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.as_mut_ptr">as_mut_ptr</a>(),
+                <a href="#113">effective_group</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.as_mut_ptr">as_mut_ptr</a>(),
+                <a href="#114">level</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.as_mut_ptr">as_mut_ptr</a>(),
+                <a href="#115">consumed</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.as_mut_ptr">as_mut_ptr</a>(),
             ));
             <span class="kw">if </span>ret {
-                <span class="kw">let </span>keyval = <a href="#114">keyval</a>.assume_init();
-                <span class="kw">let </span>effective_group = <a href="#115">effective_group</a>.assume_init();
-                <span class="kw">let </span>level = <a href="#116">level</a>.assume_init();
-                <span class="kw">let </span>consumed = <a href="#117">consumed</a>.assume_init();
+                <span class="kw">let </span>keyval = <a href="#112">keyval</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.assume_init">assume_init</a>();
+                <span class="kw">let </span>effective_group = <a href="#113">effective_group</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.assume_init">assume_init</a>();
+                <span class="kw">let </span>level = <a href="#114">level</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.assume_init">assume_init</a>();
+                <span class="kw">let </span>consumed = <a href="#115">consumed</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.assume_init">assume_init</a>();
                 <span class="prelude-val">Some</span>((
-                    from_glib(<a href="#129">keyval</a>),
-                    <a href="#130">effective_group</a>,
-                    <a href="#131">level</a>,
-                    from_glib(<a href="#132">consumed</a>),
+                    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="#127">keyval</a>),
+                    <a href="#128">effective_group</a>,
+                    <a href="#129">level</a>,
+                    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="#130">consumed</a>),
                 ))
             } <span class="kw">else </span>{
                 <span class="prelude-val">None
@@ -516,15 +510,15 @@
     </span><span class="attr">#[doc(alias = <span class="string">"gdk_display_get_setting"</span>)]
     </span><span class="kw">fn </span>get_setting(<span class="kw-2">&amp;</span><span class="self">self</span>, name: <span class="kw">impl </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/trait.IntoGStr.html">IntoGStr</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/struct.Value.html">glib::Value</a>&gt; {
         <span class="kw">unsafe </span>{
-            <a href="#157">name</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/trait.IntoGStr.html">run_with_gstr</a>(|name| {
-                <span class="kw">let </span><span class="kw-2">mut </span>value = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html">glib::Value::uninitialized</a>();
-                <span class="kw">let </span>ret = ffi::gdk_display_get_setting(
-                    <a class="self" href="#157">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#159">name</a>.as_ptr(),
-                    <a href="#160">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
+            <a href="#155">name</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/trait.IntoGStr.html#tymethod.run_with_gstr">run_with_gstr</a>(|name| {
+                <span class="kw">let </span><span class="kw-2">mut </span>value = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html#tymethod.uninitialized">glib::Value::uninitialized</a>();
+                <span class="kw">let </span>ret = <a href="../../gdk4_sys/fn.gdk_display_get_setting.html">ffi::gdk_display_get_setting</a>(
+                    <a class="self" href="#155">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#157">name</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GStr.html#method.as_ptr">as_ptr</a>(),
+                    <a href="#158">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
                 );
                 <span class="kw">if </span>from_glib(ret) {
-                    <span class="prelude-val">Some</span>(<a href="#160">value</a>)
+                    <span class="prelude-val">Some</span>(<a href="#158">value</a>)
                 } <span class="kw">else </span>{
                     <span class="prelude-val">None
                 </span>}
@@ -558,20 +552,20 @@
     /// return location
     ///   for an array of [`KeymapKey`][crate::KeymapKey]
     </span><span class="attr">#[doc(alias = <span class="string">"gdk_display_map_keyval"</span>)]
-    </span><span class="kw">fn </span>map_keyval(<span class="kw-2">&amp;</span><span class="self">self</span>, keyval: <a href="keys.rs.html#9">Key</a>) -&gt; <span class="prelude-ty">Option</span>&lt;Vec&lt;<a href="keymap_key.rs.html#7-11">KeymapKey</a>&gt;&gt; {
+    </span><span class="kw">fn </span>map_keyval(<span class="kw-2">&amp;</span><span class="self">self</span>, keyval: <a href="keys.rs.html#9">Key</a>) -&gt; <span class="prelude-ty">Option</span>&lt;Vec&lt;<a href="keymap_key.rs.html#8-12">KeymapKey</a>&gt;&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>keys = ptr::null_mut();
-            <span class="kw">let </span><span class="kw-2">mut </span>n_keys = mem::MaybeUninit::uninit();
-            <span class="kw">let </span>ret = from_glib(ffi::gdk_display_map_keyval(
-                <a class="self" href="#201">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#201">keyval</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
-                <span class="kw-2">&amp;mut </span><a href="#203">keys</a>,
-                <a href="#204">n_keys</a>.as_mut_ptr(),
+            <span class="kw">let </span><span class="kw-2">mut </span>keys = <a href="https://doc.rust-lang.org/nightly/core/ptr/fn.null_mut.html">std::ptr::null_mut</a>();
+            <span class="kw">let </span><span class="kw-2">mut </span>n_keys = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">std::mem::MaybeUninit::uninit</a>();
+            <span class="kw">let </span>ret = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../gdk4_sys/fn.gdk_display_map_keyval.html">ffi::gdk_display_map_keyval</a>(
+                <a class="self" href="#199">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#199">keyval</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>(),
+                <span class="kw-2">&amp;mut </span><a href="#201">keys</a>,
+                <a href="#202">n_keys</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.as_mut_ptr">as_mut_ptr</a>(),
             ));
             <span class="kw">if </span>ret {
-                <span class="prelude-val">Some</span>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibContainer.html">FromGlibContainer::from_glib_full_num</a>(
-                    <a href="#203">keys</a>,
-                    <a href="#204">n_keys</a>.assume_init() <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>,
+                <span class="prelude-val">Some</span>(<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibContainer.html#tymethod.from_glib_full_num">FromGlibContainer::from_glib_full_num</a>(
+                    <a href="#201">keys</a>,
+                    <a href="#202">n_keys</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.assume_init">assume_init</a>() <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>,
                 ))
             } <span class="kw">else </span>{
                 <span class="prelude-val">None
@@ -603,25 +597,25 @@
     /// return
     ///   location for array of keyvals
     </span><span class="attr">#[doc(alias = <span class="string">"gdk_display_map_keycode"</span>)]
-    </span><span class="kw">fn </span>map_keycode(<span class="kw-2">&amp;</span><span class="self">self</span>, keycode: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="prelude-ty">Option</span>&lt;Vec&lt;(<a href="keymap_key.rs.html#7-11">KeymapKey</a>, <a href="keys.rs.html#9">Key</a>)&gt;&gt; {
+    </span><span class="kw">fn </span>map_keycode(<span class="kw-2">&amp;</span><span class="self">self</span>, keycode: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="prelude-ty">Option</span>&lt;Vec&lt;(<a href="keymap_key.rs.html#8-12">KeymapKey</a>, <a href="keys.rs.html#9">Key</a>)&gt;&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>keys = ptr::null_mut();
-            <span class="kw">let </span><span class="kw-2">mut </span>keyvals = ptr::null_mut();
-            <span class="kw">let </span><span class="kw-2">mut </span>n_entries = mem::MaybeUninit::uninit();
-            <span class="kw">let </span>ret = from_glib(ffi::gdk_display_map_keycode(
-                <a class="self" href="#246">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#246">keycode</a>,
-                <span class="kw-2">&amp;mut </span><a href="#248">keys</a>,
-                <span class="kw-2">&amp;mut </span><a href="#249">keyvals</a>,
-                <a href="#250">n_entries</a>.as_mut_ptr(),
+            <span class="kw">let </span><span class="kw-2">mut </span>keys = <a href="https://doc.rust-lang.org/nightly/core/ptr/fn.null_mut.html">std::ptr::null_mut</a>();
+            <span class="kw">let </span><span class="kw-2">mut </span>keyvals = <a href="https://doc.rust-lang.org/nightly/core/ptr/fn.null_mut.html">std::ptr::null_mut</a>();
+            <span class="kw">let </span><span class="kw-2">mut </span>n_entries = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">std::mem::MaybeUninit::uninit</a>();
+            <span class="kw">let </span>ret = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../gdk4_sys/fn.gdk_display_map_keycode.html">ffi::gdk_display_map_keycode</a>(
+                <a class="self" href="#244">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#244">keycode</a>,
+                <span class="kw-2">&amp;mut </span><a href="#246">keys</a>,
+                <span class="kw-2">&amp;mut </span><a href="#247">keyvals</a>,
+                <a href="#248">n_entries</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.as_mut_ptr">as_mut_ptr</a>(),
             ));
             <span class="kw">if </span>ret {
-                <span class="kw">let </span>n_keys = <a href="#250">n_entries</a>.assume_init() <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>;
-                <span class="kw">let </span>keyvals: Vec&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt; = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibContainer.html">FromGlibContainer::from_glib_full_num</a>(<a href="#249">keyvals</a>, <a href="#259">n_keys</a>);
-                <span class="kw">let </span>keyvals = <a href="#260">keyvals</a>.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/collect/trait.IntoIterator.html">into_iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|k| from_glib(<a href="#261">k</a>));
-                <span class="kw">let </span>keys: Vec&lt;<a href="keymap_key.rs.html#7-11">KeymapKey</a>&gt; = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibContainer.html">FromGlibContainer::from_glib_full_num</a>(<a href="#248">keys</a>, <a href="#259">n_keys</a>);
+                <span class="kw">let </span>n_keys = <a href="#248">n_entries</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.assume_init">assume_init</a>() <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>;
+                <span class="kw">let </span>keyvals: Vec&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt; = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibContainer.html#tymethod.from_glib_full_num">FromGlibContainer::from_glib_full_num</a>(<a href="#247">keyvals</a>, <a href="#257">n_keys</a>);
+                <span class="kw">let </span>keyvals = <a href="#258">keyvals</a>.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/collect/trait.IntoIterator.html#tymethod.into_iter">into_iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.map">map</a>(|k| <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="#259">k</a>));
+                <span class="kw">let </span>keys: Vec&lt;<a href="keymap_key.rs.html#8-12">KeymapKey</a>&gt; = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibContainer.html#tymethod.from_glib_full_num">FromGlibContainer::from_glib_full_num</a>(<a href="#246">keys</a>, <a href="#257">n_keys</a>);
 
-                <span class="prelude-val">Some</span>(<a href="#262">keys</a>.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/collect/trait.IntoIterator.html">into_iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">zip</a>(<a href="#261">keyvals</a>).<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>())
+                <span class="prelude-val">Some</span>(<a href="#260">keys</a>.<a href="https://doc.rust-lang.org/nightly/core/iter/traits/collect/trait.IntoIterator.html#tymethod.into_iter">into_iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.zip">zip</a>(<a href="#259">keyvals</a>).<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.collect">collect</a>())
             } <span class="kw">else </span>{
                 <span class="prelude-val">None
             </span>}
@@ -630,17 +624,17 @@
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Get the currently used display backend
-    </span><span class="kw">fn </span>backend(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="#10-16">Backend</a> {
-        <span class="kw">match </span><a class="self" href="#273">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">type_</a>().name() {
-            <span class="string">"GdkWaylandDisplay" </span>=&gt; <a href="#11">Backend::Wayland</a>,
-            <span class="string">"GdkX11Display" </span>=&gt; <a href="#12">Backend::X11</a>,
-            <span class="string">"GdkMacosDisplay" </span>=&gt; <a href="#14">Backend::MacOS</a>,
-            <span class="string">"GdkWin32Display" </span>=&gt; <a href="#13">Backend::Win32</a>,
-            <span class="string">"GdkBroadwayDisplay" </span>=&gt; <a href="#15">Backend::Broadway</a>,
+    </span><span class="kw">fn </span>backend(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="#8-14">Backend</a> {
+        <span class="kw">match </span><a class="self" href="#271">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.type_">type_</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/struct.Type.html#method.name">name</a>() {
+            <span class="string">"GdkWaylandDisplay" </span>=&gt; <a href="#9">Backend::Wayland</a>,
+            <span class="string">"GdkX11Display" </span>=&gt; <a href="#10">Backend::X11</a>,
+            <span class="string">"GdkMacosDisplay" </span>=&gt; <a href="#12">Backend::MacOS</a>,
+            <span class="string">"GdkWin32Display" </span>=&gt; <a href="#11">Backend::Win32</a>,
+            <span class="string">"GdkBroadwayDisplay" </span>=&gt; <a href="#13">Backend::Broadway</a>,
             e =&gt; <a class="macro" href="https://doc.rust-lang.org/nightly/std/macro.panic.html">panic!</a>(<span class="string">"Unsupported display backend {e}"</span>),
         }
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/display.rs.html#20-109">Display</a>&gt;&gt; <a href="#63-283">DisplayExtManual</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/display.rs.html#20-109">Display</a>&gt;&gt; <a href="#61-281">DisplayExtManual</a> <span class="kw">for </span>O {}
 </code></pre></div></section></main></body></html>

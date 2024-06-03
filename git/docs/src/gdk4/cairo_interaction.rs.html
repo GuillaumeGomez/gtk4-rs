@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/cairo_interaction.rs`."><title>cairo_interaction.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4/src/cairo_interaction.rs`."><title>cairo_interaction.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.0-nightly (032af18af 2024-06-02)" data-channel="nightly" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,9 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gdk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -262,7 +260,7 @@
 <span class="kw">use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/gdk_pixbuf/auto/pixbuf/struct.Pixbuf.html">gdk_pixbuf::Pixbuf</a>;
 <span class="kw">use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
 
-<span class="kw">use crate</span>::{<a href="auto/rectangle.rs.html#7-30">Rectangle</a>, <a href="auto/surface.rs.html#17-128">Surface</a>, <a href="auto/rgba.rs.html#7-24">RGBA</a>};
+<span class="kw">use crate</span>::{<a href="../../gdk4_sys/index.html">ffi</a>, <a href="auto/rectangle.rs.html#8-31">Rectangle</a>, <a href="auto/surface.rs.html#17-128">Surface</a>, <a href="auto/rgba.rs.html#8-25">RGBA</a>};
 
 <span class="comment">// rustdoc-stripper-ignore-next
 </span><span class="doccomment">/// Trait containing integration methods with [`cairo::Surface`].
@@ -285,8 +283,8 @@
 <span class="kw">impl </span><a href="#11-25">GdkCairoSurfaceExt</a> <span class="kw">for </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/surface/struct.Surface.html">cairo::Surface</a> {
     <span class="kw">fn </span>create_region(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/region/struct.Region.html">Region</a> {
         <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gdk_cairo_region_create_from_surface(
-                <a class="self" href="#28">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_full.html">from_glib_full</a>(<a href="../../gdk4_sys/fn.gdk_cairo_region_create_from_surface.html">ffi::gdk_cairo_region_create_from_surface</a>(
+                <a class="self" href="#28">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -359,9 +357,9 @@
         height: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
     ) {
         <span class="macro">skip_assert_initialized!</span>();
-        ffi::gdk_cairo_draw_from_gl(
+        <a href="../../gdk4_sys/fn.gdk_cairo_draw_from_gl.html">ffi::gdk_cairo_draw_from_gl</a>(
             <a class="self" href="#93">self</a>.<a href="#175">to_raw</a>(),
-            <a href="#94">surface</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <a href="#94">surface</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             <a href="#95">source</a>,
             <a href="#96">source_type</a>,
             <a href="#97">buffer_scale</a>,
@@ -374,9 +372,9 @@
 
     <span class="attr">#[doc(alias = <span class="string">"gdk_cairo_set_source_rgba"</span>)]
     #[doc(alias = <span class="string">"set_source_rgba"</span>)]
-    </span><span class="kw">fn </span>set_source_color(<span class="kw-2">&amp;</span><span class="self">self</span>, rgba: <span class="kw-2">&amp;</span><a href="auto/rgba.rs.html#7-24">RGBA</a>) {
+    </span><span class="kw">fn </span>set_source_color(<span class="kw-2">&amp;</span><span class="self">self</span>, rgba: <span class="kw-2">&amp;</span><a href="auto/rgba.rs.html#8-25">RGBA</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gdk_cairo_set_source_rgba(<a class="self" href="#119">self</a>.<a href="#175">to_raw</a>(), <a href="#119">rgba</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            <a href="../../gdk4_sys/fn.gdk_cairo_set_source_rgba.html">ffi::gdk_cairo_set_source_rgba</a>(<a class="self" href="#119">self</a>.<a href="#175">to_raw</a>(), <a href="#119">rgba</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
@@ -395,7 +393,7 @@
     </span><span class="attr">#[doc(alias = <span class="string">"gdk_cairo_set_source_pixbuf"</span>)]
     </span><span class="kw">fn </span>set_source_pixbuf(<span class="kw-2">&amp;</span><span class="self">self</span>, pixbuf: <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/gdk_pixbuf/auto/pixbuf/struct.Pixbuf.html">Pixbuf</a>, x: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>, y: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gdk_cairo_set_source_pixbuf(<a class="self" href="#138">self</a>.<a href="#175">to_raw</a>(), <a href="#138">pixbuf</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#138">x</a>, <a href="#138">y</a>);
+            <a href="../../gdk4_sys/fn.gdk_cairo_set_source_pixbuf.html">ffi::gdk_cairo_set_source_pixbuf</a>(<a class="self" href="#138">self</a>.<a href="#175">to_raw</a>(), <a href="#138">pixbuf</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>, <a href="#138">x</a>, <a href="#138">y</a>);
         }
     }
 
@@ -405,9 +403,9 @@
     /// ## `rectangle`
     /// a [`Rectangle`][crate::Rectangle]
     </span><span class="attr">#[doc(alias = <span class="string">"gdk_cairo_rectangle"</span>)]
-    </span><span class="kw">fn </span>add_rectangle(<span class="kw-2">&amp;</span><span class="self">self</span>, rectangle: <span class="kw-2">&amp;</span><a href="auto/rectangle.rs.html#7-30">Rectangle</a>) {
+    </span><span class="kw">fn </span>add_rectangle(<span class="kw-2">&amp;</span><span class="self">self</span>, rectangle: <span class="kw-2">&amp;</span><a href="auto/rectangle.rs.html#8-31">Rectangle</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gdk_cairo_rectangle(<a class="self" href="#150">self</a>.<a href="#175">to_raw</a>(), <a href="#150">rectangle</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            <a href="../../gdk4_sys/fn.gdk_cairo_rectangle.html">ffi::gdk_cairo_rectangle</a>(<a class="self" href="#150">self</a>.<a href="#175">to_raw</a>(), <a href="#150">rectangle</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 
@@ -419,7 +417,7 @@
     </span><span class="attr">#[doc(alias = <span class="string">"gdk_cairo_region"</span>)]
     </span><span class="kw">fn </span>add_region(<span class="kw-2">&amp;</span><span class="self">self</span>, region: <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/region/struct.Region.html">Region</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gdk_cairo_region(<a class="self" href="#162">self</a>.<a href="#175">to_raw</a>(), <a href="#162">region</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>);
+            <a href="../../gdk4_sys/fn.gdk_cairo_region.html">ffi::gdk_cairo_region</a>(<a class="self" href="#162">self</a>.<a href="#175">to_raw</a>(), <a href="#162">region</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
         }
     }
 }
@@ -435,7 +433,7 @@
 
     <span class="kw">impl </span><a href="#174-176">Sealed</a> <span class="kw">for </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/context/struct.Context.html">Context</a> {
         <span class="kw">fn </span>to_raw(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">*mut </span>cairo_t {
-            <a class="self" href="#179">self</a>.to_raw_none()
+            <a class="self" href="#179">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/context/struct.Context.html#method.to_raw_none">to_raw_none</a>()
         }
     }
 }

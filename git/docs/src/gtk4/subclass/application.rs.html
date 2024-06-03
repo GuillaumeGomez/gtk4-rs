@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/application.rs`."><title>application.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/application.rs`."><title>application.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.0-nightly (032af18af 2024-06-02)" data-channel="nightly" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,9 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -201,7 +199,7 @@
 
 </span><span class="kw">use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
 
-<span class="kw">use crate</span>::{<a href="../lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="mod.rs.html#91-174">subclass::prelude</a>::<span class="kw-2">*</span>, <a href="../auto/application.rs.html#13-331">Application</a>, <a href="../auto/window.rs.html#17-733">Window</a>};
+<span class="kw">use crate</span>::{<a href="../../../gtk4_sys/index.html">ffi</a>, <a href="../lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="mod.rs.html#91-174">subclass::prelude</a>::<span class="kw-2">*</span>, <a href="../auto/application.rs.html#13-339">Application</a>, <a href="../auto/window.rs.html#17-733">Window</a>};
 
 <span class="kw">pub trait </span><a href="../../../gtk4/subclass/application/trait.GtkApplicationImpl.html">GtkApplicationImpl</a>: <a href="#25-51">GtkApplicationImplExt</a> + <a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/subclass/application/trait.ApplicationImpl.html">ApplicationImpl</a> {
     <span class="kw">fn </span>window_added(<span class="kw-2">&amp;</span><span class="self">self</span>, window: <span class="kw-2">&amp;</span><a href="../auto/window.rs.html#17-733">Window</a>) {
@@ -221,12 +219,12 @@
 <span class="kw">pub trait </span><a href="../../../gtk4/subclass/application/trait.GtkApplicationImplExt.html">GtkApplicationImplExt</a>: <a href="#21">sealed::Sealed</a> + <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclass.html">ObjectSubclass</a> {
     <span class="kw">fn </span>parent_window_added(<span class="kw-2">&amp;</span><span class="self">self</span>, window: <span class="kw-2">&amp;</span><a href="../auto/window.rs.html#17-733">Window</a>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_class = <a href="#28">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkApplicationClass.html">ffi::GtkApplicationClass</a>;
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html#tymethod.type_data"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#28">data</a>.<a href="https://doc.rust-lang.org/nightly/core/ptr/non_null/struct.NonNull.html#method.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/struct.TypeData.html#method.parent_class">parent_class</a>() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkApplicationClass.html">ffi::GtkApplicationClass</a>;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#29">parent_class</a>).window_added {
                 <a href="#30">f</a>(
-                    <a class="self" href="#26">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/application.rs.html#13-331">Application</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#26">window</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a class="self" href="#26">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html#tymethod.obj">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast_ref">unsafe_cast_ref</a>::&lt;<a href="../auto/application.rs.html#13-339">Application</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#26">window</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
                 )
             }
         }
@@ -234,12 +232,12 @@
 
     <span class="kw">fn </span>parent_window_removed(<span class="kw-2">&amp;</span><span class="self">self</span>, window: <span class="kw-2">&amp;</span><a href="../auto/window.rs.html#17-733">Window</a>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_class = <a href="#41">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkApplicationClass.html">ffi::GtkApplicationClass</a>;
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html#tymethod.type_data"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#41">data</a>.<a href="https://doc.rust-lang.org/nightly/core/ptr/non_null/struct.NonNull.html#method.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/struct.TypeData.html#method.parent_class">parent_class</a>() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkApplicationClass.html">ffi::GtkApplicationClass</a>;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#42">parent_class</a>).window_removed {
                 <a href="#43">f</a>(
-                    <a class="self" href="#39">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/application.rs.html#13-331">Application</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    <a href="#39">window</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a class="self" href="#39">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html#tymethod.obj">obj</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast_ref">unsafe_cast_ref</a>::&lt;<a href="../auto/application.rs.html#13-339">Application</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#39">window</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
                 )
             }
         }
@@ -248,12 +246,12 @@
 
 <span class="kw">impl</span>&lt;T: <a href="#10-18">GtkApplicationImpl</a>&gt; <a href="#25-51">GtkApplicationImplExt</a> <span class="kw">for </span>T {}
 
-<span class="kw">unsafe impl</span>&lt;T: <a href="#10-18">GtkApplicationImpl</a>&gt; IsSubclassable&lt;T&gt; <span class="kw">for </span><a href="../auto/application.rs.html#13-331">Application</a> {
+<span class="kw">unsafe impl</span>&lt;T: <a href="#10-18">GtkApplicationImpl</a>&gt; IsSubclassable&lt;T&gt; <span class="kw">for </span><a href="../auto/application.rs.html#13-339">Application</a> {
     <span class="kw">fn </span>class_init(class: <span class="kw-2">&amp;mut </span>::glib::Class&lt;<span class="self">Self</span>&gt;) {
         <span class="comment">// Override the original `GtkApplication` startup implementation so that
         // we can set GTK as initialized right afterwards.
         </span>{
-            <span class="kw">use </span>std::sync;
+            <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/std/sync/index.html">std::sync</a>;
 
             <span class="comment">// Needed because the function pointer is not `Send+Sync` otherwise but has to
             // be to be stored in a `static mut`.
@@ -261,25 +259,25 @@
             <span class="kw">unsafe impl </span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html">Send</a> <span class="kw">for </span><a href="#64">WrapFn</a> {}
             <span class="kw">unsafe impl </span><a href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html">Sync</a> <span class="kw">for </span><a href="#64">WrapFn</a> {}
 
-            <span class="kw">static </span>ONCE: <a href="https://doc.rust-lang.org/nightly/std/sync/once/struct.Once.html">sync::Once</a> = sync::Once::new();
+            <span class="kw">static </span>ONCE: <a href="https://doc.rust-lang.org/nightly/std/sync/once/struct.Once.html">sync::Once</a> = <a href="https://doc.rust-lang.org/nightly/std/sync/once/struct.Once.html#method.new">sync::Once::new</a>();
             <span class="kw">static </span><span class="kw-2">mut </span>OLD_STARTUP: <span class="prelude-ty">Option</span>&lt;<a href="#64">WrapFn</a>&gt; = <span class="prelude-val">None</span>;
 
             <span class="comment">// One the very first call replace the original `GtkApplication` startup with a
             // function that first calls the original one and then marks gtk-rs as
             // initialized.
-            </span><a href="#68">ONCE</a>.call_once(|| <span class="kw">unsafe </span>{
+            </span><a href="#68">ONCE</a>.<a href="https://doc.rust-lang.org/nightly/std/sync/once/struct.Once.html#method.call_once">call_once</a>(|| <span class="kw">unsafe </span>{
                 <span class="kw">let </span>base_klass =
-                    glib::gobject_ffi::g_type_class_ref(ffi::gtk_application_get_type());
+                    glib::gobject_ffi::g_type_class_ref(<a href="../../../gtk4_sys/fn.gtk_application_get_type.html">ffi::gtk_application_get_type</a>());
                 <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(!base_klass.is_null());
 
                 <span class="kw">let </span>app_klass = <span class="kw-2">&amp;mut *</span>(<a href="#75">base_klass</a> <span class="kw">as </span><span class="kw-2">*mut </span>gio::ffi::GApplicationClass);
-                <a href="#69">OLD_STARTUP</a> = <a href="#79">app_klass</a>.startup.map(<a href="#64">WrapFn</a>);
+                <a href="#69">OLD_STARTUP</a> = <a href="#79">app_klass</a>.startup.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map">map</a>(<a href="#64">WrapFn</a>);
 
                 <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>replace_startup(app: <span class="kw-2">*mut </span>gio::ffi::GApplication) {
                     <span class="kw">if let </span><span class="prelude-val">Some</span>(<a href="#64">WrapFn</a>(old_startup)) = <a href="#69">OLD_STARTUP</a> {
                         <a href="#83">old_startup</a>(<a href="#82">app</a>);
                     }
-                    <a href="../rt.rs.html#92-113"><span class="kw">crate</span>::rt::set_initialized</a>();
+                    <a href="../rt.rs.html#93-114"><span class="kw">crate</span>::rt::set_initialized</a>();
                 }
 
                 <a href="#79">app_klass</a>.startup = <span class="prelude-val">Some</span>(<a href="#82-87">replace_startup</a>);
@@ -290,7 +288,7 @@
 
         <span class="self">Self</span>::parent_class_init::&lt;T&gt;(<a href="#56">class</a>);
 
-        <span class="kw">let </span>klass = <a href="#56">class</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsMut.html">as_mut</a>();
+        <span class="kw">let </span>klass = <a href="#56">class</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsMut.html#tymethod.as_mut">as_mut</a>();
         <a href="#97">klass</a>.window_added = <span class="prelude-val">Some</span>(application_window_added::&lt;T&gt;);
         <a href="#97">klass</a>.window_removed = <span class="prelude-val">Some</span>(application_window_removed::&lt;T&gt;);
     }
@@ -301,9 +299,9 @@
     wptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkWindow.html">ffi::GtkWindow</a>,
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#104">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#107">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>imp = <a href="#107">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html#tymethod.imp">imp</a>();
 
-    <a href="#108">imp</a>.<a href="#11-13">window_added</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#105">wptr</a>))
+    <a href="#108">imp</a>.<a href="#11-13">window_added</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#105">wptr</a>))
 }
 
 <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>application_window_removed&lt;T: <a href="#10-18">GtkApplicationImpl</a>&gt;(
@@ -311,8 +309,8 @@
     wptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkWindow.html">ffi::GtkWindow</a>,
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#114">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#117">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>imp = <a href="#117">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html#tymethod.imp">imp</a>();
 
-    <a href="#118">imp</a>.<a href="#15-17">window_removed</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#115">wptr</a>))
+    <a href="#118">imp</a>.<a href="#15-17">window_removed</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#115">wptr</a>))
 }
 </code></pre></div></section></main></body></html>

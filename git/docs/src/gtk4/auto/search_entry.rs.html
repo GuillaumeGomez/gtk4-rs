@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/search_entry.rs`."><title>search_entry.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/search_entry.rs`."><title>search_entry.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.0-nightly (032af18af 2024-06-02)" data-channel="nightly" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,9 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1501,14 +1499,164 @@
 <a href="#1426" id="1426">1426</a>
 <a href="#1427" id="1427">1427</a>
 <a href="#1428" id="1428">1428</a>
+<a href="#1429" id="1429">1429</a>
+<a href="#1430" id="1430">1430</a>
+<a href="#1431" id="1431">1431</a>
+<a href="#1432" id="1432">1432</a>
+<a href="#1433" id="1433">1433</a>
+<a href="#1434" id="1434">1434</a>
+<a href="#1435" id="1435">1435</a>
+<a href="#1436" id="1436">1436</a>
+<a href="#1437" id="1437">1437</a>
+<a href="#1438" id="1438">1438</a>
+<a href="#1439" id="1439">1439</a>
+<a href="#1440" id="1440">1440</a>
+<a href="#1441" id="1441">1441</a>
+<a href="#1442" id="1442">1442</a>
+<a href="#1443" id="1443">1443</a>
+<a href="#1444" id="1444">1444</a>
+<a href="#1445" id="1445">1445</a>
+<a href="#1446" id="1446">1446</a>
+<a href="#1447" id="1447">1447</a>
+<a href="#1448" id="1448">1448</a>
+<a href="#1449" id="1449">1449</a>
+<a href="#1450" id="1450">1450</a>
+<a href="#1451" id="1451">1451</a>
+<a href="#1452" id="1452">1452</a>
+<a href="#1453" id="1453">1453</a>
+<a href="#1454" id="1454">1454</a>
+<a href="#1455" id="1455">1455</a>
+<a href="#1456" id="1456">1456</a>
+<a href="#1457" id="1457">1457</a>
+<a href="#1458" id="1458">1458</a>
+<a href="#1459" id="1459">1459</a>
+<a href="#1460" id="1460">1460</a>
+<a href="#1461" id="1461">1461</a>
+<a href="#1462" id="1462">1462</a>
+<a href="#1463" id="1463">1463</a>
+<a href="#1464" id="1464">1464</a>
+<a href="#1465" id="1465">1465</a>
+<a href="#1466" id="1466">1466</a>
+<a href="#1467" id="1467">1467</a>
+<a href="#1468" id="1468">1468</a>
+<a href="#1469" id="1469">1469</a>
+<a href="#1470" id="1470">1470</a>
+<a href="#1471" id="1471">1471</a>
+<a href="#1472" id="1472">1472</a>
+<a href="#1473" id="1473">1473</a>
+<a href="#1474" id="1474">1474</a>
+<a href="#1475" id="1475">1475</a>
+<a href="#1476" id="1476">1476</a>
+<a href="#1477" id="1477">1477</a>
+<a href="#1478" id="1478">1478</a>
+<a href="#1479" id="1479">1479</a>
+<a href="#1480" id="1480">1480</a>
+<a href="#1481" id="1481">1481</a>
+<a href="#1482" id="1482">1482</a>
+<a href="#1483" id="1483">1483</a>
+<a href="#1484" id="1484">1484</a>
+<a href="#1485" id="1485">1485</a>
+<a href="#1486" id="1486">1486</a>
+<a href="#1487" id="1487">1487</a>
+<a href="#1488" id="1488">1488</a>
+<a href="#1489" id="1489">1489</a>
+<a href="#1490" id="1490">1490</a>
+<a href="#1491" id="1491">1491</a>
+<a href="#1492" id="1492">1492</a>
+<a href="#1493" id="1493">1493</a>
+<a href="#1494" id="1494">1494</a>
+<a href="#1495" id="1495">1495</a>
+<a href="#1496" id="1496">1496</a>
+<a href="#1497" id="1497">1497</a>
+<a href="#1498" id="1498">1498</a>
+<a href="#1499" id="1499">1499</a>
+<a href="#1500" id="1500">1500</a>
+<a href="#1501" id="1501">1501</a>
+<a href="#1502" id="1502">1502</a>
+<a href="#1503" id="1503">1503</a>
+<a href="#1504" id="1504">1504</a>
+<a href="#1505" id="1505">1505</a>
+<a href="#1506" id="1506">1506</a>
+<a href="#1507" id="1507">1507</a>
+<a href="#1508" id="1508">1508</a>
+<a href="#1509" id="1509">1509</a>
+<a href="#1510" id="1510">1510</a>
+<a href="#1511" id="1511">1511</a>
+<a href="#1512" id="1512">1512</a>
+<a href="#1513" id="1513">1513</a>
+<a href="#1514" id="1514">1514</a>
+<a href="#1515" id="1515">1515</a>
+<a href="#1516" id="1516">1516</a>
+<a href="#1517" id="1517">1517</a>
+<a href="#1518" id="1518">1518</a>
+<a href="#1519" id="1519">1519</a>
+<a href="#1520" id="1520">1520</a>
+<a href="#1521" id="1521">1521</a>
+<a href="#1522" id="1522">1522</a>
+<a href="#1523" id="1523">1523</a>
+<a href="#1524" id="1524">1524</a>
+<a href="#1525" id="1525">1525</a>
+<a href="#1526" id="1526">1526</a>
+<a href="#1527" id="1527">1527</a>
+<a href="#1528" id="1528">1528</a>
+<a href="#1529" id="1529">1529</a>
+<a href="#1530" id="1530">1530</a>
+<a href="#1531" id="1531">1531</a>
+<a href="#1532" id="1532">1532</a>
+<a href="#1533" id="1533">1533</a>
+<a href="#1534" id="1534">1534</a>
+<a href="#1535" id="1535">1535</a>
+<a href="#1536" id="1536">1536</a>
+<a href="#1537" id="1537">1537</a>
+<a href="#1538" id="1538">1538</a>
+<a href="#1539" id="1539">1539</a>
+<a href="#1540" id="1540">1540</a>
+<a href="#1541" id="1541">1541</a>
+<a href="#1542" id="1542">1542</a>
+<a href="#1543" id="1543">1543</a>
+<a href="#1544" id="1544">1544</a>
+<a href="#1545" id="1545">1545</a>
+<a href="#1546" id="1546">1546</a>
+<a href="#1547" id="1547">1547</a>
+<a href="#1548" id="1548">1548</a>
+<a href="#1549" id="1549">1549</a>
+<a href="#1550" id="1550">1550</a>
+<a href="#1551" id="1551">1551</a>
+<a href="#1552" id="1552">1552</a>
+<a href="#1553" id="1553">1553</a>
+<a href="#1554" id="1554">1554</a>
+<a href="#1555" id="1555">1555</a>
+<a href="#1556" id="1556">1556</a>
+<a href="#1557" id="1557">1557</a>
+<a href="#1558" id="1558">1558</a>
+<a href="#1559" id="1559">1559</a>
+<a href="#1560" id="1560">1560</a>
+<a href="#1561" id="1561">1561</a>
+<a href="#1562" id="1562">1562</a>
+<a href="#1563" id="1563">1563</a>
+<a href="#1564" id="1564">1564</a>
+<a href="#1565" id="1565">1565</a>
+<a href="#1566" id="1566">1566</a>
+<a href="#1567" id="1567">1567</a>
+<a href="#1568" id="1568">1568</a>
+<a href="#1569" id="1569">1569</a>
+<a href="#1570" id="1570">1570</a>
+<a href="#1571" id="1571">1571</a>
+<a href="#1572" id="1572">1572</a>
+<a href="#1573" id="1573">1573</a>
+<a href="#1574" id="1574">1574</a>
+<a href="#1575" id="1575">1575</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
 </span><span class="kw">use crate</span>::{
-    <a href="accessible.rs.html#16-66">Accessible</a>, <a href="enums.rs.html#803-1098">AccessibleRole</a>, <a href="../enums.rs.html#77-107">Align</a>, <a href="buildable.rs.html#7-31">Buildable</a>, <a href="constraint_target.rs.html#7-22">ConstraintTarget</a>, <a href="editable.rs.html#16-676">Editable</a>, <a href="layout_manager.rs.html#8-71">LayoutManager</a>,
-    <a href="enums.rs.html#7388-7399">Overflow</a>, <a href="widget.rs.html#18-853">Widget</a>,
+    <a href="../../../gtk4_sys/index.html">ffi</a>, <a href="accessible.rs.html#19-69">Accessible</a>, <a href="enums.rs.html#933-1233">AccessibleRole</a>, <a href="../enums.rs.html#77-107">Align</a>, <a href="buildable.rs.html#8-32">Buildable</a>, <a href="constraint_target.rs.html#8-23">ConstraintTarget</a>, <a href="editable.rs.html#16-676">Editable</a>, <a href="layout_manager.rs.html#8-71">LayoutManager</a>,
+    <a href="enums.rs.html#7908-7919">Overflow</a>, <a href="widget.rs.html#18-853">Widget</a>,
 };
+<span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
+</span><span class="kw">use crate</span>::{<a href="flags.rs.html#849-908">InputHints</a>, <a href="enums.rs.html#6279-6315">InputPurpose</a>};
 <span class="kw">use </span>glib::{
     <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>,
     signal::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a>},
@@ -1516,7 +1664,7 @@
 };
 <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">std::boxed::Box</a> <span class="kw">as </span>Box_;
 
-<a class="macro" href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/macro.wrapper.html">glib::wrapper! </a>{
+<a class="macro" href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/macro.wrapper.html">glib::wrapper!</a> {
     <span class="doccomment">/// [`SearchEntry`][crate::SearchEntry] is an entry widget that has been tailored for use
     /// as a search entry.
     ///
@@ -1567,6 +1715,20 @@
     ///
     /// #### `activates-default`
     ///  Whether to activate the default widget when Enter is pressed.
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `input-hints`
+    ///  The hints about input for the [`SearchEntry`][crate::SearchEntry] used to alter the
+    /// behaviour of input methods.
+    ///
+    /// Readable | Writeable
+    ///
+    ///
+    /// #### `input-purpose`
+    ///  The purpose for the [`SearchEntry`][crate::SearchEntry] input used to alter the
+    /// behaviour of input methods.
     ///
     /// Readable | Writeable
     ///
@@ -2162,31 +2324,63 @@
     ///
     /// [`WidgetExt`][trait@crate::prelude::WidgetExt], [`trait@glib::ObjectExt`], [`AccessibleExt`][trait@crate::prelude::AccessibleExt], [`BuildableExt`][trait@crate::prelude::BuildableExt], [`ConstraintTargetExt`][trait@crate::prelude::ConstraintTargetExt], [`EditableExt`][trait@crate::prelude::EditableExt], [`WidgetExtManual`][trait@crate::prelude::WidgetExtManual], [`AccessibleExtManual`][trait@crate::prelude::AccessibleExtManual], [`EditableExtManual`][trait@crate::prelude::EditableExtManual]
     </span><span class="attr">#[doc(alias = <span class="string">"GtkSearchEntry"</span>)]
-    </span><span class="kw">pub struct </span><a href="../../../gtk4/struct.SearchEntry.html">SearchEntry</a>(Object&lt;<a href="../../../gtk4_sys/struct.GtkSearchEntry.html">ffi::GtkSearchEntry</a>&gt;) @extends <a href="widget.rs.html#18-853">Widget</a>, @implements <a href="accessible.rs.html#16-66">Accessible</a>, <a href="buildable.rs.html#7-31">Buildable</a>, <a href="constraint_target.rs.html#7-22">ConstraintTarget</a>, <a href="editable.rs.html#16-676">Editable</a>;
+    </span><span class="kw">pub struct </span><a href="../../../gtk4/struct.SearchEntry.html">SearchEntry</a>(Object&lt;<a href="../../../gtk4_sys/struct.GtkSearchEntry.html">ffi::GtkSearchEntry</a>&gt;) @extends <a href="widget.rs.html#18-853">Widget</a>, @implements <a href="accessible.rs.html#19-69">Accessible</a>, <a href="buildable.rs.html#8-32">Buildable</a>, <a href="constraint_target.rs.html#8-23">ConstraintTarget</a>, <a href="editable.rs.html#16-676">Editable</a>;
 
     <span class="kw">match fn </span>{
         type_ =&gt; || ffi::gtk_search_entry_get_type(),
     }
 }
 
-<span class="kw">impl </span><a href="#16-667">SearchEntry</a> {
+<span class="kw">impl </span><a href="#19-684">SearchEntry</a> {
     <span class="doccomment">/// Creates a [`SearchEntry`][crate::SearchEntry].
     ///
     /// # Returns
     ///
     /// a new [`SearchEntry`][crate::SearchEntry]
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_search_entry_new"</span>)]
-    </span><span class="kw">pub fn </span>new() -&gt; <a href="#16-667">SearchEntry</a> {
-        <a class="macro" href="../rt.rs.html#23-35">assert_initialized_main_thread!</a>();
-        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrNone.html">Widget::from_glib_none</a>(ffi::gtk_search_entry_new()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast</a>() }
+    </span><span class="kw">pub fn </span>new() -&gt; <a href="#19-684">SearchEntry</a> {
+        <a class="macro" href="../rt.rs.html#24-36">assert_initialized_main_thread!</a>();
+        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrNone.html#tymethod.from_glib_none">Widget::from_glib_none</a>(<a href="../../../gtk4_sys/fn.gtk_search_entry_new.html">ffi::gtk_search_entry_new</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast">unsafe_cast</a>() }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Creates a new builder-pattern struct instance to construct [`SearchEntry`] objects.
     ///
     /// This method returns an instance of [`SearchEntryBuilder`](crate::builders::SearchEntryBuilder) which can be used to create [`SearchEntry`] objects.
-    </span><span class="kw">pub fn </span>builder() -&gt; <a href="#1053-1055">SearchEntryBuilder</a> {
-        <a href="#1058-1062">SearchEntryBuilder::new</a>()
+    </span><span class="kw">pub fn </span>builder() -&gt; <a href="#1180-1182">SearchEntryBuilder</a> {
+        <a href="#1185-1189">SearchEntryBuilder::new</a>()
+    }
+
+    <span class="doccomment">/// Gets the input purpose for @self.
+    ///
+    /// # Returns
+    ///
+    /// The input hints
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
+    #[doc(alias = <span class="string">"gtk_search_entry_get_input_hints"</span>)]
+    #[doc(alias = <span class="string">"get_input_hints"</span>)]
+    #[doc(alias = <span class="string">"input-hints"</span>)]
+    </span><span class="kw">pub fn </span>input_hints(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="flags.rs.html#849-908">InputHints</a> {
+        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_search_entry_get_input_hints.html">ffi::gtk_search_entry_get_input_hints</a>(<a class="self" href="#716">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)) }
+    }
+
+    <span class="doccomment">/// Gets the input purpose of @self.
+    ///
+    /// # Returns
+    ///
+    /// The input hints
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
+    #[doc(alias = <span class="string">"gtk_search_entry_get_input_purpose"</span>)]
+    #[doc(alias = <span class="string">"get_input_purpose"</span>)]
+    #[doc(alias = <span class="string">"input-purpose"</span>)]
+    </span><span class="kw">pub fn </span>input_purpose(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#6279-6315">InputPurpose</a> {
+        <span class="kw">unsafe </span>{
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_search_entry_get_input_purpose.html">ffi::gtk_search_entry_get_input_purpose</a>(
+                <a class="self" href="#730">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+            ))
+        }
     }
 
     <span class="doccomment">/// Gets the widget that @self is capturing key events from.
@@ -2198,8 +2392,8 @@
     #[doc(alias = <span class="string">"get_key_capture_widget"</span>)]
     </span><span class="kw">pub fn </span>key_capture_widget(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="widget.rs.html#18-853">Widget</a>&gt; {
         <span class="kw">unsafe </span>{
-            from_glib_none(ffi::gtk_search_entry_get_key_capture_widget(
-                <a class="self" href="#696">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_none.html">from_glib_none</a>(<a href="../../../gtk4_sys/fn.gtk_search_entry_get_key_capture_widget.html">ffi::gtk_search_entry_get_key_capture_widget</a>(
+                <a class="self" href="#745">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -2214,8 +2408,35 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_8"</span>)))]
     #[doc(alias = <span class="string">"gtk_search_entry_get_search_delay"</span>)]
     #[doc(alias = <span class="string">"get_search_delay"</span>)]
+    #[doc(alias = <span class="string">"search-delay"</span>)]
     </span><span class="kw">pub fn </span>search_delay(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
-        <span class="kw">unsafe </span>{ ffi::gtk_search_entry_get_search_delay(<a class="self" href="#714">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
+        <span class="kw">unsafe </span>{ <a href="../../../gtk4_sys/fn.gtk_search_entry_get_search_delay.html">ffi::gtk_search_entry_get_search_delay</a>(<a class="self" href="#764">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>) }
+    }
+
+    <span class="doccomment">/// Sets the input hints for @self.
+    /// ## `hints`
+    /// the new input hints
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
+    #[doc(alias = <span class="string">"gtk_search_entry_set_input_hints"</span>)]
+    #[doc(alias = <span class="string">"input-hints"</span>)]
+    </span><span class="kw">pub fn </span>set_input_hints(<span class="kw-2">&amp;</span><span class="self">self</span>, hints: <a href="flags.rs.html#849-908">InputHints</a>) {
+        <span class="kw">unsafe </span>{
+            <a href="../../../gtk4_sys/fn.gtk_search_entry_set_input_hints.html">ffi::gtk_search_entry_set_input_hints</a>(<a class="self" href="#775">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>, <a href="#775">hints</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>());
+        }
+    }
+
+    <span class="doccomment">/// Sets the input purpose of @self.
+    /// ## `purpose`
+    /// the new input purpose
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
+    #[doc(alias = <span class="string">"gtk_search_entry_set_input_purpose"</span>)]
+    #[doc(alias = <span class="string">"input-purpose"</span>)]
+    </span><span class="kw">pub fn </span>set_input_purpose(<span class="kw-2">&amp;</span><span class="self">self</span>, purpose: <a href="enums.rs.html#6279-6315">InputPurpose</a>) {
+        <span class="kw">unsafe </span>{
+            <a href="../../../gtk4_sys/fn.gtk_search_entry_set_input_purpose.html">ffi::gtk_search_entry_set_input_purpose</a>(<a class="self" href="#788">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>, <a href="#788">purpose</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>());
+        }
     }
 
     <span class="doccomment">/// Sets @widget as the widget that @self will capture key
@@ -2240,9 +2461,9 @@
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_search_entry_set_key_capture_widget"</span>)]
     </span><span class="kw">pub fn </span>set_key_capture_widget(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="widget.rs.html#18-853">Widget</a>&gt;&gt;) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_search_entry_set_key_capture_widget(
-                <a class="self" href="#738">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#738">widget</a>.map(|p| <a href="#742">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <a href="../../../gtk4_sys/fn.gtk_search_entry_set_key_capture_widget.html">ffi::gtk_search_entry_set_key_capture_widget</a>(
+                <a class="self" href="#814">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#814">widget</a>.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map">map</a>(|p| <a href="#818">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             );
         }
     }
@@ -2254,36 +2475,37 @@
     </span><span class="attr">#[cfg(feature = <span class="string">"v4_8"</span>)]
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_8"</span>)))]
     #[doc(alias = <span class="string">"gtk_search_entry_set_search_delay"</span>)]
+    #[doc(alias = <span class="string">"search-delay"</span>)]
     </span><span class="kw">pub fn </span>set_search_delay(<span class="kw-2">&amp;</span><span class="self">self</span>, delay: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_search_entry_set_search_delay(<a class="self" href="#754">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>, <a href="#754">delay</a>);
+            <a href="../../../gtk4_sys/fn.gtk_search_entry_set_search_delay.html">ffi::gtk_search_entry_set_search_delay</a>(<a class="self" href="#831">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>, <a href="#831">delay</a>);
         }
     }
 
     <span class="doccomment">/// Whether to activate the default widget when Enter is pressed.
     </span><span class="attr">#[doc(alias = <span class="string">"activates-default"</span>)]
     </span><span class="kw">pub fn </span>activates_default(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#762">self</a>, <span class="string">"activates-default"</span>)
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.property">ObjectExt::property</a>(<a class="self" href="#839">self</a>, <span class="string">"activates-default"</span>)
     }
 
     <span class="doccomment">/// Whether to activate the default widget when Enter is pressed.
     </span><span class="attr">#[doc(alias = <span class="string">"activates-default"</span>)]
     </span><span class="kw">pub fn </span>set_activates_default(<span class="kw-2">&amp;</span><span class="self">self</span>, activates_default: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) {
-        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#768">self</a>, <span class="string">"activates-default"</span>, <a href="#768">activates_default</a>)
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.set_property">ObjectExt::set_property</a>(<a class="self" href="#845">self</a>, <span class="string">"activates-default"</span>, <a href="#845">activates_default</a>)
     }
 
     <span class="doccomment">/// The text that will be displayed in the [`SearchEntry`][crate::SearchEntry]
     /// when it is empty and unfocused.
     </span><span class="attr">#[doc(alias = <span class="string">"placeholder-text"</span>)]
     </span><span class="kw">pub fn </span>placeholder_text(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt; {
-        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#775">self</a>, <span class="string">"placeholder-text"</span>)
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.property">ObjectExt::property</a>(<a class="self" href="#852">self</a>, <span class="string">"placeholder-text"</span>)
     }
 
     <span class="doccomment">/// The text that will be displayed in the [`SearchEntry`][crate::SearchEntry]
     /// when it is empty and unfocused.
     </span><span class="attr">#[doc(alias = <span class="string">"placeholder-text"</span>)]
     </span><span class="kw">pub fn </span>set_placeholder_text(<span class="kw-2">&amp;</span><span class="self">self</span>, placeholder_text: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;) {
-        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#782">self</a>, <span class="string">"placeholder-text"</span>, <a href="#782">placeholder_text</a>)
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.set_property">ObjectExt::set_property</a>(<a class="self" href="#859">self</a>, <span class="string">"placeholder-text"</span>, <a href="#859">placeholder_text</a>)
     }
 
     <span class="doccomment">/// Emitted when the entry is activated.
@@ -2291,28 +2513,28 @@
     /// The keybindings for this signal are all forms of the Enter key.
     </span><span class="attr">#[doc(alias = <span class="string">"activate"</span>)]
     </span><span class="kw">pub fn </span>connect_activate&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>activate_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#16-667">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>activate_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#19-684">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkSearchEntry.html">ffi::GtkSearchEntry</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#793">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#795">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#792">this</a>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#870">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#872">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#869">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#790">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#867">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#790">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"activate\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#867">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"activate\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     activate_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#799">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#876">f</a>),
             )
         }
     }
 
     <span class="kw">pub fn </span>emit_activate(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <a class="self" href="#811">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"activate"</span>, <span class="kw-2">&amp;</span>[]);
+        <a class="self" href="#888">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.emit_by_name">emit_by_name</a>::&lt;()&gt;(<span class="string">"activate"</span>, <span class="kw-2">&amp;</span>[]);
     }
 
     <span class="doccomment">/// Emitted when the user initiates a move to the next match
@@ -2326,28 +2548,28 @@
     /// The default bindings for this signal is Ctrl-g.
     </span><span class="attr">#[doc(alias = <span class="string">"next-match"</span>)]
     </span><span class="kw">pub fn </span>connect_next_match&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>next_match_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#16-667">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>next_match_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#19-684">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkSearchEntry.html">ffi::GtkSearchEntry</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#828">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#830">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#827">this</a>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#905">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#907">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#904">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#825">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#902">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#825">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"next-match\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#902">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"next-match\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     next_match_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#834">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#911">f</a>),
             )
         }
     }
 
     <span class="kw">pub fn </span>emit_next_match(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <a class="self" href="#846">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"next-match"</span>, <span class="kw-2">&amp;</span>[]);
+        <a class="self" href="#923">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.emit_by_name">emit_by_name</a>::&lt;()&gt;(<span class="string">"next-match"</span>, <span class="kw-2">&amp;</span>[]);
     }
 
     <span class="doccomment">/// Emitted when the user initiates a move to the previous match
@@ -2361,28 +2583,28 @@
     /// The default bindings for this signal is Ctrl-Shift-g.
     </span><span class="attr">#[doc(alias = <span class="string">"previous-match"</span>)]
     </span><span class="kw">pub fn </span>connect_previous_match&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>previous_match_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#16-667">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>previous_match_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#19-684">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkSearchEntry.html">ffi::GtkSearchEntry</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#863">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#865">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#862">this</a>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#940">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#942">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#939">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#860">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#937">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#860">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"previous-match\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#937">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"previous-match\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     previous_match_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#869">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#946">f</a>),
             )
         }
     }
 
     <span class="kw">pub fn </span>emit_previous_match(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <a class="self" href="#881">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"previous-match"</span>, <span class="kw-2">&amp;</span>[]);
+        <a class="self" href="#958">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.emit_by_name">emit_by_name</a>::&lt;()&gt;(<span class="string">"previous-match"</span>, <span class="kw-2">&amp;</span>[]);
     }
 
     <span class="doccomment">/// Emitted with a delay. The length of the delay can be
@@ -2390,22 +2612,22 @@
     /// property.
     </span><span class="attr">#[doc(alias = <span class="string">"search-changed"</span>)]
     </span><span class="kw">pub fn </span>connect_search_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>search_changed_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#16-667">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>search_changed_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#19-684">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkSearchEntry.html">ffi::GtkSearchEntry</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#892">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#894">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#891">this</a>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#969">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#971">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#968">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#889">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#966">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#889">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"search-changed\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#966">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"search-changed\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     search_changed_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#898">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#975">f</a>),
             )
         }
     }
@@ -2413,22 +2635,22 @@
     <span class="doccomment">/// Emitted when the user initiated a search on the entry.
     </span><span class="attr">#[doc(alias = <span class="string">"search-started"</span>)]
     </span><span class="kw">pub fn </span>connect_search_started&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>search_started_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#16-667">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>search_started_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#19-684">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkSearchEntry.html">ffi::GtkSearchEntry</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#915">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#917">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#914">this</a>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#992">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#994">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#991">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#912">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#989">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#912">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"search-started\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#989">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"search-started\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     search_started_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#921">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#998">f</a>),
             )
         }
     }
@@ -2443,28 +2665,28 @@
     /// The default bindings for this signal is Escape.
     </span><span class="attr">#[doc(alias = <span class="string">"stop-search"</span>)]
     </span><span class="kw">pub fn </span>connect_stop_search&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>stop_search_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#16-667">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>stop_search_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#19-684">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkSearchEntry.html">ffi::GtkSearchEntry</a>,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#945">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#947">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#944">this</a>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1022">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1024">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#1021">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#942">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#1019">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#942">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"stop-search\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#1019">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"stop-search\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     stop_search_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#951">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#1028">f</a>),
             )
         }
     }
 
     <span class="kw">pub fn </span>emit_stop_search(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <a class="self" href="#963">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">emit_by_name</a>::&lt;()&gt;(<span class="string">"stop-search"</span>, <span class="kw-2">&amp;</span>[]);
+        <a class="self" href="#1040">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.emit_by_name">emit_by_name</a>::&lt;()&gt;(<span class="string">"stop-search"</span>, <span class="kw-2">&amp;</span>[]);
     }
 
     <span class="attr">#[doc(alias = <span class="string">"activates-default"</span>)]
@@ -2472,46 +2694,96 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_activates_default_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#16-667">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_activates_default_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#19-684">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkSearchEntry.html">ffi::GtkSearchEntry</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#975">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#977">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#973">this</a>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1052">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1054">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#1050">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#970">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#1047">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#969">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"notify::activates-default\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#1046">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::activates-default\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_activates_default_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#981">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#1058">f</a>),
+            )
+        }
+    }
+
+    <span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
+    #[doc(alias = <span class="string">"input-hints"</span>)]
+    </span><span class="kw">pub fn </span>connect_input_hints_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_input_hints_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#19-684">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkSearchEntry.html">ffi::GtkSearchEntry</a>,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
+        ) {
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1077">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1079">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#1075">this</a>))
+        }
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#1073">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#1073">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::input-hints\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                    notify_input_hints_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
+                )),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#1083">f</a>),
+            )
+        }
+    }
+
+    <span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
+    #[doc(alias = <span class="string">"input-purpose"</span>)]
+    </span><span class="kw">pub fn </span>connect_input_purpose_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_input_purpose_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#19-684">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
+            this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkSearchEntry.html">ffi::GtkSearchEntry</a>,
+            _param_spec: glib::ffi::gpointer,
+            f: glib::ffi::gpointer,
+        ) {
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1102">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1104">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#1100">this</a>))
+        }
+        <span class="kw">unsafe </span>{
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#1098">f</a>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
+                <a class="self" href="#1098">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::input-purpose\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                    notify_input_purpose_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
+                )),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#1108">f</a>),
             )
         }
     }
 
     <span class="attr">#[doc(alias = <span class="string">"placeholder-text"</span>)]
     </span><span class="kw">pub fn </span>connect_placeholder_text_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_placeholder_text_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#16-667">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_placeholder_text_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#19-684">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkSearchEntry.html">ffi::GtkSearchEntry</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#998">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1000">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#996">this</a>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1125">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1127">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#1123">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#994">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#1121">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#994">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"notify::placeholder-text\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#1121">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::placeholder-text\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_placeholder_text_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#1004">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#1131">f</a>),
             )
         }
     }
@@ -2520,31 +2792,31 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_8"</span>)))]
     #[doc(alias = <span class="string">"search-delay"</span>)]
     </span><span class="kw">pub fn </span>connect_search_delay_notify&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
-        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_search_delay_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#16-667">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>notify_search_delay_trampoline&lt;F: Fn(<span class="kw-2">&amp;</span><a href="#19-684">SearchEntry</a>) + <span class="lifetime">'static</span>&gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkSearchEntry.html">ffi::GtkSearchEntry</a>,
             _param_spec: glib::ffi::gpointer,
             f: glib::ffi::gpointer,
         ) {
-            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1023">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#1025">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#1021">this</a>))
+            <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1150">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
+            <a href="#1152">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#1148">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#1019">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#1146">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#1019">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"notify::search-delay\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#1146">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::search-delay\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_search_delay_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#1029">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#1156">f</a>),
             )
         }
     }
 }
 
-<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default</a> <span class="kw">for </span><a href="#16-667">SearchEntry</a> {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html">Default</a> <span class="kw">for </span><a href="#19-684">SearchEntry</a> {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
-        <a href="#676-679"><span class="self">Self</span>::new</a>()
+        <a href="#693-696"><span class="self">Self</span>::new</a>()
     }
 }
 
@@ -2554,22 +2826,42 @@
 /// [builder-pattern]: https://doc.rust-lang.org/1.0.0/style/ownership/builders.html
 </span><span class="attr">#[must_use = <span class="string">"The builder must be built to be used"</span>]
 </span><span class="kw">pub struct </span><a href="../../../gtk4/builders/struct.SearchEntryBuilder.html">SearchEntryBuilder</a> {
-    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">'static</span>, <a href="#16-667">SearchEntry</a>&gt;,
+    builder: glib::object::ObjectBuilder&lt;<span class="lifetime">'static</span>, <a href="#19-684">SearchEntry</a>&gt;,
 }
 
-<span class="kw">impl </span><a href="#1053-1055">SearchEntryBuilder</a> {
+<span class="kw">impl </span><a href="#1180-1182">SearchEntryBuilder</a> {
     <span class="kw">fn </span>new() -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: glib::object::Object::builder(),
+            builder: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.Object.html#method.builder">glib::object::Object::builder</a>(),
         }
     }
 
     <span class="doccomment">/// Whether to activate the default widget when Enter is pressed.
     </span><span class="kw">pub fn </span>activates_default(<span class="self">self</span>, activates_default: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self"><a href="#1065">self</a>
+            builder: <span class="self"><a href="#1192">self</a>
                 </span>.builder
-                .property(<span class="string">"activates-default"</span>, <a href="#1065">activates_default</a>),
+                .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"activates-default"</span>, <a href="#1192">activates_default</a>),
+        }
+    }
+
+    <span class="doccomment">/// The hints about input for the [`SearchEntry`][crate::SearchEntry] used to alter the
+    /// behaviour of input methods.
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
+    </span><span class="kw">pub fn </span>input_hints(<span class="self">self</span>, input_hints: <a href="flags.rs.html#849-908">InputHints</a>) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <a class="self" href="#1204">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"input-hints"</span>, <a href="#1204">input_hints</a>),
+        }
+    }
+
+    <span class="doccomment">/// The purpose for the [`SearchEntry`][crate::SearchEntry] input used to alter the
+    /// behaviour of input methods.
+    </span><span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
+    #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
+    </span><span class="kw">pub fn </span>input_purpose(<span class="self">self</span>, input_purpose: <a href="enums.rs.html#6279-6315">InputPurpose</a>) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            builder: <a class="self" href="#1214">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"input-purpose"</span>, <a href="#1214">input_purpose</a>),
         }
     }
 
@@ -2577,9 +2869,9 @@
     /// when it is empty and unfocused.
     </span><span class="kw">pub fn </span>placeholder_text(<span class="self">self</span>, placeholder_text: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self"><a href="#1075">self</a>
+            builder: <span class="self"><a href="#1222">self</a>
                 </span>.builder
-                .property(<span class="string">"placeholder-text"</span>, <a href="#1075">placeholder_text</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+                .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"placeholder-text"</span>, <a href="#1222">placeholder_text</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
@@ -2589,7 +2881,7 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_8"</span>)))]
     </span><span class="kw">pub fn </span>search_delay(<span class="self">self</span>, search_delay: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1087">self</a>.builder.property(<span class="string">"search-delay"</span>, <a href="#1087">search_delay</a>),
+            builder: <a class="self" href="#1234">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"search-delay"</span>, <a href="#1234">search_delay</a>),
         }
     }
 
@@ -2600,21 +2892,21 @@
     /// typically in their instance init function.
     </span><span class="kw">pub fn </span>can_focus(<span class="self">self</span>, can_focus: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1098">self</a>.builder.property(<span class="string">"can-focus"</span>, <a href="#1098">can_focus</a>),
+            builder: <a class="self" href="#1245">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"can-focus"</span>, <a href="#1245">can_focus</a>),
         }
     }
 
     <span class="doccomment">/// Whether the widget can receive pointer events.
     </span><span class="kw">pub fn </span>can_target(<span class="self">self</span>, can_target: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1105">self</a>.builder.property(<span class="string">"can-target"</span>, <a href="#1105">can_target</a>),
+            builder: <a class="self" href="#1252">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"can-target"</span>, <a href="#1252">can_target</a>),
         }
     }
 
     <span class="doccomment">/// A list of css classes applied to this widget.
     </span><span class="kw">pub fn </span>css_classes(<span class="self">self</span>, css_classes: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/collections/strv/struct.StrV.html">glib::StrV</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1112">self</a>.builder.property(<span class="string">"css-classes"</span>, <a href="#1112">css_classes</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+            builder: <a class="self" href="#1259">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"css-classes"</span>, <a href="#1259">css_classes</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
@@ -2624,14 +2916,14 @@
     /// typically in their instance init function.
     </span><span class="kw">pub fn </span>css_name(<span class="self">self</span>, css_name: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1122">self</a>.builder.property(<span class="string">"css-name"</span>, <a href="#1122">css_name</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+            builder: <a class="self" href="#1269">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"css-name"</span>, <a href="#1269">css_name</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
     <span class="doccomment">/// The cursor used by @widget.
     </span><span class="kw">pub fn </span>cursor(<span class="self">self</span>, cursor: <span class="kw-2">&amp;</span><a href="../../../gdk4/auto/cursor/struct.Cursor.html">gdk::Cursor</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1129">self</a>.builder.property(<span class="string">"cursor"</span>, <a href="#1129">cursor</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>()),
+            builder: <a class="self" href="#1276">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"cursor"</span>, <a href="#1276">cursor</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>()),
         }
     }
 
@@ -2640,21 +2932,21 @@
     /// This property is only relevant for widgets that can take focus.
     </span><span class="kw">pub fn </span>focus_on_click(<span class="self">self</span>, focus_on_click: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1138">self</a>.builder.property(<span class="string">"focus-on-click"</span>, <a href="#1138">focus_on_click</a>),
+            builder: <a class="self" href="#1285">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"focus-on-click"</span>, <a href="#1285">focus_on_click</a>),
         }
     }
 
     <span class="doccomment">/// Whether this widget itself will accept the input focus.
     </span><span class="kw">pub fn </span>focusable(<span class="self">self</span>, focusable: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1145">self</a>.builder.property(<span class="string">"focusable"</span>, <a href="#1145">focusable</a>),
+            builder: <a class="self" href="#1292">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"focusable"</span>, <a href="#1292">focusable</a>),
         }
     }
 
     <span class="doccomment">/// How to distribute horizontal space if widget gets extra space.
     </span><span class="kw">pub fn </span>halign(<span class="self">self</span>, halign: <a href="../enums.rs.html#77-107">Align</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1152">self</a>.builder.property(<span class="string">"halign"</span>, <a href="#1152">halign</a>),
+            builder: <a class="self" href="#1299">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"halign"</span>, <a href="#1299">halign</a>),
         }
     }
 
@@ -2665,7 +2957,7 @@
     /// determine whether it will provide a tooltip or not.
     </span><span class="kw">pub fn </span>has_tooltip(<span class="self">self</span>, has_tooltip: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1163">self</a>.builder.property(<span class="string">"has-tooltip"</span>, <a href="#1163">has_tooltip</a>),
+            builder: <a class="self" href="#1310">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"has-tooltip"</span>, <a href="#1310">has_tooltip</a>),
         }
     }
 
@@ -2674,21 +2966,21 @@
     /// If this is -1, the natural request will be used.
     </span><span class="kw">pub fn </span>height_request(<span class="self">self</span>, height_request: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1172">self</a>.builder.property(<span class="string">"height-request"</span>, <a href="#1172">height_request</a>),
+            builder: <a class="self" href="#1319">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"height-request"</span>, <a href="#1319">height_request</a>),
         }
     }
 
     <span class="doccomment">/// Whether to expand horizontally.
     </span><span class="kw">pub fn </span>hexpand(<span class="self">self</span>, hexpand: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1179">self</a>.builder.property(<span class="string">"hexpand"</span>, <a href="#1179">hexpand</a>),
+            builder: <a class="self" href="#1326">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"hexpand"</span>, <a href="#1326">hexpand</a>),
         }
     }
 
     <span class="doccomment">/// Whether to use the `hexpand` property.
     </span><span class="kw">pub fn </span>hexpand_set(<span class="self">self</span>, hexpand_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1186">self</a>.builder.property(<span class="string">"hexpand-set"</span>, <a href="#1186">hexpand_set</a>),
+            builder: <a class="self" href="#1333">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"hexpand-set"</span>, <a href="#1333">hexpand_set</a>),
         }
     }
 
@@ -2699,9 +2991,9 @@
     /// typically in their instance init function.
     </span><span class="kw">pub fn </span>layout_manager(<span class="self">self</span>, layout_manager: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="layout_manager.rs.html#8-71">LayoutManager</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self"><a href="#1197">self</a>
+            builder: <span class="self"><a href="#1344">self</a>
                 </span>.builder
-                .property(<span class="string">"layout-manager"</span>, <a href="#1197">layout_manager</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">upcast</a>()),
+                .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"layout-manager"</span>, <a href="#1344">layout_manager</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.upcast">upcast</a>()),
         }
     }
 
@@ -2712,7 +3004,7 @@
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
     </span><span class="kw">pub fn </span>margin_bottom(<span class="self">self</span>, margin_bottom: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1210">self</a>.builder.property(<span class="string">"margin-bottom"</span>, <a href="#1210">margin_bottom</a>),
+            builder: <a class="self" href="#1357">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"margin-bottom"</span>, <a href="#1357">margin_bottom</a>),
         }
     }
 
@@ -2726,7 +3018,7 @@
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
     </span><span class="kw">pub fn </span>margin_end(<span class="self">self</span>, margin_end: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1224">self</a>.builder.property(<span class="string">"margin-end"</span>, <a href="#1224">margin_end</a>),
+            builder: <a class="self" href="#1371">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"margin-end"</span>, <a href="#1371">margin_end</a>),
         }
     }
 
@@ -2740,7 +3032,7 @@
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
     </span><span class="kw">pub fn </span>margin_start(<span class="self">self</span>, margin_start: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1238">self</a>.builder.property(<span class="string">"margin-start"</span>, <a href="#1238">margin_start</a>),
+            builder: <a class="self" href="#1385">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"margin-start"</span>, <a href="#1385">margin_start</a>),
         }
     }
 
@@ -2751,21 +3043,21 @@
     /// [`WidgetExt::set_size_request()`][crate::prelude::WidgetExt::set_size_request()] for example.
     </span><span class="kw">pub fn </span>margin_top(<span class="self">self</span>, margin_top: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1249">self</a>.builder.property(<span class="string">"margin-top"</span>, <a href="#1249">margin_top</a>),
+            builder: <a class="self" href="#1396">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"margin-top"</span>, <a href="#1396">margin_top</a>),
         }
     }
 
     <span class="doccomment">/// The name of the widget.
     </span><span class="kw">pub fn </span>name(<span class="self">self</span>, name: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1256">self</a>.builder.property(<span class="string">"name"</span>, <a href="#1256">name</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+            builder: <a class="self" href="#1403">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"name"</span>, <a href="#1403">name</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
     <span class="doccomment">/// The requested opacity of the widget.
     </span><span class="kw">pub fn </span>opacity(<span class="self">self</span>, opacity: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1263">self</a>.builder.property(<span class="string">"opacity"</span>, <a href="#1263">opacity</a>),
+            builder: <a class="self" href="#1410">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"opacity"</span>, <a href="#1410">opacity</a>),
         }
     }
 
@@ -2773,23 +3065,23 @@
     ///
     /// This property is meant to be set by widget implementations,
     /// typically in their instance init function.
-    </span><span class="kw">pub fn </span>overflow(<span class="self">self</span>, overflow: <a href="enums.rs.html#7388-7399">Overflow</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>overflow(<span class="self">self</span>, overflow: <a href="enums.rs.html#7908-7919">Overflow</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1273">self</a>.builder.property(<span class="string">"overflow"</span>, <a href="#1273">overflow</a>),
+            builder: <a class="self" href="#1420">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"overflow"</span>, <a href="#1420">overflow</a>),
         }
     }
 
     <span class="doccomment">/// Whether the widget will receive the default action when it is focused.
     </span><span class="kw">pub fn </span>receives_default(<span class="self">self</span>, receives_default: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1280">self</a>.builder.property(<span class="string">"receives-default"</span>, <a href="#1280">receives_default</a>),
+            builder: <a class="self" href="#1427">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"receives-default"</span>, <a href="#1427">receives_default</a>),
         }
     }
 
     <span class="doccomment">/// Whether the widget responds to input.
     </span><span class="kw">pub fn </span>sensitive(<span class="self">self</span>, sensitive: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1287">self</a>.builder.property(<span class="string">"sensitive"</span>, <a href="#1287">sensitive</a>),
+            builder: <a class="self" href="#1434">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"sensitive"</span>, <a href="#1434">sensitive</a>),
         }
     }
 
@@ -2808,9 +3100,9 @@
     /// [`tooltip-markup`][struct@crate::Widget#tooltip-markup] are set, the last one wins.
     </span><span class="kw">pub fn </span>tooltip_markup(<span class="self">self</span>, tooltip_markup: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <span class="self"><a href="#1306">self</a>
+            builder: <span class="self"><a href="#1453">self</a>
                 </span>.builder
-                .property(<span class="string">"tooltip-markup"</span>, <a href="#1306">tooltip_markup</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+                .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"tooltip-markup"</span>, <a href="#1453">tooltip_markup</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
@@ -2828,35 +3120,35 @@
     /// [`tooltip-markup`][struct@crate::Widget#tooltip-markup] are set, the last one wins.
     </span><span class="kw">pub fn </span>tooltip_text(<span class="self">self</span>, tooltip_text: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1326">self</a>.builder.property(<span class="string">"tooltip-text"</span>, <a href="#1326">tooltip_text</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+            builder: <a class="self" href="#1473">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"tooltip-text"</span>, <a href="#1473">tooltip_text</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
     <span class="doccomment">/// How to distribute vertical space if widget gets extra space.
     </span><span class="kw">pub fn </span>valign(<span class="self">self</span>, valign: <a href="../enums.rs.html#77-107">Align</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1333">self</a>.builder.property(<span class="string">"valign"</span>, <a href="#1333">valign</a>),
+            builder: <a class="self" href="#1480">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"valign"</span>, <a href="#1480">valign</a>),
         }
     }
 
     <span class="doccomment">/// Whether to expand vertically.
     </span><span class="kw">pub fn </span>vexpand(<span class="self">self</span>, vexpand: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1340">self</a>.builder.property(<span class="string">"vexpand"</span>, <a href="#1340">vexpand</a>),
+            builder: <a class="self" href="#1487">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"vexpand"</span>, <a href="#1487">vexpand</a>),
         }
     }
 
     <span class="doccomment">/// Whether to use the `vexpand` property.
     </span><span class="kw">pub fn </span>vexpand_set(<span class="self">self</span>, vexpand_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1347">self</a>.builder.property(<span class="string">"vexpand-set"</span>, <a href="#1347">vexpand_set</a>),
+            builder: <a class="self" href="#1494">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"vexpand-set"</span>, <a href="#1494">vexpand_set</a>),
         }
     }
 
     <span class="doccomment">/// Whether the widget is visible.
     </span><span class="kw">pub fn </span>visible(<span class="self">self</span>, visible: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1354">self</a>.builder.property(<span class="string">"visible"</span>, <a href="#1354">visible</a>),
+            builder: <a class="self" href="#1501">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"visible"</span>, <a href="#1501">visible</a>),
         }
     }
 
@@ -2865,51 +3157,51 @@
     /// If this is -1, the natural request will be used.
     </span><span class="kw">pub fn </span>width_request(<span class="self">self</span>, width_request: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1363">self</a>.builder.property(<span class="string">"width-request"</span>, <a href="#1363">width_request</a>),
+            builder: <a class="self" href="#1510">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"width-request"</span>, <a href="#1510">width_request</a>),
         }
     }
 
     <span class="doccomment">/// The accessible role of the given [`Accessible`][crate::Accessible] implementation.
     ///
     /// The accessible role cannot be changed once set.
-    </span><span class="kw">pub fn </span>accessible_role(<span class="self">self</span>, accessible_role: <a href="enums.rs.html#803-1098">AccessibleRole</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>accessible_role(<span class="self">self</span>, accessible_role: <a href="enums.rs.html#933-1233">AccessibleRole</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1372">self</a>.builder.property(<span class="string">"accessible-role"</span>, <a href="#1372">accessible_role</a>),
+            builder: <a class="self" href="#1519">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"accessible-role"</span>, <a href="#1519">accessible_role</a>),
         }
     }
 
     <span class="doccomment">/// Whether the entry contents can be edited.
     </span><span class="kw">pub fn </span>editable(<span class="self">self</span>, editable: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1379">self</a>.builder.property(<span class="string">"editable"</span>, <a href="#1379">editable</a>),
+            builder: <a class="self" href="#1526">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"editable"</span>, <a href="#1526">editable</a>),
         }
     }
 
     <span class="doccomment">/// If undo/redo should be enabled for the editable.
     </span><span class="kw">pub fn </span>enable_undo(<span class="self">self</span>, enable_undo: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1386">self</a>.builder.property(<span class="string">"enable-undo"</span>, <a href="#1386">enable_undo</a>),
+            builder: <a class="self" href="#1533">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"enable-undo"</span>, <a href="#1533">enable_undo</a>),
         }
     }
 
     <span class="doccomment">/// The desired maximum width of the entry, in characters.
     </span><span class="kw">pub fn </span>max_width_chars(<span class="self">self</span>, max_width_chars: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1393">self</a>.builder.property(<span class="string">"max-width-chars"</span>, <a href="#1393">max_width_chars</a>),
+            builder: <a class="self" href="#1540">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"max-width-chars"</span>, <a href="#1540">max_width_chars</a>),
         }
     }
 
     <span class="doccomment">/// The contents of the entry.
     </span><span class="kw">pub fn </span>text(<span class="self">self</span>, text: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1400">self</a>.builder.property(<span class="string">"text"</span>, <a href="#1400">text</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+            builder: <a class="self" href="#1547">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"text"</span>, <a href="#1547">text</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
     <span class="doccomment">/// Number of characters to leave space for in the entry.
     </span><span class="kw">pub fn </span>width_chars(<span class="self">self</span>, width_chars: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1407">self</a>.builder.property(<span class="string">"width-chars"</span>, <a href="#1407">width_chars</a>),
+            builder: <a class="self" href="#1554">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"width-chars"</span>, <a href="#1554">width_chars</a>),
         }
     }
 
@@ -2918,15 +3210,15 @@
     /// Reversed for RTL layouts.
     </span><span class="kw">pub fn </span>xalign(<span class="self">self</span>, xalign: <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#1416">self</a>.builder.property(<span class="string">"xalign"</span>, <a href="#1416">xalign</a>),
+            builder: <a class="self" href="#1563">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"xalign"</span>, <a href="#1563">xalign</a>),
         }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
     </span><span class="doccomment">/// Build the [`SearchEntry`].
     </span><span class="attr">#[must_use = <span class="string">"Building the object from the builder is usually expensive and is not expected to have side effects"</span>]
-    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; <a href="#16-667">SearchEntry</a> {
-        <a class="self" href="#1425">self</a>.builder.build()
+    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; <a href="#19-684">SearchEntry</a> {
+        <a class="self" href="#1572">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.build">build</a>()
     }
 }
 </code></pre></div></section></main></body></html>

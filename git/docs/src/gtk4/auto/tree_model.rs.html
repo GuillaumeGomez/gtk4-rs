@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/tree_model.rs`."><title>tree_model.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/tree_model.rs`."><title>tree_model.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.0-nightly (032af18af 2024-06-02)" data-channel="nightly" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,9 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1113,7 +1111,7 @@
 // DO NOT EDIT
 </span><span class="attr">#![allow(deprecated)]
 
-</span><span class="kw">use crate</span>::{<a href="tree_iter.rs.html#7-24">TreeIter</a>, <a href="flags.rs.html#1848-1871">TreeModelFlags</a>, <a href="tree_path.rs.html#7-20">TreePath</a>};
+</span><span class="kw">use crate</span>::{<a href="../../../gtk4_sys/index.html">ffi</a>, <a href="tree_iter.rs.html#8-25">TreeIter</a>, <a href="flags.rs.html#1837-1860">TreeModelFlags</a>, <a href="tree_path.rs.html#8-21">TreePath</a>};
 <span class="kw">use </span>glib::{
     <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>,
     signal::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a>},
@@ -1121,7 +1119,7 @@
 };
 <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">std::boxed::Box</a> <span class="kw">as </span>Box_;
 
-<a class="macro" href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/macro.wrapper.html">glib::wrapper! </a>{
+<a class="macro" href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/macro.wrapper.html">glib::wrapper!</a> {
     <span class="doccomment">/// Use [`gio::ListModel`][crate::gio::ListModel] instead
     /// The tree interface used by GtkTreeView
     ///
@@ -1412,25 +1410,25 @@
     </span><span class="attr">#[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_foreach"</span>)]
-    </span><span class="kw">fn </span>foreach&lt;P: FnMut(<span class="kw-2">&amp;</span><a href="#14-276">TreeModel</a>, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, func: P) {
+    </span><span class="kw">fn </span>foreach&lt;P: FnMut(<span class="kw-2">&amp;</span><a href="#14-276">TreeModel</a>, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, func: P) {
         <span class="kw">let </span>func_data: P = <a href="#305">func</a>;
-        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>func_func&lt;P: FnMut(<span class="kw-2">&amp;</span><a href="#14-276">TreeModel</a>, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;(
+        <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>func_func&lt;P: FnMut(<span class="kw-2">&amp;</span><a href="#14-276">TreeModel</a>, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;(
             model: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTreeModel.html">ffi::GtkTreeModel</a>,
             path: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTreePath.html">ffi::GtkTreePath</a>,
             iter: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTreeIter.html">ffi::GtkTreeIter</a>,
             data: glib::ffi::gpointer,
         ) -&gt; glib::ffi::gboolean {
-            <span class="kw">let </span>model = from_glib_borrow(<a href="#308">model</a>);
-            <span class="kw">let </span>path = from_glib_borrow(<a href="#309">path</a>);
-            <span class="kw">let </span>iter = from_glib_borrow(<a href="#310">iter</a>);
+            <span class="kw">let </span>model = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#308">model</a>);
+            <span class="kw">let </span>path = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#309">path</a>);
+            <span class="kw">let </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#310">iter</a>);
             <span class="kw">let </span>callback = <a href="#311">data</a> <span class="kw">as </span><span class="kw-2">*mut </span>P;
-            (<span class="kw-2">*</span><a href="#316">callback</a>)(<span class="kw-2">&amp;</span><a href="#313">model</a>, <span class="kw-2">&amp;</span><a href="#314">path</a>, <span class="kw-2">&amp;</span><a href="#315">iter</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>()
+            (<span class="kw-2">*</span><a href="#316">callback</a>)(<span class="kw-2">&amp;</span><a href="#313">model</a>, <span class="kw-2">&amp;</span><a href="#314">path</a>, <span class="kw-2">&amp;</span><a href="#315">iter</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>()
         }
         <span class="kw">let </span>func = <span class="prelude-val">Some</span>(func_func::&lt;P&gt; <span class="kw">as _</span>);
         <span class="kw">let </span>super_callback0: <span class="kw-2">&amp;</span>P = <span class="kw-2">&amp;</span><a href="#306">func_data</a>;
         <span class="kw">unsafe </span>{
-            ffi::gtk_tree_model_foreach(
-                <a class="self" href="#305">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <a href="../../../gtk4_sys/fn.gtk_tree_model_foreach.html">ffi::gtk_tree_model_foreach</a>(
+                <a class="self" href="#305">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
                 <a href="#319">func</a>,
                 <a href="#320">super_callback0</a> <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_ as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
             );
@@ -1453,8 +1451,8 @@
     #[doc(alias = <span class="string">"get_column_type"</span>)]
     </span><span class="kw">fn </span>column_type(<span class="kw-2">&amp;</span><span class="self">self</span>, index_: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/struct.Type.html">glib::types::Type</a> {
         <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_tree_model_get_column_type(
-                <a class="self" href="#344">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_tree_model_get_column_type.html">ffi::gtk_tree_model_get_column_type</a>(
+                <a class="self" href="#344">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
                 <a href="#344">index_</a>,
             ))
         }
@@ -1476,10 +1474,10 @@
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_get_flags"</span>)]
     #[doc(alias = <span class="string">"get_flags"</span>)]
-    </span><span class="kw">fn </span>flags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="flags.rs.html#1848-1871">TreeModelFlags</a> {
+    </span><span class="kw">fn </span>flags(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="flags.rs.html#1837-1860">TreeModelFlags</a> {
         <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_tree_model_get_flags(
-                <a class="self" href="#369">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_tree_model_get_flags.html">ffi::gtk_tree_model_get_flags</a>(
+                <a class="self" href="#369">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -1504,13 +1502,13 @@
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_get_iter"</span>)]
     #[doc(alias = <span class="string">"get_iter"</span>)]
-    </span><span class="kw">fn </span>iter(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="tree_iter.rs.html#7-24">TreeIter</a>&gt; {
+    </span><span class="kw">fn </span>iter(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="tree_iter.rs.html#8-25">TreeIter</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html">TreeIter::uninitialized</a>();
-            <span class="kw">let </span>ret = from_glib(ffi::gtk_tree_model_get_iter(
-                <a class="self" href="#397">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#399">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
-                mut_override(<a href="#397">path</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html#tymethod.uninitialized">TreeIter::uninitialized</a>();
+            <span class="kw">let </span>ret = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_tree_model_get_iter.html">ffi::gtk_tree_model_get_iter</a>(
+                <a class="self" href="#397">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#399">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#397">path</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             ));
             <span class="kw">if </span>ret {
                 <span class="prelude-val">Some</span>(<a href="#399">iter</a>)
@@ -1538,12 +1536,12 @@
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_get_iter_first"</span>)]
     #[doc(alias = <span class="string">"get_iter_first"</span>)]
-    </span><span class="kw">fn </span>iter_first(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="tree_iter.rs.html#7-24">TreeIter</a>&gt; {
+    </span><span class="kw">fn </span>iter_first(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="tree_iter.rs.html#8-25">TreeIter</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html">TreeIter::uninitialized</a>();
-            <span class="kw">let </span>ret = from_glib(ffi::gtk_tree_model_get_iter_first(
-                <a class="self" href="#431">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#433">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
+            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html#tymethod.uninitialized">TreeIter::uninitialized</a>();
+            <span class="kw">let </span>ret = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_tree_model_get_iter_first.html">ffi::gtk_tree_model_get_iter_first</a>(
+                <a class="self" href="#431">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#433">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
             ));
             <span class="kw">if </span>ret {
                 <span class="prelude-val">Some</span>(<a href="#433">iter</a>)
@@ -1573,13 +1571,13 @@
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_get_iter_from_string"</span>)]
     #[doc(alias = <span class="string">"get_iter_from_string"</span>)]
-    </span><span class="kw">fn </span>iter_from_string(<span class="kw-2">&amp;</span><span class="self">self</span>, path_string: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="tree_iter.rs.html#7-24">TreeIter</a>&gt; {
+    </span><span class="kw">fn </span>iter_from_string(<span class="kw-2">&amp;</span><span class="self">self</span>, path_string: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="tree_iter.rs.html#8-25">TreeIter</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html">TreeIter::uninitialized</a>();
-            <span class="kw">let </span>ret = from_glib(ffi::gtk_tree_model_get_iter_from_string(
-                <a class="self" href="#466">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#468">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
-                <a href="#466">path_string</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html#tymethod.uninitialized">TreeIter::uninitialized</a>();
+            <span class="kw">let </span>ret = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_tree_model_get_iter_from_string.html">ffi::gtk_tree_model_get_iter_from_string</a>(
+                <a class="self" href="#466">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#468">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
+                <a href="#466">path_string</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             ));
             <span class="kw">if </span>ret {
                 <span class="prelude-val">Some</span>(<a href="#468">iter</a>)
@@ -1602,7 +1600,7 @@
     #[doc(alias = <span class="string">"gtk_tree_model_get_n_columns"</span>)]
     #[doc(alias = <span class="string">"get_n_columns"</span>)]
     </span><span class="kw">fn </span>n_columns(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
-        <span class="kw">unsafe </span>{ ffi::gtk_tree_model_get_n_columns(<a class="self" href="#494">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>) }
+        <span class="kw">unsafe </span>{ <a href="../../../gtk4_sys/fn.gtk_tree_model_get_n_columns.html">ffi::gtk_tree_model_get_n_columns</a>(<a class="self" href="#494">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>) }
     }
 
     <span class="doccomment">/// Returns a newly-created [`TreePath`][crate::TreePath] referenced by @iter.
@@ -1621,11 +1619,11 @@
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_get_path"</span>)]
     #[doc(alias = <span class="string">"get_path"</span>)]
-    </span><span class="kw">fn </span>path(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) -&gt; <a href="tree_path.rs.html#7-20">TreePath</a> {
+    </span><span class="kw">fn </span>path(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) -&gt; <a href="tree_path.rs.html#8-21">TreePath</a> {
         <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gtk_tree_model_get_path(
-                <a class="self" href="#514">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                mut_override(<a href="#514">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_full.html">from_glib_full</a>(<a href="../../../gtk4_sys/fn.gtk_tree_model_get_path.html">ffi::gtk_tree_model_get_path</a>(
+                <a class="self" href="#514">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#514">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             ))
         }
     }
@@ -1648,11 +1646,11 @@
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_get_string_from_iter"</span>)]
     #[doc(alias = <span class="string">"get_string_from_iter"</span>)]
-    </span><span class="kw">fn </span>string_from_iter(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt; {
+    </span><span class="kw">fn </span>string_from_iter(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt; {
         <span class="kw">unsafe </span>{
-            from_glib_full(ffi::gtk_tree_model_get_string_from_iter(
-                <a class="self" href="#541">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                mut_override(<a href="#541">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_full.html">from_glib_full</a>(<a href="../../../gtk4_sys/fn.gtk_tree_model_get_string_from_iter.html">ffi::gtk_tree_model_get_string_from_iter</a>(
+                <a class="self" href="#541">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#541">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             ))
         }
     }
@@ -1680,13 +1678,13 @@
     </span><span class="attr">#[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_iter_children"</span>)]
-    </span><span class="kw">fn </span>iter_children(<span class="kw-2">&amp;</span><span class="self">self</span>, parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="tree_iter.rs.html#7-24">TreeIter</a>&gt; {
+    </span><span class="kw">fn </span>iter_children(<span class="kw-2">&amp;</span><span class="self">self</span>, parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="tree_iter.rs.html#8-25">TreeIter</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html">TreeIter::uninitialized</a>();
-            <span class="kw">let </span>ret = from_glib(ffi::gtk_tree_model_iter_children(
-                <a class="self" href="#573">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#575">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
-                mut_override(<a href="#573">parent</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html#tymethod.uninitialized">TreeIter::uninitialized</a>();
+            <span class="kw">let </span>ret = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_tree_model_iter_children.html">ffi::gtk_tree_model_iter_children</a>(
+                <a class="self" href="#573">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#575">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#573">parent</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             ));
             <span class="kw">if </span>ret {
                 <span class="prelude-val">Some</span>(<a href="#575">iter</a>)
@@ -1709,11 +1707,11 @@
     </span><span class="attr">#[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_iter_has_child"</span>)]
-    </span><span class="kw">fn </span>iter_has_child(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+    </span><span class="kw">fn </span>iter_has_child(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_tree_model_iter_has_child(
-                <a class="self" href="#602">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                mut_override(<a href="#602">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_tree_model_iter_has_child.html">ffi::gtk_tree_model_iter_has_child</a>(
+                <a class="self" href="#602">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#602">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             ))
         }
     }
@@ -1734,11 +1732,11 @@
     </span><span class="attr">#[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_iter_n_children"</span>)]
-    </span><span class="kw">fn </span>iter_n_children(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>&gt;) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
+    </span><span class="kw">fn </span>iter_n_children(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>&gt;) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
         <span class="kw">unsafe </span>{
-            ffi::gtk_tree_model_iter_n_children(
-                <a class="self" href="#627">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                mut_override(<a href="#627">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <a href="../../../gtk4_sys/fn.gtk_tree_model_iter_n_children.html">ffi::gtk_tree_model_iter_n_children</a>(
+                <a class="self" href="#627">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#627">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             )
         }
     }
@@ -1759,11 +1757,11 @@
     </span><span class="attr">#[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_iter_next"</span>)]
-    </span><span class="kw">fn </span>iter_next(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+    </span><span class="kw">fn </span>iter_next(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_tree_model_iter_next(
-                <a class="self" href="#652">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                mut_override(<a href="#652">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_tree_model_iter_next.html">ffi::gtk_tree_model_iter_next</a>(
+                <a class="self" href="#652">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#652">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             ))
         }
     }
@@ -1792,13 +1790,13 @@
     </span><span class="attr">#[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_iter_nth_child"</span>)]
-    </span><span class="kw">fn </span>iter_nth_child(<span class="kw-2">&amp;</span><span class="self">self</span>, parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>&gt;, n: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="tree_iter.rs.html#7-24">TreeIter</a>&gt; {
+    </span><span class="kw">fn </span>iter_nth_child(<span class="kw-2">&amp;</span><span class="self">self</span>, parent: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>&gt;, n: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="tree_iter.rs.html#8-25">TreeIter</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html">TreeIter::uninitialized</a>();
-            <span class="kw">let </span>ret = from_glib(ffi::gtk_tree_model_iter_nth_child(
-                <a class="self" href="#685">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#687">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
-                mut_override(<a href="#685">parent</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html#tymethod.uninitialized">TreeIter::uninitialized</a>();
+            <span class="kw">let </span>ret = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_tree_model_iter_nth_child.html">ffi::gtk_tree_model_iter_nth_child</a>(
+                <a class="self" href="#685">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#687">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#685">parent</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
                 <a href="#685">n</a>,
             ));
             <span class="kw">if </span>ret {
@@ -1833,13 +1831,13 @@
     </span><span class="attr">#[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_iter_parent"</span>)]
-    </span><span class="kw">fn </span>iter_parent(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="tree_iter.rs.html#7-24">TreeIter</a>&gt; {
+    </span><span class="kw">fn </span>iter_parent(<span class="kw-2">&amp;</span><span class="self">self</span>, child: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="tree_iter.rs.html#8-25">TreeIter</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html">TreeIter::uninitialized</a>();
-            <span class="kw">let </span>ret = from_glib(ffi::gtk_tree_model_iter_parent(
-                <a class="self" href="#726">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#728">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
-                mut_override(<a href="#726">child</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html#tymethod.uninitialized">TreeIter::uninitialized</a>();
+            <span class="kw">let </span>ret = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_tree_model_iter_parent.html">ffi::gtk_tree_model_iter_parent</a>(
+                <a class="self" href="#726">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#728">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#726">child</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             ));
             <span class="kw">if </span>ret {
                 <span class="prelude-val">Some</span>(<a href="#728">iter</a>)
@@ -1865,11 +1863,11 @@
     </span><span class="attr">#[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_iter_previous"</span>)]
-    </span><span class="kw">fn </span>iter_previous(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+    </span><span class="kw">fn </span>iter_previous(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
-            from_glib(ffi::gtk_tree_model_iter_previous(
-                <a class="self" href="#758">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                mut_override(<a href="#758">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_tree_model_iter_previous.html">ffi::gtk_tree_model_iter_previous</a>(
+                <a class="self" href="#758">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#758">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             ))
         }
     }
@@ -1887,12 +1885,12 @@
     </span><span class="attr">#[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_row_changed"</span>)]
-    </span><span class="kw">fn </span>row_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) {
+    </span><span class="kw">fn </span>row_changed(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_tree_model_row_changed(
-                <a class="self" href="#780">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                mut_override(<a href="#780">path</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
-                mut_override(<a href="#780">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <a href="../../../gtk4_sys/fn.gtk_tree_model_row_changed.html">ffi::gtk_tree_model_row_changed</a>(
+                <a class="self" href="#780">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#780">path</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#780">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             );
         }
     }
@@ -1916,11 +1914,11 @@
     </span><span class="attr">#[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_row_deleted"</span>)]
-    </span><span class="kw">fn </span>row_deleted(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>) {
+    </span><span class="kw">fn </span>row_deleted(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_tree_model_row_deleted(
-                <a class="self" href="#809">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                mut_override(<a href="#809">path</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <a href="../../../gtk4_sys/fn.gtk_tree_model_row_deleted.html">ffi::gtk_tree_model_row_deleted</a>(
+                <a class="self" href="#809">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#809">path</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             );
         }
     }
@@ -1941,12 +1939,12 @@
     </span><span class="attr">#[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_row_has_child_toggled"</span>)]
-    </span><span class="kw">fn </span>row_has_child_toggled(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) {
+    </span><span class="kw">fn </span>row_has_child_toggled(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_tree_model_row_has_child_toggled(
-                <a class="self" href="#834">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                mut_override(<a href="#834">path</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
-                mut_override(<a href="#834">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <a href="../../../gtk4_sys/fn.gtk_tree_model_row_has_child_toggled.html">ffi::gtk_tree_model_row_has_child_toggled</a>(
+                <a class="self" href="#834">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#834">path</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#834">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             );
         }
     }
@@ -1964,12 +1962,12 @@
     </span><span class="attr">#[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_tree_model_row_inserted"</span>)]
-    </span><span class="kw">fn </span>row_inserted(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) {
+    </span><span class="kw">fn </span>row_inserted(<span class="kw-2">&amp;</span><span class="self">self</span>, path: <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>, iter: <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) {
         <span class="kw">unsafe </span>{
-            ffi::gtk_tree_model_row_inserted(
-                <a class="self" href="#857">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                mut_override(<a href="#857">path</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
-                mut_override(<a href="#857">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <a href="../../../gtk4_sys/fn.gtk_tree_model_row_inserted.html">ffi::gtk_tree_model_row_inserted</a>(
+                <a class="self" href="#857">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#857">path</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#857">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             );
         }
     }
@@ -1980,13 +1978,13 @@
     /// ## `iter`
     /// a valid [`TreeIter`][crate::TreeIter] pointing to the changed row
     </span><span class="attr">#[doc(alias = <span class="string">"row-changed"</span>)]
-    </span><span class="kw">fn </span>connect_row_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) + <span class="lifetime">'static</span>&gt;(
+    </span><span class="kw">fn </span>connect_row_changed&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>row_changed_trampoline&lt;
             P: IsA&lt;<a href="#14-276">TreeModel</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTreeModel.html">ffi::GtkTreeModel</a>,
             path: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTreePath.html">ffi::GtkTreePath</a>,
@@ -1995,20 +1993,20 @@
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#884">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
             <a href="#886">f</a>(
-                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">TreeModel::from_glib_borrow</a>(<a href="#881">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
-                <span class="kw-2">&amp;</span>from_glib_borrow(<a href="#882">path</a>),
-                <span class="kw-2">&amp;</span>from_glib_borrow(<a href="#883">iter</a>),
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html#tymethod.from_glib_borrow">TreeModel::from_glib_borrow</a>(<a href="#881">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast_ref">unsafe_cast_ref</a>(),
+                <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#882">path</a>),
+                <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#883">iter</a>),
             )
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#875">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#875">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#874">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"row-changed\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#874">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"row-changed\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     row_changed_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#894">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#894">f</a>),
             )
         }
     }
@@ -2024,10 +2022,10 @@
     /// ## `path`
     /// a [`TreePath`][crate::TreePath] identifying the row
     </span><span class="attr">#[doc(alias = <span class="string">"row-deleted"</span>)]
-    </span><span class="kw">fn </span>connect_row_deleted&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
+    </span><span class="kw">fn </span>connect_row_deleted&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>) + <span class="lifetime">'static</span>&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>row_deleted_trampoline&lt;
             P: IsA&lt;<a href="#14-276">TreeModel</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>) + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTreeModel.html">ffi::GtkTreeModel</a>,
             path: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTreePath.html">ffi::GtkTreePath</a>,
@@ -2035,19 +2033,19 @@
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#924">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
             <a href="#926">f</a>(
-                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">TreeModel::from_glib_borrow</a>(<a href="#922">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
-                <span class="kw-2">&amp;</span>from_glib_borrow(<a href="#923">path</a>),
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html#tymethod.from_glib_borrow">TreeModel::from_glib_borrow</a>(<a href="#922">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast_ref">unsafe_cast_ref</a>(),
+                <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#923">path</a>),
             )
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#917">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#917">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#917">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"row-deleted\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#917">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"row-deleted\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     row_deleted_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#933">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#933">f</a>),
             )
         }
     }
@@ -2059,13 +2057,13 @@
     /// ## `iter`
     /// a valid [`TreeIter`][crate::TreeIter] pointing to the row
     </span><span class="attr">#[doc(alias = <span class="string">"row-has-child-toggled"</span>)]
-    </span><span class="kw">fn </span>connect_row_has_child_toggled&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) + <span class="lifetime">'static</span>&gt;(
+    </span><span class="kw">fn </span>connect_row_has_child_toggled&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>row_has_child_toggled_trampoline&lt;
             P: IsA&lt;<a href="#14-276">TreeModel</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTreeModel.html">ffi::GtkTreeModel</a>,
             path: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTreePath.html">ffi::GtkTreePath</a>,
@@ -2074,20 +2072,20 @@
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#963">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
             <a href="#965">f</a>(
-                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">TreeModel::from_glib_borrow</a>(<a href="#960">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
-                <span class="kw-2">&amp;</span>from_glib_borrow(<a href="#961">path</a>),
-                <span class="kw-2">&amp;</span>from_glib_borrow(<a href="#962">iter</a>),
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html#tymethod.from_glib_borrow">TreeModel::from_glib_borrow</a>(<a href="#960">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast_ref">unsafe_cast_ref</a>(),
+                <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#961">path</a>),
+                <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#962">iter</a>),
             )
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#954">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#954">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#953">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"row-has-child-toggled\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#953">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"row-has-child-toggled\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     row_has_child_toggled_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#973">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#973">f</a>),
             )
         }
     }
@@ -2103,13 +2101,13 @@
     /// ## `iter`
     /// a valid [`TreeIter`][crate::TreeIter] pointing to the new row
     </span><span class="attr">#[doc(alias = <span class="string">"row-inserted"</span>)]
-    </span><span class="kw">fn </span>connect_row_inserted&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) + <span class="lifetime">'static</span>&gt;(
+    </span><span class="kw">fn </span>connect_row_inserted&lt;F: Fn(<span class="kw-2">&amp;</span><span class="self">Self</span>, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) + <span class="lifetime">'static</span>&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         f: F,
     ) -&gt; <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a> {
         <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>row_inserted_trampoline&lt;
             P: IsA&lt;<a href="#14-276">TreeModel</a>&gt;,
-            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#7-20">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#7-24">TreeIter</a>) + <span class="lifetime">'static</span>,
+            F: Fn(<span class="kw-2">&amp;</span>P, <span class="kw-2">&amp;</span><a href="tree_path.rs.html#8-21">TreePath</a>, <span class="kw-2">&amp;</span><a href="tree_iter.rs.html#8-25">TreeIter</a>) + <span class="lifetime">'static</span>,
         &gt;(
             this: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTreeModel.html">ffi::GtkTreeModel</a>,
             path: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkTreePath.html">ffi::GtkTreePath</a>,
@@ -2118,20 +2116,20 @@
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#1007">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
             <a href="#1009">f</a>(
-                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html">TreeModel::from_glib_borrow</a>(<a href="#1004">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>(),
-                <span class="kw-2">&amp;</span>from_glib_borrow(<a href="#1005">path</a>),
-                <span class="kw-2">&amp;</span>from_glib_borrow(<a href="#1006">iter</a>),
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrBorrow.html#tymethod.from_glib_borrow">TreeModel::from_glib_borrow</a>(<a href="#1004">this</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast_ref">unsafe_cast_ref</a>(),
+                <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#1005">path</a>),
+                <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#1006">iter</a>),
             )
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#998">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#998">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#997">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"row-inserted\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#997">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"row-inserted\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     row_inserted_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#1017">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#1017">f</a>),
             )
         }
     }

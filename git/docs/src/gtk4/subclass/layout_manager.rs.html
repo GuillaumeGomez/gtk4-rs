@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/layout_manager.rs`."><title>layout_manager.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/subclass/layout_manager.rs`."><title>layout_manager.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.0-nightly (032af18af 2024-06-02)" data-channel="nightly" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,9 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -420,8 +418,8 @@
 <span class="kw">use </span>libc::c_int;
 
 <span class="kw">use crate</span>::{
-    <a href="../lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="mod.rs.html#91-174">subclass::prelude</a>::<span class="kw-2">*</span>, <a href="../auto/layout_child.rs.html#8-44">LayoutChild</a>, <a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>, <a href="../auto/enums.rs.html#7285-7294">Orientation</a>, <a href="../auto/enums.rs.html#10552-10564">SizeRequestMode</a>,
-    <a href="../auto/widget.rs.html#18-853">Widget</a>,
+    <a href="../../../gtk4_sys/index.html">ffi</a>, <a href="../lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="mod.rs.html#91-174">subclass::prelude</a>::<span class="kw-2">*</span>, <a href="../auto/layout_child.rs.html#8-44">LayoutChild</a>, <a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>, <a href="../auto/enums.rs.html#7805-7814">Orientation</a>,
+    <a href="../auto/enums.rs.html#11072-11084">SizeRequestMode</a>, <a href="../auto/widget.rs.html#18-853">Widget</a>,
 };
 
 <span class="kw">pub trait </span><a href="../../../gtk4/subclass/layout_manager/trait.LayoutManagerImpl.html">LayoutManagerImpl</a>: <a href="#118-234">LayoutManagerImplExt</a> + <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/object/trait.ObjectImpl.html">ObjectImpl</a> {
@@ -462,7 +460,7 @@
     ///   request mode for the layout manager; for instance, "width for height"
     ///   or "height for width"; see [`SizeRequestMode`][crate::SizeRequestMode]
     </span><span class="attr">#[doc(alias = <span class="string">"get_request_mode"</span>)]
-    </span><span class="kw">fn </span>request_mode(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span><a href="../auto/widget.rs.html#18-853">Widget</a>) -&gt; <a href="../auto/enums.rs.html#10552-10564">SizeRequestMode</a> {
+    </span><span class="kw">fn </span>request_mode(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span><a href="../auto/widget.rs.html#18-853">Widget</a>) -&gt; <a href="../auto/enums.rs.html#11072-11084">SizeRequestMode</a> {
         <a class="self" href="#52">self</a>.<a href="#156-171">parent_request_mode</a>(<a href="#52">widget</a>)
     }
 
@@ -504,7 +502,7 @@
     </span><span class="kw">fn </span>measure(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         widget: <span class="kw-2">&amp;</span><a href="../auto/widget.rs.html#18-853">Widget</a>,
-        orientation: <a href="../auto/enums.rs.html#7285-7294">Orientation</a>,
+        orientation: <a href="../auto/enums.rs.html#7805-7814">Orientation</a>,
         for_size: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
     ) -&gt; (<a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
         <a class="self" href="#92">self</a>.<a href="#173-205">parent_measure</a>(<a href="#93">widget</a>, <a href="#94">orientation</a>, <a href="#95">for_size</a>)
@@ -531,15 +529,15 @@
 <span class="kw">pub trait </span><a href="../../../gtk4/subclass/layout_manager/trait.LayoutManagerImplExt.html">LayoutManagerImplExt</a>: <a href="#114">sealed::Sealed</a> + <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclass.html">ObjectSubclass</a> {
     <span class="kw">fn </span>parent_allocate(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span><a href="../auto/widget.rs.html#18-853">Widget</a>, width: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, height: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, baseline: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_class = <a href="#121">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManagerClass.html">ffi::GtkLayoutManagerClass</a>;
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html#tymethod.type_data"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#121">data</a>.<a href="https://doc.rust-lang.org/nightly/core/ptr/non_null/struct.NonNull.html#method.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/struct.TypeData.html#method.parent_class">parent_class</a>() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManagerClass.html">ffi::GtkLayoutManagerClass</a>;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#122">parent_class</a>).allocate {
                 <a href="#123">f</a>(
-                    <a class="self" href="#119">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>()
-                        .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>&gt;()
-                        .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>()
+                    <a class="self" href="#119">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html#tymethod.obj">obj</a>()
+                        .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast_ref">unsafe_cast_ref</a>::&lt;<a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>&gt;()
+                        .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>()
                         .<span class="number">0</span>,
-                    <a href="#119">widget</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="#119">widget</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
                     <a href="#119">width</a>,
                     <a href="#119">height</a>,
                     <a href="#119">baseline</a>,
@@ -550,35 +548,35 @@
 
     <span class="kw">fn </span>parent_create_layout_child(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span><a href="../auto/widget.rs.html#18-853">Widget</a>, for_child: <span class="kw-2">&amp;</span><a href="../auto/widget.rs.html#18-853">Widget</a>) -&gt; <a href="../auto/layout_child.rs.html#8-44">LayoutChild</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_class = <a href="#140">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManagerClass.html">ffi::GtkLayoutManagerClass</a>;
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html#tymethod.type_data"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#140">data</a>.<a href="https://doc.rust-lang.org/nightly/core/ptr/non_null/struct.NonNull.html#method.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/struct.TypeData.html#method.parent_class">parent_class</a>() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManagerClass.html">ffi::GtkLayoutManagerClass</a>;
             <span class="kw">let </span>f = (<span class="kw-2">*</span><a href="#141">parent_class</a>)
                 .create_layout_child
-                .expect(<span class="string">"No parent class impl for \"create_layout_child\""</span>);
-            from_glib_none(<a href="#142">f</a>(
-                <a class="self" href="#138">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>()
-                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>&gt;()
-                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>()
+                .<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.expect">expect</a>(<span class="string">"No parent class impl for \"create_layout_child\""</span>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_none.html">from_glib_none</a>(<a href="#142">f</a>(
+                <a class="self" href="#138">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html#tymethod.obj">obj</a>()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast_ref">unsafe_cast_ref</a>::&lt;<a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>&gt;()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>()
                     .<span class="number">0</span>,
-                <a href="#138">widget</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#138">for_child</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#138">widget</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#138">for_child</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
 
-    <span class="kw">fn </span>parent_request_mode(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span><a href="../auto/widget.rs.html#18-853">Widget</a>) -&gt; <a href="../auto/enums.rs.html#10552-10564">SizeRequestMode</a> {
+    <span class="kw">fn </span>parent_request_mode(<span class="kw-2">&amp;</span><span class="self">self</span>, widget: <span class="kw-2">&amp;</span><a href="../auto/widget.rs.html#18-853">Widget</a>) -&gt; <a href="../auto/enums.rs.html#11072-11084">SizeRequestMode</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_class = <a href="#158">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManagerClass.html">ffi::GtkLayoutManagerClass</a>;
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html#tymethod.type_data"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#158">data</a>.<a href="https://doc.rust-lang.org/nightly/core/ptr/non_null/struct.NonNull.html#method.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/struct.TypeData.html#method.parent_class">parent_class</a>() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManagerClass.html">ffi::GtkLayoutManagerClass</a>;
             <span class="kw">let </span>f = (<span class="kw-2">*</span><a href="#159">parent_class</a>)
                 .get_request_mode
-                .expect(<span class="string">"No parent class impl for \"get_request_mode\""</span>);
-            from_glib(<a href="#160">f</a>(
-                <a class="self" href="#156">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>()
-                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>&gt;()
-                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>()
+                .<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.expect">expect</a>(<span class="string">"No parent class impl for \"get_request_mode\""</span>);
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="#160">f</a>(
+                <a class="self" href="#156">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html#tymethod.obj">obj</a>()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast_ref">unsafe_cast_ref</a>::&lt;<a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>&gt;()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>()
                     .<span class="number">0</span>,
-                <a href="#156">widget</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#156">widget</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -586,27 +584,27 @@
     <span class="kw">fn </span>parent_measure(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         widget: <span class="kw-2">&amp;</span><a href="../auto/widget.rs.html#18-853">Widget</a>,
-        orientation: <a href="../auto/enums.rs.html#7285-7294">Orientation</a>,
+        orientation: <a href="../auto/enums.rs.html#7805-7814">Orientation</a>,
         for_size: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
     ) -&gt; (<a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>, <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_class = <a href="#180">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManagerClass.html">ffi::GtkLayoutManagerClass</a>;
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html#tymethod.type_data"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#180">data</a>.<a href="https://doc.rust-lang.org/nightly/core/ptr/non_null/struct.NonNull.html#method.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/struct.TypeData.html#method.parent_class">parent_class</a>() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManagerClass.html">ffi::GtkLayoutManagerClass</a>;
             <span class="kw">let </span>f = (<span class="kw-2">*</span><a href="#181">parent_class</a>)
                 .measure
-                .expect(<span class="string">"No parent class impl for \"measure\""</span>);
+                .<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.expect">expect</a>(<span class="string">"No parent class impl for \"measure\""</span>);
 
             <span class="kw">let </span><span class="kw-2">mut </span>minimum = <span class="number">0</span>;
             <span class="kw">let </span><span class="kw-2">mut </span>natural = <span class="number">0</span>;
             <span class="kw">let </span><span class="kw-2">mut </span>minimum_baseline = -<span class="number">1</span>;
             <span class="kw">let </span><span class="kw-2">mut </span>natural_baseline = -<span class="number">1</span>;
             <a href="#182">f</a>(
-                <a class="self" href="#174">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>()
-                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>&gt;()
-                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>()
+                <a class="self" href="#174">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html#tymethod.obj">obj</a>()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast_ref">unsafe_cast_ref</a>::&lt;<a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>&gt;()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>()
                     .<span class="number">0</span>,
-                <a href="#175">widget</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#176">orientation</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>(),
+                <a href="#175">widget</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#176">orientation</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>(),
                 <a href="#177">for_size</a>,
                 <span class="kw-2">&amp;mut </span><a href="#186">minimum</a>,
                 <span class="kw-2">&amp;mut </span><a href="#187">natural</a>,
@@ -619,13 +617,13 @@
 
     <span class="kw">fn </span>parent_root(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_class = <a href="#209">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManagerClass.html">ffi::GtkLayoutManagerClass</a>;
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html#tymethod.type_data"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#209">data</a>.<a href="https://doc.rust-lang.org/nightly/core/ptr/non_null/struct.NonNull.html#method.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/struct.TypeData.html#method.parent_class">parent_class</a>() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManagerClass.html">ffi::GtkLayoutManagerClass</a>;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#210">parent_class</a>).root {
                 <a href="#211">f</a>(<span class="self"><a href="#207">self</a>
-                    </span>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>()
-                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>&gt;()
-                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>()
+                    </span>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html#tymethod.obj">obj</a>()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast_ref">unsafe_cast_ref</a>::&lt;<a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>&gt;()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>()
                     .<span class="number">0</span>)
             }
         }
@@ -633,13 +631,13 @@
 
     <span class="kw">fn </span>parent_unroot(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html"><span class="self">Self</span>::type_data</a>();
-            <span class="kw">let </span>parent_class = <a href="#223">data</a>.as_ref().parent_class() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManagerClass.html">ffi::GtkLayoutManagerClass</a>;
+            <span class="kw">let </span>data = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassType.html#tymethod.type_data"><span class="self">Self</span>::type_data</a>();
+            <span class="kw">let </span>parent_class = <a href="#223">data</a>.<a href="https://doc.rust-lang.org/nightly/core/ptr/non_null/struct.NonNull.html#method.as_ref">as_ref</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/struct.TypeData.html#method.parent_class">parent_class</a>() <span class="kw">as </span><span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManagerClass.html">ffi::GtkLayoutManagerClass</a>;
             <span class="kw">if let </span><span class="prelude-val">Some</span>(f) = (<span class="kw-2">*</span><a href="#224">parent_class</a>).unroot {
                 <a href="#225">f</a>(<span class="self"><a href="#221">self</a>
-                    </span>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html">obj</a>()
-                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast_ref</a>::&lt;<a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>&gt;()
-                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>()
+                    </span>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.ObjectSubclassExt.html#tymethod.obj">obj</a>()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast_ref">unsafe_cast_ref</a>::&lt;<a href="../auto/layout_manager.rs.html#8-71">LayoutManager</a>&gt;()
+                    .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>()
                     .<span class="number">0</span>)
             }
         }
@@ -652,13 +650,13 @@
     <span class="kw">fn </span>class_init(class: <span class="kw-2">&amp;mut </span>glib::Class&lt;<span class="self">Self</span>&gt;) {
         <span class="self">Self</span>::parent_class_init::&lt;T&gt;(<a href="#239">class</a>);
 
-        <a class="macro" href="../rt.rs.html#23-35">assert_initialized_main_thread!</a>();
+        <a class="macro" href="../rt.rs.html#24-36">assert_initialized_main_thread!</a>();
 
-        <span class="kw">let </span>klass = <a href="#239">class</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsMut.html">as_mut</a>();
+        <span class="kw">let </span>klass = <a href="#239">class</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsMut.html#tymethod.as_mut">as_mut</a>();
         <a href="#244">klass</a>.allocate = <span class="prelude-val">Some</span>(layout_manager_allocate::&lt;T&gt;);
         <a href="#244">klass</a>.create_layout_child = <span class="prelude-val">Some</span>(layout_manager_create_layout_child::&lt;T&gt;);
         <span class="kw">if let </span><span class="prelude-val">Some</span>(type_) = <a href="#44-46">T::layout_child_type</a>() {
-            <a href="#244">klass</a>.layout_child_type = <a href="#247">type_</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>();
+            <a href="#244">klass</a>.layout_child_type = <a href="#247">type_</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>();
         }
         <a href="#244">klass</a>.get_request_mode = <span class="prelude-val">Some</span>(layout_manager_get_request_mode::&lt;T&gt;);
         <a href="#244">klass</a>.measure = <span class="prelude-val">Some</span>(layout_manager_measure::&lt;T&gt;);
@@ -675,9 +673,9 @@
     baseline: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#258">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#264">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>imp = <a href="#264">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html#tymethod.imp">imp</a>();
 
-    <span class="kw">let </span>widget: Borrowed&lt;<a href="../auto/widget.rs.html#18-853">Widget</a>&gt; = from_glib_borrow(<a href="#259">widgetptr</a>);
+    <span class="kw">let </span>widget: Borrowed&lt;<a href="../auto/widget.rs.html#18-853">Widget</a>&gt; = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#259">widgetptr</a>);
 
     <a href="#265">imp</a>.<a href="#26-28">allocate</a>(<span class="kw-2">&amp;</span><a href="#267">widget</a>, <a href="#260">width</a>, <a href="#261">height</a>, <a href="#262">baseline</a>)
 }
@@ -688,11 +686,11 @@
     for_childptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkWidget.html">ffi::GtkWidget</a>,
 ) -&gt; <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutChild.html">ffi::GtkLayoutChild</a> {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#273">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#277">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>widget: Borrowed&lt;<a href="../auto/widget.rs.html#18-853">Widget</a>&gt; = from_glib_borrow(<a href="#274">widgetptr</a>);
-    <span class="kw">let </span>for_child: Borrowed&lt;<a href="../auto/widget.rs.html#18-853">Widget</a>&gt; = from_glib_borrow(<a href="#275">for_childptr</a>);
+    <span class="kw">let </span>imp = <a href="#277">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html#tymethod.imp">imp</a>();
+    <span class="kw">let </span>widget: Borrowed&lt;<a href="../auto/widget.rs.html#18-853">Widget</a>&gt; = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#274">widgetptr</a>);
+    <span class="kw">let </span>for_child: Borrowed&lt;<a href="../auto/widget.rs.html#18-853">Widget</a>&gt; = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#275">for_childptr</a>);
 
-    <a href="#278">imp</a>.<a href="#39-41">create_layout_child</a>(<span class="kw-2">&amp;</span><a href="#279">widget</a>, <span class="kw-2">&amp;</span><a href="#280">for_child</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlibPtr.html">into_glib_ptr</a>()
+    <a href="#278">imp</a>.<a href="#39-41">create_layout_child</a>(<span class="kw-2">&amp;</span><a href="#279">widget</a>, <span class="kw-2">&amp;</span><a href="#280">for_child</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlibPtr.html#tymethod.into_glib_ptr">into_glib_ptr</a>()
 }
 
 <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>layout_manager_get_request_mode&lt;T: <a href="#14-111">LayoutManagerImpl</a>&gt;(
@@ -700,10 +698,10 @@
     widgetptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkWidget.html">ffi::GtkWidget</a>,
 ) -&gt; <a href="../../../gtk4_sys/type.GtkSizeRequestMode.html">ffi::GtkSizeRequestMode</a> {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#286">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#289">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>widget: Borrowed&lt;<a href="../auto/widget.rs.html#18-853">Widget</a>&gt; = from_glib_borrow(<a href="#287">widgetptr</a>);
+    <span class="kw">let </span>imp = <a href="#289">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html#tymethod.imp">imp</a>();
+    <span class="kw">let </span>widget: Borrowed&lt;<a href="../auto/widget.rs.html#18-853">Widget</a>&gt; = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#287">widgetptr</a>);
 
-    <a href="#290">imp</a>.<a href="#52-54">request_mode</a>(<span class="kw-2">&amp;</span><a href="#291">widget</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>()
+    <a href="#290">imp</a>.<a href="#52-54">request_mode</a>(<span class="kw-2">&amp;</span><a href="#291">widget</a>).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>()
 }
 
 <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>layout_manager_measure&lt;T: <a href="#14-111">LayoutManagerImpl</a>&gt;(
@@ -717,11 +715,11 @@
     natural_baseline_ptr: <span class="kw-2">*mut </span>c_int,
 ) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#297">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#306">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
-    <span class="kw">let </span>widget: Borrowed&lt;<a href="../auto/widget.rs.html#18-853">Widget</a>&gt; = from_glib_borrow(<a href="#298">widgetptr</a>);
+    <span class="kw">let </span>imp = <a href="#306">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html#tymethod.imp">imp</a>();
+    <span class="kw">let </span>widget: Borrowed&lt;<a href="../auto/widget.rs.html#18-853">Widget</a>&gt; = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#298">widgetptr</a>);
 
     <span class="kw">let </span>(minimum, natural, minimum_baseline, natural_baseline) =
-        <a href="#307">imp</a>.<a href="#91-98">measure</a>(<span class="kw-2">&amp;</span><a href="#308">widget</a>, from_glib(<a href="#299">orientation</a>), <a href="#300">for_size</a>);
+        <a href="#307">imp</a>.<a href="#91-98">measure</a>(<span class="kw-2">&amp;</span><a href="#308">widget</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="#299">orientation</a>), <a href="#300">for_size</a>);
     <span class="kw">if </span>!minimum_ptr.is_null() {
         <span class="kw-2">*</span><a href="#301">minimum_ptr</a> = <a href="#310">minimum</a>;
     }
@@ -738,14 +736,14 @@
 
 <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>layout_manager_root&lt;T: <a href="#14-111">LayoutManagerImpl</a>&gt;(ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManager.html">ffi::GtkLayoutManager</a>) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#326">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#327">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>imp = <a href="#327">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html#tymethod.imp">imp</a>();
 
     <a href="#328">imp</a>.<a href="#102-104">root</a>()
 }
 
 <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn </span>layout_manager_unroot&lt;T: <a href="#14-111">LayoutManagerImpl</a>&gt;(ptr: <span class="kw-2">*mut </span><a href="../../../gtk4_sys/struct.GtkLayoutManager.html">ffi::GtkLayoutManager</a>) {
     <span class="kw">let </span>instance = <span class="kw-2">&amp;*</span>(<a href="#333">ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span>T::Instance);
-    <span class="kw">let </span>imp = <a href="#334">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html">imp</a>();
+    <span class="kw">let </span>imp = <a href="#334">instance</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/subclass/types/trait.InstanceStructExt.html#tymethod.imp">imp</a>();
 
     <a href="#335">imp</a>.<a href="#108-110">unroot</a>()
 }

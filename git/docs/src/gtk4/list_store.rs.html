@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/list_store.rs`."><title>list_store.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/list_store.rs`."><title>list_store.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.0-nightly (032af18af 2024-06-02)" data-channel="nightly" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,9 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -396,7 +394,7 @@
 </span><span class="kw">use </span>glib::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/struct.Type.html">Type</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/struct.Value.html">Value</a>};
 <span class="kw">use </span>libc::c_int;
 
-<span class="kw">use crate</span>::{<a href="lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="auto/list_store.rs.html#9-166">ListStore</a>, <a href="auto/tree_iter.rs.html#7-24">TreeIter</a>, <a href="auto/tree_model.rs.html#14-276">TreeModel</a>};
+<span class="kw">use crate</span>::{<a href="../../gtk4_sys/index.html">ffi</a>, <a href="lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="auto/list_store.rs.html#9-166">ListStore</a>, <a href="auto/tree_iter.rs.html#8-25">TreeIter</a>, <a href="auto/tree_model.rs.html#14-276">TreeModel</a>};
 
 <span class="kw">impl </span><a href="auto/list_store.rs.html#9-166">ListStore</a> {
     <span class="doccomment">/// Creates a new list store.
@@ -431,15 +429,15 @@
     #[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
     </span><span class="kw">pub fn </span>new(column_types: <span class="kw-2">&amp;</span>[<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/struct.Type.html">Type</a>]) -&gt; <span class="self">Self </span>{
-        <a class="macro" href="rt.rs.html#23-35">assert_initialized_main_thread!</a>();
+        <a class="macro" href="rt.rs.html#24-36">assert_initialized_main_thread!</a>();
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>column_types = <a href="#40">column_types</a>
-                .iter()
-                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|t| <a href="#45">t</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>())
-                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
-            from_glib_full(ffi::gtk_list_store_newv(
-                <a href="#43">column_types</a>.len() <span class="kw">as </span>c_int,
-                <a href="#43">column_types</a>.as_mut_ptr(),
+                .<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>()
+                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.map">map</a>(|t| <a href="#45">t</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>())
+                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.collect">collect</a>::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_full.html">from_glib_full</a>(<a href="../../gtk4_sys/fn.gtk_list_store_newv.html">ffi::gtk_list_store_newv</a>(
+                <a href="#43">column_types</a>.<a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.len">len</a>() <span class="kw">as </span>c_int,
+                <a href="#43">column_types</a>.<a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.as_mut_ptr">as_mut_ptr</a>(),
             ))
         }
     }
@@ -473,15 +471,15 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         position: <span class="prelude-ty">Option</span>&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;,
         columns_and_values: <span class="kw-2">&amp;</span>[(<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>, <span class="kw-2">&amp;</span><span class="kw">dyn </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ToValue.html">ToValue</a>)],
-    ) -&gt; <a href="auto/tree_iter.rs.html#7-24">TreeIter</a> {
+    ) -&gt; <a href="auto/tree_iter.rs.html#8-25">TreeIter</a> {
         <span class="kw">unsafe </span>{
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
-                position.unwrap_or(<span class="number">0</span>) &lt;= i32::max_value() <span class="kw">as </span>u32,
+                position.unwrap_or(<span class="number">0</span>) &lt;= i32::MAX <span class="kw">as </span>u32,
                 <span class="string">"can't have more than {} rows"</span>,
-                i32::max_value()
+                i32::MAX
             );
             <span class="kw">let </span>n_columns =
-                ffi::gtk_tree_model_get_n_columns(<a class="self" href="#80">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">upcast_ref</a>::&lt;<a href="auto/tree_model.rs.html#14-276">TreeModel</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
+                <a href="../../gtk4_sys/fn.gtk_tree_model_get_n_columns.html">ffi::gtk_tree_model_get_n_columns</a>(<a class="self" href="#80">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.upcast_ref">upcast_ref</a>::&lt;<a href="auto/tree_model.rs.html#14-276">TreeModel</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)
                     <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
                 columns_and_values.len() &lt;= n_columns <span class="kw">as </span>usize,
@@ -505,22 +503,22 @@
             }
 
             <span class="kw">let </span>columns = <a href="#82">columns_and_values</a>
-                .iter()
-                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|(c, <span class="kw">_</span>)| <span class="kw-2">*</span><a href="#116">c</a>)
-                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
+                .<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>()
+                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.map">map</a>(|(c, <span class="kw">_</span>)| <span class="kw-2">*</span><a href="#116">c</a>)
+                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.collect">collect</a>::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
             <span class="kw">let </span>values = <a href="#82">columns_and_values</a>
-                .iter()
-                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|(<span class="kw">_</span>, v)| <a href="#120">v</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ToValue.html">to_value</a>())
-                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
+                .<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>()
+                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.map">map</a>(|(<span class="kw">_</span>, v)| <a href="#120">v</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ToValue.html#tymethod.to_value">to_value</a>())
+                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.collect">collect</a>::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
 
-            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html">TreeIter::uninitialized</a>();
-            ffi::gtk_list_store_insert_with_valuesv(
-                <a class="self" href="#80">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#123">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html">to_glib_none_mut</a>().<span class="number">0</span>,
-                <a href="#81">position</a>.map_or(-<span class="number">1</span>, |n| <a href="#127">n</a> <span class="kw">as </span>c_int),
-                mut_override(<a href="#114">columns</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>c_int),
-                mut_override(<a href="#118">values</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>glib::gobject_ffi::GValue),
-                <a href="#114">columns</a>.len() <span class="kw">as </span>c_int,
+            <span class="kw">let </span><span class="kw-2">mut </span>iter = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.Uninitialized.html#tymethod.uninitialized">TreeIter::uninitialized</a>();
+            <a href="../../gtk4_sys/fn.gtk_list_store_insert_with_valuesv.html">ffi::gtk_list_store_insert_with_valuesv</a>(
+                <a class="self" href="#80">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#123">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtrMut.html#tymethod.to_glib_none_mut">to_glib_none_mut</a>().<span class="number">0</span>,
+                <a href="#81">position</a>.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map_or">map_or</a>(-<span class="number">1</span>, |n| <a href="#127">n</a> <span class="kw">as </span>c_int),
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#114">columns</a>.<a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span>c_int),
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#118">values</a>.<a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span>glib::gobject_ffi::GValue),
+                <a href="#114">columns</a>.<a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.len">len</a>() <span class="kw">as </span>c_int,
             );
             <a href="#123">iter</a>
         }
@@ -542,17 +540,17 @@
     #[allow(deprecated)]
     </span><span class="kw">pub fn </span>reorder(<span class="kw-2">&amp;</span><span class="self">self</span>, new_order: <span class="kw-2">&amp;</span>[<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>]) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>count = ffi::gtk_tree_model_iter_n_children(
-                <a class="self" href="#150">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">upcast_ref</a>::&lt;<a href="auto/tree_model.rs.html#14-276">TreeModel</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                std::ptr::null_mut(),
+            <span class="kw">let </span>count = <a href="../../gtk4_sys/fn.gtk_tree_model_iter_n_children.html">ffi::gtk_tree_model_iter_n_children</a>(
+                <a class="self" href="#150">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.upcast_ref">upcast_ref</a>::&lt;<a href="auto/tree_model.rs.html#14-276">TreeModel</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="https://doc.rust-lang.org/nightly/core/ptr/fn.null_mut.html">std::ptr::null_mut</a>(),
             );
-            <span class="kw">let </span>safe_count = <a href="#152">count</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a> == <a href="#150">new_order</a>.len();
+            <span class="kw">let </span>safe_count = <a href="#152">count</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a> == <a href="#150">new_order</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.len">len</a>();
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.debug_assert.html">debug_assert!</a>(
                 safe_count,
                 <span class="string">"Incorrect `new_order` slice length. Expected `{count}`, found `{}`."</span>,
                 new_order.len()
             );
-            <span class="kw">let </span>safe_values = <a href="#150">new_order</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">max</a>().map_or(<span class="bool-val">true</span>, |<span class="kw-2">&amp;</span>max| {
+            <span class="kw">let </span>safe_values = <a href="#150">new_order</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.max">max</a>().<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map_or">map_or</a>(<span class="bool-val">true</span>, |<span class="kw-2">&amp;</span>max| {
                 <span class="kw">let </span>max = <a href="#162">max</a> <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>;
                 <a href="#163">max</a> &gt;= <span class="number">0 </span>&amp;&amp; <a href="#163">max</a> &lt; <a href="#152">count</a>
             });
@@ -563,9 +561,9 @@
                 count - <span class="number">1</span>,
             );
             <span class="kw">if </span>safe_count &amp;&amp; safe_values {
-                ffi::gtk_list_store_reorder(
-                    <a class="self" href="#150">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                    mut_override(<a href="#150">new_order</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>c_int),
+                <a href="../../gtk4_sys/fn.gtk_list_store_reorder.html">ffi::gtk_list_store_reorder</a>(
+                    <a class="self" href="#150">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                    <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#150">new_order</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span>c_int),
                 );
             }
         }
@@ -591,10 +589,10 @@
     #[doc(alias = <span class="string">"gtk_list_store_set_valist"</span>)]
     #[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
-    </span><span class="kw">pub fn </span>set(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="auto/tree_iter.rs.html#7-24">TreeIter</a>, columns_and_values: <span class="kw-2">&amp;</span>[(<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>, <span class="kw-2">&amp;</span><span class="kw">dyn </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ToValue.html">ToValue</a>)]) {
+    </span><span class="kw">pub fn </span>set(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="auto/tree_iter.rs.html#8-25">TreeIter</a>, columns_and_values: <span class="kw-2">&amp;</span>[(<a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>, <span class="kw-2">&amp;</span><span class="kw">dyn </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ToValue.html">ToValue</a>)]) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>n_columns =
-                ffi::gtk_tree_model_get_n_columns(<a class="self" href="#201">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">upcast_ref</a>::&lt;<a href="auto/tree_model.rs.html#14-276">TreeModel</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
+                <a href="../../gtk4_sys/fn.gtk_tree_model_get_n_columns.html">ffi::gtk_tree_model_get_n_columns</a>(<a class="self" href="#201">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.upcast_ref">upcast_ref</a>::&lt;<a href="auto/tree_model.rs.html#14-276">TreeModel</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)
                     <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
                 columns_and_values.len() &lt;= n_columns <span class="kw">as </span>usize,
@@ -618,20 +616,20 @@
             }
 
             <span class="kw">let </span>columns = <a href="#201">columns_and_values</a>
-                .iter()
-                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|(c, <span class="kw">_</span>)| <span class="kw-2">*</span><a href="#229">c</a>)
-                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
+                .<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>()
+                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.map">map</a>(|(c, <span class="kw">_</span>)| <span class="kw-2">*</span><a href="#229">c</a>)
+                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.collect">collect</a>::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
             <span class="kw">let </span>values = <a href="#201">columns_and_values</a>
-                .iter()
-                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|(<span class="kw">_</span>, v)| <a href="#233">v</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ToValue.html">to_value</a>())
-                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
+                .<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>()
+                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.map">map</a>(|(<span class="kw">_</span>, v)| <a href="#233">v</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/trait.ToValue.html#tymethod.to_value">to_value</a>())
+                .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.collect">collect</a>::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;();
 
-            ffi::gtk_list_store_set_valuesv(
-                <a class="self" href="#201">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                mut_override(<a href="#201">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
-                mut_override(<a href="#227">columns</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>c_int),
-                mut_override(<a href="#231">values</a>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span>glib::gobject_ffi::GValue),
-                <a href="#227">columns</a>.len() <span class="kw">as </span>c_int,
+            <a href="../../gtk4_sys/fn.gtk_list_store_set_valuesv.html">ffi::gtk_list_store_set_valuesv</a>(
+                <a class="self" href="#201">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#201">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#227">columns</a>.<a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span>c_int),
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#231">values</a>.<a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span>glib::gobject_ffi::GValue),
+                <a href="#227">columns</a>.<a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.len">len</a>() <span class="kw">as </span>c_int,
             );
         }
     }
@@ -655,11 +653,11 @@
     #[allow(deprecated)]
     </span><span class="kw">pub fn </span>set_column_types(<span class="kw-2">&amp;</span><span class="self">self</span>, types: <span class="kw-2">&amp;</span>[<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/types/struct.Type.html">glib::Type</a>]) {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>types_ptr: Vec&lt;glib::ffi::GType&gt; = <a href="#263">types</a>.iter().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">map</a>(|t| <a href="#265">t</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html">into_glib</a>()).<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html">collect</a>();
-            ffi::gtk_list_store_set_column_types(
-                <a class="self" href="#263">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#263">types</a>.len() <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
-                mut_override(<a href="#265">types_ptr</a>.as_ptr()),
+            <span class="kw">let </span>types_ptr: Vec&lt;glib::ffi::GType&gt; = <a href="#263">types</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.map">map</a>(|t| <a href="#265">t</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.IntoGlib.html#tymethod.into_glib">into_glib</a>()).<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.collect">collect</a>();
+            <a href="../../gtk4_sys/fn.gtk_list_store_set_column_types.html">ffi::gtk_list_store_set_column_types</a>(
+                <a class="self" href="#263">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#263">types</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.len">len</a>() <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#265">types_ptr</a>.<a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.as_ptr">as_ptr</a>()),
             )
         }
     }
@@ -680,18 +678,18 @@
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_list_store_set_value"</span>)]
     #[cfg_attr(feature = <span class="string">"v4_10"</span>, deprecated = <span class="string">"Since 4.10"</span>)]
     #[allow(deprecated)]
-    </span><span class="kw">pub fn </span>set_value(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="auto/tree_iter.rs.html#7-24">TreeIter</a>, column: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>, value: <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/struct.Value.html">Value</a>) {
+    </span><span class="kw">pub fn </span>set_value(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;</span><a href="auto/tree_iter.rs.html#8-25">TreeIter</a>, column: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>, value: <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/value/struct.Value.html">Value</a>) {
         <span class="kw">unsafe </span>{
             <span class="kw">let </span>columns =
-                ffi::gtk_tree_model_get_n_columns(<a class="self" href="#290">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">upcast_ref</a>::&lt;<a href="auto/tree_model.rs.html#14-276">TreeModel</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>)
+                <a href="../../gtk4_sys/fn.gtk_tree_model_get_n_columns.html">ffi::gtk_tree_model_get_n_columns</a>(<a class="self" href="#290">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.upcast_ref">upcast_ref</a>::&lt;<a href="auto/tree_model.rs.html#14-276">TreeModel</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)
                     <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
                 column &lt; columns,
                 <span class="string">"got column {column} which is higher than the number of columns {columns}"</span>,
             );
 
-            <span class="kw">let </span>type_ = from_glib(ffi::gtk_tree_model_get_column_type(
-                <a class="self" href="#290">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">upcast_ref</a>::&lt;<a href="auto/tree_model.rs.html#14-276">TreeModel</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
+            <span class="kw">let </span>type_ = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../gtk4_sys/fn.gtk_tree_model_get_column_type.html">ffi::gtk_tree_model_get_column_type</a>(
+                <a class="self" href="#290">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.upcast_ref">upcast_ref</a>::&lt;<a href="auto/tree_model.rs.html#14-276">TreeModel</a>&gt;().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
                 <a href="#290">column</a> <span class="kw">as </span>c_int,
             ));
             <a class="macro" href="https://doc.rust-lang.org/nightly/core/macro.assert.html">assert!</a>(
@@ -700,11 +698,11 @@
                 value.type_()
             );
 
-            ffi::gtk_list_store_set_value(
-                <a class="self" href="#290">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>,
-                mut_override(<a href="#290">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+            <a href="../../gtk4_sys/fn.gtk_list_store_set_value.html">ffi::gtk_list_store_set_value</a>(
+                <a class="self" href="#290">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#290">iter</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
                 <a href="#290">column</a> <span class="kw">as </span>c_int,
-                mut_override(<a href="#290">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html">to_glib_none</a>().<span class="number">0</span>),
+                <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.mut_override.html">mut_override</a>(<a href="#290">value</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>),
             );
         }
     }

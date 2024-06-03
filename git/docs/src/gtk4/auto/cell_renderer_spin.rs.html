@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/cell_renderer_spin.rs`."><title>cell_renderer_spin.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5bc39a1768837dd0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.78.0-nightly (256b6fb19 2024-02-06)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-4c98445ec4002617.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-48f368f3872407c8.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/cell_renderer_spin.rs`."><title>cell_renderer_spin.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.0-nightly (032af18af 2024-06-02)" data-channel="nightly" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,9 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1014,7 +1012,7 @@
 // DO NOT EDIT
 </span><span class="attr">#![allow(deprecated)]
 
-</span><span class="kw">use crate</span>::{<a href="adjustment.rs.html#12-97">Adjustment</a>, <a href="cell_renderer.rs.html#17-183">CellRenderer</a>, <a href="enums.rs.html#2667-2682">CellRendererMode</a>, <a href="cell_renderer_text.rs.html#14-385">CellRendererText</a>};
+</span><span class="kw">use crate</span>::{<a href="../../../gtk4_sys/index.html">ffi</a>, <a href="adjustment.rs.html#13-98">Adjustment</a>, <a href="cell_renderer.rs.html#17-183">CellRenderer</a>, <a href="enums.rs.html#3067-3082">CellRendererMode</a>, <a href="cell_renderer_text.rs.html#14-385">CellRendererText</a>};
 <span class="kw">use </span>glib::{
     <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>,
     signal::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/struct.SignalHandlerId.html">SignalHandlerId</a>},
@@ -1022,7 +1020,7 @@
 };
 <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">std::boxed::Box</a> <span class="kw">as </span>Box_;
 
-<a class="macro" href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/macro.wrapper.html">glib::wrapper! </a>{
+<a class="macro" href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/macro.wrapper.html">glib::wrapper!</a> {
     <span class="doccomment">/// List views use widgets to display their contents.
     ///   You should use [`SpinButton`][crate::SpinButton] instead
     /// Renders a spin button in a cell
@@ -1373,8 +1371,8 @@
     #[allow(deprecated)]
     #[doc(alias = <span class="string">"gtk_cell_renderer_spin_new"</span>)]
     </span><span class="kw">pub fn </span>new() -&gt; <a href="#14-350">CellRendererSpin</a> {
-        <a class="macro" href="../rt.rs.html#23-35">assert_initialized_main_thread!</a>();
-        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrNone.html">CellRenderer::from_glib_none</a>(ffi::gtk_cell_renderer_spin_new()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">unsafe_cast</a>() }
+        <a class="macro" href="../rt.rs.html#24-36">assert_initialized_main_thread!</a>();
+        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.FromGlibPtrNone.html#tymethod.from_glib_none">CellRenderer::from_glib_none</a>(<a href="../../../gtk4_sys/fn.gtk_cell_renderer_spin_new.html">ffi::gtk_cell_renderer_spin_new</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.unsafe_cast">unsafe_cast</a>() }
     }
 
     <span class="comment">// rustdoc-stripper-ignore-next
@@ -1387,36 +1385,36 @@
 
     <span class="doccomment">/// The adjustment that holds the value of the spinbutton.
     /// This must be non-[`None`] for the cell renderer to be editable.
-    </span><span class="kw">pub fn </span>adjustment(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="adjustment.rs.html#12-97">Adjustment</a>&gt; {
-        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#379">self</a>, <span class="string">"adjustment"</span>)
+    </span><span class="kw">pub fn </span>adjustment(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="adjustment.rs.html#13-98">Adjustment</a>&gt; {
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.property">ObjectExt::property</a>(<a class="self" href="#379">self</a>, <span class="string">"adjustment"</span>)
     }
 
     <span class="doccomment">/// The adjustment that holds the value of the spinbutton.
     /// This must be non-[`None`] for the cell renderer to be editable.
-    </span><span class="kw">pub fn </span>set_adjustment&lt;P: IsA&lt;<a href="adjustment.rs.html#12-97">Adjustment</a>&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, adjustment: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;) {
-        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#385">self</a>, <span class="string">"adjustment"</span>, <a href="#385">adjustment</a>)
+    </span><span class="kw">pub fn </span>set_adjustment&lt;P: IsA&lt;<a href="adjustment.rs.html#13-98">Adjustment</a>&gt;&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, adjustment: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span>P&gt;) {
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.set_property">ObjectExt::set_property</a>(<a class="self" href="#385">self</a>, <span class="string">"adjustment"</span>, <a href="#385">adjustment</a>)
     }
 
     <span class="doccomment">/// The acceleration rate when you hold down a button.
     </span><span class="attr">#[doc(alias = <span class="string">"climb-rate"</span>)]
     </span><span class="kw">pub fn </span>climb_rate(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a> {
-        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#391">self</a>, <span class="string">"climb-rate"</span>)
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.property">ObjectExt::property</a>(<a class="self" href="#391">self</a>, <span class="string">"climb-rate"</span>)
     }
 
     <span class="doccomment">/// The acceleration rate when you hold down a button.
     </span><span class="attr">#[doc(alias = <span class="string">"climb-rate"</span>)]
     </span><span class="kw">pub fn </span>set_climb_rate(<span class="kw-2">&amp;</span><span class="self">self</span>, climb_rate: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) {
-        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#397">self</a>, <span class="string">"climb-rate"</span>, <a href="#397">climb_rate</a>)
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.set_property">ObjectExt::set_property</a>(<a class="self" href="#397">self</a>, <span class="string">"climb-rate"</span>, <a href="#397">climb_rate</a>)
     }
 
     <span class="doccomment">/// The number of decimal places to display.
     </span><span class="kw">pub fn </span>digits(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> {
-        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::property</a>(<a class="self" href="#402">self</a>, <span class="string">"digits"</span>)
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.property">ObjectExt::property</a>(<a class="self" href="#402">self</a>, <span class="string">"digits"</span>)
     }
 
     <span class="doccomment">/// The number of decimal places to display.
     </span><span class="kw">pub fn </span>set_digits(<span class="kw-2">&amp;</span><span class="self">self</span>, digits: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) {
-        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html">ObjectExt::set_property</a>(<a class="self" href="#407">self</a>, <span class="string">"digits"</span>, <a href="#407">digits</a>)
+        <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.set_property">ObjectExt::set_property</a>(<a class="self" href="#407">self</a>, <span class="string">"digits"</span>, <a href="#407">digits</a>)
     }
 
     <span class="attr">#[doc(alias = <span class="string">"adjustment"</span>)]
@@ -1427,17 +1425,17 @@
             f: glib::ffi::gpointer,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#416">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#418">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#414">this</a>))
+            <a href="#418">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#414">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#412">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#412">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#412">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"notify::adjustment\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#412">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::adjustment\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_adjustment_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#422">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#422">f</a>),
             )
         }
     }
@@ -1450,17 +1448,17 @@
             f: glib::ffi::gpointer,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#439">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#441">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#437">this</a>))
+            <a href="#441">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#437">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#435">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#435">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#435">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"notify::climb-rate\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#435">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::climb-rate\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_climb_rate_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#445">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#445">f</a>),
             )
         }
     }
@@ -1473,17 +1471,17 @@
             f: glib::ffi::gpointer,
         ) {
             <span class="kw">let </span>f: <span class="kw-2">&amp;</span>F = <span class="kw-2">&amp;*</span>(<a href="#462">f</a> <span class="kw">as </span><span class="kw-2">*const </span>F);
-            <a href="#464">f</a>(<span class="kw-2">&amp;</span>from_glib_borrow(<a href="#460">this</a>))
+            <a href="#464">f</a>(<span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_borrow.html">from_glib_borrow</a>(<a href="#460">this</a>))
         }
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>f: Box_&lt;F&gt; = Box_::new(<a href="#458">f</a>);
+            <span class="kw">let </span>f: Box_&lt;F&gt; = <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.new">Box_::new</a>(<a href="#458">f</a>);
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
-                <a class="self" href="#458">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="string">b"notify::digits\0"</span>.as_ptr() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw">_</span>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                <a class="self" href="#458">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectType.html#tymethod.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                <span class="string">b"notify::digits\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*const </span><span class="kw">_</span>,
+                <span class="prelude-val">Some</span>(std::mem::transmute::&lt;<span class="kw-2">*const </span>(), <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
                     notify_digits_trampoline::&lt;F&gt; <span class="kw">as </span><span class="kw-2">*const </span>(),
                 )),
-                Box_::into_raw(<a href="#468">f</a>),
+                <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#468">f</a>),
             )
         }
     }
@@ -1507,37 +1505,37 @@
 <span class="kw">impl </span><a href="#492-494">CellRendererSpinBuilder</a> {
     <span class="kw">fn </span>new() -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: glib::object::Object::builder(),
+            builder: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.Object.html#method.builder">glib::object::Object::builder</a>(),
         }
     }
 
     <span class="doccomment">/// The adjustment that holds the value of the spinbutton.
     /// This must be non-[`None`] for the cell renderer to be editable.
-    </span><span class="kw">pub fn </span>adjustment(<span class="self">self</span>, adjustment: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="adjustment.rs.html#12-97">Adjustment</a>&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>adjustment(<span class="self">self</span>, adjustment: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="adjustment.rs.html#13-98">Adjustment</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#505">self</a>
                 </span>.builder
-                .property(<span class="string">"adjustment"</span>, <a href="#505">adjustment</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html">upcast</a>()),
+                .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"adjustment"</span>, <a href="#505">adjustment</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.upcast">upcast</a>()),
         }
     }
 
     <span class="doccomment">/// The acceleration rate when you hold down a button.
     </span><span class="kw">pub fn </span>climb_rate(<span class="self">self</span>, climb_rate: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#514">self</a>.builder.property(<span class="string">"climb-rate"</span>, <a href="#514">climb_rate</a>),
+            builder: <a class="self" href="#514">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"climb-rate"</span>, <a href="#514">climb_rate</a>),
         }
     }
 
     <span class="doccomment">/// The number of decimal places to display.
     </span><span class="kw">pub fn </span>digits(<span class="self">self</span>, digits: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#521">self</a>.builder.property(<span class="string">"digits"</span>, <a href="#521">digits</a>),
+            builder: <a class="self" href="#521">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"digits"</span>, <a href="#521">digits</a>),
         }
     }
 
     <span class="kw">pub fn </span>align_set(<span class="self">self</span>, align_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#527">self</a>.builder.property(<span class="string">"align-set"</span>, <a href="#527">align_set</a>),
+            builder: <a class="self" href="#527">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"align-set"</span>, <a href="#527">align_set</a>),
         }
     }
 
@@ -1548,44 +1546,44 @@
     /// on the other hand, sets the horizontal alignment of the whole text.
     </span><span class="kw">pub fn </span>alignment(<span class="self">self</span>, alignment: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/enums/enum.Alignment.html">pango::Alignment</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#538">self</a>.builder.property(<span class="string">"alignment"</span>, <a href="#538">alignment</a>),
+            builder: <a class="self" href="#538">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"alignment"</span>, <a href="#538">alignment</a>),
         }
     }
 
     <span class="kw">pub fn </span>attributes(<span class="self">self</span>, attributes: <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/attr_list/struct.AttrList.html">pango::AttrList</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#544">self</a>.builder.property(<span class="string">"attributes"</span>, <a href="#544">attributes</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html">clone</a>()),
+            builder: <a class="self" href="#544">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"attributes"</span>, <a href="#544">attributes</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>()),
         }
     }
 
     <span class="kw">pub fn </span>background(<span class="self">self</span>, background: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#550">self</a>.builder.property(<span class="string">"background"</span>, <a href="#550">background</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+            builder: <a class="self" href="#550">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"background"</span>, <a href="#550">background</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
     <span class="doccomment">/// Background color as a [`gdk::RGBA`][crate::gdk::RGBA]
     </span><span class="kw">pub fn </span>background_rgba(<span class="self">self</span>, background_rgba: <span class="kw-2">&amp;</span><a href="../../../gdk4/auto/rgba/struct.RGBA.html">gdk::RGBA</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#557">self</a>.builder.property(<span class="string">"background-rgba"</span>, <a href="#557">background_rgba</a>),
+            builder: <a class="self" href="#557">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"background-rgba"</span>, <a href="#557">background_rgba</a>),
         }
     }
 
     <span class="kw">pub fn </span>background_set(<span class="self">self</span>, background_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#563">self</a>.builder.property(<span class="string">"background-set"</span>, <a href="#563">background_set</a>),
+            builder: <a class="self" href="#563">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"background-set"</span>, <a href="#563">background_set</a>),
         }
     }
 
     <span class="kw">pub fn </span>editable(<span class="self">self</span>, editable: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#569">self</a>.builder.property(<span class="string">"editable"</span>, <a href="#569">editable</a>),
+            builder: <a class="self" href="#569">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"editable"</span>, <a href="#569">editable</a>),
         }
     }
 
     <span class="kw">pub fn </span>editable_set(<span class="self">self</span>, editable_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#575">self</a>.builder.property(<span class="string">"editable-set"</span>, <a href="#575">editable_set</a>),
+            builder: <a class="self" href="#575">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"editable-set"</span>, <a href="#575">editable_set</a>),
         }
     }
 
@@ -1595,74 +1593,74 @@
     /// for another way of making the text fit into a given width.
     </span><span class="kw">pub fn </span>ellipsize(<span class="self">self</span>, ellipsize: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/enums/enum.EllipsizeMode.html">pango::EllipsizeMode</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#585">self</a>.builder.property(<span class="string">"ellipsize"</span>, <a href="#585">ellipsize</a>),
+            builder: <a class="self" href="#585">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"ellipsize"</span>, <a href="#585">ellipsize</a>),
         }
     }
 
     <span class="kw">pub fn </span>ellipsize_set(<span class="self">self</span>, ellipsize_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#591">self</a>.builder.property(<span class="string">"ellipsize-set"</span>, <a href="#591">ellipsize_set</a>),
+            builder: <a class="self" href="#591">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"ellipsize-set"</span>, <a href="#591">ellipsize_set</a>),
         }
     }
 
     <span class="kw">pub fn </span>family(<span class="self">self</span>, family: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#597">self</a>.builder.property(<span class="string">"family"</span>, <a href="#597">family</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+            builder: <a class="self" href="#597">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"family"</span>, <a href="#597">family</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
     <span class="kw">pub fn </span>family_set(<span class="self">self</span>, family_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#603">self</a>.builder.property(<span class="string">"family-set"</span>, <a href="#603">family_set</a>),
+            builder: <a class="self" href="#603">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"family-set"</span>, <a href="#603">family_set</a>),
         }
     }
 
     <span class="kw">pub fn </span>font(<span class="self">self</span>, font: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#609">self</a>.builder.property(<span class="string">"font"</span>, <a href="#609">font</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+            builder: <a class="self" href="#609">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"font"</span>, <a href="#609">font</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
     <span class="kw">pub fn </span>font_desc(<span class="self">self</span>, font_desc: <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/font_description/struct.FontDescription.html">pango::FontDescription</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#615">self</a>.builder.property(<span class="string">"font-desc"</span>, <a href="#615">font_desc</a>),
+            builder: <a class="self" href="#615">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"font-desc"</span>, <a href="#615">font_desc</a>),
         }
     }
 
     <span class="kw">pub fn </span>foreground(<span class="self">self</span>, foreground: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#621">self</a>.builder.property(<span class="string">"foreground"</span>, <a href="#621">foreground</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+            builder: <a class="self" href="#621">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"foreground"</span>, <a href="#621">foreground</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
     <span class="doccomment">/// Foreground color as a [`gdk::RGBA`][crate::gdk::RGBA]
     </span><span class="kw">pub fn </span>foreground_rgba(<span class="self">self</span>, foreground_rgba: <span class="kw-2">&amp;</span><a href="../../../gdk4/auto/rgba/struct.RGBA.html">gdk::RGBA</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#628">self</a>.builder.property(<span class="string">"foreground-rgba"</span>, <a href="#628">foreground_rgba</a>),
+            builder: <a class="self" href="#628">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"foreground-rgba"</span>, <a href="#628">foreground_rgba</a>),
         }
     }
 
     <span class="kw">pub fn </span>foreground_set(<span class="self">self</span>, foreground_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#634">self</a>.builder.property(<span class="string">"foreground-set"</span>, <a href="#634">foreground_set</a>),
+            builder: <a class="self" href="#634">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"foreground-set"</span>, <a href="#634">foreground_set</a>),
         }
     }
 
     <span class="kw">pub fn </span>language(<span class="self">self</span>, language: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#640">self</a>.builder.property(<span class="string">"language"</span>, <a href="#640">language</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+            builder: <a class="self" href="#640">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"language"</span>, <a href="#640">language</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
     <span class="kw">pub fn </span>language_set(<span class="self">self</span>, language_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#646">self</a>.builder.property(<span class="string">"language-set"</span>, <a href="#646">language_set</a>),
+            builder: <a class="self" href="#646">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"language-set"</span>, <a href="#646">language_set</a>),
         }
     }
 
     <span class="kw">pub fn </span>markup(<span class="self">self</span>, markup: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#652">self</a>.builder.property(<span class="string">"markup"</span>, <a href="#652">markup</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+            builder: <a class="self" href="#652">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"markup"</span>, <a href="#652">markup</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
@@ -1676,7 +1674,7 @@
     /// have received their natural width.
     </span><span class="kw">pub fn </span>max_width_chars(<span class="self">self</span>, max_width_chars: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#666">self</a>.builder.property(<span class="string">"max-width-chars"</span>, <a href="#666">max_width_chars</a>),
+            builder: <a class="self" href="#666">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"max-width-chars"</span>, <a href="#666">max_width_chars</a>),
         }
     }
 
@@ -1686,31 +1684,31 @@
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#674">self</a>
                 </span>.builder
-                .property(<span class="string">"placeholder-text"</span>, <a href="#674">placeholder_text</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+                .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"placeholder-text"</span>, <a href="#674">placeholder_text</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
     <span class="kw">pub fn </span>rise(<span class="self">self</span>, rise: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#682">self</a>.builder.property(<span class="string">"rise"</span>, <a href="#682">rise</a>),
+            builder: <a class="self" href="#682">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"rise"</span>, <a href="#682">rise</a>),
         }
     }
 
     <span class="kw">pub fn </span>rise_set(<span class="self">self</span>, rise_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#688">self</a>.builder.property(<span class="string">"rise-set"</span>, <a href="#688">rise_set</a>),
+            builder: <a class="self" href="#688">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"rise-set"</span>, <a href="#688">rise_set</a>),
         }
     }
 
     <span class="kw">pub fn </span>scale(<span class="self">self</span>, scale: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#694">self</a>.builder.property(<span class="string">"scale"</span>, <a href="#694">scale</a>),
+            builder: <a class="self" href="#694">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"scale"</span>, <a href="#694">scale</a>),
         }
     }
 
     <span class="kw">pub fn </span>scale_set(<span class="self">self</span>, scale_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#700">self</a>.builder.property(<span class="string">"scale-set"</span>, <a href="#700">scale_set</a>),
+            builder: <a class="self" href="#700">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"scale-set"</span>, <a href="#700">scale_set</a>),
         }
     }
 
@@ -1718,43 +1716,43 @@
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#706">self</a>
                 </span>.builder
-                .property(<span class="string">"single-paragraph-mode"</span>, <a href="#706">single_paragraph_mode</a>),
+                .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"single-paragraph-mode"</span>, <a href="#706">single_paragraph_mode</a>),
         }
     }
 
     <span class="kw">pub fn </span>size(<span class="self">self</span>, size: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#714">self</a>.builder.property(<span class="string">"size"</span>, <a href="#714">size</a>),
+            builder: <a class="self" href="#714">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"size"</span>, <a href="#714">size</a>),
         }
     }
 
     <span class="kw">pub fn </span>size_points(<span class="self">self</span>, size_points: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#720">self</a>.builder.property(<span class="string">"size-points"</span>, <a href="#720">size_points</a>),
+            builder: <a class="self" href="#720">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"size-points"</span>, <a href="#720">size_points</a>),
         }
     }
 
     <span class="kw">pub fn </span>size_set(<span class="self">self</span>, size_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#726">self</a>.builder.property(<span class="string">"size-set"</span>, <a href="#726">size_set</a>),
+            builder: <a class="self" href="#726">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"size-set"</span>, <a href="#726">size_set</a>),
         }
     }
 
     <span class="kw">pub fn </span>stretch(<span class="self">self</span>, stretch: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/enums/enum.Stretch.html">pango::Stretch</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#732">self</a>.builder.property(<span class="string">"stretch"</span>, <a href="#732">stretch</a>),
+            builder: <a class="self" href="#732">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"stretch"</span>, <a href="#732">stretch</a>),
         }
     }
 
     <span class="kw">pub fn </span>stretch_set(<span class="self">self</span>, stretch_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#738">self</a>.builder.property(<span class="string">"stretch-set"</span>, <a href="#738">stretch_set</a>),
+            builder: <a class="self" href="#738">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"stretch-set"</span>, <a href="#738">stretch_set</a>),
         }
     }
 
     <span class="kw">pub fn </span>strikethrough(<span class="self">self</span>, strikethrough: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#744">self</a>.builder.property(<span class="string">"strikethrough"</span>, <a href="#744">strikethrough</a>),
+            builder: <a class="self" href="#744">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"strikethrough"</span>, <a href="#744">strikethrough</a>),
         }
     }
 
@@ -1762,61 +1760,61 @@
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#750">self</a>
                 </span>.builder
-                .property(<span class="string">"strikethrough-set"</span>, <a href="#750">strikethrough_set</a>),
+                .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"strikethrough-set"</span>, <a href="#750">strikethrough_set</a>),
         }
     }
 
     <span class="kw">pub fn </span>style(<span class="self">self</span>, style: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/enums/enum.Style.html">pango::Style</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#758">self</a>.builder.property(<span class="string">"style"</span>, <a href="#758">style</a>),
+            builder: <a class="self" href="#758">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"style"</span>, <a href="#758">style</a>),
         }
     }
 
     <span class="kw">pub fn </span>style_set(<span class="self">self</span>, style_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#764">self</a>.builder.property(<span class="string">"style-set"</span>, <a href="#764">style_set</a>),
+            builder: <a class="self" href="#764">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"style-set"</span>, <a href="#764">style_set</a>),
         }
     }
 
     <span class="kw">pub fn </span>text(<span class="self">self</span>, text: <span class="kw">impl </span>Into&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/gstring/struct.GString.html">glib::GString</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#770">self</a>.builder.property(<span class="string">"text"</span>, <a href="#770">text</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+            builder: <a class="self" href="#770">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"text"</span>, <a href="#770">text</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
     <span class="kw">pub fn </span>underline(<span class="self">self</span>, underline: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/enums/enum.Underline.html">pango::Underline</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#776">self</a>.builder.property(<span class="string">"underline"</span>, <a href="#776">underline</a>),
+            builder: <a class="self" href="#776">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"underline"</span>, <a href="#776">underline</a>),
         }
     }
 
     <span class="kw">pub fn </span>underline_set(<span class="self">self</span>, underline_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#782">self</a>.builder.property(<span class="string">"underline-set"</span>, <a href="#782">underline_set</a>),
+            builder: <a class="self" href="#782">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"underline-set"</span>, <a href="#782">underline_set</a>),
         }
     }
 
     <span class="kw">pub fn </span>variant(<span class="self">self</span>, variant: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/enums/enum.Variant.html">pango::Variant</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#788">self</a>.builder.property(<span class="string">"variant"</span>, <a href="#788">variant</a>),
+            builder: <a class="self" href="#788">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"variant"</span>, <a href="#788">variant</a>),
         }
     }
 
     <span class="kw">pub fn </span>variant_set(<span class="self">self</span>, variant_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#794">self</a>.builder.property(<span class="string">"variant-set"</span>, <a href="#794">variant_set</a>),
+            builder: <a class="self" href="#794">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"variant-set"</span>, <a href="#794">variant_set</a>),
         }
     }
 
     <span class="kw">pub fn </span>weight(<span class="self">self</span>, weight: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#800">self</a>.builder.property(<span class="string">"weight"</span>, <a href="#800">weight</a>),
+            builder: <a class="self" href="#800">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"weight"</span>, <a href="#800">weight</a>),
         }
     }
 
     <span class="kw">pub fn </span>weight_set(<span class="self">self</span>, weight_set: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#806">self</a>.builder.property(<span class="string">"weight-set"</span>, <a href="#806">weight_set</a>),
+            builder: <a class="self" href="#806">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"weight-set"</span>, <a href="#806">weight_set</a>),
         }
     }
 
@@ -1825,7 +1823,7 @@
     /// request either 3 characters or the property value, whichever is greater.
     </span><span class="kw">pub fn </span>width_chars(<span class="self">self</span>, width_chars: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#815">self</a>.builder.property(<span class="string">"width-chars"</span>, <a href="#815">width_chars</a>),
+            builder: <a class="self" href="#815">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"width-chars"</span>, <a href="#815">width_chars</a>),
         }
     }
 
@@ -1834,7 +1832,7 @@
     /// This property has no effect unless the wrap-width property is set.
     </span><span class="kw">pub fn </span>wrap_mode(<span class="self">self</span>, wrap_mode: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/auto/enums/enum.WrapMode.html">pango::WrapMode</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#824">self</a>.builder.property(<span class="string">"wrap-mode"</span>, <a href="#824">wrap_mode</a>),
+            builder: <a class="self" href="#824">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"wrap-mode"</span>, <a href="#824">wrap_mode</a>),
         }
     }
 
@@ -1843,7 +1841,7 @@
     /// Setting wrap-width to -1 turns wrapping off.
     </span><span class="kw">pub fn </span>wrap_width(<span class="self">self</span>, wrap_width: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#833">self</a>.builder.property(<span class="string">"wrap-width"</span>, <a href="#833">wrap_width</a>),
+            builder: <a class="self" href="#833">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"wrap-width"</span>, <a href="#833">wrap_width</a>),
         }
     }
 
@@ -1851,7 +1849,7 @@
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#839">self</a>
                 </span>.builder
-                .property(<span class="string">"cell-background"</span>, <a href="#839">cell_background</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html">into</a>()),
+                .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"cell-background"</span>, <a href="#839">cell_background</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>()),
         }
     }
 
@@ -1860,7 +1858,7 @@
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#848">self</a>
                 </span>.builder
-                .property(<span class="string">"cell-background-rgba"</span>, <a href="#848">cell_background_rgba</a>),
+                .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"cell-background-rgba"</span>, <a href="#848">cell_background_rgba</a>),
         }
     }
 
@@ -1868,73 +1866,73 @@
         <span class="self">Self </span>{
             builder: <span class="self"><a href="#856">self</a>
                 </span>.builder
-                .property(<span class="string">"cell-background-set"</span>, <a href="#856">cell_background_set</a>),
+                .<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"cell-background-set"</span>, <a href="#856">cell_background_set</a>),
         }
     }
 
     <span class="kw">pub fn </span>height(<span class="self">self</span>, height: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#864">self</a>.builder.property(<span class="string">"height"</span>, <a href="#864">height</a>),
+            builder: <a class="self" href="#864">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"height"</span>, <a href="#864">height</a>),
         }
     }
 
     <span class="kw">pub fn </span>is_expanded(<span class="self">self</span>, is_expanded: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#870">self</a>.builder.property(<span class="string">"is-expanded"</span>, <a href="#870">is_expanded</a>),
+            builder: <a class="self" href="#870">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"is-expanded"</span>, <a href="#870">is_expanded</a>),
         }
     }
 
     <span class="kw">pub fn </span>is_expander(<span class="self">self</span>, is_expander: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#876">self</a>.builder.property(<span class="string">"is-expander"</span>, <a href="#876">is_expander</a>),
+            builder: <a class="self" href="#876">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"is-expander"</span>, <a href="#876">is_expander</a>),
         }
     }
 
-    <span class="kw">pub fn </span>mode(<span class="self">self</span>, mode: <a href="enums.rs.html#2667-2682">CellRendererMode</a>) -&gt; <span class="self">Self </span>{
+    <span class="kw">pub fn </span>mode(<span class="self">self</span>, mode: <a href="enums.rs.html#3067-3082">CellRendererMode</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#882">self</a>.builder.property(<span class="string">"mode"</span>, <a href="#882">mode</a>),
+            builder: <a class="self" href="#882">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"mode"</span>, <a href="#882">mode</a>),
         }
     }
 
     <span class="kw">pub fn </span>sensitive(<span class="self">self</span>, sensitive: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#888">self</a>.builder.property(<span class="string">"sensitive"</span>, <a href="#888">sensitive</a>),
+            builder: <a class="self" href="#888">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"sensitive"</span>, <a href="#888">sensitive</a>),
         }
     }
 
     <span class="kw">pub fn </span>visible(<span class="self">self</span>, visible: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#894">self</a>.builder.property(<span class="string">"visible"</span>, <a href="#894">visible</a>),
+            builder: <a class="self" href="#894">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"visible"</span>, <a href="#894">visible</a>),
         }
     }
 
     <span class="kw">pub fn </span>width(<span class="self">self</span>, width: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#900">self</a>.builder.property(<span class="string">"width"</span>, <a href="#900">width</a>),
+            builder: <a class="self" href="#900">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"width"</span>, <a href="#900">width</a>),
         }
     }
 
     <span class="kw">pub fn </span>xalign(<span class="self">self</span>, xalign: <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#906">self</a>.builder.property(<span class="string">"xalign"</span>, <a href="#906">xalign</a>),
+            builder: <a class="self" href="#906">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"xalign"</span>, <a href="#906">xalign</a>),
         }
     }
 
     <span class="kw">pub fn </span>xpad(<span class="self">self</span>, xpad: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#912">self</a>.builder.property(<span class="string">"xpad"</span>, <a href="#912">xpad</a>),
+            builder: <a class="self" href="#912">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"xpad"</span>, <a href="#912">xpad</a>),
         }
     }
 
     <span class="kw">pub fn </span>yalign(<span class="self">self</span>, yalign: <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#918">self</a>.builder.property(<span class="string">"yalign"</span>, <a href="#918">yalign</a>),
+            builder: <a class="self" href="#918">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"yalign"</span>, <a href="#918">yalign</a>),
         }
     }
 
     <span class="kw">pub fn </span>ypad(<span class="self">self</span>, ypad: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#924">self</a>.builder.property(<span class="string">"ypad"</span>, <a href="#924">ypad</a>),
+            builder: <a class="self" href="#924">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"ypad"</span>, <a href="#924">ypad</a>),
         }
     }
 
@@ -1942,7 +1940,7 @@
     </span><span class="doccomment">/// Build the [`CellRendererSpin`].
     </span><span class="attr">#[must_use = <span class="string">"Building the object from the builder is usually expensive and is not expected to have side effects"</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; <a href="#14-350">CellRendererSpin</a> {
-        <a class="self" href="#933">self</a>.builder.build()
+        <a class="self" href="#933">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.build">build</a>()
     }
 }
 </code></pre></div></section></main></body></html>
